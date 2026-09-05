@@ -79,7 +79,7 @@ Length ℓ = λ/2, sinusoidal current distribution I(z) = I₀cos βz.
 
     S_avg = (η₀I₀²/8π²r²) · [cos((π/2)cosθ)/sinθ]²
 
-    P_rad = 36.56 I₀²  ⇒  **R_rad = 73 Ω**,  Z_in = 73 + j42.5 Ω
+    P_rad = 36.56 I₀²  ⇒  R_rad = 73 Ω,  Z_in = 73 + j42.5 Ω
 
 Trim slightly below λ/2 (about 0.47λ) and the reactance vanishes — that is why
 real dipoles are cut a few percent short.

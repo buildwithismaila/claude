@@ -181,7 +181,7 @@ From Q₂: distance 1 m, magnitude 9×10⁹ × 3×10⁻³ /1² = 2.7×10⁷ V/m,
 metre and the maximum E if 1 kV is applied.
 
 C/L = 2πε₀ε_r / ln(b/a) = 2π(8.854e−12)(2.25)/ln 4 = 1.252e−10/1.386
-    = **90.3 pF/m**
+  = **90.3 pF/m**
 
 E(ρ) = V / (ρ ln(b/a)). Maximum at ρ = a:
 E_max = 1000/(1e−3 × 1.386) = **7.2×10⁵ V/m = 0.72 MV/m**

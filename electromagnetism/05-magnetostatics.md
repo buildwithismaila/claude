@@ -86,7 +86,7 @@ only one never modified by anything later.
 ## 5.4 Magnetic potentials
 
 **Scalar potential** V_m, valid only where **J** = 0:
-    **H** = −∇V_m , with ∇²V_m = 0.
+    H = −∇V_m , with ∇²V_m = 0.
 Caution: V_m is multivalued (walk around a wire and it increases by I each lap).
 
 **Vector potential A** [Wb/m], valid everywhere because ∇·**B** = 0 always:
