@@ -48,6 +48,13 @@ Replace Q by a differential element and integrate:
 **Two parallel sheets** +ρ_S and −ρ_S: field is ρ_S/ε₀ between them, zero
 outside. This is the parallel-plate capacitor.
 
+> **A distinction worth pinning down now.** An isolated charged sheet gives
+> E = ρ_S/(2ε) on *each* side — the charge radiates both ways. But just outside
+> a **conductor** carrying surface charge ρ_S the field is E = ρ_S/ε, twice as
+> large. There is no contradiction: inside the conductor the field is zero, so
+> all of the flux is forced out on one side instead of splitting between two.
+> Examiners like this pair precisely because the factor of 2 looks like an error.
+
 **Ring of charge** radius a, on its axis at height h:
 
     E = ρ_L a h / (2ε₀ (a²+h²)^{3/2})  a_z
@@ -88,6 +95,49 @@ Inside the conductor (ρ<a) and outside the shield (ρ>b), Q_enc = 0 ⇒ E = 0.
 
 - r > a: D(4πr²) = ρ_v(4/3)πa³ ⇒ D = ρ_v a³/(3r²)  (looks like a point charge)
 - r < a: D(4πr²) = ρ_v(4/3)πr³ ⇒ D = ρ_v r/3       (grows linearly from centre)
+
+### Flux depends on enclosure, not on position
+
+Two consequences of Q_enc that are conceptually important and heavily examined:
+
+**Position inside doesn't matter.** Put Q = 18 nC anywhere inside a cube and the
+total flux through the cube is 18 nC. If it sits at the *centre*, symmetry
+divides it equally among the six faces: Ψ_face = 18/6 = **3 nC**. Move the
+charge off-centre and the total is unchanged while the per-face split is not.
+
+**External charges contribute nothing to net flux.** A charge outside the
+surface changes **D** at individual points on it — its field lines enter one
+side and leave the other — but they enter and leave in equal measure, so the net
+flux is zero. If a closed surface encloses +8, −3 and +10 nC while +20 nC sits
+outside, then Q_enc = **15 nC** and Ψ = 15 nC. The external charge is real and
+affects the local field; it just cancels itself in the total.
+
+### When Gauss's law actually helps
+
+Gauss's law is *always true*. Whether it is *useful* depends entirely on whether
+symmetry lets you pull D outside the integral.
+
+| Situation | Gauss's law |
+|---|---|
+| Point charge or spherical distribution | Excellent |
+| Infinite line or cylindrical symmetry | Excellent |
+| Infinite sheet or planar symmetry | Excellent |
+| Several asymmetric point charges | True, but useless for finding **E** |
+| Irregular finite distribution | True, but useless for finding **E** |
+
+Set against Coulomb-style integration:
+
+| Problem | Coulomb / superposition | Gauss |
+|---|---|---|
+| Point charge | Convenient | Convenient |
+| Several discrete charges | Convenient (vector sum) | Rarely helps |
+| Spherical symmetry | Workable | Excellent |
+| Infinite line charge | Needs integration | Immediate |
+| Infinite sheet charge | Needs integration | Immediate |
+| Physical flux insight | Limited | Strong |
+
+Rule of thumb: **if you can name the Gaussian surface on which |D| is constant,
+use Gauss. If you cannot, integrate.**
 
 ## 3.5 Electric potential V
 

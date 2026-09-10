@@ -36,15 +36,36 @@ with α₁, α₂ the angles subtended from the field point to the two ends
 
     H = I(sin α₂ − sin α₁) / (4πρ)   a_φ
 
-**Infinite straight wire** (α₁ = −90°, α₂ = +90°):
+**Symmetric finite conductor** — the same result in the form used when the wire
+runs from z = −L to z = +L and the field point sits opposite its **midpoint**:
+
+    H = [I/(2πρ)] · [L / √(L² + ρ²)]   a_φ
+
+This is often the more convenient form, because the bracket is a clean
+"finite-length correction factor" that tends to 1 as L/ρ grows. At L = 5ρ it is
+already 0.981, so a wire five times longer than the standoff distance is within
+2% of infinite. That is worth knowing: it tells you when the infinite-wire
+formula is safe to use.
+
+**Infinite straight wire** (α₁ = −90°, α₂ = +90°, or L → ∞ above):
 
     H = I / (2πρ)  a_φ        ⇒  B = μ₀I/(2πρ)
 
 Direction by right-hand rule: thumb along I, fingers curl along **H**.
 
-**Circular loop** radius a, on-axis at height h:
+**Circular loop** radius a, N turns, on-axis at height h:
 
-    H = I a² / (2(a²+h²)^{3/2})  a_z ;  at centre H = I/2a
+    H = N I a² / (2(a²+h²)^{3/2})  a_z ;  at centre H = NI/2a
+
+**Circular arc** of radius a subtending angle α (in radians) at its centre:
+
+    H_centre = I α / (4πa)
+
+Every element of an arc is the same distance a from the centre and contributes
+in the same direction, so no integration survives beyond the arc angle. Check it
+against the full loop: α = 2π gives H = I/2a ✓. Watch for this one in exams —
+problems are often built from straight segments (which contribute nothing at the
+centre, since d**l** × **a**_R = 0 along a radial line) plus one arc.
 
 **Infinite solenoid**, n turns per metre: H = nI inside, 0 outside.
 **Finite solenoid** on axis: H = (nI/2)(cos θ₂ − cos θ₁).
@@ -52,6 +73,46 @@ Direction by right-hand rule: thumb along I, fingers curl along **H**.
 **Infinite sheet of current K a_x in z=0 plane**: **H** = ½ **K** × **a**_n
  (i.e. ½K a_y for z>0 and −½K a_y for z<0 — uniform, distance-independent,
  the magnetic twin of the charged sheet).
+
+### Superposition
+
+Magnetic fields superpose in linear media exactly as electric fields do:
+**H**_total = **H**₁ + **H**₂ + … Compute each source's contribution as a
+vector at the observation point, then add.
+
+The classic check: two long parallel wires a distance d apart carrying **equal
+currents in the same direction**. At the midpoint each produces the same
+magnitude I/(πd), but the right-hand rule sends them in **opposite** directions,
+so they cancel exactly — **H** = 0. Reverse one current and they add instead.
+Getting this right is entirely a matter of applying the right-hand rule twice
+and being honest about the resulting directions.
+
+### Current density: getting the source right
+
+Before any field calculation, the source itself has to be expressed correctly.
+Current is the flux of current density through a surface:
+
+    I = ∫_S J · dS
+
+For uniform **J** normal to a cross-section of area A this collapses to I = JA.
+When **J** varies across the section it does not, and the integral has to be done.
+
+**Example — uniform.** A conductor of radius 2 mm carries 5 A uniformly.
+A = π(2×10⁻³)² = 1.2566×10⁻⁵ m², so J = 5/1.2566×10⁻⁵ = **3.98×10⁵ A/m²**.
+
+**Example — non-uniform.** A cylindrical conductor of radius a = 4 mm carries
+J_z = J₀(1 − ρ²/a²) with J₀ = 8×10⁵ A/m² (current crowded toward the centre,
+falling to zero at the surface). Find the total current.
+
+In cylindrical coordinates d**S** = ρ dρ dφ **a**_z, so
+
+    I = ∫₀^{2π} ∫₀^a J₀(1 − ρ²/a²) ρ dρ dφ
+      = 2πJ₀ [ρ²/2 − ρ⁴/(4a²)]₀^a = 2πJ₀ (a²/2 − a²/4) = πJ₀a²/2
+
+    I = (π/2)(8×10⁵)(4×10⁻³)² = 20.1 A
+
+Note the answer is exactly half of J₀A — the average of the parabolic profile
+over the disc is J₀/2. Sanity checks like that catch algebra slips.
 
 ## 5.2 Ampère's circuital law
 
@@ -70,10 +131,33 @@ The magnetic counterpart of Gauss's law, and used the same way: pick an
 - ρ > c: I_enc = 0 ⇒ **H = 0** — the coax confines its own field entirely.
   This is why coaxial cable neither radiates nor picks up interference.
 
+### Reading Ampère's law when there is no symmetry
+
+Two things must stay separate in your head:
+
+1. **The circulation ∮H·dl always equals I_enc.** This holds for any closed
+   contour whatsoever, symmetric or not. Sign convention: pick a traversal
+   direction, take the surface normal by the right-hand rule, and count currents
+   through the surface as positive when they go along that normal.
+2. **Extracting H from that circulation needs symmetry.** Only when |H| is
+   constant and tangential along the path can you write ∮H·dl = H·(length) and
+   divide.
+
+Example: a contour traversed counter-clockwise seen from +z encloses 8 A out of
+the page, 3 A into it, and 5 A out. Then I_enc = +8 − 3 + 5 = 10 A, so
+∮**H**·d**l** = 10 A — regardless of where inside the contour those currents
+sit. But you cannot conclude H = 10/(path length) unless the geometry is
+symmetric. The circulation is fixed; its distribution around the path is not.
+
 ## 5.3 Magnetic flux density and flux
 
     B = μ₀H   (free space)     [T = Wb/m²]
     Ψ = ∫_S B·dS               [Wb]
+
+For a **uniform** field crossing a flat area A whose normal makes angle θ with
+**B**, this reduces to Ψ = BA cos θ. Note θ is measured from the **normal**, not
+from the surface — the single most common slip in flux problems. A field lying
+in the plane of the loop (θ = 90°) gives zero flux, not maximum.
 
 **Gauss's law for magnetism:**
 
@@ -216,6 +300,18 @@ L/length = (μ₀/2π)ln(5) = 2×10⁻⁷ × 1.609 = 3.22×10⁻⁷ H/m
 W = ½LI² = ½(3.22e−7)(100) = **16.1 μJ/m**
 (Ignoring the internal inductance of the centre conductor, μ₀/8π = 5×10⁻⁸ H/m,
 which would add 2.5 μJ/m.)
+
+## 5.10a Where this shows up in practice
+
+- **Busbars and power conductors** — predicting the field around high-current
+  runs, and the forces between them under fault currents.
+- **Cable routing** — magnetic exposure limits and conductor spacing.
+- **Coils, relays, contactors, electromagnets** — concentrating flux to get force.
+- **Electric machines** — torque is the current–field interaction of §5.5.
+- **Current sensing** — Hall-effect and Rogowski devices infer current from the
+  local field, using H = I/2πρ in reverse.
+- **EMC and inductive coupling** — unwanted mutual inductance between circuits.
+- **MRI and instrumentation** — precisely controlled, highly uniform fields.
 
 ## 5.11 Exercises
 

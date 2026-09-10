@@ -14,7 +14,9 @@ function mdToHtml(src){
   function joinLines(arr){
     const mathy = arr.filter(x => /[=|⇒⟺→∮∫∇×·√]/.test(x)).length;
     const sep = (arr.length > 1 && mathy >= arr.length / 2) ? "<br>" : " ";
-    return arr.map(inline).join(sep);
+    // Join first, then parse inline markup, so **bold** spanning a source line
+    // break is still closed correctly. \u0004 stands in for the join point.
+    return inline(arr.join("\u0004")).split("\u0004").join(sep);
   }
   const lines = String(src).replace(/\r\n?/g,"\n").split("\n");
   const blank = l => !l.trim();
@@ -40,7 +42,9 @@ function mdToHtml(src){
     if(h){ const n = h[1].length; out.push("<h"+n+">" + inline(h[2]) + "</h"+n+">"); i++; continue; }
 
     if(/^\s*\|/.test(l) && i+1 < lines.length && /^\s*\|[\s:|-]+\|\s*$/.test(lines[i+1])){
-      const cells = r => r.trim().replace(/^\|/,"").replace(/\|$/,"").split("|").map(c => c.trim());
+      // "\\|" is an escaped pipe (e.g. |A| for magnitude), not a cell separator.
+      const cells = r => r.trim().replace(/\\\|/g,"\u0003").replace(/^\|/,"").replace(/\|$/,"")
+                          .split("|").map(c => c.trim().replace(/\u0003/g,"|"));
       const head = cells(l); i += 2; const rows = [];
       while(i < lines.length && /^\s*\|/.test(lines[i])) rows.push(cells(lines[i++]));
       out.push("<table><thead><tr>" + head.map(c => "<th>"+inline(c)+"</th>").join("") +
