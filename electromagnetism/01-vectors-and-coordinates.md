@@ -38,10 +38,12 @@ Properties and uses:
 
 Determinant form:
 
-```
-          | a_x  a_y  a_z |
-A × B  =  | A_x  A_y  A_z |
-          | B_x  B_y  B_z |
+```matrix
+lhs: A × B  =
+style: det
+a_x ; a_y ; a_z
+A_x ; A_y ; A_z
+B_x ; B_y ; B_z
 ```
 
 = (A_y B_z − A_z B_y)**a**_x − (A_x B_z − A_z B_x)**a**_y + (A_x B_y − A_y B_x)**a**_z

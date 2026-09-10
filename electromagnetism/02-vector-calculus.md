@@ -66,9 +66,13 @@ with L the rim of ΔS.
 
 Cartesian determinant form:
 
-              | a_x     a_y     a_z  |
-    ∇ × A  =  | ∂/∂x    ∂/∂y    ∂/∂z |
-              | A_x     A_y     A_z  |
+```matrix
+lhs: ∇ × A  =
+style: det
+a_x ; a_y ; a_z
+∂/∂x ; ∂/∂y ; ∂/∂z
+A_x ; A_y ; A_z
+```
 
 Cylindrical:
 ∇×**A** = [(1/ρ)∂A_z/∂φ − ∂A_φ/∂z]**a**_ρ + [∂A_ρ/∂z − ∂A_z/∂ρ]**a**_φ

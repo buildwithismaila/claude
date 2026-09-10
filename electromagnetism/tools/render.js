@@ -7,6 +7,7 @@ function mdToHtml(src){
     s = s.replace(/`([^`]+)`/g, function(m,c){ codes.push(c); return "\u0001" + (codes.length-1) + "\u0002"; });
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    s = mathify(s);
     s = s.replace(/\u0001(\d+)\u0002/g, function(m,i){ return "<code>" + codes[+i] + "</code>"; });
     return s;
   }
@@ -31,10 +32,13 @@ function mdToHtml(src){
     if(blank(l)){ i++; continue; }
 
     if(/^```/.test(l)){
+      const isMatrix = /^```\s*matrix\b/.test(l);
       i++; const buf = [];
       while(i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
       i++;
-      out.push("<pre><code>" + esc(buf.join("\n")) + "</code></pre>"); continue;
+      out.push(isMatrix ? matrixToHtml(buf.join("\n"), esc)
+                        : "<pre><code>" + esc(buf.join("\n")) + "</code></pre>");
+      continue;
     }
     if(/^(---|\*\*\*|___)\s*$/.test(l)){ out.push("<hr>"); i++; continue; }
 
@@ -66,7 +70,7 @@ function mdToHtml(src){
             (blank(lines[i]) && /^ {4}\S/.test(lines[i+1] || "")))){
         buf.push(lines[i].replace(/^ {4}/,"")); i++;
       }
-      out.push("<pre><code>" + esc(buf.join("\n")) + "</code></pre>"); continue;
+      out.push('<div class="eq">' + mathify(esc(buf.join("\n"))) + "</div>"); continue;
     }
 
     if(/^\s*[-*]\s+/.test(l) || /^\s*\d+\.\s+/.test(l)){

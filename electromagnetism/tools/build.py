@@ -163,6 +163,56 @@ h2.doctitle{
 }
 #doc tbody tr:last-child td{border-bottom:1px solid var(--rule)}
 
+
+/* ---------- mathematical typesetting ---------- */
+#doc sub, #doc sup{
+  font-size:.68em; line-height:0; position:relative; font-feature-settings:"tnum";
+  padding-left:.04em;
+}
+#doc sub{ bottom:-.22em }
+#doc sup{ top:-.42em }
+
+/* display equations */
+#doc .eq{
+  font-family:"IBM Plex Serif",Georgia,serif;
+  font-size:16.5px; line-height:2.15; white-space:pre-wrap;
+  margin:22px auto; padding:2px 0; max-width:100%;
+  width:max-content; text-align:left; overflow-x:auto;
+  color:var(--ink);
+}
+#doc .eq sub{ bottom:-.2em }
+
+/* matrices and determinants */
+#doc .eqrow{
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin:26px auto; overflow-x:auto; font-family:"IBM Plex Serif",Georgia,serif;
+  font-size:16.5px;
+}
+#doc .eqlhs{ white-space:nowrap }
+#doc .mat{ display:inline-block; position:relative; padding:2px 12px }
+#doc .mat table{ border-collapse:collapse; width:auto; margin:0 }
+#doc .mat table td,
+#doc .mat tbody tr td,
+#doc .mat tbody tr:last-child td{
+  padding:5px 14px; text-align:center; border:0; white-space:nowrap;
+  font-variant-numeric:normal; background:none;
+}
+#doc .mat::before, #doc .mat::after{
+  content:""; position:absolute; top:0; bottom:0; width:1px; background:var(--ink);
+}
+#doc .mat::before{ left:0 } #doc .mat::after{ right:0 }
+#doc .mat-bracket::before, #doc .mat-bracket::after{
+  width:7px; background:none; border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+#doc .mat-bracket::before{ border-left:1px solid var(--ink) }
+#doc .mat-bracket::after{ border-right:1px solid var(--ink) }
+
+@media (max-width:860px){
+  #doc .eq, #doc .eqrow{ font-size:15px }
+  #doc .mat td{ padding:4px 9px }
+}
+
 /* ---------- footer nav ---------- */
 .pager{
   display:flex; gap:12px; justify-content:space-between; align-items:stretch;
@@ -302,7 +352,8 @@ show(0);
 </script>
 """
 
-RENDERER = open(os.path.join(os.path.dirname(OUT), "render.js"), encoding="utf-8").read()
+RENDERER = (open(os.path.join(os.path.dirname(OUT), "math.js"), encoding="utf-8").read()
+            + "\n" + open(os.path.join(os.path.dirname(OUT), "render.js"), encoding="utf-8").read())
 page = page.replace("__RENDERER__", RENDERER).replace("__DATA__", DATA)
 open(OUT, "w", encoding="utf-8").write(page)
 
