@@ -1,4 +1,4 @@
-# Module 13 — Applying the Theorems to AC
+# Module 17 — Applying the Theorems to AC
 
 Every theorem in Modules 07–12 holds unchanged for AC steady state. Only one
 thing changes: **resistance R becomes impedance Z, a complex number.** Once you

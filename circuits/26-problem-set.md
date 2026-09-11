@@ -1,6 +1,6 @@
-# Module 15 — Problem Set with Full Solutions
+# Module 26 — Problem Set with Full Solutions
 
-Twenty problems spanning the course. Work each on paper before reading the
+Twenty-eight problems spanning the whole course. Work each on paper before reading the
 solution. All numerical answers have been checked independently.
 
 ---
@@ -271,6 +271,130 @@ Cancelling the reactance is worth a great deal.
 
 ---
 
+---
+
+**P21.** A 2 μF capacitor charged to 50 V discharges through 250 kΩ. Find τ,
+v(t), the current at t = 0⁺, and the time to fall to 10 V.
+
+    τ = RC = 250×10³ × 2×10⁻⁶ = 0.5 s
+    v(t) = 50e^{−2t} V
+    i(0⁺) = 50/250×10³ = 200 μA
+
+For v = 10 V: e^{−2t} = 0.2 ⇒ −2t = ln 0.2 = −1.609
+
+    t = 0.805 s
+
+---
+
+**P22.** An RL circuit (R = 20 Ω, L = 4 H) carries 3 A when the source is
+switched from 60 V to 20 V at t = 0. Find i(t) and the time to reach 1.5 A.
+
+    i(0⁺) = 3 A  (given, and continuous)
+    i(∞) = 20/20 = 1 A
+    τ = L/R = 4/20 = 0.2 s
+
+    i(t) = 1 + (3 − 1)e^{−5t} = 1 + 2e^{−5t} A
+
+For i = 1.5: 0.5 = 2e^{−5t} ⇒ e^{−5t} = 0.25 ⇒ t = ln4/5 = **0.277 s**
+
+---
+
+**P23.** A series RLC has R = 8 Ω, L = 1 H, C = 0.0625 F. Classify it and give
+the form of the natural response.
+
+    α = R/2L = 4
+    ω_0 = 1/√(0.0625) = 4
+
+α = ω_0 ⇒ **critically damped**, repeated root s = −4.
+
+    x(t) = (A_1 + A_2 t)e^{−4t}
+
+If R were reduced to 4 Ω: α = 2 < 4, underdamped, ω_d = √(16−4) = 3.46 rad/s.
+
+---
+
+**P24.** Invert F(s) = (3s + 10)/[s(s + 5)].
+
+    A = (3s+10)/(s+5) at s=0 = 10/5 = 2
+    B = (3s+10)/s at s=−5 = (−15+10)/(−5) = 1
+
+    F(s) = 2/s + 1/(s+5)
+    f(t) = 2 + e^{−5t}
+
+Check final value: lim sF(s) = 10/5 = 2 ✓, and f(∞) = 2 ✓
+
+---
+
+**P25.** A series RL circuit (R = 4 Ω, L = 2 H) is driven by a 20 V step from
+rest. Solve in the s-domain.
+
+    I(s) = (20/s)/(4 + 2s) = 20/[s(2s + 4)] = 10/[s(s + 2)]
+
+    A = 10/(s+2) at s=0 = 5;   B = 10/s at s=−2 = −5
+
+    I(s) = 5/s − 5/(s+2)
+    i(t) = 5(1 − e^{−2t}) A
+
+Check: i(∞) = 20/4 = 5 A ✓; τ = L/R = 0.5 s, matching e^{−2t} ✓
+
+---
+
+**P26.** For H(s) = 50/(s² + 6s + 25), find the poles, state stability, and give
+ω_0, α and ω_d.
+
+    s = [−6 ± √(36 − 100)]/2 = −3 ± j4
+
+Both poles have Re = −3 < 0 ⇒ **stable**.
+
+    α = 3,  ω_d = 4,  ω_0 = √(9 + 16) = 5 rad/s
+    ζ = α/ω_0 = 0.6, underdamped
+
+DC gain: H(0) = 50/25 = 2.
+
+---
+
+**P27.** A balanced Y-connected load of 15 + j20 Ω per phase is fed from a
+400 V (line) three-phase supply. Find the line current, power factor, P, Q
+and |S|.
+
+    V_p = 400/√3 = 230.9 V
+    |Z| = √(225 + 400) = 25 Ω,  θ = tan⁻¹(20/15) = 53.13°
+    I_L = I_p = 230.9/25 = 9.24 A
+    pf = cos 53.13° = 0.6 lagging
+
+    |S| = √3(400)(9.24) = 6400 VA
+    P = 6400 × 0.6 = 3840 W
+    Q = 6400 × 0.8 = 5120 VAr
+
+Check per-phase: P = 3I²R = 3(9.24²)(15) = 3841 W ✓
+
+---
+
+**P28.** Find the ABCD parameters of a T network with series 20 Ω, shunt 40 Ω,
+series 20 Ω, and verify reciprocity.
+
+Cascade three elements: series 20, shunt 1/40 = 0.025 S, series 20.
+
+Series 20: [1, 20; 0, 1]. Shunt: [1, 0; 0.025, 1].
+
+First two:
+
+    A = 1 + 20(0.025) = 1.5,  B = 20,  C = 0.025,  D = 1
+
+Now multiply by the final series 20 element [1, 20; 0, 1]:
+
+    A = 1.5(1) + 20(0) = 1.5
+    B = 1.5(20) + 20(1) = 50
+    C = 0.025(1) + 1(0) = 0.025
+    D = 0.025(20) + 1(1) = 1.5
+
+    AD − BC = 1.5(1.5) − 50(0.025) = 2.25 − 1.25 = 1 ✓
+
+Reciprocal, and A = D confirms it is symmetric — as it must be, since the two
+series arms are equal.
+
+---
+
 ## Self-assessment
 
 | Struggled on | Revisit |
@@ -284,7 +408,15 @@ Cancelling the reactance is worth a great deal.
 | P13, P14, P15, P17 | Modules 09–10 |
 | P16 | Module 11 |
 | P18 | Module 12 |
-| P19, P20 | Module 13 |
+| P19, P20 | Module 17 |
+| P21, P22 | Modules 13, 15 |
+| P23 | Module 16 |
+| P24, P25 | Modules 19, 20 |
+| P26 | Module 21 |
+| P27 | Module 18 |
+| P28 | Module 23 |
 
-Sixteen or more unaided means you are exam-ready. Fewer than ten means go back
-to Modules 04–06: almost every later failure traces to shaky nodal or mesh work.
+Twenty-two or more unaided means you are exam-ready. Fewer than fourteen means
+go back to Modules 04–06: almost every later failure traces to shaky nodal or
+mesh work. If P24–P26 were the problem, the gap is partial fractions rather than
+circuits — fix that first, since Modules 19–21 are unusable without it.

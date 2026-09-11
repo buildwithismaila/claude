@@ -88,7 +88,7 @@ conjugate** match:
     Z_L = Z_th*        i.e.   R_L = R_th  and  X_L = −X_th
 
 The reactance is cancelled, not matched. If only the magnitude |Z_L| may vary
-with a fixed angle, the condition becomes |Z_L| = |Z_th| instead. See Module 13.
+with a fixed angle, the condition becomes |Z_L| = |Z_th| instead. See Module 17.
 
 ## 11.6 Worked examples
 

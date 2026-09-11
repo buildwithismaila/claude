@@ -57,7 +57,7 @@ circuits instead of one. Nodal or mesh analysis is usually faster.
 
 Superposition earns its place when:
 
-- One source is AC and another DC (Module 13) — they *cannot* be combined any
+- One source is AC and another DC (Module 17) — they *cannot* be combined any
   other way.
 - Sources are at different frequencies — same reason.
 - You need to understand the *contribution* of one source, not just the total.
