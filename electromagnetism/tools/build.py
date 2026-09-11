@@ -1,7 +1,14 @@
 import json, os, re, html
 
-SRC = "/home/user/claude/electromagnetism"
-OUT = "/tmp/claude-0/-home-user-claude/82e48124-ad46-5f41-8d03-fa32ec4b9498/scratchpad/em-course.html"
+import sys
+
+# build.py <course-dir> <artifact-out.html> <title> <brand-html> <eyebrow>
+# Both courses share this builder, tools/render.js and tools/math.js.
+SRC   = sys.argv[1] if len(sys.argv) > 1 else "/home/user/claude/electromagnetism"
+OUT   = sys.argv[2] if len(sys.argv) > 2 else "/tmp/claude-0/-home-user-claude/82e48124-ad46-5f41-8d03-fa32ec4b9498/scratchpad/em-course.html"
+TITLE = sys.argv[3] if len(sys.argv) > 3 else "PGDEE Electromagnetism"
+BRAND = sys.argv[4] if len(sys.argv) > 4 else "Electromagnetism<br>from Scratch"
+EYEBR = sys.argv[5] if len(sys.argv) > 5 else "PGDEE"
 
 files = sorted(f for f in os.listdir(SRC) if f.endswith(".md"))
 mods = []
@@ -18,7 +25,7 @@ for f in files:
 
 DATA = json.dumps(mods, ensure_ascii=False)
 
-page = """<title>PGDEE Electromagnetism</title>
+page = """<title>__TITLE__</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
@@ -259,8 +266,8 @@ h2.doctitle{
 
 <nav id="nav">
   <div class="brand">
-    <h1>Electromagnetism<br>from Scratch</h1>
-    <p>PGDEE &middot; 13 modules</p>
+    <h1>__BRAND__</h1>
+    <p>__EYEBROW__ &middot; __NMOD__ modules</p>
   </div>
   <div class="seclabel">Course</div>
   <ul class="modlist" id="modlist"></ul>
@@ -354,7 +361,9 @@ show(0);
 
 RENDERER = (open(os.path.join(os.path.dirname(OUT), "math.js"), encoding="utf-8").read()
             + "\n" + open(os.path.join(os.path.dirname(OUT), "render.js"), encoding="utf-8").read())
-page = page.replace("__RENDERER__", RENDERER).replace("__DATA__", DATA)
+page = (page.replace("__RENDERER__", RENDERER).replace("__DATA__", DATA)
+            .replace("__TITLE__", TITLE).replace("__BRAND__", BRAND)
+            .replace("__EYEBROW__", EYEBR).replace("__NMOD__", str(len(mods))))
 open(OUT, "w", encoding="utf-8").write(page)
 
 # standalone: same body, wrapped in a real document so it opens from the filesystem
@@ -366,7 +375,7 @@ STANDALONE = (
   + "<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n"
   + "</head>\n<body>" + rest + "</body>\n</html>\n"
 )
-SOUT = "/home/user/claude/electromagnetism/course.html"
+SOUT = os.path.join(SRC, "course.html")
 open(SOUT, "w", encoding="utf-8").write(STANDALONE)
 print("artifact  :", OUT, os.path.getsize(OUT), "bytes")
 print("standalone:", SOUT, os.path.getsize(SOUT), "bytes,", len(mods), "modules")
