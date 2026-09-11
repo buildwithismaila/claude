@@ -109,12 +109,24 @@ Not in the syllabus, but assumed by all of it. Skim if you already have it.
 | 23 | Two-port networks | Two-port network analysis |
 | 24 | Computer-aided analysis | Introduction to computer-aided analysis |
 
-### Reference
+### Reference and class material
 
 | Module | Title |
 |---|---|
 | 25 | Formula sheet |
 | 26 | Problem set with full solutions |
+| 27 | **ELE 712 assignments and class problems, solved** |
+
+**Lecture material issued so far.** Three sets have been released: the
+*Elementary Signals* notes (Module 14 now follows them closely, including the
+discrete-time material), the *Dynamic Circuit Behaviour and Oscillations*
+slides (Modules 13, 15, 16), and the handwritten *Laplace and Fourier
+Transform* notes (Modules 19, 20, 22). Module 27 works every assignment and
+practice problem in them, and records the notation the lecturer uses.
+
+Nothing has been issued yet on three-phase (18), two-port networks (23),
+computer-aided analysis (24) or the network theorems (07–12). All four are in
+the syllabus, so those modules run ahead of the lectures.
 
 ## The dependency chain
 
@@ -153,6 +165,9 @@ understood one.
 
 Every module ends with exercises that have answers. Module 26 has 20 full
 problems with complete solutions.
+
+**Start with Module 27 if an assessment is close** — it is the lecturer's own
+assignments and practice problems, worked in full.
 
 **If you are short of time**, the syllabus weights are not equal. Modules 19–21
 (Laplace, s-domain, transfer functions and stability) account for four of the

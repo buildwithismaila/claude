@@ -304,15 +304,38 @@ function normaliseUnicodeScripts(s){
   return s;
 }
 
-function applyScripts(s){
-  s = s.replace(/\^\{([^{}]*)\}/g, (m,c) => "<sup>" + applyScripts(c) + "</sup>");
-  s = s.replace(/_\{([^{}]*)\}/g,  (m,c) => "<sub>" + applyScripts(c) + "</sub>");
+/* Resolve marker{...} with brace counting, so a group may contain nested braces
+   (Unicode normalisation injects them: e^{jω₀t} becomes e^{j_{0}t} first). */
+function braced(s, marker, tag){
+  let out = "", i = 0;
+  for(;;){
+    const j = s.indexOf(marker + "{", i);
+    if(j < 0){ out += s.slice(i); return out; }
+    out += s.slice(i, j);
+    let depth = 0, k = j + 1;
+    for(; k < s.length; k++){
+      if(s[k] === "{") depth++;
+      else if(s[k] === "}" && --depth === 0) break;
+    }
+    if(k >= s.length){ out += s.slice(j); return out; }   // unbalanced: leave alone
+    out += "<" + tag + ">" + mathify(s.slice(j + 2, k)) + "</" + tag + ">";
+    i = k + 1;
+  }
+}
+
+function mathify(s){
+  /* explicit groups first, recursing into their contents */
+  s = braced(s, "^", "sup");
+  s = braced(s, "_", "sub");
+  /* then Unicode scripts, which become groups of their own */
+  s = normaliseUnicodeScripts(s);
+  s = braced(s, "^", "sup");
+  s = braced(s, "_", "sub");
+  /* finally bare runs: a_x, ^2 */
   s = s.replace(new RegExp("\\^(" + RUN + "+)", "g"), (m,c) => "<sup>" + c + "</sup>");
   s = s.replace(new RegExp("_("  + RUN + "+)", "g"), (m,c) => "<sub>" + c + "</sub>");
   return s;
 }
-
-function mathify(s){ return applyScripts(normaliseUnicodeScripts(s)); }
 
 /* ---- Matrices ------------------------------------------------------------
    ```matrix

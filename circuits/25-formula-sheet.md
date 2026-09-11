@@ -111,6 +111,21 @@ At t = 0⁺: uncharged C → short, unenergised L → open
 C series: 1/C_eq = Σ1/C_k; C parallel: C_eq = ΣC_k  (opposite to R)
 L series: L_eq = ΣL_k; L parallel: 1/L_eq = Σ1/L_k  (like R)
 
+## Signals: classification and operations
+CT x(t) defined everywhere; DT x(n) at integers only
+DT representations: graphical, tabular, functional, sequence (arrow = n = 0)
+Time shift x(t−t₀): t₀ > 0 delays. Reversal x(−t). Scaling x(at): a>1 compresses
+Combined: write x(at−b) as x(a(t−b/a)) — scale first, then shift
+Energy: E = ∫|x|²dt (CT), Σ|x(n)|² (DT); energy signal ⟺ 0<E<∞, P=0
+Power: P = lim(1/2T)∫|x|²dt; power signal ⟺ 0<P<∞, E=∞
+Even x(−t)=x(t); odd x(−t)=−x(t), so x(0)=0
+x_e = ½[x(t) + x(−t)]   |   **x_o = ½[x(t) − x(−t)]**
+even×even = even; odd×odd = even; even×odd = odd
+DT sinusoid periodic only if ω is a rational multiple of 2π
+sgn(t) = 2u(t) − 1  |  sinc(t) = sin t/t, even, sinc(0) = 1
+Parabolic p(t) = (t²/2)u(t); chain δ → u → r → p by integration
+e^{st}, s = σ+jω: σ sets growth/decay, ω sets oscillation
+
 ## Elementary signals
 u(t) step  |  r(t) = t·u(t) ramp  |  δ(t) impulse
 δ = du/dt, u = dr/dt  |  sifting: ∫f(t)δ(t−a)dt = f(a)
@@ -124,6 +139,10 @@ F_rms = √((1/T)∫f²dt); sinusoid A/√2; square wave A
     x(t) = x(∞) + [x(0⁺) − x(∞)] e^{−t/τ}      x = v_C or i_L only
 
 Initial value from pre-switch steady state; final from post-switch.
+
+## LC oscillator
+ω₀ = 1/√(LC)  |  i₀ = ω₀q₀  |  energy ½q²/C + ½Li² = constant
+Damped: peak charge decays with 2L/R; peak energy with L/R
 
 ## Second-order circuits
 Series RLC: α = R/2L     Parallel RLC: α = 1/(2RC)
@@ -159,11 +178,20 @@ F(s) = ∫₀^∞ f(t)e^{−st}dt
 | t^n | n!/s^{n+1} | | cos ωt | s/(s²+ω²) |
 | e^{−at}sin ωt | ω/((s+a)²+ω²) | | e^{−at}cos ωt | (s+a)/((s+a)²+ω²) |
 
+ℒ{af + bg} = aF + bG  |  ℒ{f(at)} = (1/a)F(s/a)
 ℒ{df/dt} = sF(s) − f(0⁻)
 ℒ{d²f/dt²} = s²F(s) − sf(0⁻) − f′(0⁻)
 ℒ{∫f} = F(s)/s  |  ℒ{f(t−a)u(t−a)} = e^{−as}F(s)  |  ℒ{e^{−at}f} = F(s+a)
 f(0⁺) = lim_{s→∞} sF(s)  |  f(∞) = lim_{s→0} sF(s)  (only if it settles)
+ℒ{t f(t)} = −dF(s)/ds   (frequency differentiation)
+Periodic f: ℒ{f} = F_1(s)/(1 − e^{−sT}), F_1 = transform of one period
+ℒ{sin(ωt+φ)} = (s sinφ + ω cosφ)/(s²+ω²)
+ℒ{cos(ωt+φ)} = (s cosφ − ω sinφ)/(s²+ω²)
+ℒ{tⁿe^{−at}} = n!/(s+a)^{n+1}
+ℒ{t² sin at} = 2a(3s² − a²)/(s²+a²)³
+ℒ{t² cos at} = 2s(s² − 3a²)/(s²+a²)³
 Residue (simple pole): k_i = [(s + p_i)F(s)] at s = −p_i
+Repeated pole (s+p)^n: k_{n−m} = (1/m!) d^m/ds^m[(s+p)^n F(s)] at s = −p
 
 ## s-domain circuits
 R → R  |  L → sL  |  C → 1/(sC)
@@ -192,6 +220,18 @@ P = V_dc I_dc + Σ(V_n I_n/2)cos θ_n
 F_rms = √(F_dc² + Σ F_n²/2)  |  THD = √(Σ_{n≥2}F_n²)/F_1
 F(ω) = ∫f(t)e^{−jωt}dt = F(s)|_{s=jω} for causal f
 Narrow in time ⟺ wide in frequency
+Circuit analysis: R → R, L → jωL, C → 1/(jωC); Y(ω) = H(ω)X(ω); H(ω) = ℱ{h(t)}
+Fourier carries **no** initial conditions — use Laplace when the circuit is
+pre-charged
+
+| f(t) | F(ω) | | f(t) | F(ω) |
+|---|---|---|---|---|
+| δ(t) | 1 | | sgn(t) | 2/jω |
+| 1 | 2πδ(ω) | | e^{−at}u(t) | 1/(a+jω) |
+| u(t) | πδ(ω) + 1/jω | | e^{at}u(−t) | 1/(a−jω) |
+| t | −2/ω² | | tⁿe^{−at}u(t) | n!/(a+jω)^{n+1} |
+| u(t+τ)−u(t−τ) | 2sin(ωτ)/ω | | e^{jω₀t} | 2πδ(ω−ω₀) |
+| cos ω₀t | π[δ(ω−ω₀)+δ(ω+ω₀)] | | sin ω₀t | jπ[δ(ω+ω₀)−δ(ω−ω₀)] |
 
 ## Two-port networks
 z: V_1 = z_11I_1 + z_12I_2, V_2 = z_21I_1 + z_22I_2 (open-circuit)

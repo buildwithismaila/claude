@@ -97,10 +97,33 @@ for amplitude coefficients F_n.
 
 ## 22.3 The Fourier transform — aperiodic signals
 
-Let T → ∞ and the discrete harmonic lines merge into a continuous spectrum:
+### Deriving it from the series
 
-    F(ω) = ∫_{−∞}^{∞} f(t) e^{−jωt} dt
-    f(t) = (1/2π)∫_{−∞}^{∞} F(ω) e^{jωt} dω
+Start from the exponential Fourier series and let the period grow without bound.
+
+    f(t) = Σ_{n=−∞}^{∞} c_n e^{jnω₀t},    c_n = (1/T)∫_{−T/2}^{T/2} f(t)e^{−jnω₀t}dt
+
+Substitute c_n into the sum:
+
+    f(t) = Σ_{n=−∞}^{∞} [(1/T)∫_{−T/2}^{T/2} f(t)e^{−jnω₀t}dt] e^{jnω₀t}
+
+Spacing between adjacent harmonics is Δω = (n+1)ω₀ − nω₀ = ω₀ = 2π/T, so
+1/T = Δω/2π:
+
+    f(t) = (1/2π) Σ [∫_{−T/2}^{T/2} f(t)e^{−jnω₀t}dt] e^{jnω₀t} Δω
+
+Now let T → ∞. Three things happen together:
+
+    Σ → ∫,        Δω → dω,        nω₀ → ω
+
+The harmonic lines, spaced Δω apart, close up into a continuum. That gives
+
+    f(t) = (1/2π)∫_{−∞}^{∞} [∫_{−∞}^{∞} f(t)e^{−jωt}dt] e^{jωt} dω
+
+and the inner bracket is the **Fourier transform**:
+
+    F(ω) = ℱ{f(t)} = ∫_{−∞}^{∞} f(t) e^{−jωt} dt
+    f(t) = ℱ⁻¹{F(ω)} = (1/2π)∫_{−∞}^{∞} F(ω) e^{jωt} dω
 
 **Relationship to Laplace.** For a causal signal, F(ω) = F(s)|_{s=jω}. The
 Fourier transform is the Laplace transform evaluated on the imaginary axis — the
@@ -124,6 +147,14 @@ The difference in use:
 | e^{−at}u(t) | 1/(a + jω) |
 | u(t) | πδ(ω) + 1/jω |
 | cos ω_0t | π[δ(ω−ω_0) + δ(ω+ω_0)] |
+| u(t+τ) − u(t−τ) | 2 sin(ωτ)/ω |
+| t | −2/ω² |
+| sgn(t) | 2/(jω) |
+| e^{at}u(−t) | 1/(a − jω) |
+| tⁿe^{−at}u(t) | n!/(a + jω)^{n+1} |
+| sin ω₀t | jπ[δ(ω+ω₀) − δ(ω−ω₀)] |
+| e^{−at}sin ω₀t u(t) | ω₀/((a+jω)² + ω₀²) |
+| e^{−at}cos ω₀t u(t) | (a+jω)/((a+jω)² + ω₀²) |
 | rect pulse of width τ | τ sinc(ωτ/2) |
 
 Note the reciprocal relationship in the last row: a **narrow** pulse in time has
@@ -140,6 +171,65 @@ f * g ⟷ F(ω)G(ω).
 **Parseval's theorem** — energy is the same computed either way:
 
     ∫|f(t)|² dt = (1/2π)∫|F(ω)|² dω
+
+## 22.3a Circuit analysis with the Fourier transform
+
+The method mirrors the s-domain (Module 20), with jω in place of s:
+
+    R → R          L → jωL          C → 1/(jωC)
+
+Then define the **transfer function**
+
+    H(ω) = Y(ω)/X(ω)        so       Y(ω) = H(ω)X(ω)
+
+and H(ω) is the Fourier transform of the impulse response h(t), exactly as
+H(s) was its Laplace transform.
+
+**Procedure:**
+1. Transform the input signal to X(ω).
+2. Replace circuit elements by their jω impedances.
+3. Find H(ω) by ordinary circuit analysis (dividers, nodal, mesh).
+4. Multiply: Y(ω) = H(ω)X(ω).
+5. Invert by partial fractions, reading pairs off the table.
+
+**Its one limitation:** the Fourier transform produces a response valid for
+−∞ < t < ∞, but it **cannot carry initial conditions**. Where the Laplace
+transform folds v_C(0⁻) and i_L(0⁻) in as sources, Fourier has nowhere to put
+them. Use Fourier for steady-state and spectral questions; use Laplace whenever
+the circuit starts from a stored state.
+
+**Worked example (following the lecture notes).** A 2 Ω resistor in series with
+a 1 F capacitor, output across the capacitor, driven by v_i(t) = 2e^{−3t}u(t).
+Find v_o(t).
+
+Input transform, from the table with a = 3:
+
+    V_i(ω) = 2/(3 + jω)
+
+Impedances: R = 2, Z_C = 1/(jωC) = 1/(jω). Voltage divider:
+
+    H(ω) = Z_C/(R + Z_C) = (1/jω)/(2 + 1/jω) = 1/(2jω + 1)
+
+    V_o(ω) = H(ω)V_i(ω) = 2/[(1 + 2jω)(3 + jω)]
+
+Partial fractions — write 2 = A(3 + jω) + B(1 + 2jω):
+
+    Set jω = −3:  2 = B(1 − 6) = −5B   ⇒  B = −2/5
+    Set jω = −½:  2 = A(3 − ½) = 2.5A  ⇒  A = 4/5
+
+    V_o(ω) = (4/5)/(1 + 2jω) − (2/5)/(3 + jω)
+           = (2/5)/(½ + jω) − (2/5)/(3 + jω)
+
+(dividing the first term top and bottom by 2 to put it in the table's a + jω
+form — a step worth doing deliberately, as it is where sign and factor errors
+creep in.)
+
+Inverting with ℱ⁻¹{1/(a + jω)} = e^{−at}u(t):
+
+    v_o(t) = (2/5)(e^{−t/2} − e^{−3t}) u(t)  V
+
+Sanity check at t = 0: v_o(0) = 0 ✓ — the capacitor starts uncharged, as the
+Fourier method assumes.
 
 ## 22.4 Worked examples
 
@@ -206,6 +296,12 @@ point as the corresponding filter.
    (2/(4+jω); 0.354)
 5. Explain why a square wave fed to a good low-pass filter emerges nearly
    sinusoidal.
+6. Derive ℱ{cos ω₀t} using Euler's formula and ℱ{e^{jω₀t}} = 2πδ(ω − ω₀).
+7. State the properties of the Fourier transform, and compare the Fourier and
+   Laplace transforms on: signal range, initial conditions, and what each is
+   best used for.
+8. Find v_o(t) for the RC circuit of §22.3a if the input is 5e^{−2t}u(t)
+   instead.
 
 ## Takeaways
 

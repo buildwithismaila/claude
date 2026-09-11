@@ -149,6 +149,85 @@ of the network is a source V/s in series with R.
 so V_C(s) = (V/s)·[1/sC]/[R + 1/sC] = V/[s(sRC + 1)], giving the familiar
 V(1 − e^{−t/RC}). Every DC theorem carries straight over.
 
+**Example 5 — mesh analysis in the s-domain (from the lecture notes).**
+A u(t) source drives a 1 Ω resistor into a node; a ⅓ F capacitor sits from that
+node to ground; a 5 Ω resistor leads on to a 1 H inductor to ground. Output is
+v_o(t) across the inductor. Zero initial conditions.
+
+Transform everything:
+
+    u(t) → 1/s,   1 H → sL = s,   ⅓ F → 1/(sC) = 3/s
+
+Mesh 1 (source loop, sharing the capacitor branch), mesh 2 (right-hand loop):
+
+    1/s = (1 + 3/s)I₁ − (3/s)I₂
+    0   = −(3/s)I₁ + (s + 5 + 3/s)I₂
+
+From the second equation:
+
+    (3/s)I₁ = (s + 5 + 3/s)I₂   ⇒   I₁ = (1/3)(s² + 5s + 3)I₂
+
+Substituting into the first and multiplying through by 3s:
+
+    3 = (s + 3)(s² + 5s + 3)I₂ − 9I₂
+      = (s³ + 8s² + 18s + 9)I₂ − 9I₂
+      = (s³ + 8s² + 18s)I₂
+
+    I₂ = 3/[s(s² + 8s + 18)]
+
+The output is across the inductor, so V_o(s) = sL·I₂ = s·I₂:
+
+    V_o(s) = 3/(s² + 8s + 18)
+
+Complete the square: s² + 8s + 18 = (s + 4)² + 2 = (s + 4)² + (√2)²
+
+    V_o(s) = (3/√2) · √2/[(s + 4)² + (√2)²]
+    v_o(t) = (3/√2) e^{−4t} sin(√2 t)  V,   t ≥ 0
+           = 2.121 e^{−4t} sin(1.414t)  V
+
+Underdamped, α = 4, ω_d = √2 — and the √2 appearing as both the damped frequency
+and the scaling factor is not a coincidence: the sine pair in the table carries
+ω in its numerator, so you must divide by it to match.
+
+**Example 6 — nodal analysis with a stored initial condition and an impulse
+source (from the lecture notes).**
+A source 10e^{−t}u(t) V feeds through 10 Ω to node v_o; a 10 Ω runs from v_o to
+ground; a 0.1 F capacitor charged to v_C(0) = 5 V also runs to ground; and a
+2δ(t) A current source injects into the node.
+
+Transform each piece:
+
+    10e^{−t}u(t) → 10/(s + 1)
+    0.1 F → 1/(0.1s) = 10/s
+    capacitor initial condition → parallel current source Cv(0⁻) = 0.1 × 5 = 0.5 A
+    2δ(t) → 2  (the impulse transforms to a constant)
+
+KCL at v_o, taking the two source currents as entering:
+
+    [10/(s+1) − V_o]/10 − V_o/10 − V_o/(10/s) + 2 + 0.5 = 0
+
+Multiply through by 10:
+
+    10/(s+1) − V_o − V_o − sV_o + 25 = 0
+    10/(s+1) + 25 = V_o(s + 2)
+
+    V_o(s) = [10/(s+1) + 25]/(s + 2) = [10 + 25(s+1)]/[(s+1)(s+2)]
+           = (25s + 35)/[(s+1)(s+2)]
+
+Residues:
+
+    A = (25s+35)/(s+2) at s = −1 = (−25+35)/1 = 10
+    B = (25s+35)/(s+1) at s = −2 = (−50+35)/(−1) = 15
+
+    V_o(s) = 10/(s+1) + 15/(s+2)
+    v_o(t) = (10e^{−t} + 15e^{−2t}) u(t)  V
+
+Check at t = 0: v_o(0⁺) = 25 V. That is **not** 5 V, and it should not be — the
+impulse dumps charge into the capacitor instantaneously, so v_C jumps. This is
+the one legitimate exception to "capacitor voltage cannot change abruptly"
+(Module 13): an impulse of current is exactly the infinite current that the rule
+otherwise forbids.
+
 ## 20.5 Why this replaces the classical method
 
 | Classical (Modules 15–16) | s-domain |

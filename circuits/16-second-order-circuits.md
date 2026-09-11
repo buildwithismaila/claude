@@ -20,6 +20,45 @@ with
     α = R/2L           neper frequency (damping), [Np/s]
     ω_0 = 1/√(LC)      undamped natural (resonant) frequency, [rad/s]
 
+### The LC oscillator — where the oscillation comes from
+
+Before adding resistance, look at the lossless case, because it shows *why* a
+second-order circuit rings at all.
+
+Take a charged capacitor connected across an inductor, with no resistance.
+KVL gives
+
+    L d²q/dt² + q/C = 0     ⇒     q(t) = q₀ cos(ω₀t),   ω₀ = 1/√(LC)
+
+Follow the energy round one cycle:
+
+1. **Capacitor fully charged, current zero.** All energy is electric: ½q₀²/C.
+2. **Capacitor discharging, current rising.** Energy splits between the two.
+3. **Capacitor empty, current maximum.** All energy is magnetic: ½Li₀².
+   The current keeps going — the inductor will not let it stop abruptly.
+4. **Inductor's field collapses, recharging the capacitor the other way.**
+5. Back to state 1 with opposite polarity, and the cycle repeats.
+
+    Total energy = ½q²/C + ½Li² = constant
+
+Nothing is lost, so it oscillates forever. Peak current and peak charge are
+linked by
+
+    i₀ = ω₀q₀
+
+**This is the mechanism behind every second-order response.** Energy sloshing
+between the electric and magnetic fields is the oscillation; resistance is what
+drains it, turning the sustained sinusoid into a decaying one.
+
+### The damped LC oscillator
+
+Add R and the energy leaks away each cycle:
+
+- The oscillation frequency **shifts** away from 1/√(LC) to ω_d = √(ω₀² − α²).
+- Peak **charge** decays with time constant **2L/R**.
+- For light damping, peak **energy** decays with time constant **L/R** — half
+  the charge time constant, because energy goes as charge squared.
+
 ## 16.2 The parallel RLC circuit
 
 For the parallel case the equation has the same form in v, but α differs:
@@ -181,6 +220,13 @@ No overshoot, as critical damping guarantees.
    α, ω_d and ω_0. (α = 20, ω_d = 200, ω_0 = 201)
 4. For Example 2, find v_C(t) and confirm it starts at 10 V.
 5. Explain why increasing R damps a series RLC but undamps a parallel one.
+6. A radio tuner has L = 1 μH and C = 3.18 pF. Find the station frequency.
+   (89.25 MHz)
+7. In an LC circuit L = 40 mH, C = 4 μF, with current maximum at t = 0. Find ω,
+   the period, and when the capacitor is first fully charged.
+   (2500 rad/s; 2.51 ms; 0.628 ms — a quarter cycle)
+8. An LC circuit has peak current 1.0 A, L = 1 mH, C = 10 μF. Find the peak
+   charge. (ω = 10⁴ rad/s; q₀ = i₀/ω = 100 μC)
 
 ## Takeaways
 

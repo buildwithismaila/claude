@@ -30,6 +30,9 @@ circuit theory it does for Re(s) large enough.
 | cos ωt | s/(s² + ω²) |
 | e^{−at} sin ωt | ω/((s+a)² + ω²) |
 | e^{−at} cos ωt | (s+a)/((s+a)² + ω²) |
+| tⁿe^{−at} | n!/(s+a)^{n+1} |
+| sin(ωt + φ) | (s sin φ + ω cos φ)/(s² + ω²) |
+| cos(ωt + φ) | (s cos φ − ω sin φ)/(s² + ω²) |
 
 Those ten cover essentially every circuit problem. Note the pattern: **damping
 shifts s to s + a** — compare rows 7–8 with 9–10.
@@ -46,6 +49,46 @@ shifts s to s + a** — compare rows 7–8 with 9–10.
 | Frequency shift | ℒ{e^{−at}f(t)} = F(s+a) |
 | Scaling | ℒ{f(at)} = (1/a)F(s/a) |
 | Convolution | ℒ{f * g} = F(s)G(s) |
+| **Frequency differentiation** | ℒ{t f(t)} = −dF(s)/ds |
+| **Time periodicity** | ℒ{f(t)} = F₁(s)/(1 − e^{−sT}) |
+
+**Scaling** in full: ℒ{f(at)} = (1/a)F(s/a). Substitute x = at in the defining
+integral and the 1/a falls out of dx = a dt.
+
+**Frequency differentiation** is the one to reach for whenever the time function
+carries a factor of t:
+
+    ℒ{t sin ωt} = −d/ds [ω/(s²+ω²)] = 2ωs/(s²+ω²)²
+
+Repeat it for t², t³ and so on. This is far quicker than integrating by parts.
+
+**Time periodicity.** If f(t) is periodic with period T, write it as the sum of
+shifted copies of its **first period** f₁(t):
+
+    f(t) = f₁(t) + f₁(t−T)u(t−T) + f₁(t−2T)u(t−2T) + …
+
+Transforming term by term and using the time shift:
+
+    F(s) = F₁(s)[1 + e^{−sT} + e^{−2sT} + …] = F₁(s)/(1 − e^{−sT})
+
+using the geometric series 1 + x + x² + … = 1/(1−x). So you only ever transform
+**one period** and divide.
+
+### The full property table
+
+| Property | f(t) | F(s) |
+|---|---|---|
+| Linearity | a₁f₁(t) + a₂f₂(t) | a₁F₁(s) + a₂F₂(s) |
+| Time shift | f(t−a)u(t−a) | e^{−as}F(s) |
+| Scaling | f(at) | (1/a)F(s/a) |
+| Frequency shift | e^{−at}f(t) | F(s+a) |
+| Time differentiation | df/dt | sF(s) − f(0⁻) |
+| | d²f/dt² | s²F(s) − sf(0⁻) − f′(0⁻) |
+| | dⁿf/dtⁿ | sⁿF(s) − s^{n−1}f(0⁻) − … − f^{(n−1)}(0⁻) |
+| Frequency differentiation | t f(t) | −dF(s)/ds |
+| Time periodicity | f(t) = f(t + nT) | F₁(s)/(1 − e^{−sT}) |
+| Initial value | f(0⁺) | lim_{s→∞} sF(s) |
+| Final value | f(∞) | lim_{s→0} sF(s) |
 
 **The differentiation property is the whole point.** Differentiation in time
 becomes multiplication by s, and the initial condition f(0⁻) appears
@@ -155,6 +198,36 @@ leaving 1 ✓
 Any delay becomes a factor e^{−as}. This is how switching at a time other than
 zero is handled.
 
+## 19.5a Transforming from the definition
+
+The table is derived, not given. Being able to reproduce two or three entries
+from the defining integral is examinable, and the method is always the same.
+
+**u(t):**
+
+    ℒ{u(t)} = ∫₀^∞ 1·e^{−st} dt = [−e^{−st}/s]₀^∞ = 0 − (−1/s) = 1/s
+
+**e^{−at}u(t):**
+
+    ℒ{e^{−at}} = ∫₀^∞ e^{−at}e^{−st} dt = ∫₀^∞ e^{−(s+a)t} dt
+               = [−e^{−(s+a)t}/(s+a)]₀^∞ = 1/(s+a)
+
+By the same working with +a, ℒ{e^{at}u(t)} = 1/(s − a).
+
+**δ(t):** by the sifting property, ∫δ(t)e^{−st}dt = e^{−s(0)} = **1**.
+
+**r(t) = t u(t):** integrate by parts with u = t, dv = e^{−st}dt:
+
+    ℒ{t} = [−te^{−st}/s]₀^∞ + (1/s)∫₀^∞ e^{−st}dt = 0 + (1/s)(1/s) = 1/s²
+
+**sin ωt:** use Euler, sin ωt = (e^{jωt} − e^{−jωt})/2j:
+
+    ℒ{sin ωt} = (1/2j)[1/(s − jω) − 1/(s + jω)]
+              = (1/2j)·[(s + jω) − (s − jω)]/(s² + ω²)
+              = (1/2j)(2jω)/(s² + ω²) = ω/(s² + ω²)
+
+The same route with cos ωt = (e^{jωt} + e^{−jωt})/2 gives s/(s² + ω²).
+
 ## 19.6 Exercises
 
 1. Find ℒ{3e^{−2t} + 4 sin 5t}. (3/(s+2) + 20/(s²+25))
@@ -163,6 +236,11 @@ zero is handled.
    (3e^{−2t} − 2e^{−3t})
 4. Find the final value of F(s) = 10/[s(s+5)] and verify by inversion. (2)
 5. Explain why the final value theorem fails for F(s) = ω/(s² + ω²).
+6. Use frequency differentiation to find ℒ{t² sin 2t} and ℒ{t² cos 3t}.
+7. Find the Laplace transform of the gate g(t) = 10[u(t−2) − u(t−3)].
+   (10(e^{−2s} − e^{−3s})/s)
+8. Find the initial and final values of H(s) = 20/[(s+3)(s²+8s+25)] without
+   inverting. (Both zero.)
 
 ## Takeaways
 
