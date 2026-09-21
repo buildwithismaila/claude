@@ -86,3 +86,47 @@ function matrixToHtml(body, esc){
       '<span class="mat mat-' + (style === "bracket" ? "bracket" : "det") + '">' +
       "<table>" + body_ + "</table></span></div>";
 }
+
+/* ---- Piecewise definitions ------------------------------------------------
+   ```cases
+   lhs: u(t)  =
+   1 ; t ≥ 0
+   0 ; t < 0
+   ```
+   The brace is drawn to fit the row count exactly, rather than stretching one
+   glyph, so the hooks keep their shape at any number of cases.               */
+const CASE_ROW = 30;            /* must match #doc .cases td height in the CSS */
+
+function brace(rows){
+  const H = rows * CASE_ROW, m = H / 2, W = 11;
+  const d = "M" + (W - 1) + ",1"
+          + "C" + (W - 5) + ",1 " + (W - 6) + ",3 " + (W - 6) + ",6"
+          + "L" + (W - 6) + "," + (m - 5)
+          + "C" + (W - 6) + "," + (m - 2) + " " + (W - 8) + "," + m + " 1," + m
+          + "C" + (W - 8) + "," + m + " " + (W - 6) + "," + (m + 2) + " " + (W - 6) + "," + (m + 5)
+          + "L" + (W - 6) + "," + (H - 6)
+          + "C" + (W - 6) + "," + (H - 3) + " " + (W - 5) + "," + (H - 1) + " " + (W - 1) + "," + (H - 1);
+  return '<svg class="brace" width="' + W + '" height="' + H + '" '
+       + 'viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true">'
+       + '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="1.3" '
+       + 'stroke-linecap="round"/></svg>';
+}
+
+function casesToHtml(body, esc){
+  let lhs = "";
+  const rows = [];
+  body.split("\n").forEach(line => {
+    if(!line.trim()) return;
+    const d = line.match(/^\s*lhs\s*:\s*(.*)$/i);
+    if(d){ lhs = d[1]; return; }
+    const parts = line.split(";");
+    rows.push([parts[0] || "", parts.slice(1).join(";") || ""]);
+  });
+  const body_ = rows.map(r =>
+      '<tr><td class="cval">' + mathify(esc(r[0].trim())) + '</td>'
+    + '<td class="ccond">' + mathify(esc(r[1].trim())) + "</td></tr>").join("");
+  return '<div class="eqrow">'
+       + (lhs ? '<span class="eqlhs">' + mathify(esc(lhs)) + "</span>" : "")
+       + '<span class="cases">' + brace(rows.length)
+       + "<table>" + body_ + "</table></span></div>";
+}

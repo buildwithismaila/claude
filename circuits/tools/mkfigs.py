@@ -433,3 +433,28 @@ for i,(a,b) in enumerate(rows):
 write("poles.svg", svg(620, 262, [d],
       "The s-plane: poles in the left half give decaying responses, poles on the imaginary axis "
       "sustained oscillation, and poles in the right half growth"))
+
+# --- sequence representation, with the arrow aligned to n = 0 ----------
+vals = ["−3", "2", "0", "3", "1", "2"]
+ORIGIN = 2                       # index of the n = 0 term
+d = Panel(0,0,1,1,(0,1),(0,1))
+x0, step, ybase = 128, 46, 40
+d.p.append(f'<text x="30" y="{ybase}" font-size="15" style="fill:{INK}">x(n)  =</text>')
+d.p.append(f'<text x="{x0-24}" y="{ybase}" font-size="19" style="fill:{INK}" '
+           f'opacity=".6">{{</text>')
+for i,v in enumerate(vals):
+    x = x0 + i*step
+    d.p.append(f'<text x="{x}" y="{ybase}" text-anchor="middle" font-size="15" '
+               f'style="fill:{SIG}">{esc(v)}</text>')
+    if i < len(vals)-1:
+        d.p.append(f'<text x="{x+step/2:.0f}" y="{ybase}" text-anchor="middle" '
+                   f'font-size="15" style="fill:{INK}" opacity=".5">,</text>')
+d.p.append(f'<text x="{x0+(len(vals)-1)*step+26}" y="{ybase}" font-size="19" '
+           f'style="fill:{INK}" opacity=".6">}}</text>')
+ax = x0 + ORIGIN*step
+d.p.append(f'<line x1="{ax}" y1="{ybase+26}" x2="{ax}" y2="{ybase+10}" '
+           f'style="stroke:{SIG2}" stroke-width="1.4" marker-end="url(#ar)"/>')
+d.p.append(f'<text x="{ax}" y="{ybase+42}" text-anchor="middle" font-size="11.5" '
+           f'style="fill:{SIG2}">n = 0</text>')
+write("sig-sequence.svg", svg(430, 96, [d],
+      "The sequence representation with an arrow marking which term sits at n equals zero"))

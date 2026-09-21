@@ -138,8 +138,10 @@ h2.doctitle{
 .tablewrap{overflow-x:auto; margin:0 0 20px}
 #doc table{border-collapse:collapse; width:100%; font-size:14.5px}
 #doc th{
+  /* deliberately NOT uppercased: in this course a header may be a variable,
+     and n, N, v, V, s, S are different quantities */
   font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:600; text-align:left;
-  font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);
+  font-size:12.5px; letter-spacing:.03em; color:var(--ink-soft);
   border-bottom:1px solid var(--rule); padding:8px 12px 6px;
 }
 #doc td{
@@ -197,6 +199,20 @@ h2.doctitle{
   #doc .eq, #doc .eqrow{ font-size:15px }
   #doc .mat td{ padding:4px 9px }
 }
+
+/* ---------- piecewise definitions ---------- */
+#doc .cases{ display:inline-flex; align-items:stretch; gap:8px }
+#doc .cases .brace{ flex:0 0 auto; align-self:center; overflow:visible }
+#doc .cases table{ border-collapse:collapse; width:auto; margin:0 }
+#doc .cases table td,
+#doc .cases tbody tr td,
+#doc .cases tbody tr:last-child td{
+  height:30px; padding:0 0 0 2px; border:0; background:none;
+  vertical-align:middle; white-space:nowrap; text-align:left;
+  font-variant-numeric:normal;
+}
+#doc .cases td.cval{ padding-right:22px }
+#doc .cases td.ccond{ color:var(--ink-soft) }
 
 /* ---------- figures ---------- */
 #doc figure.fig{
@@ -377,6 +393,50 @@ function matrixToHtml(body, esc){
       "<table>" + body_ + "</table></span></div>";
 }
 
+/* ---- Piecewise definitions ------------------------------------------------
+   ```cases
+   lhs: u(t)  =
+   1 ; t ≥ 0
+   0 ; t < 0
+   ```
+   The brace is drawn to fit the row count exactly, rather than stretching one
+   glyph, so the hooks keep their shape at any number of cases.               */
+const CASE_ROW = 30;            /* must match #doc .cases td height in the CSS */
+
+function brace(rows){
+  const H = rows * CASE_ROW, m = H / 2, W = 11;
+  const d = "M" + (W - 1) + ",1"
+          + "C" + (W - 5) + ",1 " + (W - 6) + ",3 " + (W - 6) + ",6"
+          + "L" + (W - 6) + "," + (m - 5)
+          + "C" + (W - 6) + "," + (m - 2) + " " + (W - 8) + "," + m + " 1," + m
+          + "C" + (W - 8) + "," + m + " " + (W - 6) + "," + (m + 2) + " " + (W - 6) + "," + (m + 5)
+          + "L" + (W - 6) + "," + (H - 6)
+          + "C" + (W - 6) + "," + (H - 3) + " " + (W - 5) + "," + (H - 1) + " " + (W - 1) + "," + (H - 1);
+  return '<svg class="brace" width="' + W + '" height="' + H + '" '
+       + 'viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true">'
+       + '<path d="' + d + '" fill="none" stroke="currentColor" stroke-width="1.3" '
+       + 'stroke-linecap="round"/></svg>';
+}
+
+function casesToHtml(body, esc){
+  let lhs = "";
+  const rows = [];
+  body.split("\n").forEach(line => {
+    if(!line.trim()) return;
+    const d = line.match(/^\s*lhs\s*:\s*(.*)$/i);
+    if(d){ lhs = d[1]; return; }
+    const parts = line.split(";");
+    rows.push([parts[0] || "", parts.slice(1).join(";") || ""]);
+  });
+  const body_ = rows.map(r =>
+      '<tr><td class="cval">' + mathify(esc(r[0].trim())) + '</td>'
+    + '<td class="ccond">' + mathify(esc(r[1].trim())) + "</td></tr>").join("");
+  return '<div class="eqrow">'
+       + (lhs ? '<span class="eqlhs">' + mathify(esc(lhs)) + "</span>" : "")
+       + '<span class="cases">' + brace(rows.length)
+       + "<table>" + body_ + "</table></span></div>";
+}
+
 /* Minimal markdown renderer, inlined so the page has no external dependencies. */
 function mdToHtml(src){
   const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -420,10 +480,12 @@ function mdToHtml(src){
     if(/^```/.test(l)){
       const isMatrix = /^```\s*matrix\b/.test(l);
       const isFigure = /^```\s*figure\b/.test(l);
+      const isCases  = /^```\s*cases\b/.test(l);
       i++; const buf = [];
       while(i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
       i++;
       out.push(isMatrix ? matrixToHtml(buf.join("\n"), esc)
+             : isCases  ? casesToHtml(buf.join("\n"), esc)
              : isFigure ? buf.join("\n")          /* already HTML, built locally */
                         : "<pre><code>" + esc(buf.join("\n")) + "</code></pre>");
       continue;

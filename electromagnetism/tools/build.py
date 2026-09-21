@@ -191,8 +191,10 @@ h2.doctitle{
 .tablewrap{overflow-x:auto; margin:0 0 20px}
 #doc table{border-collapse:collapse; width:100%; font-size:14.5px}
 #doc th{
+  /* deliberately NOT uppercased: in this course a header may be a variable,
+     and n, N, v, V, s, S are different quantities */
   font-family:"IBM Plex Sans Condensed",sans-serif; font-weight:600; text-align:left;
-  font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft);
+  font-size:12.5px; letter-spacing:.03em; color:var(--ink-soft);
   border-bottom:1px solid var(--rule); padding:8px 12px 6px;
 }
 #doc td{
@@ -250,6 +252,20 @@ h2.doctitle{
   #doc .eq, #doc .eqrow{ font-size:15px }
   #doc .mat td{ padding:4px 9px }
 }
+
+/* ---------- piecewise definitions ---------- */
+#doc .cases{ display:inline-flex; align-items:stretch; gap:8px }
+#doc .cases .brace{ flex:0 0 auto; align-self:center; overflow:visible }
+#doc .cases table{ border-collapse:collapse; width:auto; margin:0 }
+#doc .cases table td,
+#doc .cases tbody tr td,
+#doc .cases tbody tr:last-child td{
+  height:30px; padding:0 0 0 2px; border:0; background:none;
+  vertical-align:middle; white-space:nowrap; text-align:left;
+  font-variant-numeric:normal;
+}
+#doc .cases td.cval{ padding-right:22px }
+#doc .cases td.ccond{ color:var(--ink-soft) }
 
 /* ---------- figures ---------- */
 #doc figure.fig{

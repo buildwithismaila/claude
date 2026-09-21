@@ -41,10 +41,12 @@ function mdToHtml(src){
     if(/^```/.test(l)){
       const isMatrix = /^```\s*matrix\b/.test(l);
       const isFigure = /^```\s*figure\b/.test(l);
+      const isCases  = /^```\s*cases\b/.test(l);
       i++; const buf = [];
       while(i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
       i++;
       out.push(isMatrix ? matrixToHtml(buf.join("\n"), esc)
+             : isCases  ? casesToHtml(buf.join("\n"), esc)
              : isFigure ? buf.join("\n")          /* already HTML, built locally */
                         : "<pre><code>" + esc(buf.join("\n")) + "</code></pre>");
       continue;

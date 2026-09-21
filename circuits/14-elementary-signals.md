@@ -48,19 +48,27 @@ something false about the instants in between.
 
 **3. Functional** — the amplitude written against the values of n:
 
-    x(n) = −3,  n = −2
-           2,   n = −1
-           0,   n = 0
-           3,   n = 1
-           1,   n = 2
-           2,   n = 3
+```cases
+lhs: x(n)  =
+−3 ; n = −2
+2 ; n = −1
+0 ; n = 0
+3 ; n = 1
+1 ; n = 2
+2 ; n = 3
+```
 
-or as a rule, e.g. x(n) = 3ⁿ for n ≥ 0, and 0 for n < 0.
+or as a rule:
+
+```cases
+lhs: x(n)  =
+3ⁿ ; n ≥ 0
+0 ; n < 0
+```
 
 **4. Sequence** — list the values with an arrow marking n = 0:
 
-    x(n) = { −3, 2, 0, 3, 1, 2 }
-                    ↑
+@fig figures/sig-sequence.svg | The sequence representation. The arrow says which term sits at n = 0 — here the third, so the signal starts two samples before the origin.
 
 **The arrow is not decoration.** If no arrow is shown, the convention is that
 the **first term corresponds to n = 0**. Losing the arrow shifts the whole
@@ -70,28 +78,58 @@ signal, which changes every subsequent answer.
 
 ### (i) Unit step
 
-    u(t) = 1,  t ≥ 0
-           0,  t < 0
+```cases
+lhs: u(t)  =
+1 ; t ≥ 0
+0 ; t < 0
+```
 
 Its usefulness: multiplying any signal by u(t) forces it to start at t = 0.
 
 Shifted: u(t − a) switches on at t = a.
 
-Discrete: u(n) = 1 for n ≥ 0, 0 for n < 0; shifted u(n − k).
+Discrete:
+
+```cases
+lhs: u(n)  =
+1 ; n ≥ 0
+0 ; n < 0
+```
+
+with the shifted version u(n − k) switching on at n = k.
 
 @fig figures/sig-step-shift.svg | The unit step, and the same step delayed to t = a. Subtracting a from the argument moves the signal later — the opposite of what the minus sign suggests at first glance.
 
 ### (ii) Unit ramp
 
-    r(t) = t,  t ≥ 0     or    r(t) = t·u(t)
-           0,  t < 0
+```cases
+lhs: r(t)  =
+t ; t ≥ 0
+0 ; t < 0
+```
+
+or, compactly, r(t) = t·u(t).
 
 Shifted: r(t − a) = (t − a)u(t − a).
-Discrete: r(n) = n·u(n); r(n − k) = (n − k)u(n − k).
+Discrete:
+
+```cases
+lhs: r(n)  =
+n ; n ≥ 0
+0 ; n < 0
+```
+
+so r(n) = n·u(n), and r(n − k) = (n − k)u(n − k).
 
 ### (iii) Unit impulse (Dirac delta)
 
-    δ(t) = 0 for t ≠ 0,   with   ∫_{−∞}^{∞} δ(t) dt = 1
+```cases
+lhs: δ(t)  =
+unbounded ; t = 0
+0 ; t ≠ 0
+```
+
+    with      ∫_{−∞}^{∞} δ(t) dt = 1
 
 > **A point of care.** The lecture notes write "δ(t) = 1 for t = 0". Read that
 > as shorthand. The impulse is not *equal to 1* at the origin — it is unbounded
@@ -108,17 +146,36 @@ Relationship to the step:
 
     ∫ f(t) δ(t − a) dt = f(a)
 
-Discrete: δ(n) = 1 for n = 0, else 0; δ(n − k) = 1 for n = k. For the discrete
+Discrete:
+
+```cases
+lhs: δ(n)  =
+1 ; n = 0
+0 ; n ≠ 0
+```
+
+and δ(n − k) = 1 at n = k, zero elsewhere. For the discrete
 impulse the value at the origin genuinely **is** 1 — the CT and DT impulses are
 different objects, and only the DT one is an ordinary function.
 
 ### (iv) Unit parabolic
 
-    p(t) = t²/2,  t ≥ 0     or    p(t) = (t²/2)u(t)
-           0,     t < 0
+```cases
+lhs: p(t)  =
+t²/2 ; t ≥ 0
+0 ; t < 0
+```
+
+or, compactly, p(t) = (t²/2)u(t).
 
 Shifted: p(t − a) = ((t−a)²/2)u(t − a).
-Discrete: p(n) = (n²/2)u(n).
+Discrete:
+
+```cases
+lhs: p(n)  =
+n²/2 ; n ≥ 0
+0 ; n < 0
+```
 
 **The integration chain.** Each of these is the integral of the one before:
 
@@ -193,8 +250,11 @@ growing for a > 1, decaying for a < 1.
 
 A constant amplitude over a fixed duration, zero elsewhere:
 
-    rect(t/τ) = 1,  |t| ≤ τ/2
-                0,  otherwise
+```cases
+lhs: rect(t/τ)  =
+1 ; \|t\| ≤ τ/2
+0 ; otherwise
+```
 
 Equivalently built from steps: u(t + τ/2) − u(t − τ/2).
 
@@ -202,9 +262,12 @@ Used throughout digital communications, radar and sampling theory.
 
 ### (ix) Signum
 
-    sgn(t) = +1,  t > 0
-             −1,  t < 0
-              0,  t = 0
+```cases
+lhs: sgn(t)  =
++1 ; t > 0
+0 ; t = 0
+−1 ; t < 0
+```
 
 Extracts the sign of its argument. Related to the step by
 
@@ -288,8 +351,11 @@ the standard example.
 
 ### Periodic vs aperiodic
 
-    Periodic:   x(t) = x(t + T)  for all t
-    Aperiodic:  x(t) ≠ x(t + T)
+```cases
+lhs: x(t)  =
+x(t + T) for all t ; periodic
+x(t + T) for no T ; aperiodic
+```
 
 Discrete: x(n) = x(n + N), with N an integer period.
 
@@ -303,10 +369,12 @@ Discrete: x(n) = x(n + N), with N an integer period.
 
 The classification:
 
-| Type | Condition |
-|---|---|
-| **Energy signal** | 0 < E < ∞, and then P = 0 |
-| **Power signal** | 0 < P < ∞, and then E = ∞ |
+```cases
+lhs: x(t) is an
+energy signal ; 0 < E < ∞, and then P = 0
+power signal ; 0 < P < ∞, and then E = ∞
+neither ; if both fail
+```
 
 **A signal cannot be both**, and some signals are neither. The rule of thumb:
 signals that die away (pulses, decaying exponentials) are energy signals;

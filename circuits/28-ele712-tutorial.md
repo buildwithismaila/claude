@@ -58,10 +58,13 @@ So a single relationship generates all four:
 
 **Read the signal off the figure first.**
 
-    x(t) = 2t + 2,   −1 ≤ t ≤ 0        (ramp from 0 up to 2)
-           2,         0 ≤ t ≤ 1
-           1,         1 ≤ t ≤ 2
-           0,         otherwise
+```cases
+lhs: x(t)  =
+2t + 2 ; −1 ≤ t ≤ 0   (the ramp, 0 up to 2)
+2 ; 0 ≤ t ≤ 1
+1 ; 1 ≤ t ≤ 2
+0 ; otherwise
+```
 
 **Factor the argument before doing anything else.** This is the step that
 decides whether you get it right:
@@ -85,10 +88,13 @@ So the signal now lives on **−2 ≤ t ≤ −0.5**, a quarter of its original 
 
 **Result:**
 
-    x(2t+3) = 4t + 8,   −2 ≤ t ≤ −1.5     (substituting: 2(2t+3)+2)
-              2,        −1.5 ≤ t ≤ −1
-              1,        −1 ≤ t ≤ −0.5
-              0,        otherwise
+```cases
+lhs: x(2t + 3)  =
+4t + 8 ; −2 ≤ t ≤ −1.5   (from 2(2t+3)+2)
+2 ; −1.5 ≤ t ≤ −1
+1 ; −1 ≤ t ≤ −0.5
+0 ; otherwise
+```
 
 Check the ramp endpoints: at t = −2, 4(−2) + 8 = 0 ✓; at t = −1.5,
 4(−1.5) + 8 = 2 ✓ — it still rises from 0 to 2, just four times faster.
