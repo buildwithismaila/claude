@@ -41,6 +41,8 @@ Follow the energy round one cycle:
 
     Total energy = ½q²/C + ½Li² = constant
 
+@fig figures/lc-cycle.svg | The LC oscillation as a cycle of four states. Energy never leaves — it moves between the capacitor's electric field and the inductor's magnetic field. Adding resistance drains a little each lap, which is what turns the sustained sinusoid into a decaying one.
+
 Nothing is lost, so it oscillates forever. Peak current and peak charge are
 linked by
 
@@ -84,6 +86,8 @@ The **damping ratio** ζ = α/ω_0 decides everything:
 | α = ω_0 (ζ = 1) | **Critically damped** | two real, equal | fastest possible without overshoot |
 | α < ω_0 (ζ < 1) | **Underdamped** | complex conjugates | damped oscillation (ringing) |
 | α = 0 (ζ = 0) | Undamped | pure imaginary | sustained oscillation |
+
+@fig figures/damping.svg | Step response for the three cases. Only the underdamped case overshoots; the critically damped case is the fastest approach that does not. All three settle to the same final value.
 
 ### The three solution forms
 

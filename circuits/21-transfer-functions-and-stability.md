@@ -57,6 +57,8 @@ Notice this reproduces Module 16's three cases exactly: overdamped = two real
 poles, critically damped = repeated real pole, underdamped = complex pair. The
 pole plot is the same information in a picture.
 
+@fig figures/poles.svg | Where a pole sits decides the shape of the response it contributes. Distance left of the imaginary axis sets how fast it decays; height above the axis sets how fast it oscillates. Everything in the shaded half-plane is stable.
+
 **Distance from the origin** sets the frequency; **distance left of the
 imaginary axis** sets how fast it decays.
 

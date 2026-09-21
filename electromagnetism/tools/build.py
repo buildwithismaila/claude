@@ -12,6 +12,24 @@ EYEBR = sys.argv[5] if len(sys.argv) > 5 else "PGDEE"
 
 import base64, re as _re
 
+def _expand_svg(text):
+    """@fig figures/x.svg | caption  ->  a ```figure fence holding the inline SVG."""
+    out = []
+    for line in text.split("\n"):
+        m = _re.match(r"^@fig\s+(\S+\.svg)\s*(?:\|\s*(.*))?$", line.strip())
+        if not m:
+            out.append(line); continue
+        path = os.path.join(SRC, m.group(1))
+        cap = (m.group(2) or "").strip()
+        if not os.path.exists(path):
+            out.append(line); continue
+        with open(path, encoding="utf-8") as fh:
+            art = fh.read()
+        cap_html = ('<figcaption>' + cap + '</figcaption>') if cap else ''
+        out.append("```figure\n<figure class=\"fig\">" + art + cap_html + "</figure>\n```")
+    return "\n".join(out)
+
+
 def _inline_figures(text):
     """Replace ](figures/x.png) with a data URI so the page stays self-contained."""
     def sub(m):
@@ -33,7 +51,7 @@ for f in files:
     # "Module 03 — Electrostatics" -> title "Electrostatics"
     t = re.sub(r"^Module \d+ [—-] ", "", raw)
     if num == "00": t = "Start Here"
-    body = _inline_figures(re.sub(r"^# .+\n", "", text, count=1))
+    body = _expand_svg(_inline_figures(re.sub(r"^# .+\n", "", text, count=1)))
     mods.append({"num": num, "title": t, "body": body})
 
 DATA = json.dumps(mods, ensure_ascii=False)
@@ -234,6 +252,16 @@ h2.doctitle{
 }
 
 /* ---------- figures ---------- */
+#doc figure.fig{
+  margin:26px 0; padding:0; text-align:center;
+  color:var(--ink);
+}
+#doc figure.fig svg{ margin:0 auto 6px }
+#doc figure.fig figcaption{
+  font-family:"IBM Plex Sans Condensed",system-ui,sans-serif;
+  font-size:12px; line-height:1.45; color:var(--ink-soft);
+  max-width:60ch; margin:4px auto 0; text-wrap:balance;
+}
 #doc img{
   display:block; margin:20px auto; max-width:100%; height:auto;
   background:#fff; padding:10px; border:1px solid var(--rule); border-radius:2px;

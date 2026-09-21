@@ -199,6 +199,16 @@ h2.doctitle{
 }
 
 /* ---------- figures ---------- */
+#doc figure.fig{
+  margin:26px 0; padding:0; text-align:center;
+  color:var(--ink);
+}
+#doc figure.fig svg{ margin:0 auto 6px }
+#doc figure.fig figcaption{
+  font-family:"IBM Plex Sans Condensed",system-ui,sans-serif;
+  font-size:12px; line-height:1.45; color:var(--ink-soft);
+  max-width:60ch; margin:4px auto 0; text-wrap:balance;
+}
 #doc img{
   display:block; margin:20px auto; max-width:100%; height:auto;
   background:#fff; padding:10px; border:1px solid var(--rule); border-radius:2px;
@@ -409,10 +419,12 @@ function mdToHtml(src){
 
     if(/^```/.test(l)){
       const isMatrix = /^```\s*matrix\b/.test(l);
+      const isFigure = /^```\s*figure\b/.test(l);
       i++; const buf = [];
       while(i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]);
       i++;
       out.push(isMatrix ? matrixToHtml(buf.join("\n"), esc)
+             : isFigure ? buf.join("\n")          /* already HTML, built locally */
                         : "<pre><code>" + esc(buf.join("\n")) + "</code></pre>");
       continue;
     }

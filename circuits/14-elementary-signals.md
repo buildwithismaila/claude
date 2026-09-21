@@ -20,11 +20,25 @@ x(n), where n is an **integer**.
 
 ## 14.2 Four ways of representing a discrete-time signal
 
+> **Why "discrete-time" and not just "signal".** This four-way list belongs
+> specifically to **discrete-time** signals, and the lecture notes head the
+> section the same way. The reason is the fourth entry: a *sequence* is a list
+> of values at integer instants, and a continuous-time signal has no such list —
+> it has a value at every instant, uncountably many. The first three do carry
+> over (a continuous signal can be drawn, written as a formula, or sampled into
+> a table), but only a discrete signal can be written out in full. So the
+> heading is not a slip: four ways is a discrete-time count, and for continuous
+> time it would be graphical and functional only.
+
 Take the signal with
 x(−2) = −3, x(−1) = 2, x(0) = 0, x(1) = 3, x(2) = 1, x(3) = 2.
 
-**1. Graphical** — a stem plot: a vertical line of the right height at each
-integer n.
+**1. Graphical** — a **stem plot**: at each integer n, a vertical line of the
+right height with a dot at its tip. The dots matter — they say the signal exists
+*only* at the integers, and joining them with a continuous line would assert
+something false about the instants in between.
+
+@fig figures/sig-graphical.svg | Graphical representation of x(n) = {−3, 2, 0, 3, 1, 2}. The signal exists only at integer n; the stems and dots say so, and x(0) = 0 is a real value, not an absence.
 
 **2. Tabular** — sampling instant against magnitude:
 
@@ -64,6 +78,8 @@ Its usefulness: multiplying any signal by u(t) forces it to start at t = 0.
 Shifted: u(t − a) switches on at t = a.
 
 Discrete: u(n) = 1 for n ≥ 0, 0 for n < 0; shifted u(n − k).
+
+@fig figures/sig-step-shift.svg | The unit step, and the same step delayed to t = a. Subtracting a from the argument moves the signal later — the opposite of what the minus sign suggests at first glance.
 
 ### (ii) Unit ramp
 
@@ -106,6 +122,8 @@ Discrete: p(n) = (n²/2)u(n).
 
 **The integration chain.** Each of these is the integral of the one before:
 
+@fig figures/sig-chain.svg | The four singularity functions. Integrating moves right along the chain, differentiating moves left — so remembering any one of the four gives you the other three.
+
     δ(t)  →  u(t)  →  r(t)  →  p(t)
            ∫        ∫        ∫
 
@@ -140,6 +158,8 @@ Three cases, decided entirely by α:
 | α > 0 | grows exponentially |
 | α < 0 | decays exponentially |
 
+@fig figures/sig-exponential.svg | The real exponential Ae^(αt). The sign of α alone decides between a constant, unbounded growth, and decay toward zero.
+
 Discrete: x(n) = αⁿ, with the same three cases governed by whether |α| is 1,
 greater than 1, or less than 1.
 
@@ -159,6 +179,8 @@ This **single expression contains every signal above** as a special case:
 | 0 | ≠ 0 | pure sinusoid (constant amplitude) |
 | < 0 | ≠ 0 | **damped sinusoid** |
 | > 0 | ≠ 0 | growing oscillation |
+
+@fig figures/sig-complex-exp.svg | The six cases of e^(st) with s = σ + jω. The dashed line is the envelope e^(σt): σ sets growth or decay, ω sets oscillation. This is the same table you meet again in Module 21 as pole locations.
 
 That table is the reason the Laplace transform uses e^{st} rather than e^{jωt},
 and it is exactly the pole-location table you will meet again in Module 21.
@@ -198,6 +220,8 @@ response to positive and negative error must differ.
 with sinc(0) = 1 (by the limit). It is **even**, oscillates with period 2π, and
 decays as 1/t. It is the Fourier transform of a rectangular pulse — which is why
 it governs everything about sampling and bandwidth (Module 22).
+
+@fig figures/sig-rect-sgn-sinc.svg | Rectangular pulse, signum and sinc. The open circles on sgn(t) mark that the value at t = 0 is 0, belonging to neither branch.
 
 ## 14.4 Operations on signals
 
@@ -243,6 +267,8 @@ Both are performed **point by point**:
     y(t) = x₁(t) + x₂(t)        y(t) = x₁(t) · x₂(t)
 
 Subtraction likewise. There is no shortcut — you evaluate at each instant.
+
+@fig figures/sig-operations.svg | One signal under three operations. Delay moves it right; reversal mirrors it about the vertical axis; compression by 2 halves its width while keeping its height.
 
 **Order matters** when shifting and scaling are combined. x(2t − 4) is *not*
 the same as first scaling then shifting by 4. Safest method: always write it as
@@ -309,6 +335,8 @@ with
 > would give x(t) + x(−t) instead. Use the minus.
 
 Discrete: x_e(n) = ½[x(n) + x(−n)], x_o(n) = ½[x(n) − x(−n)].
+
+@fig figures/sig-even-odd.svg | Any signal splits uniquely into an even part, symmetric about the vertical axis, and an odd part, antisymmetric through the origin. Add the two right-hand plots point by point and the left-hand one comes back.
 
 ### Products of even and odd signals
 

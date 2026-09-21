@@ -30,6 +30,8 @@ An inductor carrying I_0 decays through R. KVL:
 
 Both have units of seconds. Larger τ means slower response.
 
+@fig figures/first-order.svg | Every first-order response is one of these two shapes. The time constant τ is read off at 63% — of the fall for a decay, of the rise for a step — and after 5τ the transient is over for engineering purposes.
+
 **Finding R for τ:** R is the **Thévenin resistance seen by the storage
 element** — remove C or L, look back into the remaining network with independent
 sources deactivated, and reduce. This is the direct pay-off of Module 09, and is
