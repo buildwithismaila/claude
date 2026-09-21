@@ -136,6 +136,7 @@ h2.doctitle{
 
 /* tables */
 .tablewrap{overflow-x:auto; margin:0 0 20px}
+#doc .cases .tablewrap, #doc .mat .tablewrap{margin:0; overflow:visible}
 #doc table{border-collapse:collapse; width:100%; font-size:14.5px}
 #doc th{
   /* deliberately NOT uppercased: in this course a header may be a variable,
@@ -201,8 +202,12 @@ h2.doctitle{
 }
 
 /* ---------- piecewise definitions ---------- */
-#doc .cases{ display:inline-flex; align-items:stretch; gap:8px }
-#doc .cases .brace{ flex:0 0 auto; align-self:center; overflow:visible }
+/* Centre both children on the same axis. Relying on stretch put the table at
+   the container's top while the brace was centred, and the container measured
+   20px taller than either child, so the brace hung low by half that. */
+#doc .cases{ display:inline-flex; align-items:center; gap:8px; line-height:0 }
+#doc .cases .brace{ flex:0 0 auto; display:block; overflow:visible }
+#doc .cases table{ line-height:normal }
 #doc .cases table{ border-collapse:collapse; width:auto; margin:0 }
 #doc .cases table td,
 #doc .cases tbody tr td,
@@ -575,7 +580,12 @@ function show(i){
   document.getElementById("doctitle").textContent = m.title;
   const doc = document.getElementById("doc");
   doc.innerHTML = mdToHtml(m.body);
+  /* Only data tables get the scrolling wrapper. Matrices and piecewise cases
+     use a table for layout; wrapping them adds the wrapper's bottom margin to
+     the flex line, which pushed the brace and the determinant bars out of
+     alignment with their own rows. */
   doc.querySelectorAll("table").forEach(t=>{
+    if (t.closest(".cases, .mat")) return;
     const w = document.createElement("div");
     w.className = "tablewrap";
     t.parentNode.insertBefore(w,t); w.appendChild(t);
