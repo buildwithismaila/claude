@@ -116,6 +116,7 @@ Not in the syllabus, but assumed by all of it. Skim if you already have it.
 | 25 | Formula sheet |
 | 26 | Problem set with full solutions |
 | 27 | **ELE 712 assignments and class problems, solved** |
+| 28 | **ELE 712 tutorial questions, solved** |
 
 **Lecture material issued so far.** Three sets have been released: the
 *Elementary Signals* notes (Module 14 now follows them closely, including the
@@ -166,8 +167,10 @@ understood one.
 Every module ends with exercises that have answers. Module 26 has 20 full
 problems with complete solutions.
 
-**Start with Module 27 if an assessment is close** — it is the lecturer's own
-assignments and practice problems, worked in full.
+**Start with Modules 27 and 28 if an assessment is close** — between them they
+work every assignment, practice problem and tutorial question the lecturer has
+issued. Module 28 in particular reads like a past paper, and its closing section
+reads the twelve tutorial questions as evidence of where the emphasis lies.
 
 **If you are short of time**, the syllabus weights are not equal. Modules 19–21
 (Laplace, s-domain, transfer functions and stability) account for four of the

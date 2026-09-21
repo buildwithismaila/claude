@@ -198,6 +198,12 @@ h2.doctitle{
   #doc .mat td{ padding:4px 9px }
 }
 
+/* ---------- figures ---------- */
+#doc img{
+  display:block; margin:20px auto; max-width:100%; height:auto;
+  background:#fff; padding:10px; border:1px solid var(--rule); border-radius:2px;
+}
+
 /* ---------- footer nav ---------- */
 .pager{
   display:flex; gap:12px; justify-content:space-between; align-items:stretch;
@@ -366,11 +372,18 @@ function mdToHtml(src){
   const esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   function inline(s){
     s = esc(s);
-    const codes = [];
+    const codes = [], figs = [];
     s = s.replace(/`([^`]+)`/g, function(m,c){ codes.push(c); return "\u0001" + (codes.length-1) + "\u0002"; });
     s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
     s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    /* images: ![alt](src) — src is inlined as a data URI at build time */
+    /* lazy alt so captions may contain brackets, e.g. "the sequence s[n]" */
+    s = s.replace(/!\[([\s\S]*?)\]\(([^)\s]+)\)/g, function(m,alt,src){
+      figs.push('<img src="' + src + '" alt="' + alt + '">');
+      return "\u0005" + (figs.length-1) + "\u0006";
+    });
     s = mathify(s);
+    s = s.replace(/\u0005(\d+)\u0006/g, function(m,i){ return figs[+i]; });
     s = s.replace(/\u0001(\d+)\u0002/g, function(m,i){ return "<code>" + codes[+i] + "</code>"; });
     return s;
   }
