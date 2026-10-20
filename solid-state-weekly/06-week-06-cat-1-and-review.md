@@ -27,6 +27,8 @@ This page has a one-screen review of what CAT 1 covers, followed by a practice t
 - n = N_c e^{−(E_c−E_F)/kT}, p = N_v e^{−(E_F−E_v)/kT}, n_i = √(N_cN_v)e^{−E_g/2kT}, np = n_i².
 - Charge neutrality and compensation; E_F − E_i = kT ln(n/n_i).
 
+> **Also revise:** the lecturer's own mid-module evaluation (ten short-answer and five calculation questions on carrier statistics) is solved at the end of Week 5, section 26.
+
 ## Practice test (60 minutes)
 
 Use q = 1.6×10⁻¹⁹ C, kT = 0.0259 eV at 300 K, Si: n_i = 1×10¹⁰ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, μ_n = 1350, μ_p = 480 cm²/V·s; Ge: n_i = 2.4×10¹³ cm⁻³, μ_n = 3900, μ_p = 1900 cm²/V·s.

@@ -3,6 +3,8 @@
 
 **Plan:** elemental vs compound semiconductors (Si, Ge, GaAs); crystal structures, Miller indices and bonding mechanisms. This page follows the issued Lecture 2 notes in their own order, then goes to the depth the examination needs.
 
+> **How to read this page.** Read it in order: each section builds on the one before. The tables and boxed equations are the parts to memorise; the paragraphs around them explain why they are true. The key points at the end summarise the week, and the solved revision and exam questions show how to write the answers.
+
 ## Introduction
 
 Semiconductor materials are the foundation of modern electronic and electrical systems. Almost every modern electronic device depends on them, including computers, mobile phones, solar cells, sensors, communication systems, power converters and control systems.
@@ -388,6 +390,16 @@ For Si, d₁₁₁ = 5.43/√3 = 3.135 Å and d₁₀₀ = 5.43 Å. In cubic cry
 
 Defects act as **scattering centres** (lower mobility), **recombination–generation centres** (shorter lifetime, more leakage), **traps** (charge storage and noise) and **diffusion paths**. Not all impurities are unwanted: deliberate dopants are substitutional point defects.
 
+## Key points of Week 1
+
+- A semiconductor's conductivity lies between a conductor's and an insulator's and can be **controlled**, above all by doping.
+- Conductors: bands overlap, conductivity falls when hot. Insulators: gap > 4 eV. Semiconductors: gap ≈ 1 eV, conductivity rises when hot.
+- Si and Ge have 4 valence electrons and form 4 covalent bonds (diamond cubic). GaAs averages 4 per atom (zinc blende).
+- Breaking a bond (energy ≥ E_g) makes an electron–hole pair; both carry current. Intrinsic: n = p = n_i.
+- Pentavalent donors (P, As, Sb) → n-type, electrons majority. Trivalent acceptors (B, Al, Ga, In) → p-type, holes majority. np = n_i².
+- E_g = E_C − E_V sets conductivity, leakage, light emission (λ = 1.24/E_g μm) and maximum temperature. Direct gap (GaAs) emits light; indirect (Si) does not.
+- Miller indices: intercepts → reciprocals → smallest integers → (h k l); ∞ gives 0. d = a/√(h² + k² + l²).
+
 ---
 
 ## Lecture revision questions solved
@@ -540,10 +552,10 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 
 **Optoelectronic devices.**
 
-5. **Emission wavelength:** an LED or laser emits at λ = hc/E_g, i.e. λ(μm) = 1.24/E_g(eV). Designers choose or alloy materials for the colour: GaAs 0.87 μm (infrared), GaP green-yellow, GaN 365 nm (blue/UV with InGaN), InGaAsP 1.3–1.55 μm for optical fibres.
-6. **Absorption and detection:** only photons with hν ≥ E_g are absorbed. Si detects up to 1.1 μm; Ge and InGaAs are used for longer wavelengths.
-7. **Solar cells:** the band gap sets the trade-off between absorbing more of the spectrum and the voltage obtained; the optimum single-junction gap is about 1.1–1.4 eV (Si, GaAs).
-8. **Direct or indirect:** only direct-gap materials emit light efficiently.
+1. **Emission wavelength:** an LED or laser emits at λ = hc/E_g, i.e. λ(μm) = 1.24/E_g(eV). Designers choose or alloy materials for the colour: GaAs 0.87 μm (infrared), GaP green-yellow, GaN 365 nm (blue/UV with InGaN), InGaAsP 1.3–1.55 μm for optical fibres.
+2. **Absorption and detection:** only photons with hν ≥ E_g are absorbed. Si detects up to 1.1 μm; Ge and InGaAs are used for longer wavelengths.
+3. **Solar cells:** the band gap sets the trade-off between absorbing more of the spectrum and the voltage obtained; the optimum single-junction gap is about 1.1–1.4 eV (Si, GaAs).
+4. **Direct or indirect:** only direct-gap materials emit light efficiently.
 
 ---
 

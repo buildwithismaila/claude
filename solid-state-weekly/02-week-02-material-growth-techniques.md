@@ -3,157 +3,190 @@
 
 **Plan:** purification of silicon (metallurgical to electronic grade); the Czochralski bulk crystal growth method; epitaxial growth techniques (VPE, LPE, MBE).
 
-A device needs silicon with fewer than about one unwanted impurity atom per billion, grown as a single perfect crystal, and then thin layers of different doping or composition grown on top of it. This week covers all three steps.
+## The big picture
+
+To make a chip you need three things, in this order:
+
+1. **Extremely pure silicon.** A device stops working if more than about one atom in a billion is an unwanted impurity. Sand is nowhere near that pure.
+2. **One single crystal.** The atoms must be lined up perfectly across the whole wafer (Week 1). Polycrystalline silicon, with grains pointing in different directions, scatters carriers and leaks current.
+3. **Thin layers on top**, with different doping or even a different material, grown so that they continue the crystal perfectly.
+
+This week covers each step: **purification** (sand → pure polysilicon), **crystal growth** (polysilicon → one big crystal, by the Czochralski method), and **epitaxy** (growing thin crystalline layers on top).
 
 ## Part A: Purification of silicon
 
-## The route from sand to wafer
+The whole route, from sand to wafer:
 
-    Quartzite (SiO₂) → MG-Si (98 %) → SiHCl₃ → purified SiHCl₃ → EG-Si polysilicon → single-crystal ingot → wafers
+    quartzite (SiO₂) → metallurgical-grade Si (98 %) → trichlorosilane SiHCl₃ → purified SiHCl₃ → electronic-grade polysilicon → single crystal → wafers
 
 | Stage | Product | Purity |
 |---|---|---|
-| Carbothermic reduction in an arc furnace | Metallurgical-grade Si (MG-Si) | ≈ 98–99 % |
-| Hydrochlorination, distillation, Siemens CVD | Electronic-grade polysilicon (EG-Si) | 99.9999999 % (9N) or better; impurities at ppb level |
-| Czochralski or float-zone growth | Single-crystal, doped ingot | Dopant set deliberately |
+| Arc furnace (reduction with carbon) | Metallurgical-grade Si (MG-Si) | About 98–99 % |
+| Chlorination, distillation, Siemens CVD | Electronic-grade polysilicon (EG-Si) | 99.9999999 % ("nine nines", 9N) or better |
+| Czochralski or float-zone growth | Single-crystal ingot, doped as required | Dopant added deliberately |
 
-## Stage 1: metallurgical-grade silicon
+### Step 1: making metallurgical-grade silicon (MG-Si)
 
-Quartzite (fairly pure SiO₂) is mixed with carbon (coal, coke, wood chips) and heated to about **2000 °C** in a submerged-electrode arc furnace:
+Quartzite, a fairly pure form of SiO₂ (sand, quartz), is mixed with carbon (coal, coke, wood chips) and heated to about **2000 °C** in an electric arc furnace. Carbon pulls the oxygen off the silicon:
 
     SiO₂ + 2C → Si + 2CO
 
-Molten silicon is tapped from the furnace. MG-Si is about 98 % pure; the main impurities are Fe, Al, Ca, C, B and P. It is fine for steel and aluminium alloys and silicones, but far too impure for devices (it would contain about 10²⁰ cm⁻³ of unwanted impurities).
+Molten silicon is drained from the furnace. This **MG-Si** is about 98 % pure. The 2 % of impurities (Fe, Al, Ca, C, B, P) is still about 10²⁰ impurity atoms per cm³, a hundred million times too many for devices. MG-Si is good enough for making steel and aluminium alloys, but not chips.
 
-## Stage 2: conversion to trichlorosilane
+### Step 2: turning silicon into a liquid that can be purified
 
-MG-Si is ground and reacted with dry hydrogen chloride in a fluidised-bed reactor at about **300 °C**:
+Solids are hard to purify; liquids are easy to purify by distillation. So the next step is to convert silicon into a liquid compound. MG-Si powder is reacted with hydrogen chloride gas at about **300 °C**:
 
     Si + 3HCl → SiHCl₃ + H₂
 
-Trichlorosilane (TCS) is a liquid that boils at 32 °C. The impurities form their own chlorides (FeCl₃, AlCl₃, BCl₃, PCl₃) with different boiling points.
+The product, **trichlorosilane (SiHCl₃)**, is a liquid that boils at only 32 °C. The impurities also react with HCl and form their own chlorides (FeCl₃, BCl₃, PCl₃ and so on), which boil at different temperatures.
 
-## Stage 3: fractional distillation
+### Step 3: fractional distillation
 
-The liquid SiHCl₃ is purified by repeated **fractional distillation**, which separates it from the impurity chlorides because of the boiling-point differences. Because distillation of a liquid is very effective, the TCS reaches impurity levels in the parts-per-billion range.
+The trichlorosilane is purified by **fractional distillation**, the same process used to separate petrol from crude oil. Because SiHCl₃ and each impurity chloride boil at different temperatures, repeated distillation leaves SiHCl₃ with impurities at only a few **parts per billion**.
 
-## Stage 4: Siemens process (CVD of polysilicon)
+### Step 4: Siemens process (back to solid silicon)
 
-Purified TCS and hydrogen are fed into a bell-jar reactor containing thin, high-purity silicon rods heated electrically to about **1100 °C**. Silicon deposits on the rods by chemical vapour deposition:
+The pure SiHCl₃ is now turned back into silicon. It is mixed with pure hydrogen and passed over thin silicon rods heated electrically to about **1100 °C** inside a reactor. Silicon deposits on the hot rods (chemical vapour deposition, CVD):
 
     SiHCl₃ + H₂ → Si + 3HCl
 
-The rods grow over many hours into thick bars of **electronic-grade polycrystalline silicon** (EG-Si), purity 9N to 11N. The by-products are recycled. EG-Si is still polycrystalline and undoped; the next step turns it into one crystal with the right doping.
+Over many hours the rods grow into thick bars of **electronic-grade polycrystalline silicon (EG-Si)**, 9N to 11N pure. The HCl is recycled.
 
-## Stage 5: single-crystal growth
+EG-Si is pure but still **polycrystalline** (many small grains) and undoped. The next step turns it into a single crystal and adds the doping.
 
-The polysilicon is melted and regrown as a single crystal by the **Czochralski (CZ)** method (most wafers) or the **float-zone (FZ)** method (very high resistivity). The ingot is then ground to diameter, given an orientation flat or notch, sliced into wafers with a wire saw, lapped, etched and chemically-mechanically polished.
+> **In plain words.** Steps 2–4 are a round trip: solid silicon → liquid compound → solid silicon. The trip is worth it because the liquid can be distilled, and distillation removes almost all the impurities.
 
-## Part B: Czochralski bulk crystal growth
+## Part B: Czochralski (CZ) crystal growth
 
-## The Czochralski method
+### The principle
 
-@fig figures/cz.svg | Czochralski puller. The seed is dipped into the melt and slowly withdrawn while seed and crucible rotate in opposite directions; the melt freezes onto the seed with the seed's orientation.
+Dip a small **seed crystal** into molten silicon and pull it out very slowly. Silicon from the melt freezes onto the seed, and as each atom freezes it lines up with the atoms already there. So the growing piece continues the seed's crystal, and you end up with one large single crystal (an **ingot**) with the same orientation as the seed.
 
-**Principle.** A single-crystal **seed** of the desired orientation is dipped into molten silicon held just above its melting point (1414 °C). As the seed is slowly pulled up, the melt in contact with it cools and solidifies, and the atoms arrange themselves to continue the seed's lattice. The ingot therefore grows as one crystal with the seed's orientation.
+It is like pulling a candle out of hot wax, except that each new layer copies the arrangement of the layer before it.
 
-**Equipment.** A fused-silica (quartz, SiO₂) crucible inside a graphite susceptor, heated by RF induction or resistance heaters; a seed holder on a rotating pull rod; a chamber filled with argon at reduced pressure; diameter control by optical sensing.
+@fig figures/cz.svg | The Czochralski puller. The seed is dipped into the melt and slowly withdrawn while seed and crucible rotate in opposite directions; the melt freezes onto the seed with the seed's orientation.
 
-**Operation.**
+### The equipment
 
-1. Load EG-Si chunks and the dopant (B for p-type; P, As or Sb for n-type, often as a heavily doped Si alloy) into the crucible.
-2. Evacuate and backfill with argon. Melt the charge at about 1420 °C.
-3. Lower the seed until it just touches the melt and let it reach thermal equilibrium.
-4. **Necking (Dash technique):** pull fast to grow a thin neck about 3 mm in diameter. Dislocations from the thermal shock of dipping run out of the side of the neck, so the crystal becomes dislocation-free.
-5. **Shoulder and body:** reduce the pull rate to widen the crystal to full diameter, then grow the main body at constant diameter. Typical pull rate about 1 mm/min (a few mm/min for small diameters). Seed and crucible rotate in opposite directions (about 10–30 rpm) to mix the melt and keep the temperature and doping uniform.
-6. **Tail:** increase the pull rate to narrow the diameter to a cone before separating from the melt, to avoid thermal shock dislocations running back up the crystal.
-7. Cool slowly. Ingots up to 300 mm (12 inch) diameter and about 2 m long are routine.
+- A **quartz (SiO₂) crucible** holding the molten silicon, inside a graphite holder.
+- **Heaters** (RF induction or resistance) keeping the melt just above silicon's melting point, **1414 °C**.
+- A **pull rod** holding the seed, which rotates and rises slowly.
+- A chamber filled with **argon** gas, so the hot silicon does not react with air.
+- Sensors and control electronics to keep the diameter constant.
 
-The diameter is controlled by the **pull rate** and the **melt temperature**: pulling faster or making the melt hotter gives a thinner crystal.
+### The steps
 
-### Dopant segregation
+1. **Load.** Chunks of EG-Si and a carefully weighed amount of dopant (boron for p-type; phosphorus, arsenic or antimony for n-type) go into the crucible.
+2. **Melt.** The chamber is filled with argon and the charge is melted at about 1420 °C.
+3. **Dip.** The seed (cut to the wanted orientation, e.g. ⟨100⟩) is lowered until it just touches the melt.
+4. **Neck (Dash technique).** The seed is pulled up quickly, growing a thin neck about 3 mm across. Dipping a cold seed into hot liquid creates crystal defects (dislocations); in a thin neck they run out of the sides and disappear, so the crystal below is dislocation-free.
+5. **Shoulder and body.** The pull rate is reduced so the crystal widens to the full diameter (up to 300 mm). It is then pulled at about **1 mm per minute** while the seed and crucible rotate in **opposite directions** (10–30 rpm) to stir the melt and keep temperature and doping even.
+6. **Tail.** At the end the pull rate is increased so the diameter narrows to a cone before the crystal leaves the melt. A sudden break would send defects back up the crystal.
+7. **Cool** slowly. A typical ingot is 300 mm wide and up to 2 m long.
 
-Impurities prefer the liquid. The **equilibrium segregation coefficient** is
+**Controlling the diameter:** pulling faster, or making the melt hotter, gives a thinner crystal; pulling slower or cooler gives a thicker one.
+
+After growth the ingot is ground to an exact diameter, marked with a flat or notch to show its orientation, sliced into wafers with a wire saw, then lapped, etched and polished to a mirror finish.
+
+### Dopant segregation: why the doping changes along the ingot
+
+When silicon freezes, impurity atoms "prefer" to stay in the liquid. The **segregation coefficient** measures this:
 
     k₀ = C_s / C_l
 
-where C_s and C_l are the concentrations in the solid and in the liquid at the interface. Most dopants have k₀ < 1:
+C_s is the concentration in the solid and C_l in the liquid where they meet. For most dopants k₀ < 1: the crystal takes in less dopant than the melt contains.
 
 | Impurity | B | P | As | Sb | Al | Ga | O | Fe |
 |---|---|---|---|---|---|---|---|---|
 | k₀ in Si | 0.8 | 0.35 | 0.3 | 0.023 | 0.002 | 0.008 | 0.25 | 8×10⁻⁶ |
 
-As the crystal grows, rejected impurity accumulates in the shrinking melt, so the doping rises along the ingot. If C₀ is the initial melt concentration and f the fraction already solidified:
+**Consequence.** The dopant left behind builds up in the shrinking pool of melt. So the end of the ingot that grows last is more heavily doped than the start. If C₀ is the starting melt concentration and f the fraction already frozen,
 
     C_s = k₀ C₀ (1 − f)^{k₀ − 1}
 
-**Example.** To get boron at 1×10¹⁶ cm⁻³ in the first part of the crystal, the melt needs C₀ = C_s/k₀ = 1×10¹⁶/0.8 = 1.25×10¹⁶ cm⁻³. Half-way along (f = 0.5), C_s = 0.8 × 1.25×10¹⁶ × (0.5)^{−0.2} = 1.15×10¹⁶ cm⁻³, about 15 % higher. For P (k₀ = 0.35) the variation is much larger.
+**Example.** To get boron at 1×10¹⁶ cm⁻³ at the start: C₀ = C_s/k₀ = 1×10¹⁶/0.8 = 1.25×10¹⁶ cm⁻³. Half-way along (f = 0.5): C_s = 0.8 × 1.25×10¹⁶ × 0.5^{−0.2} = 1.15×10¹⁶ cm⁻³, about 15 % higher.
 
-The same physics makes crystal growth a purification step: metals like Fe, with k₀ ≈ 10⁻⁵, are left behind in the melt.
+The same effect also **purifies**: iron (k₀ ≈ 10⁻⁵) is almost entirely rejected into the melt.
 
-### Float-zone (FZ) comparison
+### Float-zone (FZ) growth, for comparison
 
-In FZ growth a polysilicon rod is held vertically and a narrow molten zone, produced by an RF coil, is moved along it from a seed. No crucible touches the melt, so oxygen and carbon contamination are very low and resistivity up to about 10⁴ Ω·cm is possible. FZ wafers are used for power devices and detectors, but diameters are limited (≤ 200 mm) and the process is more expensive.
+A polysilicon rod is held vertically and a narrow molten zone, heated by an RF coil, is moved slowly along it, starting from a seed. **No crucible** touches the molten silicon, so there is almost no oxygen or carbon contamination, and very pure, high-resistivity silicon (up to 10⁴ Ω·cm) can be made. FZ is used for power devices and radiation detectors, but wafers are smaller (≤ 200 mm) and more expensive.
 
-## Part C: Epitaxial growth techniques
+## Part C: Epitaxial growth
 
-## Why epitaxy is needed
+### What epitaxy is and why we need it
 
-Bulk growth gives one uniformly doped crystal. Devices need thin layers of **different doping or composition** on top of each other, with sharp interfaces:
+**Epitaxy** (Greek *epi*, "upon", and *taxis*, "arrangement") is the growth of a thin single-crystal layer on a single-crystal wafer (the **substrate**), so that the new layer continues the substrate's crystal structure and orientation.
 
-- A lightly doped layer on a heavily doped substrate (bipolar transistors, power diodes, CMOS latch-up prevention).
-- Layers of a different material: AlGaAs on GaAs, InGaAs on InP, GaN on sapphire (heterostructures, quantum wells, lasers, HEMTs).
-- Layers with fewer defects and less oxygen than CZ substrates.
+Why not just make everything in the bulk crystal? Because devices need **thin layers with different properties stacked on each other**, with sharp boundaries:
 
-**Homoepitaxy:** layer and substrate are the same material (Si on Si). **Heteroepitaxy:** different materials (GaAs on Si, AlGaAs on GaAs). In heteroepitaxy the **lattice mismatch** f = (a_layer − a_sub)/a_sub must be small, otherwise misfit dislocations form above a critical thickness.
+- a lightly doped layer on a heavily doped substrate (bipolar transistors, power diodes);
+- a layer of a different material, such as AlGaAs on GaAs or InGaAs on InP (lasers, LEDs, high-speed transistors);
+- a layer cleaner than the CZ substrate (less oxygen, fewer defects).
 
-## Vapour-phase epitaxy (VPE)
+**Homoepitaxy:** same material (Si on Si). **Heteroepitaxy:** different materials (GaAs on Si, AlGaAs on GaAs). In heteroepitaxy the two **lattice constants** must be nearly equal (Week 1); otherwise the mismatch creates defects.
 
-Also called **chemical vapour deposition (CVD) epitaxy**. The workhorse for silicon.
+@fig figures/epitaxy.svg | The three methods side by side: gas reacting on a hot surface (VPE), a cooling saturated melt (LPE), and atomic beams in ultra-high vacuum (MBE).
 
-**Principle.** Gaseous compounds containing the semiconductor flow over a heated substrate. They decompose or react at the surface, depositing atoms which migrate to lattice sites and continue the crystal.
+### Vapour-phase epitaxy (VPE), also called CVD epitaxy
 
-**Silicon chemistries** (from the hydrogen reduction of chlorosilanes or pyrolysis of silane):
+**Principle.** Gases containing silicon flow over a heated wafer. At the hot surface they react or break down, leaving silicon atoms behind. The atoms move about on the surface until they find the right place in the crystal, so the layer grows as a continuation of the wafer.
 
-    SiCl₄ + 2H₂ → Si + 4HCl          (≈ 1150–1250 °C)
-    SiH₂Cl₂ → Si + 2HCl              (≈ 1000–1100 °C)
-    SiH₄ → Si + 2H₂                  (≈ 600–1000 °C)
+For silicon, the common reactions are:
 
-The HCl by-product etches silicon, so the reaction is reversible; too much SiCl₄ causes etching instead of growth. Dopant gases are added: **B₂H₆** (diborane) for p-type, **PH₃** (phosphine) or **AsH₃** (arsine) for n-type.
+    SiCl₄ + 2H₂ → Si + 4HCl      (≈ 1150–1250 °C)
+    SiH₂Cl₂ → Si + 2HCl          (≈ 1000–1100 °C)
+    SiH₄ → Si + 2H₂              (≈ 600–1000 °C)
 
-**Growth regimes.** Two steps in series: transport of reactant through the gas boundary layer (mass-transport limited, weakly temperature dependent, at high T) and the surface reaction (reaction-rate limited, strongly temperature dependent, at low T). Production reactors usually run mass-transport limited for good uniformity.
+Doping is done by adding a little dopant gas: **B₂H₆** (diborane) for p-type, **PH₃** (phosphine) or **AsH₃** (arsine) for n-type.
 
-**For compound semiconductors:** chloride and hydride VPE, and **metal-organic CVD (MOCVD/MOVPE)**: (CH₃)₃Ga + AsH₃ → GaAs + 3CH₄ at about 600–750 °C. MOCVD is used for most commercial LEDs and lasers.
+The growth rate is limited by one of two steps: how fast gas can reach the surface (**mass-transport limited**, at high temperature) or how fast the reaction happens on the surface (**reaction-rate limited**, at lower temperature).
 
-**Typical figures:** growth rate 0.1–5 μm/min, thickness control about ±5 %, high throughput (many wafers per batch).
+For compound semiconductors the metal-organic version, **MOCVD**, is used: (CH₃)₃Ga + AsH₃ → GaAs + 3CH₄ at about 600–750 °C. Nearly all commercial LEDs are made this way.
 
-**Problems:** **autodoping** (dopant evaporating from the substrate re-enters the layer) and **out-diffusion** from the heavily doped substrate at high temperature both blur the interface.
+- Growth rate 0.1–5 μm/min; good uniformity; many wafers at once: the industrial workhorse.
+- Problems: dopant from the substrate can evaporate and re-enter the layer (**autodoping**), and at high temperature dopant diffuses up from the substrate (**out-diffusion**), blurring the boundary.
 
-## Liquid-phase epitaxy (LPE)
+### Liquid-phase epitaxy (LPE)
 
-**Principle.** The substrate is brought into contact with a melt (solution) of the semiconductor dissolved in a solvent metal, saturated at a set temperature. The melt is then cooled slowly. As the solubility falls, the solution becomes supersaturated and the excess semiconductor crystallises onto the substrate, continuing its lattice.
+**Principle.** Dissolve the semiconductor in a molten metal until no more will dissolve (a **saturated solution**), like sugar in hot water. Bring the wafer into contact with it and cool slowly. As the liquid cools it can hold less, so the extra semiconductor comes out of solution and crystallises onto the wafer, continuing its crystal.
 
-**Example:** GaAs dissolved in molten Ga, growth at about **700–900 °C** while cooling at about 0.1–1 °C/min. AlGaAs layers are grown by adding Al to the melt.
+**Example:** GaAs dissolved in molten gallium, at about **700–900 °C**, cooled at 0.1–1 °C per minute. A **sliding graphite boat** with several wells of different melts moves the wafer from one melt to the next to build up layers.
 
-**Apparatus:** the **sliding-boat** (graphite boat with several wells holding different melts; the substrate slides under each in turn to grow a multilayer structure), or tipping and dipping systems.
+- Growth happens close to equilibrium, so crystal quality is excellent and defects few; the equipment is simple and cheap.
+- But thickness control is poor (about 0.1 μm at best), boundaries are not sharp, surfaces are rough, and the area is small.
+- Used for LEDs and the first heterostructure lasers.
 
-**Features:** growth is close to thermodynamic equilibrium, so crystal quality is excellent and deep-level defect density is low; equipment is simple and cheap; growth rates are high (0.1–1 μm/min). But thickness control is poor (about 0.1 μm at best), interfaces are not abrupt, surface morphology is rough, the area is small, and some alloys cannot be grown. Historically used for the first double-heterostructure lasers and for LEDs; still used for some LEDs and thick layers.
+### Molecular-beam epitaxy (MBE)
 
-## Molecular-beam epitaxy (MBE)
+**Principle.** In an **ultra-high vacuum** (about 10⁻¹⁰ Torr, roughly a ten-trillionth of atmospheric pressure), each element (Ga, As, Al, dopants) is heated in its own small oven (**effusion cell**). Atoms evaporate and travel in straight lines, as a beam, to the heated wafer, because there is no air to collide with. They land, move around, and join the crystal. Each oven has a **shutter** that can open or close in a fraction of a second, switching that element on or off.
 
-**Principle.** In **ultra-high vacuum** (about 10⁻¹⁰–10⁻¹¹ Torr), beams of atoms or molecules evaporated from heated **effusion (Knudsen) cells** travel in straight lines (the mean free path is far longer than the chamber) and strike a heated substrate. They adsorb, migrate on the surface and incorporate into the lattice. Growth is controlled by opening and closing **mechanical shutters** in front of each cell, which switches a beam in a fraction of a second.
+**Example:** GaAs from Ga and As cells, wafer at about 550–650 °C.
 
-**Example:** GaAs from Ga and As₄ cells with the substrate at about **550–650 °C**. Dopants: Si (n-type) and Be (p-type) cells.
+- Growth is slow, about **1 μm per hour**, which is about **one atomic layer per second**. So layers can be controlled to **a single atomic layer**.
+- Boundaries are atomically sharp. Ideal for quantum wells, superlattices, high-electron-mobility transistors (HEMTs) and advanced lasers.
+- Growth can be watched while it happens by **RHEED** (electron diffraction), which counts the atomic layers.
+- Very expensive equipment, slow, low throughput.
 
-**Features:**
+### Comparing the three at a glance
 
-- Growth rate about **1 μm/h**, i.e. about **one monolayer per second**, so layer thickness is controlled to a **single atomic layer**.
-- **Abrupt interfaces** and arbitrary composition and doping profiles: quantum wells, superlattices, modulation-doped HEMTs, quantum-cascade lasers.
-- **Low growth temperature** minimises interdiffusion and autodoping.
-- **In-situ monitoring**: **RHEED** (reflection high-energy electron diffraction) oscillations count monolayers as they grow; mass spectrometers check beams.
-- Disadvantages: very expensive UHV equipment, slow growth, low throughput, difficult with high-vapour-pressure elements like P, and needs long bake-outs.
+| | VPE (CVD) | LPE | MBE |
+|---|---|---|---|
+| Atoms arrive from | A gas, by chemical reaction | A liquid solution, by precipitation | A beam of atoms, in vacuum |
+| Temperature | Highest (Si: 1000–1250 °C) | Medium (700–900 °C) | Lowest (500–650 °C) |
+| Thickness control | Good (tens of nm) | Poor (~0.1 μm) | Excellent (one atomic layer) |
+| Speed | Fast | Fast | Slow |
+| Cost | Moderate | Low | Very high |
+| Best for | Mass production (Si epi, LEDs by MOCVD) | Simple, thick, high-quality layers | Atomic-scale research and advanced devices |
 
-@fig figures/epitaxy.svg | The three methods side by side: gas reacting at a hot surface (VPE), a cooling saturated melt (LPE), and atomic beams in ultra-high vacuum (MBE).
+## Key points of Week 2
+
+- MG-Si (98 %) is made from quartz and carbon in an arc furnace: SiO₂ + 2C → Si + 2CO.
+- It is purified by converting it to liquid SiHCl₃, distilling, then depositing EG-Si by the Siemens process: SiHCl₃ + H₂ → Si + 3HCl.
+- CZ growth: a seed is pulled slowly from the melt, rotating; the crystal copies the seed. Dash necking removes dislocations.
+- CZ gives large, cheap, dislocation-free crystals, but oxygen from the crucible and segregation (k₀ < 1) are its limitations.
+- Epitaxy grows thin crystalline layers on a wafer: VPE from gas (production), LPE from a cooling melt (simple), MBE from atomic beams in vacuum (atomic precision).
 
 ---
 

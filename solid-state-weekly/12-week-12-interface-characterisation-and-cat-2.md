@@ -3,70 +3,125 @@
 
 **Plan:** methods of characterisation (capacitance–voltage C-V profiling, current–voltage I-V analysis); Continuous Assessment Test 2.
 
+## The big picture
+
+After a device is made, how do you know what is inside it? You cannot see the doping or the barrier height. But you can **measure electrically** and compare the results with the theory of Weeks 10–11. Two measurements do most of the work:
+
+- **I-V (current against voltage)** tells you **how current flows**: the saturation current, how ideal the junction is, the series resistance, leakage and breakdown, and for a Schottky diode the barrier height.
+- **C-V (capacitance against voltage)** tells you **how charge is arranged**: the doping concentration (and how it changes with depth) and the built-in potential.
+
+The trick in both cases is to plot the data so that the theory predicts a **straight line**, then read the answers from the slope and the intercept.
+
 ## I-V characterisation
 
-**Set-up.** A source-measure unit (SMU) or semiconductor parameter analyser applies a stepped voltage and measures current (pA to A), usually on a probe station, often at several temperatures.
+### The measurement
 
-**What is extracted from a diode:**
+A **source-measure unit** (or a power supply with a series resistor and two meters) applies a voltage to the device in steps, from reverse to forward bias, and records the current at each step. Currents from picoamps to amps may need measuring, often on a probe station, sometimes at several temperatures.
 
-Plot ln I against V (semi-log). For the ideal or near-ideal diode
+### Turning the curve into a straight line
 
-    I = I_s [ exp(qV/ηkT) − 1 ]  ⇒  ln I ≈ ln I_s + qV/(ηkT)
+For a real diode,
 
-- **Saturation current I_s:** the intercept at V = 0 of the straight-line region.
-- **Ideality factor η:** from the slope, η = (q/kT) / (d ln I/dV). η ≈ 1 means diffusion current; η ≈ 2 means depletion-region recombination dominates.
-- **Series resistance R_s:** from the bending at high current, where V = V_j + IR_s.
-- **Reverse leakage and breakdown voltage V_BR** from the reverse characteristic.
-- **Schottky barrier height** from I_s: Φ_B = (kT/q) ln(A∗∗T²/J_s). With temperature-dependent data, an **Arrhenius plot** of ln(J_s/T²) versus 1/T has slope −qΦ_B/k.
-- **Ohmic contact check:** the I-V of two contacts should be linear and symmetric. Contact resistance is extracted by the transmission-line method (TLM).
+    I = I_s ( e^{qV/ηkT} − 1 )
 
-**Other I-V tests:** MOSFET output (I_D–V_DS) and transfer (I_D–V_GS) curves give threshold voltage, transconductance and mobility; BJT Gummel plots give current gain; four-point probe gives sheet resistance; Hall measurements give carrier type, density and mobility.
+where η (the **ideality factor**) is 1 for a perfect diffusion-current diode and up to 2 when recombination in the depletion region dominates. Above about 0.1 V the −1 is negligible, so take the natural log:
+
+    ln I = ln I_s + (q/ηkT) V
+
+That is a straight line if you plot **ln I against V** (a semi-log plot):
+
+- the **intercept** at V = 0 gives **ln I_s**, so the saturation current I_s;
+- the **slope** is q/(ηkT), so **η = (q/kT) / slope**.
+
+**Example.** The current rises from 0.9 μA at 0.30 V to 40 μA at 0.40 V.
+
+    slope = ln(40/0.9)/0.10 = 3.79/0.10 = 37.9 per volt
+    η = 1/(0.0259 × 37.9) = 1.02
+    I_s = 0.9 μA / e^{37.9 × 0.30} ≈ 1×10⁻¹¹ A
+
+### What else the I-V curve shows
+
+- **Series resistance R_s:** at high current the curve bends away from the straight line, because part of the voltage is dropped across the resistance of the bulk and contacts: V = V_junction + IR_s. R_s = (extra voltage)/I.
+- **Reverse leakage and breakdown voltage** from the reverse branch.
+- **Schottky barrier height** from I_s: Φ_B = (kT/q) ln(A∗∗AT²/I_s), where A is the diode area. Measuring at several temperatures and plotting ln(I_s/T²) against 1/T (an **Arrhenius plot**) gives a straight line of slope −qΦ_B/k.
+- **Ohmic contacts:** the I-V between two contacts should be a straight line through the origin, the same in both directions.
+
+Transistors are characterised the same way: MOSFET I_D–V_GS curves give the threshold voltage and mobility (Week 14, Practical 4), and BJT curves give the current gain.
 
 ## C-V characterisation
 
-**Set-up.** A small AC voltage (10–50 mV, 10 kHz – 1 MHz) is superimposed on a DC bias V, and an LCR meter measures the small-signal capacitance C = dQ/dV as the DC bias is swept, usually in reverse.
+### The measurement
 
-**Theory.** A reverse-biased junction (p⁺n or Schottky) behaves as a parallel-plate capacitor whose plate separation is the depletion width:
+An **LCR meter** applies a small AC voltage (10–50 mV, typically at 1 MHz) on top of a DC bias, and measures the capacitance. The DC bias is stepped through a range of **reverse** voltages.
 
-    C = ε_s A / W,     W = √( 2ε_s (V_bi − V) / qN )
+### The theory: a capacitor whose plates move
 
-so
+A reverse-biased one-sided junction (p⁺n) or Schottky diode has a depletion region with no mobile carriers, between two conducting regions. It is a **parallel-plate capacitor** whose plate separation is the depletion width W:
 
-    C = A √( qε_s N / 2(V_bi − V) )
+    C = ε_s A / W
 
-Squaring and inverting:
+From Week 10, W = √(2ε_s(V_bi − V)/qN), where N is the doping on the lightly doped side. **As the reverse voltage increases, W gets bigger and C gets smaller.** Substituting:
 
-    1/C² = 2(V_bi − V) / (q ε_s N A²)
+    C = A √( qε_sN / 2(V_bi − V) )
 
-For uniform doping, **1/C² is a straight line against V**:
+### Turning it into a straight line: the Mott–Schottky plot
 
-- **Slope:** d(1/C²)/dV = −2/(qε_s N A²), so
+Square both sides and turn upside down:
 
-    N = 2 / ( q ε_s A² · |d(1/C²)/dV| )
+    1/C² = 2(V_bi − V) / (qε_sNA²)
 
-- **Intercept on the voltage axis** (1/C² = 0) gives V = V_bi. For a Schottky diode, Φ_B = V_bi + (kT/q) ln(N_c/N_D) + kT/q.
+So if you plot **1/C² against V**, uniform doping gives a **straight line**:
 
-@fig figures/cv.svg | Mott–Schottky plot. For uniform doping 1/C² falls on a straight line; the slope gives the doping, the voltage-axis intercept gives the built-in potential.
+- **Slope** = −2/(qε_sNA²). Therefore
 
-**Non-uniform doping: profiling.** If N varies with depth, the local slope gives the doping at the edge of the depletion region, and the capacitance gives where that edge is:
+    N = 2 / ( qε_s A² × |slope| )
 
-    N(W) = 2 / ( q ε_s A² · d(1/C²)/dV ) = −C³ / ( q ε_s A² · dC/dV ),     W = ε_s A / C
+- **Intercept** on the voltage axis (where 1/C² = 0) is at V = V_bi: the **built-in potential**.
 
-Sweeping the reverse bias moves W deeper and maps out the **doping profile** N(x). This works for one-sided junctions (p⁺n, n⁺p) or Schottky diodes, where the depletion region lies in one side only.
+@fig figures/cv.svg | Mott–Schottky plot. For uniform doping the points fall on a straight line; the slope gives the doping and the voltage-axis intercept gives V_bi.
 
-**Worked example.** A Si Schottky diode of area A = 1×10⁻³ cm² gives a straight 1/C² plot with slope −1.2×10²¹ F⁻²V⁻¹ and voltage intercept 0.60 V. Then:
+> **In plain words.** Reverse bias pushes the edge of the depletion region deeper into the semiconductor. How much extra charge is uncovered as the edge moves tells you how many dopant atoms are there. The capacitance measures exactly that.
+
+### Worked example
+
+A Si Schottky diode of area A = 1×10⁻³ cm² gives a straight 1/C² plot with slope −1.2×10²¹ F⁻²V⁻¹ and voltage intercept 0.60 V.
 
     N_D = 2 / (1.602×10⁻¹⁹ × 1.036×10⁻¹² × (10⁻³)² × 1.2×10²¹)
-        = 2 / (1.99×10⁻¹⁶) = 1.0×10¹⁶ cm⁻³
+        = 2 / 1.99×10⁻¹⁶ = 1.0×10¹⁶ cm⁻³
 
     V_bi = 0.60 V
 
-    At V = −5 V:  C = A√(qε_sN_D/2(V_bi − V)) = 10⁻³ √(1.66×10⁻¹⁵/11.2) = 12.2 pF
-                  W = ε_sA/C = 1.036×10⁻¹⁵/12.2×10⁻¹² = 0.85 μm
+    At V = −5 V:  C = A√(qε_sN_D / 2(V_bi − V)) = 10⁻³ × √(1.66×10⁻¹⁵ / 11.2) = 12.2 pF
+                  W = ε_sA/C = 1.036×10⁻¹⁵ / 12.2×10⁻¹² = 0.85 μm
 
-**MOS C-V.** On a MOS capacitor, C-V curves (accumulation, depletion, inversion) give the oxide thickness (C_ox = ε_oxA/t_ox), flat-band and threshold voltages, substrate doping, fixed oxide charge, mobile ions (bias–temperature stress shifts) and interface-trap density D_it (from high- and low-frequency curves). This is the main tool for monitoring gate-oxide quality and stability.
+### Doping profiles
 
-**Precautions.** Use reverse bias (forward bias adds diffusion capacitance and conductance); subtract stray and pad capacitance; choose frequency so traps do not respond (or do, deliberately); include series resistance correction; keep the AC signal small; Debye-length limits resolution near abrupt doping steps.
+If the doping is **not** uniform, the 1/C² plot curves. The local slope at each bias still gives the doping at the edge of the depletion region, and the capacitance tells you where that edge is:
+
+    N(W) = 2 / ( qε_sA² × d(1/C²)/dV ),     W = ε_sA/C
+
+Sweeping the bias moves W deeper and maps out the **doping profile** N(x). This only works for one-sided junctions (p⁺n, n⁺p) or Schottky diodes, where the depletion region is all on one side.
+
+### MOS C-V
+
+For a MOS capacitor (Week 14), the C-V curve shows accumulation (C = C_ox), depletion (C falling) and inversion. It gives the oxide thickness (from C_ox = ε_oxA/t_ox), the flat-band and threshold voltages, the substrate doping, the charge trapped in the oxide, and the density of interface traps. It is the main tool for checking the quality and stability of gate oxides.
+
+### Getting accurate C-V results
+
+- Measure only in **reverse** bias (forward bias adds a large diffusion capacitance).
+- Subtract stray and probe-pad capacitance (an open-circuit correction).
+- Correct for series resistance.
+- Keep the AC signal small.
+- Choose the frequency so that deep traps do not respond (or so that they do, if you want to measure them).
+- Know the device area accurately: N depends on 1/A².
+
+## Key points of Week 12
+
+- I-V: plot ln I against V. Intercept → I_s; slope → η = (q/kT)/slope; bending at high current → R_s; Arrhenius plot → Φ_B.
+- C-V: a reverse-biased junction is a capacitor C = ε_sA/W, with W growing with reverse bias.
+- Mott–Schottky: 1/C² = 2(V_bi − V)/(qε_sNA²). Slope → N = 2/(qε_sA²|slope|); intercept → V_bi.
+- Non-uniform doping: local slope gives N at depth W = ε_sA/C.
+- MOS C-V gives t_ox, V_FB, V_T, substrate doping and oxide quality.
 
 ---
 

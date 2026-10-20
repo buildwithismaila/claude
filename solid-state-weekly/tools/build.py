@@ -174,6 +174,10 @@ h2.doctitle{
   font-family:"IBM Plex Sans Condensed",sans-serif; font-size:17px; font-weight:600;
   margin:28px 0 8px; color:var(--ink);
 }
+#doc h4{
+  font-family:"IBM Plex Sans Condensed",sans-serif; font-size:15.5px; font-weight:600;
+  margin:24px 0 8px; color:var(--copper); letter-spacing:.01em;
+}
 #doc p{margin:0 0 14px}
 #doc strong{font-weight:600}
 #doc ul,#doc ol{margin:0 0 16px; padding-left:22px}

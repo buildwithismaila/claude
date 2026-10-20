@@ -1,76 +1,277 @@
 # Week 5 — Carrier Statistics
 <!-- group: Module 2 · Energy Bands & Carrier Statistics -->
 
-**Plan:** the Fermi–Dirac distribution function; density of states; Fermi energy level calculation as a function of temperature and doping.
+**Plan:** the Fermi–Dirac distribution function; density of states; Fermi energy level calculation as a function of temperature and doping. This page follows the order of your lecturer's carrier-statistics note (sections 7–26) and adds the background those sections assume.
 
-To find how many electrons and holes there are, multiply **how many states exist** at each energy (density of states) by **the probability each is occupied** (Fermi–Dirac function), and integrate over the band:
+## The big picture
 
-    n = ∫ g_c(E) f(E) dE      (over the conduction band)
-    p = ∫ g_v(E) [1 − f(E)] dE   (over the valence band)
+**Carrier statistics** is the method for answering one question: **how many free electrons and holes does a piece of semiconductor contain?** Everything else in the course (conductivity, diodes, transistors) depends on that number.
 
-## The Fermi–Dirac distribution
+Think of the conduction band as a large theatre:
 
-Electrons obey the Pauli principle, so the probability that a state at energy E is occupied in thermal equilibrium is:
+- The **seats** are the allowed energy states. How many seats there are at each energy is the **density of states**.
+- Whether a seat is **occupied** is a matter of probability. The probability is given by the **Fermi–Dirac function**.
+- The number of electrons = (number of seats) × (probability each is filled), added up over all energies.
 
-    f(E) = 1 / ( 1 + exp((E − E_F)/kT) )
+    number of electrons = Σ (states available) × (probability occupied)
 
-- **E_F, the Fermi level**: the energy at which the occupation probability is exactly ½.
-- The probability that a state is **empty** (holds a hole) is 1 − f(E).
-- k = 8.617×10⁻⁵ eV/K; kT = 0.0259 eV at 300 K.
+The **Fermi level E_F** is the single number that sets those probabilities. Once you know where E_F sits in the band gap, you know n and p. That is why most of this week is about finding E_F.
 
-**At T = 0 K**, f(E) is a **step**: f = 1 for E < E_F, f = 0 for E > E_F. All states below E_F are filled, all above are empty.
+## 1. The Fermi–Dirac distribution function
 
-**At T > 0**, the step is rounded over a width of a few kT around E_F. Some electrons just below E_F move to states just above it. f(E_F) = ½ at every temperature.
+Electrons obey the **Pauli exclusion principle**: no two can occupy the same state. In thermal equilibrium, the probability that a state at energy E is occupied by an electron is:
 
-**Boltzmann approximation.** When E − E_F > 3kT, exp(...) ≫ 1 and
+    f(E) = 1 / ( 1 + e^{(E − E_F)/kT} )
 
-    f(E) ≈ exp( −(E − E_F)/kT )
+| Symbol | Meaning |
+|---|---|
+| f(E) | probability (between 0 and 1) that a state at energy E holds an electron |
+| E | energy of the state (eV) |
+| E_F | the **Fermi energy** or Fermi level (eV) |
+| k | Boltzmann constant, 8.617×10⁻⁵ eV/K |
+| T | absolute temperature (K); kT = 0.02585 eV at 300 K |
 
-The error is under 5 % (at E − E_F = 3kT, f = 1/(1 + e³) = 0.0474 versus e⁻³ = 0.0498). Semiconductors in which E_F stays more than 3kT from both band edges are called **non-degenerate**, and this approximation makes the integrals easy.
+### Three things to remember about f(E)
 
-@fig figures/fermi.svg | The Fermi–Dirac function at 0 K (a step) and at higher temperatures (smeared over a few kT). It always passes through ½ at E_F.
+1. **At E = E_F**, the exponent is zero, e⁰ = 1, and f = 1/(1 + 1) = **½**. The Fermi level is the energy where a state has a 50 % chance of being occupied, at any temperature.
+2. **Below E_F** (E < E_F), the exponent is negative, so f is close to 1: states are almost certainly full.
+3. **Above E_F** (E > E_F), the exponent is positive, so f is close to 0: states are almost certainly empty.
 
-## Density of states
+The change from "full" to "empty" happens over a few kT (about ±0.1 eV at room temperature).
 
-The **density of states** g(E) is the number of allowed electron states per unit energy per unit volume (cm⁻³eV⁻¹). For parabolic bands with effective masses m_n∗ and m_p∗:
+**At absolute zero** (T = 0 K), kT → 0 and the change becomes instantaneous: f = 1 for every state below E_F and f = 0 for every state above. f(E) is a **sharp step**. A pure semiconductor at 0 K therefore has a full valence band, an empty conduction band, and no free carriers.
 
-    g_c(E) = (4π (2m_n∗)^{3/2} / h³) √(E − E_c)     for E ≥ E_c
-    g_v(E) = (4π (2m_p∗)^{3/2} / h³) √(E_v − E)     for E ≤ E_v
+@fig figures/fermi.svg | The Fermi–Dirac function. At 0 K it is a step at E_F. At 300 K and 900 K the step is smoothed over a few kT. It always passes through ½ at E_F.
 
-It is zero inside the gap and grows as the square root of the energy measured into each band.
+**Probability that a state is empty.** A state is either full or empty, so
 
-**Origin (sketch).** In a cube of side L, the allowed wave vectors form a grid with one point per (2π/L)³ of k-space. Counting points in a spherical shell of radius k, including two spin states, and using E − E_c = ħ²k²/2m_n∗, gives the √(E − E_c) form.
+    probability empty = 1 − f(E)
 
-## Position of the Fermi level
+An empty state in the valence band is a **hole**, so 1 − f(E) is the probability of finding a hole.
 
-    n-type:  E_c − E_F = kT ln(N_c / N_D),    E_F − E_i = kT ln(N_D / n_i)
-    p-type:  E_F − E_v = kT ln(N_v / N_A),    E_i − E_F = kT ln(N_A / n_i)
+### Calculating an occupation probability
 
-@fig figures/fermi-level.svg | The Fermi level moves towards the conduction band with donor doping and towards the valence band with acceptor doping. Each factor of 10 in doping shifts it by kT ln10 = 60 mV at 300 K.
+At 300 K (kT = 0.02585 eV), a state 0.10 eV **above** E_F:
 
-- The heavier the doping, the closer E_F gets to the band edge. When it comes within about 3kT of the edge (above about 10¹⁸–10¹⁹ cm⁻³ in Si) the semiconductor is **degenerate** and behaves almost like a metal.
-- As temperature rises, n_i grows and E_F moves back towards E_i.
-- **In equilibrium E_F is constant throughout any system**, including across junctions. This single fact sets up the built-in voltage of a p-n junction (Week 10).
+    (E − E_F)/kT = 0.10/0.02585 = 3.868
+    f = 1/(1 + e^{3.868}) = 1/(1 + 47.85) = 0.0205
 
-## Fermi level against temperature
+About a **2 % chance** of being occupied. A state 0.10 eV **below** E_F has f = 1/(1 + e^{−3.868}) = 0.980, a 98 % chance; its probability of being empty is 2 %. The function is symmetric about E_F.
 
-The Fermi level depends on temperature through n_i(T) and through the ionisation of dopants.
+### The Boltzmann approximation
 
-    n_i(T) = √(N_c N_v) e^{−E_g/2kT},   with N_c, N_v ∝ T^{3/2}
+If E − E_F is more than about 3kT (0.08 eV at 300 K), e^{(E−E_F)/kT} is much larger than 1, and we can drop the "1 +":
 
-For n-type material with complete ionisation, solve charge neutrality exactly:
+    f(E) ≈ e^{−(E − E_F)/kT}       (Maxwell–Boltzmann approximation)
 
-    n = N_D/2 + √( (N_D/2)² + n_i² ),     E_F − E_i = kT ln(n/n_i)
+This is accurate to better than 5 %. For the 0.10 eV example: e^{−3.868} = 0.0209, against the exact 0.0205. Almost every calculation in this course uses this approximation, because the conduction band is usually well above E_F.
 
-| Region | Condition | n | E_F |
-|---|---|---|---|
-| Freeze-out (low T) | kT ≪ E_c − E_D | n < N_D, donors not ionised | Between E_D and E_c |
-| Extrinsic (normal operation) | n_i ≪ N_D | n ≈ N_D | E_F − E_i = kT ln(N_D/n_i), slowly falling with T |
-| Intrinsic (high T) | n_i ≥ N_D | n ≈ n_i | E_F → E_i (mid-gap) |
+## 2. Density of states
+
+The **density of states** g(E) is the number of allowed electron states per unit energy, per unit volume, at energy E (units: states per eV per cm³).
+
+    Conduction band:  g_c(E) ∝ (m_n∗)^{3/2} √(E − E_c)     for E above E_c
+    Valence band:     g_v(E) ∝ (m_p∗)^{3/2} √(E_v − E)     for E below E_v
+    In the gap:       g(E) = 0
+
+In words: there are **no states in the gap**; just above E_c the number of states starts at zero and grows as the square root of how far you go into the band. The effective masses m_n∗ and m_p∗ describe the shape of each band; a heavier mass means more states.
+
+### Effective density of states
+
+Adding up "states × probability" over the whole conduction band (with the Boltzmann approximation) gives a very simple result. It is **as if** all the conduction-band states were squeezed into one level at E_c, with a total number N_c of them. N_c is the **effective density of states**:
+
+    N_c = 2 (2π m_n∗ kT / h²)^{3/2},     N_v = 2 (2π m_p∗ kT / h²)^{3/2}
+
+For silicon at 300 K: **N_c = 2.8×10¹⁹ cm⁻³**, **N_v = 1.04×10¹⁹ cm⁻³**. Both grow with temperature as T^{3/2}.
+
+## 7. Electron concentration
+
+The electron concentration in the conduction band is obtained by adding up available states × occupation probability:
+
+    n = ∫ g_c(E) f(E) dE     (from E_c to the top of the band)
+
+For a **non-degenerate** semiconductor, f(E) is replaced by the Maxwell–Boltzmann form, and the integral gives:
+
+    n = N_c e^{−(E_c − E_F)/kT}
+
+or, measuring from the intrinsic level E_i,
+
+    n = n_i e^{(E_F − E_i)/kT}
+
+**Reading it.** E_c − E_F is the distance from the Fermi level up to the conduction-band edge. The smaller that distance, the larger n, and the dependence is exponential: every 60 mV that E_F moves towards E_c multiplies n by 10.
+
+## 8. Hole concentration
+
+The probability that a valence-band state is **empty** is 1 − f(E). The hole concentration is
+
+    p = ∫ g_v(E) [1 − f(E)] dE     (over the valence band)
+
+For a non-degenerate semiconductor this gives:
+
+    p = N_v e^{−(E_F − E_v)/kT}
+
+and
+
+    p = n_i e^{(E_i − E_F)/kT}
+
+These four equations (two for n, two for p) are the fundamental equations of semiconductor carrier statistics.
+
+## 9. Position of the Fermi level
+
+Turn the electron equation round to find E_F when n is known. From n = N_c e^{−(E_c − E_F)/kT}, divide by N_c and take the natural logarithm:
+
+    ln(n/N_c) = −(E_c − E_F)/kT
+
+Therefore:
+
+    E_c − E_F = kT ln(N_c/n)
+
+Similarly, from the hole concentration:
+
+    E_F − E_v = kT ln(N_v/p)
+
+And, using the intrinsic level:
+
+    E_F − E_i = kT ln(n/n_i),     E_i − E_F = kT ln(p/n_i)
+
+These equations let the Fermi level be calculated when the carrier concentration is known.
+
+**Example.** Silicon with n = 10¹⁶ cm⁻³ at 300 K: E_c − E_F = 0.02585 × ln(2.8×10¹⁹/10¹⁶) = 0.02585 × 7.94 = **0.205 eV**. The Fermi level is 0.205 eV below the conduction band.
+
+## 10. Intrinsic semiconductor
+
+A semiconductor with no intentional donor or acceptor doping is called **intrinsic**. Every free electron came from a broken bond that also left a hole, so
+
+    n = p = n_i
+
+where n_i is the **intrinsic carrier concentration**. Multiplying the n and p equations, E_F cancels out:
+
+    n · p = N_c N_v e^{−(E_c − E_v)/kT} = N_c N_v e^{−E_g/kT}
+
+and since n = p = n_i,
+
+    n_i = √(N_c N_v) · e^{−E_g/2kT}
+
+where E_g = E_c − E_v is the band-gap energy. This equation shows that the intrinsic carrier concentration depends strongly on temperature and on the band gap. For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³ (many textbooks use 1.5×10¹⁰; the accurate modern value is 9.65×10⁹).
+
+## 11. Intrinsic Fermi level
+
+For an intrinsic semiconductor, n = p. Set the two expressions equal:
+
+    N_c e^{−(E_c − E_i)/kT} = N_v e^{−(E_i − E_v)/kT}
+
+Solving for E_i gives
+
+    E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c)
+
+If N_c and N_v were equal, the logarithm would be zero, and then
+
+    E_i = (E_c + E_v)/2
+
+Thus the intrinsic Fermi level is approximately at the **middle of the forbidden gap**. For Si the correction is (0.02585/2) ln(1.04/2.8) = −0.013 eV, only 13 meV below mid-gap.
+
+## 12. Mass action law
+
+For a semiconductor in thermal equilibrium:
+
+    n · p = n_i²
+
+This is the **mass action law**. It holds for intrinsic and doped (non-degenerate) material alike, because when we multiplied n by p above, E_F cancelled.
+
+- For an **intrinsic** semiconductor n = p, therefore n = p = n_i.
+- For an **n-type** semiconductor where n ≫ p: n ≈ N_D, and therefore **p = n_i²/N_D**.
+- For a **p-type** semiconductor where p ≫ n: p ≈ N_A, and therefore **n = n_i²/N_A**.
+
+> **In plain words.** n × p is fixed. Add donors, and the extra electrons fill in holes, so the hole count drops by exactly the same factor the electron count rises. Doping one carrier up pushes the other down.
+
+## 13. Effect of doping on the Fermi level
+
+Doping changes the concentration of carriers, and therefore shifts the Fermi level.
+
+**N-type.** Donor atoms introduce additional electrons, so the Fermi level moves **towards the conduction band**:
+
+    E_c − E_F = kT ln(N_c/n),     E_F − E_i = kT ln(n/n_i)
+
+If donors are fully ionised and N_D ≫ n_i, then n ≈ N_D, and
+
+    E_c − E_F = kT ln(N_c/N_D),     E_F − E_i = kT ln(N_D/n_i)
+
+**P-type.** Acceptor atoms create holes, so the Fermi level moves **towards the valence band**:
+
+    E_F − E_v = kT ln(N_v/p),     E_i − E_F = kT ln(p/n_i)
+
+If acceptors are fully ionised, p ≈ N_A, so
+
+    E_F − E_v = kT ln(N_v/N_A),     E_i − E_F = kT ln(N_A/n_i)
+
+@fig figures/fermi-level.svg | Where the Fermi level sits: at mid-gap (E_i) when intrinsic, near E_c for n-type, near E_v for p-type.
+
+**How big are the shifts?** Each factor of 10 in doping moves E_F by kT ln 10 = 0.0595 eV ≈ 60 mV at 300 K.
+
+| Doping (Si, 300 K) | E_F − E_i | E_c − E_F |
+|---|---|---|
+| Intrinsic | 0 | 0.56 eV |
+| N_D = 10¹⁴ cm⁻³ | 0.238 eV | 0.324 eV |
+| N_D = 10¹⁶ cm⁻³ | 0.357 eV | 0.205 eV |
+| N_D = 10¹⁸ cm⁻³ | 0.476 eV | 0.086 eV |
+
+## 14. Charge neutrality in a doped semiconductor
+
+A piece of semiconductor is electrically neutral overall. The positive charges (holes and ionised donors) must equal the negative charges (electrons and ionised acceptors):
+
+    p + N_D⁺ = n + N_A⁻
+
+where p is the hole concentration, n the electron concentration, N_D⁺ the concentration of ionised donors and N_A⁻ the concentration of ionised acceptors. If donors and acceptors are completely ionised (N_D⁺ = N_D, N_A⁻ = N_A):
+
+    p + N_D = n + N_A
+
+This is the **charge-neutrality condition**. Combined with np = n_i² it gives n exactly:
+
+    n = (N_D − N_A)/2 + √( ((N_D − N_A)/2)² + n_i² )
+
+When N_D − N_A ≫ n_i, this reduces to n ≈ N_D − N_A. When both dopants are present they partly cancel, which is called **compensation**.
+
+## 15. N-type semiconductor
+
+When silicon is doped with a donor impurity (phosphorus P, arsenic As, antimony Sb), it becomes n-type. A donor contributes an extra electron. If N_D ≫ n_i and all donors are ionised:
+
+    n ≈ N_D
+
+Using the mass action law np = n_i², we obtain:
+
+    p ≈ n_i² / N_D
+
+## 16. P-type semiconductor
+
+When silicon is doped with an acceptor impurity (boron B, aluminium Al, gallium Ga), it becomes p-type. An acceptor creates a hole. If N_A ≫ n_i, then:
+
+    p ≈ N_A
+
+and:
+
+    n ≈ n_i² / N_A
+
+## 17. Fermi level as a function of temperature
+
+Temperature has a major effect on carrier concentration and Fermi level. There are generally three regions:
+
+**Region 1: Freeze-out region.** At very low temperature (below about 100 K in Si), donor and acceptor atoms are not fully ionised: there is not enough thermal energy to free the extra electron from each donor. Consequently there are relatively few free carriers, and n < N_D.
+
+**Region 2: Extrinsic region.** At moderate temperature (roughly 150–450 K for Si), the dopants are fully ionised:
+
+    n-type: n ≈ N_D          p-type: p ≈ N_A
+
+The carrier concentration is set by the doping and hardly changes with temperature. This is the region used in most basic semiconductor calculations, and the region where devices operate.
+
+**Region 3: Intrinsic region.** At sufficiently high temperature, thermally generated electron–hole pairs become dominant. Eventually
+
+    n_i ≫ N_D   so   n ≈ p ≈ n_i
+
+The semiconductor behaves more and more like an intrinsic semiconductor, and E_F returns to E_i. The doping no longer controls the material, which is why every device has a maximum operating temperature.
 
 ### Worked example: Fermi level against temperature
 
-Si with N_D = 10¹⁵ cm⁻³. Here n_i(T) is calculated from n_i ∝ T^{3/2}e^{−E_g(T)/2kT}, with the band gap shrinking slightly with temperature (E_g = 1.12 eV at 300 K, 1.03 eV at 600 K) and scaled to n_i = 1×10¹⁰ cm⁻³ at 300 K.
+Si with N_D = 10¹⁵ cm⁻³. n_i(T) is calculated from n_i ∝ T^{3/2}e^{−E_g(T)/2kT}, with the band gap shrinking slightly with temperature, scaled to n_i = 1×10¹⁰ cm⁻³ at 300 K.
 
 | T (K) | kT (eV) | n_i (cm⁻³) | n (cm⁻³) | E_F − E_i = kT ln(n/n_i) (eV) |
 |---|---|---|---|---|
@@ -79,21 +280,184 @@ Si with N_D = 10¹⁵ cm⁻³. Here n_i(T) is calculated from n_i ∝ T^{3/2}e^{
 | 500 | 0.0431 | 2.6×10¹⁴ | 1.06×10¹⁵ | 0.0431 × ln(4.16) = 0.061 |
 | 600 | 0.0517 | 3.7×10¹⁵ | 4.18×10¹⁵ | 0.0517 × ln(1.15) = 0.007 |
 
-As T rises, E_F moves back towards mid-gap. Above about 550 K, n_i exceeds N_D and the material is effectively intrinsic: the doping no longer controls it. The Laboratory page simulates this curve in Python (Practical 1).
+As T rises, E_F moves back towards mid-gap. Above about 550 K, n_i exceeds N_D and the material is effectively intrinsic.
 
 @fig figures/fermi-vs-t.svg | Fermi level relative to E_i against temperature for silicon at four donor concentrations (cm⁻³). Heavier doping keeps the Fermi level away from mid-gap up to a higher temperature.
 
-### Worked example: Fermi level against doping
+## 18. Worked example: n-type silicon
 
-Si at 300 K. Find E_F for (a) N_D = 10¹⁷ cm⁻³ and (b) N_A = 5×10¹⁵ cm⁻³, relative to E_i and to the nearest band edge (N_c = 2.8×10¹⁹, N_v = 1.04×10¹⁹ cm⁻³).
+Silicon at 300 K with N_D = 1×10¹⁶ cm⁻³. Assume n_i = 1×10¹⁰ cm⁻³ and complete donor ionisation.
 
-    (a) E_F − E_i = 0.0259 ln(10¹⁷/10¹⁰) = 0.0259 × 16.12 = 0.417 eV
-        E_c − E_F = 0.0259 ln(2.8×10¹⁹/10¹⁷) = 0.0259 × 5.63 = 0.146 eV
+**Step 1: electron concentration.** Since N_D ≫ n_i (10¹⁶ ≫ 10¹⁰), we have n ≈ N_D. Therefore
 
-    (b) E_i − E_F = 0.0259 ln(5×10¹⁵/10¹⁰) = 0.0259 × 13.12 = 0.340 eV
-        E_F − E_v = 0.0259 ln(1.04×10¹⁹/5×10¹⁵) = 0.0259 × 7.64 = 0.198 eV
+    n = 1×10¹⁶ cm⁻³
 
-Check (a): 0.417 + 0.146 = 0.563 eV ≈ E_g/2 = 0.56 eV. ✓
+**Step 2: hole concentration.** Using the mass action law:
+
+    p = n_i²/n = (1×10¹⁰)² / (1×10¹⁶) = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+
+Electrons are the **majority** carriers, holes the **minority** carriers. (With n_i = 1.5×10¹⁰, p = 2.25×10⁴ cm⁻³; the method is identical.)
+
+## 19. Worked example: Fermi level of n-type silicon
+
+At 300 K, n = N_D = 1×10¹⁶ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. The Fermi level relative to the intrinsic level is
+
+    E_F − E_i = kT ln(n/n_i)
+
+At 300 K, kT ≈ 0.02585 eV. Therefore
+
+    E_F − E_i = 0.02585 × ln(10¹⁶/10¹⁰) = 0.02585 × ln(10⁶)
+
+Since ln(10⁶) = 6 × 2.303 = 13.82, we obtain
+
+    E_F − E_i = 0.02585 × 13.82 = 0.357 eV
+
+Thus **E_F = E_i + 0.357 eV**: the Fermi level has moved up towards the conduction band. Since the gap is 1.12 eV and E_i is near the middle, E_F is about 0.56 − 0.357 = 0.20 eV below E_c. (With n_i = 1.5×10¹⁰: E_F − E_i = 0.02585 ln(6.67×10⁵) = 0.347 eV.)
+
+## 20. Worked example: p-type silicon
+
+Silicon at 300 K with N_A = 1×10¹⁷ cm⁻³ and n_i = 1×10¹⁰ cm⁻³.
+
+    p ≈ N_A = 1×10¹⁷ cm⁻³
+
+Using the mass action law:
+
+    n = n_i²/p = 10²⁰/10¹⁷ = 1×10³ cm⁻³
+
+The Fermi level is
+
+    E_i − E_F = kT ln(p/n_i) = 0.02585 × ln(10⁷) = 0.02585 × 16.12 = 0.417 eV
+
+Therefore **E_F = E_i − 0.417 eV**: the Fermi level moves down towards the valence band, about 0.56 − 0.417 = 0.14 eV above E_v.
+
+## 21. Degenerate and non-degenerate semiconductors
+
+The Maxwell–Boltzmann approximation is valid only when the Fermi level is far enough from the band edges. For a **non-degenerate** semiconductor:
+
+    E_c − E_F ≫ kT  (n-type),     E_F − E_v ≫ kT  (p-type)
+
+In practice "≫" means more than about 3kT.
+
+In a **degenerate** semiconductor the doping is very high (in Si, above about 10¹⁸–10¹⁹ cm⁻³) and the Fermi level approaches, or even enters, the conduction or valence band. Then the full Fermi–Dirac statistics must be used, and the material behaves almost like a metal. Degenerate n⁺ and p⁺ layers are used for Ohmic contacts (Week 11) and tunnel diodes.
+
+| Feature | Non-degenerate | Degenerate |
+|---|---|---|
+| Doping | Relatively low or moderate | Very high |
+| Statistics | Maxwell–Boltzmann approximation | Fermi–Dirac |
+| Fermi level | Inside the band gap, more than 3kT from the edges | Near or inside a band |
+| Carrier concentration | Simple exponential equations | More complex |
+
+**Check.** For Si with N_D = 10¹⁸ cm⁻³, E_c − E_F = 0.02585 ln(2.8×10¹⁹/10¹⁸) = 0.086 eV = 3.3kT, just non-degenerate. At 10¹⁹ cm⁻³, E_c − E_F = 0.027 eV ≈ 1kT: degenerate.
+
+## 22. Relationship between carrier concentration and Fermi level
+
+The electron concentration increases exponentially as the Fermi level approaches the conduction band, n = N_c e^{−(E_c − E_F)/kT}. Similarly, the hole concentration increases as the Fermi level approaches the valence band, p = N_v e^{−(E_F − E_v)/kT}. Therefore:
+
+- Fermi level closer to E_c → more electrons (n-type).
+- Fermi level closer to E_v → more holes (p-type).
+- Fermi level at E_i → n = p = n_i (intrinsic).
+
+## 23. Temperature dependence of intrinsic carrier concentration
+
+Recall n_i = √(N_cN_v) e^{−E_g/2kT}. Since N_c and N_v are each proportional to T^{3/2}, their product's square root is proportional to T^{3/2}, so approximately
+
+    n_i ∝ T^{3/2} e^{−E_g/2kT}
+
+The **exponential term** is especially important. As temperature increases, kT increases, the negative exponent −E_g/2kT gets smaller in magnitude, and e^{−E_g/2kT} increases rapidly. The T^{3/2} factor adds a smaller increase. For silicon, n_i roughly doubles every 8 °C near room temperature, and rises about 25,000 times between 300 K and 500 K.
+
+Therefore semiconductor conductivity generally **increases with temperature**, because more electron–hole pairs are thermally generated.
+
+## 24. Formula sheet for carrier statistics
+
+| Quantity | Formula |
+|---|---|
+| Fermi–Dirac function | f(E) = 1/(1 + e^{(E − E_F)/kT}) |
+| Electron concentration | n = N_c e^{−(E_c − E_F)/kT} = n_i e^{(E_F − E_i)/kT} |
+| Hole concentration | p = N_v e^{−(E_F − E_v)/kT} = n_i e^{(E_i − E_F)/kT} |
+| Effective density of states | N_c = 2(2πm_n∗kT/h²)^{3/2}, N_v = 2(2πm_p∗kT/h²)^{3/2} |
+| Intrinsic carrier concentration | n_i = √(N_cN_v) e^{−E_g/2kT} |
+| Mass action law | np = n_i² |
+| Intrinsic Fermi level | E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c) ≈ mid-gap |
+| N-type Fermi level | E_F − E_i = kT ln(N_D/n_i) |
+| P-type Fermi level | E_i − E_F = kT ln(N_A/n_i) |
+| Charge neutrality | p + N_D⁺ = n + N_A⁻ |
+
+## 25. Summary: what you should be able to do
+
+1. Explain the concept of carrier statistics in semiconductors.
+2. Define and use the Fermi–Dirac distribution function.
+3. Explain the physical meaning of the Fermi energy level.
+4. Calculate the probability of electron occupation of an energy state.
+5. Explain the density of states in the conduction and valence bands.
+6. Calculate electron and hole concentrations.
+7. Calculate the intrinsic carrier concentration.
+8. Apply the mass action law.
+9. Determine the position of the Fermi level.
+10. Explain the effect of donor and acceptor doping on the Fermi level.
+11. Distinguish between intrinsic, n-type and p-type semiconductors.
+12. Explain the effect of temperature on carrier concentration.
+13. Distinguish between degenerate and non-degenerate semiconductors.
+14. Apply the charge-neutrality equation to doped semiconductors.
+
+---
+
+## 26. Mid-module evaluation, solved
+
+These are the lecturer's mid-module evaluation questions. The numerical values in the printed note did not come through in the copy provided, so the calculations below use the standard silicon values stated in each question. If your copy gives different numbers, follow the same steps.
+
+### Part A: short-answer questions
+
+**A1. Define carrier statistics.** Carrier statistics is the study of how electrons and holes are distributed among the allowed energy states of a semiconductor in thermal equilibrium. It combines the density of states with the Fermi–Dirac probability to calculate the electron and hole concentrations and the position of the Fermi level.
+
+**A2. What is the Fermi energy level?** The Fermi level E_F is the energy at which the probability of a state being occupied by an electron is exactly one half. At 0 K it is the boundary between filled and empty states. Its position relative to E_c and E_v determines the electron and hole concentrations, and in equilibrium it is constant throughout a material or device.
+
+**A3. State the Fermi–Dirac distribution function.** f(E) = 1/(1 + e^{(E − E_F)/kT}), where f(E) is the probability that a state of energy E is occupied, E_F the Fermi level, k Boltzmann's constant and T the absolute temperature.
+
+**A4. What is the probability that a state at E = E_F is occupied?** Exactly **½ (50 %)**, because the exponent is zero: f = 1/(1 + e⁰) = 1/2. This is true at any temperature.
+
+**A5. Define density of states.** The density of states g(E) is the number of allowed electron energy states per unit energy per unit volume at energy E (states/eV·cm³). In a parabolic band, g_c(E) ∝ √(E − E_c) in the conduction band and g_v(E) ∝ √(E_v − E) in the valence band; it is zero in the band gap.
+
+**A6. What is meant by effective density of states?** The effective density of states (N_c for the conduction band, N_v for the valence band) is the number of states that, if all placed at the band edge, would give the same carrier concentration as the real distributed band. It lets the carrier concentration be written simply as n = N_ce^{−(E_c − E_F)/kT}. For Si at 300 K, N_c = 2.8×10¹⁹ and N_v = 1.04×10¹⁹ cm⁻³.
+
+**A7. Distinguish between intrinsic and extrinsic semiconductors.** An intrinsic semiconductor is pure: its carriers come only from thermal breaking of bonds, so n = p = n_i and E_F ≈ E_i (mid-gap). An extrinsic semiconductor is doped with donors or acceptors: one carrier type dominates (n ≈ N_D or p ≈ N_A), E_F moves towards E_c or E_v, and the carrier concentration is set by the doping rather than by temperature.
+
+**A8. Define majority and minority carriers.** Majority carriers are the more numerous carrier type in a doped semiconductor (electrons in n-type, holes in p-type). Minority carriers are the less numerous type (holes in n-type, electrons in p-type). In n-type Si with N_D = 10¹⁶ cm⁻³, there are 10¹⁶ majority electrons and only 10⁴ minority holes per cm³.
+
+**A9. State the mass action law.** In thermal equilibrium the product of the electron and hole concentrations is constant at a given temperature: np = n_i², regardless of doping (for a non-degenerate semiconductor).
+
+**A10. Explain why doping changes the Fermi level.** The Fermi level is tied to the carrier concentrations by n = n_ie^{(E_F − E_i)/kT}. Donors add electrons, so n rises above n_i; for the equation to hold, E_F must rise above E_i (towards E_c), by kT ln(N_D/n_i). Acceptors add holes, so p rises and E_F must fall towards E_v by kT ln(N_A/n_i). The heavier the doping, the larger the shift.
+
+### Part B: calculation questions
+
+**B1. At 300 K, find the probability that a state 0.10 eV above the Fermi level is occupied (kT = 0.02585 eV).**
+
+    f = 1/(1 + e^{0.10/0.02585}) = 1/(1 + e^{3.868}) = 1/(1 + 47.85) = 0.0205
+
+The probability is **0.0205, about 2 %**.
+
+**B2. Silicon has N_D = 1×10¹⁶ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Assuming complete ionisation, find (a) n, (b) p, (c) the majority carrier.**
+
+    (a) n ≈ N_D = 1×10¹⁶ cm⁻³
+    (b) p = n_i²/n = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+    (c) Electrons are the majority carriers (n-type).
+
+**B3. P-type silicon has N_A = 5×10¹⁶ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Find (a) p, (b) n, (c) the minority carrier.**
+
+    (a) p ≈ N_A = 5×10¹⁶ cm⁻³
+    (b) n = n_i²/p = 10²⁰/(5×10¹⁶) = 2×10³ cm⁻³
+    (c) Electrons are the minority carriers.
+
+**B4. At 300 K an n-type semiconductor has N_D = 1×10¹⁷ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Find the Fermi level relative to the intrinsic level.**
+
+    E_F − E_i = kT ln(N_D/n_i) = 0.02585 × ln(10⁷) = 0.02585 × 16.12 = 0.417 eV
+
+The Fermi level is **0.417 eV above E_i**.
+
+**B5. Explain, using equations, why increasing temperature increases the intrinsic carrier concentration.**
+
+    n_i = √(N_cN_v) e^{−E_g/2kT},   with N_c, N_v ∝ T^{3/2}   ⇒   n_i ∝ T^{3/2} e^{−E_g/2kT}
+
+Two factors increase with T. The T^{3/2} factor grows slowly: more states become effectively available as the electrons' thermal energy spreads. The exponential grows very fast: E_g/2kT becomes smaller as T increases, so e^{−E_g/2kT} increases steeply. Physically, a higher temperature gives more electrons enough thermal energy to cross the band gap, breaking more covalent bonds and creating more electron–hole pairs. For Si, n_i is about 10¹⁰ cm⁻³ at 300 K, 5×10¹² at 400 K and 2.6×10¹⁴ at 500 K.
 
 ---
 

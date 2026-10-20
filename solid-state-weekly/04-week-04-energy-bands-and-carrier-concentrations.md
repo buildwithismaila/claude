@@ -3,172 +3,220 @@
 
 **Plan:** quantum-mechanics foundations (Schrödinger equation overview, Kronig–Penney model); energy band gaps, allowed and forbidden states; intrinsic and extrinsic carrier concentrations.
 
-Week 1 stated that atoms in a solid form bands. This week shows why, using quantum mechanics, and then counts how many electrons and holes the bands hold.
+## The big picture
+
+In Week 1 we simply stated that a solid has a **valence band**, a **conduction band** and a **gap** between them. This week explains **why**. The answer needs one idea from quantum mechanics: **an electron behaves like a wave, and a wave trapped in a region can only vibrate in certain ways**. In a single atom that gives sharp energy levels. In a crystal, where the electron wave runs through a regular row of atoms, it gives broad bands of allowed energies separated by forbidden gaps.
+
+You do not need to solve hard equations for this course. You need to understand three steps:
+
+1. Electrons are waves, described by the Schrödinger equation.
+2. Trapped waves have only certain allowed energies.
+3. A periodic crystal turns those allowed energies into bands with gaps (the Kronig–Penney model shows this).
+
+Then Part C uses the bands to count the carriers.
 
 ## Part A: Quantum-mechanics foundations
 
-## Why quantum mechanics
+### Why classical physics is not enough
 
-Three results from early quantum theory are needed:
+Classical physics treats an electron as a tiny ball. That picture cannot explain why copper conducts and glass does not, or why an atom emits light only at certain colours. Three ideas from early quantum theory fix this:
 
-- **Energy is quantised.** Electrons bound in atoms occupy discrete levels (Planck, Bohr). A photon has energy E = hν.
-- **Wave–particle duality.** An electron of momentum p behaves as a wave of wavelength λ = h/p (de Broglie). Write p = ħk, where k = 2π/λ is the wave vector.
-- **Uncertainty principle.** Δx·Δp ≥ ħ/2: an electron's position and momentum cannot both be exact, so we describe it by a probability wave ψ.
+- **Energy comes in packets (quanta).** Light of frequency ν comes in photons of energy E = hν. Electrons in atoms can only have certain energies.
+- **Particles behave as waves.** An electron with momentum p behaves as a wave of wavelength λ = h/p (de Broglie). We often write p = ħk, where k = 2π/λ is the **wave vector**: k is just "how many waves per unit length", and it measures the electron's momentum.
+- **Uncertainty.** We cannot know an electron's position and momentum exactly at the same time. So instead of a definite position we describe it by a **wave function** ψ, and |ψ|² tells us where it is likely to be found.
 
-Constants: h = 6.626×10⁻³⁴ J·s, ħ = h/2π = 1.055×10⁻³⁴ J·s, m₀ = 9.11×10⁻³¹ kg.
+Constants: h = 6.626×10⁻³⁴ J·s, ħ = h/2π = 1.055×10⁻³⁴ J·s, electron mass m₀ = 9.11×10⁻³¹ kg.
 
-## The Schrödinger equation
+### The Schrödinger equation
 
-The time-independent equation in one dimension:
+The time-independent Schrödinger equation (in one dimension) is
 
     −(ħ²/2m) d²ψ/dx² + V(x) ψ = E ψ
 
-In three dimensions, −(ħ²/2m)∇²ψ + Vψ = Eψ, or Ĥψ = Eψ.
+Read it as an energy balance: **kinetic energy + potential energy = total energy**.
 
-- ψ(x) is the **wave function**. |ψ(x)|² dx is the probability of finding the electron between x and x + dx.
-- The first term is the **kinetic energy** operator (p²/2m with p → −iħ d/dx).
-- V(x) is the **potential energy**: the crystal potential seen by the electron.
-- E is the **total energy**, an eigenvalue. Only certain E give acceptable solutions.
+| Term | Meaning |
+|---|---|
+| ψ(x) | the **wave function**. ψ itself is not measurable, but \|ψ(x)\|² dx is the probability of finding the electron between x and x + dx |
+| −(ħ²/2m) d²ψ/dx² | the **kinetic energy** term. d²ψ/dx² measures how sharply the wave curves: a more tightly wiggling wave means more kinetic energy |
+| V(x) ψ | the **potential energy** term. V(x) is the potential energy at each point (for example the pull of the atomic nuclei) |
+| E | the **total energy**, a constant. The equation only has sensible solutions for certain values of E: that is how quantisation appears |
 
-Conditions on ψ: finite, single-valued, continuous, with continuous dψ/dx where V is finite, and normalised (∫|ψ|²dx = 1).
+The wave function must be finite, single-valued and smooth (continuous, with a continuous slope), and the total probability must be 1.
 
-**Free electron** (V = 0): ψ = A e^{ikx}, E = ħ²k²/2m. A parabola: any energy is allowed.
+### Two simple cases that explain everything
 
-**Particle in a box** of width L (infinite walls): ψ = sin(nπx/L), E_n = n²π²ħ²/2mL². Confinement produces discrete levels, as in quantum wells.
+**A free electron** (no forces, V = 0). The solution is a travelling wave, ψ = Ae^{ikx}, with energy
 
-## From atoms to bands
+    E = ħ²k²/2m
 
-Bring N identical atoms together. When far apart, each has the same discrete levels. As they approach, their outer wave functions overlap and, by the Pauli exclusion principle, each level must **split into N closely spaced levels**. With N ≈ 5×10²² cm⁻³, these form an almost continuous **band**.
+Any energy is allowed. The graph of E against k is a smooth parabola. This is the starting point for electrons in a solid.
 
-In Si, the 3s and 3p levels (4 electrons per atom, 8 states) hybridise. At the actual spacing they split into a lower band with 4N states (the **valence band**, completely full at 0 K) and an upper band with 4N states (the **conduction band**, empty at 0 K), separated by the gap E_g = 1.12 eV.
+**An electron in a box** of width L with walls it cannot pass. The wave must be zero at both walls, just as a guitar string is fixed at both ends. So only whole numbers of half-waves fit, and only certain energies are allowed:
 
-## Bloch's theorem
+    E_n = n²π²ħ²/2mL²,   n = 1, 2, 3, …
 
-In a perfectly periodic potential V(x + a) = V(x), the solutions take the form
+> **In plain words.** A guitar string can only play certain notes, because only certain wavelengths fit between its fixed ends. An electron trapped in a region is the same: only certain wavelengths fit, so only certain energies are allowed. That is what "quantised energy levels" means.
+
+### From atoms to bands
+
+One isolated silicon atom has sharp energy levels (1s, 2s, 2p, 3s, 3p). Now bring two atoms close together. Their outer wave functions overlap, and each level **splits into two** slightly different levels. (Two identical pendulums joined by a spring do the same: instead of one frequency they now have two, swinging together and swinging opposite.)
+
+Bring **N atoms** together and each level splits into **N levels**. A crystal has about 5×10²² atoms per cm³, so each level splits into so many closely spaced levels that they form a practically continuous **band**. Between bands are ranges of energy where there are **no** levels at all: the **forbidden gaps**.
+
+In silicon, the outer 3s and 3p levels (4 electrons per atom) mix and split into two bands:
+
+- a lower band with room for 4 electrons per atom: the **valence band**. Silicon has exactly 4 outer electrons per atom, so this band is **completely full** at 0 K;
+- an upper band, also with room for 4 per atom: the **conduction band**, **empty** at 0 K;
+- separated by the band gap **E_g = 1.12 eV**.
+
+### Bloch's theorem
+
+In a perfect crystal the potential energy repeats with the spacing of the atoms a: V(x + a) = V(x). Bloch showed that the electron wave in such a crystal is
 
     ψ_k(x) = u_k(x) e^{ikx},   with u_k(x + a) = u_k(x)
 
-A plane wave modulated by a function with the lattice period. An electron in a perfect crystal is therefore **not scattered** by the lattice itself; only departures from periodicity scatter it.
+A travelling wave (e^{ikx}) multiplied by a pattern that repeats from atom to atom (u_k). The important consequence: **an electron in a perfect crystal travels without being scattered by the atoms**. The atoms are not obstacles; they just shape the wave. Only imperfections (vibrations, impurities, defects) scatter electrons. This is why carriers in a crystal can move so freely (Week 7).
 
-## The Kronig–Penney model
+### The Kronig–Penney model: how a periodic crystal makes bands and gaps
 
-Kronig and Penney replaced the real crystal potential by a 1-D periodic array of **rectangular barriers**: wells of width a with V = 0, separated by barriers of height V₀ and width b, period (a + b).
+The real potential inside a crystal is complicated. Kronig and Penney (1931) replaced it with the simplest repeating potential that can be solved exactly: a row of **rectangular wells and barriers**.
 
-They solved Schrödinger's equation in each region, joined the solutions with continuity of ψ and dψ/dx, and applied Bloch's theorem. In the limit of thin, high barriers (b → 0, V₀ → ∞ with V₀b finite), the condition for a solution is:
+- Each **well** (width a, V = 0) represents the region near an atom, where the electron is attracted.
+- Each **barrier** (height V₀, width b) represents the region between atoms.
+- The pattern repeats forever with period a + b.
+
+**What they did:**
+
+1. Solved the Schrödinger equation inside a well (where the solution oscillates) and inside a barrier (where it decays).
+2. Joined the pieces smoothly at every edge (ψ and dψ/dx continuous).
+3. Applied Bloch's theorem (the solution must repeat, up to a phase factor, from one period to the next).
+4. Simplified by making the barriers very thin and very high.
+
+**The result** is one condition that the energy must satisfy:
 
     P · sin(αa)/(αa) + cos(αa) = cos(ka)
 
-    α = √(2mE)/ħ,      P = m V₀ b a / ħ²
+    α = √(2mE)/ħ,     P = m V₀ b a / ħ²
 
-P measures how strongly the electron is bound (barrier strength).
+| Symbol | Meaning |
+|---|---|
+| α | depends on the electron energy E: larger E, larger α |
+| a | well width (the atomic spacing) |
+| k | the electron's wave vector (momentum) |
+| P | barrier strength: how strongly the electron is held by each atom |
 
-**How bands appear.** The right side, cos(ka), can only lie between −1 and +1. The left side, as a function of energy (through α), oscillates with an amplitude that exceeds 1. Energies for which the left side lies between ±1 are **allowed** (bands). Energies for which it lies outside are **forbidden** (gaps).
+**How to read it: the key step.** The right-hand side, cos(ka), is a cosine. **A cosine can only be between −1 and +1.** The left-hand side depends on the energy through α. So:
 
-@fig figures/kronig-penney.svg | Graphical solution of the Kronig–Penney condition with P = 3π/2. Allowed bands (shaded) are the energies where the curve stays between −1 and +1.
+- for energies where the left-hand side is **between −1 and +1**, there is a k that satisfies the equation: these energies are **allowed**;
+- for energies where the left-hand side is **greater than +1 or less than −1**, no real k works: these energies are **forbidden**.
 
-**Conclusions:**
+Plot the left-hand side against αa (i.e. against energy). It wiggles like a fading cosine, starting above +1 and repeatedly overshooting the ±1 lines. Every time it is inside the ±1 strip you have a **band**; every time it pokes outside you have a **gap**.
+
+@fig figures/kronig-penney.svg | The Kronig–Penney condition plotted against αa for P = 3π/2. Shaded strips are the energies where the curve stays between −1 and +1: the allowed bands. Where the curve goes outside ±1 there are no solutions: the forbidden gaps.
+
+**What the model teaches:**
 
 1. The energy spectrum is a series of **allowed bands separated by forbidden gaps**.
-2. Band edges occur at ka = nπ, i.e. at the **Brillouin-zone boundaries** k = ±nπ/a.
-3. Bands become **wider** at higher energy, and the gaps narrower.
-4. **P → ∞** (strong binding): bands shrink to single lines, the discrete levels of isolated atoms.
-5. **P → 0** (free electron): the gaps disappear and E = ħ²k²/2m.
+2. The band edges occur at ka = nπ, i.e. k = ±nπ/a, the **Brillouin-zone boundaries**. Physically, at these wavelengths the electron wave reflects off the rows of atoms (Bragg reflection), forming standing waves, which split the energies and open a gap.
+3. Bands get **wider** at higher energy (the curve's wiggles fade, so it spends longer inside ±1).
+4. If the atoms hold their electrons very tightly (P → ∞), the bands shrink to the sharp levels of single atoms.
+5. If the barriers vanish (P → 0), the gaps close and the electron is free: E = ħ²k²/2m.
+
+> **In plain words.** A wave running through a regular row of obstacles is fine at most wavelengths, but at certain wavelengths the reflections from every row add up and the wave cannot travel. Those wavelengths correspond to the forbidden energies: the band gaps.
 
 ## Part B: Band gaps, allowed and forbidden states
 
-## E–k diagrams and effective mass
+### E–k diagrams and effective mass
 
-Plotting E against k gives the band structure. Near a band extremum, E is approximately parabolic, and the electron behaves as a free particle with an **effective mass**:
+The **band structure** of a material is a graph of the allowed energies E against the wave vector k. Near the bottom of the conduction band (and the top of the valence band) the curve looks like a parabola, just like a free electron's E = ħ²k²/2m, but with a different curvature. We describe that curvature by an **effective mass** m∗:
 
     1/m∗ = (1/ħ²) d²E/dk²
 
-A strongly curved band means small m∗ and high mobility. Values: Si m_n∗ ≈ 1.08m₀ (density-of-states), m_p∗ ≈ 0.56m₀; GaAs m_n∗ = 0.067m₀. Near the top of the valence band the curvature is negative: a missing electron there behaves as a positive particle with positive mass, the **hole**.
+The electron then responds to forces **as if** it were a free particle of mass m∗. The effect of all the crystal's atoms is packed into this one number.
 
-## Valence band, conduction band and gap
+- A **sharply curved** band means small m∗: a light, fast, high-mobility carrier (GaAs electrons, m∗ = 0.067m₀).
+- A **flatter** band means large m∗: a heavy, slow carrier (Si holes, about 0.56m₀).
 
-- **Valence band:** highest band that is completely filled at 0 K. Its top is E_v. Electrons here are in the covalent bonds. Holes move in this band.
-- **Conduction band:** next higher band, empty at 0 K. Its bottom is E_c. Electrons here are free to move and conduct.
-- **Forbidden gap:** E_g = E_c − E_v. No electron states exist here in a perfect crystal; impurities and defects can add states inside it.
+Near the **top** of the valence band the curve bends downward. An electron there would have negative mass. It is simpler to describe the **missing** electron instead: it behaves as a positive particle with positive mass, the **hole**.
 
-E_g decreases slightly with temperature (Varshni relation, E_g(T) = E_g(0) − αT²/(T + β)): for Si, 1.17 eV at 0 K, 1.12 eV at 300 K.
+### Valence band, conduction band and forbidden gap
 
-## Direct and indirect gaps
+- **Valence band:** the highest band that is completely full at 0 K. Its top is E_v. Its electrons are the bonding electrons. A full band cannot carry current (for every electron moving one way there is one moving the other), but a band with a few **holes** can.
+- **Conduction band:** the next band up, empty at 0 K. Its bottom is E_c. Electrons here move freely and carry current.
+- **Forbidden gap:** E_g = E_c − E_v. In a perfect crystal there are no states here at all. Impurities and defects can add a few states inside it (donor, acceptor and trap levels).
 
-@fig figures/ek.svg | In a direct-gap material (GaAs) the conduction-band minimum and valence-band maximum are at the same k. In an indirect-gap material (Si) they are at different k, so a phonon must supply the momentum difference.
+The gap shrinks slightly with temperature: for Si, 1.17 eV at 0 K and 1.12 eV at 300 K.
 
-A photon has very little momentum (k_photon ≈ 10⁵ cm⁻¹ compared with a zone-edge k ≈ 10⁸ cm⁻¹), so an optical transition is essentially vertical on the E–k diagram.
+### Direct and indirect band gaps
 
-- **Direct gap:** the transition is vertical and needs only a photon. Radiative recombination is fast (ns) and efficient. Strong absorption above E_g. GaAs, InP, GaN, InGaAs.
-- **Indirect gap:** the electron must also change momentum, which requires a **phonon** (lattice vibration) to be absorbed or emitted at the same time. This three-particle process is unlikely, so radiative recombination is slow and inefficient; energy is lost as heat through traps instead. Si, Ge, GaP, AlAs.
+@fig figures/ek.svg | In a direct-gap material (GaAs) the bottom of the conduction band sits directly above the top of the valence band in k. In an indirect-gap material (Si) they are at different k, so an electron dropping across the gap must also change its momentum.
 
-The emission wavelength of a band-to-band transition:
+When an electron falls from the conduction band to the valence band it must lose energy **and** keep momentum balanced. A photon carries plenty of energy but almost no momentum. So on an E–k diagram, a photon can only make **vertical** jumps.
+
+- **Direct gap** (GaAs, InP, GaN): the conduction-band minimum is directly above the valence-band maximum. The electron can drop straight down and give out a photon. Light emission is fast and efficient: **LEDs and lasers**.
+- **Indirect gap** (Si, Ge): the minimum is at a different k. To drop across, the electron must also get rid of momentum, which needs a **phonon** (a lattice vibration) at the same instant. That is unlikely, so the electron usually loses its energy as heat instead. **Silicon is a poor light emitter.**
+
+The wavelength of light from a band-to-band transition is
 
     λ (μm) = 1.24 / E_g (eV)
 
-GaAs: 1.24/1.42 = 0.873 μm (near-infrared). Si: 1.24/1.12 = 1.11 μm, which is also why Si photodetectors stop responding above about 1.1 μm.
+GaAs: 1.24/1.42 = 0.87 μm (near infrared). Si: 1.24/1.12 = 1.11 μm, which is also the longest wavelength a silicon photodetector can absorb.
 
 ## Part C: Intrinsic and extrinsic carrier concentrations
 
-The electron concentration is the number of available states times the probability that each is filled. Week 5 develops both factors properly; here we use the results.
+Now that we have bands, we can count carriers. The full method (Fermi–Dirac statistics, density of states) is Week 5. Here are the results you need this week.
 
-## Equilibrium carrier concentrations
+### The two key equations
 
-Using the Boltzmann approximation and integrating:
+The number of electrons in the conduction band and holes in the valence band depend on how far the **Fermi level** E_F is from each band edge:
 
-    n₀ = N_c exp( −(E_c − E_F)/kT )
-    p₀ = N_v exp( −(E_F − E_v)/kT )
+    n = N_c e^{−(E_c − E_F)/kT},       p = N_v e^{−(E_F − E_v)/kT}
 
-with the **effective densities of states**
+N_c and N_v are the **effective densities of states** (Si at 300 K: 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³). The closer E_F is to E_c, the more electrons; the closer to E_v, the more holes.
 
-    N_c = 2 (2π m_n∗ kT / h²)^{3/2},     N_v = 2 (2π m_p∗ kT / h²)^{3/2}
+### Intrinsic semiconductor
 
-At 300 K: Si N_c = 2.8×10¹⁹, N_v = 1.04×10¹⁹ cm⁻³; GaAs N_c = 4.7×10¹⁷, N_v = 7.0×10¹⁸ cm⁻³. Both scale as T^{3/2}.
+In pure silicon every free electron came from a broken bond, which also left a hole, so n = p = n_i. Multiply the two equations above; E_F cancels:
 
-N_c is the number of states you would need at the single energy E_c to hold the same number of electrons as the whole band.
+    n p = N_c N_v e^{−(E_c − E_v)/kT} = N_c N_v e^{−E_g/kT}
 
-## Intrinsic semiconductor
+With n = p = n_i:
 
-In a pure crystal every electron in the conduction band left a hole in the valence band, so n₀ = p₀ = n_i. The Fermi level in this case is the **intrinsic level E_i**, very close to mid-gap.
+    n_i = √(N_c N_v) e^{−E_g/2kT}
 
-    n_i = √(N_c N_v) exp( −E_g / 2kT )
+For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³. The Fermi level of an intrinsic semiconductor, E_i, is almost exactly at **mid-gap**.
 
-    E_i = (E_c + E_v)/2 + (3/4)kT ln( m_p∗ / m_n∗ )
+**What controls n_i:** the band gap (exponentially: wider gap, far fewer carriers) and temperature (exponentially: hotter, far more carriers). Ge (0.66 eV) has n_i = 2.4×10¹³; GaAs (1.42 eV) has only about 2×10⁶ cm⁻³.
 
-For Si the shift of E_i from mid-gap is only about −0.01 eV.
+### The mass-action law
 
-Values of n_i at 300 K: Si ≈ 1×10¹⁰ cm⁻³ (the accurate modern value is 9.65×10⁹; older texts use 1.5×10¹⁰), Ge 2.4×10¹³, GaAs 2.1×10⁶ cm⁻³.
+Because E_F cancelled, the product is the same whether or not the material is doped:
 
-n_i rises very steeply with temperature, mainly through exp(−E_g/2kT). For Si it roughly doubles every 8 °C near room temperature.
+    n p = n_i²
 
-## The mass-action law
+### Extrinsic (doped) semiconductor
 
-Multiply n₀ and p₀:
+With full ionisation and doping well above n_i:
 
-    n₀ p₀ = N_c N_v exp( −E_g/kT ) = n_i²
+- **n-type:** n ≈ N_D, p = n_i²/N_D.
+- **p-type:** p ≈ N_A, n = n_i²/N_A.
+- **Both present (compensation):** use the net doping. The exact result from charge neutrality is
 
-This holds in thermal equilibrium for **any** non-degenerate semiconductor, doped or not. Adding donors raises n and lowers p in proportion.
+    n = (N_D − N_A)/2 + √( ((N_D − N_A)/2)² + n_i² )
 
-Equivalent forms using E_i:
+**Example.** Si with N_D = 10¹⁶ cm⁻³: n = 10¹⁶, p = 10²⁰/10¹⁶ = 10⁴ cm⁻³. Doping raised the electrons by 10⁶ above n_i and lowered the holes by 10⁶.
 
-    n₀ = n_i exp( (E_F − E_i)/kT ),     p₀ = n_i exp( (E_i − E_F)/kT )
+**Temperature regions (n-type):** at very low temperature the donors are not all ionised (**freeze-out**, n < N_D); over the normal range n ≈ N_D (**extrinsic**); at high temperature n_i overtakes N_D and the material behaves as intrinsic (**intrinsic region**). Week 5 works through these in detail.
 
-## Extrinsic semiconductor
+## Key points of Week 4
 
-**Charge neutrality:** p₀ + N_D⁺ = n₀ + N_A⁻. With full ionisation and the mass-action law:
-
-    n₀ = (N_D − N_A)/2 + √( ((N_D − N_A)/2)² + n_i² )
-
-Usual approximations:
-
-- **n-type**, N_D ≫ n_i: n₀ ≈ N_D, p₀ = n_i²/N_D.
-- **p-type**, N_A ≫ n_i: p₀ ≈ N_A, n₀ = n_i²/N_A.
-- **Compensated**: use the net doping |N_D − N_A|.
-
-### Temperature regions (n-type)
-
-1. **Freeze-out** (low T, below about 100 K for Si): donors are not all ionised; n < N_D.
-2. **Extrinsic** (about 150–450 K for Si at 10¹⁵ cm⁻³): n ≈ N_D, constant. Devices operate here.
-3. **Intrinsic** (high T): n_i exceeds N_D and n ≈ n_i rises steeply; the device loses its doping-defined behaviour. Sets the upper operating temperature.
+- Electrons are waves; the Schrödinger equation is kinetic + potential = total energy, and only certain energies give acceptable waves.
+- Bringing N atoms together splits each level into N levels, forming bands; between them are forbidden gaps.
+- Kronig–Penney: P sin(αa)/(αa) + cos(αa) = cos(ka). Energies where the left side is between ±1 are allowed (bands); elsewhere forbidden (gaps).
+- Effective mass m∗ describes the band curvature. A missing electron near the top of the valence band acts as a positive hole.
+- Direct gap: photon emission is efficient (GaAs). Indirect gap: a phonon is needed, so emission is poor (Si). λ = 1.24/E_g μm.
+- n_i = √(N_cN_v)e^{−E_g/2kT}; np = n_i²; n ≈ N_D in n-type, p ≈ N_A in p-type.
 
 ---
 

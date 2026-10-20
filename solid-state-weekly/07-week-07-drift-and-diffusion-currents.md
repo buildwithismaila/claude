@@ -3,27 +3,41 @@
 
 **Plan:** carrier mobility, scattering mechanisms and conductivity; diffusion of carriers, Fick's law and the Einstein relation.
 
-Carriers move in two ways: they **drift** when pushed by an electric field, and they **diffuse** when there are more of them in one place than another. Every device current is a mixture of the two.
+## The big picture
+
+Weeks 4–5 told us **how many** carriers there are. This week asks **how they move**, because moving charge is current. There are exactly two reasons a carrier moves in a particular direction:
+
+1. **Drift:** an electric field pushes it. Like water flowing downhill because of gravity.
+2. **Diffusion:** there are more carriers in one place than another, and random motion spreads them out. Like a drop of ink spreading in still water (the same idea as dopant diffusion in Week 3, but for electrons and holes, and much faster).
+
+Every current in every device in this course is drift, diffusion, or a mixture. At the end of the week we will see that the two are tied together by a surprisingly simple rule, the **Einstein relation**.
 
 ## Part A: Drift, mobility and conductivity
 
-## Thermal motion and drift
+### Random thermal motion
 
-With no field, carriers move randomly at the thermal velocity
+Even with no voltage applied, electrons in a semiconductor are not still. At room temperature they rush about at the **thermal velocity**, about 10⁷ cm/s (100 km/s), bouncing off vibrating atoms and impurities roughly every 0.1–1 picosecond (the **mean free time** τ_m). Their directions are random, so on average they go nowhere: no current.
 
-    v_th = √(3kT/m∗) ≈ 10⁷ cm/s   (Si electrons, 300 K)
+### Drift in an electric field
 
-colliding (scattering) every **mean free time** τ_m ≈ 0.1–1 ps. The random motion averages to zero, so there is no current.
+Now apply an electric field E. Between collisions each electron is pushed by the field and gains a little extra speed in one direction. At each collision that extra speed is lost (the direction is randomised again). So on top of the random motion there is a small, steady average **drift velocity**:
 
-Apply a field E. Between collisions each electron accelerates by −qE/m_n∗. On average it gains a velocity −qEτ_m/m_n∗ before a collision randomises it again. This small average velocity superimposed on the random motion is the **drift velocity**:
+    v_d = μE
 
-    v_dn = −(qτ_m/m_n∗) E = −μ_n E,      v_dp = +μ_p E
+For electrons the drift is against the field (they are negative); for holes it is along the field.
 
-## Mobility
+> **In plain words.** Picture a crowd milling about randomly in a square. Tilt the square slightly. People still wander randomly, but on average the crowd now slides slowly downhill. The slow average slide is the drift velocity; the random wandering is much faster but cancels out.
 
-    μ = qτ_m / m∗      [cm²/V·s]
+### Mobility
 
-Mobility is drift velocity per unit field. It is high when scattering is rare (long τ_m) and the effective mass is small.
+The constant μ is the **mobility**: how much drift velocity you get per unit field.
+
+    μ = v_d / E = qτ_m / m∗      [cm²/V·s]
+
+From the formula, mobility is high when:
+
+- **collisions are rare** (long τ_m): fewer things to bump into;
+- **the effective mass is small** (m∗ small): the carrier is easy to accelerate.
 
 | Material | μ_n (cm²/V·s) | μ_p (cm²/V·s) |
 |---|---|---|
@@ -31,114 +45,148 @@ Mobility is drift velocity per unit field. It is high when scattering is rare (l
 | Ge | 3900 | 1900 |
 | GaAs | 8500 | 400 |
 
-Electrons are faster than holes in all three, mainly because of their smaller effective mass.
+Electrons are faster than holes in all three, mainly because of their smaller effective mass. **Example:** in Si at E = 1000 V/cm, electrons drift at v_d = 1350 × 1000 = 1.35×10⁶ cm/s.
 
-## Scattering mechanisms
+### What scatters carriers
 
-1. **Lattice (phonon) scattering.** Thermal vibration of the lattice atoms disturbs the periodic potential. Acoustic phonons dominate at moderate temperatures; optical phonons at high temperature and high field. It increases with temperature: μ_L ∝ T^{−3/2}.
-2. **Ionised-impurity (Coulomb) scattering.** Charged dopant ions deflect passing carriers. Fast carriers are deflected less, so it weakens with temperature and strengthens with doping: μ_I ∝ T^{3/2}/N_I, where N_I = N_D⁺ + N_A⁻ (compensating dopants still scatter).
-3. **Neutral-impurity scattering.** Un-ionised dopants and other neutral atoms; important only at low temperature (freeze-out).
-4. **Carrier–carrier scattering.** Electron–hole and electron–electron collisions at high carrier density (heavily injected regions).
-5. **Defect scattering.** Dislocations, grain boundaries, vacancies and clusters.
-6. **Surface (interface-roughness) scattering.** In MOSFET inversion layers, carriers pressed against the Si/SiO₂ interface by the gate field are scattered by roughness and interface charges, so channel mobility is only about half the bulk value.
-7. **Polar-optical and piezoelectric scattering.** In compound semiconductors like GaAs, where bonds are partly ionic.
-8. **Alloy scattering.** Random arrangement of atoms in alloys like AlGaAs and SiGe.
+A perfectly regular, perfectly still crystal would not scatter electrons at all (Bloch's theorem, Week 4). Anything that breaks the perfect regularity causes scattering:
 
-**Matthiessen's rule.** Independent mechanisms add as scattering rates, so
+1. **Lattice (phonon) scattering.** The atoms vibrate with heat. The hotter, the more they vibrate, and the more they scatter. Mobility falls as μ_L ∝ T^{−3/2}.
+2. **Ionised-impurity scattering.** The charged donor and acceptor ions deflect passing carriers, like a magnet deflecting a passing steel ball. Slow carriers are deflected more, so this is worst at **low** temperature and **high** doping: μ_I ∝ T^{3/2}/N_I.
+3. **Neutral-impurity scattering**, important only at very low temperature.
+4. **Carrier–carrier scattering**, at very high carrier densities.
+5. **Defect scattering** from dislocations, grain boundaries and vacancies.
+6. **Surface scattering.** In a MOSFET channel, carriers are pressed against the rough Si/SiO₂ surface; channel mobility is only about half the bulk value.
+7. **Polar and alloy scattering** in compound semiconductors and alloys.
+
+When several mechanisms act, their scattering rates add, so the reciprocals of the mobilities add (**Matthiessen's rule**):
 
     1/μ = 1/μ_L + 1/μ_I + …
 
-The lowest mobility dominates.
+The **lowest** mobility dominates, just as the narrowest section of a pipe limits the flow.
 
-@fig figures/mobility.svg | Mobility against temperature. Impurity scattering limits mobility at low temperature, lattice scattering at high temperature, so mobility peaks between them. Heavier doping lowers and shifts the peak.
+@fig figures/mobility.svg | Mobility against temperature. At low temperature impurity scattering limits mobility; at high temperature lattice scattering does. Heavier doping lowers the curve and moves its peak to higher temperature.
 
-## Factors affecting mobility
+### What affects mobility (summary)
 
-- **Temperature:** peaks, then falls as T^{−3/2} near and above room temperature (lattice-dominated).
-- **Doping:** higher total impurity concentration lowers μ. In Si, μ_n falls from 1350 (light doping) to about 1000 at 10¹⁷ and about 100 cm²/V·s at 10²⁰ cm⁻³.
-- **Effective mass:** smaller m∗ gives higher μ (GaAs electrons, 0.067m₀).
-- **Electric field:** at high field μ falls (velocity saturation, Week 8).
-- **Crystal quality and orientation:** defects and grain boundaries reduce μ; in MOSFETs electron mobility is highest on (100) and hole mobility on (110).
-- **Strain:** tensile strain raises electron mobility in Si (used in modern CMOS).
-- **Surfaces and interfaces.**
+- **Temperature:** near room temperature, higher T → more lattice vibration → lower μ.
+- **Doping:** more impurities → more scattering → lower μ (Si electrons: 1350 at light doping, about 1000 at 10¹⁷, about 100 at 10²⁰ cm⁻³).
+- **Effective mass:** smaller m∗ → higher μ.
+- **Electric field:** at very high fields μ falls (velocity saturation, Week 8).
+- **Crystal quality, surfaces, orientation and strain.**
 
-## Drift current density
+### Drift current density
 
-    J_drift = q(nμ_n + pμ_p) E = σE
+**Current density** J is the charge crossing 1 cm² per second. It equals (charge per carrier) × (number of carriers per cm³) × (their average speed). For electrons, the charge is −q and the velocity is −μ_nE; the two minus signs cancel:
+
+    J_n = (−q)(n)(−μ_nE) = qnμ_nE
+
+For holes:
+
+    J_p = (+q)(p)(+μ_pE) = qpμ_pE
+
+Electrons move against the field but carry negative charge, so their **current** is in the same direction as the hole current. The total drift current is
+
+    J = q(nμ_n + pμ_p) E = σE
+
+This is just Ohm's law, with **conductivity** and **resistivity**
 
     σ = q(nμ_n + pμ_p),     ρ = 1/σ
 
-For n-type: σ ≈ qN_Dμ_n. For p-type: σ ≈ qN_Aμ_p.
+For n-type material n ≫ p, so σ ≈ qN_Dμ_n. For p-type, σ ≈ qN_Aμ_p.
 
-Sheet resistance of a uniformly doped layer of thickness t: R_s = ρ/t (Ω/□), measured by a four-point probe.
+**Example.** n-type Si with N_D = 10¹⁶ cm⁻³:
 
-## Hall effect
+    σ = 1.6×10⁻¹⁹ × 10¹⁶ × 1350 = 2.16 S/cm,   ρ = 0.46 Ω·cm
 
-A magnetic field B_z across a current I_x pushes carriers sideways, building a Hall voltage V_H. The Hall coefficient R_H = 1/qp (p-type, positive) or −1/qn (n-type, negative) gives the carrier type and density; combined with resistivity it gives mobility μ = |R_H|σ.
+A bar 1 cm long with 1 mm² (0.01 cm²) cross-section has R = ρL/A = 0.46 × 1/0.01 = 46 Ω.
+
+**Sheet resistance.** For a thin layer of thickness t, R_s = ρ/t in ohms per square (Ω/□), measured with a four-point probe (Week 3).
+
+### Hall effect
+
+Put a sample carrying current I_x in a magnetic field B_z. The magnetic force pushes the moving carriers sideways, so charge piles up on one side and a small **Hall voltage** V_H appears across the sample. Its **sign** shows whether the carriers are electrons or holes, and its **size** gives their concentration:
+
+    R_H = 1/qp (p-type, positive),   R_H = −1/qn (n-type, negative)
+
+Combined with a resistivity measurement it gives the mobility, μ = |R_H|σ. This is the standard way to measure carrier type, concentration and mobility.
 
 ## Part B: Diffusion, Fick's law and the Einstein relation
 
-## Diffusion
+### Diffusion of carriers
 
-Random thermal motion produces a net flow from high to low concentration. With a gradient dn/dx, more carriers cross a plane from the crowded side than from the sparse side. The particle flux is proportional to the gradient (Fick's first law, Week 3):
+Suppose there are more electrons on the left of a sample than on the right, for example because light shines on the left. Each electron moves randomly. With more of them on the left, more cross any plane from left to right than from right to left. There is a net flow towards the right, with no field at all. This is **carrier diffusion**.
 
-    Φ_n = −D_n dn/dx,      Φ_p = −D_p dp/dx
+The flow obeys **Fick's law** (the same law as in Week 3, now for carriers):
 
-D_n and D_p are the **diffusion coefficients** (cm²/s). In Si at 300 K, D_n ≈ 35 and D_p ≈ 12 cm²/s.
+    flux of electrons = −D_n dn/dx,     flux of holes = −D_p dp/dx
 
-## Diffusion current densities
+D_n and D_p are the carrier **diffusion coefficients** (Si at 300 K: D_n ≈ 35 cm²/s, D_p ≈ 12 cm²/s). These are about 10¹⁴ times larger than dopant diffusion coefficients: carriers diffuse across a device in nanoseconds, while dopant atoms need hours in a furnace.
 
-Multiply the flux by the carrier charge:
+### Diffusion current density
 
-    J_{n,diff} = (−q)(−D_n dn/dx) = +q D_n dn/dx
-    J_{p,diff} = (+q)(−D_p dp/dx) = −q D_p dp/dx
+Multiply each particle flux by the charge of the carrier:
 
-Note the signs. Electrons and holes both flow down their gradients, but the electron's negative charge makes electron current flow **up** the electron gradient.
+    J_n(diff) = (−q)(−D_n dn/dx) = +qD_n dn/dx
+    J_p(diff) = (+q)(−D_p dp/dx) = −qD_p dp/dx
 
-@fig figures/diffusion-current.svg | Carriers diffuse from high to low concentration. Because the electron charge is negative, the electron diffusion current points the opposite way to the electron flow.
+**Watch the signs.** Both electrons and holes flow from high concentration to low. But because the electron charge is negative, the **electron current** points **opposite** to the electron flow, while the hole current points the same way as the hole flow.
 
-## The total current equations
+@fig figures/diffusion-current.svg | Both carriers diffuse down their concentration gradient. Because electrons are negative, the electron diffusion current points against their flow, while the hole current points with it.
 
-When both a field and gradients are present:
+**Example.** The electron concentration falls linearly from 10¹⁷ cm⁻³ to zero over 1 μm (10⁻⁴ cm) in Si:
 
-    J_n = q n μ_n E + q D_n dn/dx
-    J_p = q p μ_p E − q D_p dp/dx
+    dn/dx = −10¹⁷/10⁻⁴ = −10²¹ cm⁻⁴
+    J_n = qD_n dn/dx = 1.6×10⁻¹⁹ × 35 × (−10²¹) = −5.6×10³ A/cm²
+
+A large current, from a modest gradient. Diffusion is not a small effect: it carries the whole current in a diode's neutral regions and in a transistor's base.
+
+### The total current equations
+
+When a field and a gradient are both present, simply add drift and diffusion:
+
+    J_n = qnμ_nE + qD_n dn/dx
+    J_p = qpμ_pE − qD_p dp/dx
     J = J_n + J_p
 
-These two equations, together with the continuity equations (Week 9) and Poisson's equation, are the full set of **semiconductor device equations**.
+These two equations, together with the continuity equation (Week 9) and Poisson's equation, describe every semiconductor device.
 
-## The Einstein relation
+### The Einstein relation
+
+Drift and diffusion are two responses of the same carriers to two different pushes, and both are limited by the **same collisions**. So it is no surprise that μ and D are related:
 
     D_n / μ_n = D_p / μ_p = kT/q
 
-kT/q = 0.0259 V at 300 K is the **thermal voltage** V_T.
+kT/q is the **thermal voltage**, 0.0259 V (about 26 mV) at 300 K.
 
-**Derivation.** Take a non-uniformly doped n-type sample, N_D(x), in equilibrium with no external connection.
+**Why it is true (the equilibrium argument).** Take an n-type sample whose doping is higher on the left than on the right, and leave it alone (no battery).
 
-**Step 1.** Electrons diffuse away from the heavily doped side, uncovering positive donor ions. This builds an internal field E that pulls them back.
+1. Electrons diffuse from the heavily doped left side towards the right.
+2. As they leave, they uncover positive donor ions on the left. Positive charge on the left and extra electrons on the right create an internal electric field.
+3. The field pulls electrons back to the left: a drift current opposite to the diffusion current.
+4. With no battery, no net current can flow, so in equilibrium **drift exactly cancels diffusion**: 0 = qnμ_nE + qD_n dn/dx.
+5. In equilibrium the Fermi level is flat (Week 5). Using n = N_c e^{−(E_c − E_F)/kT}, the gradient dn/dx can be written in terms of the field: dn/dx = −(qn/kT)E.
+6. Substituting: 0 = qnμ_nE − qD_n(qn/kT)E, which gives D_n/μ_n = kT/q.
 
-**Step 2.** In equilibrium no net current flows, so drift balances diffusion:
+**Using it.** Mobility is easy to measure (Hall effect, conductivity), so D follows immediately:
 
-    0 = q n μ_n E + q D_n dn/dx
-
-**Step 3.** In equilibrium the Fermi level is flat, while E_c (and E_i) follow the electrostatic potential: E = (1/q) dE_c/dx. Using n = N_c exp(−(E_c − E_F)/kT):
-
-    dn/dx = −(n/kT) dE_c/dx = −(n/kT) qE
-
-**Step 4.** Substitute into step 2:
-
-    0 = qnμ_n E − q D_n (nq/kT) E   ⇒   D_n/μ_n = kT/q
-
-The same argument for holes gives D_p/μ_p = kT/q. The relation holds for any non-degenerate semiconductor in or near equilibrium.
-
-**Meaning.** Diffusion and drift are both limited by the same scattering processes. A carrier that scatters rarely both drifts easily (high μ) and spreads quickly (high D). Once one is known, the other follows.
-
-| | μ (cm²/V·s) | D = μkT/q (cm²/s) |
+| | μ (cm²/V·s) | D = μ × 0.0259 (cm²/s) |
 |---|---|---|
 | Si electrons | 1350 | 35.0 |
 | Si holes | 480 | 12.4 |
 | GaAs electrons | 8500 | 220 |
 | Ge electrons | 3900 | 101 |
+
+> **In plain words.** A carrier that rarely collides both drifts easily in a field (high μ) and spreads quickly by itself (high D). The ratio between the two depends only on temperature.
+
+## Key points of Week 7
+
+- Drift: v_d = μE, with μ = qτ/m∗. Electrons are faster than holes; GaAs electrons are fastest.
+- Mobility is limited by lattice scattering (worse when hot) and impurity scattering (worse when heavily doped); 1/μ = Σ1/μ_i.
+- Drift current J = q(nμ_n + pμ_p)E = σE; σ ≈ qN_Dμ_n for n-type.
+- Diffusion: carriers flow down their concentration gradient. J_n = qD_n dn/dx, J_p = −qD_p dp/dx.
+- Total current = drift + diffusion.
+- Einstein relation: D/μ = kT/q = 0.0259 V at 300 K.
 
 ---
 

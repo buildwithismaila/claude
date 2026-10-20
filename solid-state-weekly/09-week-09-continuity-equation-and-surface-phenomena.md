@@ -3,83 +3,165 @@
 
 **Plan:** derivation and application of the minority-carrier continuity equation; semiconductor surface states and surface recombination velocity.
 
-The continuity equation is the bookkeeping rule that ties together drift and diffusion (Week 7) with generation and recombination (Week 8). Surfaces add one more loss term to that bookkeeping.
+## The big picture
+
+Weeks 7 and 8 gave us all the separate pieces: carriers **flow** (drift and diffusion), and carriers are **created and destroyed** (generation and recombination). The **continuity equation** puts the pieces together into one equation.
+
+It is nothing more than **book-keeping**, like a bank account:
+
+    change in balance = money in − money out + interest earned − charges paid
+
+For carriers in a small slice of semiconductor:
+
+    change in carriers = carriers flowing in − carriers flowing out + carriers generated − carriers recombined
+
+Solve this equation and you know where the carriers are and how they change with time. That is how we will get the diode equation in Week 10 and the transistor currents in Week 13.
+
+The second half of the week is about **surfaces**, where the crystal ends and carriers get lost much faster than inside.
 
 ## Deriving the continuity equation
 
-Take a thin slab of area A between x and x + dx. The number of holes in it changes because of:
+Take a thin slice of semiconductor between x and x + dx, with cross-section area A. Count the holes in it. The number changes for three reasons:
 
-- holes flowing in at x and out at x + dx (current);
-- generation inside it, G_p;
-- recombination inside it, R_p.
+1. **Flow.** Holes enter at x carried by the current J_p(x), and leave at x + dx carried by J_p(x + dx). Dividing a current by q turns it into a number of carriers per second, so the net inflow is [J_p(x) − J_p(x + dx)]A/q.
+2. **Generation** inside the slice: G_p per cm³ per second, times the volume A dx.
+3. **Recombination** inside the slice: R_p per cm³ per second, times A dx.
 
-    ∂p/∂t · A dx = [ J_p(x) − J_p(x + dx) ] A/q + (G_p − R_p) A dx
+So:
 
-Divide by A dx and let dx → 0:
+    (rate of change of p) × A dx = [J_p(x) − J_p(x + dx)] A/q + (G_p − R_p) A dx
+
+Divide by A dx. As dx → 0, [J_p(x) − J_p(x + dx)]/dx becomes −∂J_p/∂x:
 
     ∂p/∂t = −(1/q) ∂J_p/∂x + G_p − R_p
+
+For electrons the sign of the flow term is opposite, because the electron charge is negative:
+
     ∂n/∂t = +(1/q) ∂J_n/∂x + G_n − R_n
+
+**Reading it.** If more current flows into the slice than out of it (current decreasing with x), carriers pile up. If generation beats recombination, carriers build up. Otherwise they fall.
 
 ## The minority-carrier diffusion equation
 
-For holes in n-type material, insert J_p = qpμ_pE − qD_p ∂p/∂x and R_p = Δp/τ_p. With low-level injection, uniform doping and a small or zero field:
+Now apply it to the case that matters most: **holes as minority carriers in an n-type region**, with low-level injection.
 
-    ∂Δp/∂t = D_p ∂²Δp/∂x² − μ_p E ∂Δp/∂x + G_L − Δp/τ_p
+- From Week 7, the hole current is J_p = qpμ_pE − qD_p ∂p/∂x.
+- From Week 8, the net recombination is Δp/τ_p.
+- In a neutral region of a device the field is small, so the drift term can usually be dropped.
 
-The terms are, in order: diffusion, drift, external generation, recombination.
+Substituting gives the **minority-carrier diffusion equation**:
 
-### Standard solutions
+    ∂Δp/∂t = D_p ∂²Δp/∂x² − Δp/τ_p + G_L
 
-| Situation | Equation | Solution |
+| Term | Meaning |
+|---|---|
+| ∂Δp/∂t | how fast the excess changes at this point |
+| D_p ∂²Δp/∂x² | diffusion: carriers spread from where there are more to where there are fewer |
+| −Δp/τ_p | recombination: excess carriers die off with lifetime τ_p |
+| G_L | external generation, e.g. by light |
+
+(If there is a field, add −μ_pE ∂Δp/∂x for drift.) For electrons in p-type: ∂Δn/∂t = D_n ∂²Δn/∂x² − Δn/τ_n + G_L.
+
+### The four standard solutions
+
+| Situation | Equation becomes | Solution |
 |---|---|---|
-| Uniform, no gradient, light off at t = 0 | dΔp/dt = −Δp/τ_p | Δp(t) = Δp(0)e^{−t/τ_p} |
-| Uniform steady illumination | 0 = G_L − Δp/τ_p | Δp = G_Lτ_p |
-| Steady injection at x = 0 into a long sample | 0 = D_p d²Δp/dx² − Δp/τ_p | Δp(x) = Δp(0)e^{−x/L_p} |
-| Steady injection into a short sample of length W ≪ L_p | d²Δp/dx² ≈ 0 | Linear: Δp(x) = Δp(0)(1 − x/W) |
+| Uniform sample, light switched off at t = 0 | dΔp/dt = −Δp/τ_p | Δp(t) = Δp(0) e^{−t/τ_p} (exponential decay in time) |
+| Uniform sample, steady light | 0 = G_L − Δp/τ_p | Δp = G_Lτ_p |
+| Steady injection at x = 0 into a long sample | 0 = D_p d²Δp/dx² − Δp/τ_p | Δp(x) = Δp(0) e^{−x/L_p} (exponential decay in space) |
+| Steady injection into a short sample, W ≪ L_p | d²Δp/dx² ≈ 0 | Δp(x) = Δp(0)(1 − x/W), a straight line |
 
-The **diffusion length**:
+### The diffusion length
+
+The third case introduces the **diffusion length**:
 
     L_p = √(D_p τ_p),     L_n = √(D_n τ_n)
 
-is the average distance a minority carrier diffuses before recombining.
+It is the average distance an injected minority carrier diffuses before it recombines. The excess falls to 1/e (37 %) at one diffusion length, and to under 1 % at five.
 
-@fig figures/injection.svg | Steady-state minority-carrier profile when carriers are injected at x = 0 into a long n-type bar. The excess falls to 1/e in one diffusion length.
+@fig figures/injection.svg | Steady-state profile when minority carriers are injected at x = 0 into a long n-type bar: an exponential decay with characteristic length L_p.
 
-**Example.** n-Si with D_p = 12 cm²/s, τ_p = 1 μs: L_p = √(12 × 10⁻⁶) = 3.46×10⁻³ cm = 34.6 μm. The hole diffusion current at x = 0 is J_p = qD_pΔp(0)/L_p.
+> **In plain words.** Inject carriers at one end of a bar and they spread out by diffusion, but they also keep dying by recombination. They spread a typical distance L_p before they die. The longer they live (τ) and the faster they spread (D), the further they get.
+
+**Example.** n-Si with D_p = 12 cm²/s and τ_p = 1 μs:
+
+    L_p = √(12 × 10⁻⁶) = 3.46×10⁻³ cm = 34.6 μm
+
+The hole current at the injection point comes from the slope of the profile there:
+
+    J_p(0) = −qD_p dΔp/dx |₀ = qD_pΔp(0)/L_p
+
+This is exactly the formula that, applied at the edge of a junction, gives the Shockley diode equation (Week 10). The fourth case (straight-line profile in a short region) is what happens in a transistor's thin base (Week 13).
+
+### Where the continuity equation is used
+
+- **Diodes:** the exponential profile in each neutral region gives the diode current (Week 10).
+- **Bipolar transistors:** the straight-line profile in the thin base gives the collector current and the gain (Week 13).
+- **Measuring lifetime:** the exponential decay after a light pulse (photoconductive decay) gives τ directly.
+- **Haynes–Shockley experiment:** a pulse of carriers drifts and spreads; timing it gives μ, D and τ.
+- **Solar cells and photodiodes:** with generation G_L(x) = G₀e^{−αx}, the solution gives how many carriers are collected.
+- **Device simulators** solve these equations numerically for every chip design.
 
 ## Surfaces and surface states
 
-At a surface the periodic lattice ends abruptly. Atoms there have unsatisfied bonds (**dangling bonds**), and adsorbed impurities and oxide defects add more. These create a high density of **surface states** (traps) distributed through the gap, typically 10¹⁰–10¹⁵ cm⁻². They:
+### Why surfaces are special
 
-- act as **SRH recombination centres**, so carriers recombine much faster at the surface than in the bulk;
-- **trap charge**, bending the bands near the surface (depletion, accumulation or inversion) even with no applied bias;
-- cause instability and noise, and in MOS devices shift the threshold voltage (interface trap density D_it).
+Inside the crystal, every silicon atom is bonded to four neighbours. At a surface the crystal simply stops: the surface atoms have bonds pointing out into nothing, called **dangling bonds**. Adsorbed impurities and defects in any oxide on top add more problems.
+
+These create a high density of **surface states**: energy levels inside the band gap, located at the surface (typically 10¹⁰–10¹⁵ per cm²). They:
+
+- act as **SRH traps** (Week 8), so carriers recombine much faster at the surface than in the bulk;
+- **trap charge**, which bends the bands near the surface even with no voltage applied;
+- cause noise and instability, and shift the threshold voltage in MOSFETs.
 
 ### Surface recombination velocity
 
-Because the recombination happens in an infinitesimally thin layer, it is described as a flux (per area), not a rate per volume:
+Recombination at a surface happens in an extremely thin layer, so it is counted **per unit area**, not per unit volume:
 
-    U_s = S · Δp(0)      [carriers cm⁻² s⁻¹]
+    U_s = S × Δp(0)      [carriers per cm² per second]
 
-S, the **surface recombination velocity** (cm/s), plays the role of a velocity with which excess carriers "flow into" the surface and disappear. With SRH statistics for surface traps of density N_st (cm⁻²):
+where Δp(0) is the excess minority concentration at the surface and **S is the surface recombination velocity** (cm/s).
+
+> **In plain words.** Imagine the excess carriers near the surface rushing into it at speed S and vanishing. A surface with S = 100 cm/s swallows carriers as fast as if they flowed into a drain at 100 cm/s. A perfect surface has S = 0; a surface that destroys every carrier that reaches it has S → ∞.
+
+For surface traps of density N_st (per cm²):
 
     S = σ_p v_th N_st
 
-The surface acts as a sink. Carriers diffuse towards it, so the boundary condition at the surface is
+It enters the diffusion equation as a **boundary condition**: the carriers arriving at the surface by diffusion must equal the carriers recombining there,
 
-    D_p dΔp/dx |_{x=0} = S Δp(0)
+    D_p dΔp/dx |surface = S Δp(0)
 
-Limits: S = 0 means a perfect, reflecting surface (no recombination); S → ∞ forces Δp(0) = 0, as at an Ohmic contact.
+| Surface | Typical S (cm/s) |
+|---|---|
+| Bare or freshly etched Si | 10⁴ – 10⁶ |
+| Thermally oxidised Si | 10 – 100 |
+| Best passivated Si (Al₂O₃, SiNₓ, annealed SiO₂) | below 10 |
+| Ohmic metal contact | → ∞ (Δp forced to 0) |
 
-Typical values: bare or freshly etched Si 10⁴–10⁶ cm/s; thermally oxidised Si 10–100 cm/s; best passivated Si (Al₂O₃, SiNₓ, annealed SiO₂) below 10 cm/s.
+### How surfaces shorten the lifetime
 
-### Effective lifetime
-
-In a wafer of thickness W with both surfaces recombining:
+In a wafer of thickness W with both surfaces recombining, the measured (effective) lifetime combines bulk and surface losses:
 
     1/τ_eff = 1/τ_bulk + 2S/W          (for small S)
 
-**Example.** τ_bulk = 100 μs, W = 300 μm = 0.03 cm, S = 100 cm/s: 2S/W = 6.7×10³ s⁻¹, 1/τ_bulk = 1×10⁴ s⁻¹, so τ_eff = 1/(1.67×10⁴) = 60 μs. Unpassivated (S = 10⁵ cm/s) it would fall to about 0.15 μs.
+**Example.** τ_bulk = 100 μs, W = 300 μm = 0.03 cm, S = 100 cm/s:
+
+    2S/W = 2 × 100/0.03 = 6.7×10³ s⁻¹,   1/τ_bulk = 1×10⁴ s⁻¹
+    1/τ_eff = 1.67×10⁴ s⁻¹   ⇒   τ_eff = 60 μs
+
+With an unprotected surface (S = 10⁵ cm/s), 2S/W = 6.7×10⁶ s⁻¹ and τ_eff falls to about **0.15 μs**: the surface, not the bulk, then controls everything.
+
+**Reducing surface recombination (passivation):** grow thermal SiO₂ and anneal in hydrogen to tie up dangling bonds; deposit silicon nitride or aluminium oxide; add a heavily doped surface layer that repels minority carriers (a "back-surface field" in solar cells); and keep surfaces clean and damage-free.
+
+## Key points of Week 9
+
+- Continuity equation = carrier book-keeping: ∂p/∂t = −(1/q)∂J_p/∂x + G − R.
+- Minority-carrier diffusion equation: ∂Δp/∂t = D_p∂²Δp/∂x² − Δp/τ_p + G_L.
+- Standard solutions: decay in time e^{−t/τ}; steady light Δp = G_Lτ; long bar e^{−x/L}; short region a straight line.
+- Diffusion length L = √(Dτ): how far a minority carrier travels before recombining.
+- Surfaces have dangling bonds → surface states → fast recombination, measured by S (cm/s).
+- 1/τ_eff = 1/τ_bulk + 2S/W; passivation keeps S small.
 
 ---
 

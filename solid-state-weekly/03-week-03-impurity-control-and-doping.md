@@ -1,189 +1,461 @@
 # Week 3 — Impurity Control and Doping
 <!-- group: Module 1 · Material Physics & Semiconductor Growth -->
 
-**Plan:** diffusion and ion implantation mechanisms; controlled doping profiles and evaluation of impurity distribution.
+**Plan:** diffusion and ion implantation mechanisms; controlled doping profiles and evaluation of impurity distribution. This page follows your lecturer's handwritten notes on diffusion and ion implantation, including every calculation in them.
 
-Week 1 explained what donors and acceptors do. This week explains how they are put into the wafer, what profile they end up with, and how that profile is measured.
+## The big picture
 
-## Doping
+A pure silicon wafer is almost useless. To make a diode, a transistor or a chip, we must put **dopant atoms** (boron, phosphorus, arsenic) into chosen parts of the wafer, in chosen amounts, down to a chosen depth. There are two ways to do this:
 
-**Doping** is the deliberate, controlled addition of small amounts of specific impurity atoms (typically 10¹⁴–10²⁰ cm⁻³, i.e. one in 10⁸ to one in 500 host atoms) to change the type and concentration of carriers.
+1. **Diffusion:** heat the wafer in an atmosphere rich in dopant. The dopant atoms creep in by themselves, the way a drop of ink spreads through water.
+2. **Ion implantation:** turn the dopant atoms into ions, accelerate them with a high voltage, and fire them into the wafer like tiny bullets.
 
-### Donors: n-type
+The purpose of both is the same: to change the electrical properties of the material and form the **n-type and p-type regions** needed for diodes, transistors, MOSFETs and integrated circuits.
 
-A Group V atom (P, As, Sb) substitutes for Si. Four of its five valence electrons form bonds; the fifth is only weakly bound (about **0.045 eV** for P in Si, versus E_g = 1.12 eV) and at room temperature is released into the conduction band. The donor becomes a fixed positive ion N_D⁺.
+Common dopants for silicon:
 
-In band terms the donor creates a level E_D just below E_c.
+| Dopant | Symbol | Makes silicon |
+|---|---|---|
+| Phosphorus | P | n-type |
+| Arsenic | As | n-type |
+| Antimony | Sb | n-type |
+| Boron | B | p-type |
+| Gallium | Ga | p-type |
 
-- Electrons: majority carriers. Holes: minority carriers.
-- n ≈ N_D, p = n_i²/N_D.
+---
 
-### Acceptors: p-type
+## Part A: Diffusion
 
-A Group III atom (B, Al, Ga, In) substitutes for Si. It has only three valence electrons, so one bond is incomplete. A neighbouring electron easily moves in (about **0.045 eV** for B), leaving a mobile **hole** in the valence band and making the acceptor a fixed negative ion N_A⁻.
+### What diffusion is
 
-In band terms the acceptor creates a level E_A just above E_v.
+**Diffusion** is the movement of dopant atoms from a region of **high concentration** to a region of **low concentration**, driven by thermal energy.
 
-- Holes: majority. Electrons: minority.
-- p ≈ N_A, n = n_i²/N_A.
+In processing, the silicon wafer is heated to a high temperature (about 900–1200 °C) and exposed to a dopant source. Dopant atoms enter the silicon surface and gradually move into the crystal.
 
-@fig figures/donor-acceptor.svg | Donor levels sit just below the conduction band and give up electrons; acceptor levels sit just above the valence band and capture electrons, creating holes.
+### Why atoms move "downhill"
 
-Ionisation energies in Si (eV): P 0.045, As 0.054, Sb 0.039; B 0.045, Al 0.067, Ga 0.072, In 0.16. Because these are only about 2kT, practically all shallow dopants are ionised at 300 K.
+Your notes illustrate this with gas molecules in a box. Suppose 21 of 32 oxygen molecules start on the left side of a box. Every molecule moves randomly, left or right with equal chance. Nothing pushes them in any particular direction. But because there are more molecules on the left, **more of them happen to cross from left to right than from right to left**. The result is a net flow towards the emptier side.
 
-**In GaAs:** Group VI (S, Se, Te) on As sites are donors; Group II (Zn, Be, Mg) on Ga sites are acceptors; Group IV Si is **amphoteric** (a donor on a Ga site, an acceptor on an As site).
+- **Concentration difference:** more particles on one side (21 of 32 on the left) creates a **concentration gradient**.
+- **Net diffusion:** random motion carries particles both ways, but more move from the crowded side to the less crowded side.
+- **Dynamic equilibrium:** eventually both sides have similar concentrations. Particles still move randomly in both directions, but the two flows now cancel, so there is no net change.
 
-**Compensation.** If both donors and acceptors are present, they cancel: the net doping is |N_D − N_A|, but both still scatter carriers.
+> **In plain words.** Diffusion is not a force. It is just statistics: if you have more atoms here than there, random jumping will, on average, carry atoms from here to there. The steeper the difference, the faster the flow.
 
-## Part A: Thermal diffusion
+The basic process is:
 
-## How dopants move: diffusion mechanisms
+    Dopant source → silicon surface → dopant penetration → desired dopant profile
 
-At high temperature (900–1200 °C for Si) atoms vibrate strongly and occasionally jump to a neighbouring site. Net movement goes from high to low concentration.
+### Fick's first law: how fast atoms flow
 
-1. **Substitutional (vacancy) diffusion.** The dopant sits on a lattice site and can only move when a **vacancy** appears next to it; it then swaps into the vacancy. Slow, because it needs both a vacancy (formation energy) and a jump (migration energy): activation energy 3–4 eV. Main dopants B, P, As, Sb.
-2. **Interstitial diffusion.** Small atoms squeeze between lattice sites without needing vacancies. Fast, activation energy 0.5–1.5 eV. Examples: Au, Cu, Fe, Li, H, Na. These metals are lifetime killers.
-3. **Interstitialcy (kick-out) mechanism.** A Si self-interstitial pushes a substitutional dopant into an interstitial position, the dopant moves, then kicks a Si atom out. Important for B and P.
+    J = −D dC/dx
 
-The diffusion coefficient follows an Arrhenius law:
+| Symbol | Meaning | Unit |
+|---|---|---|
+| J | **dopant flux**: number of dopant atoms crossing 1 cm² each second | atoms/cm²·s |
+| D | **diffusion coefficient**: how easily the dopant moves in silicon | cm²/s |
+| C | dopant concentration | atoms/cm³ |
+| x | distance into the semiconductor | cm |
+| dC/dx | the **concentration gradient**: how fast C changes with depth | atoms/cm⁴ |
 
-    D = D₀ exp(−E_a / kT)
+**Reading the equation.** The flow is proportional to how steeply the concentration changes. No gradient, no flow. The **minus sign** says the flow goes from high concentration towards low concentration: if C falls as x increases (dC/dx negative), J is positive, meaning atoms flow in the +x direction, deeper into the wafer.
 
-For B in Si: D₀ ≈ 0.76 cm²/s, E_a ≈ 3.46 eV, giving D ≈ 10⁻¹³ cm²/s at 1100 °C. A tiny change in T changes D a lot, so furnace temperature must be held to ±0.5 °C.
+(The J here is a flow of atoms, not an electric current. Later weeks use J for current density.)
 
-## Fick's laws
+### The diffusion coefficient depends strongly on temperature
 
-**First law** (flux is proportional to the concentration gradient):
+    D = D₀ e^{−E_a/kT}
 
-    F = −D ∂C/∂x
+| Symbol | Meaning |
+|---|---|
+| D₀ | diffusion constant (cm²/s), a property of the dopant–silicon pair |
+| E_a | **activation energy** (eV): the energy barrier an atom must jump over to move one lattice site |
+| k | Boltzmann constant, 8.617×10⁻⁵ eV/K |
+| T | absolute temperature (K) |
 
-F is the flux (atoms per cm² per second), C the concentration (cm⁻³), D the diffusion coefficient (cm²/s). The minus sign means atoms flow **down** the gradient.
+Because T sits inside an exponential, **increasing temperature greatly increases the diffusion rate**. Typical E_a is 3–4 eV, so D rises about tenfold for every 50–100 °C. This is why diffusion only happens in a furnace: at room temperature D is so small that dopants do not move at all in a lifetime.
 
-**Second law** (conservation of atoms combined with the first law):
+### How far do atoms travel? The diffusion length
 
-    ∂C/∂t = −∂F/∂x = D ∂²C/∂x²
+The depth to which dopants spread grows with the **square root** of time:
 
-It gives how the concentration profile C(x, t) evolves in time. The two standard solutions correspond to the two steps of a real diffusion process.
+    diffusion length ≈ √(Dt)
 
-### Constant-source (predeposition) diffusion: erfc profile
+Your notes use the form **L = √(2Dt)**. Other books write 2√(Dt), which is what appears inside the erfc formula below. They are the same idea with a different constant in front. The key fact is that **depth ∝ √(Dt)**: diffusing four times as long only doubles the depth. In a calculation, use whichever form the question gives.
 
-The surface is held at a fixed concentration C_s (equal to the solid solubility of the dopant at that temperature) by a gas or glass source. With boundary conditions C(0, t) = C_s, C(∞, t) = 0, C(x, 0) = 0:
+### Two types of diffusion
+
+#### A. Constant-source diffusion (predeposition)
+
+The surface of the semiconductor is kept at an approximately **constant dopant concentration C_s**, because the source (dopant gas or glass) is present all the time. The profile is:
 
     C(x, t) = C_s erfc( x / 2√(Dt) )
 
-    Total dose  Q(t) = (2/√π) C_s √(Dt)   [atoms/cm²]
+| Symbol | Meaning |
+|---|---|
+| C_s | surface concentration (atoms/cm³), fixed |
+| x | depth |
+| D | diffusion coefficient |
+| t | diffusion time |
+| erfc | the **complementary error function**, erfc(u) = 1 − erf(u). You read it from a table. |
 
-√(Dt) is the **diffusion length**; it sets the depth scale.
+**Characteristics:**
 
-### Limited-source (drive-in) diffusion: Gaussian profile
+1. The dopant source remains available throughout the process.
+2. The surface concentration stays approximately constant.
+3. It produces an erfc concentration profile.
+4. It is often used for the **initial doping step**.
 
-A fixed dose Q is first deposited, the source is removed, and the wafer is heated to drive the dopant deeper:
+**What erfc looks like.** erfc(0) = 1, so at the surface C = C_s. As the argument u = x/2√(Dt) grows, erfc falls: erfc(0.5) = 0.48, erfc(1) = 0.16, erfc(2) = 0.005, erfc(3) ≈ 2×10⁻⁵. So the concentration is highest at the surface and falls off steeply with depth. As time goes on, 2√(Dt) gets bigger, so the same depth corresponds to a smaller u, and the profile pushes deeper.
 
-    C(x, t) = ( Q / √(πDt) ) exp( −x² / 4Dt )
+| u | erfc(u) | u | erfc(u) |
+|---|---|---|---|
+| 0 | 1.000 | 1.0 | 0.157 |
+| 0.25 | 0.724 | 1.5 | 0.034 |
+| 0.5 | 0.480 | 2.0 | 4.7×10⁻³ |
+| 0.527 | 0.456 | 2.5 | 4.1×10⁻⁴ |
+| 0.75 | 0.289 | 3.0 | 2.2×10⁻⁵ |
 
-The surface concentration C_s = Q/√(πDt) **falls** with time while the total dose stays constant.
+#### B. Limited-source diffusion (drive-in)
 
-@fig figures/diffusion.svg | Normalised profiles. The erfc profile keeps its surface concentration fixed; the Gaussian has a fixed area (dose) and its surface value falls as it spreads.
+After a dopant has been introduced into the surface, the wafer is heated **without** supplying any more dopant. The fixed amount already there spreads deeper. The profile is approximately **Gaussian**:
+
+    C(x, t) = ( Q / √(πDt) ) e^{−x²/4Dt}
+
+| Symbol | Meaning |
+|---|---|
+| Q | total dopant dose per unit area (atoms/cm²), fixed |
+| D | diffusion coefficient |
+| t | time |
+
+**Characteristics:**
+
+1. The dopant penetrates deeper.
+2. The **surface concentration decreases** (the same atoms are spread over a greater depth).
+3. The total dopant quantity is approximately **conserved**.
+4. It is used to obtain a desired **junction depth**.
+
+The surface concentration is the value at x = 0, where e⁰ = 1:
+
+    C(0, t) = Q / √(πDt)
+
+@fig figures/diffusion.svg | Left: constant-source (erfc) profiles at three times; the surface value stays fixed while the profile deepens. Right: limited-source (Gaussian) profiles; the area under each curve (the dose) is the same, so the surface value falls as the profile spreads.
+
+> **In plain words.** Constant source: keep pouring ink on the surface, and the colour soaks deeper while the surface stays dark. Limited source: put one drop on, stop, and wait; the colour spreads deeper but gets paler everywhere.
 
 ### Junction depth
 
-Diffusing into a substrate doped N_B of opposite type, the junction forms where C(x_j) = N_B:
+If the wafer was already doped with the opposite type, at background concentration N_B (for example n-type 10¹⁶ cm⁻³ and we diffuse boron in), a **p-n junction** forms at the depth x_j where the diffused concentration has fallen to equal the background:
 
-    erfc:      x_j = 2√(Dt) · erfc⁻¹(N_B / C_s)
-    Gaussian:  x_j = 2√(Dt) · √( ln( C_s / N_B ) )
+    C(x_j) = N_B
 
-## The two-step process
+    erfc profile:     x_j = 2√(Dt) · erfc⁻¹(N_B/C_s)
+    Gaussian profile: x_j = 2√(Dt) · √( ln(C_s/N_B) )
 
-1. **Predeposition** (≈ 900–1000 °C, short): constant source, shallow erfc profile, sets the dose.
-2. **Drive-in** (≈ 1000–1200 °C, longer, often oxidising): limited source, Gaussian profile, sets the junction depth and lowers surface concentration.
+### Step-by-step diffusion process
 
-Sources: solid (BN discs, P₂O₅ glass), liquid (POCl₃, BBr₃ bubbled with N₂) or gas (B₂H₆, PH₃). SiO₂ masks the diffusion, which is how patterned junctions are made.
+1. **Wafer preparation.** A high-purity silicon wafer is cleaned to remove (a) dust, (b) organic contamination, (c) metallic impurities and (d) native surface oxide and contamination.
+2. **Dopant source preparation.** A suitable dopant source is selected: boron for p-type, phosphorus or arsenic for n-type.
+3. **Heating.** The wafer is placed in a diffusion furnace and heated to a high temperature.
+4. **Dopant introduction.** The dopant is supplied to the surface of the silicon.
+5. **Dopant penetration.** Thermal energy allows dopant atoms to move from the surface into the silicon lattice.
+6. **Drive-in.** Additional heating may be used to drive the dopant deeper into the wafer.
+7. **Cooling.** The wafer is cooled under controlled conditions.
+8. **Characterisation.** The resulting dopant profile is measured to determine (1) junction depth, (2) sheet resistance, (3) dopant concentration and (4) electrical properties.
+
+### Diffusion at the atomic level
+
+Dopant atoms move through the silicon crystal mainly by two mechanisms:
+
+**A. Vacancy mechanism.** A dopant atom sitting on a lattice site can only move when a neighbouring site is empty (a **vacancy**). It jumps into the vacancy:
+
+    atom → vacancy → new lattice position
+
+This is how the main dopants (B, P, As, Sb) move. It is slow, because it needs a vacancy to be next to the atom at the right moment.
+
+**B. Interstitial mechanism.** A small atom moves through the **spaces between** the normal lattice positions without needing a vacancy. This is much faster. Metals such as gold, copper and iron move this way.
+
+Some dopants use both: they move through interstitial sites, or by interactions involving both interstitials and vacancies. Which mechanism a dopant uses determines how quickly it diffuses.
+
+### Advantages and disadvantages of diffusion
+
+| Advantages | Disadvantages |
+|---|---|
+| Relatively simple process | Requires high temperature |
+| Can process many wafers simultaneously | Dopants spread laterally (sideways) as well as vertically |
+| Suitable for high-temperature processing | Less precise depth control |
+| Good for introducing large dopant concentrations | Difficult to form extremely shallow junctions |
+| Historically important in semiconductor fabrication | High-temperature exposure can affect previously fabricated structures |
+
+---
+
+## Diffusion calculations (from the lecture notes)
+
+### Q1. Phosphorus is diffused into silicon with D = 2×10⁻¹³ cm²/s for t = 500 s. Find the approximate diffusion distance using L = √(2Dt).
+
+    L = √(2 × 2×10⁻¹³ × 500) = √(2×10⁻¹⁰) = 1.414×10⁻⁵ cm
+
+Convert to micrometres (1 cm = 10⁴ μm):
+
+    L = 1.414×10⁻⁵ × 10⁴ = 0.141 μm
+
+**L ≈ 0.141 μm.** Note how small this is: dopants move only a fraction of a micrometre in minutes.
+
+### Q2. A dopant concentration gradient in silicon is 4×10¹⁸ cm⁻⁴ and D = 3×10⁻¹⁴ cm²/s. Find the diffusion flux using Fick's first law.
+
+    J = −D dC/dx = −(3×10⁻¹⁴)(4×10¹⁸) = −1.2×10⁵ atoms/cm²·s
+
+**|J| = 1.2×10⁵ atoms/cm²·s.** The minus sign means the dopant moves from the region of higher concentration towards lower concentration (against the direction in which C increases).
+
+### Q4. Find D at T = 1273 K for a dopant with D₀ = 0.5 cm²/s and E_a = 3.5 eV.
+
+    kT = 8.617×10⁻⁵ × 1273 = 0.1097 eV
+    E_a/kT = 3.5/0.1097 = 31.90
+    D = 0.5 × e^{−31.90} = 0.5 × 1.39×10⁻¹⁴ = 6.9×10⁻¹⁵ cm²/s
+
+**D ≈ 6.9×10⁻¹⁵ cm²/s.** Try T = 1373 K (100 °C hotter): kT = 0.1183 eV, E_a/kT = 29.58, D = 7.1×10⁻¹⁴ cm²/s, ten times larger.
+
+### Q5. Constant-source diffusion: C_s = 1×10²⁰ cm⁻³, D = 1×10⁻¹³ cm²/s, t = 3600 s. Find C at x = 0.2 μm.
+
+Step 1, convert the depth: x = 0.2 μm = 2×10⁻⁵ cm.
+
+Step 2, the diffusion length: √(Dt) = √(1×10⁻¹³ × 3600) = √(3.6×10⁻¹⁰) = 1.897×10⁻⁵ cm.
+
+Step 3, the erfc argument:
+
+    u = x / 2√(Dt) = 2×10⁻⁵ / (2 × 1.897×10⁻⁵) = 0.527
+
+Step 4, from the table: erf(0.527) = 0.544, so erfc(0.527) = 1 − 0.544 = 0.456.
+
+Step 5:
+
+    C = C_s × erfc(u) = 1×10²⁰ × 0.456 = 4.56×10¹⁹ atoms/cm³
+
+**C(0.2 μm) = 4.56×10¹⁹ cm⁻³**, a little under half the surface value.
+
+### Q6. Drive-in: dose Q = 2×10¹⁵ atoms/cm², D = 5×10⁻¹⁴ cm²/s, t = 1000 s. Find the concentration at x = 0.
+
+At x = 0, e^{−0} = 1, so
+
+    C(0, t) = Q / √(πDt)
+    Dt = 5×10⁻¹⁴ × 1000 = 5×10⁻¹¹ cm²
+    πDt = 1.571×10⁻¹⁰,   √(πDt) = 1.253×10⁻⁵ cm
+    C(0, t) = 2×10¹⁵ / 1.253×10⁻⁵ = 1.60×10²⁰ atoms/cm³
+
+**Surface concentration = 1.60×10²⁰ cm⁻³.**
+
+Why x = 0? x is the distance from the silicon surface: x = 0 is exactly at the surface; x = 0.1 μm is 0.1 μm below it; any x > 0 means below the surface. The question asks for the surface concentration, so we set x = 0 and the exponential becomes 1. (The dose is atoms per cm² because it is the total number of atoms under each square centimetre of surface.)
+
+---
 
 ## Part B: Ion implantation
 
-## Principle
+### What ion implantation is
 
-Dopant atoms are **ionised**, **accelerated** through a high voltage (typically 1 keV to several MeV) and **fired into** the wafer. The ions lose their energy by collisions with the lattice electrons (electronic stopping) and nuclei (nuclear stopping) and come to rest at some depth. A subsequent **anneal** repairs the damage and moves the dopants onto substitutional sites where they become electrically active.
+**Ion implantation** is a doping technique in which dopant atoms are converted into **ions**, **accelerated** to high energy, and physically **injected** into the semiconductor wafer.
 
-## The implanter
+Unlike thermal diffusion, ion implantation allows the **dopant dose** and **implantation depth** to be controlled very precisely.
 
-1. **Ion source:** a gas such as BF₃, PH₃ or AsH₃ is ionised in a plasma (arc chamber).
-2. **Extraction:** ions are pulled out by an extraction voltage (≈ 20–40 kV).
-3. **Mass analyser:** a magnet bends the beam. Only ions with the selected mass-to-charge ratio pass through the slit, so the beam is isotopically pure (e.g. ¹¹B⁺ only).
-4. **Acceleration tube:** raises the ions to the final energy.
-5. **Scanning and focusing:** electrostatic or mechanical scanning spreads the beam uniformly over the wafer.
-6. **Target chamber and dose measurement:** a **Faraday cup** collects the beam current, and integrating it gives the dose.
+Basic flowchart:
 
-Dose (ions per cm²):
+    Dopant source → ioniser → mass analyser → accelerator → beam → wafer
 
-    Φ = (1/qA) ∫ I dt = I·t / (q·A)       (singly charged ions)
+**Main components:** ion source, mass analyser, acceleration system, beam focusing system, scanning system, the semiconductor wafer, and a vacuum chamber (the ions must not hit air molecules on the way).
 
-**Example.** Beam current 10 μA for 100 s over a 200 mm wafer (A = 314 cm²): Φ = (10×10⁻⁶ × 100)/(1.602×10⁻¹⁹ × 314) = 2.0×10¹³ ions/cm².
+### Step-by-step ion implantation
 
-## The implanted profile
+1. **Dopant ion generation.** A dopant-containing material (boron, phosphorus, arsenic) is introduced into an ion source, where its atoms are converted into positively charged ions.
+2. **Ion extraction.** An electric field pulls the ions out of the source.
+3. **Mass analysis.** The ion beam passes through a magnetic mass analyser. A magnet bends the path of each ion by an amount that depends on its **mass-to-charge ratio**, so only the wanted ion goes through the exit slit. This prevents unwanted species being implanted.
+4. **Acceleration.** The selected ions are accelerated through a high electric potential. Their kinetic energy is **E = qV**, where E is the ion energy, q the ion charge and V the accelerating voltage. For a singly charged ion E = eV, so an ion accelerated through 100 kV has 100 keV.
+5. **Beam focusing and scanning.** The ion beam is focused and scanned across the wafer so that the dopant is distributed uniformly.
+6. **Implantation.** The energetic ions enter the silicon. As they travel through it, they collide with silicon nuclei and electrons and lose energy. Eventually they stop at a particular average depth.
+7. **Annealing.** Implantation damages the crystal, because energetic ions knock silicon atoms out of place. The wafer is therefore heated (**thermal annealing**), which repairs crystal damage and moves the dopant atoms into proper lattice positions where they become electrically active.
+8. **The implantation profile.** The implanted dopant normally produces an approximately **Gaussian** distribution.
 
-To first order the profile is **Gaussian**, centred at the **projected range** R_p with **straggle** (standard deviation) ΔR_p:
+### The implanted profile
 
-    N(x) = ( Φ / (√(2π) ΔR_p) ) · exp( −(x − R_p)² / 2ΔR_p² )
+    C(x) = ( Q / (√(2π) ΔR_p) ) exp[ −(x − R_p)² / (2ΔR_p²) ]
 
-    Peak concentration  N_p = Φ / (√(2π) ΔR_p) ≈ 0.4 Φ / ΔR_p
+| Symbol | Meaning |
+|---|---|
+| Q | implanted dose (ions/cm²) |
+| R_p | **projected range**: the average depth at which ions stop |
+| ΔR_p | **straggle**: the spread of stopping depths about R_p (standard deviation) |
+| x | depth |
 
-R_p increases with ion energy and decreases with ion mass. Rough values in Si at 100 keV: B, R_p ≈ 0.30 μm; P, 0.12 μm; As, 0.06 μm.
+The peak is at x = R_p, below the surface, and its height is
 
-**Example.** Φ = 1×10¹⁵ cm⁻² of As with ΔR_p = 0.02 μm = 2×10⁻⁶ cm gives N_p = 0.4 × 10¹⁵/2×10⁻⁶ = 2×10²⁰ cm⁻³.
+    N_p = Q / (√(2π) ΔR_p) ≈ 0.4 Q/ΔR_p
 
-@fig figures/implant.svg | An implanted profile peaks below the surface at the projected range R_p, unlike a diffused profile, which always peaks at the surface.
+@fig figures/implant.svg | An implanted profile is a bell curve centred at R_p below the surface, with width set by ΔR_p. The junction forms where it falls to the background doping N_B.
 
-## Practical effects
+> **In plain words.** Fire a million identical bullets into sand at the same speed. They do not all stop at exactly the same depth, but most stop near an average depth (R_p), with a spread (ΔR_p). That is the bell curve.
 
-- **Lattice damage.** Each heavy ion displaces thousands of Si atoms. High doses turn the surface **amorphous**.
-- **Annealing** repairs damage and activates dopants: furnace anneal (900–1000 °C, 30 min) or **rapid thermal anneal** (RTA, ≈ 1000–1100 °C for a few seconds) which limits further diffusion. Laser and flash anneals use even shorter times.
-- **Channelling.** Ions entering along a low-index direction (e.g. ⟨110⟩) travel down open "channels" in the crystal and go much deeper than predicted. Prevented by **tilting the wafer about 7°**, rotating it, implanting through a thin screen oxide, or pre-amorphising the surface.
-- **Masking.** Photoresist, SiO₂, Si₃N₄ or polysilicon stops the ions where doping is not wanted. A thick enough mask is a few R_p + ΔR_p.
-- **Self-aligned gates.** In a MOSFET the polysilicon gate itself masks the channel while the source and drain are implanted, which aligns them to the gate automatically.
+### Implantation parameters
+
+- **Implantation dose** Q = number of implanted ions per unit area, usually expressed in **ions/cm²**.
+- **Implantation energy**, usually expressed in **keV or MeV**. A higher implant energy generally produces a **deeper** implant.
+
+The dose comes from the beam current I, the time t and the area A:
+
+    Q = (I t)/(q A)       (singly charged ions)
+
+### How ion implantation works inside silicon
+
+    ion enters → collisions with atoms → loses energy → changes direction → eventually stops
+
+There are two major energy-loss mechanisms:
+
+**Nuclear stopping.** The implanted ion collides with silicon **nuclei**. This causes (i) deflection of the ion and (ii) displacement of silicon atoms, which is **lattice damage**. The nuclear stopping power is
+
+    S_n = −(1/N_Si) (dE/dx)_nuclear
+
+**Electronic stopping.** The ion interacts with the **electrons** in the silicon, losing energy through excitation and ionisation. At high energies electronic stopping is particularly important. It causes little damage.
+
+    S_e = −(1/N_Si) (dE/dx)_electronic
+
+Here N_Si is the number of silicon atoms per cm³ (5×10²² cm⁻³) and dE/dx the energy lost per unit distance. Heavy ions (As) lose energy mainly to nuclei and stop shallow; light ions (B) lose it mainly to electrons and go deeper.
+
+### Channelling
+
+**Channelling** occurs when ions enter the crystal along certain crystallographic directions and travel relatively deeply through open channels between rows of atoms. This produces an unexpectedly deep dopant distribution.
+
+To reduce channelling, manufacturers may:
+
+1. **tilt** the wafer relative to the ion beam (typically 7°);
+2. **rotate** the wafer;
+3. use suitable implantation conditions;
+4. sometimes introduce a thin **amorphous layer** (a screen oxide, or a pre-amorphising implant) so the crystal channels are hidden.
+
+### Example: forming an n-type region both ways
+
+Suppose we want to convert part of a silicon wafer into an n-type region.
+
+    Using diffusion:          silicon wafer → phosphorus source → high temperature → P atoms diffuse into Si → n-type region
+    Using ion implantation:   phosphorus source → P⁺ ions → mass analysis → acceleration → implantation into Si → annealing → n-type region
+
+### Diffusion versus ion implantation
+
+| Feature | Diffusion | Ion implantation |
+|---|---|---|
+| Dopant introduction | Thermal movement | Accelerated ions |
+| Main driving force | Concentration gradient | Ion kinetic energy |
+| Temperature | High | Relatively low (implant near room temperature) |
+| Depth control | Less precise | Highly precise |
+| Dose control | Moderate | Excellent |
+| Crystal damage | Low | Significant |
+| Annealing | Sometimes required | Normally required |
+| Profile | erfc or Gaussian, maximum at the surface | Approximately Gaussian, peak below the surface |
+| Modern IC use | Less dominant for shallow junctions | Widely used |
+| Equipment | Diffusion furnace | Ion implanter |
+
+---
+
+## Ion implantation calculations (from the lecture notes)
+
+### P1. A silicon wafer is implanted with boron, Q = 1.0×10¹³ cm⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm. (a) Find the peak concentration N_p. (b) Find the boron concentration at the surface (x = 0).
+
+(a) Convert ΔR_p = 0.05 μm = 5.0×10⁻⁶ cm.
+
+    N_p = Q / (√(2π) ΔR_p) = 1.0×10¹³ / (2.5066 × 5.0×10⁻⁶) = 1.0×10¹³ / 1.253×10⁻⁵
+        = 7.98×10¹⁷ cm⁻³
+
+(b) At x = 0:
+
+    N(0) = N_p exp( −R_p²/2ΔR_p² ),   R_p/ΔR_p = 0.5/0.05 = 10
+    N(0) = N_p exp(−10²/2) = N_p e^{−50} = 7.98×10¹⁷ × 1.93×10⁻²² = 1.54×10⁻⁴ cm⁻³
+
+Effectively **zero boron at the surface**: the whole dose is buried around 0.5 μm.
+
+### P2. An n-type substrate with C_B = 1.0×10¹⁵ cm⁻³ is implanted with boron to form a p-type region. Peak N_p = 1.0×10¹⁷ cm⁻³ at R_p = 0.4 μm, ΔR_p = 0.05 μm. Find the junction depth x_j (where the boron concentration equals C_B).
+
+At the junction N(x_j) = C_B:
+
+    C_B = N_p exp( −(x_j − R_p)²/2ΔR_p² )
+    ln(N_p/C_B) = (x_j − R_p)²/2ΔR_p²
+    x_j = R_p + ΔR_p √( 2 ln(N_p/C_B) )
+
+Numbers: N_p/C_B = 10¹⁷/10¹⁵ = 100; ln(100) = 4.605; × 2 = 9.21; √9.21 = 3.035.
+
+    x_j = 0.4 μm + 0.05 μm × 3.035 = 0.4 + 0.152 = 0.552 μm
+
+The p-n junction is formed **0.552 μm below the silicon surface**. (There is also a second junction on the shallow side, at R_p − 0.152 = 0.248 μm, because the buried p-region has n-type silicon above it as well as below it.)
+
+### P3. A 300 mm diameter wafer needs a boron dose Q = 2.0×10¹⁴ ions/cm². (a) Find the total number of ions. (b) If the implanter uses singly charged ions (q = 1.6×10⁻¹⁹ C) and processes the wafer in 60 s, what beam current is needed?
+
+(a) Radius r = 300/2 = 150 mm = 15 cm. Area A = πr² = 3.142 × 225 = 706.9 cm².
+
+    N_total = Q × A = 2.0×10¹⁴ × 706.9 = 1.414×10¹⁷ ions
+
+(b) Total charge delivered = N_total × q = 1.414×10¹⁷ × 1.6×10⁻¹⁹ = 0.0226 C.
+
+    I = Q_charge / t = 0.0226 / 60 = 3.77×10⁻⁴ A = 0.377 mA
+
+The implanter needs a beam current of **0.377 mA** to deliver the target dose in one minute.
+
+### P4. A photoresist mask must protect part of a wafer during a boron implant. In photoresist R_p = 0.8 μm and ΔR_p = 0.08 μm. The substrate under the mask must receive no more than 0.1 % of the peak concentration. Find the minimum mask thickness x_mask.
+
+At the bottom of the mask the concentration must be 10⁻³ of the peak:
+
+    N(x_mask)/N_p = exp( −(x_mask − R_p)²/2ΔR_p² ) = 10⁻³
+
+Take logarithms. ln(10⁻³) = −3 ln 10 = −6.908. The minus signs cancel:
+
+    (x_mask − R_p)²/2ΔR_p² = 6.908
+    x_mask − R_p = ΔR_p √(2 × 6.908) = ΔR_p √13.816 = 3.717 ΔR_p
+    x_mask = 0.8 + 0.08 × 3.717 = 0.8 + 0.297 = 1.097 μm
+
+To keep transmission below 0.1 % the photoresist must be **at least 1.10 μm thick**. In real manufacturing engineers add a safety margin and use about 1.3–1.4 μm.
+
+---
 
 ## Part C: Evaluating the impurity distribution
 
-Once a wafer has been doped, the process engineer must check that the dose, the profile and the junction depth are what was intended. The main methods:
+After doping, the engineer must check that the dose, the profile and the junction depth are what was intended (step 8 of the diffusion process). The main methods:
 
-| Method | What it measures | How |
+| Method | What it measures | How it works |
 |---|---|---|
-| Four-point probe | Sheet resistance R_s (Ω/□) | Current through the outer two of four collinear probes, voltage across the inner two |
-| Junction staining / groove-and-stain | Junction depth x_j | Bevel or groove the wafer, stain (e.g. HF + HNO₃ darkens p-type), measure under a microscope |
-| Spreading resistance profiling (SRP) | Carrier concentration against depth | Step two probes down a shallow bevel, measuring resistance at each point |
-| C-V profiling | Doping against depth | Capacitance of a junction or Schottky contact against reverse bias (Week 12) |
-| Secondary-ion mass spectrometry (SIMS) | Total atomic concentration against depth (active or not) | Sputter the surface with an ion beam and mass-analyse the ejected ions |
-| Hall measurement | Carrier type, concentration and mobility | Hall voltage in a magnetic field (Week 7) |
+| Four-point probe | Sheet resistance R_s (Ω/□) | Pass current through the outer two of four probes in a line; measure voltage across the inner two |
+| Groove-and-stain | Junction depth x_j | Grind a shallow groove, stain it (p and n regions take different colours), measure under a microscope |
+| Spreading resistance profiling | Carrier concentration against depth | Step two probes down a shallow bevel, measuring resistance at each point |
+| C-V profiling | Doping against depth | Capacitance of a junction against reverse bias (Week 12) |
+| SIMS | All dopant atoms against depth | Sputter the surface with an ion beam and count ejected dopant ions in a mass spectrometer |
+| Hall measurement | Carrier type, concentration, mobility | Hall voltage in a magnetic field (Week 7) |
 
-### Sheet resistance
+### Sheet resistance, explained
 
-For a doped layer of thickness (junction depth) x_j:
+A diffused layer is a thin conducting skin of thickness x_j. Its resistance is described by the **sheet resistance**:
 
-    R_s = ρ / x_j = 1 / ( q ∫₀^{x_j} μ(x) N(x) dx ) ≈ 1 / (q μ̄ Q)     [Ω/□]
+    R_s = ρ / x_j     [ohms per square, Ω/□]
 
-where Q is the dose of active dopant per cm². A resistor of length L and width W made from the layer has R = R_s (L/W): the resistance depends only on the number of "squares".
+"Per square" means: any square piece of the layer, whatever its size, has resistance R_s between two opposite edges. (A bigger square is longer, which raises R, but also wider by the same factor, which lowers R; the two cancel.) So a resistor L long and W wide made from the layer has
 
-Four-point probe on a large, thin sample (probe spacing s ≫ x_j):
+    R = R_s × (L/W) = R_s × (number of squares)
 
-    R_s = (π / ln 2) · V/I = 4.532 · V/I
+Measured with a four-point probe on a large thin sample:
 
-**Example.** A boron predeposition gives V = 2.0 mV for I = 1.0 mA on a four-point probe. R_s = 4.532 × 2.0 = 9.06 Ω/□. If x_j = 1.0 μm, the average resistivity is ρ = R_s x_j = 9.06 × 10⁻⁴ = 9.1×10⁻⁴ Ω·cm, which (from Irvin's curves) corresponds to an average boron concentration of a few times 10¹⁹ cm⁻³.
+    R_s = 4.532 × (V/I)
 
-### Junction depth from the profile
+**Example.** A boron layer gives V = 2.0 mV at I = 1.0 mA. R_s = 4.532 × 2.0 = 9.06 Ω/□. If x_j = 1.0 μm, the average resistivity is ρ = R_s x_j = 9.06 × 10⁻⁴ ≈ 9×10⁻⁴ Ω·cm, which corresponds to an average boron concentration of a few times 10¹⁹ cm⁻³.
 
-Measured x_j and R_s are compared with theory:
+### Junction depth by groove and stain
 
-    erfc profile:     x_j = 2√(Dt) · erfc⁻¹(N_B/C_s)
-    Gaussian profile: x_j = 2√(Dt) · √(ln(C_s/N_B))
-    Implant:          x_j = R_p + ΔR_p √(2 ln(N_p/N_B))
+A cylindrical groove of radius R is ground into the surface and stained. If the stained chord is a wide at the surface and b wide at the junction:
 
-**Irvin's curves** relate surface concentration, background doping and the average conductivity (1/R_sx_j) of erfc and Gaussian layers, so a measured R_s and x_j give C_s.
+    x_j ≈ (a² − b²) / (8R)
 
-### Groove-and-stain junction depth
+---
 
-A cylindrical groove of radius R is ground into the surface and stained. If the widths of the stained chord at the surface and at the junction are a and b:
+## Key points of Week 3
 
-    x_j ≈ (a² − b²) / (8R)        (a, b ≪ R)
+- Doping puts controlled amounts of B (p-type) or P, As, Sb (n-type) into chosen regions.
+- Diffusion: random thermal motion carries dopant from high to low concentration. Fick: J = −D dC/dx.
+- D = D₀e^{−E_a/kT}: hotter means much faster. Depth grows as √(Dt).
+- Constant source → erfc profile, fixed surface concentration. Limited source → Gaussian, fixed dose, surface concentration falls.
+- Ion implantation: ions accelerated to E = qV, Gaussian profile peaked at R_p with spread ΔR_p, dose Q = It/qA, annealing required, channelling avoided by tilting.
+- Junction depth is where the dopant concentration equals the background doping.
+- Profiles are checked by sheet resistance, junction depth, SIMS, spreading resistance and C-V.
 
 ---
 

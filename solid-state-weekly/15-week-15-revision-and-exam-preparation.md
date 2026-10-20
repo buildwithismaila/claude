@@ -1,49 +1,25 @@
 # Week 15 — Revision and Final Exam Preparation
 <!-- group: Module 5 · Advanced Device Technology -->
 
-**Plan:** overview of the entire curriculum, problem-solving clinic, and past-question review.
+**Plan:** overview of the entire curriculum, problem-solving clinic and past-question review. The sections follow the Week 15 headings in your lecturer's note: course overview, formula sheet, problem-solving clinic, past-question style exercises, final examination checklist and comprehensive revision questions.
 
-## The course on one page
+## 15.1 Course overview
 
-| Module | Weeks | The one idea to carry into the exam |
-|---|---|---|
-| 1. Material physics and growth | 1–3 | A semiconductor's conductivity is controllable because of a moderate band gap and doping; crystals are grown pure and single by CZ and epitaxy, and doped by diffusion (erfc/Gaussian) or implantation (Gaussian at R_p). |
-| 2. Bands and statistics | 4–6 | n = N_c e^{−(E_c−E_F)/kT}, p = N_v e^{−(E_F−E_v)/kT}, np = n_i²; E_F moves 60 mV per decade of doping and back to mid-gap when hot. |
-| 3. Transport and injection | 7–9 | J = qnμE + qD dn/dx, D/μ = kT/q; excess minority carriers recombine with lifetime τ and diffuse a length L = √(Dτ). |
-| 4. Junctions and interfaces | 10–12 | V_bi = (kT/q)ln(N_AN_D/n_i²); I = I_s(e^{qV/kT} − 1); Schottky Φ_B = Φ_m − χ; 1/C² against V gives doping. |
-| 5. Devices | 13–15 | β = α/(1 − α) with α = γα_T; V_T = V_FB + 2φ_F + Q_dmax/C_ox; I_D(sat) = ½μC_ox(W/L)(V_GS − V_T)². |
+The whole course tells one story: **how do we make, control and use the free charges in a crystal?**
 
-## Problem-solving clinic: how to answer
+| Module | Weeks | The question it answers | The one idea to carry into the exam |
+|---|---|---|---|
+| 1. Material physics and growth | 1–3 | What is a semiconductor, and how do we make and dope it? | Conductivity is controllable because of a moderate band gap and doping. Crystals are grown pure by CZ and epitaxy, and doped by diffusion (erfc or Gaussian) or implantation (Gaussian at R_p). |
+| 2. Bands and statistics | 4–6 | How many electrons and holes are there? | n = N_ce^{−(E_c−E_F)/kT}, p = N_ve^{−(E_F−E_v)/kT}, np = n_i². E_F moves 60 mV per decade of doping, and back to mid-gap when hot. |
+| 3. Transport and injection | 7–9 | How do the carriers move, and how long do extra ones last? | J = qnμE + qD dn/dx, D/μ = kT/q. Excess minority carriers recombine with lifetime τ and spread over L = √(Dτ). |
+| 4. Junctions and interfaces | 10–12 | What happens where two materials meet? | V_bi = (kT/q) ln(N_AN_D/n_i²); I = I_s(e^{qV/kT} − 1); Schottky Φ_B = Φ_m − χ; 1/C² against V gives the doping. |
+| 5. Devices | 13–15 | How do transistors work? | BJT: β = α/(1 − α), α = γα_T. MOSFET: V_T = V_FB + 2φ_F + γ√(2φ_F); I_D(sat) = ½μC_ox(W/L)(V_GS − V_T)². |
 
-1. **Definitions** carry 2–3 marks. State the definition in one sentence, then give an example and, where relevant, the formula.
-2. **"Explain" and "describe"** questions want mechanism, not just a list. Use the structure: what happens physically, then the equation, then the consequence.
-3. **Derivations:** list the assumptions first, number the steps, box the final result. Examiners mark the assumptions.
-4. **Calculations:** write the formula, substitute with units, give the answer to 2–3 significant figures with units. Check orders of magnitude: carrier densities 10⁴–10²⁰ cm⁻³, current densities mA/cm² to kA/cm², V_bi 0.5–1 V.
-5. **Comparisons:** use a table. Three to six rows is usually enough.
-6. **Diagrams** earn marks: band diagrams, minority-carrier profiles, CZ puller, MOS band bending.
+**How the ideas connect.** Doping (Week 3) sets n and p (Week 5). n and p set conductivity (Week 7). Joining p and n regions creates a built-in field (Week 10). Forward bias injects minority carriers that diffuse and recombine (Weeks 7–9), which gives the diode equation. Two junctions close together give the BJT (Week 13); a field-induced inversion layer gives the MOSFET (Week 14).
 
-## Questions most likely to appear
+## 15.2 Formula sheet
 
-From the lecturer's revision list and the PGD paper, these topics recur and are worth rehearsing until they are automatic:
-
-- Conductor, semiconductor and insulator comparison; Si vs Ge vs GaAs table (Week 1).
-- Miller indices from intercepts, including ∞ and negative intercepts (Week 1).
-- Covalent bonding, electron–hole pairs, n-type and p-type (Week 1).
-- CZ growth: principle, steps, advantages and limitations; MG-Si to EG-Si (Week 2).
-- Fick's laws and the erfc profile; diffusion against implantation (Week 3).
-- Kronig–Penney and the origin of bands; direct and indirect gaps (Week 4).
-- Intrinsic carrier concentration derivation; Fermi–Dirac at 0 K; E_F against doping (Weeks 4–5).
-- Conductivity and drift current calculations; Einstein relation (Week 7).
-- SRH recombination and lifetime; continuity equation (Weeks 8–9).
-- Built-in potential and Shockley equation derivation (Week 10).
-- Schottky against Ohmic; C-V doping extraction (Weeks 11–12).
-- BJT α, β, γ, α_T; MOS accumulation, depletion, inversion and V_T (Weeks 13–14).
-
-The next page is the one-line answer key for all 50 examination questions.
-
-## Formula sheet
-
-## Physical constants
+### Physical constants
 
 | Quantity | Symbol | Value |
 |---|---|---|
@@ -59,7 +35,7 @@ The next page is the one-line answer key for all 50 examination questions.
 | Electron-volt | 1 eV | 1.602×10⁻¹⁹ J |
 | Photon wavelength | λ | 1.24/E (μm, with E in eV) |
 
-## Material data at 300 K
+### Material data at 300 K
 
 | | Si | Ge | GaAs |
 |---|---|---|---|
@@ -78,14 +54,14 @@ The next page is the one-line answer key for all 50 examination questions.
 | v_sat (cm/s) | 1×10⁷ | 6×10⁶ | ≈ 1×10⁷ (peak 2×10⁷) |
 | Melting point (°C) | 1414 | 937 | 1238 |
 
-## Crystals and Miller indices
+### Crystals and Miller indices
 
     Miller indices: intercepts → reciprocals → clear fractions → (h k l)
     d_{hkl} = a / √(h² + k² + l²)      (cubic)
     Diamond: 8 atoms/cell, coordination 4, r_nn = (√3/4)a, APF = 0.34
     SC 1, BCC 2, FCC 4 atoms/cell;  APF 0.52, 0.68, 0.74
 
-## Growth and doping
+### Growth and doping
 
     SiO₂ + 2C → Si + 2CO;   Si + 3HCl → SiHCl₃ + H₂;   SiHCl₃ + H₂ → Si + 3HCl
     Segregation: k₀ = C_s/C_l;   C_s = k₀C₀(1 − f)^{k₀ − 1}
@@ -94,7 +70,7 @@ The next page is the one-line answer key for all 50 examination questions.
     Limited source: C = (Q/√(πDt)) exp(−x²/4Dt)
     Implant: N(x) = (Φ/√(2π)ΔR_p) exp(−(x − R_p)²/2ΔR_p²);   N_p ≈ 0.4Φ/ΔR_p;   Φ = It/qA
 
-## Bands and statistics
+### Bands and statistics
 
     Schrödinger: −(ħ²/2m) d²ψ/dx² + Vψ = Eψ
     Kronig–Penney: P sin(αa)/(αa) + cos(αa) = cos(ka)
@@ -108,7 +84,7 @@ The next page is the one-line answer key for all 50 examination questions.
     n = (N_D − N_A)/2 + √(((N_D − N_A)/2)² + n_i²)
     E_F − E_i = kT ln(N_D/n_i);   E_i − E_F = kT ln(N_A/n_i)
 
-## Transport
+### Transport
 
     v_d = μE;   μ = qτ_m/m∗;   1/μ = 1/μ_L + 1/μ_I
     J_drift = q(nμ_n + pμ_p)E;   σ = q(nμ_n + pμ_p);   ρ = 1/σ
@@ -116,7 +92,7 @@ The next page is the one-line answer key for all 50 examination questions.
     Einstein: D/μ = kT/q
     v_d = μE/[1 + (μE/v_sat)^β]^{1/β}
 
-## Recombination and continuity
+### Recombination and continuity
 
     SRH: U = (np − n_i²)/[τ_p(n + n₁) + τ_n(p + p₁)];   τ = 1/(σv_thN_t)
     Low-level, n-type: U = Δp/τ_p;   Δp(t) = Δp(0)e^{−t/τ_p}
@@ -124,7 +100,7 @@ The next page is the one-line answer key for all 50 examination questions.
     L = √(Dτ);   Δp(x) = Δp(0)e^{−x/L_p}
     Surface: U_s = SΔp_s;   S = σv_thN_st;   1/τ_eff = 1/τ_b + 2S/W
 
-## Junctions and contacts
+### Junctions and contacts
 
     V_bi = (kT/q) ln(N_AN_D/n_i²)
     W = √((2ε_s/q)(V_bi − V)(1/N_A + 1/N_D));   N_Ax_p = N_Dx_n;   E_max = qN_Dx_n/ε_s
@@ -133,7 +109,7 @@ The next page is the one-line answer key for all 50 examination questions.
     Schottky: Φ_B = Φ_m − χ;   V_bi = Φ_m − Φ_s;   J_s = A∗∗T²e^{−qΦ_B/kT}
     Ohmic (tunnelling): N_D ≳ 10¹⁹ cm⁻³
 
-## Devices
+### Devices
 
     BJT:  I_C = I_S e^{qV_BE/kT},   I_S = qAD_Bn_i²/(N_BW_B)
           γ = 1/[1 + D_EN_BW_B/(D_BN_EW_E)],   α_T ≈ 1 − W_B²/2L_n²
@@ -143,9 +119,146 @@ The next page is the one-line answer key for all 50 examination questions.
           Linear: I_D = μC_ox(W/L)[(V_GS − V_T)V_DS − V_DS²/2]
           Saturation: I_D = ½μC_ox(W/L)(V_GS − V_T)²,   g_m = μC_ox(W/L)(V_GS − V_T)
 
-## Rules of thumb
+### Rules of thumb
 
 - Each decade of doping moves E_F by 60 mV; each 60 mV of forward bias raises diode current tenfold (300 K).
 - n_i(Si) roughly doubles every 8 °C.
 - Doping 10¹⁶ cm⁻³ in Si = 1 dopant per 5×10⁶ Si atoms; ρ ≈ 0.5 Ω·cm (n-type), 1.4 Ω·cm (p-type).
 - Diffusion length in good Si: tens to hundreds of μm.
+
+## 15.3 Problem-solving clinic
+
+### How to answer each type of question
+
+1. **Definitions** (2–3 marks). One clear sentence, then an example, then the formula if there is one. *"The Fermi level is the energy at which the probability of occupation is ½; in n-type Si it lies near E_c; E_F − E_i = kT ln(N_D/n_i)."*
+2. **"Explain" and "describe"** questions want the **mechanism**, not just a list. Use the pattern: what happens physically → the equation → the consequence.
+3. **Derivations.** List the assumptions first, number the steps, and box the final result. Examiners give marks for the assumptions.
+4. **Calculations.** Write the formula, substitute **with units**, give the answer to 2–3 significant figures with units. Then sanity-check the size of the answer.
+5. **Comparisons.** Use a table with three to six rows.
+6. **Diagrams** earn marks: band diagrams, carrier profiles, the CZ puller, MOS band bending, BJT and MOSFET cross-sections, I-V curves.
+
+### Unit traps that cost marks
+
+| Trap | Fix |
+|---|---|
+| Mixing μm and cm | 1 μm = 10⁻⁴ cm. Convert depths and widths to cm before using cm²/s, cm⁻³ |
+| Mixing eV and J | kT = 0.02585 eV at 300 K; only convert to joules (× 1.6×10⁻¹⁹) when multiplying by something in SI |
+| Forgetting the factor ½ | I_D(sat) = **½**μC_ox(W/L)(V_GS − V_T)² |
+| Using the wrong form of diffusion length | Use the form the question gives: √(Dt), √(2Dt) or 2√(Dt) |
+| Natural log against log₁₀ | All the semiconductor formulas use ln. ln(10ⁿ) = 2.303n |
+| Dose units | Dose is per cm² (atoms/cm²); concentration is per cm³ |
+
+### Sanity checks
+
+| Quantity | Typical size |
+|---|---|
+| Carrier concentrations | 10⁴ – 10²⁰ cm⁻³ |
+| n_i (Si, 300 K) | 10¹⁰ cm⁻³ |
+| E_F − E_i | 0.2 – 0.5 eV |
+| Diffusion coefficients (dopants in a furnace) | 10⁻¹⁵ – 10⁻¹² cm²/s |
+| Carrier diffusion coefficients | 1 – 100 cm²/s |
+| Built-in voltage | 0.5 – 1.0 V |
+| Depletion width | 0.01 – 10 μm |
+| BJT β | 20 – 500 |
+| MOSFET V_T | 0.2 – 2 V |
+
+## 15.4 Past-question style exercises (with solutions)
+
+### E1. Find the Miller indices of a plane with intercepts 4a, 2b and ∞c.
+
+Reciprocals 1/4, 1/2, 0. Multiply by 4: **(1 2 0)**. The plane is parallel to the z-axis.
+
+### E2. Constant-source diffusion with C_s = 5×10¹⁹ cm⁻³, D = 2×10⁻¹³ cm²/s, t = 2 h. Find the concentration at 0.3 μm.
+
+    t = 7200 s,   √(Dt) = √(2×10⁻¹³ × 7200) = √(1.44×10⁻⁹) = 3.79×10⁻⁵ cm
+    u = x/2√(Dt) = 3×10⁻⁵ / (2 × 3.79×10⁻⁵) = 0.395
+    erfc(0.395) = 0.576
+    C = 5×10¹⁹ × 0.576 = 2.88×10¹⁹ cm⁻³
+
+### E3. Silicon is doped with N_A = 2×10¹⁶ cm⁻³ at 300 K (n_i = 10¹⁰ cm⁻³). Find p, n and the Fermi level relative to E_i.
+
+    p ≈ N_A = 2×10¹⁶ cm⁻³
+    n = n_i²/p = 10²⁰/(2×10¹⁶) = 5×10³ cm⁻³
+    E_i − E_F = kT ln(p/n_i) = 0.02585 ln(2×10⁶) = 0.02585 × 14.51 = 0.375 eV
+
+E_F lies 0.375 eV below E_i.
+
+### E4. Find the resistivity of n-type Si with N_D = 10¹⁵ cm⁻³ and μ_n = 1350 cm²/V·s.
+
+    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
+    ρ = 1/σ = 4.63 Ω·cm
+
+### E5. Holes in n-Si have μ_p = 450 cm²/V·s and lifetime 5 μs. Find D_p and the diffusion length L_p.
+
+    D_p = (kT/q)μ_p = 0.02585 × 450 = 11.6 cm²/s
+    L_p = √(D_pτ_p) = √(11.6 × 5×10⁻⁶) = 7.6×10⁻³ cm = 76 μm
+
+### E6. A Si p⁺n junction has N_A = 10¹⁷ cm⁻³ and N_D = 10¹⁵ cm⁻³. Find V_bi and the zero-bias depletion width.
+
+    V_bi = (kT/q) ln(N_AN_D/n_i²) = 0.02585 ln(10³²/10²⁰) = 0.02585 × 27.63 = 0.714 V
+
+One-sided junction, so the depletion region is almost all on the lightly doped n side:
+
+    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹² × 0.714 / (1.6×10⁻¹⁹ × 10¹⁵)) = 9.6×10⁻⁵ cm = 0.96 μm
+
+### E7. A diode has I_s = 2×10⁻¹⁴ A. Find the current at V = 0.65 V and 300 K.
+
+    I = I_s(e^{qV/kT} − 1) = 2×10⁻¹⁴ × e^{0.65/0.02585} = 2×10⁻¹⁴ × 8.3×10¹⁰ = 1.66 mA
+
+### E8. A BJT has β = 150 and I_B = 20 μA. Find I_C, I_E and α.
+
+    I_C = βI_B = 150 × 20 μA = 3.00 mA
+    I_E = I_C + I_B = 3.02 mA
+    α = β/(β + 1) = 150/151 = 0.9934
+
+### E9. An nMOS has μ_nC_ox(W/L) = 0.8 mA/V² and V_T = 0.7 V, with V_GS = 2 V. Find I_D for V_DS = 0.5 V and for V_DS = 3 V.
+
+V_GS − V_T = 1.3 V.
+
+    V_DS = 0.5 V < 1.3 V → linear:  I_D = 0.8 × [1.3 × 0.5 − 0.5²/2] = 0.8 × 0.525 = 0.42 mA
+    V_DS = 3 V ≥ 1.3 V → saturation: I_D = ½ × 0.8 × 1.3² = 0.4 × 1.69 = 0.676 mA
+
+## 15.5 Final examination checklist
+
+**Before the exam, can you:**
+
+- [Week 1] compare conductors, semiconductors and insulators; Si, Ge and GaAs; find Miller indices including ∞ and negative intercepts?
+- [Week 2] describe MG-Si → EG-Si, the CZ method with its advantages and limitations, and compare VPE, LPE, MBE?
+- [Week 3] state Fick's laws; use the erfc and Gaussian profiles; calculate junction depth, implant peak and dose?
+- [Week 4] state the Schrödinger equation and explain the Kronig–Penney model; compare direct and indirect gaps; derive n_i?
+- [Week 5] use the Fermi–Dirac function; calculate n, p and E_F for any doping; explain the three temperature regions?
+- [Week 7] calculate drift current and conductivity; explain scattering; state and use the Einstein relation?
+- [Week 8] explain velocity saturation, hot carriers, SRH recombination and lifetime?
+- [Week 9] write the continuity equation and solve it for steady injection; explain surface recombination velocity?
+- [Week 10] explain the depletion region; calculate V_bi and W; derive the Shockley equation?
+- [Week 11] draw Schottky and Ohmic band diagrams in equilibrium and under bias?
+- [Week 12] extract doping and V_bi from a 1/C² plot; extract I_s and η from an I-V plot?
+- [Week 13] explain BJT operation and minority-carrier profiles; use γ, α_T, α, β?
+- [Week 14] explain accumulation, depletion, inversion; use V_T; calculate I_D in each region?
+
+**On the day:** bring a scientific calculator (with e^x and ln), a ruler for diagrams, and spare pens. Read every question first, start with the one you know best, and leave 10 minutes to check units.
+
+## 15.6 Comprehensive revision questions
+
+Work through these without notes, then check against the week shown. Full worked answers for the 50 PGD examination questions are on the next page (the answer key) and in each week.
+
+1. Define a semiconductor and explain why its conductivity rises with temperature. (Week 1)
+2. Explain covalent bonding in silicon and electron–hole pair generation. (Week 1)
+3. Find the Miller indices of planes with intercepts (a) a, 2b, 3c; (b) 2a, 3b, ∞c. (Week 1)
+4. Describe the conversion of MG-Si to EG-Si and the Czochralski method. (Week 2)
+5. Compare VPE, LPE and MBE. (Week 2)
+6. State Fick's first and second laws and the two diffusion profiles. (Week 3)
+7. Compare diffusion and ion implantation. Find the junction depth of an implant with N_p = 10¹⁸ cm⁻³, R_p = 0.2 μm, ΔR_p = 0.04 μm into N_B = 10¹⁶ cm⁻³. (Week 3; answer x_j = 0.2 + 0.04√(2 ln 100) = 0.321 μm)
+8. Explain the Kronig–Penney model and how it gives energy bands. (Week 4)
+9. Derive n_i = √(N_cN_v)e^{−E_g/2kT}. (Week 4)
+10. Write the Fermi–Dirac function and describe it at 0 K and 300 K. (Week 5)
+11. Find n, p and E_F for Si with N_D = 5×10¹⁵ cm⁻³. (Week 5; n = 5×10¹⁵, p = 2×10⁴ cm⁻³, E_F − E_i = 0.339 eV)
+12. Derive the drift current density and the Einstein relation. (Week 7)
+13. Explain SRH recombination and define minority-carrier lifetime. (Week 8)
+14. Derive the minority-carrier continuity equation and solve it for steady injection into a long bar. (Week 9)
+15. Explain the formation of the depletion region; derive the Shockley diode equation. (Week 10)
+16. Distinguish Schottky and Ohmic contacts with band diagrams. (Week 11)
+17. Explain how C-V measurements give the doping concentration. (Week 12)
+18. Explain BJT operation and derive β = α/(1 − α). (Week 13)
+19. Explain accumulation, depletion and inversion; derive the saturation condition of a MOSFET. (Week 14)
+20. Compare a BJT and a MOSFET. (Week 14)

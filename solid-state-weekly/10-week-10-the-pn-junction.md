@@ -3,83 +3,139 @@
 
 **Plan:** built-in potential, depletion width and electric-field profile; ideal diode (Shockley) equation derivation under forward and reverse bias.
 
-Everything so far (doping, Fermi level, drift, diffusion, recombination, continuity) meets in the p-n junction, the building block of diodes, transistors, solar cells and LEDs.
+## The big picture
 
-## Forming the junction
+A **p-n junction** is what you get when one part of a single crystal is p-type and the part next to it is n-type. It is the most important structure in electronics: it is a diode on its own, two of them make a bipolar transistor, and it appears in every MOSFET, solar cell, LED and laser.
 
-Join p-type (acceptors N_A) and n-type (donors N_D) silicon in one crystal. Initially there is a huge concentration difference across the interface:
+Its key property is that it conducts easily one way and hardly at all the other way (**rectification**). This week explains why, using only ideas you already have:
 
-1. **Holes diffuse** from p to n, and **electrons diffuse** from n to p.
-2. Each hole that leaves the p side uncovers a fixed negative acceptor ion N_A⁻; each electron that leaves the n side uncovers a fixed positive donor ion N_D⁺. Carriers crossing also recombine with the majority carriers on the far side.
-3. A layer of **uncompensated fixed charge** builds up: negative on the p side, positive on the n side. This is the **depletion region** (space-charge region), almost empty of mobile carriers.
-4. This charge creates an electric field pointing from n to p, which **drives drift currents** opposite to the diffusion currents.
-5. Equilibrium is reached when drift exactly cancels diffusion for each carrier type; the Fermi level is then constant across the whole structure.
+1. **Diffusion** (Week 7) makes carriers cross the junction, leaving fixed charges behind.
+2. Those charges create an **electric field and a built-in voltage**, which stops further diffusion.
+3. An applied voltage raises or lowers that barrier. Lowering it lets minority carriers be **injected**, and they **diffuse and recombine** (Weeks 8–9). Adding up that diffusion gives the diode equation.
 
-@fig figures/pn-junction.svg | The abrupt p-n junction in equilibrium: space charge, electric field, and the band diagram with a flat Fermi level and bands bent by qV_bi.
+## Forming the junction: where the depletion region comes from
 
-## Built-in potential
+Imagine joining p-type silicon (lots of holes, doping N_A) and n-type silicon (lots of electrons, doping N_D) in one crystal.
 
-The bands bend by qV_bi so that E_F lines up. On the p side E_i − E_F = kT ln(N_A/n_i); on the n side E_F − E_i = kT ln(N_D/n_i). Adding:
+1. **Diffusion starts.** There are many holes on the p side and very few on the n side, so holes diffuse from p into n. Electrons diffuse the other way, from n into p.
+2. **Fixed charges are uncovered.** Each hole that leaves the p side leaves behind a negative acceptor ion (N_A⁻), which is locked in the crystal and cannot move. Each electron that leaves the n side leaves behind a positive donor ion (N_D⁺). The carriers that cross also recombine with the majority carriers on the other side and disappear.
+3. **A charged layer forms.** Near the junction there is now a layer of **negative** ions on the p side and **positive** ions on the n side, with almost no mobile carriers in it. This is the **depletion region** (also called the space-charge region).
+4. **The charges create a field.** Positive charge on the n side and negative on the p side create an electric field pointing from n to p.
+5. **The field pushes back.** That field drives holes back to the p side and electrons back to the n side: a **drift** current opposite to the diffusion current.
+6. **Balance.** The depletion region grows until, for each type of carrier, drift exactly cancels diffusion. Now no net current flows. The **Fermi level is flat** across the whole junction, as it must be in equilibrium (Week 5).
+
+@fig figures/pn-junction.svg | The abrupt p-n junction in equilibrium. Top: the fixed charge in the depletion region (negative on the p side, positive on the n side). Middle: the electric field, strongest at the junction. Bottom: the band diagram; the Fermi level is flat and the bands bend by qV_bi.
+
+> **In plain words.** Two crowds on either side of a line start mixing. But everyone who crosses leaves a tied-up dog behind, and the dogs bark at anyone trying to follow. Soon the barking (the field) is strong enough to stop the crossing. The strip full of dogs and empty of people is the depletion region.
+
+## The built-in potential
+
+The field in the depletion region corresponds to a voltage across it, the **built-in potential V_bi**. The n side is at a higher potential than the p side. In the band diagram, the bands on the p side sit higher than on the n side by qV_bi.
+
+We can find V_bi from the Fermi-level positions of Week 5. On the p side, E_F is kT ln(N_A/n_i) below E_i. On the n side it is kT ln(N_D/n_i) above E_i. In the joined junction E_F is one flat line, so the bands must bend by the sum:
+
+    qV_bi = kT ln(N_A/n_i) + kT ln(N_D/n_i)
 
     V_bi = (kT/q) ln( N_A N_D / n_i² )
 
-Equivalently, it follows from setting J_n = 0 (Einstein relation) and integrating: n_n0/n_p0 = exp(qV_bi/kT).
+**Example.** Si, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, 300 K:
 
-The built-in potential cannot be measured with a voltmeter: contact potentials at the metal leads cancel it exactly.
+    V_bi = 0.0259 × ln(10¹⁷ × 10¹⁶ / 10²⁰) = 0.0259 × ln(10¹³) = 0.0259 × 29.93 = 0.775 V
 
-## Depletion approximation
+You **cannot** measure V_bi with a voltmeter across a diode: where the wires meet the semiconductor, contact potentials appear that exactly cancel it. It is an internal barrier, not a battery.
 
-Assume the depletion region (−x_p to x_n) is completely free of carriers, with abrupt edges, and the regions outside are neutral. Poisson's equation:
+## Depletion width and field: the depletion approximation
 
-    d²V/dx² = −ρ/ε_s,     ρ = −qN_A (−x_p < x < 0),   ρ = +qN_D (0 < x < x_n)
+To calculate the width of the depletion region we make the **depletion approximation**: inside the region (from −x_p on the p side to x_n on the n side) there are no mobile carriers at all, only the fixed ions; outside it the material is neutral. Then Poisson's equation (the link between charge and field) gives:
 
-Results:
+**Charge balance.** The total negative charge equals the total positive charge:
 
-    Charge balance:  N_A x_p = N_D x_n
-    Peak field (at x = 0):  E_max = qN_D x_n/ε_s = qN_A x_p/ε_s
-    Total width:  W = x_n + x_p = √( (2ε_s/q)(V_bi − V_a)(1/N_A + 1/N_D) )
-    x_n = W N_A/(N_A + N_D),   x_p = W N_D/(N_A + N_D)
-    V_bi − V_a = ½ E_max W
+    N_A x_p = N_D x_n
 
-V_a is the applied voltage (positive for forward bias). The depletion region extends mostly into the **more lightly doped** side. For a one-sided p⁺n junction, W ≈ √(2ε_s(V_bi − V_a)/qN_D).
+So the depletion region extends **further into the more lightly doped side**. If N_A = 10 × N_D, then x_n = 10 × x_p.
 
-**Worked example.** Si, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, 300 K, ε_s = 11.7 × 8.854×10⁻¹⁴ = 1.036×10⁻¹² F/cm.
+**Width.**
 
-    V_bi = 0.0259 ln(10³³/10²⁰) = 0.0259 × 29.93 = 0.775 V
+    W = x_n + x_p = √( (2ε_s/q)(V_bi − V_a)(1/N_A + 1/N_D) )
 
-    W = √( 2(1.036×10⁻¹²)(0.775)(10⁻¹⁷ + 10⁻¹⁶) / 1.602×10⁻¹⁹ )
-      = √(1.10×10⁻⁹) = 3.32×10⁻⁵ cm = 0.332 μm
+with x_n = W N_A/(N_A + N_D) and x_p = W N_D/(N_A + N_D). Here ε_s is the permittivity of silicon (11.7 × 8.854×10⁻¹⁴ = 1.04×10⁻¹² F/cm) and V_a the applied voltage (positive for forward bias).
 
-    x_n = 0.332 × (10/11) = 0.302 μm,   x_p = 0.030 μm
+**Peak field** (at the junction):
 
-    E_max = qN_D x_n/ε_s = (1.602×10⁻¹⁹)(10¹⁶)(3.02×10⁻⁵)/(1.036×10⁻¹²) = 4.7×10⁴ V/cm
+    E_max = qN_D x_n/ε_s = qN_A x_p/ε_s,   and   V_bi − V_a = ½ E_max W
 
-## Junction under bias
+For a **one-sided p⁺n junction** (N_A ≫ N_D), almost all of W is on the n side: W ≈ √(2ε_s(V_bi − V_a)/qN_D).
 
-**Forward bias** (p positive, V_a > 0): the barrier falls to V_bi − V_a and the depletion region narrows. Diffusion now exceeds drift; majority carriers are **injected** across as minority carriers into the opposite sides, where they diffuse and recombine. Current rises exponentially.
+**Example** (continuing, at zero bias):
 
-**Reverse bias** (V_a < 0): the barrier rises to V_bi + |V_a| and W widens. Diffusion is suppressed. Only the small drift of minority carriers that wander to the depletion edge flows: the **reverse saturation current**, nearly independent of voltage, until breakdown.
+    W = √( 2 × 1.04×10⁻¹² × 0.775 × (10⁻¹⁷ + 10⁻¹⁶) / 1.6×10⁻¹⁹ )
+      = √(1.10×10⁻⁹) = 3.32×10⁻⁵ cm = 0.33 μm
 
-**Law of the junction.** At the edges of the depletion region:
+    x_n = 0.33 × 10/11 = 0.30 μm,   x_p = 0.03 μm
+    E_max = qN_D x_n/ε_s = 1.6×10⁻¹⁹ × 10¹⁶ × 3.0×10⁻⁵ / 1.04×10⁻¹² = 4.7×10⁴ V/cm
 
-    p_n(x_n) = p_n0 exp(qV_a/kT),      n_p(−x_p) = n_p0 exp(qV_a/kT)
+The depletion region is only a third of a micrometre wide, but the field in it is large: 47,000 volts per centimetre.
 
-The minority-carrier density at each edge is raised (forward) or lowered (reverse) by the Boltzmann factor.
+## The junction under bias
+
+**Forward bias** (p side made positive, V_a > 0). The applied voltage opposes the built-in voltage, so the barrier **falls** to V_bi − V_a and the depletion region **narrows**. Diffusion now wins over drift. Holes pour from p into n, and electrons from n into p. On arrival they are minority carriers: they are **injected**. They diffuse away from the junction and recombine (Week 9). The current rises steeply (exponentially) with voltage.
+
+**Reverse bias** (p side negative, V_a < 0). The applied voltage adds to the built-in voltage. The barrier **rises** to V_bi + |V_a| and the depletion region **widens**. Diffusion is shut off. The only current left is the tiny drift of the few minority carriers that happen to wander to the edge of the depletion region and get swept across. This is the **reverse saturation current**, almost independent of voltage, until breakdown.
+
+**The law of the junction.** The barrier controls how many carriers can be injected. At the edges of the depletion region, the minority-carrier concentrations become:
+
+    p_n(x_n) = p_n0 e^{qV_a/kT},     n_p(−x_p) = n_p0 e^{qV_a/kT}
+
+p_n0 = n_i²/N_D and n_p0 = n_i²/N_A are the equilibrium minority concentrations. Forward bias multiplies them by e^{qV_a/kT}; reverse bias makes them almost zero. Every 60 mV of forward bias multiplies the injected minority carriers by 10.
+
+## The ideal diode (Shockley) equation, in words
+
+The full derivation is worked in exam question Q48 below. The idea in four steps:
+
+1. **Injection.** The law of the junction gives the excess minority carriers at each edge of the depletion region: Δp = p_n0(e^{qV/kT} − 1) on the n side.
+2. **Diffusion and recombination.** In each neutral region the excess decays exponentially over a diffusion length (Week 9): Δp(x) = Δp(x_n)e^{−(x − x_n)/L_p}.
+3. **Current at the edge.** The diffusion current at the edge is qD_p × slope = (qD_p/L_p)Δp(x_n). Same for electrons on the p side.
+4. **Add them.** The total current is the sum of the hole and electron diffusion currents:
+
+    I = I_s ( e^{qV/kT} − 1 ),     I_s = qA n_i² ( D_p/(L_pN_D) + D_n/(L_nN_A) )
+
+@fig figures/diode-iv.svg | The ideal diode characteristic. Forward current grows ten times for every 60 mV at 300 K; reverse current is a tiny −I_s.
+
+**What the equation says:**
+
+- **Forward** (V > about 0.1 V): the −1 is negligible and I ≈ I_s e^{qV/kT}. Because I_s is tiny (10⁻¹⁵–10⁻¹² A for small Si diodes), a noticeable current needs about 0.6–0.7 V in Si (0.2–0.3 V in Ge).
+- **Reverse** (V negative, more than a few kT/q): e^{qV/kT} → 0 and I ≈ −I_s, tiny and constant.
+- I_s ∝ n_i², so it rises steeply with temperature and is much larger in small-gap materials (Ge diodes leak far more than Si).
+
+**Example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm, and
+
+    I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁴ × 10²⁰ × 10 / (3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹⁶ A
+    at 0.6 V: I = 5.1×10⁻¹⁶ × e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ = 5.9 μA
+    at 0.7 V: I ≈ 280 μA
 
 ## Breakdown
 
-At large reverse bias the current rises sharply:
+At large reverse voltage the current suddenly rises. Two mechanisms:
 
-- **Avalanche breakdown:** carriers accelerated by the depletion field impact-ionise and multiply. Dominates in lightly doped junctions, V_BR > about 6 V, positive temperature coefficient.
-- **Zener breakdown:** in heavily doped junctions (very thin W), electrons tunnel directly from the p-side valence band into the n-side conduction band. V_BR < about 4 V, negative temperature coefficient.
+- **Avalanche breakdown.** Carriers crossing the strong depletion field gain enough energy to knock new electron–hole pairs out of the lattice (impact ionisation, Week 8), which multiply in a chain reaction. Typical of lightly doped junctions; breakdown voltage above about 6 V; rises with temperature.
+- **Zener breakdown.** In very heavily doped junctions the depletion region is extremely thin, and electrons **tunnel** straight through from the p-side valence band to the n-side conduction band. Breakdown voltage below about 4 V; falls with temperature. Used in Zener voltage regulators.
 
 ## Junction capacitance
 
-The depletion layer stores charge that changes with voltage, so it acts as a capacitor:
+The depletion region is a layer of stored charge between two conducting regions, so it behaves as a **capacitor** with plate separation W:
 
-    C_j = ε_s A / W = A √( qε_s N_A N_D / (2(N_A + N_D)(V_bi − V_a)) )
+    C_j = ε_sA/W
 
-Under forward bias the stored minority charge adds a **diffusion capacitance** C_d = (q/kT) I τ, which dominates at forward bias. Reverse-biased junctions are used as voltage-controlled capacitors (varactors). C–V measurement is in Week 12.
+Since W grows with reverse bias, C_j **falls** as the reverse voltage increases. Diodes used deliberately as voltage-controlled capacitors (in radio tuning) are called **varactors**. Measuring C_j against voltage is also how doping is measured (C-V profiling, Week 12). Under forward bias the stored minority carriers add a larger **diffusion capacitance**.
+
+## Key points of Week 10
+
+- Diffusion across the junction uncovers fixed ions: the depletion region, with a field from n to p.
+- Equilibrium: drift balances diffusion, E_F is flat, and the bands bend by qV_bi = kT ln(N_AN_D/n_i²).
+- N_Ax_p = N_Dx_n: the depletion region lies mostly on the lightly doped side. W = √((2ε_s/q)(V_bi − V)(1/N_A + 1/N_D)).
+- Forward bias lowers the barrier and injects minority carriers (law of the junction); reverse bias raises it.
+- Shockley equation: I = I_s(e^{qV/kT} − 1), from minority-carrier diffusion in the neutral regions.
+- Breakdown by avalanche (lightly doped) or Zener tunnelling (heavily doped); C_j = ε_sA/W.
 
 ---
 

@@ -1,131 +1,299 @@
 # Week 13 — Bipolar Junction Transistors (BJTs)
 <!-- group: Module 5 · Advanced Device Technology -->
 
-**Plan:** operational physics; minority-carrier profiles in the active regions; emitter efficiency, base transport factor and current gains (α, β).
+**Plan:** operational physics; minority-carrier profiles in the active regions; emitter efficiency, base transport factor and current gains (α, β). This page follows your lecturer's Weeks 13–15 note (sections 13.1–13.13) and solves its review questions.
 
-A BJT is two p-n junctions (Week 10) sharing one thin middle region. The physics is the minority-carrier diffusion of Weeks 7–9.
+**Learning objectives.** By the end of this week you should be able to: explain the structure and operating principle of NPN and PNP transistors; describe carrier injection, diffusion, recombination and collection in the forward-active region; sketch the minority-carrier profiles in emitter, base and collector; define emitter injection efficiency and base transport factor; derive α and β and relate them to γ and α_T; and solve numerical problems on transistor currents and gains.
 
-## Structure
+## The big picture
 
-An **npn** transistor has a heavily doped n⁺ **emitter**, a thin, moderately doped p-type **base**, and a lightly doped n-type **collector**: N_E ≫ N_B > N_C. A pnp transistor reverses every type. The base width W_B is typically 0.05–1 μm, much shorter than the electron diffusion length L_n in the base (tens of μm).
+A transistor is a device in which a **small current or voltage controls a large current**. That is all amplification is.
 
-## Modes of operation
+In a BJT the trick is geometry. Two p-n junctions (Week 10) are built back to back, with a **very thin** middle layer. One junction pushes carriers into the thin layer; the other junction, a fraction of a micrometre away, pulls them out the other side. Because the middle layer is so thin, almost every carrier that goes in comes out at the far side. A small current into the middle layer (the base) is enough to keep this going, while a large current flows straight through. The physics is the minority-carrier diffusion you met in Weeks 7–9.
 
-| Mode | E–B junction | C–B junction | Use |
-|---|---|---|---|
-| Forward active | Forward | Reverse | Amplifier |
-| Saturation | Forward | Forward | Switch ON |
-| Cut-off | Reverse | Reverse | Switch OFF |
-| Reverse active | Reverse | Forward | Rarely used (poor gain) |
+## 13.1 Introduction and BJT structure
 
-## Operation in the forward-active mode (npn)
+A **bipolar junction transistor (BJT)** is a three-terminal semiconductor device in which **both electrons and holes** take part in current conduction. That is why it is called "bipolar". The three terminals are the **emitter (E)**, **base (B)** and **collector (C)**. A BJT contains two p-n junctions, arranged either as **NPN** or **PNP**.
 
-1. The forward-biased E–B junction lowers its barrier. Electrons are **injected** from the emitter into the base, where they are minority carriers. At the base edge, by the law of the junction, n_p(0) = n_p0 e^{qV_BE/kT}.
-2. Because W_B ≪ L_n, almost every injected electron **diffuses across** the base without recombining.
-3. At the reverse-biased C–B junction the minority concentration is held at nearly zero, n_p(W_B) ≈ 0. The depletion field **sweeps** the arriving electrons into the collector. This is the collector current.
-4. At the same time the forward-biased E–B junction injects some **holes** from the base back into the emitter, and a few electrons **recombine** in the base. Both are supplied by the base current, which is small.
+| Region | Typical doping | Main function |
+|---|---|---|
+| Emitter | Heavily doped (n⁺ in an NPN) | Injects majority carriers into the base |
+| Base | Lightly doped and very thin | Controls carrier transport and limits recombination |
+| Collector | Moderately doped | Collects carriers and supports the voltage |
 
-The collector current is controlled by V_BE but almost independent of V_CB: a small input (base current or V_BE) controls a large output current, which is amplification.
+Why each choice?
 
-## Minority-carrier profiles
+- The **emitter is heavily doped** so that, when its junction is forward biased, it can inject a large concentration of carriers into the base, and so that the base injects very few carriers back into it.
+- The **base is very thin** (often well under 1 μm) and lightly doped, so that most injected carriers cross it before they have time to recombine.
+- The **collector is moderately doped** and physically larger, so that it can collect the carriers and withstand a relatively high reverse voltage without breaking down.
 
-@fig figures/bjt-profile.svg | Minority-carrier profiles in an npn transistor in forward-active mode. Electrons injected into the base fall almost linearly from n_p(0) to zero at the collector edge; the slope sets the collector current. Holes injected into the emitter decay over the emitter.
+## 13.2 BJT biasing and operational physics
 
-**Base.** The continuity equation in the base (Week 9), with W_B ≪ L_n, gives a nearly **linear** profile:
+For normal **forward-active** operation of an NPN transistor:
 
-    Δn_p(x) ≈ n_p0 (e^{qV_BE/kT} − 1)(1 − x/W_B)
+- the **emitter–base junction is forward biased**;
+- the **collector–base junction is reverse biased**.
 
-The electron diffusion current is proportional to its slope:
+What happens, step by step:
 
-    I_C ≈ qA D_n n_p0 e^{qV_BE/kT} / W_B = (qA D_n n_i² / (N_B W_B)) e^{qV_BE/kT} = I_S e^{qV_BE/kT}
+1. **Injection.** The forward-biased E–B junction lowers its barrier. Electrons flow from the n-type emitter into the p-type base. In the base they are **minority carriers**.
+2. **Diffusion across the base.** There are many injected electrons at the emitter side of the base and almost none at the collector side, so they **diffuse** across. Because the base is thin, most of them get across.
+3. **Recombination (a small loss).** A small fraction of the electrons meet holes in the base and recombine.
+4. **Collection.** The electrons that reach the collector side are swept into the collector by the strong electric field of the reverse-biased C–B junction. They form most of the collector current.
+5. **Base current.** The base current is mainly associated with (a) recombination in the base, which must be replaced by holes flowing in through the base lead, and (b) holes injected from the base into the emitter.
 
-**Emitter.** Holes injected into the emitter give the unwanted current
+For a **PNP** transistor the carrier polarities are reversed: holes are injected from the p-type emitter into the n-type base and are collected by the p-type collector. All currents and voltages change sign.
 
-    I_pE = (qA D_E n_i² / (N_E W_E)) (e^{qV_BE/kT} − 1)       (short emitter, W_E ≪ L_pE)
+> **In plain words.** The emitter is a crowd pushing through a door (the forward-biased junction) into a narrow corridor (the base). At the other end of the corridor is a slide (the reverse-biased junction) that carries everyone who reaches it away. The corridor is so short that nearly everyone makes it. The base current is the small trickle of people who get lost in the corridor, plus a few who wander back the wrong way.
 
-**Collector.** Reverse-biased; only the small leakage I_CBO of minority carriers.
+## 13.3 Minority-carrier concentration profiles
 
-## Current components
+In a forward-active NPN transistor, electrons are minority carriers in the p-type base. Their concentration is **highest at the emitter side** of the base (because of injection) and **almost zero at the collector side** (because the collector removes them as fast as they arrive). In a thin, uniformly doped base with little recombination, the profile in between is approximately a **straight line**:
 
-    I_E = I_nE + I_pE               (electrons injected into base + holes injected into emitter)
-    I_C = I_nC + I_CBO ≈ I_nC       (electrons reaching the collector)
-    I_B = I_E − I_C = I_pE + (I_nE − I_nC) − I_CBO   (back-injection + base recombination)
+    n_B(x) ≈ n_B(0) − [ n_B(0) − n_B(W_B) ] x/W_B
 
-## Emitter injection efficiency γ
+| Symbol | Meaning |
+|---|---|
+| W_B | neutral base width |
+| x | distance measured from the emitter side of the base |
+| n_B(0) | minority-electron concentration at the emitter edge of the base, n_B(0) = n_p0 e^{qV_BE/kT} |
+| n_B(W_B) | minority-electron concentration at the collector edge, ≈ 0 |
 
-The fraction of emitter current carried by the useful carriers (electrons in an npn):
+@fig figures/bjt-profile.svg | Minority carriers in an NPN transistor in the forward-active mode. Electrons in the base fall almost linearly from n_B(0) to about zero at the collector edge. Holes injected back into the emitter decay away from the junction.
 
-    γ = I_nE / (I_nE + I_pE) = 1 / [ 1 + (D_E N_B W_B) / (D_B N_E W_E) ]
+The concentration gradient drives electron **diffusion** through the base. By Fick's law the electron diffusion current density is
 
-To make γ → 1, dope the emitter much more heavily than the base (N_E ≫ N_B). Heterojunction bipolar transistors (HBTs) use a wider-gap emitter to suppress I_pE further.
+    J_n = q D_n (dn/dx)
 
-## Base transport factor α_T
+where q is the magnitude of the electronic charge and D_n the electron diffusion coefficient (the sign depends on the direction you take as positive). For the straight-line profile, dn/dx = −n_B(0)/W_B, so
 
-The fraction of injected electrons that survive the trip across the base:
+    |J_n| = q D_n n_B(0) / W_B
 
-    α_T = I_nC / I_nE ≈ 1 − W_B² / (2L_n²)          (L_n = √(D_Bτ_n))
+This is the collector current density. It is controlled by V_BE through n_B(0) = n_p0 e^{qV_BE/kT}, and it is larger for a thinner base.
 
-To make α_T → 1, make the base thin and the base lifetime long.
+At the collector–base junction, the electric field in the reverse-biased depletion region rapidly sweeps the carriers into the collector. Because the collector only has to collect whatever arrives, the collector current is **almost independent of the collector voltage** in the active region, provided the transistor stays away from breakdown and saturation. This is what makes the BJT behave like a current source.
 
-## Current gains
+## 13.4 Emitter injection efficiency γ
 
-**Common-base gain α:**
+The emitter current is made of two parts:
 
-    α = I_C / I_E = γ α_T     (typically 0.98–0.998)
+- I_{E,n}: electrons injected from emitter into base (useful: these become the collector current);
+- I_{E,p}: holes injected from base into emitter (wasted: they only add to base current).
 
-**Common-emitter gain β:**
+**Emitter injection efficiency** γ (gamma) measures what fraction of the emitter current is the useful kind:
 
-    β = I_C / I_B = α / (1 − α)      ⇒      1/β ≈ (D_E N_B W_B)/(D_B N_E W_E) + W_B²/(2L_n²)
+    γ = I_{E,n} / (I_{E,n} + I_{E,p})
 
-Since α is close to 1, β is large (typically 50–500). Small changes in α make large changes in β: α = 0.99 gives β = 99; α = 0.995 gives β = 199.
+A well-designed transistor has γ very close to 1. The electrons injected into the base are limited by the base doping, and the holes injected into the emitter by the emitter doping: the more heavily a side is doped, the fewer carriers the other side can inject into it. This gives
 
-Relations: I_E = I_C + I_B; I_C = βI_B; I_C = αI_E; α = β/(β + 1).
+    γ ≈ 1 / [ 1 + (D_E N_B W_B) / (D_B N_E W_E) ]
 
-## Non-ideal effects
+where N_E and N_B are the emitter and base dopings, W_E and W_B their widths, D_E and D_B the minority diffusion coefficients. Making **N_E ≫ N_B** makes the fraction small and γ close to 1.
 
-- **Early effect (base-width modulation).** Increasing V_CE widens the C–B depletion region into the base, shortening W_B. The slope of n_p(x) steepens, so I_C rises with V_CE. Extrapolated output curves meet at −V_A (the Early voltage); output resistance r_o = V_A/I_C.
-- **High-level injection** at large I_C reduces β (the injected electrons approach N_B).
-- **Recombination in the E–B depletion region** reduces β at low current.
-- **Base resistance** and **emitter current crowding**.
-- **Breakdown:** avalanche at the C–B junction (BV_CBO) and punch-through when the C–B depletion region reaches the emitter.
-- **Base transit time** τ_B = W_B²/2D_n limits speed: f_T ≈ 1/(2πτ_B).
+Factors that improve emitter efficiency:
 
-## Worked example
+- heavy emitter doping relative to base doping;
+- appropriate semiconductor material and junction design (for example a wider-gap emitter in a heterojunction transistor);
+- proper control of emitter and base widths;
+- minimising unwanted carrier injection.
 
-An npn Si transistor: N_E = 10¹⁹ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in emitter) = 2.5 cm²/s, D_B (electrons in base) = 25 cm²/s, τ_n = 1 μs, area A = 10⁻⁴ cm². Find γ, α_T, α, β, I_C at V_BE = 0.65 V, and the base transit time.
+## 13.5 Base transport factor α_T
 
-    γ = 1 / [1 + (2.5 × 10¹⁷ × 0.5) / (25 × 10¹⁹ × 1)] = 1 / (1 + 5×10⁻⁴) = 0.99950
+Of the electrons injected into the base, a few recombine before reaching the collector. The **base transport factor** α_T is the fraction that make it:
 
+    α_T = I_{C,n} / I_{E,n}
+
+If recombination in the base is negligible, α_T approaches 1. If the base is thick, or the minority-carrier lifetime is short, more carriers recombine and α_T falls. Quantitatively,
+
+    α_T ≈ 1 − W_B² / (2L_n²),     L_n = √(D_n τ_n)
+
+The transport factor depends on base width W_B, the minority-carrier diffusion coefficient D_n and the minority-carrier lifetime τ_n. **A thin base and a long lifetime give α_T close to one.** For example W_B = 1 μm and L_n = 20 μm give α_T = 1 − 1/800 = 0.99875.
+
+## 13.6 Common-base current gain α
+
+The **common-base current gain** is the ratio of collector current to emitter current:
+
+    α = I_C / I_E
+
+The collector current is slightly less than the emitter current (a little is lost to the base), so α is always less than 1, but for a good transistor it is very close to 1, typically **0.98–0.999**.
+
+Physically, a current must survive two losses to get from emitter to collector: it must be the right kind of carrier (γ) and it must survive the trip (α_T). So
+
+    α ≈ γ α_T
+
+**Example.** If γ = 0.995 and α_T = 0.990, then α ≈ 0.995 × 0.990 = 0.98505.
+
+## 13.7 Common-emitter current gain β
+
+The **common-emitter current gain** β (also called h_FE under specified conditions) is the ratio of collector current to base current:
+
+    β = I_C / I_B
+
+**Deriving the relation between α and β.** Kirchhoff's current law at the transistor: everything that enters at the emitter leaves at the collector or the base,
+
+    I_E = I_C + I_B
+
+Start from α:
+
+    α = I_C/I_E = I_C/(I_C + I_B)
+
+Divide top and bottom by I_B, and use β = I_C/I_B:
+
+    α = (I_C/I_B) / (I_C/I_B + 1) = β/(β + 1)
+
+Solve for β: α(β + 1) = β ⇒ αβ + α = β ⇒ α = β(1 − α) ⇒
+
+    β = α / (1 − α)
+
+Because α is close to 1, the denominator 1 − α is a small number, so **a small change in α produces a large change in β**:
+
+| α | 0.98 | 0.99 | 0.995 | 0.999 |
+|---|---|---|---|---|
+| β = α/(1 − α) | 49 | 99 | 199 | 999 |
+
+## 13.8 BJT current relationships
+
+| Quantity | Expression | Meaning |
+|---|---|---|
+| Emitter current | I_E = I_C + I_B | Total transistor current at the emitter |
+| Common-base gain | α = I_C/I_E | Collector current relative to emitter current |
+| Common-emitter gain | β = I_C/I_B | Collector current relative to base current |
+| Relation | β = α/(1 − α) | Converts α to β |
+| Relation | α = β/(β + 1) | Converts β to α |
+| Physics of α | α ≈ γα_T | Injection efficiency × transport factor |
+| Collector current | I_C = I_S e^{qV_BE/kT} | Set by the base–emitter voltage |
+
+## 13.9 Worked example 1: finding α
+
+A BJT has an emitter current of 5 mA and a collector current of 4.9 mA. Find α and the base current.
+
+    α = I_C/I_E = 4.9/5 = 0.98
+    I_B = I_E − I_C = 5 − 4.9 = 0.1 mA
+
+**α = 0.98, I_B = 0.1 mA.** (And β = 4.9/0.1 = 49.)
+
+## 13.10 Worked example 2: finding β from α
+
+A transistor has α = 0.98. Find β. If the base current is 0.2 mA, find the collector and emitter currents.
+
+    β = α/(1 − α) = 0.98/0.02 = 49
+    I_C = βI_B = 49 × 0.2 mA = 9.8 mA
+    I_E = I_C + I_B = 9.8 + 0.2 = 10.0 mA
+
+**β = 49, I_C = 9.8 mA, I_E = 10 mA.**
+
+## 13.11 Worked example 3: injection efficiency and transport factor
+
+An NPN transistor has γ = 0.995 and α_T = 0.990. Estimate α and β.
+
+    α ≈ γα_T = 0.995 × 0.990 = 0.98505
+    β = α/(1 − α) = 0.98505/0.01495 ≈ 65.9
+
+**α ≈ 0.985, β ≈ 65.9.** Notice that neither loss is large on its own (0.5 % and 1 %), yet together they hold β down to 66.
+
+## Worked example 4: from device design to gain
+
+An NPN Si transistor: N_E = 10¹⁹ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in emitter) = 2.5 cm²/s, D_B (electrons in base) = 25 cm²/s, τ_n = 1 μs, area 10⁻⁴ cm². Find γ, α_T, α, β and I_C at V_BE = 0.65 V.
+
+    γ = 1 / [1 + (2.5 × 10¹⁷ × 0.5)/(25 × 10¹⁹ × 1)] = 1/(1 + 5×10⁻⁴) = 0.99950
     L_n = √(25 × 10⁻⁶) = 5×10⁻³ cm = 50 μm
-    α_T = 1 − (0.5)² / (2 × 50²) = 1 − 5×10⁻⁵ = 0.99995
+    α_T = 1 − 0.5²/(2 × 50²) = 1 − 5×10⁻⁵ = 0.99995
+    α = γα_T = 0.99945,   β = 0.99945/0.00055 ≈ 1800
 
-    α = γα_T = 0.99945,     β = α/(1 − α) = 0.99945/0.00055 ≈ 1800
-
-    I_S = qAD_Bn_i²/(N_BW_B) = (1.6×10⁻¹⁹)(10⁻⁴)(25)(10²⁰) / (10¹⁷ × 5×10⁻⁵) = 8×10⁻¹⁵ A
+    I_S = qAD_Bn_i²/(N_BW_B) = (1.6×10⁻¹⁹)(10⁻⁴)(25)(10²⁰)/(10¹⁷ × 5×10⁻⁵) = 8×10⁻¹⁵ A
     I_C = 8×10⁻¹⁵ × e^{0.65/0.0259} = 8×10⁻¹⁵ × 7.9×10¹⁰ = 0.63 mA,   I_B = I_C/β ≈ 0.35 μA
 
-    τ_B = W_B²/2D_B = (5×10⁻⁵)²/50 = 5×10⁻¹¹ s = 50 ps,   f_T ≲ 1/(2πτ_B) ≈ 3 GHz
+Here the emitter efficiency limits β. Real devices have lower β (typically 100–300) because of recombination in the E–B depletion region and other non-ideal effects.
 
-Here γ limits β (5×10⁻⁴ against 5×10⁻⁵). Real devices have lower β because of depletion-region recombination, band-gap narrowing in the heavily doped emitter and surface recombination.
+## 13.12 BJT operating regions
+
+| Region | Emitter–base junction | Collector–base junction | Typical use |
+|---|---|---|---|
+| Cut-off | Reverse biased | Reverse biased | OFF (switching) |
+| Forward active | Forward biased | Reverse biased | Amplification |
+| Saturation | Forward biased | Forward biased | ON (switching) |
+| Reverse active | Reverse biased | Forward biased | Limited, reverse operation |
+
+- **Cut-off:** no injection, so essentially no current flows: an open switch.
+- **Forward active:** I_C = βI_B, controlled by the base: an amplifier.
+- **Saturation:** both junctions inject; the collector can no longer collect everything independently, I_C < βI_B, and V_CE is small (about 0.2 V): a closed switch.
+- **Reverse active:** emitter and collector swap roles; gain is poor because the collector was not designed to inject.
+
+**Early effect.** In the active region, increasing V_CE widens the collector depletion region slightly into the base, making W_B smaller. A thinner base means a steeper profile and a larger I_C, so the output curves slope upward slightly. Extrapolated backwards they meet at −V_A, the **Early voltage**.
+
+## 13.13 Summary of Week 13
+
+- A BJT uses two p-n junctions and three semiconductor regions (emitter, base, collector).
+- In forward-active operation the E–B junction is forward biased and the C–B junction reverse biased.
+- The thin base lets most injected minority carriers reach the collector; their profile across the base is nearly a straight line.
+- Emitter injection efficiency γ measures the desired carrier injection relative to the total emitter current.
+- Base transport factor α_T measures the fraction of injected carriers that cross the base without recombining.
+- α = I_C/I_E ≈ γα_T is the common-base gain; β = I_C/I_B is the common-emitter gain.
+- The key relationship is **β = α/(1 − α)**.
 
 ---
 
-## Practice questions solved
+## Review questions, Week 13, solved
 
-### P1. Explain the operation of an npn transistor in the forward-active mode with the aid of minority-carrier profiles.
+### 1. Define a BJT and explain why it is called a bipolar device.
 
-With the E–B junction forward biased and the C–B junction reverse biased, electrons are injected from the n⁺ emitter into the p base, raising the electron density at the emitter edge of the base to n_p0e^{qV_BE/kT}. The reverse-biased collector holds the electron density at the collector edge near zero. Because the base is much thinner than the electron diffusion length, the profile between these two values is nearly linear, and electrons diffuse down it to the collector with very little recombination. The collector current, I_C = qAD_nn_i²e^{qV_BE/kT}/(N_BW_B), is set by the slope of this line and so by V_BE, almost independent of V_CB. The base supplies only the holes injected back into the emitter (kept small by heavy emitter doping) and the holes lost to recombination in the base (kept small by the thin base), so I_B ≪ I_C and the device amplifies. (Sketch: the figure above.)
+A bipolar junction transistor is a three-terminal semiconductor device consisting of two p-n junctions formed by three alternately doped regions, emitter, base and collector, arranged as NPN or PNP. A small base current (or base–emitter voltage) controls a much larger collector current, so it can amplify and switch. It is called **bipolar** because current is carried by both kinds of carrier: in an NPN, electrons carry the main emitter-to-collector current while holes carry the base current (recombination in the base and injection into the emitter). In contrast, a MOSFET is unipolar: its channel current is carried by one carrier type only.
 
-### P2. Define emitter injection efficiency and base transport factor and show how they determine α and β.
+### 2. Draw and label an NPN transistor and indicate the direction of conventional current and electron flow.
 
-Emitter injection efficiency γ = I_nE/(I_nE + I_pE) is the fraction of emitter current carried by carriers injected into the base; γ = 1/[1 + D_EN_BW_B/(D_BN_EW_E)], so it approaches 1 when N_E ≫ N_B. Base transport factor α_T = I_nC/I_nE is the fraction of those carriers that reach the collector; α_T ≈ 1 − W_B²/2L_n², approaching 1 for a thin base and long lifetime. The common-base gain is their product, α = I_C/I_E = γα_T (ignoring collector multiplication), and the common-emitter gain is β = I_C/I_B = α/(1 − α). Since 1 − α ≈ (1 − γ) + (1 − α_T) is small, β ≈ 1/[(1 − γ) + (1 − α_T)] is large.
+Draw three blocks side by side: **n⁺ emitter | p base | n collector**, with terminal leads E, B and C. Mark the E–B junction "forward biased" (base positive with respect to emitter, V_BE ≈ 0.7 V) and the C–B junction "reverse biased" (collector positive with respect to base).
 
-### P3. A transistor has α = 0.992. Find β. If I_B = 20 μA, find I_C and I_E.
+- **Electron flow:** from the emitter, through the thin base, into the collector (left to right). A small number recombine with holes in the base; the holes they use up flow in through the base lead.
+- **Conventional current:** opposite to electron flow. I_C flows **into** the collector, I_B flows **into** the base, and I_E = I_C + I_B flows **out of** the emitter. In the circuit symbol, the arrow on the emitter points **outwards** for an NPN, showing the direction of conventional emitter current.
 
-    β = 0.992/(1 − 0.992) = 124
-    I_C = βI_B = 124 × 20 μA = 2.48 mA
-    I_E = I_C + I_B = 2.50 mA
+### 3. Explain the operation of a BJT in the forward-active region.
 
-### P4. What is the Early effect and why is it a problem?
+With the E–B junction forward biased, the emitter barrier is lowered and the heavily doped n⁺ emitter injects a large number of electrons into the p-type base, where they become minority carriers with concentration n_B(0) = n_p0e^{qV_BE/kT} at the emitter edge. The reverse-biased collector holds the electron concentration at the collector edge of the base at almost zero. The resulting nearly linear concentration gradient makes the electrons diffuse across the thin base. Since the base is much thinner than the diffusion length, only a small fraction recombine. On reaching the C–B depletion region, the electrons are swept into the collector by its electric field, forming the collector current I_C = αI_E. The base supplies holes to replace those lost in recombination and those injected into the emitter, which is the small base current I_B = I_C/β. Because I_C depends on V_BE but hardly on V_CB, the transistor acts as a controlled current source, which allows amplification.
 
-Increasing V_CB widens the collector–base depletion region, part of which extends into the base, so the neutral base width W_B decreases. The minority-carrier gradient in the base, and hence I_C ∝ 1/W_B, increases with V_CE, so the output characteristics slope upward instead of being flat. Extrapolated, they meet at V_CE = −V_A, the Early voltage. It gives the transistor a finite output resistance r_o = V_A/I_C, limiting the voltage gain of amplifiers (A_v ≤ g_mr_o = V_A/V_T). It also increases β with V_CE and, in the extreme, leads to punch-through. It is reduced by doping the base more heavily than the collector.
+### 4. What is emitter injection efficiency? Why should it be close to unity?
+
+Emitter injection efficiency γ = I_{E,n}/(I_{E,n} + I_{E,p}) is the fraction of the emitter current carried by carriers injected from the emitter into the base (electrons in an NPN), rather than by carriers injected from the base back into the emitter (holes). It should be close to unity because only the injected electrons can reach the collector and form useful output current; the back-injected holes simply add to the base current without contributing to I_C. Since α ≈ γα_T and β = α/(1 − α), even a small reduction of γ below 1 sharply reduces the current gain. γ is made close to 1 by doping the emitter much more heavily than the base.
+
+### 5. Define the base transport factor and state two factors that affect it.
+
+The base transport factor α_T = I_{C,n}/I_{E,n} is the fraction of minority carriers injected into the base that cross it without recombining and reach the collector. It is approximately α_T ≈ 1 − W_B²/(2L_n²). Factors that affect it (any two):
+
+1. **Base width W_B**: a thinner base gives fewer recombinations and a higher α_T.
+2. **Minority-carrier lifetime τ_n** in the base: a longer lifetime (fewer traps, cleaner material) increases L_n and α_T.
+3. **Minority-carrier diffusion coefficient D_n**: faster diffusion means less time in the base and higher α_T.
+4. **Base doping**: heavier doping shortens lifetime and lowers mobility, reducing α_T.
+
+### 6. Derive β = α/(1 − α) from the definitions of α and β.
+
+Definitions: α = I_C/I_E and β = I_C/I_B. By Kirchhoff's current law, I_E = I_C + I_B.
+
+    α = I_C/I_E = I_C/(I_C + I_B)
+
+Dividing numerator and denominator by I_B:
+
+    α = (I_C/I_B)/(I_C/I_B + 1) = β/(β + 1)
+
+Rearranging: α(β + 1) = β ⇒ αβ + α = β ⇒ α = β − αβ = β(1 − α), so
+
+    β = α/(1 − α)
+
+### 7. A transistor has I_E = 12 mA and I_C = 11.76 mA. Calculate α, I_B and β.
+
+    α = I_C/I_E = 11.76/12 = 0.98
+    I_B = I_E − I_C = 12 − 11.76 = 0.24 mA
+    β = I_C/I_B = 11.76/0.24 = 49
+
+Check: α/(1 − α) = 0.98/0.02 = 49. ✓
+
+### 8. Explain the difference between cut-off, active and saturation regions.
+
+| | Cut-off | Forward active | Saturation |
+|---|---|---|---|
+| E–B junction | Reverse (or zero) biased | Forward biased | Forward biased |
+| C–B junction | Reverse biased | Reverse biased | Forward biased |
+| Currents | I_B ≈ 0, I_C ≈ 0 (leakage only) | I_C = βI_B | I_C < βI_B; I_C set by the external circuit |
+| V_CE | Large (≈ supply voltage) | Intermediate | Small, V_CE(sat) ≈ 0.1–0.3 V |
+| Behaves as | Open switch (OFF) | Current-controlled current source | Closed switch (ON) |
+| Use | Digital OFF state | Amplifiers | Digital ON state |
+
+In cut-off there is no injection, so no carriers cross the base. In the active region the collector collects all carriers that arrive, independently of its voltage. In saturation the collector junction is also forward biased and starts injecting carriers back into the base, so the collector current can no longer rise with base current; the transistor is fully ON.

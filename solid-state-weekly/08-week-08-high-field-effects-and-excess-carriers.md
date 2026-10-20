@@ -3,130 +3,180 @@
 
 **Plan:** velocity saturation and hot-carrier effects; generation and recombination mechanisms (Shockley–Read–Hall theory); carrier lifetime and steady-state excess carrier injection.
 
+## The big picture
+
+This week covers two separate stories.
+
+**Story 1: what happens at very high fields.** Week 7 said v_d = μE: double the field, double the speed. That stops being true at high fields. Carriers hit a **speed limit**, and the fastest ones become **"hot"** and start damaging things. This matters in modern transistors, which are so small that even a volt across them gives enormous fields.
+
+**Story 2: what happens when we disturb the balance of carriers.** Light, or a forward-biased junction, can add **extra** electrons and holes beyond the equilibrium numbers. These extras do not last: they **recombine** and disappear. How long they last, the **lifetime**, controls how diodes switch, how transistors amplify and how well solar cells work.
+
 ## Part A: High-field effects
 
-## Velocity saturation
+### Velocity saturation
 
-At low field v_d = μE. At high field (above about 10⁴ V/cm in Si), carriers gain energy faster than they can lose it to acoustic phonons. They become energetic enough to emit **optical phonons** (≈ 63 meV in Si), which takes away energy very effectively. The drift velocity then levels off at the **saturation velocity**:
+At low fields carriers lose the energy they pick up from the field to small lattice vibrations, so they stay "cool" and v_d = μE.
 
-    v_sat ≈ 1×10⁷ cm/s   (Si electrons and holes, GaAs)
+At high fields (above about 10⁴ V/cm in Si) they pick up energy faster than they can lose it that way. Once a carrier has about 0.06 eV of extra energy (in Si), it can shake the lattice much harder by emitting an **optical phonon**, which takes that energy away in one go. So every time a carrier speeds up, it is quickly slowed down again. The drift velocity stops increasing and levels off at the **saturation velocity**:
 
-A useful empirical model (Caughey–Thomas):
+    v_sat ≈ 1×10⁷ cm/s   (Si electrons and holes, at 300 K)
 
-    v_d = μE / [ 1 + (μE/v_sat)^β ]^{1/β}      (β ≈ 2 for Si electrons, 1 for holes)
+> **In plain words.** Pushing harder on a cyclist on a flat road makes them go faster, until air resistance grows so quickly that extra effort gives almost no extra speed. Optical phonons are the "air resistance" for carriers.
 
-**GaAs** behaves differently: electron velocity peaks at about 2×10⁷ cm/s near 3.5 kV/cm, then **falls** as electrons transfer to the heavier, lower-mobility L-valley. This **negative differential mobility** (transferred-electron effect) is used in Gunn diodes for microwave oscillators.
+An empirical formula that joins the two regimes smoothly (Caughey–Thomas):
 
-@fig figures/velocity.svg | Drift velocity against field. Silicon carriers saturate near 10⁷ cm/s. GaAs electrons overshoot, then fall as they transfer to a heavier valley.
+    v_d = μE / [ 1 + (μE/v_sat)^β ]^{1/β}      (β ≈ 2 for Si electrons, about 1 for holes)
 
-## Hot-carrier effects
+At low field it reduces to μE; at high field to v_sat.
 
-When carriers gain energy from the field much faster than they lose it, their average energy (expressed as an electron temperature T_e) rises far above the lattice temperature. These are **hot carriers**. Effects:
+**GaAs is different.** Its electrons speed up to about 2×10⁷ cm/s near 3.5 kV/cm, and then actually **slow down** at higher fields, because they jump into a different part of the conduction band where they are heavier. A region where more field gives less current is called **negative differential mobility**; it is used in Gunn diodes to make microwave oscillators.
+
+@fig figures/velocity.svg | Drift velocity against field. Silicon carriers level off near 10⁷ cm/s. GaAs electrons overshoot to about 2×10⁷ cm/s, then fall as they transfer to a heavier valley.
+
+**Why it matters:** in a short-channel MOSFET the carriers are at v_sat across most of the channel, so the current depends on (V_GS − V_T) rather than (V_GS − V_T)² (Week 14), and the transistor speed is limited to about v_sat/(2πL).
+
+### Hot-carrier effects
+
+When carriers gain energy much faster than they lose it, their average energy rises far above the normal thermal energy. They are called **hot carriers** (their energy is described by an "electron temperature" T_e much higher than the crystal's temperature). Hot carriers cause:
 
 1. **Velocity saturation** and reduced mobility (above).
-2. **Impact ionisation.** A hot carrier with energy above about 1.5E_g collides with a bond and creates a new electron–hole pair. Repeated, this gives **avalanche multiplication** and avalanche breakdown (used in avalanche photodiodes and IMPATT diodes; limits breakdown voltage).
-3. **Hot-carrier injection** into the gate oxide of MOSFETs. Carriers near the drain overcome the Si/SiO₂ barrier (3.1 eV for electrons), become trapped in the oxide or create interface states, shifting the threshold voltage and degrading transconductance over time. A major reliability problem; reduced by **lightly doped drain (LDD)** structures and lower supply voltages.
-4. **Substrate current** from holes generated by impact ionisation, which can trigger parasitic bipolar action and latch-up.
-5. **Velocity overshoot** in very short devices, where carriers cross before they reach steady state and briefly exceed v_sat.
-6. **Light emission** and noise.
+2. **Impact ionisation.** A carrier with energy above about 1.5E_g can knock an electron out of a covalent bond when it collides, creating a new electron–hole pair. The new carriers are accelerated too and do the same: an **avalanche**. This causes **avalanche breakdown** of junctions (Week 10) and is used deliberately in avalanche photodiodes.
+3. **Hot-carrier injection** into the gate oxide of MOSFETs. Near the drain, some electrons gain enough energy (over 3.1 eV) to jump over the Si/SiO₂ barrier into the oxide, where they get trapped or create defects. The threshold voltage slowly shifts and the transistor degrades over months or years: a key **reliability** problem.
+4. **Substrate current** from holes created by impact ionisation, which can trigger unwanted bipolar action or latch-up in CMOS.
+5. **Velocity overshoot** in very short devices, where carriers cross before they have time to reach v_sat, briefly going faster.
+
+**Cures:** the **lightly doped drain (LDD)** structure, which spreads the voltage drop and lowers the peak field; lower supply voltages; better oxides.
 
 ## Part B: Generation and recombination
 
-## Equilibrium and excess carriers
+### Equilibrium and excess carriers
 
-In thermal equilibrium, carriers are generated and recombine continuously at equal rates, G_th = R_th, so n₀p₀ = n_i².
+In thermal equilibrium, electron–hole pairs are being created (**generated**) by heat and destroyed (**recombined**) all the time, at exactly equal rates. That balance is what keeps n₀p₀ = n_i².
 
-**Excess carriers** are those above equilibrium:
+Now shine light on the sample, or inject carriers through a junction. We get **excess carriers**:
 
-    n = n₀ + Δn,      p = p₀ + Δp
+    n = n₀ + Δn,     p = p₀ + Δp
 
-Created optically or by injection, electrons and holes are usually made in pairs, so Δn = Δp. Then np > n_i², and net recombination returns the system towards equilibrium.
+Light creates electrons and holes in pairs, so usually Δn = Δp. Now np > n_i², recombination is faster than generation, and the extras start disappearing.
 
-**Low-level injection:** Δp ≪ n₀ in n-type material. The majority concentration hardly changes, n ≈ n₀, while the **minority** concentration may change by many orders of magnitude. Minority carriers therefore control the behaviour.
+**Low-level injection** means the excess is much smaller than the majority concentration (Δp ≪ n₀ in n-type). Then:
 
-**Example.** n-Si with N_D = 10¹⁶ cm⁻³ (p₀ = 10⁴ cm⁻³) illuminated to give Δn = Δp = 10¹⁴ cm⁻³: n = 1.01×10¹⁶ (1 % change), p = 10¹⁴ (a factor of 10¹⁰ change).
+- the **majority** concentration hardly changes;
+- the **minority** concentration may change enormously.
 
-## Generation mechanisms
+**Example.** n-Si with N_D = 10¹⁶ cm⁻³ has p₀ = 10⁴ cm⁻³. Light adds Δn = Δp = 10¹⁴ cm⁻³. Electrons: 1.01×10¹⁶ (a 1 % change). Holes: 10¹⁴, ten billion times their equilibrium value. **This is why minority carriers control device behaviour**: they are the ones that change.
 
-1. **Thermal generation:** lattice vibrations supply E_g to break a bond. Mostly through defect levels in the gap (two small steps are easier than one big one).
-2. **Optical generation:** a photon with hν ≥ E_g is absorbed and creates an electron–hole pair. Basis of photodiodes and solar cells. Generation rate G (cm⁻³s⁻¹) falls with depth as e^{−αx}.
-3. **Impact ionisation:** a high-field carrier knocks an electron out of a bond (avalanche).
-4. **Band-to-band tunnelling** at very high fields (Zener effect).
+### How carriers are generated
 
-## Recombination mechanisms
+1. **Thermal generation:** heat breaks a bond. Usually it happens in two small steps through a defect level in the gap, which is easier than one big jump.
+2. **Optical generation:** a photon with energy hν ≥ E_g is absorbed and creates a pair. This is how photodiodes and solar cells work.
+3. **Impact ionisation:** a hot carrier creates a pair (above).
+4. **Tunnelling** across the gap at extremely high fields (Zener effect).
 
-@fig figures/recombination.svg | The three recombination paths. Band-to-band emits a photon. Shockley–Read–Hall goes through a trap level in the gap. Auger gives the energy to a third carrier.
+### How carriers recombine
 
-1. **Direct (band-to-band, radiative):** an electron falls directly from the conduction band into a hole, emitting a photon of energy ≈ E_g. Rate R = B·np. Dominant in direct-gap GaAs (LEDs, lasers); very weak in indirect Si.
-2. **Indirect (trap-assisted, Shockley–Read–Hall):** recombination through a localised **trap** (recombination centre) in the gap, created by defects or impurities such as Au, Fe, Cu or Pt. Energy goes to phonons (heat). Dominant in Si and Ge.
-3. **Auger:** the energy released by recombination is given to a third carrier, which is kicked high into its band and then thermalises. Rate ∝ n²p or np². Dominant at very high carrier densities (heavily doped emitters, concentrator solar cells, lasers).
-4. **Surface recombination:** SRH recombination through the high density of states at surfaces and interfaces (Week 9).
+@fig figures/recombination.svg | The three recombination paths. Band-to-band: the electron drops straight across and emits a photon. Shockley–Read–Hall: it drops in two steps via a trap in the gap, giving heat. Auger: the energy is handed to a third carrier.
 
-## Shockley–Read–Hall (SRH) recombination
+1. **Direct (band-to-band, radiative).** An electron drops straight from the conduction band into a hole and emits a photon of energy ≈ E_g. Rate = B·np. Strong in direct-gap GaAs (LEDs, lasers); very weak in indirect-gap Si (Week 4).
+2. **Indirect (trap-assisted, Shockley–Read–Hall, SRH).** The electron drops in two steps through a **trap**, a localised energy level in the gap created by a defect or an impurity atom such as gold, iron or copper. The energy goes into lattice vibrations (heat). **This is the dominant mechanism in silicon.**
+3. **Auger.** The energy released is given to a third carrier, which is kicked high into its band and then cools down. Important at very high carrier densities.
+4. **Surface recombination:** SRH through the many traps at a surface (Week 9).
 
-A single trap level at E_t, density N_t, with capture cross-sections σ_n and σ_p. Four processes take place:
+### Shockley–Read–Hall recombination: how it works
 
-1. **Electron capture:** a conduction electron falls into an empty trap. Rate ∝ σ_n v_th n N_t(1 − f_t).
-2. **Electron emission:** a trapped electron is emitted to the conduction band. Rate ∝ e_n N_t f_t.
-3. **Hole capture:** a trapped electron drops to the valence band, filling a hole. Rate ∝ σ_p v_th p N_t f_t.
-4. **Hole emission:** an electron from the valence band jumps into an empty trap, creating a hole. Rate ∝ e_p N_t(1 − f_t).
+Picture a trap level E_t in the middle of the gap. It can be empty or hold one electron. Four things can happen to it:
 
-Recombination is (1) followed by (3); generation is (4) followed by (2). Requiring the trap occupancy f_t to be in steady state (electrons in = electrons out) gives the SRH net rate:
+| Step | What happens | Result |
+|---|---|---|
+| 1. Electron capture | A conduction-band electron falls into the empty trap | Trap now full |
+| 2. Electron emission | The trapped electron is shaken back up into the conduction band | Trap empty again |
+| 3. Hole capture | The trapped electron drops down into the valence band, filling a hole | A hole disappears; trap empty |
+| 4. Hole emission | A valence-band electron jumps up into the empty trap | A hole appears; trap full |
+
+**Recombination** = step 1 then step 3: an electron and a hole have both disappeared, via the trap. **Generation** = step 4 then step 2: an electron and a hole have both been created.
+
+> **In plain words.** It is much easier to go down a staircase two steps at a time than to jump the whole flight. A trap in the middle of the gap is a landing half-way down. That is why a few impurity atoms can make recombination enormously faster.
+
+Working out the balance of the four steps gives the **SRH recombination rate**:
 
     U = (np − n_i²) / [ τ_p(n + n₁) + τ_n(p + p₁) ]
 
     τ_n = 1/(σ_n v_th N_t),   τ_p = 1/(σ_p v_th N_t)
-    n₁ = n_i exp((E_t − E_i)/kT),   p₁ = n_i exp((E_i − E_t)/kT)
+    n₁ = n_i e^{(E_t − E_i)/kT},   p₁ = n_i e^{(E_i − E_t)/kT}
 
-**Key results:**
+| Symbol | Meaning |
+|---|---|
+| U | net recombination rate (pairs per cm³ per second) |
+| N_t | trap density (cm⁻³) |
+| σ_n, σ_p | capture cross-sections: how "big a target" the trap is for electrons, holes (cm²) |
+| v_th | thermal velocity, about 10⁷ cm/s |
+| E_t | trap energy level |
 
-- U > 0 (net recombination) when np > n_i² (injection). U < 0 (net generation) when np < n_i² (depletion region under reverse bias, the source of junction leakage current).
-- U is largest when E_t ≈ E_i (n₁ = p₁ = n_i): **mid-gap traps are the most effective recombination centres.** Gold (E_t ≈ E_i) is therefore a powerful lifetime killer.
-- **Low-level injection in n-type** (n ≈ n₀ ≫ p, n₁, p₁): U ≈ Δp/τ_p. The recombination rate is set by the minority-carrier lifetime τ_p = 1/(σ_p v_th N_t), which is inversely proportional to the trap density.
+**What the formula tells you:**
+
+1. **The top line, np − n_i², is the driving force.** If np > n_i² (extra carriers), U is positive: net recombination. If np < n_i² (carriers removed, as in a reverse-biased depletion region), U is negative: net **generation**, which is the source of diode leakage current. In equilibrium, np = n_i² and U = 0.
+2. **U is largest when E_t is near mid-gap.** Traps near a band edge just catch and re-release carriers. **Mid-gap traps are the effective recombination centres.** Gold sits close to mid-gap, which is why it is used deliberately to make fast-switching diodes.
+3. **More traps, faster recombination:** τ ∝ 1/N_t.
+4. **Low-level injection in n-type** (n ≫ p): the formula simplifies to
+
+    U ≈ Δp / τ_p
+
+   The recombination rate is set by how fast the **minority** carriers (holes) get captured.
 
 **Example.** N_t = 10¹³ cm⁻³, σ_p = 10⁻¹⁵ cm², v_th = 10⁷ cm/s: τ_p = 1/(10⁻¹⁵ × 10⁷ × 10¹³) = 10⁻⁵ s = **10 μs**.
 
 ## Part C: Lifetime and steady-state injection
 
-## Minority-carrier lifetime
+### Minority-carrier lifetime
 
-If the generation source is switched off at t = 0, excess minority carriers decay exponentially (low-level injection, uniform sample):
+Switch off the light at t = 0. With U = Δp/τ_p, the excess holes decay as
 
     dΔp/dt = −Δp/τ_p   ⇒   Δp(t) = Δp(0) e^{−t/τ_p}
 
-τ_p is the **minority-carrier lifetime**: the average time an excess minority carrier survives before recombining. Under steady generation G, Δp = Gτ_p.
+τ_p is the **minority-carrier lifetime**: the average time an extra minority carrier survives before it recombines. After one lifetime, 37 % (1/e) of the excess remains; after five lifetimes, under 1 %.
 
-Typical values: high-quality Si 1 μs to 1 ms; gold-doped Si for switching diodes about 1–10 ns; GaAs about 1–10 ns (fast radiative recombination).
+Typical values: very pure Si, 1 μs to 1 ms; gold-doped Si for fast switching, 1–10 ns; GaAs, 1–10 ns (fast radiative recombination).
 
-Combined mechanisms add as rates: 1/τ = 1/τ_SRH + 1/τ_rad + 1/τ_Auger.
+If several mechanisms act together, their rates add: 1/τ = 1/τ_SRH + 1/τ_radiative + 1/τ_Auger.
 
-@fig figures/decay.svg | Photoconductive decay. After the light pulse ends, the excess carrier density falls to 1/e of its value in one lifetime.
+@fig figures/decay.svg | Under steady illumination the excess holds at Δp = G_Lτ_p. When the light is switched off it decays exponentially, falling to 1/e in one lifetime.
 
 ### Steady-state excess carrier injection
 
-Under constant, uniform generation G_L (e.g. steady illumination), the excess carriers build up until recombination exactly balances generation:
+Now keep the light on, generating G_L pairs per cm³ per second uniformly. The excess builds up until recombination exactly balances generation:
 
-    dΔp/dt = G_L − Δp/τ_p = 0   ⇒   Δp = Δn = G_L τ_p
+    dΔp/dt = G_L − Δp/τ_p = 0   ⇒   Δp = Δn = G_Lτ_p
 
-The excess carriers raise the conductivity (**photoconductivity**):
+**The excess equals the generation rate times the lifetime.** A long lifetime lets a large excess build up.
 
-    Δσ = q(μ_n + μ_p) Δn = q(μ_n + μ_p) G_L τ
+The extra carriers raise the conductivity, called **photoconductivity**:
 
-**Example.** n-Si (N_D = 10¹⁵ cm⁻³, τ_p = 10 μs) is illuminated to give G_L = 10²⁰ pairs cm⁻³s⁻¹.
+    Δσ = q(μ_n + μ_p) Δn = q(μ_n + μ_p) G_Lτ
+
+**Example.** n-Si (N_D = 10¹⁵ cm⁻³, τ_p = 10 μs) under light with G_L = 10²⁰ cm⁻³s⁻¹:
 
     Δn = Δp = G_Lτ_p = 10²⁰ × 10⁻⁵ = 10¹⁵ cm⁻³
     Δσ = 1.6×10⁻¹⁹ × (1350 + 480) × 10¹⁵ = 0.293 S/cm
-    σ₀ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
+    dark conductivity σ₀ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
 
-The conductivity more than doubles. Here Δp equals n₀, so this is **not** low-level injection; the simple single-lifetime picture is then only approximate.
+The conductivity more than doubles in the light. This is how a light-dependent resistor works. (Here Δp equals n₀, so this is not low-level injection, and the single-lifetime formula is only approximate.)
 
-**Quasi-Fermi levels.** Out of equilibrium, np ≠ n_i², and one Fermi level cannot describe both carriers. Separate quasi-Fermi levels are defined by
+### Quasi-Fermi levels
+
+Out of equilibrium, np ≠ n_i², so a single Fermi level cannot describe both carriers. Instead we use **two**: one for electrons, E_Fn, and one for holes, E_Fp:
 
     n = n_i e^{(E_Fn − E_i)/kT},     p = n_i e^{(E_i − E_Fp)/kT},     np = n_i² e^{(E_Fn − E_Fp)/kT}
 
-Their separation E_Fn − E_Fp measures how far the material is from equilibrium. In a forward-biased diode it equals qV_a, and in a solar cell it sets the open-circuit voltage.
+The **gap between them**, E_Fn − E_Fp, measures how far from equilibrium the material is. In a forward-biased diode it equals qV; in a solar cell it sets the open-circuit voltage. In equilibrium they merge back into one Fermi level.
 
-@fig figures/decay.svg | When the generation is switched off, the steady-state excess Δp = G_Lτ_p decays exponentially with the lifetime.
+## Key points of Week 8
+
+- At high fields drift velocity saturates at v_sat ≈ 10⁷ cm/s (optical-phonon emission).
+- Hot carriers cause impact ionisation (avalanche) and oxide damage in MOSFETs; LDD reduces them.
+- Excess carriers: n = n₀ + Δn. Under low-level injection only the minority concentration changes much.
+- Recombination: band-to-band (light, GaAs), SRH via traps (heat, dominant in Si), Auger (high density).
+- SRH rate U = (np − n_i²)/[τ_p(n + n₁) + τ_n(p + p₁)]: mid-gap traps are most effective; τ = 1/(σv_thN_t).
+- Low-level n-type: U = Δp/τ_p; after switch-off Δp(t) = Δp(0)e^{−t/τ_p}; under steady light Δp = G_Lτ_p.
 
 ---
 
