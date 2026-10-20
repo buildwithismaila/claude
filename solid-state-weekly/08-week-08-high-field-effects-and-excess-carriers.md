@@ -333,6 +333,107 @@ so that, when generation stops, the excess density decays exponentially:
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 8.1: when does velocity saturate?
+
+**Question.** Estimate the field at which electron drift in silicon starts to saturate (μ_n = 1350 cm²/V·s, v_sat = 1×10⁷ cm/s). Is a 100 nm MOSFET channel with 1 V across it saturated?
+
+**Given:** μ_n = 1350 cm²/V·s, v_sat = 10⁷ cm/s, V = 1 V over L = 100 nm = 10⁻⁵ cm.
+
+**Find:** E where μE = v_sat; the channel field.
+
+**Solution.**
+
+    E_sat ≈ v_sat/μ_n = 10⁷/1350 = 7.4×10³ V/cm
+    Channel field ≈ V/L = 1/10⁻⁵ = 10⁵ V/cm
+
+**Answer:** **E_sat ≈ 7.4 kV/cm; the channel field (100 kV/cm) is over ten times larger, so the carriers are fully velocity-saturated.**
+
+#### Practice 8.2: gold as a lifetime killer
+
+**Question.** A switching diode is doped with 1×10¹⁵ cm⁻³ gold atoms (σ = 1×10⁻¹⁵ cm², v_th = 1×10⁷ cm/s). Find the minority-carrier lifetime.
+
+**Given:** N_t = 10¹⁵ cm⁻³, σ = 10⁻¹⁵ cm², v_th = 10⁷ cm/s.
+
+**Find:** τ.
+
+**Solution.**
+
+    τ = 1/(σv_thN_t) = 1/(10⁻¹⁵ × 10⁷ × 10¹⁵) = 10⁻⁷ s
+
+**Answer:** **τ = 100 ns**, short enough for a fast-recovery diode.
+
+#### Practice 8.3: how long until the excess is gone?
+
+**Question.** After the light is switched off, excess holes in n-type silicon decay with τ_p = 5 μs. How long does it take for the excess to fall to 1 % of its initial value?
+
+**Given:** τ_p = 5 μs, Δp(t)/Δp(0) = 0.01.
+
+**Find:** t.
+
+**Solution.**
+
+    e^{−t/τ} = 0.01   ⇒   t = τ ln(100) = 5 μs × 4.61 = 23 μs
+
+**Answer:** **t ≈ 23 μs (about 4.6 lifetimes).**
+
+#### Practice 8.4: steady-state injection level
+
+**Question.** n-type silicon (N_D = 1×10¹⁶ cm⁻³, τ_p = 20 μs) is uniformly illuminated with G_L = 5×10¹⁹ cm⁻³s⁻¹. Find Δp and decide whether this is low-level injection.
+
+**Given:** G_L = 5×10¹⁹ cm⁻³s⁻¹, τ_p = 2×10⁻⁵ s, N_D = 10¹⁶ cm⁻³.
+
+**Find:** Δp and Δp/n₀.
+
+**Solution.**
+
+    Δp = G_Lτ_p = 5×10¹⁹ × 2×10⁻⁵ = 1×10¹⁵ cm⁻³
+    Δp/n₀ = 10¹⁵/10¹⁶ = 0.1
+
+**Answer:** **Δp = 10¹⁵ cm⁻³, 10 % of n₀**: borderline but usually treated as low-level injection.
+
+#### Practice 8.5: quasi-Fermi level splitting
+
+**Question.** n-type silicon with N_D = 1×10¹⁶ cm⁻³ is illuminated so that Δn = Δp = 1×10¹⁴ cm⁻³. Find E_Fn − E_i, E_i − E_Fp and the splitting E_Fn − E_Fp at 300 K.
+
+**Given:** n = 1.01×10¹⁶, p ≈ 10¹⁴ cm⁻³, n_i = 10¹⁰ cm⁻³, kT = 0.0259 eV.
+
+**Find:** the quasi-Fermi levels and their splitting.
+
+**Solution.**
+
+    E_{Fn} − E_i = kT ln(n/n_i) = 0.0259 ln(1.01×10⁶) = 0.358 eV
+    E_i − E_{Fp} = kT ln(p/n_i) = 0.0259 ln(10⁴) = 0.239 eV
+    E_{Fn} − E_{Fp} = 0.358 + 0.239 = 0.597 eV
+
+**Answer:** **E_{Fn} = E_i + 0.358 eV, E_{Fp} = E_i − 0.239 eV, splitting ≈ 0.60 eV.** The electron level hardly moves; the hole level moves a long way.
+
+#### Practice 8.6: generation current in a depletion region
+
+**Question.** A reverse-biased silicon junction has a depletion width of 1 μm, area 10⁻³ cm² and effective lifetime τ₀ = 1 μs. Estimate the generation leakage current, J_gen = qn_iW/2τ₀.
+
+**Given:** W = 10⁻⁴ cm, A = 10⁻³ cm², τ₀ = 10⁻⁶ s, n_i = 10¹⁰ cm⁻³.
+
+**Find:** J_gen and I_gen.
+
+**Solution.**
+
+    J_gen = qn_iW/(2τ₀) = 1.6×10⁻¹⁹ × 10¹⁰ × 10⁻⁴ / (2×10⁻⁶) = 8×10⁻⁸ A/cm²
+    I_gen = J_genA = 8×10⁻¹¹ A
+
+**Answer:** **J_gen = 8×10⁻⁸ A/cm², I_gen = 80 pA.** In silicon this generation current usually exceeds the ideal diffusion leakage.
+
+#### Practice 8.7: Auger versus SRH
+
+**Question.** Explain why Auger recombination is important in heavily doped emitters but not in lightly doped bulk silicon.
+
+**Answer.** Auger recombination needs three carriers to meet (the recombining electron and hole plus a third carrier that takes the energy), so its rate grows as n²p or np², much faster than SRH, which grows only linearly with the excess. In lightly doped silicon carrier densities are low and three-carrier encounters are rare, so SRH dominates. In emitters doped to 10¹⁹–10²⁰ cm⁻³ the majority density is enormous, Auger becomes the fastest path and it limits the minority-carrier lifetime.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

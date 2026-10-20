@@ -691,6 +691,113 @@ So the impurity concentration is highest at the surface and falls off as an erfc
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 3.1: how far does boron move?
+
+**Question.** Boron diffuses in silicon with D = 1×10⁻¹⁴ cm²/s. Find the characteristic diffusion length √(Dt) after 2 hours, and the scale length 2√(Dt) used in the erfc profile.
+
+**Given:** D = 1×10⁻¹⁴ cm²/s, t = 2 h = 7200 s.
+
+**Find:** √(Dt) and 2√(Dt).
+
+**Solution.**
+
+    √(Dt) = √(1×10⁻¹⁴ × 7200) = √(7.2×10⁻¹¹) = 8.49×10⁻⁶ cm = 0.085 μm
+    2√(Dt) = 0.17 μm
+
+**Answer:** **√(Dt) = 0.085 μm, 2√(Dt) = 0.17 μm.**
+
+#### Practice 3.2: predeposition junction depth and dose
+
+**Question.** Boron is predeposited into n-type silicon (N_B = 1×10¹⁷ cm⁻³) from a constant source with C_s = 1×10²⁰ cm⁻³, D = 5×10⁻¹⁴ cm²/s, for 30 minutes. Find the junction depth and the dose introduced.
+
+**Given:** C_s = 10²⁰ cm⁻³, N_B = 10¹⁷ cm⁻³, D = 5×10⁻¹⁴ cm²/s, t = 1800 s.
+
+**Find:** x_j and Q.
+
+**Solution.**
+
+    √(Dt) = √(5×10⁻¹⁴ × 1800) = 9.49×10⁻⁶ cm,   2√(Dt) = 1.90×10⁻⁵ cm
+    erfc(u) = N_B/C_s = 10⁻³   ⇒   u = 2.33 (from erfc tables)
+    x_j = u × 2√(Dt) = 2.33 × 1.90×10⁻⁵ = 4.4×10⁻⁵ cm = 0.44 μm
+    Q = (2/√π) C_s √(Dt) = 1.128 × 10²⁰ × 9.49×10⁻⁶ = 1.07×10¹⁵ cm⁻²
+
+**Answer:** **x_j = 0.44 μm, Q = 1.07×10¹⁵ cm⁻².**
+
+#### Practice 3.3: driving in the dose
+
+**Question.** The dose of Practice 3.2 is driven in, with no further source, at D = 1×10⁻¹³ cm²/s for 1 hour. Find the new surface concentration and junction depth (N_B = 1×10¹⁷ cm⁻³).
+
+**Given:** Q = 1.07×10¹⁵ cm⁻², D = 10⁻¹³ cm²/s, t = 3600 s, N_B = 10¹⁷ cm⁻³.
+
+**Find:** C(0) and x_j.
+
+**Solution.**
+
+    √(πDt) = √(π × 3.6×10⁻¹⁰) = 3.36×10⁻⁵ cm
+    C(0) = Q/√(πDt) = 1.07×10¹⁵ / 3.36×10⁻⁵ = 3.2×10¹⁹ cm⁻³
+    2√(Dt) = 2√(3.6×10⁻¹⁰) = 3.79×10⁻⁵ cm
+    x_j = 2√(Dt) √(ln(C(0)/N_B)) = 3.79×10⁻⁵ × √(ln 318) = 3.79×10⁻⁵ × 2.40 = 9.1×10⁻⁵ cm
+
+**Answer:** **C(0) = 3.2×10¹⁹ cm⁻³ (down from 10²⁰), x_j = 0.91 μm (up from 0.44 μm).** Drive-in trades surface concentration for depth.
+
+#### Practice 3.4: dose from beam current
+
+**Question.** An implanter delivers a singly charged boron beam of 50 μA for 200 s, uniformly over a 150 mm wafer. What dose is implanted?
+
+**Given:** I = 50×10⁻⁶ A, t = 200 s, r = 7.5 cm, q = 1.6×10⁻¹⁹ C.
+
+**Find:** Q (ions/cm²).
+
+**Solution.**
+
+    A = π × 7.5² = 176.7 cm²
+    Q = It/(qA) = (50×10⁻⁶ × 200)/(1.6×10⁻¹⁹ × 176.7) = 10⁻²/2.83×10⁻¹⁷ = 3.5×10¹⁴ cm⁻²
+
+**Answer:** **Q = 3.5×10¹⁴ ions/cm².**
+
+#### Practice 3.5: shallow implanted junction
+
+**Question.** Arsenic is implanted into p-type silicon (N_B = 1×10¹⁶ cm⁻³) with Q = 5×10¹⁴ cm⁻², R_p = 0.10 μm and ΔR_p = 0.03 μm. Find the peak concentration and the depth of the junction below the peak.
+
+**Given:** Q = 5×10¹⁴ cm⁻², R_p = 0.10 μm, ΔR_p = 0.03 μm = 3×10⁻⁶ cm, N_B = 10¹⁶ cm⁻³.
+
+**Find:** N_p and x_j.
+
+**Solution.**
+
+    N_p = Q/(√(2π)ΔR_p) = 5×10¹⁴ / (2.507 × 3×10⁻⁶) = 6.6×10¹⁹ cm⁻³
+    x_j = R_p + ΔR_p √(2 ln(N_p/N_B)) = 0.10 + 0.03 × √(2 ln 6650) = 0.10 + 0.03 × 4.20 = 0.226 μm
+
+**Answer:** **N_p = 6.6×10¹⁹ cm⁻³, x_j = 0.23 μm.** (Here the surface concentration is high enough that the n⁺ region reaches the surface, so there is only the one junction.)
+
+#### Practice 3.6: diffusion coefficient of phosphorus
+
+**Question.** For phosphorus in silicon D₀ = 3.85 cm²/s and E_a = 3.66 eV. Find D at 1100 °C.
+
+**Given:** D₀ = 3.85 cm²/s, E_a = 3.66 eV, T = 1373 K, k = 8.617×10⁻⁵ eV/K.
+
+**Find:** D.
+
+**Solution.**
+
+    kT = 8.617×10⁻⁵ × 1373 = 0.1183 eV
+    E_a/kT = 3.66/0.1183 = 30.93
+    D = 3.85 × e^{−30.93} = 3.85 × 3.7×10⁻¹⁴ = 1.4×10⁻¹³ cm²/s
+
+**Answer:** **D ≈ 1.4×10⁻¹³ cm²/s.**
+
+#### Practice 3.7: annealing and tilt
+
+**Question.** Give two reasons an implanted wafer must be annealed, and explain why implants are usually done with the wafer tilted by about 7°.
+
+**Answer.** Annealing (1) repairs the lattice damage caused by the ions knocking silicon atoms out of place (heavy implants even make the surface amorphous), and (2) moves the dopant atoms onto substitutional lattice sites where they become electrically active donors or acceptors. Tilting by about 7° stops the beam lining up with the open channels between rows of atoms along low-index directions; ions entering a channel travel much deeper than R_p predicts (channelling), giving an unwanted deep tail.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

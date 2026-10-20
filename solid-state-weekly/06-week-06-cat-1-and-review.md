@@ -181,6 +181,72 @@ For comparison, intrinsic Si is about 3×10⁵ Ω·cm, nearly 10⁴ times higher
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 6.1: intercepts from Miller indices
+
+**Question.** A plane has Miller indices (1 2 3). Find a set of intercepts it makes on the axes.
+
+**Given:** (h k l) = (1 2 3).
+
+**Find:** intercepts.
+
+**Solution.** Intercepts are the reciprocals of the indices: 1, 1/2, 1/3. Multiplying by 6 to clear fractions gives an equivalent parallel plane.
+
+**Answer:** **a, b/2, c/3 (or, equivalently, 6a, 3b, 2c).**
+
+#### Practice 6.2: band gap from an absorption edge
+
+**Question.** A semiconductor stops absorbing light at wavelengths longer than 1.1 μm. Estimate its band gap.
+
+**Given:** λ_max = 1.1 μm.
+
+**Find:** E_g.
+
+**Solution.**
+
+    E_g = 1.24/λ = 1.24/1.1 = 1.13 eV
+
+**Answer:** **E_g ≈ 1.13 eV** (silicon).
+
+#### Practice 6.3: hole concentration from the Fermi level
+
+**Question.** In p-type silicon at 300 K the Fermi level is 0.10 eV above the valence band. Find the hole concentration.
+
+**Given:** E_F − E_v = 0.10 eV, N_v = 1.04×10¹⁹ cm⁻³, kT = 0.0259 eV.
+
+**Find:** p.
+
+**Solution.**
+
+    p = N_v e^{−(E_F − E_v)/kT} = 1.04×10¹⁹ × e^{−3.86} = 1.04×10¹⁹ × 0.0211 = 2.2×10¹⁷ cm⁻³
+
+**Answer:** **p = 2.2×10¹⁷ cm⁻³.**
+
+#### Practice 6.4: probability of a hole
+
+**Question.** What is the probability that a state 0.05 eV below the Fermi level is empty (holds a hole) at 300 K?
+
+**Given:** E = E_F − 0.05 eV, kT = 0.0259 eV.
+
+**Find:** 1 − f(E).
+
+**Solution.**
+
+    1 − f = 1 − 1/(1 + e^{−0.05/0.0259}) = 1/(1 + e^{0.05/0.0259}) = 1/(1 + 6.89) = 0.127
+
+**Answer:** **12.7 %.**
+
+#### Practice 6.5: short-answer revision
+
+**Question.** (a) State the mass-action law. (b) What is the coordination number of the diamond structure? (c) Name the structure of GaAs. (d) Which carrier is the minority carrier in boron-doped silicon?
+
+**Answer.** **(a)** np = n_i² in thermal equilibrium. **(b)** 4. **(c)** Zinc blende. **(d)** Electrons.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

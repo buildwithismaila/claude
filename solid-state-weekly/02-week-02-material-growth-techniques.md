@@ -297,6 +297,93 @@ Epitaxy is the growth of a thin single-crystal film on a single-crystal substrat
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 2.1: the purification route
+
+**Question.** List the stages from quartzite to electronic-grade silicon, giving the chemical reaction and approximate temperature of each.
+
+**Answer.**
+
+| Stage | Reaction | Temperature |
+|---|---|---|
+| 1. Arc furnace → MG-Si (98 %) | SiO₂ + 2C → Si + 2CO | ≈ 2000 °C |
+| 2. Hydrochlorination | Si + 3HCl → SiHCl₃ + H₂ | ≈ 300 °C |
+| 3. Fractional distillation of SiHCl₃ | (physical separation by boiling point) | ≈ 32 °C boiling point |
+| 4. Siemens CVD → EG-Si polysilicon | SiHCl₃ + H₂ → Si + 3HCl | ≈ 1100 °C |
+
+#### Practice 2.2: phosphorus segregation along an ingot
+
+**Question.** An n-type CZ crystal must have 5×10¹⁵ cm⁻³ phosphorus at the seed end. The segregation coefficient of P in Si is 0.35. Find the starting melt concentration and the phosphorus concentration in the crystal when 80 % of the melt has solidified.
+
+**Given:** C_s(0) = 5×10¹⁵ cm⁻³, k₀ = 0.35, f = 0.8.
+
+**Find:** C₀ and C_s at f = 0.8.
+
+**Solution.**
+
+    C₀ = C_s/k₀ = 5×10¹⁵/0.35 = 1.43×10¹⁶ cm⁻³
+    C_s = k₀C₀(1 − f)^{k₀ − 1} = 5×10¹⁵ × (0.2)^{−0.65} = 5×10¹⁵ × 2.85 = 1.42×10¹⁶ cm⁻³
+
+**Answer:** **C₀ = 1.43×10¹⁶ cm⁻³; at f = 0.8, C_s = 1.42×10¹⁶ cm⁻³**, almost three times the seed-end value. This is why P-doped CZ ingots vary so much in resistivity along their length.
+
+#### Practice 2.3: how much silicon in an ingot?
+
+**Question.** A CZ ingot is 300 mm in diameter and 1.5 m long. Find its mass (density 2.33 g/cm³) and how many wafers it gives if each wafer is 775 μm thick and the saw removes another 200 μm per cut.
+
+**Given:** diameter 30 cm, length 150 cm, ρ = 2.33 g/cm³, 775 + 200 = 975 μm per wafer.
+
+**Find:** mass and number of wafers.
+
+**Solution.**
+
+    Volume = π r² L = π × 15² × 150 = 1.06×10⁵ cm³
+    Mass = 1.06×10⁵ × 2.33 = 2.47×10⁵ g = 247 kg
+    Wafers = 150 cm / 0.0975 cm = 1538
+
+**Answer:** **about 247 kg and roughly 1500 wafers** (fewer after the shoulder and tail are cut off).
+
+#### Practice 2.4: MBE growth time
+
+**Question.** A 0.5 μm GaAs layer is grown by MBE at 1 μm/h. How long does it take, and how many monolayers (each a/2 = 0.2825 nm thick) are deposited? What is the average monolayer rate?
+
+**Given:** thickness 500 nm, rate 1 μm/h, monolayer 0.2825 nm.
+
+**Find:** time, number of monolayers, rate.
+
+**Solution.**
+
+    t = 0.5 μm / (1 μm/h) = 0.5 h = 1800 s
+    monolayers = 500 nm / 0.2825 nm = 1770
+    rate = 1770/1800 ≈ 1 monolayer per second
+
+**Answer:** **30 minutes, about 1770 monolayers, at about one atomic layer per second**, which is why MBE can control thickness to a single layer.
+
+#### Practice 2.5: lattice mismatch
+
+**Question.** Calculate the lattice mismatch for (a) Ge on Si (a = 5.65 and 5.43 Å) and (b) AlAs on GaAs (a = 5.661 and 5.653 Å). Which pair is suitable for defect-free heteroepitaxy?
+
+**Given:** lattice constants above. f = (a_layer − a_sub)/a_sub.
+
+**Find:** f for each pair.
+
+**Solution.**
+
+    (a) f = (5.65 − 5.43)/5.43 = 0.041 = 4.1 %
+    (b) f = (5.661 − 5.653)/5.653 = 0.0014 = 0.14 %
+
+**Answer:** **4.1 % and 0.14 %.** AlAs/GaAs is almost perfectly matched and grows defect-free, which is why AlGaAs/GaAs heterostructures are so widely used. Ge on Si quickly forms misfit dislocations unless the layer is very thin or graded.
+
+#### Practice 2.6: CZ operating conditions
+
+**Question.** Why is the CZ puller filled with argon, and why do the seed and crucible rotate in opposite directions?
+
+**Answer.** Argon is inert: it stops the hot silicon reacting with oxygen and nitrogen, and the gas flow carries away SiO evaporating from the melt. Counter-rotation stirs the melt, so the temperature around the growing crystal is uniform (giving a round, constant-diameter crystal) and dopant is mixed evenly (giving uniform radial resistivity).
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

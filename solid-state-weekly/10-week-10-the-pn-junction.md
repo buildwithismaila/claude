@@ -290,6 +290,108 @@ or, for area A, **I = I_s [ exp(qV/kT) − 1 ]** with I_s = AJ_s. This is the id
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 10.1: built-in potential of a germanium junction
+
+**Question.** A germanium junction has N_A = N_D = 1×10¹⁶ cm⁻³. Find V_bi at 300 K (n_i = 2.4×10¹³ cm⁻³) and compare with silicon.
+
+**Given:** N_A = N_D = 10¹⁶ cm⁻³, n_i = 2.4×10¹³ cm⁻³, kT/q = 0.0259 V.
+
+**Find:** V_bi.
+
+**Solution.**
+
+    V_bi = 0.0259 ln(10³²/5.76×10²⁶) = 0.0259 ln(1.74×10⁵) = 0.0259 × 12.06 = 0.31 V
+
+**Answer:** **V_bi = 0.31 V**, against 0.72 V for silicon with the same doping: the smaller gap gives a smaller barrier.
+
+#### Practice 10.2: reverse-biased depletion width and field
+
+**Question.** A silicon p⁺n junction has N_D = 1×10¹⁵ cm⁻³ and V_bi = 0.7 V. Find the depletion width and peak field at a reverse bias of 5 V.
+
+**Given:** N_D = 10¹⁵ cm⁻³, V_bi − V = 0.7 + 5 = 5.7 V, ε_s = 1.04×10⁻¹² F/cm.
+
+**Find:** W and E_max.
+
+**Solution.**
+
+    W = √(2ε_s(V_bi − V)/qN_D) = √(2 × 1.04×10⁻¹² × 5.7 / (1.6×10⁻¹⁹ × 10¹⁵)) = 2.72×10⁻⁴ cm
+    E_max = 2(V_bi − V)/W = 2 × 5.7/2.72×10⁻⁴ = 4.2×10⁴ V/cm
+
+**Answer:** **W = 2.7 μm, E_max = 4.2×10⁴ V/cm.**
+
+#### Practice 10.3: junction capacitance
+
+**Question.** Find the junction capacitance of the diode in Practice 10.2 if its area is 1×10⁻³ cm².
+
+**Given:** W = 2.72×10⁻⁴ cm, A = 10⁻³ cm², ε_s = 1.04×10⁻¹² F/cm.
+
+**Find:** C_j.
+
+**Solution.**
+
+    C_j = ε_sA/W = 1.04×10⁻¹² × 10⁻³ / 2.72×10⁻⁴ = 3.8×10⁻¹² F
+
+**Answer:** **C_j = 3.8 pF.**
+
+#### Practice 10.4: saturation current with both sides
+
+**Question.** A silicon diode has N_A = 1×10¹⁷ cm⁻³, N_D = 1×10¹⁶ cm⁻³, D_n = 20 cm²/s, L_n = 20 μm, D_p = 10 cm²/s, L_p = 10 μm. Find J_s and the fraction carried by holes.
+
+**Given:** the values above, n_i = 10¹⁰ cm⁻³.
+
+**Find:** J_s and the hole fraction.
+
+**Solution.**
+
+    D_p/(L_pN_D) = 10/(10⁻³ × 10¹⁶) = 1.0×10⁻¹²
+    D_n/(L_nN_A) = 20/(2×10⁻³ × 10¹⁷) = 1.0×10⁻¹³
+    J_s = qn_i²(1.0×10⁻¹² + 1.0×10⁻¹³) = 1.6×10⁻¹⁹ × 10²⁰ × 1.1×10⁻¹² = 1.76×10⁻¹¹ A/cm²
+    hole fraction = 1.0/1.1 = 91 %
+
+**Answer:** **J_s = 1.8×10⁻¹¹ A/cm², 91 % carried by holes injected into the lightly doped n side.**
+
+#### Practice 10.5: temperature and the saturation current
+
+**Question.** By roughly what factor does I_s of a silicon diode increase when the temperature rises from 300 K to 310 K? (Take I_s ∝ n_i² and ignore other temperature effects.)
+
+**Given:** n_i ∝ T^{3/2}e^{−E_g/2kT}, E_g = 1.12 eV.
+
+**Find:** I_s(310)/I_s(300).
+
+**Solution.**
+
+    n_i(310)/n_i(300) = (310/300)^{3/2} × exp[6499 × (1/300 − 1/310)] = 1.050 × e^{0.699} = 2.11
+    I_s ratio = 2.11² = 4.5
+
+**Answer:** **about 4.5 times for a 10 K rise**: reverse leakage is very temperature-sensitive.
+
+#### Practice 10.6: forward voltage per decade
+
+**Question.** How much must the forward voltage of an ideal diode increase to multiply the current by 10 at 300 K? If I = 1 mA at 0.60 V, what is I at 0.66 V?
+
+**Given:** I ∝ e^{qV/kT}, kT/q = 0.0259 V.
+
+**Find:** ΔV per decade; I at 0.66 V.
+
+**Solution.**
+
+    ΔV = (kT/q) ln 10 = 0.0259 × 2.303 = 59.6 mV
+    I(0.66) = 1 mA × e^{0.06/0.0259} = 1 × 10.1 = 10.1 mA
+
+**Answer:** **about 60 mV per decade; I ≈ 10 mA at 0.66 V.**
+
+#### Practice 10.7: avalanche or Zener?
+
+**Question.** A diode breaks down at 3.3 V and its breakdown voltage falls as it warms up. Another breaks down at 50 V and its breakdown voltage rises with temperature. Identify the mechanism in each and explain the temperature behaviour.
+
+**Answer.** The **3.3 V diode is Zener breakdown**: it is heavily doped, its depletion region is very thin, and electrons tunnel across the gap. Heating shrinks the band gap, making tunnelling easier, so V_BR falls. The **50 V diode is avalanche breakdown**: carriers gain energy across a wide depletion region and impact-ionise. Heating increases lattice vibration, so carriers lose more energy to phonons between collisions and need a larger field to ionise, so V_BR rises.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

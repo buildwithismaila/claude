@@ -148,6 +148,20 @@ a{color:var(--teal)}
 .done .tick{opacity:1}
 .done .modnum{text-decoration:line-through}
 
+/* ---------- downloads ---------- */
+.dl{margin-top:14px}
+.dl-label{display:block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px}
+.dl-row{display:flex; gap:6px; flex-wrap:wrap}
+.dlbtn{
+  font:inherit; font-size:13px; font-weight:600; cursor:pointer; padding:6px 10px;
+  background:var(--surface); color:var(--ink); border:1px solid var(--rule); border-radius:3px;
+}
+.dlbtn:hover{border-color:var(--copper); color:var(--copper)}
+.dlbtn[disabled]{opacity:.5; cursor:default}
+.dl-msg{margin:6px 0 0; font-size:12px; color:var(--ink-soft); min-height:1em}
+.dl-mob{margin-top:8px}
+.dl-mob .dl-msg:empty{display:none}
+
 /* ---------- reading column ---------- */
 main{padding:0; min-width:0}
 .sheet{
@@ -353,12 +367,28 @@ h2.doctitle{
   <div class="brand">
     <h1>__BRAND__</h1>
     <p>__EYEBROW__</p>
+    <div class="dl" role="group" aria-label="Download the course">
+      <span class="dl-label">Download the whole course</span>
+      <div class="dl-row">
+        <button class="dlbtn" data-fmt="docx">Word (.docx)</button>
+        <button class="dlbtn" data-fmt="pdf">PDF</button>
+      </div>
+      <p class="dl-msg" aria-live="polite"></p>
+    </div>
   </div>
   <ul class="modlist" id="modlist"></ul>
 </nav>
 
 <main>
-  <div id="mobsel"><select id="sel" aria-label="Choose module"></select></div>
+  <div id="mobsel"><select id="sel" aria-label="Choose module"></select>
+    <div class="dl dl-mob" role="group" aria-label="Download the course">
+      <div class="dl-row">
+        <button class="dlbtn" data-fmt="docx">Download Word</button>
+        <button class="dlbtn" data-fmt="pdf">Download PDF</button>
+      </div>
+      <p class="dl-msg" aria-live="polite"></p>
+    </div>
+  </div>
   <div class="sheet">
     <div class="wrap">
       <p class="eyebrow" id="eyebrow"></p>
@@ -452,6 +482,55 @@ document.addEventListener("keydown", e=>{
 });
 
 show(0);
+
+/* Downloads: inside claude.ai the page asks the viewer to confirm the save; opened
+   as a local file it falls back to a plain link to the file beside it. */
+const FILES = { docx: "ELE717-Solid-State-Electronics.docx", pdf: "ELE717-Solid-State-Electronics.pdf" };
+function dlMsg(t){ document.querySelectorAll(".dl-msg").forEach(p => p.textContent = t); }
+async function download(fmt){
+  const name = FILES[fmt], url = "downloads/" + name;
+  const btns = document.querySelectorAll(".dlbtn");
+  btns.forEach(b => b.disabled = true);
+  try {
+    const d = window.claude && typeof window.claude.use === "function"
+      ? await window.claude.use("downloads") : null;
+    if (d) {
+      dlMsg("Preparing " + name + "…");
+      let data;
+      if (fmt === "docx") {
+        /* The page host serves no .docx files, so the Word file is published as
+           base64 text and rebuilt into bytes here. */
+        const r = await fetch(url + ".b64.txt");
+        if (!r.ok) throw { code: "missing" };
+        const bin = atob((await r.text()).trim());
+        data = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) data[i] = bin.charCodeAt(i);
+      } else {
+        const r = await fetch(url);
+        if (!r.ok) throw { code: "missing" };
+        data = await r.blob();
+      }
+      await d.save({ filename: name, data });
+      dlMsg("Saved " + name + ".");
+    } else if (location.protocol === "file:" || !window.claude) {
+      const a = document.createElement("a");
+      a.href = url; a.download = name;
+      document.body.appendChild(a); a.click(); a.remove();
+      dlMsg("If nothing happens, open the downloads folder next to this page.");
+    } else {
+      dlMsg("Downloads are not available in this view.");
+    }
+  } catch (e) {
+    const code = e && e.code;
+    dlMsg(code === "declined" ? "" :
+          code === "rate_limited" ? "A download prompt is already open." :
+          code === "missing" ? "The " + fmt.toUpperCase() + " file could not be found." :
+          "Downloads are not available in this view.");
+  } finally {
+    btns.forEach(b => b.disabled = false);
+  }
+}
+document.querySelectorAll(".dlbtn").forEach(b => b.addEventListener("click", () => download(b.dataset.fmt)));
 </script>
 """
 

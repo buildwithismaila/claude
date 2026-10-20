@@ -275,6 +275,73 @@ Work through these without notes, then check against the week shown. Full worked
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 15.1: one sample, every property
+
+**Question.** n-type silicon has N_D = 2×10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s, μ_p = 420 cm²/V·s and τ_p = 2 μs. At 300 K find (a) n and p, (b) E_F − E_i, (c) the conductivity, (d) D_p and (e) the hole diffusion length.
+
+**Given:** N_D = 2×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, μ_n = 1200, μ_p = 420 cm²/V·s, τ_p = 2×10⁻⁶ s.
+
+**Find:** n, p, E_F − E_i, σ, D_p, L_p.
+
+**Solution.**
+
+    (a) n = 2×10¹⁶ cm⁻³,  p = 10²⁰/2×10¹⁶ = 5×10³ cm⁻³
+    (b) E_F − E_i = 0.0259 ln(2×10⁶) = 0.376 eV
+    (c) σ = qnμ_n = 1.6×10⁻¹⁹ × 2×10¹⁶ × 1200 = 3.84 S/cm
+    (d) D_p = 0.0259 × 420 = 10.9 cm²/s
+    (e) L_p = √(10.9 × 2×10⁻⁶) = 4.66×10⁻³ cm = 46.6 μm
+
+**Answer:** **n = 2×10¹⁶, p = 5×10³ cm⁻³; E_F = E_i + 0.376 eV; σ = 3.84 S/cm; D_p = 10.9 cm²/s; L_p = 47 μm.**
+
+#### Practice 15.2: a diode made from that sample
+
+**Question.** A p⁺n diode (N_A = 1×10¹⁹ cm⁻³, area 1×10⁻³ cm²) is made on the silicon of Practice 15.1. Find V_bi, the zero-bias depletion width, I_s and the current at 0.65 V.
+
+**Given:** N_A = 10¹⁹, N_D = 2×10¹⁶ cm⁻³, D_p = 10.9 cm²/s, L_p = 4.66×10⁻³ cm, A = 10⁻³ cm².
+
+**Find:** V_bi, W, I_s, I(0.65 V).
+
+**Solution.**
+
+    V_bi = 0.0259 ln(10¹⁹ × 2×10¹⁶/10²⁰) = 0.0259 ln(2×10¹⁵) = 0.913 V
+    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹² × 0.913/(1.6×10⁻¹⁹ × 2×10¹⁶)) = 2.44×10⁻⁵ cm = 0.24 μm
+    J_s ≈ qn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10²⁰ × 10.9/(4.66×10⁻³ × 2×10¹⁶) = 1.87×10⁻¹² A/cm²
+    I_s = 1.87×10⁻¹⁵ A
+    I(0.65 V) = 1.87×10⁻¹⁵ × e^{0.65/0.0259} = 1.87×10⁻¹⁵ × 7.9×10¹⁰ = 0.15 mA
+
+**Answer:** **V_bi = 0.91 V, W = 0.24 μm, I_s = 1.9×10⁻¹⁵ A, I(0.65 V) = 0.15 mA.**
+
+#### Practice 15.3: a complete MOSFET calculation
+
+**Question.** An nMOS has N_A = 1×10¹⁷ cm⁻³, t_ox = 5 nm, V_FB = −0.9 V, μ_n = 350 cm²/V·s and W/L = 20. Find V_T and the saturation current at V_GS = 1.2 V.
+
+**Given:** N_A = 10¹⁷ cm⁻³, t_ox = 5×10⁻⁷ cm, V_FB = −0.9 V, μ_n = 350 cm²/V·s, W/L = 20.
+
+**Find:** V_T and I_D(sat).
+
+**Solution.**
+
+    C_ox = 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm²
+    φ_F = 0.417 V,  2φ_F = 0.834 V
+    γ = √(2qε_siN_A)/C_ox = 1.824×10⁻⁷/6.9×10⁻⁷ = 0.264 V^{1/2},  γ√(2φ_F) = 0.241 V
+    V_T = −0.9 + 0.834 + 0.241 = 0.18 V
+    k = μ_nC_ox(W/L) = 350 × 6.9×10⁻⁷ × 20 = 4.83 mA/V²
+    I_D(sat) = ½ × 4.83 × (1.2 − 0.18)² = 2.5 mA
+
+**Answer:** **V_T ≈ 0.18 V, I_D(sat) ≈ 2.5 mA.**
+
+#### Practice 15.4: essay practice
+
+**Question.** In about one page, explain how a p-n junction diode rectifies, starting from the formation of the depletion region and ending with the Shockley equation. (Use the structure of Week 10 and Q47–Q48.)
+
+**Answer outline.** (1) Diffusion of holes and electrons across the junction uncovers fixed ions: the depletion region and its field. (2) Equilibrium: drift balances diffusion, E_F is flat, V_bi = (kT/q) ln(N_{A}N_D/n_i²). (3) Forward bias lowers the barrier; minority carriers are injected (law of the junction, p_n = p_n0e^{qV/kT}). (4) They diffuse and recombine over L_p, L_n; the diffusion currents at the depletion edges add to give I = I_s(e^{qV/kT} − 1). (5) Reverse bias raises the barrier: only the tiny −I_s flows. Hence rectification. Include the band diagram and the I-V sketch.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

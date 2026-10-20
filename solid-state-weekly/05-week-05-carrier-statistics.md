@@ -616,6 +616,117 @@ In an intrinsic semiconductor E_F = E_i, near mid-gap. Doping shifts it so that 
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 5.1: accuracy of the Boltzmann approximation
+
+**Question.** Calculate the occupation probability of a state 3kT above the Fermi level using (a) the Fermi–Dirac function and (b) the Boltzmann approximation. What is the error?
+
+**Given:** E − E_F = 3kT.
+
+**Find:** f(FD), f(Boltzmann) and the percentage error.
+
+**Solution.**
+
+    (a) f = 1/(1 + e³) = 1/21.09 = 0.0474
+    (b) f ≈ e^{−3} = 0.0498
+    error = (0.0498 − 0.0474)/0.0474 = 5 %
+
+**Answer:** **0.0474 against 0.0498, a 5 % error**: this is why "more than 3kT from E_F" is the rule for using the Boltzmann approximation.
+
+#### Practice 5.2: carriers from the Fermi-level position
+
+**Question.** In silicon at 300 K the Fermi level is 0.30 eV below the conduction band. Find the probability that a state at E_c is occupied, and the electron concentration.
+
+**Given:** E_c − E_F = 0.30 eV, kT = 0.0259 eV, N_c = 2.8×10¹⁹ cm⁻³.
+
+**Find:** f(E_c) and n.
+
+**Solution.**
+
+    f(E_c) ≈ e^{−0.30/0.0259} = e^{−11.58} = 9.3×10⁻⁶
+    n = N_c e^{−(E_c − E_F)/kT} = 2.8×10¹⁹ × 9.3×10⁻⁶ = 2.6×10¹⁴ cm⁻³
+
+**Answer:** **f = 9.3×10⁻⁶, n = 2.6×10¹⁴ cm⁻³.**
+
+#### Practice 5.3: doping for a chosen Fermi level
+
+**Question.** What donor concentration places the Fermi level of silicon 0.20 eV above the intrinsic level at 300 K?
+
+**Given:** E_F − E_i = 0.20 eV, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+
+**Find:** N_D.
+
+**Solution.**
+
+    N_D = n_i e^{(E_F − E_i)/kT} = 10¹⁰ × e^{0.20/0.02585} = 10¹⁰ × e^{7.74} = 2.3×10¹³ cm⁻³
+
+**Answer:** **N_D ≈ 2.3×10¹³ cm⁻³**, a very light doping.
+
+#### Practice 5.4: compensated p-type silicon
+
+**Question.** Silicon is doped with N_A = 3×10¹⁶ cm⁻³ and N_D = 1×10¹⁶ cm⁻³. Find p, n and the Fermi-level position at 300 K.
+
+**Given:** N_A = 3×10¹⁶, N_D = 10¹⁶, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+
+**Find:** p, n and E_i − E_F.
+
+**Solution.**
+
+    p ≈ N_A − N_D = 2×10¹⁶ cm⁻³
+    n = n_i²/p = 10²⁰/2×10¹⁶ = 5×10³ cm⁻³
+    E_i − E_F = kT ln(p/n_i) = 0.02585 × ln(2×10⁶) = 0.375 eV
+
+**Answer:** **p = 2×10¹⁶ cm⁻³, n = 5×10³ cm⁻³, E_F = E_i − 0.375 eV.**
+
+#### Practice 5.5: lightly doped germanium
+
+**Question.** Germanium (n_i = 2.4×10¹³ cm⁻³) is doped with N_D = 1×10¹⁴ cm⁻³. Find n and p using the full charge-neutrality equation.
+
+**Given:** N_D = 10¹⁴ cm⁻³, N_A = 0, n_i = 2.4×10¹³ cm⁻³.
+
+**Find:** n and p.
+
+**Solution.**
+
+    n = N_D/2 + √((N_D/2)² + n_i²) = 5×10¹³ + √(2.5×10²⁷ + 5.76×10²⁶)
+      = 5×10¹³ + 5.55×10¹³ = 1.05×10¹⁴ cm⁻³
+    p = n_i²/n = 5.76×10²⁶ / 1.05×10¹⁴ = 5.5×10¹² cm⁻³
+
+**Answer:** **n = 1.05×10¹⁴ cm⁻³, p = 5.5×10¹² cm⁻³.** Thermal generation adds 5 % to the electron count, so n ≈ N_D is only approximate here.
+
+#### Practice 5.6: is it degenerate?
+
+**Question.** Silicon is doped with N_D = 5×10¹⁸ cm⁻³. Find E_c − E_F and decide whether the Boltzmann approximation is valid.
+
+**Given:** N_D = 5×10¹⁸ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, kT = 0.02585 eV.
+
+**Find:** E_c − E_F in eV and in units of kT.
+
+**Solution.**
+
+    E_c − E_F = kT ln(N_c/N_D) = 0.02585 × ln(5.6) = 0.02585 × 1.72 = 0.045 eV = 1.7kT
+
+**Answer:** **0.045 eV, only 1.7kT**: less than 3kT, so the material is (nearly) degenerate and full Fermi–Dirac statistics should be used.
+
+#### Practice 5.7: where exactly is E_i?
+
+**Question.** Show that the intrinsic level of silicon lies slightly below mid-gap, and by how much.
+
+**Given:** E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c), N_c = 2.8×10¹⁹, N_v = 1.04×10¹⁹ cm⁻³.
+
+**Find:** E_i − mid-gap.
+
+**Solution.**
+
+    (kT/2) ln(N_v/N_c) = (0.02585/2) × ln(1.04/2.8) = 0.0129 × (−0.990) = −0.0128 eV
+
+**Answer:** **E_i is 13 meV below mid-gap**, because the valence band has fewer effective states (N_v < N_c), so E_F must sit a little closer to it to make p equal n.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

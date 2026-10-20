@@ -718,6 +718,112 @@ Check: the integers 3, 2, 6 have no common factor, so no further reduction is po
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 1.1: why germanium leaks more than silicon
+
+**Question.** Explain why a germanium diode has a much larger reverse leakage current than a silicon diode of the same doping.
+
+**Answer.** Leakage is carried by minority carriers, whose concentration is n_i²/N. Germanium's band gap (0.66 eV) is much smaller than silicon's (1.12 eV), so far more bonds are broken thermally: n_i(Ge) ≈ 2.4×10¹³ cm⁻³ against 1×10¹⁰ cm⁻³ for Si. Since leakage ∝ n_i², the Ge diode has about (2.4×10³)² ≈ 6×10⁶ times more minority carriers and a correspondingly larger leakage current.
+
+#### Practice 1.2: Miller indices with a negative intercept
+
+**Question.** A plane cuts the x-axis at −a, the y-axis at 2b and is parallel to the z-axis. Determine its Miller indices.
+
+**Given:** intercepts −1, 2, ∞ (lattice units).
+
+**Find:** (h k l).
+
+**Solution.**
+
+    Reciprocals: −1, 1/2, 0
+    Multiply by 2: −2, 1, 0
+
+**Answer:** **(2̄ 1 0)**, written with a bar over the 2 (in plain text (−2 1 0)).
+
+#### Practice 1.3: interplanar spacing in germanium
+
+**Question.** Germanium has a lattice constant of 5.65 Å. Calculate the spacing of the (110) and (111) planes.
+
+**Given:** a = 5.65 Å.
+
+**Find:** d₁₁₀ and d₁₁₁.
+
+**Solution.**
+
+    d₁₁₀ = a/√(1 + 1 + 0) = 5.65/√2 = 3.995 Å
+    d₁₁₁ = a/√(1 + 1 + 1) = 5.65/√3 = 3.262 Å
+
+**Answer:** **d₁₁₀ = 4.00 Å, d₁₁₁ = 3.26 Å.**
+
+#### Practice 1.4: atom density and mass density of silicon
+
+**Question.** Silicon has the diamond structure with a = 5.43 Å and atomic mass 28.085 g/mol. Calculate the number of atoms per cm³ and the density of silicon in g/cm³.
+
+**Given:** a = 5.43×10⁻⁸ cm, 8 atoms per unit cell, M = 28.085 g/mol, N_A(Avogadro) = 6.022×10²³ mol⁻¹.
+
+**Find:** atoms per cm³ and density ρ.
+
+**Solution.**
+
+    Cell volume a³ = (5.43×10⁻⁸)³ = 1.601×10⁻²² cm³
+    Atoms per cm³ = 8/a³ = 8/1.601×10⁻²² = 5.0×10²² cm⁻³
+    Mass of one cell = 8 × 28.085/6.022×10²³ = 3.731×10⁻²² g
+    ρ = 3.731×10⁻²² / 1.601×10⁻²² = 2.33 g/cm³
+
+**Answer:** **5.0×10²² atoms/cm³; ρ = 2.33 g/cm³.**
+
+#### Practice 1.5: atom density of GaAs
+
+**Question.** GaAs has the zinc-blende structure with a = 5.65 Å. Each unit cell contains 4 Ga and 4 As atoms; the molar mass of GaAs is 144.64 g/mol. Find the total atom density and the density of GaAs.
+
+**Given:** a = 5.65×10⁻⁸ cm, 8 atoms (4 GaAs pairs) per cell, M = 144.64 g/mol.
+
+**Find:** atoms per cm³ and ρ.
+
+**Solution.**
+
+    a³ = (5.65×10⁻⁸)³ = 1.804×10⁻²² cm³
+    Atoms per cm³ = 8/a³ = 4.44×10²² cm⁻³
+    ρ = 4 × 144.64 / (6.022×10²³ × 1.804×10⁻²²) = 578.6/108.6 = 5.33 g/cm³
+
+**Answer:** **4.44×10²² atoms/cm³ (half Ga, half As); ρ = 5.33 g/cm³.**
+
+#### Practice 1.6: the effect of doping on conductivity
+
+**Question.** Compare the conductivity of intrinsic silicon (n_i = 1×10¹⁰ cm⁻³) with that of silicon doped with 1×10¹⁵ cm⁻³ donors. Use μ_n = 1350 and μ_p = 480 cm²/V·s.
+
+**Given:** n_i = 10¹⁰ cm⁻³, N_D = 10¹⁵ cm⁻³, μ_n = 1350, μ_p = 480 cm²/V·s.
+
+**Find:** σ_intrinsic, σ_doped and their ratio.
+
+**Solution.**
+
+    σ_i = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁰ × 1830 = 2.93×10⁻⁶ S/cm
+    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
+    ratio = 0.216/2.93×10⁻⁶ = 7.4×10⁴
+
+**Answer:** **doping with only one atom in 5×10⁷ raises the conductivity about 74 000 times.**
+
+#### Practice 1.7: which light can silicon absorb?
+
+**Question.** What is the longest wavelength of light that silicon (E_g = 1.12 eV) can absorb? Can a silicon photodiode detect the 1.55 μm light used in optical-fibre links?
+
+**Given:** E_g = 1.12 eV.
+
+**Find:** λ_max, and whether 1.55 μm is absorbed.
+
+**Solution.**
+
+    λ_max = 1.24/E_g = 1.24/1.12 = 1.11 μm
+    A 1.55 μm photon has energy 1.24/1.55 = 0.80 eV < 1.12 eV
+
+**Answer:** **λ_max = 1.11 μm; no**, 1.55 μm photons do not have enough energy to create electron–hole pairs in silicon. Fibre receivers use Ge or InGaAs.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

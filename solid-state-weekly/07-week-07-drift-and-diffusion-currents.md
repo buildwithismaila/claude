@@ -401,6 +401,109 @@ For degenerate semiconductors the relation is modified (D/μ > kT/q), because ca
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 7.1: resistivity of p-type silicon
+
+**Question.** Find the resistivity of silicon doped with 5×10¹⁵ cm⁻³ boron, taking μ_p = 470 cm²/V·s.
+
+**Given:** N_A = 5×10¹⁵ cm⁻³, μ_p = 470 cm²/V·s.
+
+**Find:** ρ.
+
+**Solution.**
+
+    σ = qN_Aμ_p = 1.6×10⁻¹⁹ × 5×10¹⁵ × 470 = 0.376 S/cm
+    ρ = 1/σ = 2.66 Ω·cm
+
+**Answer:** **ρ = 2.7 Ω·cm.**
+
+#### Practice 7.2: doping for a target resistivity
+
+**Question.** What phosphorus concentration gives n-type silicon a resistivity of 1 Ω·cm? Take μ_n = 1300 cm²/V·s.
+
+**Given:** ρ = 1 Ω·cm, μ_n = 1300 cm²/V·s.
+
+**Find:** N_D.
+
+**Solution.**
+
+    N_D = 1/(qμ_nρ) = 1/(1.6×10⁻¹⁹ × 1300 × 1) = 4.8×10¹⁵ cm⁻³
+
+**Answer:** **N_D ≈ 4.8×10¹⁵ cm⁻³.**
+
+#### Practice 7.3: Hall measurement
+
+**Question.** A semiconductor sample 0.01 cm thick carries I = 1 mA in a magnetic field of 0.1 T (10⁻⁵ Wb/cm²). A Hall voltage of +2 mV is measured, and the resistivity is 4 Ω·cm. Find the carrier type, concentration and mobility.
+
+**Given:** t = 0.01 cm, I = 10⁻³ A, B = 10⁻⁵ Wb/cm², V_H = +2×10⁻³ V, ρ = 4 Ω·cm.
+
+**Find:** type, p, μ.
+
+**Solution.**
+
+    R_H = V_H t/(IB) = (2×10⁻³ × 0.01)/(10⁻³ × 10⁻⁵) = 2000 cm³/C   (positive → holes)
+    p = 1/(qR_H) = 1/(1.6×10⁻¹⁹ × 2000) = 3.1×10¹⁵ cm⁻³
+    μ_p = R_H/ρ = 2000/4 = 500 cm²/V·s
+
+**Answer:** **p-type, p = 3.1×10¹⁵ cm⁻³, μ_p = 500 cm²/V·s.**
+
+#### Practice 7.4: combining scattering mechanisms
+
+**Question.** In a silicon sample the lattice-limited mobility is 1400 cm²/V·s and the impurity-limited mobility is 2500 cm²/V·s. Find the total mobility.
+
+**Given:** μ_L = 1400, μ_I = 2500 cm²/V·s.
+
+**Find:** μ.
+
+**Solution.**
+
+    1/μ = 1/1400 + 1/2500 = 7.14×10⁻⁴ + 4.0×10⁻⁴ = 1.114×10⁻³
+    μ = 897 cm²/V·s
+
+**Answer:** **μ ≈ 900 cm²/V·s**, lower than either mechanism alone.
+
+#### Practice 7.5: drift plus diffusion
+
+**Question.** In a region of silicon the hole concentration is 1×10¹⁵ cm⁻³ and falls with a gradient of −1×10¹⁸ cm⁻⁴, while a field of 50 V/cm acts in the +x direction. Find the hole drift, diffusion and total current densities (μ_p = 480 cm²/V·s, D_p = 12.4 cm²/s).
+
+**Given:** p = 10¹⁵ cm⁻³, dp/dx = −10¹⁸ cm⁻⁴, E = 50 V/cm, μ_p = 480, D_p = 12.4 cm²/s.
+
+**Find:** J_p(drift), J_p(diff), J_p.
+
+**Solution.**
+
+    J_p(drift) = qpμ_pE = 1.6×10⁻¹⁹ × 10¹⁵ × 480 × 50 = 3.84 A/cm²
+    J_p(diff) = −qD_p dp/dx = −1.6×10⁻¹⁹ × 12.4 × (−10¹⁸) = +1.98 A/cm²
+    J_p = 3.84 + 1.98 = 5.82 A/cm²
+
+**Answer:** **3.84 + 1.98 = 5.8 A/cm²**, both in the +x direction.
+
+#### Practice 7.6: Einstein relation at a higher temperature
+
+**Question.** Holes in a sample have μ_p = 400 cm²/V·s at 400 K. Find D_p.
+
+**Given:** μ_p = 400 cm²/V·s, T = 400 K.
+
+**Find:** D_p.
+
+**Solution.**
+
+    kT/q = 8.617×10⁻⁵ × 400 = 0.0345 V
+    D_p = (kT/q)μ_p = 0.0345 × 400 = 13.8 cm²/s
+
+**Answer:** **D_p = 13.8 cm²/s.**
+
+#### Practice 7.7: why doping lowers mobility
+
+**Question.** Explain why electron mobility in silicon falls from about 1350 to about 100 cm²/V·s as the doping rises from 10¹⁴ to 10²⁰ cm⁻³.
+
+**Answer.** Each dopant is an ionised impurity with a Coulomb field that deflects passing carriers. Mobility is μ = qτ_m/m∗; more ionised impurities mean more frequent scattering, a shorter mean free time τ_m, and so a lower μ. At 10¹⁴ cm⁻³ lattice scattering dominates and impurities hardly matter; at 10²⁰ cm⁻³ impurity scattering dominates completely (Matthiessen: 1/μ = 1/μ_L + 1/μ_I, with μ_I ∝ 1/N_I).
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

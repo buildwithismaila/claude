@@ -298,6 +298,95 @@ A p-n diode needs about 0.7 V for a similar current density, which is why Schott
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 12.1: ideality factor
+
+**Question.** A diode carries 1 mA at 0.55 V and 10 mA at 0.62 V. Find its ideality factor.
+
+**Given:** a decade of current over ΔV = 0.07 V, kT/q = 0.0259 V.
+
+**Find:** η.
+
+**Solution.**
+
+    slope = ln 10 / 0.07 = 32.9 V⁻¹
+    η = 1/(0.0259 × 32.9) = 1.17
+
+**Answer:** **η ≈ 1.17**: some depletion-region recombination current is present.
+
+#### Practice 12.2: series resistance
+
+**Question.** At 50 mA a diode's measured voltage is 0.80 V, while the straight line of the semi-log plot predicts 0.70 V at that current. Find the series resistance.
+
+**Given:** I = 50 mA, ΔV = 0.80 − 0.70 = 0.10 V.
+
+**Find:** R_s.
+
+**Solution.**
+
+    R_s = ΔV/I = 0.10/0.05 = 2 Ω
+
+**Answer:** **R_s = 2 Ω.**
+
+#### Practice 12.3: barrier height from the saturation current
+
+**Question.** A Schottky diode of area 1×10⁻⁴ cm² has I_s = 2×10⁻⁹ A at 300 K. Find the barrier height (A∗∗ = 110 A/cm²K²).
+
+**Given:** I_s = 2×10⁻⁹ A, A = 10⁻⁴ cm², A∗∗ = 110 A/cm²K², T = 300 K.
+
+**Find:** Φ_B.
+
+**Solution.**
+
+    Φ_B = (kT/q) ln(A∗∗AT²/I_s) = 0.0259 × ln(110 × 10⁻⁴ × 9×10⁴ / 2×10⁻⁹)
+        = 0.0259 × ln(4.95×10¹¹) = 0.0259 × 26.93 = 0.70 eV
+
+**Answer:** **Φ_B ≈ 0.70 eV.**
+
+#### Practice 12.4: doping from two C-V points
+
+**Question.** A one-sided silicon junction of area 1×10⁻³ cm² has C = 20 pF at −1 V and 12 pF at −4 V. Assuming uniform doping, find N and V_bi.
+
+**Given:** C(−1 V) = 20 pF, C(−4 V) = 12 pF, A = 10⁻³ cm², ε_s = 1.04×10⁻¹² F/cm.
+
+**Find:** N and V_bi.
+
+**Solution.**
+
+    1/C² at −1 V = 1/(20×10⁻¹²)² = 2.50×10²¹ F⁻²
+    1/C² at −4 V = 1/(12×10⁻¹²)² = 6.94×10²¹ F⁻²
+    |slope| = (6.94 − 2.50)×10²¹ / 3 = 1.48×10²¹ F⁻²V⁻¹
+    N = 2/(qε_sA²|slope|) = 2/(1.6×10⁻¹⁹ × 1.04×10⁻¹² × 10⁻⁶ × 1.48×10²¹) = 8.1×10¹⁵ cm⁻³
+    1/C² = |slope|(V_bi − V):  2.50×10²¹ = 1.48×10²¹ (V_bi + 1)  ⇒  V_bi = 0.69 V
+
+**Answer:** **N = 8.1×10¹⁵ cm⁻³, V_bi = 0.69 V.**
+
+#### Practice 12.5: oxide thickness from MOS C-V
+
+**Question.** A MOS capacitor of area 1×10⁻³ cm² shows a capacitance of 345 pF in accumulation. Find the oxide thickness.
+
+**Given:** C = 345 pF, A = 10⁻³ cm², ε_ox = 3.45×10⁻¹³ F/cm.
+
+**Find:** t_ox.
+
+**Solution.**
+
+    C_ox = C/A = 345×10⁻¹² / 10⁻³ = 3.45×10⁻⁷ F/cm²
+    t_ox = ε_ox/C_ox = 3.45×10⁻¹³ / 3.45×10⁻⁷ = 1×10⁻⁶ cm
+
+**Answer:** **t_ox = 10 nm.**
+
+#### Practice 12.6: why one-sided?
+
+**Question.** Why is C-V profiling done on a p⁺n (or n⁺p) junction or a Schottky diode rather than a junction with similar doping on both sides?
+
+**Answer.** The formula N = 2/(qε_sA²|d(1/C²)/dV|) assumes that the depletion region grows into **one** side only, so that the change in charge measures one doping. In a one-sided junction or Schottky diode, almost all of W lies in the lightly doped side, and the measurement gives that side's doping at depth W. If both sides were similarly doped, W would grow into both at once, and the result would be a mixture (an effective N_{A}N_D/(N_A + N_D)) that cannot be assigned to either side or to a depth.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

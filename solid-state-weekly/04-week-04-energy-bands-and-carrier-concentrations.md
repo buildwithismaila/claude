@@ -425,6 +425,112 @@ The thermal contribution n_i is negligible, which is why the majority-carrier de
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 4.1: energy levels in a quantum well
+
+**Question.** An electron is confined in a 1 nm wide well with infinitely high walls. Calculate the energies of the first two levels in eV.
+
+**Given:** L = 1×10⁻⁹ m, m = 9.11×10⁻³¹ kg, h = 6.626×10⁻³⁴ J·s.
+
+**Find:** E₁ and E₂.
+
+**Solution.** E_n = n²h²/(8mL²) (the same as n²π²ħ²/2mL²).
+
+    E₁ = (6.626×10⁻³⁴)² / (8 × 9.11×10⁻³¹ × 10⁻¹⁸) = 6.02×10⁻²⁰ J = 0.376 eV
+    E₂ = 4E₁ = 1.50 eV
+
+**Answer:** **E₁ = 0.38 eV, E₂ = 1.50 eV.** Confinement on the nanometre scale gives level spacings comparable to band gaps, the basis of quantum-well lasers.
+
+#### Practice 4.2: wavelength of a thermal electron
+
+**Question.** An electron in a semiconductor at 300 K has a kinetic energy of about (3/2)kT = 0.0388 eV. Find its de Broglie wavelength and compare it with the silicon lattice constant.
+
+**Given:** E = 0.0388 eV = 6.21×10⁻²¹ J, m = 9.11×10⁻³¹ kg.
+
+**Find:** λ = h/p.
+
+**Solution.**
+
+    p = √(2mE) = √(2 × 9.11×10⁻³¹ × 6.21×10⁻²¹) = 1.06×10⁻²⁵ kg·m/s
+    λ = h/p = 6.626×10⁻³⁴ / 1.06×10⁻²⁵ = 6.2×10⁻⁹ m = 6.2 nm
+
+**Answer:** **λ ≈ 6 nm, about 11 times the lattice constant (0.543 nm).** The electron is a wave spread over many atoms, which is why a wave description is needed.
+
+#### Practice 4.3: emission wavelengths
+
+**Question.** Find the band-to-band emission wavelength of GaN (3.4 eV), GaP (2.26 eV) and InP (1.35 eV), and say where each lies in the spectrum.
+
+**Given:** E_g values above; λ(μm) = 1.24/E_g(eV).
+
+**Find:** λ for each.
+
+**Solution.**
+
+    GaN: 1.24/3.4 = 0.365 μm
+    GaP: 1.24/2.26 = 0.549 μm
+    InP: 1.24/1.35 = 0.919 μm
+
+**Answer:** **GaN 365 nm (near ultraviolet), GaP 549 nm (green), InP 919 nm (near infrared).** (GaP is indirect, so its LEDs need special doping; GaN and InP are direct.)
+
+#### Practice 4.4: intrinsic concentration of GaAs
+
+**Question.** For GaAs at 300 K, N_c = 4.7×10¹⁷ cm⁻³, N_v = 7.0×10¹⁸ cm⁻³ and E_g = 1.42 eV. Calculate n_i.
+
+**Given:** N_c, N_v, E_g above; 2kT = 0.0518 eV.
+
+**Find:** n_i.
+
+**Solution.**
+
+    √(N_cN_v) = √(4.7×10¹⁷ × 7.0×10¹⁸) = 1.81×10¹⁸ cm⁻³
+    e^{−E_g/2kT} = e^{−1.42/0.0518} = e^{−27.4} = 1.25×10⁻¹²
+    n_i = 1.81×10¹⁸ × 1.25×10⁻¹² = 2.3×10⁶ cm⁻³
+
+**Answer:** **n_i ≈ 2×10⁶ cm⁻³**, about 4000 times smaller than in silicon, which is why GaAs can be made semi-insulating.
+
+#### Practice 4.5: how fast n_i rises with temperature
+
+**Question.** Ignoring the small change of band gap with temperature, by what factor does n_i of silicon (E_g = 1.12 eV) increase between 300 K and 350 K?
+
+**Given:** n_i ∝ T^{3/2} e^{−E_g/2kT}, E_g = 1.12 eV, k = 8.617×10⁻⁵ eV/K.
+
+**Find:** n_i(350)/n_i(300).
+
+**Solution.**
+
+    (350/300)^{3/2} = 1.26
+    exp[ (E_g/2k)(1/300 − 1/350) ] = exp[ 6499 × 4.76×10⁻⁴ ] = e^{3.09} = 22.1
+    ratio = 1.26 × 22.1 = 27.8
+
+**Answer:** **about 28 times.** A 50 K rise gives a 28-fold increase, almost all from the exponential.
+
+#### Practice 4.6: compensated silicon
+
+**Question.** Silicon contains N_D = 1×10¹⁶ cm⁻³ and N_A = 4×10¹⁵ cm⁻³. Find n and p at 300 K (n_i = 1×10¹⁰ cm⁻³).
+
+**Given:** N_D = 10¹⁶, N_A = 4×10¹⁵, n_i = 10¹⁰ cm⁻³.
+
+**Find:** n and p.
+
+**Solution.**
+
+    N_D > N_A, so the material is n-type with net doping N_D − N_A = 6×10¹⁵ cm⁻³ ≫ n_i
+    n ≈ 6×10¹⁵ cm⁻³
+    p = n_i²/n = 10²⁰/6×10¹⁵ = 1.7×10⁴ cm⁻³
+
+**Answer:** **n = 6×10¹⁵ cm⁻³, p = 1.7×10⁴ cm⁻³.**
+
+#### Practice 4.7: why bands widen
+
+**Question.** Using the Kronig–Penney model, explain why allowed bands become wider at higher energies.
+
+**Answer.** The left-hand side of P sin(αa)/(αa) + cos(αa) = cos(ka) is a cosine plus a term whose amplitude falls as 1/(αa). At low energy (small αa) the P sin(αa)/(αa) term is large, so the curve swings far beyond ±1 and spends only short stretches inside the allowed strip: narrow bands, wide gaps. As energy increases, αa increases, that term shrinks, and the curve is mostly the plain cosine, which stays between ±1 almost everywhere: wide bands, narrow gaps. Physically, high-energy electrons are less affected by the atomic barriers and behave more like free electrons.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

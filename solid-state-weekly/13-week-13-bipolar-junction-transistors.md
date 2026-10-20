@@ -337,6 +337,111 @@ In cut-off there is no injection, so no carriers cross the base. In the active r
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 13.1: currents from β
+
+**Question.** A transistor has β = 80 and I_C = 4 mA. Find I_B, I_E and α.
+
+**Given:** β = 80, I_C = 4 mA.
+
+**Find:** I_B, I_E, α.
+
+**Solution.**
+
+    I_B = I_C/β = 4/80 = 0.05 mA = 50 μA
+    I_E = I_C + I_B = 4.05 mA
+    α = β/(β + 1) = 80/81 = 0.988
+
+**Answer:** **I_B = 50 μA, I_E = 4.05 mA, α = 0.988.**
+
+#### Practice 13.2: from doping to gain
+
+**Question.** An NPN transistor has N_E = 5×10¹⁸ cm⁻³, N_B = 5×10¹⁶ cm⁻³, equal emitter and base widths, D_E = 3 cm²/s and D_B = 20 cm²/s. Its base transport factor is 0.995. Find γ, α and β.
+
+**Given:** N_E, N_B, D_E, D_B above, W_E = W_B, α_T = 0.995.
+
+**Find:** γ, α, β.
+
+**Solution.**
+
+    D_{E}N_{B}W_B/(D_{B}N_{E}W_E) = (3 × 5×10¹⁶)/(20 × 5×10¹⁸) = 1.5×10⁻³
+    γ = 1/(1 + 1.5×10⁻³) = 0.9985
+    α = γα_T = 0.9985 × 0.995 = 0.9935
+    β = α/(1 − α) = 0.9935/0.0065 = 153
+
+**Answer:** **γ = 0.9985, α = 0.9935, β ≈ 153.**
+
+#### Practice 13.3: base transport factor
+
+**Question.** A BJT has a base width of 1 μm and an electron diffusion length in the base of 10 μm. Find α_T. What base width would give α_T = 0.999?
+
+**Given:** W_B = 1 μm, L_n = 10 μm.
+
+**Find:** α_T, and W_B for α_T = 0.999.
+
+**Solution.**
+
+    α_T = 1 − W_B²/(2L_n²) = 1 − 1/(2 × 100) = 0.995
+    For 0.999: W_B²/(2L_n²) = 0.001  ⇒  W_B = L_n√0.002 = 10 × 0.0447 = 0.45 μm
+
+**Answer:** **α_T = 0.995; a 0.45 μm base gives 0.999.**
+
+#### Practice 13.4: collector current and V_BE
+
+**Question.** A transistor has I_S = 1×10⁻¹⁵ A. Find I_C at V_BE = 0.70 V, and the V_BE needed for I_C = 5 mA.
+
+**Given:** I_S = 10⁻¹⁵ A, kT/q = 0.0259 V.
+
+**Find:** I_C(0.70 V) and V_BE(5 mA).
+
+**Solution.**
+
+    I_C = I_S e^{V_BE/0.0259} = 10⁻¹⁵ × e^{27.03} = 10⁻¹⁵ × 5.5×10¹¹ = 0.55 mA
+    V_BE = 0.0259 ln(5×10⁻³/10⁻¹⁵) = 0.0259 × 29.24 = 0.757 V
+
+**Answer:** **I_C = 0.55 mA at 0.70 V; V_BE = 0.76 V for 5 mA.**
+
+#### Practice 13.5: the Early effect
+
+**Question.** A transistor has an Early voltage of 100 V and I_C = 1 mA at V_CE = 5 V. Find its output resistance and I_C at V_CE = 10 V (same base drive).
+
+**Given:** V_A = 100 V, I_C(5 V) = 1 mA.
+
+**Find:** r_o and I_C(10 V).
+
+**Solution.**
+
+    r_o = V_A/I_C = 100/10⁻³ = 100 kΩ
+    I_C(10 V) = I_C(5 V) × (1 + 10/100)/(1 + 5/100) = 1 × 1.10/1.05 = 1.048 mA
+
+**Answer:** **r_o = 100 kΩ; I_C rises to 1.05 mA.**
+
+#### Practice 13.6: base transit time
+
+**Question.** An NPN transistor has a 0.2 μm base and D_n = 20 cm²/s. Find the base transit time and the upper limit it places on f_T.
+
+**Given:** W_B = 2×10⁻⁵ cm, D_n = 20 cm²/s.
+
+**Find:** τ_B and f_T.
+
+**Solution.**
+
+    τ_B = W_B²/(2D_n) = (2×10⁻⁵)²/40 = 1×10⁻¹¹ s
+    f_T ≲ 1/(2πτ_B) = 1.6×10¹⁰ Hz
+
+**Answer:** **τ_B = 10 ps, f_T up to about 16 GHz.** Thin bases make fast transistors.
+
+#### Practice 13.7: why the reverse-active gain is poor
+
+**Question.** Explain why a BJT has a much lower current gain in the reverse-active mode.
+
+**Answer.** In reverse-active mode the collector acts as the emitter. But the collector is only moderately (lightly) doped and much larger, while the base is more heavily doped than it. The injection efficiency is therefore poor (the base injects many holes back into the collector), and the collector-side geometry collects carriers badly. The result is a reverse β of typically only 1–5.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

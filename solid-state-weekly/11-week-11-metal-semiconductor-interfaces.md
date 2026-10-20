@@ -232,6 +232,91 @@ Both are metal–semiconductor junctions. The difference is whether a significan
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 11.1: tungsten on n-type silicon
+
+**Question.** Tungsten (Φ_m = 4.55 eV) is deposited on n-type silicon with N_D = 1×10¹⁵ cm⁻³ (χ = 4.05 eV). Using the ideal model, find Φ_B, Φ_s and V_bi.
+
+**Given:** Φ_m = 4.55 eV, χ = 4.05 eV, N_D = 10¹⁵ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³.
+
+**Find:** Φ_B, Φ_s, V_bi.
+
+**Solution.**
+
+    Φ_B = Φ_m − χ = 4.55 − 4.05 = 0.50 eV
+    E_c − E_F = 0.02585 ln(2.8×10¹⁹/10¹⁵) = 0.265 eV
+    Φ_s = 4.05 + 0.265 = 4.315 eV
+    V_bi = Φ_m − Φ_s = 4.55 − 4.315 = 0.235 V
+
+**Answer:** **Φ_B = 0.50 eV, Φ_s = 4.32 eV, V_bi = 0.24 V.**
+
+#### Practice 11.2: choosing a metal for an Ohmic contact
+
+**Question.** n-type silicon with N_D = 1×10¹⁶ cm⁻³ has Φ_s = 4.26 eV. Using the ideal theory, which of Al (4.28), Ti (4.33), Au (5.1) would give an Ohmic contact? What is done in practice?
+
+**Given:** Φ_s = 4.26 eV; an Ohmic contact on n-type needs Φ_m < Φ_s.
+
+**Find:** a suitable metal.
+
+**Solution.** All three have Φ_m > Φ_s (Al only just, by 0.02 eV), so none meets the ideal Ohmic condition; Au, with the largest Φ_m, would give the strongest barrier.
+
+**Answer:** **None, strictly.** In practice the silicon under the contact is doped n⁺ (above 10¹⁹ cm⁻³) so the barrier becomes thin enough to tunnel through, and Al or a silicide is used.
+
+#### Practice 11.3: Schottky forward voltage
+
+**Question.** A Schottky diode on n-Si has Φ_B = 0.65 eV. Find J_s at 300 K (A∗∗ = 110 A/cm²K²) and the forward voltage at 10 A/cm².
+
+**Given:** Φ_B = 0.65 eV, A∗∗ = 110 A/cm²K², T = 300 K, J = 10 A/cm².
+
+**Find:** J_s and V.
+
+**Solution.**
+
+    J_s = 110 × 300² × e^{−0.65/0.0259} = 9.9×10⁶ × 1.26×10⁻¹¹ = 1.25×10⁻⁴ A/cm²
+    V = 0.0259 ln(10/1.25×10⁻⁴) = 0.0259 × 11.29 = 0.29 V
+
+**Answer:** **J_s = 1.25×10⁻⁴ A/cm², V ≈ 0.29 V.**
+
+#### Practice 11.4: why heavy doping gives tunnelling
+
+**Question.** Find the zero-bias depletion width under a contact with V_bi = 0.6 V for N_D = 1×10¹⁶ cm⁻³ and for N_D = 1×10²⁰ cm⁻³. Explain the result.
+
+**Given:** V_bi = 0.6 V, ε_s = 1.04×10⁻¹² F/cm.
+
+**Find:** W for each doping.
+
+**Solution.**
+
+    W(10¹⁶) = √(2 × 1.04×10⁻¹² × 0.6 / (1.6×10⁻¹⁹ × 10¹⁶)) = 2.8×10⁻⁵ cm = 0.28 μm
+    W(10²⁰) = W(10¹⁶)/√10⁴ = 2.8×10⁻⁷ cm = 2.8 nm
+
+**Answer:** **0.28 μm and 2.8 nm.** A 2.8 nm barrier is thin enough for electrons to tunnel through, so the heavily doped contact is Ohmic even though the barrier is still there.
+
+#### Practice 11.5: contact resistance of a small contact
+
+**Question.** A contact has specific contact resistance ρ_c = 1×10⁻⁶ Ω·cm² and measures 1 μm × 1 μm. Find its resistance.
+
+**Given:** ρ_c = 10⁻⁶ Ω·cm², A = (10⁻⁴ cm)² = 10⁻⁸ cm².
+
+**Find:** R_c.
+
+**Solution.**
+
+    R_c = ρ_c/A = 10⁻⁶/10⁻⁸ = 100 Ω
+
+**Answer:** **R_c = 100 Ω**, large for a small transistor, which is why modern processes need ρ_c near 10⁻⁸ Ω·cm².
+
+#### Practice 11.6: an Ohmic contact by accumulation
+
+**Question.** Describe the band diagram of an ideal Ohmic contact formed by a low work-function metal (Φ_m < Φ_s) on n-type silicon.
+
+**Answer.** Before contact the metal's Fermi level is higher than the semiconductor's. On contact, electrons flow from the metal into the semiconductor until the Fermi levels align. The extra electrons form an **accumulation layer** at the interface, and the semiconductor bands bend **downward** towards it. There is no depletion region and no barrier to electrons in either direction, so current flows freely both ways and the I-V characteristic is linear.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

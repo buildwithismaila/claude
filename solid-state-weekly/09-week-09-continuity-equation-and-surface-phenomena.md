@@ -262,6 +262,91 @@ S enters the boundary condition for the diffusion equation: D_p dΔp/dx = SΔp a
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 9.1: electron diffusion length
+
+**Question.** Electrons in p-type silicon have D_n = 25 cm²/s and τ_n = 10 μs. Find the diffusion length.
+
+**Given:** D_n = 25 cm²/s, τ_n = 10⁻⁵ s.
+
+**Find:** L_n.
+
+**Solution.**
+
+    L_n = √(D_nτ_n) = √(25 × 10⁻⁵) = 1.58×10⁻² cm = 158 μm
+
+**Answer:** **L_n ≈ 160 μm.**
+
+#### Practice 9.2: injected profile and current
+
+**Question.** Holes are injected at x = 0 into a long n-type bar with Δp(0) = 1×10¹⁴ cm⁻³, D_p = 12 cm²/s and L_p = 30 μm. Find the hole current density at x = 0 and the excess hole concentration at x = 60 μm.
+
+**Given:** Δp(0) = 10¹⁴ cm⁻³, D_p = 12 cm²/s, L_p = 3×10⁻³ cm.
+
+**Find:** J_p(0) and Δp(60 μm).
+
+**Solution.**
+
+    J_p(0) = qD_pΔp(0)/L_p = 1.6×10⁻¹⁹ × 12 × 10¹⁴ / 3×10⁻³ = 0.064 A/cm²
+    Δp(60 μm) = Δp(0) e^{−60/30} = 10¹⁴ × e^{−2} = 1.35×10¹³ cm⁻³
+
+**Answer:** **J_p(0) = 64 mA/cm², Δp(60 μm) = 1.35×10¹³ cm⁻³.**
+
+#### Practice 9.3: diffusion across a short region
+
+**Question.** Electrons are injected into a p-type region only 2 μm wide (much shorter than L_n), with Δn = 1×10¹⁵ cm⁻³ at one side and Δn = 0 at the other. Find the electron current density (D_n = 25 cm²/s).
+
+**Given:** W = 2×10⁻⁴ cm, Δn(0) = 10¹⁵ cm⁻³, Δn(W) = 0, D_n = 25 cm²/s.
+
+**Find:** J_n.
+
+**Solution.** In a short region the profile is a straight line, so the gradient is Δn(0)/W:
+
+    J_n = qD_nΔn(0)/W = 1.6×10⁻¹⁹ × 25 × 10¹⁵ / 2×10⁻⁴ = 20 A/cm²
+
+**Answer:** **J_n = 20 A/cm².** This is exactly the situation in a BJT base (Week 13).
+
+#### Practice 9.4: how good must the surface be?
+
+**Question.** A 200 μm thick wafer has a bulk lifetime of 200 μs. What surface recombination velocity can be tolerated if the effective lifetime must be at least 50 μs?
+
+**Given:** τ_bulk = 2×10⁻⁴ s, τ_eff = 5×10⁻⁵ s, W = 0.02 cm.
+
+**Find:** S.
+
+**Solution.**
+
+    2S/W = 1/τ_eff − 1/τ_bulk = 2×10⁴ − 5×10³ = 1.5×10⁴ s⁻¹
+    S = 1.5×10⁴ × 0.02 / 2 = 150 cm/s
+
+**Answer:** **S ≤ 150 cm/s**, achievable with a good thermal oxide.
+
+#### Practice 9.5: surface recombination current
+
+**Question.** At a surface with S = 1000 cm/s the excess hole concentration is 1×10¹³ cm⁻³. Find the recombination rate per unit area and the equivalent current density lost to the surface.
+
+**Given:** S = 10³ cm/s, Δp_s = 10¹³ cm⁻³.
+
+**Find:** U_s and J = qU_s.
+
+**Solution.**
+
+    U_s = SΔp_s = 10³ × 10¹³ = 10¹⁶ cm⁻²s⁻¹
+    J = qU_s = 1.6×10⁻¹⁹ × 10¹⁶ = 1.6×10⁻³ A/cm²
+
+**Answer:** **U_s = 10¹⁶ cm⁻²s⁻¹, J = 1.6 mA/cm².**
+
+#### Practice 9.6: no recombination
+
+**Question.** What does the steady-state minority-carrier profile look like if the lifetime is infinite (no recombination) and there is no field or generation? Why?
+
+**Answer.** The diffusion equation reduces to D_p d²Δp/dx² = 0, so the second derivative is zero and **Δp is a straight line**. With no recombination, every carrier that enters a slice must leave it, so the current, and hence the slope, is the same everywhere.
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.

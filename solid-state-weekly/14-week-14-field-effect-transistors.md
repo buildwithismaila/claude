@@ -352,6 +352,121 @@ Check the region: V_GS − V_T = 3 V > V_DS = 0.8 V, so linear.
 
 ---
 
+## Practice questions
+
+These extra questions practise this week's ideas. Work each one on paper before reading the solution; the calculation questions follow the same Question, Given, Find, Solution, Answer layout as the worked examples.
+
+#### Practice 14.1: oxide capacitance of a thin gate
+
+**Question.** Find C_ox for a 3 nm SiO₂ gate oxide.
+
+**Given:** t_ox = 3×10⁻⁷ cm, ε_ox = 3.45×10⁻¹³ F/cm.
+
+**Find:** C_ox.
+
+**Solution.**
+
+    C_ox = ε_ox/t_ox = 3.45×10⁻¹³ / 3×10⁻⁷ = 1.15×10⁻⁶ F/cm²
+
+**Answer:** **C_ox = 1.15 μF/cm².**
+
+#### Practice 14.2: bulk potential and maximum depletion width
+
+**Question.** For p-type silicon with N_A = 5×10¹⁶ cm⁻³, find φ_F and the maximum depletion width at strong inversion.
+
+**Given:** N_A = 5×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, ε_si = 1.04×10⁻¹² F/cm.
+
+**Find:** φ_F and W_dmax.
+
+**Solution.**
+
+    φ_F = 0.0259 ln(5×10⁶) = 0.400 V
+    W_dmax = √(4ε_siφ_F/qN_A) = √(4 × 1.04×10⁻¹² × 0.400 / (1.6×10⁻¹⁹ × 5×10¹⁶)) = 1.44×10⁻⁵ cm
+
+**Answer:** **φ_F = 0.40 V, W_dmax = 0.144 μm.**
+
+#### Practice 14.3: threshold voltage of an ideal MOSFET
+
+**Question.** Using the substrate of Practice 14.2 with a 20 nm oxide and an ideal gate (V_FB = 0), find the threshold voltage.
+
+**Given:** φ_F = 0.400 V, W_dmax = 1.44×10⁻⁵ cm, t_ox = 2×10⁻⁶ cm.
+
+**Find:** V_T = V_FB + 2φ_F + qN_AW_dmax/C_ox.
+
+**Solution.**
+
+    C_ox = 3.45×10⁻¹³/2×10⁻⁶ = 1.725×10⁻⁷ F/cm²
+    qN_AW_dmax = 1.6×10⁻¹⁹ × 5×10¹⁶ × 1.44×10⁻⁵ = 1.15×10⁻⁷ C/cm²
+    V_T = 0 + 0.80 + 1.15×10⁻⁷/1.725×10⁻⁷ = 0.80 + 0.67 = 1.47 V
+
+**Answer:** **V_T ≈ 1.47 V.** A thinner oxide or a real n⁺ poly gate (negative V_FB) would lower it.
+
+#### Practice 14.4: current in both regions
+
+**Question.** An nMOS has μ_nC_ox(W/L) = 0.5 mA/V² and V_T = 0.8 V, with V_GS = 2.0 V. Find I_D at V_DS = 0.4 V and at V_DS = 2.0 V.
+
+**Given:** k = 0.5 mA/V², V_T = 0.8 V, V_GS = 2.0 V (overdrive 1.2 V).
+
+**Find:** I_D at each V_DS.
+
+**Solution.**
+
+    V_DS = 0.4 V < 1.2 V → linear:  I_D = 0.5 × [1.2 × 0.4 − 0.4²/2] = 0.5 × 0.40 = 0.20 mA
+    V_DS = 2.0 V ≥ 1.2 V → saturation: I_D = ½ × 0.5 × 1.2² = 0.36 mA
+
+**Answer:** **0.20 mA (linear) and 0.36 mA (saturation).**
+
+#### Practice 14.5: transconductance
+
+**Question.** Find the transconductance of the transistor of Practice 14.4 in saturation.
+
+**Given:** I_D = 0.36 mA, V_GS − V_T = 1.2 V.
+
+**Find:** g_m.
+
+**Solution.**
+
+    g_m = 2I_D/(V_GS − V_T) = 2 × 0.36/1.2 = 0.60 mS
+    (check: g_m = k(V_GS − V_T) = 0.5 × 1.2 = 0.60 mS)
+
+**Answer:** **g_m = 0.60 mS.**
+
+#### Practice 14.6: body effect
+
+**Question.** A MOSFET has γ = 0.5 V^{1/2} and 2φ_F = 0.8 V. By how much does its threshold voltage rise when the source is 2 V above the body?
+
+**Given:** γ = 0.5 V^{1/2}, 2φ_F = 0.8 V, V_SB = 2 V.
+
+**Find:** ΔV_T.
+
+**Solution.**
+
+    ΔV_T = γ(√(2φ_F + V_SB) − √(2φ_F)) = 0.5 × (√2.8 − √0.8) = 0.5 × (1.673 − 0.894) = 0.39 V
+
+**Answer:** **V_T rises by 0.39 V.**
+
+#### Practice 14.7: sizing a transistor
+
+**Question.** A MOSFET must carry 1 mA in saturation with an overdrive of 0.5 V. If μ_nC_ox = 200 μA/V², what W/L is needed?
+
+**Given:** I_D = 1 mA, V_GS − V_T = 0.5 V, μ_nC_ox = 200×10⁻⁶ A/V².
+
+**Find:** W/L.
+
+**Solution.**
+
+    W/L = 2I_D / (μ_nC_ox (V_GS − V_T)²) = 2 × 10⁻³ / (200×10⁻⁶ × 0.25) = 40
+
+**Answer:** **W/L = 40.**
+
+#### Practice 14.8: channel-length modulation
+
+**Question.** Why does a real MOSFET's saturation current rise slightly with V_DS?
+
+**Answer.** Beyond pinch-off, increasing V_DS moves the pinch-off point slightly towards the source, so the effective channel length becomes L − ΔL. Since I_D ∝ 1/L, the current rises a little. This is **channel-length modulation**, written I_D = I_D(sat)(1 + λV_DS). It is the MOSFET's equivalent of the BJT's Early effect and gives a finite output resistance r_o ≈ 1/(λI_D).
+
+---
+
 ## Objectives check
 
 Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
