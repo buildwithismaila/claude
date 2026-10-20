@@ -3,6 +3,17 @@
 
 **Plan:** velocity saturation and hot-carrier effects; generation and recombination mechanisms (Shockley–Read–Hall theory); carrier lifetime and steady-state excess carrier injection.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Explain velocity saturation and its effect on devices.
+2. Explain hot-carrier effects and how they are reduced.
+3. Explain excess carriers and low-level injection.
+4. Describe the generation and recombination mechanisms.
+5. Explain SRH recombination and calculate lifetime from trap data.
+6. Calculate decay of excess carriers and steady-state injection levels.
+
 ## The big picture
 
 This week covers two separate stories.
@@ -64,7 +75,21 @@ Light creates electrons and holes in pairs, so usually Δn = Δp. Now np > n_i²
 - the **majority** concentration hardly changes;
 - the **minority** concentration may change enormously.
 
-**Example.** n-Si with N_D = 10¹⁶ cm⁻³ has p₀ = 10⁴ cm⁻³. Light adds Δn = Δp = 10¹⁴ cm⁻³. Electrons: 1.01×10¹⁶ (a 1 % change). Holes: 10¹⁴, ten billion times their equilibrium value. **This is why minority carriers control device behaviour**: they are the ones that change.
+#### Example 8.1: what low-level injection does to each carrier
+
+**Question.** n-type silicon with N_D = 1×10¹⁶ cm⁻³ (so p₀ = 1×10⁴ cm⁻³) is illuminated, creating Δn = Δp = 1×10¹⁴ cm⁻³ excess carriers. Calculate the new electron and hole concentrations and the factor by which each has changed.
+
+**Given:** n₀ = 1×10¹⁶ cm⁻³, p₀ = 1×10⁴ cm⁻³, Δn = Δp = 1×10¹⁴ cm⁻³.
+
+**Find:** n, p and their change factors.
+
+**Solution.**
+
+    n = n₀ + Δn = 1×10¹⁶ + 1×10¹⁴ = 1.01×10¹⁶ cm⁻³   (n/n₀ = 1.01)
+
+    p = p₀ + Δp = 1×10⁴ + 1×10¹⁴ ≈ 1×10¹⁴ cm⁻³      (p/p₀ = 10¹⁰)
+
+**Answer:** **The electrons change by only 1 %; the holes increase ten-billion-fold.** This is why minority carriers control device behaviour: they are the ones that change.
 
 ### How carriers are generated
 
@@ -123,7 +148,19 @@ Working out the balance of the four steps gives the **SRH recombination rate**:
 
    The recombination rate is set by how fast the **minority** carriers (holes) get captured.
 
-**Example.** N_t = 10¹³ cm⁻³, σ_p = 10⁻¹⁵ cm², v_th = 10⁷ cm/s: τ_p = 1/(10⁻¹⁵ × 10⁷ × 10¹³) = 10⁻⁵ s = **10 μs**.
+#### Example 8.2: lifetime from the trap density
+
+**Question.** An n-type silicon wafer contains 1×10¹³ cm⁻³ mid-gap recombination centres with a hole capture cross-section of 1×10⁻¹⁵ cm². The thermal velocity is 1×10⁷ cm/s. Calculate the minority-carrier (hole) lifetime.
+
+**Given:** N_t = 1×10¹³ cm⁻³, σ_p = 1×10⁻¹⁵ cm², v_th = 1×10⁷ cm/s.
+
+**Find:** τ_p.
+
+**Solution.**
+
+    τ_p = 1/(σ_p v_th N_t) = 1 / (10⁻¹⁵ × 10⁷ × 10¹³) = 1/10⁵ = 1×10⁻⁵ s
+
+**Answer:** **τ_p = 10 μs.** Doubling the trap density would halve the lifetime.
 
 ## Part C: Lifetime and steady-state injection
 
@@ -137,7 +174,7 @@ Switch off the light at t = 0. With U = Δp/τ_p, the excess holes decay as
 
 Typical values: very pure Si, 1 μs to 1 ms; gold-doped Si for fast switching, 1–10 ns; GaAs, 1–10 ns (fast radiative recombination).
 
-If several mechanisms act together, their rates add: 1/τ = 1/τ_SRH + 1/τ_radiative + 1/τ_Auger.
+If several mechanisms act together, their rates add: 1/τ = 1/τ_SRH + 1/τ_radiative + 1/τ_{Auger}.
 
 @fig figures/decay.svg | Under steady illumination the excess holds at Δp = G_Lτ_p. When the light is switched off it decays exponentially, falling to 1/e in one lifetime.
 
@@ -153,21 +190,39 @@ The extra carriers raise the conductivity, called **photoconductivity**:
 
     Δσ = q(μ_n + μ_p) Δn = q(μ_n + μ_p) G_Lτ
 
-**Example.** n-Si (N_D = 10¹⁵ cm⁻³, τ_p = 10 μs) under light with G_L = 10²⁰ cm⁻³s⁻¹:
+#### Example 8.3: photoconductivity
 
-    Δn = Δp = G_Lτ_p = 10²⁰ × 10⁻⁵ = 10¹⁵ cm⁻³
-    Δσ = 1.6×10⁻¹⁹ × (1350 + 480) × 10¹⁵ = 0.293 S/cm
-    dark conductivity σ₀ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
+**Question.** n-type silicon with N_D = 1×10¹⁵ cm⁻³ and τ_p = 10 μs is uniformly illuminated, generating G_L = 1×10²⁰ electron–hole pairs per cm³ per second. Calculate the steady-state excess carrier concentration, the increase in conductivity, and compare it with the dark conductivity.
 
-The conductivity more than doubles in the light. This is how a light-dependent resistor works. (Here Δp equals n₀, so this is not low-level injection, and the single-lifetime formula is only approximate.)
+**Given:** N_D = 1×10¹⁵ cm⁻³, τ_p = 10 μs = 1×10⁻⁵ s, G_L = 1×10²⁰ cm⁻³s⁻¹, μ_n = 1350, μ_p = 480 cm²/V·s.
+
+**Find:** Δn, Δσ and σ₀.
+
+**Solution.**
+
+Step 1. Steady state, generation = recombination:
+
+    Δn = Δp = G_Lτ_p = 10²⁰ × 10⁻⁵ = 1×10¹⁵ cm⁻³
+
+Step 2. Extra conductivity:
+
+    Δσ = q(μ_n + μ_p)Δn = 1.6×10⁻¹⁹ × (1350 + 480) × 10¹⁵ = 0.293 S/cm
+
+Step 3. Dark conductivity:
+
+    σ₀ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
+
+**Answer:** **Δn = 10¹⁵ cm⁻³, Δσ = 0.293 S/cm, against σ₀ = 0.216 S/cm**: the conductivity more than doubles in the light.
+
+This is how a light-dependent resistor works. (Here Δp equals n₀, so this is not low-level injection, and the single-lifetime formula is only approximate.)
 
 ### Quasi-Fermi levels
 
-Out of equilibrium, np ≠ n_i², so a single Fermi level cannot describe both carriers. Instead we use **two**: one for electrons, E_Fn, and one for holes, E_Fp:
+Out of equilibrium, np ≠ n_i², so a single Fermi level cannot describe both carriers. Instead we use **two**: one for electrons, E_{Fn}, and one for holes, E_{Fp}:
 
-    n = n_i e^{(E_Fn − E_i)/kT},     p = n_i e^{(E_i − E_Fp)/kT},     np = n_i² e^{(E_Fn − E_Fp)/kT}
+    n = n_i e^{(E_{Fn} − E_i)/kT},     p = n_i e^{(E_i − E_{Fp})/kT},     np = n_i² e^{(E_{Fn} − E_{Fp})/kT}
 
-The **gap between them**, E_Fn − E_Fp, measures how far from equilibrium the material is. In a forward-biased diode it equals qV; in a solar cell it sets the open-circuit voltage. In equilibrium they merge back into one Fermi level.
+The **gap between them**, E_{Fn} − E_{Fp}, measures how far from equilibrium the material is. In a forward-biased diode it equals qV; in a solar cell it sets the open-circuit voltage. In equilibrium they merge back into one Fermi level.
 
 ## Key points of Week 8
 
@@ -275,3 +330,18 @@ so that, when generation stops, the excess density decays exponentially:
 6. **LEDs and lasers.** The radiative fraction of recombination, and the modulation speed (bandwidth ∝ 1/τ), depend on lifetime.
 7. **Power devices.** In p-i-n diodes and IGBTs, long lifetime gives conductivity modulation and low on-state voltage but slow switching; there is a design trade-off.
 8. **Material quality indicator.** Lifetime is very sensitive to metallic contamination, so it is measured (photoconductive decay, μ-PCD) to monitor crystal growth and process cleanliness.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Explain velocity saturation and its effect on devices. | What is the saturation velocity in Si and what causes it? | About 10⁷ cm/s; optical-phonon emission by energetic carriers. | Velocity saturation |
+| 2 | Explain hot-carrier effects and how they are reduced. | How does a hot carrier cause avalanche breakdown? | It impact-ionises, creating new pairs that are accelerated and do the same. | Hot-carrier effects |
+| 3 | Explain excess carriers and low-level injection. | Under low-level injection in n-type material, which carrier concentration changes significantly? | The minority (hole) concentration. | Equilibrium and excess carriers; Example 8.1 |
+| 4 | Describe the generation and recombination mechanisms. | Which recombination mechanism dominates in silicon? | Shockley–Read–Hall (trap-assisted). | Generation; recombination |
+| 5 | Explain SRH recombination and calculate lifetime from trap data. | Why are mid-gap traps the most effective recombination centres? | They capture electrons and holes with similar ease; shallow traps just re-emit carriers. | SRH; Example 8.2 |
+| 6 | Calculate decay of excess carriers and steady-state injection levels. | With G_L = 10¹⁹ cm⁻³s⁻¹ and τ = 2 μs, find Δp. | Δp = G_Lτ = 2×10¹³ cm⁻³. | Part C; Example 8.3 |

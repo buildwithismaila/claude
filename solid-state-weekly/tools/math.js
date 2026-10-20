@@ -59,7 +59,22 @@ function mathify(s){
   s = braced(s, "_", "sub");
   /* finally bare runs: a_x, ^2 */
   s = s.replace(new RegExp("\\^(" + RUN + "+)", "g"), (m,c) => "<sup>" + c + "</sup>");
-  s = s.replace(new RegExp("_("  + RUN + "+)", "g"), (m,c) => "<sub>" + c + "</sub>");
+  /* A bare subscript run ends where the letter case changes or a Greek letter
+     starts, so N_Dx_n reads N_D x_n and L_pN_D reads L_p N_D. Digits may follow
+     anything (n_p0). Mixed-case subscripts such as E_{Fn} must be braced. */
+  const kind = ch => /[0-9]/.test(ch) ? "d" : /[\u0370-\u03FF]/.test(ch) ? "g"
+                   : ch === ch.toUpperCase() ? "U" : "L";
+  s = s.replace(new RegExp("_("  + RUN + "+)", "g"), (m,c) => {
+    const first = kind(c[0]);
+    let k = 1;
+    while (k < c.length) {
+      const t = kind(c[k]);
+      if (t === "d") { k++; continue; }
+      if (t === "g" || first === "g" || first === "d" || t !== first) break;
+      k++;
+    }
+    return "<sub>" + c.slice(0, k) + "</sub>" + c.slice(k);
+  });
   return s;
 }
 

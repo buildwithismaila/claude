@@ -3,6 +3,16 @@
 
 **Plan:** carrier mobility, scattering mechanisms and conductivity; diffusion of carriers, Fick's law and the Einstein relation.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Explain thermal motion, drift velocity and mobility.
+2. Explain the scattering mechanisms and the factors that affect mobility.
+3. Derive and use the drift current density and conductivity.
+4. Explain carrier diffusion and calculate diffusion current with Fick's law.
+5. State, explain and use the Einstein relation.
+
 ## The big picture
 
 Weeks 4–5 told us **how many** carriers there are. This week asks **how they move**, because moving charge is current. There are exactly two reasons a carrier moves in a particular direction:
@@ -45,7 +55,22 @@ From the formula, mobility is high when:
 | Ge | 3900 | 1900 |
 | GaAs | 8500 | 400 |
 
-Electrons are faster than holes in all three, mainly because of their smaller effective mass. **Example:** in Si at E = 1000 V/cm, electrons drift at v_d = 1350 × 1000 = 1.35×10⁶ cm/s.
+Electrons are faster than holes in all three, mainly because of their smaller effective mass. 
+
+#### Example 7.1: drift velocity
+
+**Question.** An electric field of 1000 V/cm is applied to a silicon sample. Calculate the drift velocity of the electrons and of the holes.
+
+**Given:** E = 1000 V/cm, μ_n = 1350 cm²/V·s, μ_p = 480 cm²/V·s.
+
+**Find:** v_dn and v_dp.
+
+**Solution.**
+
+    v_dn = μ_nE = 1350 × 1000 = 1.35×10⁶ cm/s
+    v_dp = μ_pE = 480 × 1000 = 4.8×10⁵ cm/s
+
+**Answer:** **electrons 1.35×10⁶ cm/s, holes 4.8×10⁵ cm/s**, both far below the random thermal velocity of about 10⁷ cm/s.
 
 ### What scatters carriers
 
@@ -95,11 +120,27 @@ This is just Ohm's law, with **conductivity** and **resistivity**
 
 For n-type material n ≫ p, so σ ≈ qN_Dμ_n. For p-type, σ ≈ qN_Aμ_p.
 
-**Example.** n-type Si with N_D = 10¹⁶ cm⁻³:
+#### Example 7.2: conductivity and resistance of a silicon bar
 
-    σ = 1.6×10⁻¹⁹ × 10¹⁶ × 1350 = 2.16 S/cm,   ρ = 0.46 Ω·cm
+**Question.** A bar of n-type silicon doped with N_D = 1×10¹⁶ cm⁻³ is 1 cm long and has a cross-section of 1 mm². Calculate its conductivity, resistivity and resistance.
 
-A bar 1 cm long with 1 mm² (0.01 cm²) cross-section has R = ρL/A = 0.46 × 1/0.01 = 46 Ω.
+**Given:** N_D = 1×10¹⁶ cm⁻³, μ_n = 1350 cm²/V·s, L = 1 cm, A = 1 mm² = 0.01 cm², q = 1.6×10⁻¹⁹ C.
+
+**Find:** σ, ρ and R.
+
+**Solution.**
+
+Step 1. n-type, so σ ≈ qN_Dμ_n:
+
+    σ = 1.6×10⁻¹⁹ × 10¹⁶ × 1350 = 2.16 S/cm
+
+Step 2. ρ = 1/σ = 1/2.16 = 0.46 Ω·cm
+
+Step 3. R = ρL/A:
+
+    R = 0.46 × 1 / 0.01 = 46 Ω
+
+**Answer:** **σ = 2.16 S/cm, ρ = 0.46 Ω·cm, R = 46 Ω.**
 
 **Sheet resistance.** For a thin layer of thickness t, R_s = ρ/t in ohms per square (Ω/□), measured with a four-point probe (Week 3).
 
@@ -134,10 +175,25 @@ Multiply each particle flux by the charge of the carrier:
 
 @fig figures/diffusion-current.svg | Both carriers diffuse down their concentration gradient. Because electrons are negative, the electron diffusion current points against their flow, while the hole current points with it.
 
-**Example.** The electron concentration falls linearly from 10¹⁷ cm⁻³ to zero over 1 μm (10⁻⁴ cm) in Si:
+#### Example 7.3: electron diffusion current
 
-    dn/dx = −10¹⁷/10⁻⁴ = −10²¹ cm⁻⁴
-    J_n = qD_n dn/dx = 1.6×10⁻¹⁹ × 35 × (−10²¹) = −5.6×10³ A/cm²
+**Question.** In a silicon sample the electron concentration falls linearly from 1×10¹⁷ cm⁻³ to zero over a distance of 1 μm. Taking D_n = 35 cm²/s, calculate the electron diffusion current density.
+
+**Given:** Δn = 1×10¹⁷ cm⁻³ over Δx = 1 μm = 1×10⁻⁴ cm, D_n = 35 cm²/s, q = 1.6×10⁻¹⁹ C.
+
+**Find:** J_n(diff).
+
+**Solution.**
+
+Step 1. The concentration gradient:
+
+    dn/dx = −10¹⁷ / 10⁻⁴ = −10²¹ cm⁻⁴
+
+Step 2. J_n = qD_n dn/dx:
+
+    J_n = 1.6×10⁻¹⁹ × 35 × (−10²¹) = −5.6×10³ A/cm²
+
+**Answer:** **|J_n| = 5.6×10³ A/cm²**, flowing in the −x direction (opposite to the electron flow, because electrons are negative).
 
 A large current, from a modest gradient. Diffusion is not a small effect: it carries the whole current in a diode's neutral regions and in a transistor's base.
 
@@ -342,3 +398,17 @@ Substituting:
 3. It shows why the built-in voltage of a junction is set by kT/q times a logarithm of a concentration ratio.
 
 For degenerate semiconductors the relation is modified (D/μ > kT/q), because carriers then obey Fermi–Dirac rather than Boltzmann statistics.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Explain thermal motion, drift velocity and mobility. | Si electrons in a 500 V/cm field: find v_d. | v_d = 1350 × 500 = 6.75×10⁵ cm/s. | Part A; Example 7.1 |
+| 2 | Explain the scattering mechanisms and the factors that affect mobility. | Which scattering mechanism dominates at low temperature in heavily doped Si? | Ionised-impurity scattering. | Scattering; factors affecting mobility |
+| 3 | Derive and use the drift current density and conductivity. | Find σ for p-type Si with N_A = 10¹⁶ cm⁻³ and μ_p = 480 cm²/V·s. | σ = 1.6×10⁻¹⁹ × 10¹⁶ × 480 = 0.77 S/cm. | Drift current density; Example 7.2 |
+| 4 | Explain carrier diffusion and calculate diffusion current with Fick's law. | Why does electron diffusion current point opposite to the electron flow? | Because the electron charge is negative. | Part B; Example 7.3 |
+| 5 | State, explain and use the Einstein relation. | Find D_n for GaAs (μ_n = 8500 cm²/V·s) at 300 K. | D = 0.0259 × 8500 = 220 cm²/s. | The Einstein relation |

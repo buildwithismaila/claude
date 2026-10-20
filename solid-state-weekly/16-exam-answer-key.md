@@ -73,7 +73,7 @@ The key point of every PGD examination answer in one or two lines. Cover the rig
 
 | Q | Key answer |
 |---|---|
-| 47 (Week 10) | Diffusion of carriers uncovers fixed ions → depletion region and field; drift balances diffusion; flat E_F. **V_bi = (kT/q) ln(N_AN_D/n_i²)**; W = √(2ε_sV_bi(N_A + N_D)/qN_AN_D). |
+| 47 (Week 10) | Diffusion of carriers uncovers fixed ions → depletion region and field; drift balances diffusion; flat E_F. **V_bi = (kT/q) ln(N_{A}N_D/n_i²)**; W = √(2ε_sV_bi(N_A + N_D)/qN_{A}N_D). |
 | 48 (Week 10) | Assumptions; law of junction p_n = p_n0e^{qV/kT}; diffusion equation → exponential decay over L_p; currents at edges; **I = I_s(e^{qV/kT} − 1)**, J_s = qn_i²(D_p/L_pN_D + D_n/L_nN_A). Forward: exponential rise; reverse: −I_s. |
 | 49 (Week 11) | Schottky: Φ_m > Φ_s (n-type), upward bending, depletion, barrier Φ_B = Φ_m − χ, rectifying, thermionic, fast. Ohmic: Φ_m < Φ_s or heavy doping, accumulation or tunnelling, linear I-V. |
 | 50 (Week 12) | I-V: ln I vs V gives I_s, η, R_s, breakdown, Φ_B. C-V: C = ε_sA/W; **1/C² = 2(V_bi − V)/(qε_sNA²)**; slope gives N = 2/(qε_sA²·slope), intercept gives V_bi; local slope gives profile N(W). |

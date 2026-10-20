@@ -3,6 +3,17 @@
 
 **Plan:** purification of silicon (metallurgical to electronic grade); the Czochralski bulk crystal growth method; epitaxial growth techniques (VPE, LPE, MBE).
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Describe the conversion of quartzite into metallurgical-grade silicon.
+2. Explain how MG-Si is purified into electronic-grade silicon.
+3. Explain the principle and steps of the Czochralski method.
+4. State the advantages and limitations of CZ growth and compare it with float-zone growth.
+5. Use the segregation coefficient to predict doping along an ingot.
+6. Explain the principles of VPE, LPE and MBE and compare them.
+
 ## The big picture
 
 To make a chip you need three things, in this order:
@@ -105,7 +116,25 @@ C_s is the concentration in the solid and C_l in the liquid where they meet. For
 
     C_s = k₀ C₀ (1 − f)^{k₀ − 1}
 
-**Example.** To get boron at 1×10¹⁶ cm⁻³ at the start: C₀ = C_s/k₀ = 1×10¹⁶/0.8 = 1.25×10¹⁶ cm⁻³. Half-way along (f = 0.5): C_s = 0.8 × 1.25×10¹⁶ × 0.5^{−0.2} = 1.15×10¹⁶ cm⁻³, about 15 % higher.
+#### Example 2.1: dopant segregation in a CZ crystal
+
+**Question.** A boron-doped silicon crystal is to be grown by the Czochralski method with a boron concentration of 1×10¹⁶ cm⁻³ at the seed end. The segregation coefficient of boron in silicon is k₀ = 0.8. (a) What boron concentration must the melt contain at the start? (b) What is the boron concentration in the crystal when half of the melt has solidified?
+
+**Given:** C_s(start) = 1×10¹⁶ cm⁻³, k₀ = 0.8, f = 0.5 for part (b).
+
+**Find:** (a) C₀, the initial melt concentration; (b) C_s at f = 0.5.
+
+**Solution.**
+
+(a) At the start, C_s = k₀C₀, so
+
+    C₀ = C_s/k₀ = 1×10¹⁶ / 0.8 = 1.25×10¹⁶ cm⁻³
+
+(b) Use C_s = k₀C₀(1 − f)^{k₀ − 1} with f = 0.5:
+
+    C_s = 0.8 × 1.25×10¹⁶ × (0.5)^{−0.2} = 1×10¹⁶ × 1.149 = 1.15×10¹⁶ cm⁻³
+
+**Answer:** **(a) C₀ = 1.25×10¹⁶ cm⁻³; (b) C_s = 1.15×10¹⁶ cm⁻³**, about 15 % higher than at the seed end, because rejected boron builds up in the melt.
 
 The same effect also **purifies**: iron (k₀ ≈ 10⁻⁵) is almost entirely rejected into the melt.
 
@@ -265,3 +294,18 @@ Epitaxy is the growth of a thin single-crystal film on a single-crystal substrat
 | Applications | Si epi layers for BJTs, CMOS, power devices; MOCVD for LEDs, lasers, solar cells | LEDs, early heterostructure lasers, thick layers, photodetectors | Quantum wells, superlattices, HEMTs, HBTs, quantum-cascade and VCSEL lasers, research |
 
 **Conclusion.** VPE is the industrial choice for volume production, LPE is a simple low-cost method giving high-quality thick layers with poor control, and MBE gives the ultimate atomic-scale control for advanced heterostructure devices at high cost.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Describe the conversion of quartzite into metallurgical-grade silicon. | Write the arc-furnace reaction and state the purity of MG-Si. | SiO₂ + 2C → Si + 2CO; about 98 % pure. | Part A, Step 1 |
+| 2 | Explain how MG-Si is purified into electronic-grade silicon. | Why is silicon converted into SiHCl₃ before purification? | SiHCl₃ is a liquid (boils at 32 °C) that can be purified by fractional distillation; solids cannot. | Part A, Steps 2–4 |
+| 3 | Explain the principle and steps of the Czochralski method. | What is the purpose of the Dash neck? | Growing a thin neck lets dislocations from the thermal shock run out of the crystal, so the ingot is dislocation-free. | Part B |
+| 4 | State the advantages and limitations of CZ growth and compare it with float-zone growth. | Why does FZ silicon reach higher resistivity than CZ silicon? | No crucible touches the melt, so there is almost no oxygen or carbon contamination. | Part B; Float-zone |
+| 5 | Use the segregation coefficient to predict doping along an ingot. | For phosphorus (k₀ = 0.35), is the tail end of a CZ ingot more or less heavily doped than the seed end? | More heavily doped: rejected phosphorus builds up in the melt. | Dopant segregation; Example 2.1 |
+| 6 | Explain the principles of VPE, LPE and MBE and compare them. | Which epitaxy method gives single-atomic-layer thickness control, and why? | MBE: slow growth (≈ one monolayer per second) and shuttered atomic beams in ultra-high vacuum. | Part C |

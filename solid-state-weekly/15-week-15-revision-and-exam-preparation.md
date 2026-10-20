@@ -3,6 +3,16 @@
 
 **Plan:** overview of the entire curriculum, problem-solving clinic and past-question review. The sections follow the Week 15 headings in your lecturer's note: course overview, formula sheet, problem-solving clinic, past-question style exercises, final examination checklist and comprehensive revision questions.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Summarise the whole course and how its ideas connect.
+2. Recall and apply the key formulas.
+3. Answer definitions, derivations and calculations in examination style.
+4. Solve mixed past-question style problems.
+5. Check readiness for the final examination.
+
 ## 15.1 Course overview
 
 The whole course tells one story: **how do we make, control and use the free charges in a crystal?**
@@ -12,7 +22,7 @@ The whole course tells one story: **how do we make, control and use the free cha
 | 1. Material physics and growth | 1–3 | What is a semiconductor, and how do we make and dope it? | Conductivity is controllable because of a moderate band gap and doping. Crystals are grown pure by CZ and epitaxy, and doped by diffusion (erfc or Gaussian) or implantation (Gaussian at R_p). |
 | 2. Bands and statistics | 4–6 | How many electrons and holes are there? | n = N_ce^{−(E_c−E_F)/kT}, p = N_ve^{−(E_F−E_v)/kT}, np = n_i². E_F moves 60 mV per decade of doping, and back to mid-gap when hot. |
 | 3. Transport and injection | 7–9 | How do the carriers move, and how long do extra ones last? | J = qnμE + qD dn/dx, D/μ = kT/q. Excess minority carriers recombine with lifetime τ and spread over L = √(Dτ). |
-| 4. Junctions and interfaces | 10–12 | What happens where two materials meet? | V_bi = (kT/q) ln(N_AN_D/n_i²); I = I_s(e^{qV/kT} − 1); Schottky Φ_B = Φ_m − χ; 1/C² against V gives the doping. |
+| 4. Junctions and interfaces | 10–12 | What happens where two materials meet? | V_bi = (kT/q) ln(N_{A}N_D/n_i²); I = I_s(e^{qV/kT} − 1); Schottky Φ_B = Φ_m − χ; 1/C² against V gives the doping. |
 | 5. Devices | 13–15 | How do transistors work? | BJT: β = α/(1 − α), α = γα_T. MOSFET: V_T = V_FB + 2φ_F + γ√(2φ_F); I_D(sat) = ½μC_ox(W/L)(V_GS − V_T)². |
 
 **How the ideas connect.** Doping (Week 3) sets n and p (Week 5). n and p set conductivity (Week 7). Joining p and n regions creates a built-in field (Week 10). Forward bias injects minority carriers that diffuse and recombine (Weeks 7–9), which gives the diode equation. Two junctions close together give the BJT (Week 13); a field-induced inversion layer gives the MOSFET (Week 14).
@@ -102,7 +112,7 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 ### Junctions and contacts
 
-    V_bi = (kT/q) ln(N_AN_D/n_i²)
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²)
     W = √((2ε_s/q)(V_bi − V)(1/N_A + 1/N_D));   N_Ax_p = N_Dx_n;   E_max = qN_Dx_n/ε_s
     I = I_s(e^{qV/kT} − 1);   J_s = qn_i²(D_p/(L_pN_D) + D_n/(L_nN_A))
     C_j = ε_sA/W;   1/C² = 2(V_bi − V)/(qε_sNA²);   N = 2/(qε_sA²|d(1/C²)/dV|)
@@ -111,8 +121,8 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 ### Devices
 
-    BJT:  I_C = I_S e^{qV_BE/kT},   I_S = qAD_Bn_i²/(N_BW_B)
-          γ = 1/[1 + D_EN_BW_B/(D_BN_EW_E)],   α_T ≈ 1 − W_B²/2L_n²
+    BJT:  I_C = I_S e^{qV_BE/kT},   I_S = qAD_Bn_i²/(N_{B}W_B)
+          γ = 1/[1 + D_{E}N_{B}W_B/(D_{B}N_{E}W_E)],   α_T ≈ 1 − W_B²/2L_n²
           α = γα_T,   β = α/(1 − α),   I_E = I_C + I_B,   τ_B = W_B²/2D_B
     MOS:  C_ox = ε_ox/t_ox,   φ_F = (kT/q)ln(N_A/n_i),   W_dmax = √(4ε_sφ_F/qN_A)
           V_T = V_FB + 2φ_F + √(4qε_sN_Aφ_F)/C_ox,   V_FB = Φ_ms − Q_f/C_ox
@@ -195,7 +205,7 @@ E_F lies 0.375 eV below E_i.
 
 ### E6. A Si p⁺n junction has N_A = 10¹⁷ cm⁻³ and N_D = 10¹⁵ cm⁻³. Find V_bi and the zero-bias depletion width.
 
-    V_bi = (kT/q) ln(N_AN_D/n_i²) = 0.02585 ln(10³²/10²⁰) = 0.02585 × 27.63 = 0.714 V
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.02585 ln(10³²/10²⁰) = 0.02585 × 27.63 = 0.714 V
 
 One-sided junction, so the depletion region is almost all on the lightly doped n side:
 
@@ -262,3 +272,17 @@ Work through these without notes, then check against the week shown. Full worked
 18. Explain BJT operation and derive β = α/(1 − α). (Week 13)
 19. Explain accumulation, depletion and inversion; derive the saturation condition of a MOSFET. (Week 14)
 20. Compare a BJT and a MOSFET. (Week 14)
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Summarise the whole course and how its ideas connect. | Trace the chain from doping to the diode equation in one sentence. | Doping sets n and p; a p-n junction forms a barrier; forward bias injects minority carriers that diffuse and recombine, giving I = I_s(e^{qV/kT} − 1). | 15.1 |
+| 2 | Recall and apply the key formulas. | Write the mass-action law, the Einstein relation and the saturation MOSFET current. | np = n_i²; D/μ = kT/q; I_D = ½μC_ox(W/L)(V_GS − V_T)². | 15.2 |
+| 3 | Answer definitions, derivations and calculations in examination style. | What should a derivation answer begin with? | A list of the assumptions. | 15.3 |
+| 4 | Solve mixed past-question style problems. | Find V_bi for N_A = 10¹⁷ and N_D = 10¹⁵ cm⁻³ in Si. | 0.714 V. | 15.4, E6 |
+| 5 | Check readiness for the final examination. | Can you tick every line of the checklist in 15.5? | If not, revise the week named on that line. | 15.5–15.6 |

@@ -3,6 +3,17 @@
 
 **Plan:** built-in potential, depletion width and electric-field profile; ideal diode (Shockley) equation derivation under forward and reverse bias.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Explain the formation of the depletion region in a p-n junction.
+2. Derive and calculate the built-in potential.
+3. Calculate the depletion width and electric-field profile.
+4. Explain the junction under forward and reverse bias and the law of the junction.
+5. Derive and use the Shockley diode equation.
+6. Explain breakdown and junction capacitance.
+
 ## The big picture
 
 A **p-n junction** is what you get when one part of a single crystal is p-type and the part next to it is n-type. It is the most important structure in electronics: it is a diode on its own, two of them make a bipolar transistor, and it appears in every MOSFET, solar cell, LED and laser.
@@ -38,9 +49,21 @@ We can find V_bi from the Fermi-level positions of Week 5. On the p side, E_F is
 
     V_bi = (kT/q) ln( N_A N_D / n_i² )
 
-**Example.** Si, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, 300 K:
+#### Example 10.1: built-in potential
 
-    V_bi = 0.0259 × ln(10¹⁷ × 10¹⁶ / 10²⁰) = 0.0259 × ln(10¹³) = 0.0259 × 29.93 = 0.775 V
+**Question.** A silicon p-n junction has N_A = 1×10¹⁷ cm⁻³ on the p side and N_D = 1×10¹⁶ cm⁻³ on the n side. Calculate the built-in potential at 300 K.
+
+**Given:** N_A = 1×10¹⁷ cm⁻³, N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT/q = 0.0259 V.
+
+**Find:** V_bi.
+
+**Solution.**
+
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.0259 × ln(10¹⁷ × 10¹⁶ / 10²⁰)
+
+         = 0.0259 × ln(10¹³) = 0.0259 × 29.93 = 0.775 V
+
+**Answer:** **V_bi = 0.775 V.**
 
 You **cannot** measure V_bi with a voltmeter across a diode: where the wires meet the semiconductor, contact potentials appear that exactly cancel it. It is an internal barrier, not a battery.
 
@@ -66,15 +89,31 @@ with x_n = W N_A/(N_A + N_D) and x_p = W N_D/(N_A + N_D). Here ε_s is the permi
 
 For a **one-sided p⁺n junction** (N_A ≫ N_D), almost all of W is on the n side: W ≈ √(2ε_s(V_bi − V_a)/qN_D).
 
-**Example** (continuing, at zero bias):
+#### Example 10.2: depletion width and peak field
 
-    W = √( 2 × 1.04×10⁻¹² × 0.775 × (10⁻¹⁷ + 10⁻¹⁶) / 1.6×10⁻¹⁹ )
-      = √(1.10×10⁻⁹) = 3.32×10⁻⁵ cm = 0.33 μm
+**Question.** For the junction of Example 10.1 at zero bias, calculate the total depletion width, how much of it lies on each side, and the peak electric field.
 
-    x_n = 0.33 × 10/11 = 0.30 μm,   x_p = 0.03 μm
-    E_max = qN_D x_n/ε_s = 1.6×10⁻¹⁹ × 10¹⁶ × 3.0×10⁻⁵ / 1.04×10⁻¹² = 4.7×10⁴ V/cm
+**Given:** V_bi = 0.775 V, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, ε_s = 1.04×10⁻¹² F/cm, q = 1.6×10⁻¹⁹ C, V_a = 0.
 
-The depletion region is only a third of a micrometre wide, but the field in it is large: 47,000 volts per centimetre.
+**Find:** W, x_n, x_p and E_max.
+
+**Solution.**
+
+Step 1. Total width:
+
+    W = √( (2ε_s/q) V_bi (1/N_A + 1/N_D) )
+
+      = √( 2 × 1.04×10⁻¹² × 0.775 × (10⁻¹⁷ + 10⁻¹⁶) / 1.6×10⁻¹⁹ ) = √(1.10×10⁻⁹) = 3.32×10⁻⁵ cm
+
+Step 2. Split, using x_n = W N_A/(N_A + N_D):
+
+    x_n = 0.332 × 10/11 = 0.30 μm,   x_p = 0.332 − 0.30 = 0.03 μm
+
+Step 3. Peak field at the junction:
+
+    E_max = qN_Dx_n/ε_s = 1.6×10⁻¹⁹ × 10¹⁶ × 3.0×10⁻⁵ / 1.04×10⁻¹² = 4.7×10⁴ V/cm
+
+**Answer:** **W = 0.33 μm (0.30 μm on the n side, 0.03 μm on the p side), E_max = 4.7×10⁴ V/cm.** The region is narrow but the field in it is large.
 
 ## The junction under bias
 
@@ -107,11 +146,29 @@ The full derivation is worked in exam question Q48 below. The idea in four steps
 - **Reverse** (V negative, more than a few kT/q): e^{qV/kT} → 0 and I ≈ −I_s, tiny and constant.
 - I_s ∝ n_i², so it rises steeply with temperature and is much larger in small-gap materials (Ge diodes leak far more than Si).
 
-**Example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm, and
+#### Example 10.3: saturation current and forward current of a diode
+
+**Question.** A silicon p⁺n diode has N_D = 1×10¹⁶ cm⁻³ on the n side, hole diffusion coefficient D_p = 10 cm²/s, hole lifetime τ_p = 1 μs and area 10⁻⁴ cm². Calculate the saturation current, and the forward current at 0.6 V and at 0.7 V (300 K).
+
+**Given:** N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 10⁻⁶ s, A = 10⁻⁴ cm², n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
+
+**Find:** I_s, I(0.6 V), I(0.7 V).
+
+**Solution.**
+
+Step 1. Diffusion length: L_p = √(D_pτ_p) = √(10 × 10⁻⁶) = 3.16×10⁻³ cm
+
+Step 2. For a p⁺n diode only the hole term matters:
 
     I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁴ × 10²⁰ × 10 / (3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹⁶ A
-    at 0.6 V: I = 5.1×10⁻¹⁶ × e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ = 5.9 μA
-    at 0.7 V: I ≈ 280 μA
+
+Step 3. Forward current, I ≈ I_s e^{qV/kT}:
+
+    I(0.6 V) = 5.1×10⁻¹⁶ × e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ = 5.9×10⁻⁶ A
+
+    I(0.7 V) = 5.1×10⁻¹⁶ × e^{0.7/0.0259} = 5.1×10⁻¹⁶ × 5.45×10¹¹ = 2.8×10⁻⁴ A
+
+**Answer:** **I_s = 5.1×10⁻¹⁶ A; I = 5.9 μA at 0.6 V and 280 μA at 0.7 V.** An extra 0.1 V multiplies the current by about 47.
 
 ## Breakdown
 
@@ -131,7 +188,7 @@ Since W grows with reverse bias, C_j **falls** as the reverse voltage increases.
 ## Key points of Week 10
 
 - Diffusion across the junction uncovers fixed ions: the depletion region, with a field from n to p.
-- Equilibrium: drift balances diffusion, E_F is flat, and the bands bend by qV_bi = kT ln(N_AN_D/n_i²).
+- Equilibrium: drift balances diffusion, E_F is flat, and the bands bend by qV_bi = kT ln(N_{A}N_D/n_i²).
 - N_Ax_p = N_Dx_n: the depletion region lies mostly on the lightly doped side. W = √((2ε_s/q)(V_bi − V)(1/N_A + 1/N_D)).
 - Forward bias lowers the barrier and injects minority carriers (law of the junction); reverse bias raises it.
 - Shockley equation: I = I_s(e^{qV/kT} − 1), from minority-carrier diffusion in the neutral regions.
@@ -230,3 +287,18 @@ or, for area A, **I = I_s [ exp(qV/kT) − 1 ]** with I_s = AJ_s. This is the id
 **Numerical example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm; J_s ≈ qn_i²D_p/(L_pN_D) = (1.602×10⁻¹⁹)(10²⁰)(10)/(3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹² A/cm², so I_s = 5.1×10⁻¹⁶ A. At V = 0.6 V, I = I_s e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ ≈ 5.9 μA, and at 0.7 V it is about 280 μA.
 
 **Real diodes** deviate: recombination in the depletion region at low forward bias (I ∝ e^{qV/2kT}), high-level injection at high current, series resistance, and generation current and breakdown in reverse. These are summarised by I = I_s(e^{qV/ηkT} − 1), with ideality factor η between 1 and 2.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Explain the formation of the depletion region in a p-n junction. | Why is the depletion region empty of mobile carriers? | Carriers diffused across and recombined, leaving only fixed donor and acceptor ions. | Forming the junction |
+| 2 | Derive and calculate the built-in potential. | Find V_bi for N_A = N_D = 10¹⁶ cm⁻³ in Si. | 0.0259 ln(10¹²) = 0.716 V. | The built-in potential; Example 10.1 |
+| 3 | Calculate the depletion width and electric-field profile. | If N_A = 100 N_D, where does most of the depletion region lie? | On the n side (x_n = 100 x_p). | Depletion approximation; Example 10.2 |
+| 4 | Explain the junction under forward and reverse bias and the law of the junction. | By what factor does forward bias of 0.12 V multiply the injected minority carriers? | e^{0.12/0.0259} ≈ 100. | The junction under bias |
+| 5 | Derive and use the Shockley diode equation. | Write the ideal diode equation and its saturation current density. | I = I_s(e^{qV/kT} − 1); J_s = qn_i²(D_p/L_pN_D + D_n/L_nN_A). | Shockley equation; Example 10.3; Q48 |
+| 6 | Explain breakdown and junction capacitance. | Which breakdown mechanism occurs in very heavily doped junctions? | Zener (tunnelling) breakdown. | Breakdown; junction capacitance |

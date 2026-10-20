@@ -3,6 +3,19 @@
 
 **Plan:** diffusion and ion implantation mechanisms; controlled doping profiles and evaluation of impurity distribution. This page follows your lecturer's handwritten notes on diffusion and ion implantation, including every calculation in them.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Explain why doping is needed and name the common dopants of silicon.
+2. Explain diffusion and state Fick's first law and the temperature dependence of D.
+3. Distinguish constant-source (erfc) and limited-source (Gaussian) diffusion and calculate their profiles.
+4. Describe the step-by-step diffusion process and the atomic diffusion mechanisms.
+5. Describe ion implantation, its equipment and the Gaussian implant profile.
+6. Calculate implant peak concentration, junction depth, dose and beam current.
+7. Compare diffusion with ion implantation, and explain channelling and annealing.
+8. Describe how a doping profile is evaluated.
+
 ## The big picture
 
 A pure silicon wafer is almost useless. To make a diode, a transistor or a chip, we must put **dopant atoms** (boron, phosphorus, arsenic) into chosen parts of the wafer, in chosen amounts, down to a chosen depth. There are two ways to do this:
@@ -193,6 +206,10 @@ Some dopants use both: they move through interstitial sites, or by interactions 
 
 ### Q1. Phosphorus is diffused into silicon with D = 2×10⁻¹³ cm²/s for t = 500 s. Find the approximate diffusion distance using L = √(2Dt).
 
+**Given:** D = 2×10⁻¹³ cm²/s, t = 500 s. **Find:** L = √(2Dt).
+
+**Solution.**
+
     L = √(2 × 2×10⁻¹³ × 500) = √(2×10⁻¹⁰) = 1.414×10⁻⁵ cm
 
 Convert to micrometres (1 cm = 10⁴ μm):
@@ -203,11 +220,19 @@ Convert to micrometres (1 cm = 10⁴ μm):
 
 ### Q2. A dopant concentration gradient in silicon is 4×10¹⁸ cm⁻⁴ and D = 3×10⁻¹⁴ cm²/s. Find the diffusion flux using Fick's first law.
 
+**Given:** dC/dx = 4×10¹⁸ cm⁻⁴, D = 3×10⁻¹⁴ cm²/s. **Find:** the flux J = −D dC/dx.
+
+**Solution.**
+
     J = −D dC/dx = −(3×10⁻¹⁴)(4×10¹⁸) = −1.2×10⁵ atoms/cm²·s
 
 **|J| = 1.2×10⁵ atoms/cm²·s.** The minus sign means the dopant moves from the region of higher concentration towards lower concentration (against the direction in which C increases).
 
 ### Q4. Find D at T = 1273 K for a dopant with D₀ = 0.5 cm²/s and E_a = 3.5 eV.
+
+**Given:** D₀ = 0.5 cm²/s, E_a = 3.5 eV, T = 1273 K, k = 8.617×10⁻⁵ eV/K. **Find:** D = D₀e^{−E_a/kT}.
+
+**Solution.**
 
     kT = 8.617×10⁻⁵ × 1273 = 0.1097 eV
     E_a/kT = 3.5/0.1097 = 31.90
@@ -216,6 +241,10 @@ Convert to micrometres (1 cm = 10⁴ μm):
 **D ≈ 6.9×10⁻¹⁵ cm²/s.** Try T = 1373 K (100 °C hotter): kT = 0.1183 eV, E_a/kT = 29.58, D = 7.1×10⁻¹⁴ cm²/s, ten times larger.
 
 ### Q5. Constant-source diffusion: C_s = 1×10²⁰ cm⁻³, D = 1×10⁻¹³ cm²/s, t = 3600 s. Find C at x = 0.2 μm.
+
+**Given:** C_s = 1×10²⁰ cm⁻³, D = 1×10⁻¹³ cm²/s, t = 3600 s, x = 0.2 μm. **Find:** C(x, t) = C_s erfc(x/2√(Dt)).
+
+**Solution.**
 
 Step 1, convert the depth: x = 0.2 μm = 2×10⁻⁵ cm.
 
@@ -234,6 +263,10 @@ Step 5:
 **C(0.2 μm) = 4.56×10¹⁹ cm⁻³**, a little under half the surface value.
 
 ### Q6. Drive-in: dose Q = 2×10¹⁵ atoms/cm², D = 5×10⁻¹⁴ cm²/s, t = 1000 s. Find the concentration at x = 0.
+
+**Given:** Q = 2×10¹⁵ cm⁻², D = 5×10⁻¹⁴ cm²/s, t = 1000 s, x = 0. **Find:** C(0, t) = Q/√(πDt).
+
+**Solution.**
 
 At x = 0, e^{−0} = 1, so
 
@@ -309,13 +342,13 @@ There are two major energy-loss mechanisms:
 
 **Nuclear stopping.** The implanted ion collides with silicon **nuclei**. This causes (i) deflection of the ion and (ii) displacement of silicon atoms, which is **lattice damage**. The nuclear stopping power is
 
-    S_n = −(1/N_Si) (dE/dx)_nuclear
+    S_n = −(1/N_{Si}) (dE/dx)_nuclear
 
 **Electronic stopping.** The ion interacts with the **electrons** in the silicon, losing energy through excitation and ionisation. At high energies electronic stopping is particularly important. It causes little damage.
 
-    S_e = −(1/N_Si) (dE/dx)_electronic
+    S_e = −(1/N_{Si}) (dE/dx)_electronic
 
-Here N_Si is the number of silicon atoms per cm³ (5×10²² cm⁻³) and dE/dx the energy lost per unit distance. Heavy ions (As) lose energy mainly to nuclei and stop shallow; light ions (B) lose it mainly to electrons and go deeper.
+Here N_{Si} is the number of silicon atoms per cm³ (5×10²² cm⁻³) and dE/dx the energy lost per unit distance. Heavy ions (As) lose energy mainly to nuclei and stop shallow; light ions (B) lose it mainly to electrons and go deeper.
 
 ### Channelling
 
@@ -356,6 +389,10 @@ Suppose we want to convert part of a silicon wafer into an n-type region.
 
 ### P1. A silicon wafer is implanted with boron, Q = 1.0×10¹³ cm⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm. (a) Find the peak concentration N_p. (b) Find the boron concentration at the surface (x = 0).
 
+**Given:** Q = 1.0×10¹³ cm⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm. **Find:** (a) N_p; (b) N(0).
+
+**Solution.**
+
 (a) Convert ΔR_p = 0.05 μm = 5.0×10⁻⁶ cm.
 
     N_p = Q / (√(2π) ΔR_p) = 1.0×10¹³ / (2.5066 × 5.0×10⁻⁶) = 1.0×10¹³ / 1.253×10⁻⁵
@@ -369,6 +406,10 @@ Suppose we want to convert part of a silicon wafer into an n-type region.
 Effectively **zero boron at the surface**: the whole dose is buried around 0.5 μm.
 
 ### P2. An n-type substrate with C_B = 1.0×10¹⁵ cm⁻³ is implanted with boron to form a p-type region. Peak N_p = 1.0×10¹⁷ cm⁻³ at R_p = 0.4 μm, ΔR_p = 0.05 μm. Find the junction depth x_j (where the boron concentration equals C_B).
+
+**Given:** C_B = 1.0×10¹⁵ cm⁻³, N_p = 1.0×10¹⁷ cm⁻³, R_p = 0.4 μm, ΔR_p = 0.05 μm. **Find:** x_j where N(x_j) = C_B.
+
+**Solution.**
 
 At the junction N(x_j) = C_B:
 
@@ -384,6 +425,10 @@ The p-n junction is formed **0.552 μm below the silicon surface**. (There is al
 
 ### P3. A 300 mm diameter wafer needs a boron dose Q = 2.0×10¹⁴ ions/cm². (a) Find the total number of ions. (b) If the implanter uses singly charged ions (q = 1.6×10⁻¹⁹ C) and processes the wafer in 60 s, what beam current is needed?
 
+**Given:** diameter 300 mm, Q = 2.0×10¹⁴ cm⁻², q = 1.6×10⁻¹⁹ C, t = 60 s. **Find:** (a) total ions N; (b) beam current I.
+
+**Solution.**
+
 (a) Radius r = 300/2 = 150 mm = 15 cm. Area A = πr² = 3.142 × 225 = 706.9 cm².
 
     N_total = Q × A = 2.0×10¹⁴ × 706.9 = 1.414×10¹⁷ ions
@@ -395,6 +440,10 @@ The p-n junction is formed **0.552 μm below the silicon surface**. (There is al
 The implanter needs a beam current of **0.377 mA** to deliver the target dose in one minute.
 
 ### P4. A photoresist mask must protect part of a wafer during a boron implant. In photoresist R_p = 0.8 μm and ΔR_p = 0.08 μm. The substrate under the mask must receive no more than 0.1 % of the peak concentration. Find the minimum mask thickness x_mask.
+
+**Given:** R_p = 0.8 μm, ΔR_p = 0.08 μm in resist, N(x_mask)/N_p ≤ 10⁻³. **Find:** minimum x_mask.
+
+**Solution.**
 
 At the bottom of the mask the concentration must be 10⁻³ of the peak:
 
@@ -437,7 +486,25 @@ Measured with a four-point probe on a large thin sample:
 
     R_s = 4.532 × (V/I)
 
-**Example.** A boron layer gives V = 2.0 mV at I = 1.0 mA. R_s = 4.532 × 2.0 = 9.06 Ω/□. If x_j = 1.0 μm, the average resistivity is ρ = R_s x_j = 9.06 × 10⁻⁴ ≈ 9×10⁻⁴ Ω·cm, which corresponds to an average boron concentration of a few times 10¹⁹ cm⁻³.
+#### Example 3.1: sheet resistance from a four-point probe
+
+**Question.** A four-point probe on a boron-diffused wafer reads V = 2.0 mV when I = 1.0 mA is passed. The junction depth is 1.0 μm. Calculate the sheet resistance of the layer and its average resistivity.
+
+**Given:** V = 2.0 mV, I = 1.0 mA, x_j = 1.0 μm = 1.0×10⁻⁴ cm, R_s = 4.532 V/I.
+
+**Find:** R_s and the average resistivity ρ.
+
+**Solution.**
+
+Step 1. Sheet resistance:
+
+    R_s = 4.532 × V/I = 4.532 × (2.0×10⁻³ / 1.0×10⁻³) = 4.532 × 2.0 = 9.06 Ω/□
+
+Step 2. Average resistivity, from R_s = ρ/x_j:
+
+    ρ = R_s × x_j = 9.06 × 1.0×10⁻⁴ = 9.1×10⁻⁴ Ω·cm
+
+**Answer:** **R_s = 9.06 Ω/□, ρ ≈ 9×10⁻⁴ Ω·cm.** A resistivity this low corresponds to an average boron concentration of a few times 10¹⁹ cm⁻³.
 
 ### Junction depth by groove and stain
 
@@ -621,3 +688,20 @@ So the impurity concentration is highest at the surface and falls off as an erfc
 | Typical use today | Drive-in, deep wells, solar cells, emitter diffusion in older processes | Source/drain, threshold-adjust, wells, LDD, channel stops in all modern CMOS |
 
 **Summary:** diffusion is simple, cheap and damage-free but gives coarse, coupled control of dose and depth and needs high temperature. Ion implantation gives precise, independent, low-temperature control of dose and depth and is the standard technique for modern VLSI, at the cost of expensive equipment and lattice damage that must be annealed. In practice the two are often combined: implant to set the dose, then a thermal drive-in to set the depth.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Explain why doping is needed and name the common dopants of silicon. | Which of P, B, As, Ga make silicon n-type? | P and As (Group V); B and Ga make it p-type. | The big picture |
+| 2 | Explain diffusion and state Fick's first law and the temperature dependence of D. | By roughly what factor does D change when the furnace is 100 °C hotter (E_a ≈ 3.5 eV, ~1000 °C)? | About tenfold (Q4: 6.9×10⁻¹⁵ → 7.1×10⁻¹⁴ cm²/s). | Part A; Q4 |
+| 3 | Distinguish constant-source (erfc) and limited-source (Gaussian) diffusion and calculate their profiles. | In which type of diffusion does the surface concentration fall with time? | Limited-source (drive-in): the fixed dose spreads deeper, so C(0) = Q/√(πDt) falls. | Two types of diffusion; Q5–Q6 |
+| 4 | Describe the step-by-step diffusion process and the atomic diffusion mechanisms. | Which mechanism, vacancy or interstitial, is faster, and which do B and P use? | Interstitial is faster; B and P move mainly by the vacancy mechanism. | Step-by-step process; atomic level |
+| 5 | Describe ion implantation, its equipment and the Gaussian implant profile. | What does the mass analyser do? | Bends the ion beam with a magnet so only ions of the chosen mass-to-charge ratio reach the wafer. | Part B |
+| 6 | Calculate implant peak concentration, junction depth, dose and beam current. | Q = 10¹⁴ cm⁻² with ΔR_p = 0.04 μm: find N_p. | N_p = Q/(√(2π)ΔR_p) = 10¹⁴/(2.507 × 4×10⁻⁶) = 1.0×10¹⁹ cm⁻³. | Implantation calculations P1–P4 |
+| 7 | Compare diffusion with ion implantation, and explain channelling and annealing. | Why is the wafer tilted about 7° during implantation? | To stop ions travelling deep along open crystal channels (channelling). | Channelling; comparison table |
+| 8 | Describe how a doping profile is evaluated. | What does a four-point probe measure, and how is it calculated? | Sheet resistance, R_s = 4.532 V/I (Ω/□). | Part C; Example 3.1 |

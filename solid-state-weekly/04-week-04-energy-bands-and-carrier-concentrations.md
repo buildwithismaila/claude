@@ -3,6 +3,18 @@
 
 **Plan:** quantum-mechanics foundations (Schrödinger equation overview, Kronig–Penney model); energy band gaps, allowed and forbidden states; intrinsic and extrinsic carrier concentrations.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. State the basic ideas of quantum mechanics needed for solids.
+2. State the time-independent Schrödinger equation and explain its terms.
+3. Explain how discrete atomic levels become energy bands.
+4. Explain the Kronig–Penney model and how it produces allowed and forbidden bands.
+5. Explain E–k diagrams, effective mass and holes.
+6. Distinguish direct and indirect band gaps and calculate emission wavelengths.
+7. Derive n_i and calculate intrinsic and extrinsic carrier concentrations.
+
 ## The big picture
 
 In Week 1 we simply stated that a solid has a **valence band**, a **conduction band** and a **gap** between them. This week explains **why**. The answer needs one idea from quantum mechanics: **an electron behaves like a wave, and a wave trapped in a region can only vibrate in certain ways**. In a single atom that gives sharp energy levels. In a crystal, where the electron wave runs through a regular row of atoms, it gives broad bands of allowed energies separated by forbidden gaps.
@@ -205,7 +217,23 @@ With full ionisation and doping well above n_i:
 
     n = (N_D − N_A)/2 + √( ((N_D − N_A)/2)² + n_i² )
 
-**Example.** Si with N_D = 10¹⁶ cm⁻³: n = 10¹⁶, p = 10²⁰/10¹⁶ = 10⁴ cm⁻³. Doping raised the electrons by 10⁶ above n_i and lowered the holes by 10⁶.
+#### Example 4.1: how doping shifts both carrier concentrations
+
+**Question.** Silicon at 300 K (n_i = 1×10¹⁰ cm⁻³) is doped with N_D = 1×10¹⁶ cm⁻³. Calculate n and p, and compare each with its intrinsic value.
+
+**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³.
+
+**Find:** n, p, and the factors n/n_i and n_i/p.
+
+**Solution.**
+
+    n ≈ N_D = 1×10¹⁶ cm⁻³
+
+    p = n_i²/n = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+
+    n/n_i = 10¹⁶/10¹⁰ = 10⁶,   n_i/p = 10¹⁰/10⁴ = 10⁶
+
+**Answer:** **n = 10¹⁶ cm⁻³, p = 10⁴ cm⁻³.** Doping raised the electrons a million times above n_i and lowered the holes by the same factor, so np = n_i² still holds.
 
 **Temperature regions (n-type):** at very low temperature the donors are not all ionised (**freeze-out**, n < N_D); over the normal range n ≈ N_D (**extrinsic**); at high temperature n_i overtakes N_D and the material behaves as intrinsic (**intrinsic region**). Week 5 works through these in detail.
 
@@ -394,3 +422,19 @@ Additional results (assuming silicon at 300 K, n_i = 1×10¹⁰ cm⁻³):
     Conductivity:  σ ≈ q n₀ μ_n = 1.602×10⁻¹⁹ × 5×10¹⁶ × 1350 ≈ 10.8 S/cm  (ρ ≈ 0.093 Ω·cm)
 
 The thermal contribution n_i is negligible, which is why the majority-carrier density is simply the donor density. (Mobility falls at this doping to about 1000 cm²/V·s, so the real σ is nearer 8 S/cm.)
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | State the basic ideas of quantum mechanics needed for solids. | What is the meaning of |ψ|²? | The probability density of finding the electron at a point. | Why classical physics is not enough |
+| 2 | State the time-independent Schrödinger equation and explain its terms. | Which term of −(ħ²/2m)d²ψ/dx² + Vψ = Eψ is the kinetic energy? | −(ħ²/2m) d²ψ/dx². | The Schrödinger equation |
+| 3 | Explain how discrete atomic levels become energy bands. | Into how many levels does one atomic level split when N atoms form a crystal? | N levels, so close together that they form a band. | From atoms to bands |
+| 4 | Explain the Kronig–Penney model and how it produces allowed and forbidden bands. | In P sin(αa)/(αa) + cos(αa) = cos(ka), which energies are forbidden? | Those for which the left-hand side is greater than +1 or less than −1. | The Kronig–Penney model |
+| 5 | Explain E–k diagrams, effective mass and holes. | Does a strongly curved band give a heavy or a light effective mass? | Light: 1/m∗ = (1/ħ²) d²E/dk² is large. | E–k diagrams and effective mass |
+| 6 | Distinguish direct and indirect band gaps and calculate emission wavelengths. | What wavelength does GaAs (E_g = 1.42 eV) emit? | λ = 1.24/1.42 = 0.87 μm. | Direct and indirect band gaps |
+| 7 | Derive n_i and calculate intrinsic and extrinsic carrier concentrations. | Write n_i in terms of N_c, N_v and E_g. | n_i = √(N_cN_v) e^{−E_g/2kT}. | Part C; Example 4.1; Q27 |

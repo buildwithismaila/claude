@@ -3,6 +3,15 @@
 
 **Plan:** mid-module evaluation of crystal structures and carrier statistics (Weeks 1–5).
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Revise crystal structures, Miller indices and bonding (Week 1).
+2. Revise energy bands and direct/indirect gaps (Week 4).
+3. Calculate occupation probabilities with the Fermi–Dirac function (Week 5).
+4. Calculate n, p and E_F for doped and compensated silicon and germanium (Weeks 4–5).
+
 This page has a one-screen review of what CAT 1 covers, followed by a practice test with full solutions. The questions are written in the style of the lecturer's revision questions and the PGD exam paper. They are practice questions, not the actual CAT.
 
 ## Review: what you must be able to do
@@ -48,6 +57,10 @@ Use q = 1.6×10⁻¹⁹ C, kT = 0.0259 eV at 300 K, Si: n_i = 1×10¹⁰ cm⁻³
 
 ### 1. Atom density and nearest neighbours in Si
 
+**Question.** Silicon has lattice constant 5.43 Å. Calculate (a) the number of atoms per cm³ and (b) the nearest-neighbour distance.
+
+**Solution.**
+
 The diamond unit cell holds 8 atoms (8 corners × ⅛ + 6 faces × ½ + 4 inside).
 
     (a) N = 8/a³ = 8/(5.43×10⁻⁸ cm)³ = 8/(1.601×10⁻²² cm³) = 5.0×10²² atoms/cm³
@@ -55,6 +68,10 @@ The diamond unit cell holds 8 atoms (8 corners × ⅛ + 6 faces × ½ + 4 inside
     (b) r_nn = (√3/4)a = 0.433 × 5.43 Å = 2.35 Å
 
 ### 2. Miller indices
+
+**Question.** Find the Miller indices of planes with intercepts (a) 3a, 2b, c and (b) a, −b, ∞. For (a), find the interplanar spacing in Si.
+
+**Solution.**
 
 | | x | y | z |
 |---|---|---|---|
@@ -68,6 +85,10 @@ The diamond unit cell holds 8 atoms (8 corners × ⅛ + 6 faces × ½ + 4 inside
 
 ### 3. Packing factor of diamond
 
+**Question.** Show that the atomic packing factor of the diamond structure is 0.34.
+
+**Solution.**
+
 Nearest neighbours touch along the body diagonal at distance (√3/4)a, so the atomic radius is r = (√3/8)a. With 8 atoms per cell:
 
     APF = 8 × (4/3)πr³ / a³ = 8 × (4/3)π (√3/8)³ = (32π/3)(3√3/512) = π√3/16 = 0.34
@@ -76,16 +97,28 @@ Only 34 % of the volume is filled, an open structure that allows interstitial im
 
 ### 4. Direct and indirect gaps
 
+**Question.** State three differences between direct and indirect band-gap semiconductors and give the emission wavelength of GaAs.
+
+**Solution.**
+
 (1) In a direct gap the conduction-band minimum and valence-band maximum are at the same k; in an indirect gap they are at different k. (2) Direct transitions need only a photon; indirect transitions also need a phonon. (3) Direct-gap materials emit light efficiently (GaAs, GaN, InP: LEDs, lasers); indirect ones do not (Si, Ge). Also: absorption near E_g is strong in direct-gap and weak in indirect-gap material; radiative lifetime is ns in direct and much longer in indirect.
 
     GaAs: λ = 1.24/1.42 = 0.873 μm (near infrared)
 
 ### 5. Occupation probabilities
 
+**Question.** Find the probability that a state (a) 0.1 eV above E_F and (b) kT above E_F is occupied at 300 K.
+
+**Solution.**
+
     (a) f = 1/(1 + e^{0.1/0.0259}) = 1/(1 + e^{3.861}) = 1/(1 + 47.5) = 0.0206
     (b) f = 1/(1 + e^{1}) = 1/3.718 = 0.269
 
 ### 6. Temperature for a given probability
+
+**Question.** At what temperature is there a 10⁻⁴ probability that a state 0.30 eV above E_F is occupied?
+
+**Solution.**
 
 Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴.
 
@@ -96,6 +129,10 @@ Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴
 
 ### 7. Carrier densities from E_F
 
+**Question.** In a Si sample at 300 K the Fermi level is 0.25 eV below E_c. Find n and p. Is it n- or p-type?
+
+**Solution.**
+
     n = N_c e^{−(E_c−E_F)/kT} = 2.8×10¹⁹ × e^{−0.25/0.0259} = 2.8×10¹⁹ × e^{−9.65}
       = 2.8×10¹⁹ × 6.4×10⁻⁵ = 1.8×10¹⁵ cm⁻³
     p = n_i²/n = 10²⁰/1.8×10¹⁵ = 5.6×10⁴ cm⁻³
@@ -103,6 +140,10 @@ Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴
 n ≫ p, so the sample is **n-type** (doped with about 1.8×10¹⁵ cm⁻³ donors).
 
 ### 8. Compensated silicon
+
+**Question.** Si is doped with N_A = 1×10¹⁶ cm⁻³ and N_D = 3×10¹⁵ cm⁻³. Find n, p and the Fermi level position at 300 K.
+
+**Solution.**
 
 N_A > N_D, so the material is p-type with net doping N_A − N_D = 7×10¹⁵ cm⁻³ ≫ n_i.
 
@@ -114,6 +155,10 @@ The Fermi level is 0.349 eV below E_i. Both dopants still scatter carriers, so m
 
 ### 9. Lightly doped germanium
 
+**Question.** Germanium is doped with N_D = 1×10¹⁵ cm⁻³. Find n and p at 300 K, without assuming n_i is negligible.
+
+**Solution.**
+
 n_i = 2.4×10¹³ is not negligible compared with N_D = 10¹⁵, so use the exact neutrality solution:
 
     n = N_D/2 + √((N_D/2)² + n_i²) = 5×10¹⁴ + √(2.5×10²⁹ + 5.76×10²⁶)
@@ -124,8 +169,25 @@ n is still essentially N_D, but the minority concentration (5.8×10¹¹) is 10�
 
 ### 10. Intrinsic germanium
 
+**Question.** Calculate the conductivity and resistivity of intrinsic germanium at 300 K.
+
+**Solution.**
+
     σ_i = q n_i (μ_n + μ_p) = 1.6×10⁻¹⁹ × 2.4×10¹³ × (3900 + 1900)
         = 1.6×10⁻¹⁹ × 1.392×10¹⁷ = 0.0223 S/cm
     ρ_i = 1/σ_i = 44.9 Ω·cm
 
 For comparison, intrinsic Si is about 3×10⁵ Ω·cm, nearly 10⁴ times higher, because its band gap is larger.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Revise crystal structures, Miller indices and bonding (Week 1). | Find the Miller indices for intercepts 2a, 2b, 4c. | 1/2, 1/2, 1/4 → × 4 → (2 2 1). | Review; practice Q1–Q3 |
+| 2 | Revise energy bands and direct/indirect gaps (Week 4). | State one property that distinguishes a direct-gap semiconductor. | Efficient light emission (also: CB minimum and VB maximum at the same k). | Practice Q4 |
+| 3 | Calculate occupation probabilities with the Fermi–Dirac function (Week 5). | What is f at E = E_F + kT? | 1/(1 + e) = 0.269. | Practice Q5–Q6 |
+| 4 | Calculate n, p and E_F for doped and compensated silicon and germanium (Weeks 4–5). | Si with E_F 0.25 eV below E_c: n-type or p-type? | n-type (n = 1.8×10¹⁵ cm⁻³). | Practice Q7–Q10 |

@@ -3,6 +3,17 @@
 
 **Plan:** derivation and application of the minority-carrier continuity equation; semiconductor surface states and surface recombination velocity.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Derive the continuity equation for holes and electrons.
+2. Write and interpret the minority-carrier diffusion equation.
+3. Solve the diffusion equation for the standard cases.
+4. Calculate diffusion lengths and explain their importance.
+5. Explain surface states and surface recombination velocity.
+6. Calculate the effective lifetime of a wafer with recombining surfaces.
+
 ## The big picture
 
 Weeks 7 and 8 gave us all the separate pieces: carriers **flow** (drift and diffusion), and carriers are **created and destroyed** (generation and recombination). The **continuity equation** puts the pieces together into one equation.
@@ -83,9 +94,23 @@ It is the average distance an injected minority carrier diffuses before it recom
 
 > **In plain words.** Inject carriers at one end of a bar and they spread out by diffusion, but they also keep dying by recombination. They spread a typical distance L_p before they die. The longer they live (τ) and the faster they spread (D), the further they get.
 
-**Example.** n-Si with D_p = 12 cm²/s and τ_p = 1 μs:
+#### Example 9.1: diffusion length
 
-    L_p = √(12 × 10⁻⁶) = 3.46×10⁻³ cm = 34.6 μm
+**Question.** Holes are injected into n-type silicon in which D_p = 12 cm²/s and the hole lifetime is 1 μs. Calculate the hole diffusion length, and the fraction of the injected excess remaining 100 μm from the injection point.
+
+**Given:** D_p = 12 cm²/s, τ_p = 1 μs = 1×10⁻⁶ s, x = 100 μm.
+
+**Find:** L_p, and Δp(100 μm)/Δp(0).
+
+**Solution.**
+
+Step 1. L_p = √(D_pτ_p) = √(12 × 10⁻⁶) = 3.46×10⁻³ cm = 34.6 μm
+
+Step 2. Δp(x)/Δp(0) = e^{−x/L_p}:
+
+    e^{−100/34.6} = e^{−2.89} = 0.056
+
+**Answer:** **L_p = 34.6 μm**; only **5.6 %** of the excess survives 100 μm from the injection point.
 
 The hole current at the injection point comes from the slope of the profile there:
 
@@ -145,10 +170,25 @@ In a wafer of thickness W with both surfaces recombining, the measured (effectiv
 
     1/τ_eff = 1/τ_bulk + 2S/W          (for small S)
 
-**Example.** τ_bulk = 100 μs, W = 300 μm = 0.03 cm, S = 100 cm/s:
+#### Example 9.2: how surfaces reduce the lifetime
 
-    2S/W = 2 × 100/0.03 = 6.7×10³ s⁻¹,   1/τ_bulk = 1×10⁴ s⁻¹
-    1/τ_eff = 1.67×10⁴ s⁻¹   ⇒   τ_eff = 60 μs
+**Question.** A silicon wafer 300 μm thick has a bulk lifetime of 100 μs. Both surfaces are oxidised, giving a surface recombination velocity of 100 cm/s. Calculate the effective lifetime. Repeat for unprotected surfaces with S = 10⁵ cm/s.
+
+**Given:** τ_bulk = 100 μs = 1×10⁻⁴ s, W = 300 μm = 0.03 cm, S = 100 cm/s (then 10⁵ cm/s).
+
+**Find:** τ_eff in each case.
+
+**Solution.**
+
+Use 1/τ_eff = 1/τ_bulk + 2S/W.
+
+    S = 100 cm/s:   2S/W = 2 × 100/0.03 = 6.7×10³ s⁻¹,   1/τ_bulk = 1×10⁴ s⁻¹
+
+                    1/τ_eff = 1.67×10⁴ s⁻¹   ⇒   τ_eff = 60 μs
+
+    S = 10⁵ cm/s:   2S/W = 6.7×10⁶ s⁻¹ ≫ 1/τ_bulk   ⇒   τ_eff ≈ 1/6.7×10⁶ = 0.15 μs
+
+**Answer:** **τ_eff = 60 μs with oxidised surfaces, but only about 0.15 μs with bare surfaces**: an unprotected surface, not the bulk, then controls the lifetime.
 
 With an unprotected surface (S = 10⁵ cm/s), 2S/W = 6.7×10⁶ s⁻¹ and τ_eff falls to about **0.15 μs**: the surface, not the bulk, then controls everything.
 
@@ -219,3 +259,18 @@ S enters the boundary condition for the diffusion equation: D_p dΔp/dx = SΔp a
 5. **Device performance.** High S reduces solar-cell efficiency (especially for blue light absorbed near the surface), reduces BJT current gain (surface recombination at the emitter–base perimeter), and degrades photodetector response.
 
 **Reduction (passivation):** thermal oxidation (SiO₂) with forming-gas (H₂) anneal to tie up dangling bonds; silicon nitride and Al₂O₃ films with fixed charge for field-effect passivation; heavily doped surface layers (back-surface field) that repel minority carriers; and clean, damage-free surface preparation.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Derive the continuity equation for holes and electrons. | Write the continuity equation for holes. | ∂p/∂t = −(1/q)∂J_p/∂x + G_p − R_p. | Deriving the continuity equation |
+| 2 | Write and interpret the minority-carrier diffusion equation. | What does the term −Δp/τ_p represent? | Loss of excess holes by recombination. | The minority-carrier diffusion equation |
+| 3 | Solve the diffusion equation for the standard cases. | What is the steady-state profile for injection into a long bar? | Δp(x) = Δp(0)e^{−x/L_p}. | The four standard solutions |
+| 4 | Calculate diffusion lengths and explain their importance. | Find L_n for D_n = 30 cm²/s, τ_n = 10 μs. | L_n = √(30 × 10⁻⁵) = 1.7×10⁻² cm = 173 μm. | Diffusion length; Example 9.1 |
+| 5 | Explain surface states and surface recombination velocity. | What value of S corresponds to an Ohmic metal contact? | S → ∞ (Δp forced to zero). | Surfaces and surface states |
+| 6 | Calculate the effective lifetime of a wafer with recombining surfaces. | Write 1/τ_eff for a wafer of thickness W. | 1/τ_eff = 1/τ_bulk + 2S/W. | How surfaces shorten the lifetime; Example 9.2 |

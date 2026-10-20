@@ -3,7 +3,16 @@
 
 **Plan:** ideal MOS capacitor physics (accumulation, depletion, inversion); MOSFET threshold voltage; linear and saturation operating regions. This page follows your lecturer's note (sections 14.1–14.17) and solves its review questions 9–17.
 
-**Learning objectives.** Describe the structure of an ideal MOS capacitor; explain accumulation, depletion and inversion; explain how a MOS capacitor becomes a MOSFET; define threshold voltage and the factors that set it; explain the linear and saturation regions; use the long-channel equations to calculate drain current; distinguish enhancement from depletion mode.
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Describe the structure of an ideal MOS capacitor and calculate C_ox.
+2. Explain accumulation, depletion and inversion.
+3. Explain how a MOS capacitor becomes a MOSFET, and enhancement versus depletion mode.
+4. Define the threshold voltage and calculate it.
+5. Determine the operating region and calculate drain current.
+6. Compare BJTs and MOSFETs.
 
 ## The big picture
 
@@ -123,15 +132,35 @@ with the **body-effect coefficient**
 
 For simplified ideal MOSFET problems, the threshold voltage may simply be given. Always use the convention and parameters supplied in the question.
 
-### Worked example: calculating V_T
+#### Example 14.1: calculating the threshold voltage
 
-p-type Si, N_A = 10¹⁷ cm⁻³, t_ox = 10 nm, n⁺ polysilicon gate (V_FB = −0.98 V), no oxide charge.
+**Question.** An n-channel MOSFET is built on p-type silicon with N_A = 1×10¹⁷ cm⁻³, a 10 nm SiO₂ gate oxide and an n⁺ polysilicon gate, for which V_FB = −0.98 V. There is no oxide charge. Calculate the threshold voltage at 300 K.
+
+**Given:** N_A = 1×10¹⁷ cm⁻³, t_ox = 10 nm = 1×10⁻⁶ cm, V_FB = −0.98 V, ε_ox = 3.45×10⁻¹³ F/cm, ε_si = 1.04×10⁻¹² F/cm, n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
+
+**Find:** V_T = V_FB + 2φ_F + γ√(2φ_F).
+
+**Solution.**
+
+Step 1. Bulk Fermi potential:
 
     φ_F = 0.0259 ln(10¹⁷/10¹⁰) = 0.417 V,   2φ_F = 0.834 V
+
+Step 2. Oxide capacitance:
+
     C_ox = 3.45×10⁻¹³ / 10⁻⁶ = 3.45×10⁻⁷ F/cm²
-    γ = √(2 × 1.6×10⁻¹⁹ × 1.04×10⁻¹² × 10¹⁷) / 3.45×10⁻⁷ = √(3.33×10⁻¹⁴)/3.45×10⁻⁷ = 1.824×10⁻⁷/3.45×10⁻⁷ = 0.529 V^{1/2}
+
+Step 3. Body-effect coefficient:
+
+    γ = √(2 × 1.6×10⁻¹⁹ × 1.04×10⁻¹² × 10¹⁷) / 3.45×10⁻⁷ = 1.824×10⁻⁷ / 3.45×10⁻⁷ = 0.529 V^{1/2}
+
     γ√(2φ_F) = 0.529 × √0.834 = 0.529 × 0.913 = 0.483 V
+
+Step 4. Add the three terms:
+
     V_T = −0.98 + 0.834 + 0.483 = 0.34 V
+
+**Answer:** **V_T ≈ 0.34 V.**
 
 ## 14.8 MOSFET regions of operation
 
@@ -197,7 +226,11 @@ Transconductance measures how strongly the drain current responds to a small cha
 
 ## 14.13 Worked example 1: determining the operating region
 
-An nMOS transistor has V_T = 1 V, V_GS = 3 V and V_DS = 1 V. Find the operating region.
+**Question.** An nMOS transistor has V_T = 1 V, V_GS = 3 V and V_DS = 1 V. Determine its operating region.
+
+**Given:** V_T = 1 V, V_GS = 3 V, V_DS = 1 V. **Find:** the region of operation.
+
+**Solution.**
 
     V_GS > V_T (3 > 1), so a channel exists.
     V_GS − V_T = 3 − 1 = 2 V
@@ -207,7 +240,11 @@ The transistor is in the **linear (triode) region**.
 
 ## 14.14 Worked example 2: saturation current
 
-An nMOS has μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V and V_GS = 4 V. Find the saturation current.
+**Question.** An nMOS transistor has μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V and V_GS = 4 V. Find the saturation drain current.
+
+**Given:** k = μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V, V_GS = 4 V. **Find:** I_D(sat).
+
+**Solution.**
 
     I_D = ½ × 2 × (4 − 1)² mA = 1 × 9 = 9 mA
 
@@ -215,7 +252,11 @@ An nMOS has μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V and V_GS = 4 V. Find the saturat
 
 ## 14.15 Worked example 3: linear-region current
 
-μ_nC_ox(W/L) = 1 mA/V², V_T = 1 V, V_GS = 3 V, V_DS = 0.5 V. Find I_D.
+**Question.** An nMOS transistor has μ_nC_ox(W/L) = 1 mA/V², V_T = 1 V, V_GS = 3 V and V_DS = 0.5 V. Calculate the drain current.
+
+**Given:** k = 1 mA/V², V_T = 1 V, V_GS = 3 V, V_DS = 0.5 V. **Find:** I_D.
+
+**Solution.**
 
 First check the region: V_GS − V_T = 2 V > V_DS = 0.5 V, so it is linear.
 
@@ -308,3 +349,18 @@ Check the region: V_GS − V_T = 3 V > V_DS = 0.8 V, so linear.
 
 - **Control mechanism.** A BJT is current-controlled: the collector current is set by the base current (I_C = βI_B), or equivalently by the base–emitter voltage through carrier injection across a forward-biased junction. A MOSFET is voltage-controlled: the gate voltage creates an electric field across the oxide that induces the channel charge, with no carrier injection from the gate.
 - **Input impedance.** The BJT's base–emitter junction is forward biased and must be supplied with base current, so its input impedance is moderate (typically kΩ). The MOSFET's gate is insulated by the oxide and draws essentially no DC current, so its input impedance is extremely high (10¹² Ω or more), limited only by the gate capacitance at high frequency.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Describe the structure of an ideal MOS capacitor and calculate C_ox. | Find C_ox for a 5 nm SiO₂ layer. | 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm². | 14.2 |
+| 2 | Explain accumulation, depletion and inversion. | On p-type Si, what forms at the surface in inversion? | A layer of electrons (the surface becomes n-type). | 14.3–14.5 |
+| 3 | Explain how a MOS capacitor becomes a MOSFET, and enhancement versus depletion mode. | Does an enhancement-mode nMOS conduct at V_GS = 0? | No: a gate voltage above V_T is needed to create the channel. | 14.6 |
+| 4 | Define the threshold voltage and calculate it. | What three contributions make up V_T? | V_FB, the band bending 2φ_F, and the depletion-charge term γ√(2φ_F). | 14.7; Example 14.1 |
+| 5 | Determine the operating region and calculate drain current. | V_T = 1 V, V_GS = 2 V, V_DS = 3 V: which region? | Saturation (V_DS ≥ V_GS − V_T = 1 V). | 14.8–14.15 |
+| 6 | Compare BJTs and MOSFETs. | Which has the higher input impedance, and why? | The MOSFET: its gate is insulated by the oxide and draws no DC current. | 14.16; review Q17 |

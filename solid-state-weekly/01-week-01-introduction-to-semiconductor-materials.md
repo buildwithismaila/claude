@@ -3,6 +3,19 @@
 
 **Plan:** elemental vs compound semiconductors (Si, Ge, GaAs); crystal structures, Miller indices and bonding mechanisms. This page follows the issued Lecture 2 notes in their own order, then goes to the depth the examination needs.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Define a semiconductor and distinguish it from a conductor and an insulator.
+2. Describe the atomic structure of Si, Ge, Ga and As and identify their valence electrons.
+3. Explain covalent bonding in silicon and electron–hole pair generation.
+4. Distinguish intrinsic, n-type and p-type semiconductors, and donors from acceptors.
+5. Compare elemental and compound semiconductors, and Si, Ge and GaAs.
+6. Explain the energy-band picture, the band gap and direct versus indirect gaps.
+7. Describe crystal lattices, unit cells and the diamond and zinc-blende structures.
+8. Determine Miller indices of planes and the spacing between planes.
+
 > **How to read this page.** Read it in order: each section builds on the one before. The tables and boxed equations are the parts to memorise; the paragraphs around them explain why they are true. The key points at the end summarise the week, and the solved revision and exam questions show how to write the answers.
 
 ## Introduction
@@ -139,7 +152,25 @@ Produced by adding a **trivalent impurity** (three valence electrons): boron (B)
 
 @fig figures/dopant-lattice.svg | Left: a phosphorus atom in silicon donates its fifth electron (n-type). Right: a boron atom leaves one bond incomplete, creating a hole (p-type).
 
-**Example.** Silicon doped with N_D = 10¹⁶ cm⁻³ phosphorus at 300 K: n ≈ 10¹⁶ cm⁻³, p = (10¹⁰)²/10¹⁶ = 10⁴ cm⁻³. Electrons outnumber holes by 10¹².
+#### Example 1.1: carriers in n-type silicon
+
+**Question.** Silicon at 300 K is doped with 10¹⁶ cm⁻³ phosphorus atoms. Taking n_i = 1×10¹⁰ cm⁻³ and assuming every donor is ionised, calculate the electron and hole concentrations and state which carrier is the majority.
+
+**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, T = 300 K, complete ionisation.
+
+**Find:** n, p, and the majority carrier.
+
+**Solution.**
+
+Step 1. Each phosphorus atom gives one free electron, and N_D ≫ n_i, so
+
+    n ≈ N_D = 1×10¹⁶ cm⁻³
+
+Step 2. The mass-action law np = n_i² gives the holes:
+
+    p = n_i²/n = (1×10¹⁰)² / (1×10¹⁶) = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+
+**Answer:** **n = 1×10¹⁶ cm⁻³, p = 1×10⁴ cm⁻³.** Electrons are the majority carriers; they outnumber the holes by 10¹².
 
 ## Elemental semiconductors
 
@@ -321,17 +352,33 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 
 ### Examples (from the lecture)
 
-**Example 1.** Plane intercepts a, 2b and 3c.
+#### Example 1.2: Miller indices of a plane
+
+**Question.** A crystal plane cuts the x, y and z axes at a, 2b and 3c respectively. Determine its Miller indices.
+
+**Given:** intercepts a, 2b, 3c, i.e. 1, 2, 3 in lattice units.
+
+**Find:** (h k l).
+
+**Solution.**
 
 | Step | x | y | z |
 |---|---|---|---|
 | Intercepts (lattice units) | 1 | 2 | 3 |
 | Reciprocals | 1 | 1/2 | 1/3 |
-| Multiply by 6 | 6 | 3 | 2 |
+| Multiply by the LCM, 6 | 6 | 3 | 2 |
 
-Miller indices **(6 3 2)**. Remember: Miller indices come from the **reciprocals** of the intercepts, not the intercepts themselves.
+**Answer:** **(6 3 2).** Remember: Miller indices come from the **reciprocals** of the intercepts, not the intercepts themselves.
 
-**Example 2.** Plane intercepts x = a, y = 2b, z = ∞.
+#### Example 1.3: a plane parallel to an axis
+
+**Question.** A plane has intercepts x = a, y = 2b and is parallel to the z-axis (z = ∞). Determine its Miller indices.
+
+**Given:** intercepts 1, 2, ∞ in lattice units.
+
+**Find:** (h k l).
+
+**Solution.**
 
 | Step | x | y | z |
 |---|---|---|---|
@@ -339,7 +386,7 @@ Miller indices **(6 3 2)**. Remember: Miller indices come from the **reciprocals
 | Reciprocals | 1 | 1/2 | 0 |
 | Multiply by 2 | 2 | 1 | 0 |
 
-Miller indices **(2 1 0)**. The zero shows that the plane is parallel to the z-axis.
+**Answer:** **(2 1 0).** The zero shows that the plane is parallel to the z-axis.
 
 ### Interplanar spacing (cubic crystals)
 
@@ -668,3 +715,20 @@ Check: the integers 3, 2, 6 have no common factor, so no further reduction is po
 **Key differences:** how the electrons are held (shared between pairs / transferred to ions / shared by all atoms), directionality (yes / no / no), and the resulting electrical behaviour (semiconductor or insulator / insulator / conductor).
 
 **Bonding in silicon: covalent.** Si has four valence electrons. In the diamond-cubic lattice each Si atom forms four sp³ covalent bonds with four nearest neighbours at 109.5°, sharing one electron pair with each so that every atom has a full octet. Because Si–Si bonds are between identical atoms there is no ionic character. The modest bond strength (equivalent to E_g = 1.12 eV) is what lets thermal energy break a few bonds at room temperature, creating electron–hole pairs and giving silicon its semiconducting behaviour.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Define a semiconductor and distinguish it from a conductor and an insulator. | Why does a semiconductor conduct better when it is heated, while a metal conducts worse? | Heat breaks bonds and creates many more electron–hole pairs (∝ e^{−E_g/2kT}); in a metal the carrier number is fixed and only scattering increases. | Classification of materials |
+| 2 | Describe the atomic structure of Si, Ge, Ga and As and identify their valence electrons. | How many valence electrons do Si, Ga and As have? | Si 4, Ga 3, As 5 (GaAs averages 4 per atom). | Atomic structure; valence electrons |
+| 3 | Explain covalent bonding in silicon and electron–hole pair generation. | What two carriers are created when a covalent bond in Si breaks, and what minimum energy is needed? | A free electron and a hole; at least E_g = 1.12 eV. | Covalent bonding; electron–hole pairs |
+| 4 | Distinguish intrinsic, n-type and p-type semiconductors, and donors from acceptors. | Si is doped with 10¹⁷ cm⁻³ boron. Is it n- or p-type, and what is the electron concentration (n_i = 10¹⁰ cm⁻³)? | p-type; n = n_i²/N_A = 10³ cm⁻³. | Intrinsic and extrinsic semiconductors |
+| 5 | Compare elemental and compound semiconductors, and Si, Ge and GaAs. | Give one reason GaAs is preferred to Si for high-frequency work and one reason Si is preferred for ICs. | GaAs: electron mobility ≈ 8500 vs 1350 cm²/V·s. Si: excellent native SiO₂ (also cheaper, larger wafers). | Elemental and compound; comparison table |
+| 6 | Explain the energy-band picture, the band gap and direct versus indirect gaps. | Why is silicon not used for LEDs? | Its gap is indirect: a phonon is needed to conserve momentum, so radiative recombination is very inefficient. | Energy band concept; direct and indirect band gaps |
+| 7 | Describe crystal lattices, unit cells and the diamond and zinc-blende structures. | How many atoms are in the diamond-cubic unit cell, and how many nearest neighbours does each atom have? | 8 atoms per cell; 4 nearest neighbours. | Semiconductor crystal structure |
+| 8 | Determine Miller indices of planes and the spacing between planes. | Find the Miller indices of a plane with intercepts 3a, ∞, c. | Reciprocals 1/3, 0, 1 → × 3 → (1 0 3). | Miller indices; Examples 1.2–1.3 |

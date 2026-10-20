@@ -3,7 +3,16 @@
 
 **Plan:** operational physics; minority-carrier profiles in the active regions; emitter efficiency, base transport factor and current gains (α, β). This page follows your lecturer's Weeks 13–15 note (sections 13.1–13.13) and solves its review questions.
 
-**Learning objectives.** By the end of this week you should be able to: explain the structure and operating principle of NPN and PNP transistors; describe carrier injection, diffusion, recombination and collection in the forward-active region; sketch the minority-carrier profiles in emitter, base and collector; define emitter injection efficiency and base transport factor; derive α and β and relate them to γ and α_T; and solve numerical problems on transistor currents and gains.
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Explain the structure and operating principle of NPN and PNP transistors.
+2. Describe injection, diffusion, recombination and collection in the forward-active region.
+3. Sketch and explain the minority-carrier profiles.
+4. Define emitter injection efficiency and base transport factor.
+5. Derive α and β and relate them to γ and α_T.
+6. Solve problems on transistor currents and gains.
 
 ## The big picture
 
@@ -121,7 +130,19 @@ Physically, a current must survive two losses to get from emitter to collector: 
 
     α ≈ γ α_T
 
-**Example.** If γ = 0.995 and α_T = 0.990, then α ≈ 0.995 × 0.990 = 0.98505.
+#### Example 13.1: α from γ and α_T
+
+**Question.** A transistor has an emitter injection efficiency of 0.995 and a base transport factor of 0.990. Estimate its common-base current gain.
+
+**Given:** γ = 0.995, α_T = 0.990.
+
+**Find:** α.
+
+**Solution.**
+
+    α ≈ γα_T = 0.995 × 0.990 = 0.98505
+
+**Answer:** **α ≈ 0.985.**
 
 ## 13.7 Common-emitter current gain β
 
@@ -165,7 +186,11 @@ Because α is close to 1, the denominator 1 − α is a small number, so **a sma
 
 ## 13.9 Worked example 1: finding α
 
-A BJT has an emitter current of 5 mA and a collector current of 4.9 mA. Find α and the base current.
+**Question.** A BJT has an emitter current of 5 mA and a collector current of 4.9 mA. Determine α and the base current.
+
+**Given:** I_E = 5 mA, I_C = 4.9 mA. **Find:** α and I_B.
+
+**Solution.**
 
     α = I_C/I_E = 4.9/5 = 0.98
     I_B = I_E − I_C = 5 − 4.9 = 0.1 mA
@@ -174,7 +199,11 @@ A BJT has an emitter current of 5 mA and a collector current of 4.9 mA. Find α 
 
 ## 13.10 Worked example 2: finding β from α
 
-A transistor has α = 0.98. Find β. If the base current is 0.2 mA, find the collector and emitter currents.
+**Question.** A transistor has α = 0.98. Determine β. If the base current is 0.2 mA, determine the collector and emitter currents.
+
+**Given:** α = 0.98, I_B = 0.2 mA. **Find:** β, I_C, I_E.
+
+**Solution.**
 
     β = α/(1 − α) = 0.98/0.02 = 49
     I_C = βI_B = 49 × 0.2 mA = 9.8 mA
@@ -184,7 +213,11 @@ A transistor has α = 0.98. Find β. If the base current is 0.2 mA, find the col
 
 ## 13.11 Worked example 3: injection efficiency and transport factor
 
-An NPN transistor has γ = 0.995 and α_T = 0.990. Estimate α and β.
+**Question.** An NPN transistor has emitter injection efficiency γ = 0.995 and base transport factor α_T = 0.990. Estimate α and β.
+
+**Given:** γ = 0.995, α_T = 0.990. **Find:** α and β.
+
+**Solution.**
 
     α ≈ γα_T = 0.995 × 0.990 = 0.98505
     β = α/(1 − α) = 0.98505/0.01495 ≈ 65.9
@@ -193,14 +226,18 @@ An NPN transistor has γ = 0.995 and α_T = 0.990. Estimate α and β.
 
 ## Worked example 4: from device design to gain
 
-An NPN Si transistor: N_E = 10¹⁹ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in emitter) = 2.5 cm²/s, D_B (electrons in base) = 25 cm²/s, τ_n = 1 μs, area 10⁻⁴ cm². Find γ, α_T, α, β and I_C at V_BE = 0.65 V.
+**Question.** An NPN silicon transistor has N_E = 10¹⁹ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in the emitter) = 2.5 cm²/s, D_B (electrons in the base) = 25 cm²/s, base lifetime τ_n = 1 μs and area 10⁻⁴ cm². Calculate the emitter injection efficiency γ, the base transport factor α_T, the current gains α and β, and the collector and base currents at V_BE = 0.65 V.
+
+**Given:** the dopings, widths, diffusion coefficients and lifetime above; n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V. **Find:** γ, α_T, α, β, I_C and I_B.
+
+**Solution.**
 
     γ = 1 / [1 + (2.5 × 10¹⁷ × 0.5)/(25 × 10¹⁹ × 1)] = 1/(1 + 5×10⁻⁴) = 0.99950
     L_n = √(25 × 10⁻⁶) = 5×10⁻³ cm = 50 μm
     α_T = 1 − 0.5²/(2 × 50²) = 1 − 5×10⁻⁵ = 0.99995
     α = γα_T = 0.99945,   β = 0.99945/0.00055 ≈ 1800
 
-    I_S = qAD_Bn_i²/(N_BW_B) = (1.6×10⁻¹⁹)(10⁻⁴)(25)(10²⁰)/(10¹⁷ × 5×10⁻⁵) = 8×10⁻¹⁵ A
+    I_S = qAD_Bn_i²/(N_{B}W_B) = (1.6×10⁻¹⁹)(10⁻⁴)(25)(10²⁰)/(10¹⁷ × 5×10⁻⁵) = 8×10⁻¹⁵ A
     I_C = 8×10⁻¹⁵ × e^{0.65/0.0259} = 8×10⁻¹⁵ × 7.9×10¹⁰ = 0.63 mA,   I_B = I_C/β ≈ 0.35 μA
 
 Here the emitter efficiency limits β. Real devices have lower β (typically 100–300) because of recombination in the E–B depletion region and other non-ideal effects.
@@ -297,3 +334,18 @@ Check: α/(1 − α) = 0.98/0.02 = 49. ✓
 | Use | Digital OFF state | Amplifiers | Digital ON state |
 
 In cut-off there is no injection, so no carriers cross the base. In the active region the collector collects all carriers that arrive, independently of its voltage. In saturation the collector junction is also forward biased and starts injecting carriers back into the base, so the collector current can no longer rise with base current; the transistor is fully ON.
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Explain the structure and operating principle of NPN and PNP transistors. | Why is the base made very thin? | So that injected carriers cross it before they recombine. | 13.1–13.2 |
+| 2 | Describe injection, diffusion, recombination and collection in the forward-active region. | Which junction is forward biased in forward-active operation? | The emitter–base junction (collector–base is reverse biased). | 13.2 |
+| 3 | Sketch and explain the minority-carrier profiles. | What shape is the electron profile in a thin base, and what does its slope set? | Almost a straight line; its slope sets the collector current. | 13.3 |
+| 4 | Define emitter injection efficiency and base transport factor. | How is γ made close to 1? | By doping the emitter much more heavily than the base. | 13.4–13.5 |
+| 5 | Derive α and β and relate them to γ and α_T. | Write β in terms of α. | β = α/(1 − α). | 13.6–13.8 |
+| 6 | Solve problems on transistor currents and gains. | β = 100, I_C = 5 mA: find I_B and I_E. | I_B = 50 μA, I_E = 5.05 mA. | Worked examples 1–4; review Q7 |

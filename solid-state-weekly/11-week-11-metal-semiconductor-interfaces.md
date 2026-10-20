@@ -3,6 +3,17 @@
 
 **Plan:** Schottky barrier diode physics versus Ohmic contact mechanisms; energy band diagrams under equilibrium and bias.
 
+## Learning objectives
+
+By the end of this week you should be able to:
+
+1. Define work function and electron affinity and relate them.
+2. Explain how a Schottky barrier forms and calculate Φ_B and V_bi.
+3. Explain thermionic emission and calculate Schottky diode currents.
+4. Draw Schottky band diagrams in equilibrium and under bias.
+5. Explain the two ways of making Ohmic contacts.
+6. Describe the stability problems of metal contacts.
+
 ## The big picture
 
 Every device must be wired to the outside world with metal. You might expect a metal touching a semiconductor to behave like a simple wire connection. Sometimes it does: that is an **Ohmic contact**, which lets current through equally well in both directions. But sometimes the contact itself forms a **barrier** and conducts in only one direction, like a diode: a **Schottky contact**.
@@ -23,7 +34,21 @@ These are linked by
 
 Metal work functions (eV): Al 4.28, Ti 4.33, Cr 4.5, W 4.55, Au 5.1, Ni 5.15, Pt 5.65.
 
-**Example.** n-Si with N_D = 10¹⁶ cm⁻³ has E_c − E_F = 0.205 eV (Week 5), so Φ_s = 4.05 + 0.205 = 4.26 eV.
+#### Example 11.1: work function of doped silicon
+
+**Question.** Calculate the work function of n-type silicon doped with N_D = 1×10¹⁶ cm⁻³ at 300 K. The electron affinity of Si is 4.05 eV.
+
+**Given:** χ = 4.05 eV, N_D = 1×10¹⁶ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, kT = 0.02585 eV.
+
+**Find:** Φ_s.
+
+**Solution.**
+
+Step 1. Position of E_F (Example 5.1): E_c − E_F = kT ln(N_c/N_D) = 0.205 eV
+
+Step 2. Φ_s = χ + (E_c − E_F) = 4.05 + 0.205 = 4.26 eV
+
+**Answer:** **Φ_s = 4.26 eV.**
 
 ## The Schottky barrier (rectifying contact)
 
@@ -41,9 +66,25 @@ There are now **two barriers**, depending on which side the electron starts from
     seen from the metal (barrier height):       Φ_B = Φ_m − χ       (the ideal Schottky–Mott rule)
     seen from the semiconductor (built-in):    V_bi = Φ_m − Φ_s = Φ_B − (E_c − E_F)/q
 
-**Example.** Au (Φ_m = 5.1 eV) on the n-Si above: ideal Φ_B = 5.1 − 4.05 = 1.05 eV and V_bi = 5.1 − 4.26 = 0.84 V.
+#### Example 11.2: ideal Schottky barrier
 
-(For p-type semiconductors everything flips: a rectifying contact needs Φ_m < Φ_s, and the barrier for holes is Φ_Bp = E_g/q − (Φ_m − χ).)
+**Question.** Gold (Φ_m = 5.1 eV) is deposited on the n-type silicon of Example 11.1. Using the ideal Schottky–Mott model, find the barrier height seen from the metal and the built-in potential seen from the semiconductor. Is the contact rectifying or Ohmic?
+
+**Given:** Φ_m = 5.1 eV, χ = 4.05 eV, Φ_s = 4.26 eV.
+
+**Find:** Φ_B, V_bi, and the type of contact.
+
+**Solution.**
+
+    Φ_B = Φ_m − χ = 5.1 − 4.05 = 1.05 eV
+
+    V_bi = Φ_m − Φ_s = 5.1 − 4.26 = 0.84 V
+
+Φ_m > Φ_s on n-type silicon, so a depletion region forms: the contact is rectifying.
+
+**Answer:** **Φ_B = 1.05 eV, V_bi = 0.84 V: a rectifying (Schottky) contact.** In practice Fermi-level pinning gives a measured Φ_B of about 0.8 eV for Au on n-Si.
+
+(For p-type semiconductors everything flips: a rectifying contact needs Φ_m < Φ_s, and the barrier for holes is Φ_{Bp} = E_g/q − (Φ_m − χ).)
 
 **Fermi-level pinning (what really happens).** Measured barriers depend much less on the metal than the simple rule predicts, because surface states at the interface (Week 9) hold ("pin") the Fermi level near a fixed energy. For example, gold on n-Si gives Φ_B ≈ 0.8 eV, not 1.05 eV; on n-GaAs almost every metal gives about 0.8 eV. In calculations, use the measured Φ_B if it is given.
 
@@ -62,11 +103,25 @@ In a Schottky diode the current is carried by **majority carriers** (electrons i
 
 The shape is the same as a p-n diode, but J_s is far larger.
 
-**Example.** n-Si with Φ_B = 0.8 eV at 300 K:
+#### Example 11.3: Schottky saturation current
+
+**Question.** A Schottky diode on n-type silicon has a barrier height of 0.8 eV. Taking A∗∗ = 110 A/cm²K², calculate the saturation current density at 300 K and the forward voltage needed for 1 A/cm².
+
+**Given:** Φ_B = 0.8 eV, A∗∗ = 110 A/cm²K², T = 300 K, kT = 0.0259 eV, J = 1 A/cm².
+
+**Find:** J_s, and V at J = 1 A/cm².
+
+**Solution.**
+
+Step 1. J_s = A∗∗T²e^{−qΦ_B/kT}:
 
     J_s = 110 × 300² × e^{−0.8/0.0259} = 9.9×10⁶ × 3.9×10⁻¹⁴ = 3.8×10⁻⁷ A/cm²
 
-About 10⁵ times larger than for a comparable p-n junction. So a Schottky diode reaches a given current at about **0.3–0.4 V** instead of 0.6–0.7 V.
+Step 2. V = (kT/q) ln(J/J_s) for an ideal diode:
+
+    V = 0.0259 × ln(1/3.8×10⁻⁷) = 0.0259 × 14.8 = 0.38 V
+
+**Answer:** **J_s = 3.8×10⁻⁷ A/cm²; 1 A/cm² flows at about 0.38 V**, compared with about 0.7 V for a p-n diode, because J_s is about 10⁵ times larger.
 
 ### Schottky diode versus p-n diode
 
@@ -174,3 +229,18 @@ Both are metal–semiconductor junctions. The difference is whether a significan
 | Resistance | Depends on bias and polarity | Small, constant |
 | Purpose | Fast rectifier, detector, MESFET gate | Connecting devices to the circuit |
 | Examples | Au, Pt, W, PtSi on n-Si; Ti/Au on n-GaAs | Al or silicide on n⁺/p⁺ Si; Au–Ge–Ni on n⁺-GaAs |
+
+---
+
+## Objectives check
+
+Use this table to confirm you have met this week's objectives. Cover the Answer column and answer each check question from memory. If you cannot, go back to the section in the last column before moving on.
+
+| # | Objective | Check yourself | Answer | Where it is taught |
+|---|---|---|---|---|
+| 1 | Define work function and electron affinity and relate them. | Write Φ_s in terms of χ. | Φ_s = χ + (E_c − E_F). | The energies involved; Example 11.1 |
+| 2 | Explain how a Schottky barrier forms and calculate Φ_B and V_bi. | Al (4.28 eV) on n-Si (χ = 4.05 eV): find the ideal barrier height. | Φ_B = 4.28 − 4.05 = 0.23 eV. | The Schottky barrier; Example 11.2 |
+| 3 | Explain thermionic emission and calculate Schottky diode currents. | Why does a Schottky diode switch faster than a p-n diode? | It is a majority-carrier device with no stored minority charge. | Current transport; Example 11.3 |
+| 4 | Draw Schottky band diagrams in equilibrium and under bias. | Which barrier stays constant under bias? | qΦ_B, the barrier seen from the metal. | Band diagrams under bias |
+| 5 | Explain the two ways of making Ohmic contacts. | Why does heavy doping make a contact Ohmic? | The depletion layer becomes so thin that electrons tunnel through it. | Ohmic contacts |
+| 6 | Describe the stability problems of metal contacts. | What is electromigration? | Gradual movement of metal atoms by the flowing electrons, forming voids and opens. | Stability of contacts |
