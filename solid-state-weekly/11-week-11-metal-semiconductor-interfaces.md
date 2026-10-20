@@ -14,6 +14,63 @@ By the end of this week you should be able to:
 5. Explain the two ways of making Ohmic contacts.
 6. Describe the stability problems of metal contacts.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
+| τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
+| V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
+| V, V_a | Applied voltage (positive for forward bias) | V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| I | Current | A |
+| A (area) | Device or contact area | cm² |
+| η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
+| Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
+| Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
+| χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
+| Φ_B | Schottky barrier height seen from the metal | eV (or V) |
+| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
+| ρ_c | Specific contact resistance | Ω·cm² |
+| E_vac | Vacuum level: energy of an electron just free of the material | eV |
+| R_c | Contact resistance | Ω (specific: Ω·cm²) |
+| Φ_Bn, Φ_Bp | Schottky barrier height for electrons (n-type) and for holes (p-type) | eV |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| I-V | Current–voltage (measurement or characteristic) |
+| MESFET | Metal–semiconductor field-effect transistor |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
+
+
 ## The big picture
 
 Every device must be wired to the outside world with metal. You might expect a metal touching a semiconductor to behave like a simple wire connection. Sometimes it does: that is an **Ohmic contact**, which lets current through equally well in both directions. But sometimes the contact itself forms a **barrier** and conducts in only one direction, like a diode: a **Schottky contact**.

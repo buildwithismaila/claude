@@ -18,6 +18,87 @@ By the end of this week you should be able to:
 
 > **How to read this page.** Read it in order: each section builds on the one before. The tables and boxed equations are the parts to memorise; the paragraphs around them explain why they are true. The key points at the end summarise the week, and the solved revision and exam questions show how to write the answers.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_v (E_V) | Energy of the top of the valence band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
+| ν, hν | Frequency of light, and photon energy | Hz; eV |
+| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
+| [u v w], ⟨u v w⟩ | A crystal direction; family of equivalent directions | integers |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| v_d | Drift velocity | cm/s |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
+| ρ | Resistivity, 1/σ | Ω·cm |
+| α, β, γ (cell) | Angles between the edges of a unit cell | degrees; 90° for cubic |
+| f_T | Transition (cut-off) frequency | Hz |
+| λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| GaN | Gallium nitride |
+| SiC | Silicon carbide |
+| InP | Indium phosphide |
+| GaP | Gallium phosphide |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| FCC | Face-centred cubic lattice |
+| BCC | Body-centred cubic lattice |
+| SC | Simple cubic lattice |
+| APF | Atomic packing factor |
+| III–V | Compound of Group III and Group V elements (e.g. GaAs) |
+| MOS | Metal–oxide–semiconductor |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| MESFET | Metal–semiconductor field-effect transistor |
+| HEMT | High-electron-mobility transistor |
+| BJT | Bipolar junction transistor |
+| HBT | Heterojunction bipolar transistor |
+| IC | Integrated circuit |
+| VLSI | Very-large-scale integration |
+| LED | Light-emitting diode |
+| RF | Radio frequency |
+| IGBT | Insulated-gate bipolar transistor |
+| MEMS | Micro-electro-mechanical systems |
+| LCM | Lowest common multiple |
+| KOH | Potassium hydroxide (an anisotropic silicon etchant) |
+| UV | Ultraviolet |
+
+
 ## Introduction
 
 Semiconductor materials are the foundation of modern electronic and electrical systems. Almost every modern electronic device depends on them, including computers, mobile phones, solar cells, sensors, communication systems, power converters and control systems.

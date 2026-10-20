@@ -16,6 +16,90 @@ By the end of this week you should be able to:
 7. Compare diffusion with ion implantation, and explain channelling and annealing.
 8. Describe how a doping profile is evaluated.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_v (E_V) | Energy of the top of the valence band | eV |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| E_D | Donor energy level, just below E_c | eV; E_c − E_D ≈ 0.045 eV for P in Si |
+| E_A | Acceptor energy level, just above E_v | eV; E_A − E_v ≈ 0.045 eV for B in Si |
+| E_a | Activation energy of dopant diffusion | eV; about 3–4 eV |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | cm⁻³ |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
+| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | cm²/s |
+| J (Fick) | Dopant flux: atoms crossing 1 cm² per second | atoms/(cm²·s) |
+| F | Particle flux in Fick's law | particles/(cm²·s) |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
+| Φ (dose) | Implanted dose (ions per cm²) | cm⁻² |
+| erfc | Complementary error function, erfc(u) = 1 − erf(u); read from a table | dimensionless |
+| x_j | Junction depth: where the dopant concentration equals the background | μm |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
+| R_p | Projected range: average depth at which implanted ions stop | μm |
+| ΔR_p | Straggle: spread of the implanted ions' stopping depths | μm |
+| N_p | Peak concentration of an implanted profile | cm⁻³ |
+| S_n, S_e | Nuclear and electronic stopping power of an implanted ion | eV·cm² |
+| N_Si | Atom density of silicon | 5×10²² cm⁻³ |
+| R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
+| x_mask | Thickness of an implant mask | μm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
+| ρ | Resistivity, 1/σ | Ω·cm |
+| R | Recombination rate | cm⁻³s⁻¹ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| V, V_a | Applied voltage (positive for forward bias) | V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| I | Current | A |
+| A (area) | Device or contact area | cm² |
+| N_total | Total number of dopant atoms in a region | atoms |
+| B_z, I_x, V_H | Hall effect: magnetic field (z), current (x) and Hall voltage | T (tesla); A; V |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| Q_charge | Total charge delivered by the ion beam, I × t | C |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| GaAs | Gallium arsenide |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| RTA | Rapid thermal annealing |
+| SIMS | Secondary-ion mass spectrometry |
+| LDD | Lightly doped drain |
+| C-V | Capacitance–voltage (measurement or characteristic) |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| CMOS | Complementary MOS (n- and p-channel MOSFETs together) |
+| BJT | Bipolar junction transistor |
+| IC | Integrated circuit |
+| VLSI | Very-large-scale integration |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
+
+
 ## The big picture
 
 A pure silicon wafer is almost useless. To make a diode, a transistor or a chip, we must put **dopant atoms** (boron, phosphorus, arsenic) into chosen parts of the wafer, in chosen amounts, down to a chosen depth. There are two ways to do this:

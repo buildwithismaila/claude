@@ -55,12 +55,13 @@ The plan requires at least four practical or simulation experiments. Each one ha
 
 ## How to study each week
 
-1. Read the week's notes once, straight through.
-2. Cover the answers and attempt every question on paper.
-3. For derivations, check you stated the assumptions; marks are given for them.
-4. Tick the week as read (the button at the bottom of each page) to track your progress.
+1. Read the week's **Symbols and abbreviations** table first. Every week has one near the top, listing every symbol, constant and abbreviation used on that page with its meaning and units, so you can start at any week. The **Glossary** page at the end lists all of them.
+2. Read the week's notes once, straight through.
+3. Cover the answers and attempt every question on paper.
+4. For derivations, check you stated the assumptions; marks are given for them.
+5. Tick the week as read (the button at the bottom of each page) to track your progress.
 
-> Numbers to know without looking: E_g = 1.12 eV (Si), 0.66 eV (Ge), 1.42 eV (GaAs); n_i(Si) ≈ 1×10¹⁰ cm⁻³; kT/q = 0.0259 V at 300 K; q = 1.6×10⁻¹⁹ C; Si lattice constant 5.43 Å; μ_n(Si) ≈ 1350 cm²/V·s.
+> Numbers to know without looking (E_g is the band-gap energy, n_i the intrinsic carrier concentration, kT/q the thermal voltage, q the electronic charge, μ_n the electron mobility): E_g = 1.12 eV (Si), 0.66 eV (Ge), 1.42 eV (GaAs); n_i(Si) ≈ 1×10¹⁰ cm⁻³; kT/q = 0.0259 V at 300 K; q = 1.6×10⁻¹⁹ C; Si lattice constant 5.43 Å; μ_n(Si) ≈ 1350 cm²/V·s.
 
 ## Textbooks
 

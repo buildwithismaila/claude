@@ -14,6 +14,69 @@ By the end of this week you should be able to:
 
 This page has a one-screen review of what CAT 1 covers, followed by a practice test with full solutions. The questions are written in the style of the lecturer's revision questions and the PGD exam paper. They are practice questions, not the actual CAT.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_v (E_V) | Energy of the top of the valence band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
+| P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
+| λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
+| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
+| r_nn | Nearest-neighbour distance | Å; Si 2.35 |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| GaN | Gallium nitride |
+| InP | Indium phosphide |
+| CB | Conduction band |
+| VB | Valence band |
+| APF | Atomic packing factor |
+| LED | Light-emitting diode |
+| CAT | Continuous Assessment Test |
+| PGD | Postgraduate Diploma |
+
+
 ## Review: what you must be able to do
 
 **Crystals (Week 1)**

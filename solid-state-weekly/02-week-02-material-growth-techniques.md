@@ -14,6 +14,62 @@ By the end of this week you should be able to:
 5. Use the segregation coefficient to predict doping along an ingot.
 6. Explain the principles of VPE, LPE and MBE and compare them.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
+| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
+| f (growth) | Fraction of the melt already solidified | 0 to 1 |
+| ρ | Resistivity, 1/σ | Ω·cm |
+| a_layer, a_sub | Lattice constants of the grown layer and of the substrate | Å |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| InP | Indium phosphide |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| III–V | Compound of Group III and Group V elements (e.g. GaAs) |
+| MG-Si | Metallurgical-grade silicon (≈ 98 % pure) |
+| EG-Si | Electronic-grade silicon (99.9999999 % or better) |
+| CZ | Czochralski crystal growth |
+| FZ | Float-zone crystal growth |
+| CVD | Chemical vapour deposition |
+| VPE | Vapour-phase epitaxy |
+| LPE | Liquid-phase epitaxy |
+| MBE | Molecular-beam epitaxy |
+| MOCVD | Metal-organic chemical vapour deposition |
+| UHV | Ultra-high vacuum (≈ 10⁻¹⁰ Torr) |
+| RHEED | Reflection high-energy electron diffraction (counts atomic layers during MBE) |
+| CMOS | Complementary MOS (n- and p-channel MOSFETs together) |
+| HEMT | High-electron-mobility transistor |
+| BJT | Bipolar junction transistor |
+| HBT | Heterojunction bipolar transistor |
+| LED | Light-emitting diode |
+| RF | Radio frequency |
+| VCSEL | Vertical-cavity surface-emitting laser |
+
+
 ## The big picture
 
 To make a chip you need three things, in this order:

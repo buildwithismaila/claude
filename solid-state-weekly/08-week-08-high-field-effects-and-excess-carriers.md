@@ -14,6 +14,90 @@ By the end of this week you should be able to:
 5. Explain SRH recombination and calculate lifetime from trap data.
 6. Calculate decay of excess carriers and steady-state injection levels.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| E_Fn, E_Fp | Quasi-Fermi levels for electrons and holes, used out of equilibrium | eV |
+| E_t | Energy level of a trap (recombination centre) in the gap | eV |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| n₀, p₀ | Equilibrium electron and hole concentrations | cm⁻³ |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| ν, hν | Frequency of light, and photon energy | Hz; eV |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| v_d | Drift velocity | cm/s |
+| v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
+| v_sat | Saturation velocity at high field | ≈ 10⁷ cm/s in Si |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
+| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| T_e | Electron temperature of hot carriers | K |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
+| R | Recombination rate | cm⁻³s⁻¹ |
+| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
+| N_t | Density of traps (recombination centres) | cm⁻³ |
+| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | cm² |
+| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | cm⁻³ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| V, V_a | Applied voltage (positive for forward bias) | V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| A (area) | Device or contact area | cm² |
+| β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
+| f_T | Transition (cut-off) frequency | Hz |
+| V_T (V_th) | Threshold voltage of a MOSFET | V |
+| V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
+| E_sat | Field at which the drift velocity saturates, v_sat/μ | V/cm |
+| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | cm⁻³s⁻¹ |
+| f_t, e_n, e_p | Probability a trap is occupied by an electron; emission rates of electrons and holes from traps | dimensionless; s⁻¹ |
+| r_a, r_b, r_c, r_d | SRH rates: electron capture, electron emission, hole capture, hole emission | cm⁻³s⁻¹ |
+| τ_SRH, τ_radiative, τ_Auger | Lifetimes set by trap (SRH), radiative and Auger recombination | s |
+| I_gen, J_gen | Generation current (density) from carriers generated in the depletion region | A; A/cm² |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| GaAs | Gallium arsenide |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| CB | Conduction band |
+| VB | Valence band |
+| SRH | Shockley–Read–Hall (trap-assisted) recombination |
+| LDD | Lightly doped drain |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| CMOS | Complementary MOS (n- and p-channel MOSFETs together) |
+| BJT | Bipolar junction transistor |
+| LED | Light-emitting diode |
+| IGBT | Insulated-gate bipolar transistor |
+| PCD | Photoconductive decay (lifetime measurement) |
+
+
 ## The big picture
 
 This week covers two separate stories.

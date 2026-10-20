@@ -14,6 +14,60 @@ By the end of this week you should be able to:
 5. Explain surface states and surface recombination velocity.
 6. Calculate the effective lifetime of a wafer with recombining surfaces.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| R_p | Projected range: average depth at which implanted ions stop | μm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
+| R | Recombination rate | cm⁻³s⁻¹ |
+| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
+| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | cm² |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| S | Surface recombination velocity | cm/s |
+| N_st | Density of surface traps | cm⁻² |
+| U_s | Recombination rate per unit area at a surface | cm⁻²s⁻¹ |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
+| A (area) | Device or contact area | cm² |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
+| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | cm⁻³s⁻¹ |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
+| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| SRH | Shockley–Read–Hall (trap-assisted) recombination |
+| MOS | Metal–oxide–semiconductor |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| BJT | Bipolar junction transistor |
+| TCAD | Technology computer-aided design (device simulation software) |
+
+
 ## The big picture
 
 Weeks 7 and 8 gave us all the separate pieces: carriers **flow** (drift and diffusion), and carriers are **created and destroyed** (generation and recombination). The **continuity equation** puts the pieces together into one equation.

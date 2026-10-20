@@ -16,6 +16,57 @@ By the end of this week you should be able to:
 7. Explain the effect of temperature on carrier concentration and the Fermi level.
 8. Distinguish degenerate and non-degenerate semiconductors.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
+| m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_v (E_V) | Energy of the top of the valence band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| E_Fn, E_Fp | Quasi-Fermi levels for electrons and holes, used out of equilibrium | eV |
+| E_D | Donor energy level, just below E_c | eV; E_c − E_D ≈ 0.045 eV for P in Si |
+| f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
+| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·cm³) |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | cm⁻³ |
+| m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| GaAs | Gallium arsenide |
+| MOS | Metal–oxide–semiconductor |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
+| FD | Fermi–Dirac (distribution) |
+
+
 ## The big picture
 
 **Carrier statistics** is the method for answering one question: **how many free electrons and holes does a piece of semiconductor contain?** Everything else in the course (conductivity, diodes, transistors) depends on that number.

@@ -13,6 +13,80 @@ By the end of this week you should be able to:
 4. Extract doping and built-in potential from a Mott–Schottky plot.
 5. Explain doping profiling and the MOS C-V measurement.
 
+## Symbols and abbreviations used this week
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹³ F/cm |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
+| ρ | Resistivity, 1/σ | Ω·cm |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| R | Recombination rate | cm⁻³s⁻¹ |
+| τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
+| V, V_a | Applied voltage (positive for forward bias) | V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| E_max | Peak electric field, at the junction | V/cm |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| I | Current | A |
+| A (area) | Device or contact area | cm² |
+| η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
+| C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
+| Φ_B | Schottky barrier height seen from the metal | eV (or V) |
+| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| t_ox | Gate-oxide thickness | nm |
+| V_T (V_th) | Threshold voltage of a MOSFET | V |
+| V_FB | Flat-band voltage | V |
+| V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
+| I_D | Drain current | A (mA) |
+| V_junction | Part of the applied voltage that appears across the junction itself | V |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| I-V | Current–voltage (measurement or characteristic) |
+| C-V | Capacitance–voltage (measurement or characteristic) |
+| LCR | Inductance–capacitance–resistance meter |
+| MOS | Metal–oxide–semiconductor |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| BJT | Bipolar junction transistor |
+| CAT | Continuous Assessment Test |
+| DC | Direct current (steady) |
+| AC | Alternating current (small signal) |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
+
+
 ## The big picture
 
 After a device is made, how do you know what is inside it? You cannot see the doping or the barrier height. But you can **measure electrically** and compare the results with the theory of Weeks 10–11. Two measurements do most of the work:

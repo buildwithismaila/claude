@@ -3,6 +3,72 @@
 
 The course plan requires at least four practical or simulation experiments (3 hours/week). Each practical below gives the aim, theory, procedure, a results table and the analysis. **The readings in the tables are example values** that show what correct results look like; replace them with your own measurements.
 
+## Symbols and abbreviations used on this page
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
+| T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
+| V, V_a | Applied voltage (positive for forward bias) | V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| I | Current | A |
+| A (area) | Device or contact area | cm² |
+| η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
+| C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
+| Φ_B | Schottky barrier height seen from the metal | eV (or V) |
+| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| V_T (V_th) | Threshold voltage of a MOSFET | V |
+| V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
+| I_D | Drain current | A (mA) |
+| W/L | Channel width-to-length ratio | dimensionless |
+| g_m | Transconductance, ∂I_D/∂V_GS | S (A/V) |
+| k (MOSFET) | Device parameter μ_nC_ox(W/L) | A/V² (mA/V²) |
+| ΔI_D, ΔV_GS | Small changes in drain current and gate voltage (their ratio is g_m) | A; V |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| I-V | Current–voltage (measurement or characteristic) |
+| C-V | Capacitance–voltage (measurement or characteristic) |
+| LCR | Inductance–capacitance–resistance meter |
+| MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| DC | Direct current (steady) |
+| AC | Alternating current (small signal) |
+| MATLAB | A numerical computing program (alternative to Python) |
+
+
 ---
 
 ## Practical 1 — Simulation of carrier transport: Fermi-level shifts in Python
