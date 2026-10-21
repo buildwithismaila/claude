@@ -1,3 +1,58 @@
 Generating dataset ...
   signals: (9000, 640), base signals: 1800
-Extracting wavelet features ...
+Extracting wavelet features (db4, db10, time-domain) ...
+  cached to results/cache_n200_s20251021.npz
+  features: (9000, 42)  [109s]
+
+[6.1] Grouped CV, all classifiers
+  Decision tree            clean=0.861 20dB=0.730  [2s]
+  k-nearest neighbours     clean=0.761 20dB=0.662  [1s]
+  Support vector machine   clean=0.924 20dB=0.864  [6s]
+  Random forest            clean=0.937 20dB=0.861  [13s]
+  Multilayer perceptron    clean=0.937 20dB=0.869  [43s]
+  best at 20 dB: Multilayer perceptron
+
+[6.2] Random (leaky) split comparison
+  Decision tree            grouped=0.8178 random=0.8878 bias=+0.0700
+  k-nearest neighbours     grouped=0.7271 random=0.7956 bias=+0.0684
+  Support vector machine   grouped=0.9028 random=0.9616 bias=+0.0588
+  Random forest            grouped=0.9109 random=0.9613 bias=+0.0504
+  Multilayer perceptron    grouped=0.9148 random=0.9687 bias=+0.0539
+
+[6.3] Per-class behaviour
+  interruption -> sag: 16.0%
+  sag -> interruption: 11.5%
+  swell -> flicker: 9.5%
+  osc_transient -> normal: 7.5%
+  flicker -> normal: 6.5%
+  normal -> flicker: 6.0%
+
+[6.4] Feature importance and subset sweep
+   1. D1_kurtosis      0.0527
+   2. D3_mav           0.0479
+   3. D5_kurtosis      0.0437
+   4. D5_entropy       0.0436
+   5. D1_entropy       0.0424
+   6. D1_peak          0.0406
+   7. D4_std           0.0363
+   8. D3_std           0.0355
+   9. D2_std           0.0344
+  10. D1_std           0.0332
+  top- 5: 30dB acc = 0.6972
+  top-10: 30dB acc = 0.8378
+  top-15: 30dB acc = 0.8833
+  top-20: 30dB acc = 0.9072
+  top-30: 30dB acc = 0.9211
+  top-42: 30dB acc = 0.9044
+  smallest subset indistinguishable from full set at 30 dB: 20
+  NOTE: paired t-test over 5 folds has low power; see results discussion.
+
+[6.5] Sensitivity checks
+  db4_5levels_42feat           30dB acc = 0.9017
+  db10_5levels                 30dB acc = 0.9067
+  time_domain_only             30dB acc = 0.9194
+
+Writing figures ...
+
+Done in 682s
+  results/tables.md, results/results.json, figures/*.png

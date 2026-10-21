@@ -1,0 +1,6 @@
+Fixed at 1.0 p.u. (literature convention)    wavelet=90.17%  time=91.94%  gap=-1.78  [131s]
+U(0.95, 1.05)                                wavelet=89.83%  time=85.39%  gap=+4.44  [288s]
+U(0.90, 1.10)                                wavelet=86.56%  time=81.06%  gap=+5.50  [465s]
+U(0.80, 1.20)                                wavelet=86.67%  time=75.39%  gap=+11.28  [638s]
+
+Done in 639s -> results/amplitude_study.md

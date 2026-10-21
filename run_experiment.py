@@ -78,11 +78,23 @@ def main():
     t0 = time.time()
 
     # ---------------------------------------------------------------- data
-    print("Generating dataset ...", flush=True)
-    X, y, groups, snr = generate_dataset(args.n_per_class, args.seed)
-    print(f"  signals: {X.shape}, base signals: {len(np.unique(groups))}")
-    print("Extracting wavelet features ...", flush=True)
-    F = extract(X)
+    cache = RESULTS / f"cache_n{args.n_per_class}_s{args.seed}.npz"
+    if cache.exists():
+        print(f"Loading cached dataset and features from {cache} ...", flush=True)
+        z = np.load(cache, allow_pickle=True)
+        X, y, groups, snr = z["X"], z["y"], z["groups"], z["snr"]
+        F, F10, Ft = z["F"], z["F10"], z["Ft"]
+    else:
+        print("Generating dataset ...", flush=True)
+        X, y, groups, snr = generate_dataset(args.n_per_class, args.seed)
+        print(f"  signals: {X.shape}, base signals: {len(np.unique(groups))}")
+        print("Extracting wavelet features (db4, db10, time-domain) ...", flush=True)
+        F = extract(X)
+        F10 = extract(X, wavelet="db10")
+        Ft = extract_time(X)
+        np.savez_compressed(cache, X=X, y=y, groups=groups, snr=snr,
+                            F=F, F10=F10, Ft=Ft)
+        print(f"  cached to {cache}", flush=True)
     names = wavelet_feature_names()
     print(f"  features: {F.shape}  [{time.time()-t0:.0f}s]", flush=True)
 
@@ -214,11 +226,9 @@ def main():
     base30 = acc_tab[best][30.0]
     sens["db4_5levels_42feat"] = {"acc_30db": base30}
 
-    F10 = extract(X, wavelet="db10")
     r10 = cross_validate(clfs[best], F10, y, groups, snr, grouped=True, seed=args.seed)
     sens["db10_5levels"] = {"acc_30db": accuracy_by_snr(r10, SNR_LEVELS)[30.0]}
 
-    Ft = extract_time(X)
     rt = cross_validate(clfs[best], Ft, y, groups, snr, grouped=True, seed=args.seed)
     sens["time_domain_only"] = {"acc_30db": accuracy_by_snr(rt, SNR_LEVELS)[30.0]}
     out["table_6_6_sensitivity"] = sens
@@ -243,7 +253,7 @@ def main():
     plt.savefig(FIGURES / "fig_6_1_accuracy_vs_snr.png", dpi=150)
     plt.close()
 
-    plt.figure(figsize=(7.4, 6.2))
+    plt.figure(figsize=(8.4, 6.2))
     plt.imshow(cmn, cmap="Blues", vmin=0, vmax=1)
     short = [CLASS_LABELS[c].split(" ", 1)[0] for c in classes]
     plt.xticks(range(len(classes)), short, rotation=45, ha="right", fontsize=8)

@@ -219,11 +219,23 @@ def add_awgn(x: np.ndarray, snr_db, rng: np.random.Generator) -> np.ndarray:
 # ---------------------------------------------------------------------------
 
 
-def generate_base(n_per_class: int, seed: int):
+def generate_base(n_per_class: int, seed: int, amplitude=None):
     """Clean base signals.
 
     Returns (X, y, groups) where groups is the base-signal index. The group id
     is what keeps every noisy variant of one waveform inside a single CV fold.
+
+    amplitude
+        None (default) fixes the nominal amplitude at exactly 1.0 p.u., which
+        is the convention used across the synthetic PQ literature. A (lo, hi)
+        tuple instead draws the nominal amplitude uniformly per signal.
+
+        This matters more than it looks. With amplitude fixed, the RMS of a
+        record is a deterministic function of its class and disturbance depth
+        -- normal and harmonics records both sit at exactly 0.7071 with zero
+        variance -- so three elementary time-domain features can separate the
+        classes almost as well as the full wavelet set. Real records carry no
+        such guarantee. See the amplitude study in amplitude_study.py.
     """
     rng = np.random.default_rng(seed)
     X, y, groups = [], [], []
@@ -233,6 +245,8 @@ def generate_base(n_per_class: int, seed: int):
         for _ in range(n_per_class):
             phi = rng.uniform(0.0, 2 * np.pi)
             sig, _params = build(rng, phi)
+            if amplitude is not None:
+                sig = rng.uniform(*amplitude) * sig
             X.append(sig)
             y.append(name)
             groups.append(gid)
@@ -240,13 +254,13 @@ def generate_base(n_per_class: int, seed: int):
     return np.asarray(X), np.asarray(y), np.asarray(groups)
 
 
-def generate_dataset(n_per_class: int = 200, seed: int = 20251021):
+def generate_dataset(n_per_class: int = 200, seed: int = 20251021, amplitude=None):
     """Full dataset: every base signal at every noise condition.
 
     Returns X (n_samples, N), y (class names), groups (base-signal id),
     snr (noise condition per sample; np.nan for clean).
     """
-    Xb, yb, gb = generate_base(n_per_class, seed)
+    Xb, yb, gb = generate_base(n_per_class, seed, amplitude)
     rng = np.random.default_rng(seed + 1)
     X, y, groups, snrs = [], [], [], []
     for snr in SNR_LEVELS:

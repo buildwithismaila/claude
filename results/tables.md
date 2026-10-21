@@ -2,65 +2,65 @@
 
 | Classifier | Clean | 50 dB | 40 dB | 30 dB | 20 dB |
 | --- | --- | --- | --- | --- | --- |
-| Decision tree | 66.11 ± 6.89 | 67.22 ± 6.43 | 66.67 ± 5.83 | 66.11 ± 7.54 | 60.00 ± 7.58 |
-| k-nearest neighbours | 61.67 ± 7.33 | 62.22 ± 7.97 | 56.11 ± 4.78 | 50.56 ± 8.13 | 48.89 ± 5.15 |
-| Support vector machine | 73.33 ± 2.83 | 73.89 ± 4.51 | 73.33 ± 2.83 | 72.22 ± 4.65 | 68.33 ± 7.37 |
-| Random forest | 83.89 ± 3.69 | 83.89 ± 3.69 | 83.89 ± 4.78 | 82.22 ± 5.72 | 80.00 ± 4.78 |
-| Multilayer perceptron | 76.11 ± 7.58 | 76.11 ± 6.71 | 73.89 ± 5.72 | 71.67 ± 8.31 | 66.67 ± 9.13 |
+| Decision tree | 86.11 ± 1.15 | 86.17 ± 0.97 | 84.56 ± 0.85 | 79.06 ± 1.97 | 73.00 ± 1.63 |
+| k-nearest neighbours | 76.11 ± 1.77 | 76.11 ± 1.37 | 74.06 ± 1.69 | 71.06 ± 1.45 | 66.22 ± 1.85 |
+| Support vector machine | 92.39 ± 0.89 | 92.28 ± 0.95 | 91.28 ± 0.99 | 89.06 ± 1.27 | 86.39 ± 1.05 |
+| Random forest | 93.72 ± 1.21 | 93.39 ± 1.03 | 92.56 ± 0.90 | 89.72 ± 1.45 | 86.06 ± 1.46 |
+| Multilayer perceptron | 93.72 ± 0.92 | 93.67 ± 0.89 | 92.94 ± 0.72 | 90.17 ± 1.29 | 86.89 ± 0.71 |
 
 ### Table 6.2 Macro-averaged F1 by classifier and noise condition
 
 | Classifier | Clean | 50 dB | 40 dB | 30 dB | 20 dB |
 | --- | --- | --- | --- | --- | --- |
-| Decision tree | 0.661 ± 0.069 | 0.672 ± 0.063 | 0.663 ± 0.056 | 0.658 ± 0.072 | 0.589 ± 0.080 |
-| k-nearest neighbours | 0.606 ± 0.080 | 0.609 ± 0.084 | 0.546 ± 0.039 | 0.500 ± 0.077 | 0.485 ± 0.053 |
-| Support vector machine | 0.725 ± 0.036 | 0.733 ± 0.047 | 0.726 ± 0.027 | 0.717 ± 0.042 | 0.678 ± 0.080 |
-| Random forest | 0.838 ± 0.038 | 0.838 ± 0.038 | 0.836 ± 0.051 | 0.818 ± 0.062 | 0.800 ± 0.046 |
-| Multilayer perceptron | 0.756 ± 0.085 | 0.756 ± 0.076 | 0.731 ± 0.066 | 0.711 ± 0.090 | 0.657 ± 0.094 |
+| Decision tree | 0.862 ± 0.011 | 0.863 ± 0.009 | 0.847 ± 0.008 | 0.789 ± 0.018 | 0.728 ± 0.017 |
+| k-nearest neighbours | 0.765 ± 0.018 | 0.765 ± 0.014 | 0.744 ± 0.017 | 0.717 ± 0.013 | 0.675 ± 0.017 |
+| Support vector machine | 0.924 ± 0.009 | 0.923 ± 0.010 | 0.913 ± 0.010 | 0.891 ± 0.013 | 0.865 ± 0.010 |
+| Random forest | 0.937 ± 0.012 | 0.934 ± 0.010 | 0.925 ± 0.009 | 0.896 ± 0.015 | 0.860 ± 0.016 |
+| Multilayer perceptron | 0.937 ± 0.009 | 0.937 ± 0.009 | 0.929 ± 0.007 | 0.902 ± 0.013 | 0.869 ± 0.007 |
 
 ### Table 6.3 Grouped versus random partitioning (overall accuracy, %)
 
 | Classifier | Grouped CV (correct) | Random CV (biased) | Difference |
 | --- | --- | --- | --- |
-| Decision tree | 65.22 | 91.89 | +26.67 |
-| k-nearest neighbours | 55.89 | 77.22 | +21.33 |
-| Support vector machine | 72.22 | 94.00 | +21.78 |
-| Random forest | 82.78 | 97.22 | +14.44 |
-| Multilayer perceptron | 72.89 | 95.56 | +22.67 |
+| Decision tree | 81.78 | 88.78 | +7.00 |
+| k-nearest neighbours | 72.71 | 79.56 | +6.84 |
+| Support vector machine | 90.28 | 96.16 | +5.88 |
+| Random forest | 91.09 | 96.13 | +5.04 |
+| Multilayer perceptron | 91.48 | 96.87 | +5.39 |
 
-### Table 6.4 Per-class F1, Random forest
+### Table 6.4 Per-class F1, Multilayer perceptron
 
 | Class | Clean | 50 dB | 40 dB | 30 dB | 20 dB |
 | --- | --- | --- | --- | --- | --- |
-| C1 Normal | 0.784 | 0.784 | 0.784 | 0.805 | 0.758 |
-| C2 Sag | 0.692 | 0.692 | 0.692 | 0.648 | 0.648 |
-| C3 Swell | 0.898 | 0.898 | 0.927 | 0.927 | 0.927 |
-| C4 Interruption | 0.783 | 0.783 | 0.783 | 0.761 | 0.789 |
-| C5 Harmonics | 0.971 | 0.971 | 0.933 | 0.829 | 0.865 |
-| C6 Flicker | 0.733 | 0.733 | 0.747 | 0.763 | 0.776 |
-| C7 Oscillatory transient | 0.931 | 0.931 | 0.931 | 0.909 | 0.788 |
-| C8 Notch | 0.848 | 0.848 | 0.848 | 0.876 | 0.871 |
-| C9 Sag + harmonics | 0.899 | 0.899 | 0.883 | 0.841 | 0.781 |
+| C1 Normal | 0.961 | 0.961 | 0.952 | 0.900 | 0.819 |
+| C2 Sag | 0.836 | 0.833 | 0.837 | 0.829 | 0.805 |
+| C3 Swell | 0.980 | 0.972 | 0.949 | 0.914 | 0.908 |
+| C4 Interruption | 0.837 | 0.831 | 0.839 | 0.848 | 0.827 |
+| C5 Harmonics | 0.968 | 0.968 | 0.963 | 0.946 | 0.935 |
+| C6 Flicker | 0.972 | 0.970 | 0.938 | 0.903 | 0.839 |
+| C7 Oscillatory transient | 0.970 | 0.975 | 0.975 | 0.951 | 0.892 |
+| C8 Notch | 0.957 | 0.962 | 0.956 | 0.901 | 0.881 |
+| C9 Sag + harmonics | 0.955 | 0.957 | 0.954 | 0.924 | 0.915 |
 
 ### Table 6.5 Ten highest-ranked features
 
 | Rank | Band | Descriptor | Mean importance |
 | --- | --- | --- | --- |
-| 1 | D5 | kurtosis | 0.0564 |
-| 2 | D5 | entropy | 0.0531 |
-| 3 | D4 | std | 0.0481 |
-| 4 | D3 | mav | 0.0454 |
-| 5 | D1 | kurtosis | 0.0368 |
-| 6 | D1 | peak | 0.0366 |
-| 7 | D3 | std | 0.0355 |
-| 8 | D4 | mav | 0.0338 |
-| 9 | D1 | entropy | 0.0327 |
-| 10 | D4 | kurtosis | 0.0321 |
+| 1 | D1 | kurtosis | 0.0527 |
+| 2 | D3 | mav | 0.0479 |
+| 3 | D5 | kurtosis | 0.0437 |
+| 4 | D5 | entropy | 0.0436 |
+| 5 | D1 | entropy | 0.0424 |
+| 6 | D1 | peak | 0.0406 |
+| 7 | D4 | std | 0.0363 |
+| 8 | D3 | std | 0.0355 |
+| 9 | D2 | std | 0.0344 |
+| 10 | D1 | std | 0.0332 |
 
-### Table 6.6 Sensitivity checks, Random forest, 30 dB
+### Table 6.6 Sensitivity checks, Multilayer perceptron, 30 dB
 
 | Configuration | Accuracy (%) | Difference from baseline |
 | --- | --- | --- |
-| db4, 5 levels, 42 wavelet features (baseline) | 82.22 ± 5.72 | — |
-| db10, 5 levels | 78.89 ± 4.51 | -3.33 |
-| Time-domain features only (RMS, crest factor, THD) | 83.89 ± 4.08 | +1.67 |
+| db4, 5 levels, 42 wavelet features (baseline) | 90.17 ± 1.29 | — |
+| db10, 5 levels | 90.67 ± 1.11 | +0.50 |
+| Time-domain features only (RMS, crest factor, THD) | 91.94 ± 0.75 | +1.78 |
