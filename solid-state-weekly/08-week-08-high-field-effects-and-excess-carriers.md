@@ -84,7 +84,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Abbreviation | Meaning |
 |---|---|
 | Si | Silicon |
+| Ge | Germanium |
 | GaAs | Gallium arsenide |
+| GaN | Gallium nitride |
+| InP | Indium phosphide |
 | SiO₂ | Silicon dioxide (silica), the oxide insulator |
 | CB | Conduction band |
 | VB | Valence band |
@@ -97,6 +100,64 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | IGBT | Insulated-gate bipolar transistor |
 | PCD | Photoconductive decay (lifetime measurement) |
 
+
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Band gap (E_g).** The range of energies that an electron in a crystal cannot have. It lies between the valence band (the band of energies occupied by the electrons that form the bonds between atoms) and the conduction band (the next band up, where electrons are free to move). For silicon E_g = 1.12 eV at 300 K.
+
+**Electron and hole (carriers).** A free electron is an electron in the conduction band; a hole is an empty place left in the valence band, which behaves like a positive charge that can move. Together they are called carriers because they carry the current.
+
+**Doping (N_D, N_A).** Adding small, controlled amounts of impurity atoms to a semiconductor. Donors (concentration N_D) give free electrons and make the material n-type; acceptors (concentration N_A) give holes and make it p-type.
+
+**Majority and minority carriers.** The majority carriers are the more numerous type (electrons in n-type, holes in p-type); the minority carriers are the less numerous type.
+
+*Why it matters:* this week shows that it is the minority carriers whose numbers change, and so they control how devices behave.
+
+**Intrinsic carrier concentration (n_i).** The number of electrons (equal to the number of holes) per cm³ in pure, undoped material; about 1×10¹⁰ cm⁻³ in Si at 300 K. In thermal equilibrium (no light, no applied voltage, steady temperature) the electron and hole concentrations of any sample obey the mass-action law:
+
+    n₀p₀ = n_i²
+
+Where:
+
+- n₀, p₀ = equilibrium electron and hole concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+
+**Fermi level (E_F).** The energy at which an electron state has a 50 % chance of being occupied. In thermal equilibrium one Fermi level describes both electrons and holes, and it is the same everywhere in the material.
+
+**Drift velocity and saturation velocity (v_d, v_sat).** The drift velocity is the average velocity carriers gain in an electric field; at low field it is v_d = μE, where μ is the mobility (cm²/V·s). At high field it stops rising and levels off at the saturation velocity v_sat, about 1×10⁷ cm/s in silicon.
+
+*Why it matters:* the carriers in a modern short-channel transistor travel at v_sat, which limits its current and speed.
+
+**Hot carriers.** Carriers whose average energy, gained from a strong electric field, is far above the normal thermal energy of the crystal. Their energy is described by an electron temperature T_e much higher than the lattice temperature T.
+
+**Impact ionisation.** The process in which a hot carrier collides with the lattice hard enough to break a bond and create a new electron–hole pair. Repeated, it becomes an avalanche, which causes avalanche breakdown.
+
+**Excess carriers (Δn, Δp).** Electrons and holes present in addition to the equilibrium numbers, for example created by light or injected by a forward-biased junction: n = n₀ + Δn and p = p₀ + Δp.
+
+**Low-level injection.** The condition in which the excess carrier concentration is much smaller than the equilibrium majority concentration (Δp ≪ n₀ in n-type). The majority concentration is then almost unchanged.
+
+**Generation and recombination (G, R, U).** Generation is the creation of an electron–hole pair; recombination is the loss of one, when a conduction-band electron falls back into a hole. G and R are rates in pairs per cm³ per second; U = R − G is the net recombination rate.
+
+**Trap (recombination centre, N_t, E_t).** A localised energy level E_t inside the band gap, created by a crystal defect or an impurity atom such as gold or iron. It can capture an electron and then a hole, helping them recombine in two small steps. N_t is the density of traps (cm⁻³).
+
+**Shockley–Read–Hall (SRH) recombination.** Recombination through traps. The energy is released as lattice vibrations (heat). It is the main recombination mechanism in silicon.
+
+**Minority-carrier lifetime (τ).** The average time an excess minority carrier survives before it recombines. After the source of excess carriers is removed, the excess falls to 1/e (37 %) of its starting value in one lifetime.
+
+    Δp(t) = Δp(0) e^{−t/τ_p}
+
+Where:
+
+- Δp(t) = excess hole concentration at time t (cm⁻³)
+- Δp(0) = excess hole concentration when the light is switched off (cm⁻³)
+- t = time since switch-off (s)
+- τ_p = hole (minority-carrier) lifetime in n-type material (s)
+
+*Why it matters:* lifetime decides how far minority carriers can travel, how fast a diode switches off and how efficient a solar cell is.
+
+**Quasi-Fermi levels (E_{Fn}, E_{Fp}).** When the material is out of equilibrium (np ≠ n_i²), one Fermi level can no longer describe both carriers, so two are used: E_{Fn} gives the electron concentration and E_{Fp} the hole concentration. Their separation measures how far the material is from equilibrium.
 
 ## The big picture
 
@@ -121,6 +182,14 @@ At high fields (above about 10⁴ V/cm in Si) they pick up energy faster than th
 An empirical formula that joins the two regimes smoothly (Caughey–Thomas):
 
     v_d = μE / [ 1 + (μE/v_sat)^β ]^{1/β}      (β ≈ 2 for Si electrons, about 1 for holes)
+
+Where:
+
+- v_d = drift velocity (cm/s)
+- μ = low-field mobility (cm²/V·s); Si μ_n = 1350, μ_p = 480
+- E = electric field (V/cm)
+- v_sat = saturation velocity, about 1×10⁷ cm/s in Si
+- β = fitting exponent that sets how sharply the curve bends (dimensionless; not the transistor gain β)
 
 At low field it reduces to μE; at high field to v_sat.
 
@@ -152,6 +221,12 @@ Now shine light on the sample, or inject carriers through a junction. We get **e
 
     n = n₀ + Δn,     p = p₀ + Δp
 
+Where:
+
+- n, p = actual electron and hole concentrations (cm⁻³)
+- n₀, p₀ = equilibrium concentrations, with n₀p₀ = n_i² (cm⁻³)
+- Δn, Δp = excess electron and hole concentrations (cm⁻³)
+
 Light creates electrons and holes in pairs, so usually Δn = Δp. Now np > n_i², recombination is faster than generation, and the extras start disappearing.
 
 **Low-level injection** means the excess is much smaller than the majority concentration (Δp ≪ n₀ in n-type). Then:
@@ -167,13 +242,19 @@ Light creates electrons and holes in pairs, so usually Δn = Δp. Now np > n_i²
 
 **Find:** n, p and their change factors.
 
+**Formula:**
+
+    n = n₀ + Δn,     p = p₀ + Δp
+
 **Solution.**
 
     n = n₀ + Δn = 1×10¹⁶ + 1×10¹⁴ = 1.01×10¹⁶ cm⁻³   (n/n₀ = 1.01)
 
     p = p₀ + Δp = 1×10⁴ + 1×10¹⁴ ≈ 1×10¹⁴ cm⁻³      (p/p₀ = 10¹⁰)
 
-**Answer:** **The electrons change by only 1 %; the holes increase ten-billion-fold.** This is why minority carriers control device behaviour: they are the ones that change.
+**Answer:** **The electrons change by only 1 %; the holes increase ten-billion-fold.**
+
+**What this means:** the conductivity (set mainly by the electrons) barely changes, but the hole population, and so the hole recombination and hole diffusion, changes enormously. This is why minority carriers control device behaviour: they are the ones that change. Since Δp = 10¹⁴ is only 1 % of n₀, this is low-level injection.
 
 ### How carriers are generated
 
@@ -186,10 +267,24 @@ Light creates electrons and holes in pairs, so usually Δn = Δp. Now np > n_i²
 
 @fig figures/recombination.svg | The three recombination paths. Band-to-band: the electron drops straight across and emits a photon. Shockley–Read–Hall: it drops in two steps via a trap in the gap, giving heat. Auger: the energy is handed to a third carrier.
 
-1. **Direct (band-to-band, radiative).** An electron drops straight from the conduction band into a hole and emits a photon of energy ≈ E_g. Rate = B·np. Strong in direct-gap GaAs (LEDs, lasers); very weak in indirect-gap Si (Week 4).
+1. **Direct (band-to-band, radiative).** An electron drops straight from the conduction band into a hole and emits a photon of energy ≈ E_g. Rate = B·np, where B is the radiative recombination coefficient (cm³/s). Strong in direct-gap GaAs (LEDs, lasers); very weak in indirect-gap Si (Week 4).
 2. **Indirect (trap-assisted, Shockley–Read–Hall, SRH).** The electron drops in two steps through a **trap**, a localised energy level in the gap created by a defect or an impurity atom such as gold, iron or copper. The energy goes into lattice vibrations (heat). **This is the dominant mechanism in silicon.**
 3. **Auger.** The energy released is given to a third carrier, which is kicked high into its band and then cools down. Important at very high carrier densities.
 4. **Surface recombination:** SRH through the many traps at a surface (Week 9).
+
+### The three recombination mechanisms compared
+
+| | Shockley–Read–Hall (trap-assisted) | Radiative (band-to-band) | Auger |
+|---|---|---|---|
+| How it happens | Electron drops in two steps via a trap level E_t in the gap | Electron drops straight across the gap into a hole | Electron and hole recombine and hand the energy to a third carrier |
+| Where the energy goes | Heat (lattice vibrations, phonons) | A photon of energy ≈ E_g (light) | Kinetic energy of the third carrier, then heat |
+| Net rate | U = (np − n_i²)/[τ_p(n + n₁) + τ_n(p + p₁)]; ≈ Δp/τ_p at low level in n-type | R = B(np − n_i²) | R = (C_{n}n + C_{p}p)(np − n_i²) |
+| What it depends on | Trap density N_t: τ = 1/(σv_thN_t) | Material: B ≈ 10⁻¹⁰ cm³/s (GaAs), ≈ 10⁻¹⁴ cm³/s (Si) | Carrier density squared: C ≈ 10⁻³¹ cm⁶/s in Si |
+| Lifetime (low-level, majority density N) | τ = 1/(σv_thN_t): 1 ns – 1 ms in Si, set by purity | τ = 1/(BN): about 10 ns in GaAs at N = 10¹⁸ cm⁻³; about 10 ms in Si at 10¹⁶ cm⁻³ | τ ≈ 1/(CN²): about 0.1 μs at 10¹⁹ cm⁻³, about 1 ns at 10²⁰ cm⁻³ in Si |
+| Where it dominates | Indirect-gap Si and Ge at normal doping; depletion regions | Direct-gap GaAs, InP, GaN | Very heavy doping or very high injection (emitters, lasers, power devices) |
+| Where it matters in practice | Leakage current; gold or platinum doping for fast-switching diodes; solar-cell efficiency | LEDs and lasers (the light output) | Limits lifetime in heavily doped emitters; efficiency "droop" of LEDs at high current |
+
+So in silicon the lifetime is almost always set by SRH (traps), except in very heavily doped regions, where Auger takes over; radiative recombination is too slow to matter.
 
 ### Shockley–Read–Hall recombination: how it works
 
@@ -219,18 +314,28 @@ Working out the balance of the four steps gives the **SRH recombination rate**:
 | N_t | trap density (cm⁻³) |
 | σ_n, σ_p | capture cross-sections: how "big a target" the trap is for electrons, holes (cm²) |
 | v_th | thermal velocity, about 10⁷ cm/s |
-| E_t | trap energy level |
+| E_t | trap energy level (eV) |
+| n, p | electron and hole concentrations (cm⁻³) |
+| n_i | intrinsic carrier concentration, 1×10¹⁰ cm⁻³ in Si at 300 K |
+| τ_n, τ_p | electron and hole lifetimes set by the traps (s) |
+| n₁, p₁ | the electron and hole concentrations there would be if E_F were at E_t (cm⁻³) |
+| E_i | intrinsic Fermi level, close to mid-gap (eV) |
+| kT | thermal energy, 0.0259 eV at 300 K |
 
 **What the formula tells you:**
 
 1. **The top line, np − n_i², is the driving force.** If np > n_i² (extra carriers), U is positive: net recombination. If np < n_i² (carriers removed, as in a reverse-biased depletion region), U is negative: net **generation**, which is the source of diode leakage current. In equilibrium, np = n_i² and U = 0.
 2. **U is largest when E_t is near mid-gap.** Traps near a band edge just catch and re-release carriers. **Mid-gap traps are the effective recombination centres.** Gold sits close to mid-gap, which is why it is used deliberately to make fast-switching diodes.
 3. **More traps, faster recombination:** τ ∝ 1/N_t.
-4. **Low-level injection in n-type** (n ≫ p): the formula simplifies to
+4. **Low-level injection in n-type** (n ≫ p): the formula simplifies to the short form below. The recombination rate is set by how fast the **minority** carriers (holes) get captured.
 
     U ≈ Δp / τ_p
 
-   The recombination rate is set by how fast the **minority** carriers (holes) get captured.
+Where:
+
+- U = net recombination rate (cm⁻³s⁻¹)
+- Δp = excess hole (minority-carrier) concentration (cm⁻³)
+- τ_p = hole lifetime, 1/(σ_p v_th N_t) (s)
 
 #### Example 8.2: lifetime from the trap density
 
@@ -240,11 +345,17 @@ Working out the balance of the four steps gives the **SRH recombination rate**:
 
 **Find:** τ_p.
 
+**Formula:**
+
+    τ_p = 1/(σ_p v_th N_t)
+
 **Solution.**
 
     τ_p = 1/(σ_p v_th N_t) = 1 / (10⁻¹⁵ × 10⁷ × 10¹³) = 1/10⁵ = 1×10⁻⁵ s
 
 **Answer:** **τ_p = 10 μs.** Doubling the trap density would halve the lifetime.
+
+**What this means:** a trap density of 10¹³ cm⁻³ is less than one atom in a billion of silicon (5×10²² atoms per cm³), yet it fixes the lifetime at 10 μs. A hole in this wafer survives about 10 μs before a trap catches it, which is why chip and solar-cell makers keep metal contamination so low.
 
 ## Part C: Lifetime and steady-state injection
 
@@ -253,6 +364,13 @@ Working out the balance of the four steps gives the **SRH recombination rate**:
 Switch off the light at t = 0. With U = Δp/τ_p, the excess holes decay as
 
     dΔp/dt = −Δp/τ_p   ⇒   Δp(t) = Δp(0) e^{−t/τ_p}
+
+Where:
+
+- Δp(t) = excess hole concentration at time t (cm⁻³)
+- Δp(0) = excess hole concentration at switch-off, t = 0 (cm⁻³)
+- t = time (s)
+- τ_p = minority-carrier (hole) lifetime (s)
 
 τ_p is the **minority-carrier lifetime**: the average time an extra minority carrier survives before it recombines. After one lifetime, 37 % (1/e) of the excess remains; after five lifetimes, under 1 %.
 
@@ -268,11 +386,26 @@ Now keep the light on, generating G_L pairs per cm³ per second uniformly. The e
 
     dΔp/dt = G_L − Δp/τ_p = 0   ⇒   Δp = Δn = G_Lτ_p
 
+Where:
+
+- Δp, Δn = steady-state excess hole and electron concentrations (cm⁻³)
+- G_L = generation rate by light (pairs per cm³ per second, cm⁻³s⁻¹)
+- τ_p = minority-carrier (hole) lifetime (s)
+
 **The excess equals the generation rate times the lifetime.** A long lifetime lets a large excess build up.
 
 The extra carriers raise the conductivity, called **photoconductivity**:
 
     Δσ = q(μ_n + μ_p) Δn = q(μ_n + μ_p) G_Lτ
+
+Where:
+
+- Δσ = increase in conductivity caused by the light (S/cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- Δn = excess carrier concentration, equal to Δp (cm⁻³)
+- G_L = generation rate (cm⁻³s⁻¹)
+- τ = minority-carrier lifetime (s)
 
 #### Example 8.3: photoconductivity
 
@@ -281,6 +414,10 @@ The extra carriers raise the conductivity, called **photoconductivity**:
 **Given:** N_D = 1×10¹⁵ cm⁻³, τ_p = 10 μs = 1×10⁻⁵ s, G_L = 1×10²⁰ cm⁻³s⁻¹, μ_n = 1350, μ_p = 480 cm²/V·s.
 
 **Find:** Δn, Δσ and σ₀.
+
+**Formula:**
+
+    Δn = Δp = G_Lτ_p,     Δσ = q(μ_n + μ_p)Δn,     σ₀ = qN_Dμ_n
 
 **Solution.**
 
@@ -298,6 +435,8 @@ Step 3. Dark conductivity:
 
 **Answer:** **Δn = 10¹⁵ cm⁻³, Δσ = 0.293 S/cm, against σ₀ = 0.216 S/cm**: the conductivity more than doubles in the light.
 
+**What this means:** the total conductivity in the light is 0.216 + 0.293 = 0.509 S/cm, about 2.4 times the dark value, so the sample's resistance falls to about 40 % of its dark value. The 10 μs lifetime is what lets so many extra carriers build up; with a 1 μs lifetime the effect would be ten times smaller.
+
 This is how a light-dependent resistor works. (Here Δp equals n₀, so this is not low-level injection, and the single-lifetime formula is only approximate.)
 
 ### Quasi-Fermi levels
@@ -305,6 +444,14 @@ This is how a light-dependent resistor works. (Here Δp equals n₀, so this is 
 Out of equilibrium, np ≠ n_i², so a single Fermi level cannot describe both carriers. Instead we use **two**: one for electrons, E_{Fn}, and one for holes, E_{Fp}:
 
     n = n_i e^{(E_{Fn} − E_i)/kT},     p = n_i e^{(E_i − E_{Fp})/kT},     np = n_i² e^{(E_{Fn} − E_{Fp})/kT}
+
+Where:
+
+- n, p = electron and hole concentrations out of equilibrium (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ in Si at 300 K
+- E_{Fn}, E_{Fp} = quasi-Fermi levels for electrons and holes (eV)
+- E_i = intrinsic Fermi level, close to mid-gap (eV)
+- kT = thermal energy, 0.0259 eV at 300 K
 
 The **gap between them**, E_{Fn} − E_{Fp}, measures how far from equilibrium the material is. In a forward-biased diode it equals qV; in a solar cell it sets the open-circuit voltage. In equilibrium they merge back into one Fermi level.
 
@@ -527,6 +674,6 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Explain velocity saturation and its effect on devices. | What is the saturation velocity in Si and what causes it? | About 10⁷ cm/s; optical-phonon emission by energetic carriers. | Velocity saturation |
 | 2 | Explain hot-carrier effects and how they are reduced. | How does a hot carrier cause avalanche breakdown? | It impact-ionises, creating new pairs that are accelerated and do the same. | Hot-carrier effects |
 | 3 | Explain excess carriers and low-level injection. | Under low-level injection in n-type material, which carrier concentration changes significantly? | The minority (hole) concentration. | Equilibrium and excess carriers; Example 8.1 |
-| 4 | Describe the generation and recombination mechanisms. | Which recombination mechanism dominates in silicon? | Shockley–Read–Hall (trap-assisted). | Generation; recombination |
+| 4 | Describe the generation and recombination mechanisms. | Which recombination mechanism dominates in silicon? | Shockley–Read–Hall (trap-assisted). | Generation; recombination; the three recombination mechanisms compared |
 | 5 | Explain SRH recombination and calculate lifetime from trap data. | Why are mid-gap traps the most effective recombination centres? | They capture electrons and holes with similar ease; shallow traps just re-emit carriers. | SRH; Example 8.2 |
 | 6 | Calculate decay of excess carriers and steady-state injection levels. | With G_L = 10¹⁹ cm⁻³s⁻¹ and τ = 2 μs, find Δp. | Δp = G_Lτ = 2×10¹³ cm⁻³. | Part C; Example 8.3 |

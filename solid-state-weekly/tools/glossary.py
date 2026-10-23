@@ -302,10 +302,33 @@ def place(path):
     return n
 
 
-def glossary_page():
-    lines = ["# Glossary — Symbols, Constants and Abbreviations", "<!-- group: Revision & Practicals -->", "",
-             "Every symbol, constant and abbreviation used anywhere in the course, with its meaning and units. "
-             "Each week also has its own shorter table near the top, listing only what that week uses.", ""]
+def key_terms(pages):
+    """Collect the bold-led definitions of every page's '## Key terms' section."""
+    terms = {}
+    for path in pages:
+        s = open(path, encoding="utf-8").read()
+        m = re.search(r"^## Key terms\n(.*?)(?=^## |\Z)", s, flags=re.S | re.M)
+        if not m:
+            continue
+        name = os.path.basename(path)
+        where = ("Week " + str(int(name[8:10]))) if name[3:7] == "week" else \
+                {"16": "Answer key", "17": "Laboratory"}.get(name[:2], name[:2])
+        for t, d in re.findall(r"^\*\*(.+?)\.\*\* (.+)$", m.group(1), flags=re.M):
+            k = re.sub(r"\s*\(.*?\)", "", t).strip().lower()
+            if k not in terms:
+                terms[k] = [t, d, []]
+            if where not in terms[k][2]:
+                terms[k][2].append(where)
+    return sorted(terms.values(), key=lambda v: v[0].lower())
+
+
+def glossary_page(pages):
+    lines = ["# Glossary — Key Terms, Symbols, Constants and Abbreviations", "<!-- group: Revision & Practicals -->", "",
+             "Every key term, symbol, constant and abbreviation used anywhere in the course. "
+             "Each week also has its own Key terms section and symbols table near the top, listing what that week uses.", ""]
+    rows = [(t.replace("|", "\\|"), d.replace("|", "\\|"), ", ".join(w)) for t, d, w in key_terms(pages)]
+    lines += ["## Key terms A–Z", "", "| Term | Meaning | Defined in |", "|---|---|---|"]
+    lines += [f"| **{t}** | {d} | {w} |" for t, d, w in rows] + [""]
     for grp, title in ((C, "Constants and units"), (S, "Symbols"), (A, "Abbreviations")):
         rows = [(s.replace("|", "\\|"), m.replace("|", "\\|"), u) for g, rx, s, m, u in G if g == grp]
         lines += [f"## {title}", "", table(rows, units=(grp != A)), ""]
@@ -318,5 +341,5 @@ if __name__ == "__main__":
         if os.path.basename(p).startswith("00-") or "glossary" in p:
             continue
         print(os.path.basename(p)[:40], place(p))
-    open(os.path.join(ROOT, "18-glossary.md"), "w", encoding="utf-8").write(glossary_page())
+    open(os.path.join(ROOT, "18-glossary.md"), "w", encoding="utf-8").write(glossary_page(pages))
     print("18-glossary.md", len(G), "entries")

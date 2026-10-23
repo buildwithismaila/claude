@@ -27,6 +27,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
 | μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
 
 **Symbols**
@@ -34,6 +35,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
 | E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
 | N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
@@ -82,7 +84,90 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | GaAs | Gallium arsenide |
 | SiO₂ | Silicon dioxide (silica), the oxide insulator |
 | MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| BJT | Bipolar junction transistor |
 
+
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Band gap (E_g).** The range of energies that an electron in a crystal cannot have. It lies between the valence band (the band of energies occupied by the electrons that form the bonds between atoms) and the conduction band (the next band up, where electrons are free to move through the crystal). For silicon E_g = 1.12 eV at 300 K.
+
+**Electron and hole (carriers).** A free electron is an electron in the conduction band; a hole is an empty place left in the valence band, which behaves like a positive charge +q that can move. Together they are called carriers because they carry the current.
+
+*Why it matters:* every current this week is a flow of electrons, of holes, or of both.
+
+**Doping (N_D, N_A).** Adding small, controlled amounts of impurity atoms to a semiconductor. Donor atoms (concentration N_D, e.g. phosphorus in Si) give free electrons and make the material n-type; acceptor atoms (concentration N_A, e.g. boron) give holes and make it p-type.
+
+**Majority and minority carriers.** The majority carriers are the more numerous type (electrons in n-type, holes in p-type); the minority carriers are the less numerous type.
+
+**Fermi level (E_F).** The energy at which an electron state has a 50 % chance of being occupied. In thermal equilibrium (no battery, no light) it is the same everywhere in the material: it is "flat".
+
+**Thermal velocity (v_th).** The average speed of the random motion that carriers have because of heat, about 10⁷ cm/s in silicon at 300 K. Because the directions are random, it gives no current on its own.
+
+**Scattering and mean free time (τ_m).** Scattering is a collision of a carrier with a vibrating atom, an impurity ion or a defect, which randomises its direction. The mean free time τ_m is the average time between collisions, about 0.1–1 ps.
+
+**Effective mass (m∗).** The mass a carrier appears to have when it is pushed by a force inside the crystal. It is usually written as a multiple of the free-electron mass m₀ (e.g. 0.067m₀ for GaAs electrons). A small effective mass means the carrier is easy to accelerate.
+
+**Drift and drift velocity (v_d).** Drift is the movement of carriers caused by an electric field. The drift velocity v_d is the small, steady average velocity in the field direction that is added on top of the random thermal motion.
+
+**Mobility (μ).** The drift velocity a carrier gains per unit electric field: it measures how easily the carrier moves through the crystal.
+
+    μ = v_d / E = qτ_m / m∗
+
+Where:
+
+- μ = mobility (cm²/V·s); Si: μ_n = 1350, μ_p = 480
+- v_d = drift velocity (cm/s)
+- E = electric field (V/cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- τ_m = mean free time between collisions (s)
+- m∗ = effective mass (kg)
+
+*Why it matters:* mobility sets both the conductivity of a material and the speed of the devices made from it.
+
+**Current density (J).** The electric current flowing through each square centimetre of cross-section, in A/cm². The current is I = JA, where A is the cross-sectional area.
+
+**Conductivity and resistivity (σ, ρ).** Conductivity σ measures how well a material conducts; resistivity ρ = 1/σ measures how strongly it opposes current. Both depend on how many carriers there are and on their mobilities.
+
+    σ = q(nμ_n + pμ_p),     ρ = 1/σ
+
+Where:
+
+- σ = conductivity (S/cm)
+- ρ = resistivity (Ω·cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- n, p = electron and hole concentrations (cm⁻³)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+
+**Diffusion (Fick's law).** The net flow of particles from where there are more of them to where there are fewer, caused only by their random motion. Fick's law says the flow is proportional to the concentration gradient.
+
+    F = −D dC/dx
+
+Where:
+
+- F = particle flux: particles crossing 1 cm² per second (cm⁻²s⁻¹)
+- D = diffusion coefficient (cm²/s)
+- C = concentration of the particles (cm⁻³); for carriers, C is n or p
+- x = position (cm)
+
+*Why it matters:* diffusion carries the current in the neutral regions of a diode and across the base of a bipolar transistor.
+
+**Diffusion coefficient (D).** The constant in Fick's law that measures how quickly particles spread out by random motion, in cm²/s. For carriers in Si at 300 K, D_n ≈ 35 cm²/s and D_p ≈ 12.4 cm²/s.
+
+**Thermal voltage (kT/q).** The thermal energy kT expressed as a voltage: 0.0259 V (about 26 mV) at 300 K. It sets the voltage scale of almost every semiconductor equation.
+
+**Einstein relation.** The rule that the diffusion coefficient and the mobility of a carrier are always in the same ratio, fixed only by temperature, because both are limited by the same collisions.
+
+    D_n / μ_n = D_p / μ_p = kT/q
+
+Where:
+
+- D_n, D_p = electron and hole diffusion coefficients (cm²/s)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- kT/q = thermal voltage, 0.0259 V at 300 K
+
+*Why it matters:* measuring the mobility (which is easy) immediately gives the diffusion coefficient.
 
 ## The big picture
 
@@ -105,6 +190,12 @@ Now apply an electric field E. Between collisions each electron is pushed by the
 
     v_d = μE
 
+Where:
+
+- v_d = drift velocity (cm/s)
+- μ = mobility (cm²/V·s)
+- E = electric field (V/cm)
+
 For electrons the drift is against the field (they are negative); for holes it is along the field.
 
 > **In plain words.** Picture a crowd milling about randomly in a square. Tilt the square slightly. People still wander randomly, but on average the crowd now slides slowly downhill. The slow average slide is the drift velocity; the random wandering is much faster but cancels out.
@@ -114,6 +205,15 @@ For electrons the drift is against the field (they are negative); for holes it i
 The constant μ is the **mobility**: how much drift velocity you get per unit field.
 
     μ = v_d / E = qτ_m / m∗      [cm²/V·s]
+
+Where:
+
+- μ = mobility (cm²/V·s)
+- v_d = drift velocity (cm/s)
+- E = electric field (V/cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- τ_m = mean free time between collisions (s)
+- m∗ = effective mass of the carrier (kg)
 
 From the formula, mobility is high when:
 
@@ -136,12 +236,18 @@ Electrons are faster than holes in all three, mainly because of their smaller ef
 
 **Find:** v_dn and v_dp.
 
+**Formula:**
+
+    v_d = μE
+
 **Solution.**
 
     v_dn = μ_nE = 1350 × 1000 = 1.35×10⁶ cm/s
     v_dp = μ_pE = 480 × 1000 = 4.8×10⁵ cm/s
 
 **Answer:** **electrons 1.35×10⁶ cm/s, holes 4.8×10⁵ cm/s**, both far below the random thermal velocity of about 10⁷ cm/s.
+
+**What this means:** even in a fairly strong field the electrons' average drift is only about one-seventh of their random thermal speed, so the field only gently biases the random motion; this is why v_d = μE (a constant mobility) still holds here. Holes drift almost three times more slowly than electrons in the same field.
 
 ### What scatters carriers
 
@@ -159,6 +265,13 @@ When several mechanisms act, their scattering rates add, so the reciprocals of t
 
     1/μ = 1/μ_L + 1/μ_I + …
 
+Where:
+
+- μ = total mobility (cm²/V·s)
+- μ_L = mobility if only lattice scattering acted (cm²/V·s)
+- μ_I = mobility if only ionised-impurity scattering acted (cm²/V·s)
+- … = one more term for each further scattering mechanism
+
 The **lowest** mobility dominates, just as the narrowest section of a pipe limits the flow.
 
 @fig figures/mobility.svg | Mobility against temperature. At low temperature impurity scattering limits mobility; at high temperature lattice scattering does. Heavier doping lowers the curve and moves its peak to higher temperature.
@@ -166,7 +279,7 @@ The **lowest** mobility dominates, just as the narrowest section of a pipe limit
 ### What affects mobility (summary)
 
 - **Temperature:** near room temperature, higher T → more lattice vibration → lower μ.
-- **Doping:** more impurities → more scattering → lower μ (Si electrons: 1350 at light doping, about 1000 at 10¹⁷, about 100 at 10²⁰ cm⁻³).
+- **Doping:** more impurities → more scattering → lower μ (Si electrons: 1350 at light doping, about 800 at 10¹⁷, about 100 at 10²⁰ cm⁻³).
 - **Effective mass:** smaller m∗ → higher μ.
 - **Electric field:** at very high fields μ falls (velocity saturation, Week 8).
 - **Crystal quality, surfaces, orientation and strain.**
@@ -185,9 +298,24 @@ Electrons move against the field but carry negative charge, so their **current**
 
     J = q(nμ_n + pμ_p) E = σE
 
+Where:
+
+- J = total drift current density (A/cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- n, p = electron and hole concentrations (cm⁻³)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- E = electric field (V/cm)
+- σ = conductivity (S/cm)
+
 This is just Ohm's law, with **conductivity** and **resistivity**
 
     σ = q(nμ_n + pμ_p),     ρ = 1/σ
+
+Where:
+
+- σ = conductivity (S/cm)
+- ρ = resistivity (Ω·cm)
+- q, n, p, μ_n, μ_p as above
 
 For n-type material n ≫ p, so σ ≈ qN_Dμ_n. For p-type, σ ≈ qN_Aμ_p.
 
@@ -198,6 +326,10 @@ For n-type material n ≫ p, so σ ≈ qN_Dμ_n. For p-type, σ ≈ qN_Aμ_p.
 **Given:** N_D = 1×10¹⁶ cm⁻³, μ_n = 1350 cm²/V·s, L = 1 cm, A = 1 mm² = 0.01 cm², q = 1.6×10⁻¹⁹ C.
 
 **Find:** σ, ρ and R.
+
+**Formula:**
+
+    σ ≈ qN_Dμ_n,     ρ = 1/σ,     R = ρL/A
 
 **Solution.**
 
@@ -213,6 +345,8 @@ Step 3. R = ρL/A:
 
 **Answer:** **σ = 2.16 S/cm, ρ = 0.46 Ω·cm, R = 46 Ω.**
 
+**What this means:** only one atom in about five million is a donor (silicon has 5×10²² atoms per cm³), yet the bar's resistance drops from about 34 MΩ (undoped, σ_i = qn_i(μ_n + μ_p) = 2.9×10⁻⁶ S/cm) to 46 Ω. Doping is how we set the resistance of a semiconductor, and the 0.46 Ω·cm value is typical of the wafers used to make chips.
+
 **Sheet resistance.** For a thin layer of thickness t, R_s = ρ/t in ohms per square (Ω/□), measured with a four-point probe (Week 3).
 
 ### Hall effect
@@ -220,6 +354,16 @@ Step 3. R = ρL/A:
 Put a sample carrying current I_x in a magnetic field B_z. The magnetic force pushes the moving carriers sideways, so charge piles up on one side and a small **Hall voltage** V_H appears across the sample. Its **sign** shows whether the carriers are electrons or holes, and its **size** gives their concentration:
 
     R_H = 1/qp (p-type, positive),   R_H = −1/qn (n-type, negative)
+
+Where:
+
+- R_H = Hall coefficient (cm³/C), found from the measurement as R_H = V_H t/(I_xB_z)
+- V_H = Hall voltage (V)
+- t = sample thickness along the magnetic field (cm)
+- I_x = current through the sample (A)
+- B_z = magnetic flux density (Wb/cm²; 1 T = 10⁻⁴ Wb/cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- p, n = hole and electron concentrations (cm⁻³)
 
 Combined with a resistivity measurement it gives the mobility, μ = |R_H|σ. This is the standard way to measure carrier type, concentration and mobility.
 
@@ -233,6 +377,13 @@ The flow obeys **Fick's law** (the same law as in Week 3, now for carriers):
 
     flux of electrons = −D_n dn/dx,     flux of holes = −D_p dp/dx
 
+Where:
+
+- flux = number of carriers crossing 1 cm² per second (cm⁻²s⁻¹)
+- D_n, D_p = electron and hole diffusion coefficients (cm²/s)
+- dn/dx, dp/dx = gradients of the electron and hole concentrations (cm⁻⁴)
+- the minus sign = the flow is from high concentration to low
+
 D_n and D_p are the carrier **diffusion coefficients** (Si at 300 K: D_n ≈ 35 cm²/s, D_p ≈ 12 cm²/s). These are about 10¹⁴ times larger than dopant diffusion coefficients: carriers diffuse across a device in nanoseconds, while dopant atoms need hours in a furnace.
 
 ### Diffusion current density
@@ -241,6 +392,13 @@ Multiply each particle flux by the charge of the carrier:
 
     J_n(diff) = (−q)(−D_n dn/dx) = +qD_n dn/dx
     J_p(diff) = (+q)(−D_p dp/dx) = −qD_p dp/dx
+
+Where:
+
+- J_n(diff), J_p(diff) = electron and hole diffusion current densities (A/cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- D_n, D_p = electron and hole diffusion coefficients (cm²/s)
+- dn/dx, dp/dx = concentration gradients (cm⁻⁴)
 
 **Watch the signs.** Both electrons and holes flow from high concentration to low. But because the electron charge is negative, the **electron current** points **opposite** to the electron flow, while the hole current points the same way as the hole flow.
 
@@ -254,6 +412,10 @@ Multiply each particle flux by the charge of the carrier:
 
 **Find:** J_n(diff).
 
+**Formula:**
+
+    J_n(diff) = qD_n dn/dx
+
 **Solution.**
 
 Step 1. The concentration gradient:
@@ -266,7 +428,7 @@ Step 2. J_n = qD_n dn/dx:
 
 **Answer:** **|J_n| = 5.6×10³ A/cm²**, flowing in the −x direction (opposite to the electron flow, because electrons are negative).
 
-A large current, from a modest gradient. Diffusion is not a small effect: it carries the whole current in a diode's neutral regions and in a transistor's base.
+**What this means:** a large current, from a modest gradient: through a device area of 100 μm × 100 μm (10⁻⁴ cm²) it would be 0.56 A. Diffusion is not a small effect: it carries the whole current in a diode's neutral regions and in a transistor's base.
 
 ### The total current equations
 
@@ -276,13 +438,49 @@ When a field and a gradient are both present, simply add drift and diffusion:
     J_p = qpμ_pE − qD_p dp/dx
     J = J_n + J_p
 
+Where:
+
+- J_n, J_p, J = electron, hole and total current densities (A/cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- n, p = electron and hole concentrations (cm⁻³)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- E = electric field (V/cm)
+- D_n, D_p = electron and hole diffusion coefficients (cm²/s)
+- dn/dx, dp/dx = concentration gradients (cm⁻⁴)
+
 These two equations, together with the continuity equation (Week 9) and Poisson's equation, describe every semiconductor device.
+
+### Drift and diffusion compared
+
+| | Drift | Diffusion |
+|---|---|---|
+| Cause | An electric field E pushes the carriers | A difference in concentration (a gradient dn/dx or dp/dx); random motion spreads the carriers out |
+| Needs a field? | Yes | No; it happens even with no field |
+| Electron current | J_n = qnμ_nE | J_n = +qD_n dn/dx |
+| Hole current | J_p = qpμ_pE | J_p = −qD_p dp/dx |
+| Depends on | How many carriers there are (n, p) | How fast their number changes with position (dn/dx, dp/dx) |
+| Material constant | Mobility μ (cm²/V·s) | Diffusion coefficient D (cm²/s) |
+| Direction of carrier flow | Holes along E, electrons against E | Both from high to low concentration |
+| Direction of current | Electron and hole currents both along E (they add) | Hole current along the hole flow; electron current opposite to the electron flow |
+| Which carriers it usually matters for | Majority carriers (there are many of them) | Minority carriers (small numbers, but steep gradients) |
+| Where it dominates | Resistors, the channel of a MOSFET, carriers swept across a reverse-biased junction | Neutral regions of a forward-biased diode, the base of a BJT, solar cells |
+| Everyday picture | Water flowing downhill | Ink spreading in still water |
+
+The two are tied together by the Einstein relation, D/μ = kT/q, because the same collisions limit both.
 
 ### The Einstein relation
 
 Drift and diffusion are two responses of the same carriers to two different pushes, and both are limited by the **same collisions**. So it is no surprise that μ and D are related:
 
     D_n / μ_n = D_p / μ_p = kT/q
+
+Where:
+
+- D_n, D_p = electron and hole diffusion coefficients (cm²/s)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- k = Boltzmann constant, 8.617×10⁻⁵ eV/K
+- T = absolute temperature (K)
+- q = electronic charge, 1.6×10⁻¹⁹ C
 
 kT/q is the **thermal voltage**, 0.0259 V (about 26 mV) at 300 K.
 
@@ -394,14 +592,24 @@ For an n-type sample (n ≫ p), σ ≈ qnμ_n ≈ qN_Dμ_n; for p-type, σ ≈ q
 
 ### Q38. A semiconductor has an electron concentration of 2 × 10¹⁶ cm⁻³, electron mobility of 1350 cm²/V·s, and an electric field of 10 V/cm. Calculate the electron drift current density.
 
+**Question.** Calculate the electron drift current density for n = 2×10¹⁶ cm⁻³, μ_n = 1350 cm²/V·s and E = 10 V/cm.
+
 **Given:** n = 2×10¹⁶ cm⁻³, μ_n = 1350 cm²/V·s, E = 10 V/cm, q = 1.602×10⁻¹⁹ C.
+
+**Find:** J_n (drift).
+
+**Formula:**
+
+    J_n = qnμ_nE
+
+**Solution.**
 
     J_n = q n μ_n E
         = (1.602×10⁻¹⁹ C)(2×10¹⁶ cm⁻³)(1350 cm²/V·s)(10 V/cm)
         = (1.602×10⁻¹⁹)(2.7×10²⁰)   A/cm²
         = 43.3 A/cm²
 
-**J_n ≈ 43.3 A/cm²** (= 4.33×10⁵ A/m²).
+**Answer:** **J_n ≈ 43.3 A/cm²** (= 4.33×10⁵ A/m²). (With the rounded q = 1.6×10⁻¹⁹ C the result is 43.2 A/cm².)
 
 **Units check:** C · cm⁻³ · cm²/(V·s) · V/cm = C/(s·cm²) = A/cm². ✓
 
@@ -409,6 +617,8 @@ Supporting quantities:
 
 - Drift velocity v_d = μ_nE = 1350 × 10 = 1.35×10⁴ cm/s (well below v_sat = 10⁷ cm/s, so the linear model is valid).
 - Conductivity σ = qnμ_n = 4.33 S/cm, resistivity ρ = 0.231 Ω·cm, and J = σE = 4.33 × 10 = 43.3 A/cm². ✓
+
+**What this means:** a modest field of only 10 V/cm (1 V across 1 mm) already drives about 43 A through every square centimetre, because there are so many electrons; the electrons themselves creep along at only 1.35×10⁴ cm/s, almost a thousand times slower than their thermal speed.
 
 ### Q39. Explain diffusion current in a semiconductor and state Fick's law.
 
@@ -584,5 +794,5 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Explain thermal motion, drift velocity and mobility. | Si electrons in a 500 V/cm field: find v_d. | v_d = 1350 × 500 = 6.75×10⁵ cm/s. | Part A; Example 7.1 |
 | 2 | Explain the scattering mechanisms and the factors that affect mobility. | Which scattering mechanism dominates at low temperature in heavily doped Si? | Ionised-impurity scattering. | Scattering; factors affecting mobility |
 | 3 | Derive and use the drift current density and conductivity. | Find σ for p-type Si with N_A = 10¹⁶ cm⁻³ and μ_p = 480 cm²/V·s. | σ = 1.6×10⁻¹⁹ × 10¹⁶ × 480 = 0.77 S/cm. | Drift current density; Example 7.2 |
-| 4 | Explain carrier diffusion and calculate diffusion current with Fick's law. | Why does electron diffusion current point opposite to the electron flow? | Because the electron charge is negative. | Part B; Example 7.3 |
+| 4 | Explain carrier diffusion and calculate diffusion current with Fick's law. | Why does electron diffusion current point opposite to the electron flow? | Because the electron charge is negative. | Part B; Example 7.3; Drift and diffusion compared |
 | 5 | State, explain and use the Einstein relation. | Find D_n for GaAs (μ_n = 8500 cm²/V·s) at 300 K. | D = 0.0259 × 8500 = 220 cm²/s. | The Einstein relation |

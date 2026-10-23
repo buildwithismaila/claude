@@ -1126,3 +1126,139 @@ p.text(0.55, 2.3, "linear", anchor="start", size=10.5, op=.8)
 p.text(2.2, 2.45, "saturation", anchor="start", size=10.5, op=.8)
 write("mosfet-iv.svg", figure(600, 225, [p],
       "n-channel MOSFET output curves for four gate voltages, rising linearly at low drain voltage and saturating beyond V_DS equal to V_GS minus V_T"))
+
+
+# =====================================================================
+# M15  metal and n-semiconductor energy levels before contact
+# =====================================================================
+s = Sketch()
+yvac = 40
+# metal block, left
+mx0, mx1 = 70, 230
+yFm = yvac + 150                     # phi_m = 5.0 eV at 30 px/eV
+s.rect(mx0, yFm, mx1 - mx0, 90, fill=SOFT2, stroke='none')
+s.line(mx0, yFm, mx1, yFm, SIG, 1.8, dash="6 3")
+s.text(mx0 + 4, yFm + 16, "filled states", anchor="start", size=10, op=.7)
+s.text((mx0 + mx1)/2, 300, "metal", size=11.5)
+s.text(mx0 - 4, yFm + 4, "E_{F,m}", anchor="end", size=10.5, color=SIG)
+s.line(mx0 + 30, yvac + 2, mx0 + 30, yFm - 2, SIG2, 1.4, arrow='sig2')
+s.text(mx0 + 36, (yvac + yFm)/2 + 4, "qΦ_m", anchor="start", size=10.5, color=SIG2)
+# semiconductor, right
+sx0, sx1 = 370, 560
+yEc = yvac + 121                     # chi = 4.05 eV
+yEF = yEc + 6                        # E_c - E_F = 0.2 eV
+yEv = yEc + 34                       # E_g = 1.12 eV
+s.line(sx0, yEc, sx1, yEc, INK, 2)
+s.line(sx0, yEv, sx1, yEv, INK, 2)
+s.rect(sx0, yEv, sx1 - sx0, 60, fill=SOFT, stroke='none')
+s.line(sx0, yEF, sx1, yEF, SIG, 1.8, dash="6 3")
+s.text(sx1 + 4, yEc - 2, "E_c", anchor="start", size=10.5)
+s.text(sx1 + 4, yEF + 11, "E_{F,s}", anchor="start", size=10.5, color=SIG)
+s.text(sx1 + 4, yEv + 4, "E_v", anchor="start", size=10.5)
+s.text((sx0 + sx1)/2, 300, "n-type semiconductor", size=11.5)
+s.line(sx0 + 40, yvac + 2, sx0 + 40, yEc - 2, INK, 1.2, arrow='end')
+s.text(sx0 + 34, (yvac + yEc)/2 + 4, "qχ", anchor="end", size=10.5)
+s.line(sx0 + 120, yvac + 2, sx0 + 120, yEF - 2, SIG2, 1.4, arrow='sig2')
+s.text(sx0 + 126, (yvac + yEF)/2 + 4, "qΦ_s", anchor="start", size=10.5, color=SIG2)
+s.line(sx0 + 170, yEF + 2, sx0 + 170, yEv - 2, INK, 1, arrow='both', op=.7)
+s.text(sx0 + 164, yEv - 8, "E_g", anchor="end", size=10)
+# common vacuum level
+s.line(mx0, yvac, sx1, yvac, INK, 1, dash="3 3")
+s.text(sx1 + 4, yvac + 4, "E_vac", anchor="start", size=10.5, op=.85)
+# the step between the Fermi levels
+s.line(330, yEF, 330, yFm, SIG, 1.4, arrow='sig')
+s.line(mx1, yFm, 336, yFm, SIG, .8, dash="2 3", op=.6)
+s.line(324, yEF, sx0, yEF, SIG, .8, dash="2 3", op=.6)
+s.text(324, (yEF + yFm)/2 + 4, "q(Φ_m − Φ_s)", anchor="end", size=10, color=SIG)
+write("ms-before.svg", figure(620, 315, [s],
+      "Energy levels of a metal and an n-type semiconductor before contact, measured down from a common vacuum level: the metal work function, the semiconductor electron affinity and work function, and the higher semiconductor Fermi level"))
+
+# =====================================================================
+# M15  Schottky diode cross-section
+# =====================================================================
+s = Sketch()
+L, R = 40, 460
+s.rect(L, 150, R - L, 70, fill=SOFT, stroke=INK)                     # n+ substrate
+s.text((L + R)/2, 195, "n⁺ substrate (heavily doped)", size=11)
+s.rect(L, 80, R - L, 70, fill='none', stroke=INK)                    # n- epi
+s.text(L + 12, 140, "n-type layer (lightly doped)", anchor="start", size=11)
+s.rect(L, 62, 130, 18, fill='none', stroke=INK, dash="4 2")         # oxide
+s.rect(R - 130, 62, 130, 18, fill='none', stroke=INK, dash="4 2")
+s.text(L + 65, 75, "SiO₂", size=10.5)
+s.text(R - 65, 75, "SiO₂", size=10.5)
+s.rect(L + 130, 50, R - L - 260, 30, fill=SOFT2, stroke=INK)        # Schottky metal
+s.text((L + R)/2, 70, "metal", size=11)
+s.path(f"M{L+140},80 Q{(L+R)/2},128 {R-140},80", INK, 1, dash="4 3", op=.7)
+s.text((L + R)/2, 116, "depletion region", size=10, op=.8)
+s.rect(L, 220, R - L, 14, fill=SOFT2, stroke=INK)                     # back contact
+s.line((L + R)/2, 50, (L + R)/2, 20, INK, 1.2)
+s.circle((L + R)/2, 18, 3.5)
+s.text((L + R)/2 + 10, 22, "anode (+ for forward bias)", anchor="start", size=10.5)
+s.line((L + R)/2, 234, (L + R)/2, 258, INK, 1.2)
+s.circle((L + R)/2, 260, 3.5)
+s.text((L + R)/2 + 10, 264, "cathode", anchor="start", size=10.5)
+s.text(R + 8, 40, "Schottky", anchor="start", size=10.5, color=SIG)
+s.text(R + 8, 54, "contact", anchor="start", size=10.5, color=SIG)
+s.line(R + 4, 46, R - 128, 52, SIG, .8, op=.6)
+s.text(R + 8, 226, "ohmic", anchor="start", size=10.5, color=SIG2)
+s.text(R + 8, 240, "contact", anchor="start", size=10.5, color=SIG2)
+write("schottky-device.svg", figure(560, 275, [s],
+      "Cross-section of a Schottky diode: a metal anode on a lightly doped n-type layer, which sits on a heavily doped n-plus substrate with an ohmic metal cathode underneath; oxide rings the metal"))
+
+# =====================================================================
+# M15  I-V: ohmic contact, Schottky diode and p-n diode
+# =====================================================================
+p = Panel(60, 20, 460, 200, (-1.0, 1.0), (-2.0, 10.0))
+p.axes(xlabel="V (volts)", ylabel="I (mA)", xticks=(-1, -0.5, 0.5, 1), yticks=(5, 10))
+p.curve(samp(lambda v: 8 * v, -0.25, 1.0, 80), INK, 1.6, dash="6 3")
+def diode(Is):       # I in mA, ideal diode, clipped at the top of the axes
+    pts = [(v, Is * (math.exp(v / 0.0259) - 1)) for v in [x / 400 for x in range(-400, 401)]]
+    return [(v, i) for v, i in pts if i <= 10]
+p.curve(diode(1e-5), SIG, 2)          # Schottky: I_s about 10^6 times larger
+p.curve(diode(1e-11), SIG2, 2)        # silicon p-n diode
+p.text(0.33, 9.0, "Schottky", anchor="end", size=10.5, color=SIG)
+p.text(0.74, 9.0, "p-n diode", anchor="start", size=10.5, color=SIG2)
+p.text(0.62, 3.0, "ohmic contact", anchor="start", size=10.5)
+write("contact-iv.svg", figure(600, 250, [p],
+      "Current against voltage: an ohmic contact gives a straight line through the origin; a Schottky diode turns on near 0.3 volts; a silicon p-n diode turns on near 0.65 volts"))
+
+# =====================================================================
+# M15  two ways to an ohmic contact on n-type
+# =====================================================================
+s = Sketch()
+def ohmic_panel(x0, title, mode):
+    xi, xe = x0 + 70, x0 + 270
+    yF = 120
+    s.text(x0 + 140, 18, title, size=11.5)
+    s.rect(x0, yF, xi - x0, 60, fill=SOFT2, stroke='none')
+    s.line(xi, 35, xi, 190, INK, 1.4)
+    s.text((x0 + xi)/2, 205, "metal", size=11)
+    s.text((xi + xe)/2 + 20, 205, "n⁺-Si" if mode == "tunnel" else "n-Si", size=11)
+    s.line(x0, yF, xe, yF, SIG, 1.8, dash="6 3")
+    s.text(xe + 3, yF + 4, "E_F", anchor="start", size=10, color=SIG)
+    if mode == "acc":
+        ec = lambda x: 100 + 26 * math.exp(-(x - xi) / 30)     # bands bend down at the metal
+        pts = [(x, ec(x)) for x in range(xi, xe + 1, 3)]
+        s.poly(pts, INK, 2)
+        s.poly([(x, y + 60) for x, y in pts], INK, 2)
+        for k in range(4):
+            s.electron(xi + 8 + 9 * k, 124 - (k % 2) * 3)
+        s.text(xi + 6, 160, "accumulation", anchor="start", size=9.5, op=.8)
+        s.line(xi + 60, 116, xe - 30, 116, SIG2, 1.2, arrow='sig2')
+        s.text(xi + 150, 140, "no barrier", size=10, color=SIG2)
+    else:
+        ec = lambda x: 92 + 52 * math.exp(-(x - xi) / 9)
+        pts = [(x, ec(x)) for x in range(xi, xe + 1, 2)]
+        pts = [(xi, 40)] + pts
+        s.poly(pts, INK, 2)
+        s.poly([(x, y + 60) for x, y in pts[1:]], INK, 2)
+        s.line(xi - 30, 113, xi + 34, 113, SIG2, 1.4, arrow='sig2')
+        s.text(xi + 40, 50, "thin barrier:", anchor="start", size=10, color=SIG2)
+        s.text(xi + 40, 63, "electrons tunnel", anchor="start", size=10, color=SIG2)
+        s.text(xi + 40, 76, "through it", anchor="start", size=10, color=SIG2)
+    s.text(xe + 3, ec(xe) + 4, "E_c", anchor="start", size=10)
+    s.text(xe + 3, ec(xe) + 64, "E_v", anchor="start", size=10)
+ohmic_panel(10, "(a) low work function, Φ_m < Φ_s", "acc")
+ohmic_panel(330, "(b) heavy doping, N_D > 10¹⁹ cm⁻³", "tunnel")
+write("ohmic-contacts.svg", figure(650, 215, [s],
+      "Two ohmic contacts on n-type silicon: a low work-function metal makes the bands bend down into an accumulation layer with no barrier; heavy doping leaves a barrier only a few nanometres thick that electrons tunnel through"))
