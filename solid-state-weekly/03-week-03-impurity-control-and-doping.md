@@ -80,6 +80,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | B_z, I_x, V_H | Hall effect: magnetic field (z), current (x) and Hall voltage | T (tesla); A; V |
 | G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
 | Q_charge | Total charge delivered by the ion beam, I × t | C |
+| erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
+| t | Time (or a thickness, where the text says so) | s (or cm) |
 
 **Abbreviations**
 

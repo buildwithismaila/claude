@@ -31,6 +31,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
 | μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
 
 **Symbols**
@@ -70,6 +71,8 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
 | ψ_k(x), u_k(x) | Bloch wavefunction of an electron, and its part that repeats with the lattice | — |
+| λ_c | Cut-off wavelength of a detector, 1.24/E_g (μm, E_g in eV) | μm |
+| c | Speed of light in vacuum | 3×10⁸ m/s |
 
 **Abbreviations**
 

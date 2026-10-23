@@ -74,6 +74,8 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | v_dn, v_dp | Drift velocity of electrons and holes | cm/s |
 | μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | cm²/(V·s); s; cm⁻³ |
 | J_drift, J_diff | Drift and diffusion parts of the current density | A/cm² |
+| B (recombination) | Radiative recombination coefficient, R = B np | cm³/s; GaAs ≈ 10⁻¹⁰, Si ≈ 10⁻¹⁴ |
+| t | Time (or a thickness, where the text says so) | s (or cm) |
 
 **Abbreviations**
 

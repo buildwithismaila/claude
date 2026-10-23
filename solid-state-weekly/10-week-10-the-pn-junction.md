@@ -67,6 +67,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
 | Δp_n, Δn_p | Excess minority carriers at the depletion edges (holes on n side, electrons on p side) | cm⁻³ |
 | p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
+| ΔV, ΔV_BE | A small change in a voltage | V |
 
 **Abbreviations**
 
@@ -76,6 +77,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Ge | Germanium |
 | C-V | Capacitance–voltage (measurement or characteristic) |
 | MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| BJT | Bipolar junction transistor |
 | LED | Light-emitting diode |
 | n⁺ | Very heavily doped n-type (similarly p⁺) |
 

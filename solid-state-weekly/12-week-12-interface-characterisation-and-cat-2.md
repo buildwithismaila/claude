@@ -69,6 +69,8 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
 | I_D | Drain current | A (mA) |
 | V_junction | Part of the applied voltage that appears across the junction itself | V |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+| ΔV, ΔV_BE | A small change in a voltage | V |
 
 **Abbreviations**
 

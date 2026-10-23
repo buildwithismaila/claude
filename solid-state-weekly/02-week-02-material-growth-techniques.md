@@ -44,6 +44,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
 | ρ | Resistivity, 1/σ | Ω·cm |
 | a_layer, a_sub | Lattice constants of the grown layer and of the substrate | Å |
+| f_m | Lattice mismatch, (a_layer − a_sub)/a_sub | dimensionless, usually in % |
+| v_pull | Pull rate of a Czochralski crystal | mm/min |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
+| t | Time (or a thickness, where the text says so) | s (or cm) |
 
 **Abbreviations**
 
@@ -52,6 +56,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Si | Silicon |
 | Ge | Germanium |
 | GaAs | Gallium arsenide |
+| GaN | Gallium nitride |
 | InP | Indium phosphide |
 | SiO₂ | Silicon dioxide (silica), the oxide insulator |
 | III–V | Compound of Group III and Group V elements (e.g. GaAs) |
@@ -70,8 +75,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | HEMT | High-electron-mobility transistor |
 | BJT | Bipolar junction transistor |
 | HBT | Heterojunction bipolar transistor |
+| IC | Integrated circuit |
 | LED | Light-emitting diode |
 | RF | Radio frequency |
+| IGBT | Insulated-gate bipolar transistor |
 | VCSEL | Vertical-cavity surface-emitting laser |
 
 

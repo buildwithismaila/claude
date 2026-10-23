@@ -16,6 +16,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
 | μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
 
@@ -46,12 +47,15 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
 | C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
 | V_T (V_th) | Threshold voltage of a MOSFET | V |
+| V_FB | Flat-band voltage | V |
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
 | I_D | Drain current | A (mA) |
 | W/L | Channel width-to-length ratio | dimensionless |
 | g_m | Transconductance, ∂I_D/∂V_GS | S (A/V) |
 | k (MOSFET) | Device parameter μ_nC_ox(W/L) | A/V² (mA/V²) |
 | ΔI_D, ΔV_GS | Small changes in drain current and gate voltage (their ratio is g_m) | A; V |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+| ΔV, ΔV_BE | A small change in a voltage | V |
 
 **Abbreviations**
 
@@ -63,9 +67,12 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | I-V | Current–voltage (measurement or characteristic) |
 | C-V | Capacitance–voltage (measurement or characteristic) |
 | LCR | Inductance–capacitance–resistance meter |
+| SMU | Source-measure unit |
+| MOS | Metal–oxide–semiconductor |
 | MOSFET | Metal–oxide–semiconductor field-effect transistor |
 | DC | Direct current (steady) |
 | AC | Alternating current (small signal) |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
 | MATLAB | A numerical computing program (alternative to Python) |
 
 

@@ -78,6 +78,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | r_a, r_b, r_c, r_d | SRH rates: electron capture, electron emission, hole capture, hole emission | cm⁻³s⁻¹ |
 | τ_SRH, τ_radiative, τ_Auger | Lifetimes set by trap (SRH), radiative and Auger recombination | s |
 | I_gen, J_gen | Generation current (density) from carriers generated in the depletion region | A; A/cm² |
+| B (recombination) | Radiative recombination coefficient, R = B np | cm³/s; GaAs ≈ 10⁻¹⁰, Si ≈ 10⁻¹⁴ |
+| C_n, C_p (Auger) | Auger recombination coefficients | cm⁶/s; Si ≈ 10⁻³¹ |
+| τ₀ (τ_g) | Effective generation lifetime in a depletion region | s |
+| t | Time (or a thickness, where the text says so) | s (or cm) |
 
 **Abbreviations**
 

@@ -62,6 +62,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | ρ | Resistivity, 1/σ | Ω·cm |
 | λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
 | σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
 
 **Abbreviations**
 

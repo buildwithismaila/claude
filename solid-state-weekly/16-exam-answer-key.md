@@ -92,6 +92,8 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
 | U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
 | p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
+| erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
 
 **Abbreviations**
 

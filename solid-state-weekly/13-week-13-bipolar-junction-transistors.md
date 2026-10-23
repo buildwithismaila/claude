@@ -40,7 +40,9 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
 | L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| V, V_a | Applied voltage (positive for forward bias) | V |
 | I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| A (area) | Device or contact area | cm² |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | V_BE, V_CE, V_CB | Base–emitter, collector–emitter and collector–base voltages | V |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
@@ -55,6 +57,9 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
 | I_{E,n}, I_{E,p}, I_{C,n} | Electron and hole parts of the emitter and collector currents | A |
 | n_B(x) | Minority-electron density in the base of an NPN transistor | cm⁻³ |
+| V_EB, V_BC (V_CB) | Emitter–base and base–collector voltages | V |
+| ΔV, ΔV_BE | A small change in a voltage | V |
+| I_{C1}, I_{C2} | Collector currents at two operating points | A |
 
 **Abbreviations**
 

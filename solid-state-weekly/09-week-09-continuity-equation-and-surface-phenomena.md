@@ -58,6 +58,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
 | τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
 | U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
+| t | Time (or a thickness, where the text says so) | s (or cm) |
 
 **Abbreviations**
 
