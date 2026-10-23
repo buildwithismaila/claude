@@ -40,11 +40,15 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
 | n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
 | N_A | Acceptor concentration | cm⁻³ |
 | ψ | Wave function (\|ψ\|² is the probability density) | — |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
 | μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
 | G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
+| S | Surface recombination velocity | cm/s |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| A (area) | Device or contact area | cm² |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
@@ -74,10 +78,84 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | SiO₂ | Silicon dioxide (silica), the oxide insulator |
 | MOS | Metal–oxide–semiconductor |
 | MOSFET | Metal–oxide–semiconductor field-effect transistor |
+| CMOS | Complementary MOS (n- and p-channel MOSFETs together) |
 | BJT | Bipolar junction transistor |
+| RF | Radio frequency |
 | DC | Direct current (steady) |
 | n⁺ | Very heavily doped n-type (similarly p⁺) |
 
+
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Electron and hole.** The two kinds of mobile charge in a semiconductor. A free electron (negative) moves in the conduction band; a hole (positive) is an empty electron place in the valence band that moves like a positive particle.
+
+**Doping (N_A, N_D).** Adding a small, controlled amount of impurity atoms to a pure semiconductor. Acceptor atoms (concentration N_A, e.g. boron in Si) give p-type material with many holes; donor atoms (N_D, e.g. phosphorus) give n-type material with many electrons.
+
+**Majority and minority carriers.** The majority carriers are the more numerous kind of mobile charge in a doped region (holes in p-type); the minority carriers are the far fewer other kind (electrons in p-type).
+
+*Why it matters:* the MOSFET channel on a p-type substrate is made of minority electrons pulled to the surface by the gate.
+
+**Fermi level (E_F) and intrinsic level (E_i).** The Fermi level is the energy at which a state has a 50 % chance of being occupied by an electron; it is flat through a material in equilibrium. The intrinsic level E_i is where E_F would sit in undoped material, close to the middle of the band gap. In p-type material E_F lies below E_i; in n-type it lies above.
+
+**Bulk Fermi potential (φ_F).** How far, in volts, the Fermi level lies below the intrinsic level deep inside a p-type substrate.
+
+    φ_F = (kT/q) ln(N_A/n_i)
+
+Where:
+
+- φ_F = bulk Fermi potential (V)
+- kT/q = thermal voltage, 0.0259 V at 300 K
+- N_A = substrate acceptor concentration (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+
+**Surface potential (ψ_s).** The amount, in volts, by which the energy bands bend at the silicon surface compared with the bulk. The gate voltage controls it.
+
+**MOS capacitor.** A metal (or polysilicon) gate, a thin insulating oxide (SiO₂) and a semiconductor substrate stacked on top of each other. It is a parallel-plate capacitor whose lower "plate" is the silicon surface.
+
+**Gate-oxide capacitance (C_ox).** The capacitance of the oxide layer per unit area: how much charge the gate induces in the silicon per volt.
+
+    C_ox = ε_ox / t_ox
+
+Where:
+
+- C_ox = oxide capacitance per unit area (F/cm²)
+- ε_ox = permittivity of SiO₂, 3.45×10⁻¹³ F/cm
+- t_ox = oxide thickness (cm; 1 nm = 10⁻⁷ cm)
+
+*Why it matters:* a thinner oxide gives a larger C_ox, a lower threshold voltage and more drain current for the same gate voltage.
+
+**Accumulation.** The state of a MOS capacitor on p-type silicon when the gate is negative: extra holes (majority carriers) are pulled to the surface.
+
+**Depletion region (W_d).** A layer next to the surface from which the mobile majority carriers have been pushed away, leaving only the fixed charge of ionised dopant atoms. Its thickness is the depletion width W_d.
+
+**Inversion and strong inversion.** Inversion is the state in which the gate has pulled so many minority electrons to the surface of p-type silicon that the surface behaves as n-type. Strong inversion is reached when the surface is as n-type as the bulk is p-type, which happens when ψ_s = 2φ_F.
+
+**Flat-band voltage (V_FB).** The gate voltage that makes the energy bands flat right up to the surface (no band bending, no surface charge). It is zero for an ideal MOS capacitor.
+
+    V_FB = Φ_ms − Q_f/C_ox
+
+Where:
+
+- V_FB = flat-band voltage (V)
+- Φ_ms = work-function difference between gate and substrate (V)
+- Q_f = fixed positive charge in the oxide, per unit area (C/cm²)
+- C_ox = oxide capacitance per unit area (F/cm²)
+
+**Threshold voltage (V_T).** The gate-to-source voltage at which strong inversion starts, so that a conducting channel joins source and drain and the transistor begins to turn on.
+
+*Why it matters:* every MOSFET current formula is written in terms of how far V_GS is above V_T.
+
+**MOSFET (source, drain, gate, channel).** A metal–oxide–semiconductor field-effect transistor: a MOS capacitor with two heavily doped regions, the source and the drain, at either side of the gate. The inversion layer under the gate is the channel that carries current between them; the gate voltage controls it through an electric field, with no DC gate current.
+
+**Enhancement and depletion mode.** An enhancement-mode MOSFET has no channel at V_GS = 0 and needs a gate voltage beyond V_T to create one. A depletion-mode MOSFET is built with a channel already present at V_GS = 0 and needs a gate voltage of the opposite sign to remove it.
+
+**Pinch-off and saturation.** Pinch-off is the point, at V_DS = V_GS − V_T, where the channel charge at the drain end falls to zero. For larger V_DS the transistor is in saturation: the drain current stays almost constant, set by V_GS alone.
+
+**Transconductance (g_m).** The change in drain current per unit change in gate voltage, g_m = ∂I_D/∂V_GS, in siemens (A/V). It measures how good the transistor is as an amplifier.
+
+**Body effect.** The rise in threshold voltage that occurs when the source is at a higher voltage than the substrate (body), because a wider depletion region must then be supported before inversion.
 
 ## The big picture
 
@@ -105,7 +183,7 @@ A MOS capacitor can be viewed as a **parallel-plate capacitor**: one plate is th
 |---|---|
 | C_ox | oxide capacitance per unit area (F/cm²) |
 | ε_ox | oxide permittivity, ε_ox = ε_r ε₀ with ε_r ≈ 3.9 for SiO₂: ε_ox = 3.45×10⁻¹³ F/cm |
-| t_ox | oxide thickness |
+| t_ox | oxide thickness (cm; 1 nm = 10⁻⁷ cm) |
 
 A **thinner oxide** gives a larger capacitance per unit area, so the same gate voltage induces more charge: stronger electrostatic control of the channel. For t_ox = 10 nm = 10⁻⁶ cm, C_ox = 3.45×10⁻¹³/10⁻⁶ = 3.45×10⁻⁷ F/cm².
 
@@ -114,6 +192,13 @@ A **thinner oxide** gives a larger capacitance per unit area, so the same gate v
 For the p-type substrate we also need the **bulk Fermi potential** φ_F, which is how far the Fermi level lies below the intrinsic level in the bulk (from Week 5, E_i − E_F = kT ln(N_A/n_i)):
 
     φ_F = (kT/q) ln(N_A/n_i)
+
+Where:
+
+- φ_F = bulk Fermi potential (V)
+- kT/q = thermal voltage, 0.0259 V at 300 K
+- N_A = substrate acceptor concentration (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
 
 For N_A = 10¹⁷ cm⁻³: φ_F = 0.0259 ln(10⁷) = 0.417 V.
 
@@ -139,6 +224,14 @@ The depletion width grows with the band bending:
 
     W_d = √( 2ε_si ψ_s / qN_A )
 
+Where:
+
+- W_d = depletion width below the oxide (cm)
+- ε_si = permittivity of silicon, 1.04×10⁻¹² F/cm
+- ψ_s = surface potential: the band bending at the surface (V)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- N_A = substrate acceptor concentration (cm⁻³)
+
 ## 14.5 Inversion
 
 As the positive gate voltage is increased further, the surface potential becomes positive enough to attract **electrons** (the minority carriers of the p-type substrate) towards the surface. When the electron concentration at the surface becomes large enough that the surface behaves as **n-type**, the semiconductor is said to be **inverted**. This is **inversion**.
@@ -153,11 +246,53 @@ Once strong inversion is reached, the depletion width stops growing at its maxim
 
     W_dmax = √( 4ε_si φ_F / qN_A )
 
+Where:
+
+- W_dmax = maximum depletion width, reached at strong inversion (cm)
+- ε_si = permittivity of silicon, 1.04×10⁻¹² F/cm
+- φ_F = bulk Fermi potential (V)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- N_A = substrate acceptor concentration (cm⁻³)
+
 and any further gate voltage simply adds electrons to the inversion layer. **This electron layer is the channel of the MOSFET.**
 
 The exact sign conventions for φ_F and ψ_s differ between textbooks. The physical idea is what matters: the gate field first **depletes** the surface, then attracts minority carriers until an **inversion layer** forms.
 
 @fig figures/mos-states.svg | Band diagrams of an ideal MOS capacitor on p-type silicon. Accumulation: bands bend up and holes gather at the surface. Depletion: bands bend down and holes are pushed away, leaving negative acceptor ions. Inversion: the bands bend so far that the surface becomes n-type.
+
+#### Example 14.1: oxide capacitance and maximum depletion width
+
+**Question.** A MOS capacitor has a 7 nm SiO₂ gate oxide on p-type silicon with N_A = 1×10¹⁶ cm⁻³. At 300 K find (a) the oxide capacitance per unit area, (b) the bulk Fermi potential, (c) the maximum depletion width at strong inversion and (d) the depletion charge per unit area then.
+
+**Given:** t_ox = 7 nm = 7×10⁻⁷ cm, N_A = 1×10¹⁶ cm⁻³, ε_ox = 3.45×10⁻¹³ F/cm, ε_si = 1.04×10⁻¹² F/cm, n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V, q = 1.6×10⁻¹⁹ C.
+
+**Find:** C_ox, φ_F, W_dmax and Q_dmax.
+
+**Formula:**
+
+    C_ox = ε_ox/t_ox,   φ_F = (kT/q) ln(N_A/n_i),   W_dmax = √(4ε_siφ_F/qN_A),   |Q_dmax| = qN_AW_dmax
+
+**Solution.**
+
+Step 1. Oxide capacitance:
+
+    C_ox = 3.45×10⁻¹³ / 7×10⁻⁷ = 4.93×10⁻⁷ F/cm²
+
+Step 2. Bulk Fermi potential:
+
+    φ_F = 0.0259 ln(10¹⁶/10¹⁰) = 0.0259 × 13.82 = 0.358 V
+
+Step 3. Maximum depletion width:
+
+    W_dmax = √(4 × 1.04×10⁻¹² × 0.358 / (1.6×10⁻¹⁹ × 10¹⁶)) = 3.05×10⁻⁵ cm = 0.305 μm
+
+Step 4. Depletion charge at strong inversion:
+
+    |Q_dmax| = 1.6×10⁻¹⁹ × 10¹⁶ × 3.05×10⁻⁵ = 4.88×10⁻⁸ C/cm²
+
+**Answer:** **C_ox = 4.93×10⁻⁷ F/cm², φ_F = 0.358 V, W_dmax = 0.305 μm, |Q_dmax| = 4.88×10⁻⁸ C/cm².**
+
+**What this means:** the depletion layer under the gate never grows beyond about 0.3 μm, roughly 40 times the oxide thickness. Holding up its charge needs only |Q_dmax|/C_ox ≈ 0.10 V across this thin oxide, so on a lightly doped substrate most of the threshold voltage goes into band bending (2φ_F = 0.72 V) rather than into the depletion charge.
 
 ## 14.6 From MOS capacitor to MOSFET
 
@@ -170,6 +305,21 @@ In an **n-channel enhancement MOSFET**, two heavily doped **n⁺ regions** form 
 The gate voltage controls whether the channel exists and how strongly it conducts. This is the fundamental reason the MOSFET is a **field-effect** device.
 
 **Enhancement and depletion mode.** In an **enhancement-mode** device (the normal kind) there is no channel at V_GS = 0; a gate voltage above V_T must be applied to create (enhance) one. A **depletion-mode** device is built with a channel already present at V_GS = 0 (by doping the surface n-type); a negative gate voltage is needed to remove (deplete) it, so its V_T is negative.
+
+The same two choices exist for p-channel devices, with every polarity reversed. The four kinds of MOSFET compare as follows:
+
+| Feature | n-channel enhancement | n-channel depletion | p-channel enhancement | p-channel depletion |
+|---|---|---|---|---|
+| Substrate (body) | p-type | p-type | n-type | n-type |
+| Source and drain | n⁺ | n⁺ | p⁺ | p⁺ |
+| Channel carriers | Electrons | Electrons | Holes | Holes |
+| Channel at V_GS = 0? | No (normally off) | Yes (normally on) | No (normally off) | Yes (normally on) |
+| Sign of V_T | Positive | Negative | Negative | Positive |
+| Gate voltage to turn on harder | More positive | More positive | More negative | More negative |
+| Normal sign of V_DS | Positive | Positive | Negative | Negative |
+| Typical use | Digital logic (CMOS), switches, amplifiers | Constant-current sources, loads, some RF circuits | Partner of nMOS in CMOS logic | Rare; special analogue circuits |
+
+Because electrons have a higher mobility than holes (1350 against 480 cm²/V·s in bulk Si), an n-channel transistor carries about 2–3 times more current than a p-channel transistor of the same size. That is why the nMOS is the main device, and why pMOS transistors in CMOS logic are drawn wider.
 
 ## 14.7 Threshold voltage
 
@@ -185,11 +335,15 @@ with the **body-effect coefficient**
 
 | Symbol | Meaning |
 |---|---|
-| V_FB | flat-band voltage: the gate voltage that makes the bands flat; zero for an ideal MOS, V_FB = Φ_ms − Q_f/C_ox in a real one |
-| 2φ_F | the band bending needed for strong inversion |
-| γ√(2φ_F) | the voltage dropped across the oxide to support the depletion charge, \|Q_dmax\|/C_ox |
-| N_A | substrate acceptor concentration |
+| V_T | threshold voltage (V) |
+| V_FB | flat-band voltage: the gate voltage that makes the bands flat; zero for an ideal MOS, V_FB = Φ_ms − Q_f/C_ox in a real one (V) |
+| 2φ_F | the band bending needed for strong inversion (V) |
+| γ | body-effect coefficient (V^{1/2}) |
+| γ√(2φ_F) | the voltage dropped across the oxide to support the depletion charge, \|Q_dmax\|/C_ox (V) |
+| q | electronic charge, 1.6×10⁻¹⁹ C |
+| N_A | substrate acceptor concentration (cm⁻³) |
 | ε_si | silicon permittivity, 11.7ε₀ = 1.04×10⁻¹² F/cm |
+| C_ox | oxide capacitance per unit area, ε_ox/t_ox (F/cm²) |
 
 **Reading the formula.** The gate voltage has three jobs: get to flat bands (V_FB), bend the bands by 2φ_F, and hold up the charge of the depletion region across the oxide. **Heavier substrate doping** raises both φ_F and the depletion charge, so V_T rises. A **thinner oxide** (larger C_ox) lowers V_T.
 
@@ -197,13 +351,17 @@ with the **body-effect coefficient**
 
 For simplified ideal MOSFET problems, the threshold voltage may simply be given. Always use the convention and parameters supplied in the question.
 
-#### Example 14.1: calculating the threshold voltage
+#### Example 14.2: calculating the threshold voltage
 
 **Question.** An n-channel MOSFET is built on p-type silicon with N_A = 1×10¹⁷ cm⁻³, a 10 nm SiO₂ gate oxide and an n⁺ polysilicon gate, for which V_FB = −0.98 V. There is no oxide charge. Calculate the threshold voltage at 300 K.
 
 **Given:** N_A = 1×10¹⁷ cm⁻³, t_ox = 10 nm = 1×10⁻⁶ cm, V_FB = −0.98 V, ε_ox = 3.45×10⁻¹³ F/cm, ε_si = 1.04×10⁻¹² F/cm, n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
 
-**Find:** V_T = V_FB + 2φ_F + γ√(2φ_F).
+**Find:** the threshold voltage V_T.
+
+**Formula:**
+
+    V_T = V_FB + 2φ_F + γ√(2φ_F),   φ_F = (kT/q) ln(N_A/n_i),   γ = √(2qε_siN_A)/C_ox,   C_ox = ε_ox/t_ox
 
 **Solution.**
 
@@ -226,6 +384,50 @@ Step 4. Add the three terms:
     V_T = −0.98 + 0.834 + 0.483 = 0.34 V
 
 **Answer:** **V_T ≈ 0.34 V.**
+
+**What this means:** the band bending (0.83 V) and the depletion charge (0.48 V) together need 1.32 V of gate voltage, but the n⁺ polysilicon gate's work function supplies −0.98 V of it for free. The result, about 0.3 V, is a typical threshold for a modern low-voltage logic transistor.
+
+**Body effect.** The formula above assumes the source is at the same voltage as the body (substrate). If the source is raised V_SB above the body, the channel must be inverted relative to a source that is V_SB higher, so the band bending needed at the surface becomes 2φ_F + V_SB, the depletion region widens and more depletion charge must be supported. The threshold voltage therefore rises:
+
+    V_T(V_SB) = V_FB + 2φ_F + γ√(2φ_F + V_SB),   ΔV_T = γ[ √(2φ_F + V_SB) − √(2φ_F) ]
+
+Where:
+
+- V_T(V_SB) = threshold voltage with source–body bias V_SB (V)
+- ΔV_T = rise in threshold voltage caused by the body bias (V)
+- V_SB = source-to-body voltage, positive when the source is above the body in an nMOS (V)
+- γ = body-effect coefficient √(2qε_siN_A)/C_ox (V^{1/2})
+- φ_F = bulk Fermi potential (V); V_FB = flat-band voltage (V)
+
+#### Example 14.3: the body effect
+
+**Question.** The transistor of Example 14.2 is used with its source 1 V above its substrate (V_SB = 1 V). Find its new threshold voltage.
+
+**Given:** V_T(0) = 0.338 V, γ = 0.529 V^{1/2}, 2φ_F = 0.834 V, V_SB = 1 V.
+
+**Find:** ΔV_T and V_T(V_SB = 1 V).
+
+**Formula:**
+
+    ΔV_T = γ[ √(2φ_F + V_SB) − √(2φ_F) ]
+
+**Solution.**
+
+Step 1. The two square roots:
+
+    √(0.834 + 1) = √1.834 = 1.355 V^{1/2},   √0.834 = 0.914 V^{1/2}
+
+Step 2. Rise in threshold:
+
+    ΔV_T = 0.529 × (1.355 − 0.914) = 0.529 × 0.441 = 0.233 V
+
+Step 3. New threshold:
+
+    V_T = 0.338 + 0.233 = 0.57 V
+
+**Answer:** **ΔV_T ≈ 0.23 V, so V_T rises from 0.34 V to about 0.57 V.**
+
+**What this means:** a 1 V source–body bias raises the threshold by about two-thirds. In a chip, transistors stacked on top of one another have their sources above ground, so they switch on later and carry less current; designers must allow for this, and a thinner oxide (smaller γ) reduces the effect.
 
 ## 14.8 MOSFET regions of operation
 
@@ -251,9 +453,12 @@ When V_GS > V_T and V_DS is smaller than V_GS − V_T, the channel exists all th
 
 | Symbol | Meaning |
 |---|---|
-| μ_n | electron mobility in the channel |
-| C_ox | oxide capacitance per unit area |
-| W, L | channel width and length |
+| I_D | drain current (A) |
+| μ_n | electron mobility in the channel (cm²/V·s) |
+| C_ox | oxide capacitance per unit area (F/cm²) |
+| W, L | channel width and length (cm or μm; only their ratio W/L matters) |
+| V_GS, V_DS | gate-to-source and drain-to-source voltages (V) |
+| V_T | threshold voltage (V) |
 
 **Where it comes from (in words).** The amount of electron charge in the channel per unit area is C_ox × (how far the gate is above threshold). At the source end that is C_ox(V_GS − V_T); at the drain end the channel is at V_DS, so the gate is only V_GS − V_DS above it and the charge is C_ox(V_GS − V_T − V_DS). The current is (charge per area) × (width) × (drift velocity μ × field). Adding this up along the channel gives the formula; the −V_DS²/2 term is the effect of the channel thinning towards the drain.
 
@@ -273,6 +478,15 @@ the channel charge at the drain end falls to zero: this is the **onset of pinch-
 
     I_D = ½ μ_n C_ox (W/L) (V_GS − V_T)²
 
+Where:
+
+- I_D = saturation drain current (A)
+- μ_n = electron mobility in the channel (cm²/V·s)
+- C_ox = oxide capacitance per unit area (F/cm²)
+- W/L = channel width-to-length ratio (dimensionless)
+- V_GS = gate-to-source voltage (V)
+- V_T = threshold voltage (V); V_GS − V_T is the overdrive voltage
+
 This is one of the most important MOSFET equations for examination calculations. In saturation the current depends on V_GS but (ideally) not on V_DS: the MOSFET is a **voltage-controlled current source**, which is what an amplifier needs.
 
 @fig figures/mosfet-iv.svg | Output characteristics of an n-channel MOSFET. Each curve rises (linear region) until V_DS = V_GS − V_T (dashed line), then flattens (saturation).
@@ -287,13 +501,56 @@ For the ideal long-channel saturation equation:
 
     g_m = μ_nC_ox (W/L)(V_GS − V_T) = 2I_D/(V_GS − V_T)
 
+Where:
+
+- g_m = transconductance (S = A/V)
+- μ_nC_ox(W/L) = device parameter k (A/V²)
+- V_GS − V_T = overdrive voltage (V)
+- I_D = saturation drain current at that bias (A)
+
 Transconductance measures how strongly the drain current responds to a small change in gate voltage (unit: siemens, A/V). It plays the role for a MOSFET that β plays for a BJT.
+
+#### Example 14.4: saturation current and transconductance from device data
+
+**Question.** An n-channel MOSFET has the threshold voltage of Example 14.2 (V_T = 0.34 V), the same 10 nm oxide, a channel mobility μ_n = 400 cm²/V·s and W/L = 10. It is biased at V_GS = 1.34 V and V_DS = 2 V. Find (a) the device parameter k, (b) the drain current and (c) the transconductance.
+
+**Given:** V_T = 0.34 V, C_ox = 3.45×10⁻⁷ F/cm², μ_n = 400 cm²/V·s, W/L = 10, V_GS = 1.34 V, V_DS = 2 V.
+
+**Find:** k, I_D and g_m.
+
+**Formula:**
+
+    k = μ_nC_ox(W/L),   I_D = ½k(V_GS − V_T)²,   g_m = k(V_GS − V_T) = 2I_D/(V_GS − V_T)
+
+**Solution.**
+
+Step 1. Device parameter:
+
+    k = 400 × 3.45×10⁻⁷ × 10 = 1.38×10⁻³ A/V² = 1.38 mA/V²
+
+Step 2. Check the region. The overdrive is V_GS − V_T = 1.34 − 0.34 = 1.0 V, and V_DS = 2 V ≥ 1.0 V, so the transistor is in saturation.
+
+Step 3. Drain current:
+
+    I_D = ½ × 1.38 × (1.0)² = 0.69 mA
+
+Step 4. Transconductance:
+
+    g_m = 1.38 × 1.0 = 1.38 mS     (check: 2 × 0.69/1.0 = 1.38 mS)
+
+**Answer:** **k = 1.38 mA/V², I_D = 0.69 mA, g_m = 1.38 mS.**
+
+**What this means:** a gate change of 10 mV shifts the drain current by about 14 μA (1.38 mS × 10 mV). Note that the channel mobility (400) is much lower than bulk mobility (1350) because electrons in the channel scatter off the rough Si/SiO₂ interface; using the bulk value would overestimate the current more than threefold.
 
 ## 14.13 Worked example 1: determining the operating region
 
 **Question.** An nMOS transistor has V_T = 1 V, V_GS = 3 V and V_DS = 1 V. Determine its operating region.
 
-**Given:** V_T = 1 V, V_GS = 3 V, V_DS = 1 V. **Find:** the region of operation.
+**Given:** V_T = 1 V, V_GS = 3 V, V_DS = 1 V.
+
+**Find:** the region of operation.
+
+**Formula:** cut-off if V_GS < V_T; linear if V_GS > V_T and V_DS < V_GS − V_T; saturation if V_GS > V_T and V_DS ≥ V_GS − V_T.
 
 **Solution.**
 
@@ -301,25 +558,41 @@ Transconductance measures how strongly the drain current responds to a small cha
     V_GS − V_T = 3 − 1 = 2 V
     V_DS = 1 V < 2 V
 
-The transistor is in the **linear (triode) region**.
+**Answer:** The transistor is in the **linear (triode) region**.
+
+**What this means:** the channel still reaches all the way from source to drain, so the transistor behaves like a gate-controlled resistor; V_DS would have to rise above 2 V before the channel pinches off and the current levels out.
 
 ## 14.14 Worked example 2: saturation current
 
 **Question.** An nMOS transistor has μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V and V_GS = 4 V. Find the saturation drain current.
 
-**Given:** k = μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V, V_GS = 4 V. **Find:** I_D(sat).
+**Given:** k = μ_nC_ox(W/L) = 2 mA/V², V_T = 1 V, V_GS = 4 V.
+
+**Find:** I_D(sat).
+
+**Formula:**
+
+    I_D(sat) = ½ μ_nC_ox(W/L)(V_GS − V_T)²
 
 **Solution.**
 
     I_D = ½ × 2 × (4 − 1)² mA = 1 × 9 = 9 mA
 
-**I_D = 9 mA.**
+**Answer:** **I_D = 9 mA.**
+
+**What this means:** as long as V_DS is at least V_GS − V_T = 3 V, the drain current stays at about 9 mA whatever the drain voltage; the gate alone sets it, which is what makes the MOSFET useful as a current source and amplifier.
 
 ## 14.15 Worked example 3: linear-region current
 
 **Question.** An nMOS transistor has μ_nC_ox(W/L) = 1 mA/V², V_T = 1 V, V_GS = 3 V and V_DS = 0.5 V. Calculate the drain current.
 
-**Given:** k = 1 mA/V², V_T = 1 V, V_GS = 3 V, V_DS = 0.5 V. **Find:** I_D.
+**Given:** k = 1 mA/V², V_T = 1 V, V_GS = 3 V, V_DS = 0.5 V.
+
+**Find:** I_D.
+
+**Formula:**
+
+    I_D = μ_nC_ox(W/L)[ (V_GS − V_T)V_DS − V_DS²/2 ]
 
 **Solution.**
 
@@ -327,7 +600,9 @@ First check the region: V_GS − V_T = 2 V > V_DS = 0.5 V, so it is linear.
 
     I_D = 1 × [ (3 − 1)(0.5) − (0.5)²/2 ] mA = [1 − 0.125] mA = 0.875 mA
 
-**I_D = 0.875 mA.**
+**Answer:** **I_D = 0.875 mA.**
+
+**What this means:** the channel behaves roughly as a resistor of V_DS/I_D = 0.5 V/0.875 mA ≈ 570 Ω. The −V_DS²/2 term cuts the current by 12.5 % compared with a pure resistor, because the channel is already thinner at the drain end.
 
 ## 14.16 Comparison of BJT and MOSFET
 
@@ -398,17 +673,41 @@ Beyond this point the equation would predict a falling current, which does not h
 
 ### 15. Calculate the saturation current when μ_nC_ox(W/L) = 1.5 mA/V², V_GS = 5 V and V_T = 2 V.
 
-    I_D = ½ μ_nC_ox(W/L)(V_GS − V_T)² = ½ × 1.5 × (5 − 2)² = 0.75 × 9 = 6.75 mA
+**Given:** k = μ_nC_ox(W/L) = 1.5 mA/V², V_GS = 5 V, V_T = 2 V (saturation assumed, as the question states).
 
-**I_D = 6.75 mA.**
+**Find:** I_D(sat).
+
+**Formula:**
+
+    I_D(sat) = ½ μ_nC_ox(W/L)(V_GS − V_T)²
+
+**Solution.**
+
+    I_D = ½ × 1.5 × (5 − 2)² = 0.75 × 9 = 6.75 mA
+
+**Answer:** **I_D = 6.75 mA.**
+
+**What this means:** the current grows with the square of the overdrive: with V_GS − V_T = 3 V it is 6.75 mA, but halving the overdrive to 1.5 V would cut it to a quarter, about 1.7 mA. This holds for any V_DS ≥ 3 V.
 
 ### 16. Calculate the linear-region current for μ_nC_ox(W/L) = 2 mA/V², V_GS = 4 V, V_T = 1 V and V_DS = 0.8 V.
+
+**Given:** k = μ_nC_ox(W/L) = 2 mA/V², V_GS = 4 V, V_T = 1 V, V_DS = 0.8 V.
+
+**Find:** I_D.
+
+**Formula:**
+
+    I_D = μ_nC_ox(W/L)[ (V_GS − V_T)V_DS − V_DS²/2 ]
+
+**Solution.**
 
 Check the region: V_GS − V_T = 3 V > V_DS = 0.8 V, so linear.
 
     I_D = 2 × [ (4 − 1)(0.8) − (0.8)²/2 ] = 2 × [2.4 − 0.32] = 2 × 2.08 = 4.16 mA
 
-**I_D = 4.16 mA.**
+**Answer:** **I_D = 4.16 mA.**
+
+**What this means:** this is well below the 9 mA the same transistor would carry in saturation (½ × 2 × 3²), because at V_DS = 0.8 V the channel is still open along its whole length and the current is limited by the small drain voltage.
 
 ### 17. Compare a BJT and a MOSFET in terms of input impedance and control mechanism.
 
@@ -538,9 +837,9 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 
 | # | Objective | Check yourself | Answer | Where it is taught |
 |---|---|---|---|---|
-| 1 | Describe the structure of an ideal MOS capacitor and calculate C_ox. | Find C_ox for a 5 nm SiO₂ layer. | 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm². | 14.2 |
+| 1 | Describe the structure of an ideal MOS capacitor and calculate C_ox. | Find C_ox for a 5 nm SiO₂ layer. | 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm². | 14.2; Example 14.1 |
 | 2 | Explain accumulation, depletion and inversion. | On p-type Si, what forms at the surface in inversion? | A layer of electrons (the surface becomes n-type). | 14.3–14.5 |
-| 3 | Explain how a MOS capacitor becomes a MOSFET, and enhancement versus depletion mode. | Does an enhancement-mode nMOS conduct at V_GS = 0? | No: a gate voltage above V_T is needed to create the channel. | 14.6 |
-| 4 | Define the threshold voltage and calculate it. | What three contributions make up V_T? | V_FB, the band bending 2φ_F, and the depletion-charge term γ√(2φ_F). | 14.7; Example 14.1 |
-| 5 | Determine the operating region and calculate drain current. | V_T = 1 V, V_GS = 2 V, V_DS = 3 V: which region? | Saturation (V_DS ≥ V_GS − V_T = 1 V). | 14.8–14.15 |
+| 3 | Explain how a MOS capacitor becomes a MOSFET, and enhancement versus depletion mode. | Does an enhancement-mode nMOS conduct at V_GS = 0? | No: a gate voltage above V_T is needed to create the channel. | 14.6 (table of the four MOSFET types) |
+| 4 | Define the threshold voltage and calculate it. | What three contributions make up V_T? | V_FB, the band bending 2φ_F, and the depletion-charge term γ√(2φ_F). | 14.7; Examples 14.2–14.3 |
+| 5 | Determine the operating region and calculate drain current. | V_T = 1 V, V_GS = 2 V, V_DS = 3 V: which region? | Saturation (V_DS ≥ V_GS − V_T = 1 V). | 14.8–14.15; Example 14.4 |
 | 6 | Compare BJTs and MOSFETs. | Which has the higher input impedance, and why? | The MOSFET: its gate is insulated by the oxide and draws no DC current. | 14.16; review Q17 |

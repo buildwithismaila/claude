@@ -99,6 +99,105 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | UV | Ultraviolet |
 
 
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Semiconductor.** A material whose ability to carry electric current lies between that of a metal (conductor) and that of an insulator, and can be changed enormously by temperature, light and, above all, by adding tiny amounts of selected impurities. Silicon, germanium and gallium arsenide are the main examples.
+
+*Why it matters:* this controllability is what lets us build diodes, transistors and integrated circuits.
+
+**Valence electrons.** The electrons in the outermost shell of an atom. They take part in chemical bonding and decide the electrical behaviour of the material: silicon and germanium have 4, gallium and boron 3, arsenic and phosphorus 5.
+
+**Covalent bond.** A bond in which two neighbouring atoms share a pair of valence electrons, one from each atom. In silicon each atom forms four covalent bonds with four neighbours, so every atom has a full outer shell of eight electrons.
+
+**Crystal lattice.** A regular, repeating three-dimensional arrangement of atoms. A *single crystal* has the same arrangement and orientation throughout the whole piece.
+
+**Unit cell.** The smallest block of a crystal lattice that, repeated over and over in three directions, rebuilds the whole crystal. Silicon's unit cell is a cube containing 8 atoms (the diamond-cubic structure).
+
+**Lattice constant (a).** The edge length of the cubic unit cell, measured in ångströms (1 Å = 10⁻¹⁰ m). Si: 5.43 Å; Ge and GaAs: 5.65 Å.
+
+*Why it matters:* a thin crystal layer can only be grown without defects on a substrate with almost the same lattice constant.
+
+**Miller indices (h k l).** Three whole numbers, found from the reciprocals of the points where a plane cuts the crystal axes, that name the orientation of a crystal plane. Wafers are described by them, e.g. (100) wafers for MOS chips.
+
+    d_hkl = a / √(h² + k² + l²)
+
+Where:
+
+- d_hkl = spacing between neighbouring (h k l) planes in a cubic crystal (Å)
+- a = lattice constant (Å)
+- h, k, l = Miller indices of the plane (integers)
+
+**Energy band.** When many atoms join to form a solid, each sharp atomic energy level spreads into a wide range of closely spaced allowed energies, called a band. The **valence band** holds the electrons that form the bonds; the **conduction band** above it holds electrons that are free to move and carry current.
+
+**Band gap (E_g).** The range of energies between the top of the valence band and the bottom of the conduction band in which no electron states exist. It is the minimum energy needed to free an electron from a bond.
+
+    E_g = E_c − E_v
+
+Where:
+
+- E_g = band-gap energy (eV); Si 1.12, Ge 0.66, GaAs 1.42 at 300 K
+- E_c = energy of the bottom of the conduction band (eV)
+- E_v = energy of the top of the valence band (eV)
+
+*Why it matters:* the band gap sets how many carriers exist at a given temperature, how much a device leaks, how hot it can run, and which colour of light it absorbs or emits.
+
+**Direct and indirect band gap.** In a direct-gap material (GaAs, GaN, InP) an electron can drop from the conduction band to the valence band without changing its momentum, so it gives out its energy as light efficiently. In an indirect-gap material (Si, Ge) the drop also needs a lattice vibration (phonon), so light emission is very weak.
+
+**Free electron and hole.** When a covalent bond breaks, the released electron can wander through the crystal (a free electron, in the conduction band), and the empty place it leaves in the bond (a hole, in the valence band) behaves as a mobile positive charge. Breaking one bond creates one **electron–hole pair**.
+
+**Intrinsic semiconductor.** A pure semiconductor with no impurities deliberately added, in which every free electron comes from a broken bond and so is matched by a hole. The number of each per cm³ is the **intrinsic carrier concentration, n_i**.
+
+    n = p = n_i
+
+Where:
+
+- n = free-electron concentration (cm⁻³)
+- p = hole concentration (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+
+**Doping.** The deliberate addition of a small, controlled amount of an impurity element (the **dopant**) to a pure semiconductor, to set whether electrons or holes carry the current and to raise the conductivity.
+
+**Donor and acceptor.** A donor is a dopant atom with five valence electrons (P, As, Sb in Si) that gives one free electron to the crystal and becomes a fixed positive ion. An acceptor is a dopant with three valence electrons (B, Al, Ga, In in Si) that takes an electron from a neighbouring bond, creating a hole, and becomes a fixed negative ion.
+
+**n-type and p-type semiconductor; majority and minority carriers.** Silicon doped with donors is n-type: electrons are the **majority carriers** (the more numerous) and holes the **minority carriers**. Silicon doped with acceptors is p-type: holes are the majority and electrons the minority. In either case the product of the two concentrations is fixed (the mass-action law):
+
+    n · p = n_i²
+
+Where:
+
+- n, p = electron and hole concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+
+*Why it matters:* this one rule lets you find the minority-carrier concentration as soon as you know the doping, e.g. p = n_i²/N_D in n-type material.
+
+**Fermi level (E_F).** The energy at which an electron state has exactly a 50 % chance of being occupied. It sits near the middle of the gap in intrinsic material, near the conduction band in n-type material and near the valence band in p-type material.
+
+**Mobility (μ).** How easily a carrier moves through the crystal: the average drift velocity it gains per unit electric field.
+
+    μ = v_d / E
+
+Where:
+
+- μ = mobility (cm²/V·s); Si: μ_n = 1350 for electrons, μ_p = 480 for holes
+- v_d = drift velocity of the carriers (cm/s)
+- E = applied electric field (V/cm)
+
+**Conductivity (σ) and resistivity (ρ).** Conductivity measures how well a material carries current; resistivity is its inverse. In a semiconductor both electrons and holes contribute.
+
+    σ = q(nμ_n + pμ_p),   ρ = 1/σ
+
+Where:
+
+- σ = conductivity (S/cm)
+- ρ = resistivity (Ω·cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- n, p = electron and hole concentrations (cm⁻³)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+
+*Why it matters:* doping raises n or p by many orders of magnitude, and σ rises in proportion; this is how the resistivity of every region of a device is set.
+
 ## Introduction
 
 Semiconductor materials are the foundation of modern electronic and electrical systems. Almost every modern electronic device depends on them, including computers, mobile phones, solar cells, sensors, communication systems, power converters and control systems.
@@ -121,7 +220,7 @@ The most important semiconductor materials used in electronics are:
 
 A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator, and can be **significantly controlled** by temperature, impurities, light or applied electric fields. Examples: silicon (Si), germanium (Ge) and gallium arsenide (GaAs).
 
-Its conductivity is **not fixed**, and that is exactly what makes it useful for electronic devices. Pure silicon at room temperature conducts poorly. When a small, controlled quantity of an impurity such as phosphorus or boron is introduced, its conductivity rises dramatically: one phosphorus atom per million silicon atoms raises the conductivity about 100,000 times. This process is called **doping**.
+Its conductivity is **not fixed**, and that is exactly what makes it useful for electronic devices. Pure silicon at room temperature conducts poorly. When a small, controlled quantity of an impurity such as phosphorus or boron is introduced, its conductivity rises dramatically: one phosphorus atom per million silicon atoms (5×10¹⁶ cm⁻³) raises the conductivity more than a million times. This process is called **doping**.
 
 ## Classification of materials by electrical conductivity
 
@@ -209,9 +308,20 @@ An **intrinsic semiconductor** is a pure semiconductor without intentionally int
 
     n = p = n_i
 
-where n is the electron concentration, p the hole concentration and n_i the **intrinsic carrier concentration** (Si: about 1×10¹⁰ cm⁻³ at 300 K; Ge: 2.4×10¹³ cm⁻³). The number of electrons equals the number of holes. In thermal equilibrium the product is constant:
+Where:
+
+- n = electron concentration (cm⁻³)
+- p = hole concentration (cm⁻³)
+- n_i = **intrinsic carrier concentration** (cm⁻³): Si about 1×10¹⁰ cm⁻³ at 300 K; Ge 2.4×10¹³ cm⁻³
+
+The number of electrons equals the number of holes. In thermal equilibrium the product is constant:
 
     n · p = n_i²   (mass-action law, true for doped material too)
+
+Where:
+
+- n, p = electron and hole concentrations (cm⁻³), in pure or doped material
+- n_i = intrinsic carrier concentration of the material at that temperature (cm⁻³)
 
 ## Extrinsic semiconductor
 
@@ -241,6 +351,11 @@ Produced by adding a **trivalent impurity** (three valence electrons): boron (B)
 
 **Find:** n, p, and the majority carrier.
 
+**Formula:**
+
+    n ≈ N_D   (complete ionisation, N_D ≫ n_i)
+    p = n_i² / n   (mass-action law)
+
 **Solution.**
 
 Step 1. Each phosphorus atom gives one free electron, and N_D ≫ n_i, so
@@ -252,6 +367,8 @@ Step 2. The mass-action law np = n_i² gives the holes:
     p = n_i²/n = (1×10¹⁰)² / (1×10¹⁶) = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
 
 **Answer:** **n = 1×10¹⁶ cm⁻³, p = 1×10⁴ cm⁻³.** Electrons are the majority carriers; they outnumber the holes by 10¹².
+
+**What this means:** adding only one phosphorus atom for every 5 million silicon atoms makes electrons a million times more plentiful than in pure silicon, while the holes fall a million times below n_i. Almost all the current in this material is carried by electrons.
 
 ## Elemental semiconductors
 
@@ -331,7 +448,13 @@ The band gap is the energy difference between the conduction band and the valenc
 
     E_g = E_C − E_V
 
-where E_C is the conduction-band energy (bottom of the conduction band) and E_V the valence-band energy (top of the valence band). It is normally measured in **electron-volts** (1 eV = 1.6×10⁻¹⁹ J).
+Where:
+
+- E_g = band-gap energy (eV); Si 1.12, Ge 0.66, GaAs 1.42 at 300 K
+- E_C = conduction-band energy: the bottom of the conduction band (eV)
+- E_V = valence-band energy: the top of the valence band (eV)
+
+It is normally measured in **electron-volts** (1 eV = 1.6×10⁻¹⁹ J).
 
 **Why the band gap is important.** It strongly affects semiconductor behaviour. A smaller band gap makes it easier for electrons to gain enough energy to enter the conduction band; a larger band gap makes it harder. The band gap influences:
 
@@ -352,6 +475,17 @@ Semiconductors are classified by the relationship between the valence-band maxim
 **Indirect band gap:** a momentum change is required during the transition, supplied by a lattice vibration (phonon). Examples: silicon, germanium. Silicon is therefore **not an efficient light emitter**.
 
 @fig figures/ek.svg | E–k diagrams. In GaAs the band extrema line up at the same k, so an electron can drop straight down and emit a photon. In Si they are at different k, so a phonon must also take part.
+
+### Direct versus indirect band gap at a glance
+
+| | Direct band gap | Indirect band gap |
+|---|---|---|
+| Band edges in the E–k diagram | Conduction-band minimum directly above the valence-band maximum (same k) | Minimum and maximum at different k |
+| What a transition needs | A photon only | A photon **and** a phonon (lattice vibration) to supply the momentum |
+| Light emission | Efficient: energy leaves as light | Very inefficient: energy mostly leaves as heat |
+| Light absorption near E_g | Strong; a few μm of material absorbs the light | Weaker; tens of μm needed (Si solar cells are thick) |
+| Examples | GaAs (1.42 eV), GaN (3.4 eV), InP | Si (1.12 eV), Ge (0.66 eV), GaP |
+| Typical applications | LEDs, laser diodes, optical-fibre transmitters | ICs, transistors, photodiodes and solar cells (absorb but do not emit) |
 
 ## Semiconductor crystal structure
 
@@ -441,6 +575,10 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 
 **Find:** (h k l).
 
+**Formula:** for intercepts p, q, r (in lattice units),
+
+    (h k l) = smallest integers in the ratio 1/p : 1/q : 1/r
+
 **Solution.**
 
 | Step | x | y | z |
@@ -451,6 +589,8 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 
 **Answer:** **(6 3 2).** Remember: Miller indices come from the **reciprocals** of the intercepts, not the intercepts themselves.
 
+**What this means:** the largest index (6) belongs to the axis the plane cuts closest to the origin; a large index means the plane is steeply inclined to that axis. Every plane parallel to this one has the same name, (6 3 2).
+
 #### Example 1.3: a plane parallel to an axis
 
 **Question.** A plane has intercepts x = a, y = 2b and is parallel to the z-axis (z = ∞). Determine its Miller indices.
@@ -458,6 +598,10 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 **Given:** intercepts 1, 2, ∞ in lattice units.
 
 **Find:** (h k l).
+
+**Formula:**
+
+    (h k l) = smallest integers in the ratio 1/p : 1/q : 1/r,   with 1/∞ = 0
 
 **Solution.**
 
@@ -469,9 +613,17 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 
 **Answer:** **(2 1 0).** The zero shows that the plane is parallel to the z-axis.
 
+**What this means:** a plane that never meets an axis gets a zero for that axis, so any Miller index containing 0 describes a plane standing parallel to that axis, like the walls of a room are parallel to the vertical.
+
 ### Interplanar spacing (cubic crystals)
 
     d_{hkl} = a / √(h² + k² + l²)
+
+Where:
+
+- d_hkl = perpendicular distance between neighbouring (h k l) planes (Å)
+- a = lattice constant of the cubic cell (Å); Si 5.43
+- h, k, l = Miller indices of the planes (integers)
 
 For Si, d₁₁₁ = 5.43/√3 = 3.135 Å and d₁₀₀ = 5.43 Å. In cubic crystals the direction [h k l] is perpendicular to the plane (h k l).
 
@@ -631,15 +783,35 @@ Conductivity is σ = q(nμ_n + pμ_p). As temperature rises, more valence electr
 
 ### C1. An n-type semiconductor has an electron concentration of 5 × 10¹⁶ cm⁻³. If the electron mobility is 1200 cm²/V·s, calculate its conductivity, assuming hole conduction is negligible.
 
-With hole conduction neglected, σ = q n μ_n:
+**Given:** n = 5×10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s, q = 1.6×10⁻¹⁹ C, hole conduction negligible.
+
+**Find:** σ (and ρ).
+
+**Formula:**
+
+    σ = q(nμ_n + pμ_p) ≈ q n μ_n   (pμ_p neglected),   ρ = 1/σ
+
+**Solution.** With hole conduction neglected, σ = q n μ_n:
 
     σ = (1.6×10⁻¹⁹ C)(5×10¹⁶ cm⁻³)(1200 cm²/V·s)
       = 1.6×10⁻¹⁹ × 6×10¹⁹
       = 9.6 S/cm   (Ω⁻¹cm⁻¹)
 
-**σ = 9.6 S/cm** (= 960 S/m), so the resistivity is ρ = 1/σ = **0.104 Ω·cm**. (With q = 1.602×10⁻¹⁹ C, σ = 9.61 S/cm.)
+**Answer:** **σ = 9.6 S/cm** (= 960 S/m), so the resistivity is ρ = 1/σ = **0.104 Ω·cm**. (With q = 1.602×10⁻¹⁹ C, σ = 9.61 S/cm.)
+
+**What this means:** a 1 cm cube of this silicon would have a resistance of only about 0.1 Ω, over three million times less than pure silicon (σ_i ≈ 2.9×10⁻⁶ S/cm); the doping, not the silicon itself, decides how well it conducts.
 
 ### C2. A semiconductor has n = 2 × 10¹⁶ cm⁻³, p = 5 × 10¹⁵ cm⁻³, μ_n = 1300 cm²/V·s, μ_p = 450 cm²/V·s. Calculate its conductivity using σ = q(nμ_n + pμ_p).
+
+**Given:** n = 2×10¹⁶ cm⁻³, p = 5×10¹⁵ cm⁻³, μ_n = 1300 cm²/V·s, μ_p = 450 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+
+**Find:** σ (and ρ).
+
+**Formula:**
+
+    σ = q(nμ_n + pμ_p),   ρ = 1/σ
+
+**Solution.**
 
     nμ_n = 2×10¹⁶ × 1300 = 2.6×10¹⁹
     pμ_p = 5×10¹⁵ × 450 = 2.25×10¹⁸
@@ -647,7 +819,9 @@ With hole conduction neglected, σ = q n μ_n:
 
     σ = 1.6×10⁻¹⁹ × 2.825×10¹⁹ = 4.52 S/cm
 
-**σ ≈ 4.52 S/cm**, ρ = 1/σ ≈ **0.221 Ω·cm**. The electrons contribute 92 % of the conductivity (2.6 of 2.825), the holes 8 %.
+**Answer:** **σ ≈ 4.52 S/cm**, ρ = 1/σ ≈ **0.221 Ω·cm**. The electrons contribute 92 % of the conductivity (2.6 of 2.825), the holes 8 %.
+
+**What this means:** electrons dominate for two reasons: there are four times as many of them, and each moves almost three times as easily (1300 against 450). Neglecting the holes here would underestimate σ by only 8 %.
 
 ### C3. Explain why GaAs is preferred to silicon for some high-frequency applications.
 
@@ -661,13 +835,25 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 
 ### C4. A crystal plane has intercepts 2a, 3b and ∞c. Determine its Miller indices.
 
+**Given:** intercepts 2, 3, ∞ in lattice units.
+
+**Find:** (h k l).
+
+**Formula:**
+
+    (h k l) = smallest integers in the ratio 1/p : 1/q : 1/r,   with 1/∞ = 0
+
+**Solution.**
+
 | Step | x | y | z |
 |---|---|---|---|
 | Intercepts | 2 | 3 | ∞ |
 | Reciprocals | 1/2 | 1/3 | 0 |
 | Multiply by 6 | 3 | 2 | 0 |
 
-**Miller indices (3 2 0).** The zero shows that the plane is parallel to the z-axis. For a cubic crystal, d₃₂₀ = a/√(9 + 4 + 0) = a/√13.
+**Answer:** **Miller indices (3 2 0).** The zero shows that the plane is parallel to the z-axis. For a cubic crystal, d₃₂₀ = a/√(9 + 4 + 0) = a/√13.
+
+**What this means:** the plane stands parallel to the z-axis, and in silicon (a = 5.43 Å) neighbouring (3 2 0) planes are only 5.43/√13 = 1.51 Å apart; higher-index planes are always more closely spaced.
 
 ### C5. Explain the importance of semiconductor band gap in electronic and optoelectronic device design.
 
@@ -773,15 +959,27 @@ Use the comparison table of Si, Ge and GaAs above as the core of the answer, the
 
 ### Q7. Determine the Miller indices of a crystal plane having intercepts of 2a, 3b, and 1c.
 
+**Given:** intercepts 2, 3, 1 in lattice units.
+
+**Find:** (h k l).
+
+**Formula:**
+
+    (h k l) = smallest integers in the ratio 1/p : 1/q : 1/r
+
+**Solution.**
+
 | Step | x | y | z |
 |---|---|---|---|
 | Intercepts (in units of a, b, c) | 2 | 3 | 1 |
 | Reciprocals | 1/2 | 1/3 | 1/1 |
 | Multiply by the LCM of the denominators, 6 | 3 | 2 | 6 |
 
-**Miller indices = (3 2 6).**
+**Answer:** **Miller indices = (3 2 6).**
 
 Check: the integers 3, 2, 6 have no common factor, so no further reduction is possible. If the crystal is cubic with lattice constant a, the spacing of these planes is d₃₂₆ = a/√(9 + 4 + 36) = a/√49 = **a/7**.
+
+**What this means:** the plane cuts the z-axis closest to the origin, so z gets the largest index (6). In silicon these planes would be only 5.43/7 = 0.78 Å apart, far closer than the main (100) and (111) planes used for wafers.
 
 @fig figures/miller-326.svg | The (3 2 6) plane, cutting the axes at 2a, 3b and 1c.
 
@@ -838,6 +1036,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
     d₁₁₁ = a/√(1 + 1 + 1) = 5.65/√3 = 3.262 Å
 
 **Answer:** **d₁₁₀ = 4.00 Å, d₁₁₁ = 3.26 Å.**
+
+**What this means:** spacings of a few ångströms are comparable to X-ray wavelengths (Cu Kα ≈ 1.54 Å), which is why X-ray diffraction can measure them and so identify the crystal and its orientation.
 
 #### Practice 1.4: atom density and mass density of silicon
 
@@ -916,6 +1116,6 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 3 | Explain covalent bonding in silicon and electron–hole pair generation. | What two carriers are created when a covalent bond in Si breaks, and what minimum energy is needed? | A free electron and a hole; at least E_g = 1.12 eV. | Covalent bonding; electron–hole pairs |
 | 4 | Distinguish intrinsic, n-type and p-type semiconductors, and donors from acceptors. | Si is doped with 10¹⁷ cm⁻³ boron. Is it n- or p-type, and what is the electron concentration (n_i = 10¹⁰ cm⁻³)? | p-type; n = n_i²/N_A = 10³ cm⁻³. | Intrinsic and extrinsic semiconductors |
 | 5 | Compare elemental and compound semiconductors, and Si, Ge and GaAs. | Give one reason GaAs is preferred to Si for high-frequency work and one reason Si is preferred for ICs. | GaAs: electron mobility ≈ 8500 vs 1350 cm²/V·s. Si: excellent native SiO₂ (also cheaper, larger wafers). | Elemental and compound; comparison table |
-| 6 | Explain the energy-band picture, the band gap and direct versus indirect gaps. | Why is silicon not used for LEDs? | Its gap is indirect: a phonon is needed to conserve momentum, so radiative recombination is very inefficient. | Energy band concept; direct and indirect band gaps |
+| 6 | Explain the energy-band picture, the band gap and direct versus indirect gaps. | Why is silicon not used for LEDs? | Its gap is indirect: a phonon is needed to conserve momentum, so radiative recombination is very inefficient. | Energy band concept; direct and indirect band gaps (comparison table) |
 | 7 | Describe crystal lattices, unit cells and the diamond and zinc-blende structures. | How many atoms are in the diamond-cubic unit cell, and how many nearest neighbours does each atom have? | 8 atoms per cell; 4 nearest neighbours. | Semiconductor crystal structure |
-| 8 | Determine Miller indices of planes and the spacing between planes. | Find the Miller indices of a plane with intercepts 3a, ∞, c. | Reciprocals 1/3, 0, 1 → × 3 → (1 0 3). | Miller indices; Examples 1.2–1.3 |
+| 8 | Determine Miller indices of planes and the spacing between planes. | Find the Miller indices of a plane with intercepts 3a, ∞, c. | Reciprocals 1/3, 0, 1 → × 3 → (1 0 3). | Miller indices; Examples 1.2–1.3; C4 and Q7 |

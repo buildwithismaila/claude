@@ -69,6 +69,77 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | MATLAB | A numerical computing program (alternative to Python) |
 
 
+## Key terms
+
+Every important word used on this page is defined here, so you can do these practicals without first rereading the weeks they come from.
+
+**Fermi level (E_F) and intrinsic level (E_i).** The Fermi level is the energy at which a state has a 50 % chance of being occupied by an electron. The intrinsic level E_i is where E_F lies in pure silicon, close to mid-gap; in n-type material E_F lies above E_i by kT ln(n/n_i).
+
+**Intrinsic temperature.** The temperature at which the thermally generated carrier concentration n_i rises to equal the doping, so the material stops behaving as doped and E_F falls back to mid-gap. Above it a device no longer works properly.
+
+**I-V characteristic.** A graph of a device's current against the voltage across it. A semi-log plot shows ln I (or log₁₀ I) against V, which turns an exponential law into a straight line.
+
+**Saturation current (I_s).** The small current that a diode's exponential law extrapolates to at V = 0; it is also the reverse current of an ideal diode. It is read from the intercept of the semi-log plot.
+
+**Ideality factor (η).** A number between 1 and 2 that says how closely a diode follows the ideal exponential law; it is found from the slope of the semi-log plot.
+
+    I = I_s[ e^{qV/ηkT} − 1 ],   η = (q/kT) / slope of ln I against V
+
+Where:
+
+- I = diode current (A); I_s = saturation current (A)
+- V = voltage across the diode (V)
+- η = ideality factor (dimensionless): 1 for pure diffusion current, nearer 2 when recombination in the depletion region dominates
+- kT/q = thermal voltage, 0.0259 V at 300 K
+
+*Why it matters:* η close to 1 shows a good-quality junction; a larger value points to defects or surface leakage.
+
+**Series resistance (R_s).** The resistance of the bulk semiconductor, contacts and leads in series with the junction. At high current it adds a voltage drop IR_s, so the semi-log plot bends away from a straight line.
+
+    R_s = ΔV / I
+
+Where:
+
+- R_s = series resistance (Ω)
+- ΔV = extra voltage above the extrapolated straight line at current I (V)
+- I = forward current at that point (A)
+
+**Schottky diode and barrier height (Φ_B).** A Schottky diode is a rectifying metal–semiconductor contact whose current is carried by majority carriers crossing an energy barrier of height Φ_B. A lower Φ_B gives a larger I_s, a lower turn-on voltage and a larger reverse leakage than a p-n diode.
+
+**Turn-on voltage and reverse leakage current.** The turn-on voltage is the forward voltage at which a diode's current becomes noticeable (about 0.6 V for a Si p-n diode, 0.2–0.3 V for a Schottky diode). The reverse leakage current is the small current that flows under reverse bias.
+
+**Depletion capacitance (C, C_j).** The capacitance of a reverse-biased junction: the depletion region of width W acts as the insulating layer between two conducting plates, so C = ε_sA/W, and C falls as the reverse bias widens the depletion region.
+
+**Built-in potential (V_bi).** The voltage across a junction's depletion region in equilibrium, typically 0.5–1 V for Si; in C-V profiling it is the voltage at which the straight line of 1/C² reaches zero.
+
+**C-V profiling and the Mott–Schottky plot.** C-V profiling is measuring a junction's capacitance against reverse bias to find its doping. A Mott–Schottky plot is the graph of 1/C² against V: its slope gives the doping N and its intercept gives V_bi. A straight line means uniform doping.
+
+**One-sided junction.** A junction with one side far more heavily doped than the other (p⁺n or n⁺p, or a Schottky contact), so the depletion region lies almost entirely in the lightly doped side and C-V gives that side's doping.
+
+**LCR meter.** An instrument that measures inductance (L), capacitance (C) and resistance (R) by applying a small AC test signal (here 20–50 mV at 1 MHz), usually with an adjustable DC bias added.
+
+**Open-circuit correction (nulling).** Measuring the test fixture with no device in place and subtracting that stray capacitance from every later reading, so only the device's capacitance is recorded.
+
+**Source-measure unit (SMU) and parameter analyser.** An SMU is a precision instrument that applies a chosen voltage (or current) and measures the resulting current (or voltage) at the same time. A semiconductor parameter analyser contains several SMUs and sweeps them automatically to record device characteristics.
+
+**Threshold voltage (V_T).** The gate-to-source voltage at which a MOSFET's channel forms and drain current begins to flow. Here it is found by drawing a straight line through the steepest part of the transfer curve and extending it to I_D = 0 (linear extrapolation).
+
+**Flat-band voltage (V_FB).** The gate voltage at which the energy bands in a MOS structure are flat up to the surface (no surface charge). It is the starting point of the threshold voltage, which adds the voltage needed to bend the bands to inversion and to hold the depletion charge.
+
+**Transfer and output characteristics.** The transfer characteristic is I_D plotted against V_GS at fixed V_DS; the output characteristics are I_D against V_DS for several fixed values of V_GS.
+
+**Transconductance (g_m).** The change in drain current per unit change in gate voltage, measured as the slope of the transfer curve, in siemens (A/V).
+
+    g_m = ΔI_D/ΔV_GS
+
+Where:
+
+- g_m = transconductance (S)
+- ΔI_D = small change in drain current (A)
+- ΔV_GS = small change in gate-to-source voltage that causes it (V)
+
+**Channel (effective) mobility.** The mobility of electrons in the thin MOSFET channel, worked out from the measured g_m. It is well below the bulk mobility (1350 cm²/V·s in Si) because the electrons scatter off the Si/SiO₂ interface, and it falls further at high gate voltage (mobility degradation).
+
 ---
 
 ## Practical 1 — Simulation of carrier transport: Fermi-level shifts in Python
@@ -80,6 +151,15 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
     n_i(T) = √(N_cN_v) e^{−E_g(T)/2kT},   N_c, N_v ∝ T^{3/2},   E_g(T) = 1.17 − 4.73×10⁻⁴T²/(T + 636) eV
     n = N_D/2 + √((N_D/2)² + n_i²)   (complete ionisation)
     E_F − E_i = kT ln(n/n_i)
+
+Where:
+
+- n_i(T) = intrinsic carrier concentration at temperature T (cm⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands, 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³ at 300 K
+- E_g(T) = band gap of Si at temperature T (eV); T = absolute temperature (K)
+- k = Boltzmann constant, 8.617×10⁻⁵ eV/K; kT = thermal energy (eV)
+- n = electron concentration (cm⁻³); N_D = donor concentration (cm⁻³)
+- E_F − E_i = height of the Fermi level above the intrinsic level (eV)
 
 **Procedure.**
 
@@ -186,6 +266,15 @@ Shift per decade of doping at 300 K: 59.5 mV (= kT ln 10).
 **Theory (Week 12).**
 
     C = A √( qε_sN / 2(V_bi − V) )   ⇒   1/C² = 2(V_bi − V)/(qε_sNA²)
+
+Where:
+
+- C = depletion capacitance (F)
+- A = junction area (cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
+- N = doping of the lightly doped side (cm⁻³)
+- V_bi = built-in potential (V); V = applied voltage, negative in reverse bias (V)
 
 The plot of 1/C² against V is a straight line: the slope gives N, the voltage intercept gives V_bi.
 

@@ -172,6 +172,113 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | n⁺ | Very heavily doped n-type (similarly p⁺) |
 
 
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own. These are the most important terms of the whole course; each week's own Key terms section gives more detail.
+
+**Semiconductor.** A solid whose electrical conductivity lies between that of a metal and an insulator and can be controlled over many orders of magnitude by temperature, light and added impurities. Silicon (Si), germanium (Ge) and gallium arsenide (GaAs) are the main examples.
+
+**Energy band and band gap (E_g).** In a crystal the allowed electron energies form bands. The valence band (top edge E_v) is normally full; the conduction band (bottom edge E_c) is normally nearly empty. The band gap E_g = E_c − E_v is the forbidden energy range between them: 1.12 eV for Si.
+
+**Electron and hole.** The two kinds of mobile charge. A free electron (negative) moves in the conduction band; a hole (positive) is an empty electron place in the valence band that moves like a positive particle.
+
+**Intrinsic carrier concentration (n_i).** The electron (and equal hole) concentration in a pure, undoped semiconductor, created only by heat lifting electrons across the gap. For Si at 300 K, n_i = 1×10¹⁰ cm⁻³; it rises very steeply with temperature.
+
+**Doping (donor, acceptor).** Adding a small, controlled amount of impurity atoms. Donors (concentration N_D, e.g. phosphorus) each give a free electron, making n-type material; acceptors (N_A, e.g. boron) each take an electron, leaving a hole, making p-type material.
+
+**Majority and minority carriers.** The majority carriers are the more numerous kind of mobile charge in a doped region (electrons in n-type, holes in p-type); the minority carriers are the far fewer other kind.
+
+**Mass-action law.** In equilibrium the product of the electron and hole concentrations is fixed by the material and temperature, whatever the doping: np = n_i². So in n-type Si with n = N_D, the hole concentration is p = n_i²/N_D.
+
+**Fermi level (E_F).** The energy at which a state has a 50 % chance of being occupied by an electron; it is flat through any material or device in equilibrium. It lies at the intrinsic level E_i (near mid-gap) in pure material and moves towards E_c with donor doping and towards E_v with acceptor doping.
+
+    E_F − E_i = kT ln(N_D/n_i)   (n-type);   E_i − E_F = kT ln(N_A/n_i)   (p-type)
+
+Where:
+
+- E_F, E_i = Fermi level and intrinsic level (eV)
+- kT = thermal energy, 0.0259 eV at 300 K
+- N_D, N_A = donor and acceptor concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+
+**Miller indices (h k l).** Three whole numbers that name a plane in a crystal: take the plane's intercepts on the axes in units of the lattice constant, take reciprocals, and clear fractions.
+
+**Czochralski (CZ) growth and epitaxy.** CZ growth pulls a large single-crystal ingot of silicon slowly out of a melt using a seed crystal. Epitaxy grows a thin new crystalline layer on top of a crystal wafer, continuing its lattice (VPE from a gas, LPE from a liquid, MBE from molecular beams in vacuum).
+
+**Dopant diffusion and ion implantation.** The two ways of putting dopants into a wafer. In diffusion, dopant atoms spread in from the surface in a hot furnace, giving an erfc or Gaussian profile; in ion implantation, ions are fired into the wafer, giving a Gaussian profile centred at the projected range R_p.
+
+**Junction depth (x_j).** The depth at which the added dopant concentration equals the background doping of the wafer, so the material changes type.
+
+**Drift and mobility (μ).** Drift is the motion of carriers caused by an electric field. Mobility is the drift velocity per unit field, v_d = μE, in cm²/(V·s); for lightly doped Si μ_n = 1350 and μ_p = 480.
+
+**Conductivity (σ) and resistivity (ρ).** How easily a material carries current, and its inverse.
+
+    σ = q(nμ_n + pμ_p),   ρ = 1/σ
+
+Where:
+
+- σ = conductivity (S/cm); ρ = resistivity (Ω·cm)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- n, p = electron and hole concentrations (cm⁻³)
+- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+
+**Diffusion current and the Einstein relation.** Diffusion current flows when carriers spread from where they are concentrated to where they are scarce, even with no field. The diffusion coefficient D and the mobility are linked by the Einstein relation D/μ = kT/q (0.0259 V at 300 K).
+
+**Recombination and minority-carrier lifetime (τ).** Recombination is an electron falling back into a hole, removing both. The lifetime τ is the average time an extra (excess) minority carrier survives before it recombines; in Si it ranges from about 1 ns to 1 ms.
+
+**Diffusion length (L).** The average distance an excess minority carrier diffuses before recombining.
+
+    L = √(Dτ)
+
+Where:
+
+- L = diffusion length (cm)
+- D = minority-carrier diffusion coefficient (cm²/s)
+- τ = minority-carrier lifetime (s)
+
+**p-n junction and depletion region.** A p-n junction is the boundary between p-type and n-type regions of one crystal. Next to it is the depletion region (width W), a layer emptied of mobile carriers that contains only fixed ionised dopants and therefore a strong electric field.
+
+**Built-in potential (V_bi).** The voltage that appears across the depletion region of a junction in equilibrium, which stops further diffusion of carriers across it.
+
+    V_bi = (kT/q) ln( N_{A}N_D / n_i² )
+
+Where:
+
+- V_bi = built-in potential (V)
+- kT/q = thermal voltage, 0.0259 V at 300 K
+- N_A, N_D = acceptor and donor concentrations on the two sides (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+
+**Forward and reverse bias.** Forward bias (p side positive) lowers the junction barrier and lets a large current flow; reverse bias (p side negative) raises it, widens the depletion region and allows only a tiny current.
+
+**Shockley diode equation (I_s, η).** The current–voltage law of a diode, I = I_s(e^{qV/ηkT} − 1). The saturation current I_s is the tiny reverse current; the ideality factor η is 1 for an ideal diode and up to 2 when recombination in the depletion region matters.
+
+**Schottky contact and barrier height (Φ_B).** A rectifying metal–semiconductor contact. Electrons crossing from the metal face a barrier of height Φ_B = Φ_m − χ, where Φ_m is the metal's work function and χ the semiconductor's electron affinity.
+
+**Ohmic contact.** A metal–semiconductor contact that passes current equally easily in both directions with a straight-line I-V graph, usually made by doping the semiconductor so heavily (≳ 10¹⁹ cm⁻³) that electrons tunnel through the barrier.
+
+**C-V profiling.** Measuring a reverse-biased junction's capacitance C against voltage V. A plot of 1/C² against V is a straight line whose slope gives the doping and whose voltage intercept gives V_bi.
+
+**Bipolar junction transistor (BJT) and current gains (α, β).** A three-layer (n-p-n or p-n-p) device in which a small base current controls a much larger collector current. α = I_C/I_E is the common-base gain (just below 1); β = I_C/I_B = α/(1 − α) is the common-emitter gain (typically 50–500).
+
+**MOS capacitor and inversion.** A MOS capacitor is a gate, a thin oxide and a semiconductor stacked together. On p-type silicon a negative gate gives accumulation (more holes at the surface), a small positive gate gives depletion, and a large positive gate gives inversion: the surface fills with electrons and becomes n-type.
+
+**Threshold voltage (V_T).** The gate-to-source voltage at which strong inversion starts and a MOSFET's channel forms, V_T = V_FB + 2φ_F + γ√(2φ_F).
+
+**MOSFET and its operating regions.** A metal–oxide–semiconductor field-effect transistor: a MOS capacitor with a source and a drain on either side of the gate, whose inversion layer forms the conducting channel. It is cut off for V_GS < V_T, linear for V_DS < V_GS − V_T, and saturated for V_DS ≥ V_GS − V_T.
+
+    I_D(sat) = ½ μ_nC_ox(W/L)(V_GS − V_T)²
+
+Where:
+
+- I_D(sat) = drain current in saturation (A)
+- μ_n = channel electron mobility (cm²/V·s)
+- C_ox = gate-oxide capacitance per unit area, ε_ox/t_ox (F/cm²)
+- W/L = channel width-to-length ratio
+- V_GS = gate-to-source voltage; V_T = threshold voltage (V)
+
+*Why it matters:* this, with the diode equation and V_bi, is among the formulas most often examined.
+
 ## 15.1 Course overview
 
 The whole course tells one story: **how do we make, control and use the free charges in a crystal?**
@@ -335,34 +442,138 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 ### E1. Find the Miller indices of a plane with intercepts 4a, 2b and ∞c.
 
-Reciprocals 1/4, 1/2, 0. Multiply by 4: **(1 2 0)**. The plane is parallel to the z-axis.
+**Given:** intercepts 4, 2 and ∞ (in units of the lattice constants a, b, c).
+
+**Find:** the Miller indices (h k l).
+
+**Formula:** intercepts → reciprocals → multiply by the smallest number that clears the fractions → (h k l).
+
+**Solution.** Reciprocals 1/4, 1/2, 0. Multiply by 4: 1, 2, 0.
+
+**Answer:** **(1 2 0)**.
+
+**What this means:** the zero index says the plane never meets the z-axis: it is parallel to it.
 
 ### E2. Constant-source diffusion with C_s = 5×10¹⁹ cm⁻³, D = 2×10⁻¹³ cm²/s, t = 2 h. Find the concentration at 0.3 μm.
 
-    t = 7200 s,   √(Dt) = √(2×10⁻¹³ × 7200) = √(1.44×10⁻⁹) = 3.79×10⁻⁵ cm
+**Given:** C_s = 5×10¹⁹ cm⁻³, D = 2×10⁻¹³ cm²/s, t = 2 h = 7200 s, x = 0.3 μm = 3×10⁻⁵ cm.
+
+**Find:** C(x, t).
+
+**Formula:**
+
+    C(x, t) = C_s erfc( x / 2√(Dt) )
+
+Where:
+
+- C(x, t) = dopant concentration at depth x after time t (cm⁻³)
+- C_s = surface concentration, held constant (cm⁻³)
+- D = dopant diffusion coefficient at the furnace temperature (cm²/s)
+- x = depth (cm); t = diffusion time (s)
+
+**Solution.**
+
+    √(Dt) = √(2×10⁻¹³ × 7200) = √(1.44×10⁻⁹) = 3.79×10⁻⁵ cm
     u = x/2√(Dt) = 3×10⁻⁵ / (2 × 3.79×10⁻⁵) = 0.395
     erfc(0.395) = 0.576
     C = 5×10¹⁹ × 0.576 = 2.88×10¹⁹ cm⁻³
 
+**Answer:** **C(0.3 μm) ≈ 2.9×10¹⁹ cm⁻³.**
+
+**What this means:** 0.3 μm is only about 0.4 of the characteristic diffusion length 2√(Dt) = 0.76 μm, so the concentration there is still more than half the surface value; the junction will lie much deeper.
+
 ### E3. Silicon is doped with N_A = 2×10¹⁶ cm⁻³ at 300 K (n_i = 10¹⁰ cm⁻³). Find p, n and the Fermi level relative to E_i.
+
+**Given:** N_A = 2×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+
+**Find:** p, n and E_i − E_F.
+
+**Formula:**
+
+    p ≈ N_A,   n = n_i²/p,   E_i − E_F = kT ln(p/n_i)
+
+Where:
+
+- p, n = hole and electron concentrations (cm⁻³)
+- N_A = acceptor concentration (cm⁻³); n_i = intrinsic concentration (cm⁻³)
+- E_i − E_F = distance of the Fermi level below the intrinsic level (eV); kT = thermal energy (eV)
+
+**Solution.**
 
     p ≈ N_A = 2×10¹⁶ cm⁻³
     n = n_i²/p = 10²⁰/(2×10¹⁶) = 5×10³ cm⁻³
     E_i − E_F = kT ln(p/n_i) = 0.02585 ln(2×10⁶) = 0.02585 × 14.51 = 0.375 eV
 
-E_F lies 0.375 eV below E_i.
+**Answer:** **p = 2×10¹⁶ cm⁻³, n = 5×10³ cm⁻³; E_F lies 0.375 eV below E_i.**
+
+**What this means:** there are 4×10¹² holes for every electron, so the electrons are true minority carriers; E_F sits about two-thirds of the way from mid-gap down to E_v (which is 0.56 eV below E_i).
 
 ### E4. Find the resistivity of n-type Si with N_D = 10¹⁵ cm⁻³ and μ_n = 1350 cm²/V·s.
+
+**Given:** n ≈ N_D = 10¹⁵ cm⁻³, μ_n = 1350 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+
+**Find:** ρ.
+
+**Formula:**
+
+    σ = qnμ_n (holes negligible),   ρ = 1/σ
+
+Where:
+
+- σ = conductivity (S/cm); ρ = resistivity (Ω·cm)
+- q = electronic charge (C); n = electron concentration (cm⁻³); μ_n = electron mobility (cm²/V·s)
+
+**Solution.**
 
     σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
     ρ = 1/σ = 4.63 Ω·cm
 
+**Answer:** **ρ ≈ 4.6 Ω·cm.**
+
+**What this means:** one donor per 5×10⁷ silicon atoms lowers the resistivity from about 3×10⁵ Ω·cm (pure Si) to under 5 Ω·cm, a factor of about 70 000.
+
 ### E5. Holes in n-Si have μ_p = 450 cm²/V·s and lifetime 5 μs. Find D_p and the diffusion length L_p.
+
+**Given:** μ_p = 450 cm²/V·s, τ_p = 5×10⁻⁶ s, kT/q = 0.02585 V.
+
+**Find:** D_p and L_p.
+
+**Formula:**
+
+    D_p = (kT/q)μ_p,   L_p = √(D_pτ_p)
+
+Where:
+
+- D_p = hole diffusion coefficient (cm²/s); μ_p = hole mobility (cm²/V·s)
+- kT/q = thermal voltage (V)
+- L_p = hole diffusion length (cm); τ_p = hole lifetime (s)
+
+**Solution.**
 
     D_p = (kT/q)μ_p = 0.02585 × 450 = 11.6 cm²/s
     L_p = √(D_pτ_p) = √(11.6 × 5×10⁻⁶) = 7.6×10⁻³ cm = 76 μm
 
+**Answer:** **D_p = 11.6 cm²/s, L_p ≈ 76 μm.**
+
+**What this means:** holes injected into this n-type silicon travel on average about 76 μm before recombining, far more than the width of a typical depletion region or transistor base.
+
 ### E6. A Si p⁺n junction has N_A = 10¹⁷ cm⁻³ and N_D = 10¹⁵ cm⁻³. Find V_bi and the zero-bias depletion width.
+
+**Given:** N_A = 10¹⁷ cm⁻³, N_D = 10¹⁵ cm⁻³, n_i = 10¹⁰ cm⁻³, kT/q = 0.02585 V, ε_s = 1.04×10⁻¹² F/cm.
+
+**Find:** V_bi and W at V = 0.
+
+**Formula:**
+
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²),   W ≈ √(2ε_sV_bi/qN_D)   (one-sided junction)
+
+Where:
+
+- V_bi = built-in potential (V); kT/q = thermal voltage (V)
+- N_A, N_D = acceptor and donor concentrations (cm⁻³); n_i = intrinsic concentration (cm⁻³)
+- W = depletion width (cm); ε_s = permittivity of Si (F/cm); q = electronic charge (C)
+
+**Solution.**
 
     V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.02585 ln(10³²/10²⁰) = 0.02585 × 27.63 = 0.714 V
 
@@ -370,22 +581,84 @@ One-sided junction, so the depletion region is almost all on the lightly doped n
 
     W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹² × 0.714 / (1.6×10⁻¹⁹ × 10¹⁵)) = 9.6×10⁻⁵ cm = 0.96 μm
 
+**Answer:** **V_bi = 0.714 V, W ≈ 0.96 μm.**
+
+**What this means:** because the p side is 100 times more heavily doped, about 99 % of the 0.96 μm depletion region lies in the n side; the light side controls both the width and the capacitance.
+
 ### E7. A diode has I_s = 2×10⁻¹⁴ A. Find the current at V = 0.65 V and 300 K.
+
+**Given:** I_s = 2×10⁻¹⁴ A, V = 0.65 V, kT/q = 0.02585 V, ideal diode (η = 1).
+
+**Find:** I.
+
+**Formula:**
+
+    I = I_s(e^{qV/kT} − 1)
+
+Where:
+
+- I = diode current (A); I_s = saturation current (A)
+- V = applied forward voltage (V); kT/q = thermal voltage (V)
+
+**Solution.**
 
     I = I_s(e^{qV/kT} − 1) = 2×10⁻¹⁴ × e^{0.65/0.02585} = 2×10⁻¹⁴ × 8.3×10¹⁰ = 1.66 mA
 
+**Answer:** **I ≈ 1.7 mA.**
+
+**What this means:** a saturation current of only 2×10⁻¹⁴ A becomes a useful milliamp current at 0.65 V, because each extra 60 mV of forward bias multiplies the current by ten.
+
 ### E8. A BJT has β = 150 and I_B = 20 μA. Find I_C, I_E and α.
+
+**Given:** β = 150, I_B = 20 μA.
+
+**Find:** I_C, I_E and α.
+
+**Formula:**
+
+    I_C = βI_B,   I_E = I_C + I_B,   α = β/(β + 1)
+
+Where:
+
+- I_C, I_B, I_E = collector, base and emitter currents (A)
+- β = common-emitter current gain; α = common-base current gain (dimensionless)
+
+**Solution.**
 
     I_C = βI_B = 150 × 20 μA = 3.00 mA
     I_E = I_C + I_B = 3.02 mA
     α = β/(β + 1) = 150/151 = 0.9934
 
+**Answer:** **I_C = 3.00 mA, I_E = 3.02 mA, α = 0.993.**
+
+**What this means:** 99.3 % of the electrons leaving the emitter reach the collector; the 0.7 % lost in the base is the base current, and that small loss is what lets 20 μA control 3 mA.
+
 ### E9. An nMOS has μ_nC_ox(W/L) = 0.8 mA/V² and V_T = 0.7 V, with V_GS = 2 V. Find I_D for V_DS = 0.5 V and for V_DS = 3 V.
+
+**Given:** k = μ_nC_ox(W/L) = 0.8 mA/V², V_T = 0.7 V, V_GS = 2 V, V_DS = 0.5 V and 3 V.
+
+**Find:** I_D at each V_DS.
+
+**Formula:**
+
+    Linear (V_DS < V_GS − V_T):  I_D = k[(V_GS − V_T)V_DS − V_DS²/2]
+    Saturation (V_DS ≥ V_GS − V_T):  I_D = ½k(V_GS − V_T)²
+
+Where:
+
+- I_D = drain current (A); k = μ_nC_ox(W/L), the device parameter (A/V²)
+- V_GS, V_DS = gate–source and drain–source voltages (V); V_T = threshold voltage (V)
+
+**Solution.**
 
 V_GS − V_T = 1.3 V.
 
     V_DS = 0.5 V < 1.3 V → linear:  I_D = 0.8 × [1.3 × 0.5 − 0.5²/2] = 0.8 × 0.525 = 0.42 mA
     V_DS = 3 V ≥ 1.3 V → saturation: I_D = ½ × 0.8 × 1.3² = 0.4 × 1.69 = 0.676 mA
+
+**Answer:** **I_D = 0.42 mA at V_DS = 0.5 V (linear) and 0.68 mA at V_DS = 3 V (saturation).**
+
+**What this means:** raising V_DS sixfold increases the current by only about 60 %, because once V_DS passes 1.3 V the channel pinches off and the current is fixed by V_GS alone.
 
 ## 15.5 Final examination checklist
 
@@ -456,6 +729,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Answer:** **n = 2×10¹⁶, p = 5×10³ cm⁻³; E_F = E_i + 0.376 eV; σ = 3.84 S/cm; D_p = 10.9 cm²/s; L_p = 47 μm.**
 
+**What this means:** one number, the doping, fixes almost everything: the electrons carry essentially all the current (the 5×10³ holes add nothing to σ), yet it is those few minority holes, with their 47 μm diffusion length, that will set the behaviour of any junction made on this sample.
+
 #### Practice 15.2: a diode made from that sample
 
 **Question.** A p⁺n diode (N_A = 1×10¹⁹ cm⁻³, area 1×10⁻³ cm²) is made on the silicon of Practice 15.1. Find V_bi, the zero-bias depletion width, I_s and the current at 0.65 V.
@@ -473,6 +748,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
     I(0.65 V) = 1.87×10⁻¹⁵ × e^{0.65/0.0259} = 1.87×10⁻¹⁵ × 7.9×10¹⁰ = 0.15 mA
 
 **Answer:** **V_bi = 0.91 V, W = 0.24 μm, I_s = 1.9×10⁻¹⁵ A, I(0.65 V) = 0.15 mA.**
+
+**What this means:** compared with E6, the 20 times heavier n-side doping makes the depletion region about four times narrower (0.24 μm against 0.96 μm). Its I_s is about ten times smaller than that of the diode in E7, which is why only 0.15 mA flows at 0.65 V instead of 1.7 mA.
 
 #### Practice 15.3: a complete MOSFET calculation
 
@@ -492,6 +769,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
     I_D(sat) = ½ × 4.83 × (1.2 − 0.18)² = 2.5 mA
 
 **Answer:** **V_T ≈ 0.18 V, I_D(sat) ≈ 2.5 mA.**
+
+**What this means:** the thin 5 nm oxide gives a large C_ox, which both lowers V_T (the depletion term is only 0.24 V) and raises the current; the negative V_FB (typical of an n⁺ polysilicon gate) cancels most of the band-bending term.
 
 #### Practice 15.4: essay practice
 

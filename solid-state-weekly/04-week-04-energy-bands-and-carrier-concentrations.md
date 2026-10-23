@@ -89,6 +89,70 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | LED | Light-emitting diode |
 
 
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Electron-volt (eV).** The energy an electron gains when it moves through a potential difference of one volt: 1 eV = 1.6×10⁻¹⁹ J. Energies of electrons in solids are almost always quoted in eV.
+
+**Wave function (ψ).** The mathematical wave that describes an electron in quantum mechanics. It cannot be measured directly, but its square, |ψ|², gives the probability of finding the electron at each point.
+
+**Wave vector (k).** A number that says how many wave cycles fit into each unit of length, k = 2π/λ. It measures the electron's momentum, p = ħk.
+
+**Energy band.** A range of energies that electrons in a crystal are allowed to have. It forms because each sharp energy level of a single atom splits into a huge number of very closely spaced levels when billions of atoms are packed together.
+
+**Valence band.** The highest energy band that is completely filled with electrons at absolute zero (0 K). Its electrons are the ones that hold the atoms together in chemical bonds. Its top edge is at energy E_v.
+
+**Conduction band.** The energy band just above the valence band, empty at 0 K. Electrons that reach it are free to move through the crystal and carry current. Its bottom edge is at energy E_c.
+
+**Band gap (E_g).** The range of energies between the top of the valence band and the bottom of the conduction band, in which a perfect crystal has no allowed electron states (also called the forbidden gap). An electron needs at least this much energy to break free of a bond and become a conduction electron.
+
+    E_g = E_c − E_v
+
+Where:
+
+- E_g = band-gap energy (eV); Si 1.12, Ge 0.66, GaAs 1.42 at 300 K
+- E_c = energy of the bottom of the conduction band (eV)
+- E_v = energy of the top of the valence band (eV)
+
+*Why it matters:* the band gap decides whether a material is a metal, a semiconductor or an insulator, how many carriers it has at a given temperature, and what colour of light it can emit or absorb.
+
+**Hole.** An empty electron state (a missing electron) in the valence band. Neighbouring electrons can move into it, so the empty state moves around and behaves like a positively charged particle that carries current.
+
+**E–k diagram (band structure).** A graph of the allowed electron energies E against the wave vector k. Its shape near the band edges sets how carriers move and whether the material emits light well.
+
+**Effective mass (m∗).** The mass an electron or hole appears to have when it is pushed by a force inside a crystal. It differs from the free-electron mass because the crystal's atoms also act on the carrier; a smaller m∗ means a lighter, faster carrier.
+
+**Phonon.** A quantum (packet) of vibration of the crystal lattice. It carries very little energy but can carry a large momentum, so it can supply the momentum change an electron needs in an indirect-gap material.
+
+**Direct and indirect band gap.** In a **direct-gap** material (e.g. GaAs) the lowest point of the conduction band sits at the same k as the highest point of the valence band, so an electron can drop across the gap and emit light directly. In an **indirect-gap** material (e.g. Si) they are at different k, so a phonon must also take part, and light emission is very weak.
+
+*Why it matters:* LEDs and lasers are made from direct-gap materials; silicon is used for chips but not for light sources.
+
+**Fermi level (E_F).** The energy at which an electron state has exactly a 50 % chance of being occupied. Its position in the gap tells you which carrier dominates: near E_c there are many electrons, near E_v many holes.
+
+**Intrinsic semiconductor and intrinsic carrier concentration (n_i).** A pure, undoped semiconductor, in which every free electron comes from a broken bond that also leaves a hole, so the electron and hole concentrations are equal. Their common value is n_i (cm⁻³), about 1×10¹⁰ cm⁻³ for Si at 300 K. Its Fermi level, the intrinsic level E_i, lies very close to the middle of the gap.
+
+**Dopant: donor and acceptor.** A **donor** is an impurity atom (e.g. phosphorus in Si) that gives a free electron to the conduction band; its concentration is N_D. An **acceptor** (e.g. boron in Si) takes an electron from the valence band and so creates a hole; its concentration is N_A. Both are in cm⁻³.
+
+**Extrinsic semiconductor (n-type, p-type).** A doped semiconductor whose carrier concentrations are set mainly by its dopants rather than by n_i. **n-type** material has more electrons than holes; **p-type** has more holes than electrons.
+
+**Majority and minority carriers.** The carrier type present in larger numbers is the **majority carrier** (electrons in n-type, holes in p-type); the other type is the **minority carrier**.
+
+**Mass-action law.** In thermal equilibrium the product of the electron and hole concentrations equals n_i², whatever the doping. Raising one carrier type therefore lowers the other.
+
+    n p = n_i²
+
+Where:
+
+- n = electron concentration (cm⁻³)
+- p = hole concentration (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³); 1×10¹⁰ for Si at 300 K
+
+*Why it matters:* it lets you find the minority-carrier concentration, which controls diode and transistor currents, from the doping alone.
+
+**Compensated semiconductor.** A semiconductor containing both donors and acceptors. They partly cancel, so the carriers are set by the difference N_D − N_A (or N_A − N_D), called the **net doping**.
+
 ## The big picture
 
 In Week 1 we simply stated that a solid has a **valence band**, a **conduction band** and a **gap** between them. This week explains **why**. The answer needs one idea from quantum mechanics: **an electron behaves like a wave, and a wave trapped in a region can only vibrate in certain ways**. In a single atom that gives sharp energy levels. In a crystal, where the electron wave runs through a regular row of atoms, it gives broad bands of allowed energies separated by forbidden gaps.
@@ -127,6 +191,9 @@ Read it as an energy balance: **kinetic energy + potential energy = total energy
 | −(ħ²/2m) d²ψ/dx² | the **kinetic energy** term. d²ψ/dx² measures how sharply the wave curves: a more tightly wiggling wave means more kinetic energy |
 | V(x) ψ | the **potential energy** term. V(x) is the potential energy at each point (for example the pull of the atomic nuclei) |
 | E | the **total energy**, a constant. The equation only has sensible solutions for certain values of E: that is how quantisation appears |
+| ħ | reduced Planck constant, h/2π = 1.055×10⁻³⁴ J·s |
+| m | mass of the electron, 9.11×10⁻³¹ kg (in a crystal, the effective mass m∗) |
+| x | position (m) |
 
 The wave function must be finite, single-valued and smooth (continuous, with a continuous slope), and the total probability must be 1.
 
@@ -136,11 +203,26 @@ The wave function must be finite, single-valued and smooth (continuous, with a c
 
     E = ħ²k²/2m
 
+Where:
+
+- E = kinetic energy of the free electron (J; divide by 1.6×10⁻¹⁹ for eV)
+- ħ = reduced Planck constant, 1.055×10⁻³⁴ J·s
+- k = wave vector of the electron wave (m⁻¹)
+- m = electron mass, 9.11×10⁻³¹ kg
+
 Any energy is allowed. The graph of E against k is a smooth parabola. This is the starting point for electrons in a solid.
 
 **An electron in a box** of width L with walls it cannot pass. The wave must be zero at both walls, just as a guitar string is fixed at both ends. So only whole numbers of half-waves fit, and only certain energies are allowed:
 
     E_n = n²π²ħ²/2mL²,   n = 1, 2, 3, …
+
+Where:
+
+- E_n = energy of the nth allowed level (J)
+- n = quantum number: the number of half-waves that fit in the box (1, 2, 3, …)
+- ħ = reduced Planck constant, 1.055×10⁻³⁴ J·s
+- m = electron mass, 9.11×10⁻³¹ kg
+- L = width of the box (m)
 
 > **In plain words.** A guitar string can only play certain notes, because only certain wavelengths fit between its fixed ends. An electron trapped in a region is the same: only certain wavelengths fit, so only certain energies are allowed. That is what "quantised energy levels" means.
 
@@ -161,6 +243,13 @@ In silicon, the outer 3s and 3p levels (4 electrons per atom) mix and split into
 In a perfect crystal the potential energy repeats with the spacing of the atoms a: V(x + a) = V(x). Bloch showed that the electron wave in such a crystal is
 
     ψ_k(x) = u_k(x) e^{ikx},   with u_k(x + a) = u_k(x)
+
+Where:
+
+- ψ_k(x) = wave function of an electron with wave vector k (the Bloch wave)
+- u_k(x) = a function that repeats exactly from one atom to the next
+- e^{ikx} = a plane (travelling) wave with wave vector k (m⁻¹)
+- a = spacing of the atoms, the period of the crystal potential (m or Å)
 
 A travelling wave (e^{ikx}) multiplied by a pattern that repeats from atom to atom (u_k). The important consequence: **an electron in a perfect crystal travels without being scattered by the atoms**. The atoms are not obstacles; they just shape the wave. Only imperfections (vibrations, impurities, defects) scatter electrons. This is why carriers in a crystal can move so freely (Week 7).
 
@@ -190,7 +279,12 @@ The real potential inside a crystal is complicated. Kronig and Penney (1931) rep
 | α | depends on the electron energy E: larger E, larger α |
 | a | well width (the atomic spacing) |
 | k | the electron's wave vector (momentum) |
-| P | barrier strength: how strongly the electron is held by each atom |
+| P | barrier strength: how strongly the electron is held by each atom (dimensionless) |
+| E | electron energy (J) |
+| m | electron mass (kg) |
+| V₀ | barrier height (J) |
+| b | barrier width (m) |
+| ħ | reduced Planck constant, 1.055×10⁻³⁴ J·s |
 
 **How to read it: the key step.** The right-hand side, cos(ka), is a cosine. **A cosine can only be between −1 and +1.** The left-hand side depends on the energy through α. So:
 
@@ -219,6 +313,12 @@ The **band structure** of a material is a graph of the allowed energies E agains
 
     1/m∗ = (1/ħ²) d²E/dk²
 
+Where:
+
+- m∗ = effective mass of the carrier (kg, or quoted as a multiple of m₀ = 9.11×10⁻³¹ kg)
+- ħ = reduced Planck constant, 1.055×10⁻³⁴ J·s
+- d²E/dk² = curvature of the E–k curve at the band edge (J·m²)
+
 The electron then responds to forces **as if** it were a free particle of mass m∗. The effect of all the crystal's atoms is packed into this one number.
 
 - A **sharply curved** band means small m∗: a light, fast, high-mobility carrier (GaAs electrons, m∗ = 0.067m₀).
@@ -234,6 +334,20 @@ Near the **top** of the valence band the curve bends downward. An electron there
 
 The gap shrinks slightly with temperature: for Si, 1.17 eV at 0 K and 1.12 eV at 300 K.
 
+### Metals, semiconductors and insulators
+
+The band picture explains at once why materials conduct so differently. What matters is whether the highest occupied band is full, and how big the gap above it is.
+
+| | Metal | Semiconductor | Insulator |
+|---|---|---|---|
+| Band picture | Highest band only partly full, or bands overlap: no gap | Full valence band, small gap, empty conduction band | Full valence band, wide gap, empty conduction band |
+| Band gap E_g | None | About 0.1–3 eV (Ge 0.66, Si 1.12, GaAs 1.42 eV) | Above about 4 eV (diamond 5.5, SiO₂ ≈ 9 eV) |
+| Free carriers at 300 K | About 10²² cm⁻³, fixed | n_i = 10⁶–10¹³ cm⁻³ when pure; set by doping when doped | Practically none |
+| Resistivity at 300 K | About 10⁻⁶ Ω·cm (Cu 1.7×10⁻⁶) | About 10⁻³ to 10⁶ Ω·cm (pure Si ≈ 3×10⁵) | Above about 10¹² Ω·cm (SiO₂ ≈ 10¹⁴–10¹⁶) |
+| Effect of heating | Resistance rises (more lattice vibration scatters the electrons) | Resistance falls steeply (more electrons cross the gap) | Stays extremely high |
+| Effect of doping | Little | Huge: conductivity can be set over many orders of magnitude | Little (cannot be usefully doped) |
+| Uses | Wires, contacts, interconnects | Diodes, transistors, ICs, LEDs, solar cells | Gate oxides, insulation between layers, capacitor dielectrics |
+
 ### Direct and indirect band gaps
 
 @fig figures/ek.svg | In a direct-gap material (GaAs) the bottom of the conduction band sits directly above the top of the valence band in k. In an indirect-gap material (Si) they are at different k, so an electron dropping across the gap must also change its momentum.
@@ -247,7 +361,39 @@ The wavelength of light from a band-to-band transition is
 
     λ (μm) = 1.24 / E_g (eV)
 
+Where:
+
+- λ = wavelength of the emitted (or just-absorbed) light (μm)
+- E_g = band-gap energy (eV)
+- 1.24 = hc expressed in eV·μm (h = 6.626×10⁻³⁴ J·s, c = 3×10⁸ m/s, 1 eV = 1.6×10⁻¹⁹ J)
+
 GaAs: 1.24/1.42 = 0.87 μm (near infrared). Si: 1.24/1.12 = 1.11 μm, which is also the longest wavelength a silicon photodetector can absorb.
+
+The same formula works the other way round for absorption. A photon can only lift an electron across the gap if its energy hν is at least E_g. Longer wavelengths carry less energy, so light with λ greater than 1.24/E_g passes straight through. This longest absorbed wavelength is the **cut-off wavelength** λ_c.
+
+#### Example 4.1: cut-off wavelength of silicon and germanium photodetectors
+
+**Question.** Optical-fibre links use light of wavelength 1.55 μm. Find the cut-off wavelengths of silicon (E_g = 1.12 eV) and germanium (E_g = 0.66 eV) photodetectors, and decide which of them can detect 1.55 μm light.
+
+**Given:** E_g(Si) = 1.12 eV, E_g(Ge) = 0.66 eV, λ = 1.55 μm.
+
+**Find:** λ_c for Si and Ge; the photon energy at 1.55 μm.
+
+**Formula:**
+
+    λ_c (μm) = 1.24 / E_g (eV),     photon energy E (eV) = 1.24 / λ (μm)
+
+**Solution.**
+
+    Si:  λ_c = 1.24/1.12 = 1.11 μm
+    Ge:  λ_c = 1.24/0.66 = 1.88 μm
+    Photon energy at 1.55 μm:  E = 1.24/1.55 = 0.80 eV
+
+Compare: 0.80 eV is less than 1.12 eV (Si) but more than 0.66 eV (Ge).
+
+**Answer:** **λ_c = 1.11 μm for Si and 1.88 μm for Ge. Only germanium can detect 1.55 μm light.**
+
+**What this means:** a 1.55 μm photon does not have enough energy to break a bond in silicon, so silicon is transparent to it and gives no signal. That is why fibre-optic receivers use Ge or InGaAs, while cheap silicon photodiodes are used for visible and near-infrared light below 1.1 μm.
 
 ## Part C: Intrinsic and extrinsic carrier concentrations
 
@@ -258,6 +404,14 @@ Now that we have bands, we can count carriers. The full method (Fermi–Dirac st
 The number of electrons in the conduction band and holes in the valence band depend on how far the **Fermi level** E_F is from each band edge:
 
     n = N_c e^{−(E_c − E_F)/kT},       p = N_v e^{−(E_F − E_v)/kT}
+
+Where:
+
+- n, p = electron and hole concentrations (cm⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands (cm⁻³)
+- E_c, E_v = conduction-band bottom and valence-band top (eV)
+- E_F = Fermi level (eV)
+- kT = thermal energy, 0.0259 eV at 300 K
 
 N_c and N_v are the **effective densities of states** (Si at 300 K: 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³). The closer E_F is to E_c, the more electrons; the closer to E_v, the more holes.
 
@@ -271,6 +425,13 @@ With n = p = n_i:
 
     n_i = √(N_c N_v) e^{−E_g/2kT}
 
+Where:
+
+- n_i = intrinsic carrier concentration (cm⁻³)
+- N_c, N_v = effective densities of states (cm⁻³); Si 2.8×10¹⁹ and 1.04×10¹⁹ at 300 K
+- E_g = band gap (eV); 1.12 eV for Si
+- kT = thermal energy, 0.0259 eV at 300 K
+
 For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³. The Fermi level of an intrinsic semiconductor, E_i, is almost exactly at **mid-gap**.
 
 **What controls n_i:** the band gap (exponentially: wider gap, far fewer carriers) and temperature (exponentially: hotter, far more carriers). Ge (0.66 eV) has n_i = 2.4×10¹³; GaAs (1.42 eV) has only about 2×10⁶ cm⁻³.
@@ -280,6 +441,11 @@ For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³. The Fermi level of an intrinsic sem
 Because E_F cancelled, the product is the same whether or not the material is doped:
 
     n p = n_i²
+
+Where:
+
+- n, p = equilibrium electron and hole concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³); 1×10¹⁰ for Si at 300 K
 
 ### Extrinsic (doped) semiconductor
 
@@ -291,13 +457,25 @@ With full ionisation and doping well above n_i:
 
     n = (N_D − N_A)/2 + √( ((N_D − N_A)/2)² + n_i² )
 
-#### Example 4.1: how doping shifts both carrier concentrations
+Where:
+
+- n = electron concentration (cm⁻³)
+- N_D, N_A = donor and acceptor concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+
+When N_A > N_D the material is p-type and the same formula is used for holes, with N_D and N_A swapped: p = (N_A − N_D)/2 + √( ((N_A − N_D)/2)² + n_i² ). In both cases the minority carrier then follows from np = n_i².
+
+#### Example 4.2: how doping shifts both carrier concentrations
 
 **Question.** Silicon at 300 K (n_i = 1×10¹⁰ cm⁻³) is doped with N_D = 1×10¹⁶ cm⁻³. Calculate n and p, and compare each with its intrinsic value.
 
 **Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³.
 
 **Find:** n, p, and the factors n/n_i and n_i/p.
+
+**Formula:**
+
+    n ≈ N_D,     p = n_i²/n
 
 **Solution.**
 
@@ -307,7 +485,66 @@ With full ionisation and doping well above n_i:
 
     n/n_i = 10¹⁶/10¹⁰ = 10⁶,   n_i/p = 10¹⁰/10⁴ = 10⁶
 
-**Answer:** **n = 10¹⁶ cm⁻³, p = 10⁴ cm⁻³.** Doping raised the electrons a million times above n_i and lowered the holes by the same factor, so np = n_i² still holds.
+**Answer:** **n = 10¹⁶ cm⁻³, p = 10⁴ cm⁻³.**
+
+**What this means:** doping with only about one phosphorus atom per five million silicon atoms raised the electrons a million times above n_i and lowered the holes by the same factor, so np = n_i² still holds. The electrons are now the majority carriers and the holes a tiny minority.
+
+#### Example 4.3: carrier concentrations in compensated silicon
+
+**Question.** A silicon wafer at 300 K contains N_A = 5×10¹⁶ cm⁻³ boron atoms and N_D = 2×10¹⁶ cm⁻³ phosphorus atoms. Find the majority and minority carrier concentrations and the resistivity (take μ_p = 480 cm²/V·s).
+
+**Given:** N_A = 5×10¹⁶ cm⁻³, N_D = 2×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, μ_p = 480 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+
+**Find:** p, n and ρ.
+
+**Formula:**
+
+    p = (N_A − N_D)/2 + √( ((N_A − N_D)/2)² + n_i² ),     n = n_i²/p,     ρ ≈ 1/(q p μ_p)
+
+**Solution.**
+
+Step 1. N_A > N_D, so the material is p-type. The net doping is
+
+    N_A − N_D = 5×10¹⁶ − 2×10¹⁶ = 3×10¹⁶ cm⁻³
+
+Step 2. Because (N_A − N_D)/2 = 1.5×10¹⁶ is vastly larger than n_i = 10¹⁰, the square root is simply 1.5×10¹⁶, so
+
+    p = 1.5×10¹⁶ + 1.5×10¹⁶ = 3×10¹⁶ cm⁻³
+
+Step 3. Minority electrons:
+
+    n = n_i²/p = 10²⁰ / 3×10¹⁶ = 3.3×10³ cm⁻³
+
+Step 4. Resistivity (the electrons are far too few to matter):
+
+    σ = q p μ_p = 1.6×10⁻¹⁹ × 3×10¹⁶ × 480 = 2.30 S/cm,   ρ = 1/σ = 0.43 Ω·cm
+
+**Answer:** **p = 3×10¹⁶ cm⁻³, n ≈ 3.3×10³ cm⁻³, ρ ≈ 0.43 Ω·cm.**
+
+**What this means:** the 2×10¹⁶ donors cancel 2×10¹⁶ of the acceptors, so the wafer behaves exactly like p-type silicon doped with 3×10¹⁶ cm⁻³ boron. (In practice the extra ionised impurities scatter carriers and lower the mobility a little, so the real resistivity is slightly higher.)
+
+#### Example 4.4: where is the Fermi level in doped silicon?
+
+**Question.** Silicon at 300 K is doped with N_D = 1×10¹⁶ cm⁻³ donors. Find how far the Fermi level lies below the conduction-band edge and how far it lies above the intrinsic level E_i.
+
+**Given:** N_D = 1×10¹⁶ cm⁻³ (so n ≈ 1×10¹⁶ cm⁻³), N_c = 2.8×10¹⁹ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.0259 eV.
+
+**Find:** E_c − E_F and E_F − E_i.
+
+**Formula:** Rearranging n = N_c e^{−(E_c − E_F)/kT}, and its intrinsic form n = n_i e^{(E_F − E_i)/kT}:
+
+    E_c − E_F = kT ln(N_c/n),     E_F − E_i = kT ln(n/n_i)
+
+**Solution.**
+
+    E_c − E_F = 0.0259 × ln(2.8×10¹⁹ / 1×10¹⁶) = 0.0259 × ln(2800) = 0.0259 × 7.94 = 0.206 eV
+    E_F − E_i = 0.0259 × ln(1×10¹⁶ / 1×10¹⁰) = 0.0259 × ln(10⁶) = 0.0259 × 13.8 = 0.358 eV
+
+Check: 0.206 + 0.358 = 0.56 eV, which is half of the 1.12 eV gap, as it should be since E_i is close to mid-gap.
+
+**Answer:** **E_F is 0.21 eV below E_c and 0.36 eV above E_i.**
+
+**What this means:** moderate n-type doping lifts the Fermi level about two-thirds of the way from mid-gap towards the conduction band. Every tenfold increase in N_D raises E_F by a further kT ln 10 = 0.060 eV, so E_F is a sensitive "meter" of the doping.
 
 **Temperature regions (n-type):** at very low temperature the donors are not all ionised (**freeze-out**, n < N_D); over the normal range n ≈ N_D (**extrinsic**); at high temperature n_i overtakes N_D and the material behaves as intrinsic (**intrinsic region**). Week 5 works through these in detail.
 
@@ -469,23 +706,35 @@ The two are linked by the mass-action law **np = n_i²**: doping increases one c
 
 ### Q29. Silicon has an intrinsic carrier concentration of approximately 1.0 × 10¹⁰ cm⁻³ at a specified temperature. If the electron and hole concentrations are equal, determine the electron and hole concentrations.
 
-If n = p, the semiconductor is intrinsic (undoped, or exactly compensated). From the mass-action law:
+**Given:** n_i = 1.0×10¹⁰ cm⁻³, n = p.
+
+**Find:** n and p.
+
+**Formula:** the mass-action law, n p = n_i².
+
+**Solution.** If n = p, the semiconductor is intrinsic (undoped, or exactly compensated). From the mass-action law:
 
     n · p = n_i²   and   n = p   ⇒   n² = n_i²   ⇒   n = n_i
 
-**n = p = n_i = 1.0×10¹⁰ cm⁻³**
-
 Check: n·p = (1.0×10¹⁰)² = 1.0×10²⁰ cm⁻⁶ = n_i². ✓
 
-At this concentration, using μ_n = 1350 and μ_p = 480 cm²/V·s, the intrinsic conductivity would be σ = qn_i(μ_n + μ_p) = 1.602×10⁻¹⁹ × 10¹⁰ × 1830 = 2.9×10⁻⁶ S/cm, i.e. ρ ≈ 3.4×10⁵ Ω·cm.
+**Answer:** **n = p = n_i = 1.0×10¹⁰ cm⁻³**
+
+**What this means:** only about one silicon atom in 5×10¹² has given up an electron, so pure silicon is a very poor conductor. Using μ_n = 1350 and μ_p = 480 cm²/V·s, the intrinsic conductivity would be σ = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁰ × 1830 = 2.9×10⁻⁶ S/cm, i.e. ρ ≈ 3.4×10⁵ Ω·cm.
 
 ### Q34. An n-type semiconductor has a donor concentration of 5 × 10¹⁶ cm⁻³. Assuming complete ionization, determine the approximate majority-carrier concentration.
 
-With complete ionisation and N_D ≫ n_i (5×10¹⁶ ≫ 10¹⁰), every donor contributes one electron:
+**Given:** N_D = 5×10¹⁶ cm⁻³, complete ionisation; for the extra results, silicon at 300 K with n_i = 1×10¹⁰ cm⁻³.
+
+**Find:** the majority-carrier concentration n₀ (and, as extras, p₀, E_F and σ).
+
+**Formula:** n₀ ≈ N_D (for N_D ≫ n_i); p₀ = n_i²/n₀; E_F − E_i = kT ln(n₀/n_i); σ ≈ qn₀μ_n.
+
+**Solution.** With complete ionisation and N_D ≫ n_i (5×10¹⁶ ≫ 10¹⁰), every donor contributes one electron:
 
     n₀ ≈ N_D = 5 × 10¹⁶ cm⁻³
 
-**Majority-carrier (electron) concentration ≈ 5×10¹⁶ cm⁻³.**
+**Answer:** **Majority-carrier (electron) concentration ≈ 5×10¹⁶ cm⁻³.**
 
 Additional results (assuming silicon at 300 K, n_i = 1×10¹⁰ cm⁻³):
 
@@ -493,9 +742,9 @@ Additional results (assuming silicon at 300 K, n_i = 1×10¹⁰ cm⁻³):
 
     Fermi level:  E_F − E_i = kT ln(n₀/n_i) = 0.0259 × ln(5×10⁶) = 0.0259 × 15.42 = 0.40 eV above E_i
 
-    Conductivity:  σ ≈ q n₀ μ_n = 1.602×10⁻¹⁹ × 5×10¹⁶ × 1350 ≈ 10.8 S/cm  (ρ ≈ 0.093 Ω·cm)
+    Conductivity:  σ ≈ q n₀ μ_n = 1.6×10⁻¹⁹ × 5×10¹⁶ × 1350 ≈ 10.8 S/cm  (ρ ≈ 0.093 Ω·cm)
 
-The thermal contribution n_i is negligible, which is why the majority-carrier density is simply the donor density. (Mobility falls at this doping to about 1000 cm²/V·s, so the real σ is nearer 8 S/cm.)
+**What this means:** the thermal contribution n_i is negligible, which is why the majority-carrier density is simply the donor density, and the material conducts millions of times better than pure silicon. (Mobility falls at this doping to about 1000 cm²/V·s, so the real σ is nearer 8 S/cm.)
 
 ---
 
