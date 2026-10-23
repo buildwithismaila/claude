@@ -231,6 +231,8 @@ Step 3. Extrapolate back to V = 0:
 - **Schottky barrier height** from I_s (see below). Measuring at several temperatures and plotting ln(I_s/T²) against 1/T (an **Arrhenius plot**) gives a straight line of slope −qΦ_B/k.
 - **Ohmic contacts:** the I-V between two contacts should be a straight line through the origin, the same in both directions.
 
+Transistors are characterised the same way: MOSFET I_D–V_GS curves give the threshold voltage and mobility (Week 14, Practical 4), and BJT curves give the current gain.
+
 ### Barrier height from the saturation current
 
 In a Schottky diode the current is carried by electrons that have enough thermal energy to jump over the barrier (**thermionic emission**). The saturation current density is
@@ -282,8 +284,6 @@ Step 3. Forward voltage for 1 mA:
 **Answer:** **J_s = 6.0×10⁻⁷ A/cm², Φ_B ≈ 0.79 eV, V ≈ 0.41 V at 1 mA.**
 
 **What this means:** an η so close to 1 shows that thermionic emission over the barrier is the main current mechanism, so the formula applies. A 0.79 eV barrier is typical of a good rectifying contact on n-Si, and the diode turns on at about 0.4 V, well below the 0.6–0.7 V of a silicon p-n diode.
-
-Transistors are characterised the same way: MOSFET I_D–V_GS curves give the threshold voltage and mobility (Week 14, Practical 4), and BJT curves give the current gain.
 
 ## C-V characterisation
 

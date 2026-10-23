@@ -865,5 +865,5 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 3 | Explain how discrete atomic levels become energy bands. | Into how many levels does one atomic level split when N atoms form a crystal? | N levels, so close together that they form a band. | From atoms to bands |
 | 4 | Explain the Kronig–Penney model and how it produces allowed and forbidden bands. | In P sin(αa)/(αa) + cos(αa) = cos(ka), which energies are forbidden? | Those for which the left-hand side is greater than +1 or less than −1. | The Kronig–Penney model |
 | 5 | Explain E–k diagrams, effective mass and holes. | Does a strongly curved band give a heavy or a light effective mass? | Light: 1/m∗ = (1/ħ²) d²E/dk² is large. | E–k diagrams and effective mass |
-| 6 | Distinguish direct and indirect band gaps and calculate emission wavelengths. | What wavelength does GaAs (E_g = 1.42 eV) emit? | λ = 1.24/1.42 = 0.87 μm. | Direct and indirect band gaps |
-| 7 | Derive n_i and calculate intrinsic and extrinsic carrier concentrations. | Write n_i in terms of N_c, N_v and E_g. | n_i = √(N_cN_v) e^{−E_g/2kT}. | Part C; Example 4.1; Q27 |
+| 6 | Distinguish direct and indirect band gaps and calculate emission wavelengths. | What wavelength does GaAs (E_g = 1.42 eV) emit? | λ = 1.24/1.42 = 0.87 μm. | Direct and indirect band gaps; Example 4.1 |
+| 7 | Derive n_i and calculate intrinsic and extrinsic carrier concentrations. | Write n_i in terms of N_c, N_v and E_g. | n_i = √(N_cN_v) e^{−E_g/2kT}. | Part C; Examples 4.2–4.4; Q27 |

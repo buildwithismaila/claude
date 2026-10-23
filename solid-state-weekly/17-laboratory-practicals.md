@@ -319,6 +319,14 @@ The plot of 1/C² against V is a straight line: the slope gives N, the voltage i
 
     I_D ≈ μ_nC_ox(W/L)[(V_GS − V_T)V_DS − V_DS²/2]
 
+Where:
+
+- I_D = drain current (A)
+- μ_n = channel electron mobility (cm²/V·s)
+- C_ox = gate-oxide capacitance per unit area (F/cm²)
+- W/L = channel width-to-length ratio
+- V_GS, V_DS = gate–source and drain–source voltages (V); V_T = threshold voltage (V)
+
 so I_D against V_GS is a straight line of slope g_m = μ_nC_ox(W/L)V_DS that meets I_D = 0 at V_GS = V_T + V_DS/2. In saturation, √I_D = √(μ_nC_oxW/2L)(V_GS − V_T).
 
 **Apparatus.** Two DC supplies (or a semiconductor parameter analyser), ammeter, voltmeters. C_ox, W and L from the datasheet or test structure.
