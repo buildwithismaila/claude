@@ -80,6 +80,97 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | n⁺ | Very heavily doped n-type (similarly p⁺) |
 
 
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Band gap (E_g).** The range of energies between the top of the valence band (E_v) and the bottom of the conduction band (E_c) in which a perfect crystal has no allowed electron states. For silicon it is 1.12 eV at 300 K.
+
+**Electron and hole.** An electron is a free negative charge carrier in the conduction band. A hole is an empty state left in the valence band when an electron leaves it; it moves like a positive charge carrier.
+
+**Intrinsic carrier concentration (n_i).** The density of electrons (equal to the density of holes) in a pure, undoped semiconductor, created by heat alone. For silicon at 300 K it is about 1×10¹⁰ cm⁻³; it rises very steeply with temperature.
+
+**Doping (N_D, N_A).** Adding small, controlled amounts of impurity atoms. Donors (density N_D) give electrons and make the material n-type; acceptors (density N_A) take electrons, create holes and make it p-type. Once they have given up or taken an electron, the donor and acceptor ions are charged and fixed in the crystal.
+
+**Majority and minority carriers.** In n-type material electrons are the majority carriers and holes the minority carriers; in p-type material it is the other way round. In equilibrium the minority density follows from the mass-action law np = n_i².
+
+    p_n0 = n_i²/N_D,     n_p0 = n_i²/N_A
+
+Where:
+
+- p_n0 = equilibrium hole (minority) density on the n side (cm⁻³)
+- n_p0 = equilibrium electron (minority) density on the p side (cm⁻³)
+- n_i = intrinsic carrier concentration (cm⁻³)
+- N_D, N_A = donor and acceptor concentrations (cm⁻³)
+
+*Why it matters:* the diode current is carried by minority carriers, so it is set by these tiny densities.
+
+**Fermi level (E_F).** The energy at which an electron state has a 50 % chance of being occupied. In n-type material it lies near E_c, in p-type near E_v. In equilibrium it is flat (the same energy) everywhere in a connected system.
+
+**Drift and diffusion.** The two ways carriers move. Drift is motion pushed by an electric field; diffusion is the spreading of carriers from where there are many to where there are few.
+
+**p-n junction.** The boundary between a p-type region and an n-type region in one continuous crystal. On its own it forms a diode, which conducts easily in one direction only (rectification).
+
+**Depletion region (W).** The thin layer on both sides of the junction that has lost almost all its mobile carriers, leaving only the fixed charged donor and acceptor ions. It is also called the space-charge region and is typically 0.1–10 μm wide.
+
+*Why it matters:* all the applied voltage appears across this region, and its width sets the junction capacitance and the breakdown voltage.
+
+**Built-in potential (V_bi).** The voltage that appears across the depletion region in equilibrium, created by the fixed ion charges. It is the barrier that stops further diffusion of majority carriers.
+
+    V_bi = (kT/q) ln( N_{A}N_D / n_i² )
+
+Where:
+
+- V_bi = built-in potential (V)
+- kT/q = thermal voltage, 0.0259 V at 300 K
+- N_A, N_D = acceptor and donor concentrations (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+
+**Depletion approximation.** The simplifying assumption that the depletion region contains no mobile carriers at all and has sharp edges, while the regions outside it are exactly neutral.
+
+**Forward and reverse bias (V_a).** Forward bias makes the p side positive (V_a > 0) and lowers the barrier to V_bi − V_a; reverse bias makes the p side negative (V_a < 0) and raises the barrier to V_bi + |V_a|.
+
+**Minority-carrier injection (law of the junction).** Under forward bias, majority carriers cross the lowered barrier and become minority carriers on the other side. The minority density at the edge of the depletion region rises exponentially with voltage.
+
+    p_n(x_n) = p_n0 e^{qV_a/kT}
+
+Where:
+
+- p_n(x_n) = hole density at the n-side edge of the depletion region (cm⁻³)
+- p_n0 = equilibrium hole density on the n side (cm⁻³)
+- V_a = applied voltage (V), positive for forward bias
+- kT/q = 0.0259 V at 300 K
+
+**Minority-carrier lifetime and diffusion length (τ, L).** The lifetime τ is the average time an injected minority carrier survives before it recombines; the diffusion length L = √(Dτ) is the average distance it diffuses in that time (D is the diffusion coefficient, cm²/s).
+
+**Saturation current (I_s).** The small, almost voltage-independent current that flows under reverse bias, carried by minority carriers that diffuse to the depletion region and are swept across. In small silicon diodes it is about 10⁻¹⁵–10⁻¹² A.
+
+**Shockley (ideal diode) equation.** The current–voltage law of an ideal p-n junction, obtained by adding up the minority-carrier diffusion currents on both sides.
+
+    I = I_s ( e^{qV/kT} − 1 )
+
+Where:
+
+- I = diode current (A), positive in the forward direction
+- I_s = saturation current (A)
+- V = applied voltage (V), positive for forward bias
+- kT/q = thermal voltage, 0.0259 V at 300 K
+
+*Why it matters:* it explains rectification: current grows tenfold for every 60 mV of forward bias but stays at −I_s in reverse.
+
+**Breakdown (V_BR).** The sudden, large rise of reverse current at a high enough reverse voltage V_BR, caused either by avalanche multiplication or by Zener tunnelling. It is not destructive if the current is limited.
+
+**Junction capacitance (C_j).** The capacitance of the depletion region, which acts like a parallel-plate capacitor whose plate spacing W grows with reverse bias.
+
+    C_j = ε_sA/W
+
+Where:
+
+- C_j = junction (depletion) capacitance (F)
+- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
+- A = junction area (cm²)
+- W = depletion width (cm)
+
 ## The big picture
 
 A **p-n junction** is what you get when one part of a single crystal is p-type and the part next to it is n-type. It is the most important structure in electronics: it is a diode on its own, two of them make a bipolar transistor, and it appears in every MOSFET, solar cell, LED and laser.
@@ -115,6 +206,14 @@ We can find V_bi from the Fermi-level positions of Week 5. On the p side, E_F is
 
     V_bi = (kT/q) ln( N_A N_D / n_i² )
 
+Where:
+
+- V_bi = built-in potential (V)
+- kT/q = thermal voltage, 0.0259 V at 300 K (kT = 0.0259 eV is the thermal energy)
+- N_A = acceptor concentration on the p side (cm⁻³)
+- N_D = donor concentration on the n side (cm⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+
 #### Example 10.1: built-in potential
 
 **Question.** A silicon p-n junction has N_A = 1×10¹⁷ cm⁻³ on the p side and N_D = 1×10¹⁶ cm⁻³ on the n side. Calculate the built-in potential at 300 K.
@@ -123,6 +222,10 @@ We can find V_bi from the Fermi-level positions of Week 5. On the p side, E_F is
 
 **Find:** V_bi.
 
+**Formula:**
+
+    V_bi = (kT/q) ln( N_{A}N_D / n_i² )
+
 **Solution.**
 
     V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.0259 × ln(10¹⁷ × 10¹⁶ / 10²⁰)
@@ -130,6 +233,8 @@ We can find V_bi from the Fermi-level positions of Week 5. On the p side, E_F is
          = 0.0259 × ln(10¹³) = 0.0259 × 29.93 = 0.775 V
 
 **Answer:** **V_bi = 0.775 V.**
+
+**What this means:** a majority carrier must climb an energy barrier of 0.775 eV, about 30 times the thermal energy kT, to cross the junction, so in equilibrium almost none do. The barrier is less than the band gap (1.12 eV), as it always is for non-degenerate doping.
 
 You **cannot** measure V_bi with a voltmeter across a diode: where the wires meet the semiconductor, contact potentials appear that exactly cancel it. It is an internal barrier, not a battery.
 
@@ -141,17 +246,39 @@ To calculate the width of the depletion region we make the **depletion approxima
 
     N_A x_p = N_D x_n
 
+Where:
+
+- N_A, N_D = acceptor and donor concentrations (cm⁻³)
+- x_p = width of the depletion region on the p side (cm)
+- x_n = width of the depletion region on the n side (cm)
+
 So the depletion region extends **further into the more lightly doped side**. If N_A = 10 × N_D, then x_n = 10 × x_p.
 
 **Width.**
 
     W = x_n + x_p = √( (2ε_s/q)(V_bi − V_a)(1/N_A + 1/N_D) )
 
-with x_n = W N_A/(N_A + N_D) and x_p = W N_D/(N_A + N_D). Here ε_s is the permittivity of silicon (11.7 × 8.854×10⁻¹⁴ = 1.04×10⁻¹² F/cm) and V_a the applied voltage (positive for forward bias).
+with x_n = W N_A/(N_A + N_D) and x_p = W N_D/(N_A + N_D).
+
+Where:
+
+- W = total depletion width, x_n + x_p (cm)
+- ε_s = permittivity of silicon, 11.7 × 8.854×10⁻¹⁴ = 1.04×10⁻¹² F/cm
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- V_bi = built-in potential (V)
+- V_a = applied voltage (V), positive for forward bias, negative for reverse bias
+- N_A, N_D = acceptor and donor concentrations (cm⁻³)
 
 **Peak field** (at the junction):
 
     E_max = qN_D x_n/ε_s = qN_A x_p/ε_s,   and   V_bi − V_a = ½ E_max W
+
+Where:
+
+- E_max = peak electric field, at the metallurgical junction (V/cm)
+- q, N_A, N_D, x_n, x_p, ε_s, V_bi, V_a, W = as above
+
+The field is a triangle: zero at the edges of the depletion region, rising linearly to E_max at the junction. The area of that triangle, ½E_maxW, is the voltage across the region.
 
 For a **one-sided p⁺n junction** (N_A ≫ N_D), almost all of W is on the n side: W ≈ √(2ε_s(V_bi − V_a)/qN_D).
 
@@ -162,6 +289,10 @@ For a **one-sided p⁺n junction** (N_A ≫ N_D), almost all of W is on the n si
 **Given:** V_bi = 0.775 V, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, ε_s = 1.04×10⁻¹² F/cm, q = 1.6×10⁻¹⁹ C, V_a = 0.
 
 **Find:** W, x_n, x_p and E_max.
+
+**Formula:**
+
+    W = √( (2ε_s/q)(V_bi − V_a)(1/N_A + 1/N_D) ),     x_n = W N_A/(N_A + N_D),     E_max = qN_D x_n/ε_s
 
 **Solution.**
 
@@ -179,7 +310,9 @@ Step 3. Peak field at the junction:
 
     E_max = qN_Dx_n/ε_s = 1.6×10⁻¹⁹ × 10¹⁶ × 3.0×10⁻⁵ / 1.04×10⁻¹² = 4.7×10⁴ V/cm
 
-**Answer:** **W = 0.33 μm (0.30 μm on the n side, 0.03 μm on the p side), E_max = 4.7×10⁴ V/cm.** The region is narrow but the field in it is large.
+**Answer:** **W = 0.33 μm (0.30 μm on the n side, 0.03 μm on the p side), E_max = 4.7×10⁴ V/cm.**
+
+**What this means:** the region is only a third of a micrometre wide, and 90 % of it lies in the more lightly doped n side. Yet the field in it, 47 kV/cm (4.7 MV/m), is enormous by everyday standards; it is this strong field that sweeps any carrier arriving at the depletion region straight across.
 
 ## The junction under bias
 
@@ -191,7 +324,32 @@ Step 3. Peak field at the junction:
 
     p_n(x_n) = p_n0 e^{qV_a/kT},     n_p(−x_p) = n_p0 e^{qV_a/kT}
 
-p_n0 = n_i²/N_D and n_p0 = n_i²/N_A are the equilibrium minority concentrations. Forward bias multiplies them by e^{qV_a/kT}; reverse bias makes them almost zero. Every 60 mV of forward bias multiplies the injected minority carriers by 10.
+Where:
+
+- p_n(x_n) = hole density at the n-side edge of the depletion region (cm⁻³)
+- n_p(−x_p) = electron density at the p-side edge of the depletion region (cm⁻³)
+- p_n0 = n_i²/N_D and n_p0 = n_i²/N_A = equilibrium minority concentrations (cm⁻³)
+- V_a = applied voltage (V), positive for forward bias
+- kT/q = thermal voltage, 0.0259 V at 300 K
+
+Forward bias multiplies the minority densities by e^{qV_a/kT}; reverse bias makes them almost zero. Every 60 mV of forward bias multiplies the injected minority carriers by 10.
+
+### Forward and reverse bias compared
+
+The numbers in the depletion-width row are for the junction of Examples 10.1 and 10.2 (N_A = 10¹⁷, N_D = 10¹⁶ cm⁻³, V_bi = 0.775 V).
+
+| | Forward bias | Reverse bias |
+|---|---|---|
+| Connection | p side positive, n side negative (V_a > 0) | p side negative, n side positive (V_a < 0) |
+| Barrier height | Lowered to V_bi − V_a | Raised to V_bi + \|V_a\| |
+| Depletion width | Narrower (0.20 μm at V_a = +0.5 V) | Wider (0.91 μm at V_a = −5 V); W ∝ √(V_bi + \|V_a\|) |
+| Peak field | Smaller | Larger |
+| Minority carriers at the depletion edges | Increased by e^{qV_a/kT}: carriers are injected | Reduced almost to zero: carriers are extracted |
+| Dominant current | Diffusion of injected minority carriers | Drift of the few minority carriers that reach the depletion region |
+| Current size | Large; rises tenfold every 60 mV, I ≈ I_s e^{qV/kT} | Tiny and nearly constant, I ≈ −I_s, until breakdown |
+| Resistance | Low | Very high |
+| Main capacitance | Diffusion capacitance (from stored minority carriers) | Junction (depletion) capacitance C_j = ε_sA/W, falling as \|V_a\| rises |
+| Typical uses | Rectifier conduction, LEDs, the emitter junction of a BJT | Blocking in rectifiers, photodiodes, varactors, Zener regulators, the collector junction of a BJT |
 
 ## The ideal diode (Shockley) equation, in words
 
@@ -203,6 +361,19 @@ The full derivation is worked in exam question Q48 below. The idea in four steps
 4. **Add them.** The total current is the sum of the hole and electron diffusion currents:
 
     I = I_s ( e^{qV/kT} − 1 ),     I_s = qA n_i² ( D_p/(L_pN_D) + D_n/(L_nN_A) )
+
+Where:
+
+- I = diode current (A), positive in the forward direction
+- I_s = saturation current (A)
+- V = applied voltage (V), positive for forward bias
+- kT/q = thermal voltage, 0.0259 V at 300 K
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- A = junction area (cm²)
+- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- D_p, D_n = diffusion coefficients of holes (in the n region) and electrons (in the p region) (cm²/s)
+- L_p, L_n = diffusion lengths of holes and electrons, √(D_pτ_p) and √(D_nτ_n) (cm)
+- N_D, N_A = donor and acceptor concentrations (cm⁻³)
 
 @fig figures/diode-iv.svg | The ideal diode characteristic. Forward current grows ten times for every 60 mV at 300 K; reverse current is a tiny −I_s.
 
@@ -220,6 +391,10 @@ The full derivation is worked in exam question Q48 below. The idea in four steps
 
 **Find:** I_s, I(0.6 V), I(0.7 V).
 
+**Formula:**
+
+    L_p = √(D_pτ_p),     I_s ≈ qAn_i²D_p/(L_pN_D)   (p⁺n: hole term only),     I ≈ I_s e^{qV/kT}
+
 **Solution.**
 
 Step 1. Diffusion length: L_p = √(D_pτ_p) = √(10 × 10⁻⁶) = 3.16×10⁻³ cm
@@ -236,6 +411,8 @@ Step 3. Forward current, I ≈ I_s e^{qV/kT}:
 
 **Answer:** **I_s = 5.1×10⁻¹⁶ A; I = 5.9 μA at 0.6 V and 280 μA at 0.7 V.** An extra 0.1 V multiplies the current by about 47.
 
+**What this means:** the saturation current is less than a femtoampere, so nothing useful flows until the forward voltage reaches about 0.6 V. Above that the current rises so steeply that a silicon diode conducting anything from microamps to milliamps always shows a forward drop of roughly 0.6–0.7 V.
+
 ## Breakdown
 
 At large reverse voltage the current suddenly rises. Two mechanisms:
@@ -243,11 +420,33 @@ At large reverse voltage the current suddenly rises. Two mechanisms:
 - **Avalanche breakdown.** Carriers crossing the strong depletion field gain enough energy to knock new electron–hole pairs out of the lattice (impact ionisation, Week 8), which multiply in a chain reaction. Typical of lightly doped junctions; breakdown voltage above about 6 V; rises with temperature.
 - **Zener breakdown.** In very heavily doped junctions the depletion region is extremely thin, and electrons **tunnel** straight through from the p-side valence band to the n-side conduction band. Breakdown voltage below about 4 V; falls with temperature. Used in Zener voltage regulators.
 
+Between about 4 V and 6 V both mechanisms act together, and their opposite temperature effects nearly cancel; this is why diodes rated near 5–6 V have the most temperature-stable breakdown voltage.
+
+### Avalanche and Zener breakdown compared
+
+| | Avalanche breakdown | Zener breakdown |
+|---|---|---|
+| Mechanism | Impact ionisation: accelerated carriers knock out new electron–hole pairs, which multiply in a chain | Quantum-mechanical tunnelling of electrons straight through the thin barrier, from the p-side valence band to the n-side conduction band |
+| Doping | Lightly or moderately doped (at least one side) | Very heavily doped on both sides (p⁺n⁺) |
+| Depletion width | Wide; carriers need distance to gain energy | Very narrow (of order 10 nm) so tunnelling is possible |
+| Breakdown voltage | Above about 6 V (up to thousands of volts) | Below about 4 V |
+| Field needed | Of order 3×10⁵ V/cm in Si, reached over a wide region | About 10⁶ V/cm, reached across a very thin region |
+| Temperature coefficient of V_BR | Positive: V_BR rises with temperature (more phonon scattering, carriers lose energy) | Negative: V_BR falls with temperature (band gap shrinks, tunnelling easier) |
+| Onset | Sharp knee | Softer, more gradual knee |
+| Uses | High-voltage rectifiers, avalanche photodiodes, surge-protection diodes | Low-voltage reference and regulator ("Zener") diodes |
+
 ## Junction capacitance
 
 The depletion region is a layer of stored charge between two conducting regions, so it behaves as a **capacitor** with plate separation W:
 
     C_j = ε_sA/W
+
+Where:
+
+- C_j = junction (depletion) capacitance (F)
+- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
+- A = junction area (cm²)
+- W = depletion width at the operating voltage (cm)
 
 Since W grows with reverse bias, C_j **falls** as the reverse voltage increases. Diodes used deliberately as voltage-controlled capacitors (in radio tuning) are called **varactors**. Measuring C_j against voltage is also how doping is measured (C-V profiling, Week 12). Under forward bias the stored minority carriers add a larger **diffusion capacitance**.
 
@@ -350,7 +549,7 @@ or, for area A, **I = I_s [ exp(qV/kT) − 1 ]** with I_s = AJ_s. This is the id
 - For |V| ≫ kT/q: I ≈ −I_s, a small, voltage-independent **reverse saturation current** (Si, about 10⁻¹⁵–10⁻¹² A for small diodes) carried by minority carriers generated within a diffusion length of the junction.
 - In real diodes, generation in the depletion region adds a current ∝ W ∝ √|V|, and at large |V| avalanche or Zener breakdown occurs.
 
-**Numerical example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm; J_s ≈ qn_i²D_p/(L_pN_D) = (1.602×10⁻¹⁹)(10²⁰)(10)/(3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹² A/cm², so I_s = 5.1×10⁻¹⁶ A. At V = 0.6 V, I = I_s e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ ≈ 5.9 μA, and at 0.7 V it is about 280 μA.
+**Numerical example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm; J_s ≈ qn_i²D_p/(L_pN_D) = (1.6×10⁻¹⁹)(10²⁰)(10)/(3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹² A/cm², so I_s = 5.1×10⁻¹⁶ A. At V = 0.6 V, I = I_s e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ ≈ 5.9 μA, and at 0.7 V it is about 280 μA.
 
 **Real diodes** deviate: recombination in the depletion region at low forward bias (I ∝ e^{qV/2kT}), high-level injection at high current, series resistance, and generation current and breakdown in reverse. These are summarised by I = I_s(e^{qV/ηkT} − 1), with ideality factor η between 1 and 2.
 
@@ -389,6 +588,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Answer:** **W = 2.7 μm, E_max = 4.2×10⁴ V/cm.**
 
+**What this means:** light doping and reverse bias together make the depletion region several micrometres wide, which is why lightly doped junctions can withstand large reverse voltages before the field reaches the avalanche level.
+
 #### Practice 10.3: junction capacitance
 
 **Question.** Find the junction capacitance of the diode in Practice 10.2 if its area is 1×10⁻³ cm².
@@ -402,6 +603,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
     C_j = ε_sA/W = 1.04×10⁻¹² × 10⁻³ / 2.72×10⁻⁴ = 3.8×10⁻¹² F
 
 **Answer:** **C_j = 3.8 pF.**
+
+**What this means:** increasing the reverse bias widens W and lowers C_j further; this voltage-controlled capacitance is what a varactor diode uses to tune a radio circuit.
 
 #### Practice 10.4: saturation current with both sides
 
@@ -467,6 +670,6 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Explain the formation of the depletion region in a p-n junction. | Why is the depletion region empty of mobile carriers? | Carriers diffused across and recombined, leaving only fixed donor and acceptor ions. | Forming the junction |
 | 2 | Derive and calculate the built-in potential. | Find V_bi for N_A = N_D = 10¹⁶ cm⁻³ in Si. | 0.0259 ln(10¹²) = 0.716 V. | The built-in potential; Example 10.1 |
 | 3 | Calculate the depletion width and electric-field profile. | If N_A = 100 N_D, where does most of the depletion region lie? | On the n side (x_n = 100 x_p). | Depletion approximation; Example 10.2 |
-| 4 | Explain the junction under forward and reverse bias and the law of the junction. | By what factor does forward bias of 0.12 V multiply the injected minority carriers? | e^{0.12/0.0259} ≈ 100. | The junction under bias |
+| 4 | Explain the junction under forward and reverse bias and the law of the junction. | By what factor does forward bias of 0.12 V multiply the injected minority carriers? | e^{0.12/0.0259} ≈ 100. | The junction under bias; Forward and reverse bias compared |
 | 5 | Derive and use the Shockley diode equation. | Write the ideal diode equation and its saturation current density. | I = I_s(e^{qV/kT} − 1); J_s = qn_i²(D_p/L_pN_D + D_n/L_nN_A). | Shockley equation; Example 10.3; Q48 |
-| 6 | Explain breakdown and junction capacitance. | Which breakdown mechanism occurs in very heavily doped junctions? | Zener (tunnelling) breakdown. | Breakdown; junction capacitance |
+| 6 | Explain breakdown and junction capacitance. | Which breakdown mechanism occurs in very heavily doped junctions, and how does its V_BR change with temperature? | Zener (tunnelling) breakdown; V_BR falls as temperature rises. | Breakdown; Avalanche and Zener breakdown compared; junction capacitance |

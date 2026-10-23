@@ -23,15 +23,19 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
 | q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
 | μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
 
 **Symbols**
 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | n | Electron concentration (free electrons per cm³) | cm⁻³ |
 | p | Hole concentration (holes per cm³) | cm⁻³ |
+| N_D | Donor concentration | cm⁻³ |
 | Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
 | R_p | Projected range: average depth at which implanted ions stop | μm |
 | μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
 | v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
@@ -67,6 +71,89 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | BJT | Bipolar junction transistor |
 | TCAD | Technology computer-aided design (device simulation software) |
 
+
+## Key terms
+
+Every important word used this week is defined here, so you can read this week on its own.
+
+**Band gap (E_g).** The range of energies between the top of the valence band and the bottom of the conduction band in which a perfect crystal has no allowed electron states. For silicon it is 1.12 eV at 300 K.
+
+**Electron and hole.** An electron is a free negative charge carrier in the conduction band. A hole is an empty state left in the valence band when an electron leaves it; it moves like a positive charge carrier.
+
+**Doping (n-type, p-type).** Adding small, controlled amounts of impurity atoms to a semiconductor. Donor atoms give electrons and make the material n-type; acceptor atoms take electrons, create holes and make it p-type.
+
+**Majority and minority carriers.** In n-type material electrons are the majority carriers and holes the minority carriers; in p-type material it is the other way round. Minority carriers are few, but they control most device currents.
+
+*Why it matters:* the continuity equation this week is almost always solved for the minority carriers.
+
+**Excess carriers (Δn, Δp).** Carriers present above the equilibrium (dark, no-bias) number, for example created by light or injected by a junction.
+
+    Δp = p − p_0
+
+Where:
+
+- Δp = excess hole concentration (cm⁻³)
+- p = actual hole concentration (cm⁻³)
+- p_0 = hole concentration in thermal equilibrium (cm⁻³)
+
+**Low-level injection.** The condition in which the excess carrier density is much smaller than the majority-carrier density, so the majority density is hardly changed. It makes the recombination rate simply proportional to the excess, Δp/τ.
+
+**Generation and recombination (G, R).** Generation is the creation of electron–hole pairs (by heat or light); recombination is their destruction when an electron drops back into a hole. Both are counted per cm³ per second.
+
+**Trap (SRH recombination).** A defect or impurity with an energy level inside the band gap that captures an electron and then a hole, so that the pair recombines in two easy steps. This Shockley–Read–Hall process is the main recombination route in silicon.
+
+**Minority-carrier lifetime (τ).** The average time an excess minority carrier survives before it recombines. In silicon it ranges from about 1 ns to 1 ms, depending on how many traps there are.
+
+*Why it matters:* the lifetime, together with the diffusion coefficient, sets how far carriers travel and hence how much current a diode or transistor carries.
+
+**Drift and diffusion.** The two ways carriers move. Drift is motion pushed by an electric field; diffusion is the spreading of carriers from where there are many to where there are few, with no field needed.
+
+**Diffusion coefficient (D).** A measure of how quickly carriers spread out by diffusion, in cm²/s. For lightly doped silicon D_n ≈ 35 cm²/s and D_p ≈ 12 cm²/s.
+
+**Continuity equation.** The book-keeping equation for carriers: in any small volume, the rate of change of the carrier density equals the net inflow carried by current, plus generation, minus recombination.
+
+    ∂p/∂t = −(1/q) ∂J_p/∂x + G_p − R_p
+
+Where:
+
+- ∂p/∂t = rate of change of hole concentration with time (cm⁻³s⁻¹)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- J_p = hole current density (A/cm²); ∂J_p/∂x is its change with position x (cm)
+- G_p, R_p = generation and recombination rates of holes (cm⁻³s⁻¹)
+
+*Why it matters:* every diode and transistor current in this course comes from solving this equation.
+
+**Minority-carrier diffusion equation.** The continuity equation written for minority carriers in a region with almost no electric field (a quasi-neutral region), using diffusion for the current and Δp/τ for the recombination.
+
+**Diffusion length (L).** The average distance an excess minority carrier diffuses before it recombines.
+
+    L_p = √(D_p τ_p)
+
+Where:
+
+- L_p = hole diffusion length (cm)
+- D_p = hole diffusion coefficient (cm²/s)
+- τ_p = hole lifetime (s)
+
+*Why it matters:* a device region much shorter than L lets almost every carrier cross it; a region much longer than L loses most of them.
+
+**Surface states (dangling bonds).** Energy levels inside the band gap located at a surface, caused mainly by surface atoms whose bonds point out into nothing (dangling bonds). They act as traps.
+
+**Surface recombination velocity (S).** A measure, in cm/s, of how fast a surface destroys excess carriers: the recombination per unit area equals S times the excess density at the surface.
+
+    U_s = S Δp(0)
+
+Where:
+
+- U_s = recombination rate per unit area of surface (cm⁻²s⁻¹)
+- S = surface recombination velocity (cm/s)
+- Δp(0) = excess minority density at the surface (cm⁻³)
+
+*Why it matters:* a poor surface (large S) can destroy carriers faster than the whole bulk does.
+
+**Effective lifetime (τ_eff).** The lifetime actually measured in a sample, which includes losses both in the bulk and at the surfaces. It is always shorter than the bulk lifetime.
+
+**Passivation.** Treating a surface (for example growing an oxide or depositing a nitride film) so that its dangling bonds are tied up and S becomes small.
 
 ## The big picture
 
@@ -104,6 +191,14 @@ For electrons the sign of the flow term is opposite, because the electron charge
 
     ∂n/∂t = +(1/q) ∂J_n/∂x + G_n − R_n
 
+Where:
+
+- p, n = hole and electron concentrations (cm⁻³); t = time (s)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- J_p, J_n = hole and electron current densities (A/cm²); x = position (cm)
+- G_p, G_n = generation rates of holes and electrons (cm⁻³s⁻¹)
+- R_p, R_n = recombination rates of holes and electrons (cm⁻³s⁻¹)
+
 **Reading it.** If more current flows into the slice than out of it (current decreasing with x), carriers pile up. If generation beats recombination, carriers build up. Otherwise they fall.
 
 ## The minority-carrier diffusion equation
@@ -117,6 +212,13 @@ Now apply it to the case that matters most: **holes as minority carriers in an n
 Substituting gives the **minority-carrier diffusion equation**:
 
     ∂Δp/∂t = D_p ∂²Δp/∂x² − Δp/τ_p + G_L
+
+Where:
+
+- Δp = excess hole concentration (cm⁻³), a function of position x (cm) and time t (s)
+- D_p = hole diffusion coefficient (cm²/s); about 12 cm²/s in lightly doped Si
+- τ_p = hole (minority-carrier) lifetime (s)
+- G_L = generation rate by external light (cm⁻³s⁻¹)
 
 | Term | Meaning |
 |---|---|
@@ -136,11 +238,49 @@ Substituting gives the **minority-carrier diffusion equation**:
 | Steady injection at x = 0 into a long sample | 0 = D_p d²Δp/dx² − Δp/τ_p | Δp(x) = Δp(0) e^{−x/L_p} (exponential decay in space) |
 | Steady injection into a short sample, W ≪ L_p | d²Δp/dx² ≈ 0 | Δp(x) = Δp(0)(1 − x/W), a straight line |
 
+(In the last row W is the length of the short sample, in cm.)
+
+#### Example 9.1: steady illumination and decay after the light is switched off
+
+**Question.** A uniform n-type silicon sample (N_D = 1×10¹⁶ cm⁻³) has a hole lifetime of 2 μs. It is illuminated uniformly so that light generates 1×10²⁰ electron–hole pairs per cm³ per second. Find the steady excess hole concentration, check that this is low-level injection, and find how long after the light is switched off the excess falls to 10 % of its steady value.
+
+**Given:** τ_p = 2 μs = 2×10⁻⁶ s, G_L = 1×10²⁰ cm⁻³s⁻¹, N_D = 1×10¹⁶ cm⁻³ (so the electron density is about 10¹⁶ cm⁻³).
+
+**Find:** Δp in the steady state; the time t at which Δp(t) = 0.1 Δp(0).
+
+**Formula:** the first two rows of the table above (the sample is uniform, so there is no diffusion):
+
+    Δp = G_L τ_p          (steady light)
+
+    Δp(t) = Δp(0) e^{−t/τ_p}          (after switch-off)
+
+**Solution.**
+
+Step 1. Steady state:
+
+    Δp = 1×10²⁰ × 2×10⁻⁶ = 2×10¹⁴ cm⁻³
+
+Step 2. Low-level check: 2×10¹⁴ cm⁻³ is only 2 % of the electron density 10¹⁶ cm⁻³, so the injection is low-level and the simple Δp/τ_p recombination term is valid.
+
+Step 3. Decay: set e^{−t/τ_p} = 0.1, so t = τ_p ln 10:
+
+    t = 2×10⁻⁶ × 2.303 = 4.6×10⁻⁶ s
+
+**Answer:** **Δp = 2×10¹⁴ cm⁻³** (low-level injection), and it falls to 10 % of this **4.6 μs** after the light is switched off.
+
+**What this means:** the excess builds up until recombination (Δp/τ_p) exactly balances generation, so a longer lifetime gives a larger steady excess. Timing the decay after a light pulse is exactly how lifetime is measured (photoconductive decay): it takes about 2.3 lifetimes to fall by a factor of ten.
+
 ### The diffusion length
 
 The third case introduces the **diffusion length**:
 
     L_p = √(D_p τ_p),     L_n = √(D_n τ_n)
+
+Where:
+
+- L_p, L_n = diffusion lengths of holes and electrons (cm; often quoted in μm)
+- D_p, D_n = diffusion coefficients of holes and electrons (cm²/s)
+- τ_p, τ_n = lifetimes of holes and electrons as minority carriers (s)
 
 It is the average distance an injected minority carrier diffuses before it recombines. The excess falls to 1/e (37 %) at one diffusion length, and to under 1 % at five.
 
@@ -148,13 +288,17 @@ It is the average distance an injected minority carrier diffuses before it recom
 
 > **In plain words.** Inject carriers at one end of a bar and they spread out by diffusion, but they also keep dying by recombination. They spread a typical distance L_p before they die. The longer they live (τ) and the faster they spread (D), the further they get.
 
-#### Example 9.1: diffusion length
+#### Example 9.2: diffusion length
 
 **Question.** Holes are injected into n-type silicon in which D_p = 12 cm²/s and the hole lifetime is 1 μs. Calculate the hole diffusion length, and the fraction of the injected excess remaining 100 μm from the injection point.
 
 **Given:** D_p = 12 cm²/s, τ_p = 1 μs = 1×10⁻⁶ s, x = 100 μm.
 
 **Find:** L_p, and Δp(100 μm)/Δp(0).
+
+**Formula:**
+
+    L_p = √(D_pτ_p),     Δp(x) = Δp(0) e^{−x/L_p}
 
 **Solution.**
 
@@ -166,9 +310,19 @@ Step 2. Δp(x)/Δp(0) = e^{−x/L_p}:
 
 **Answer:** **L_p = 34.6 μm**; only **5.6 %** of the excess survives 100 μm from the injection point.
 
+**What this means:** a typical hole lives long enough to spread only about 35 μm, a third of the width of a human hair. A device region much thinner than this (such as a transistor base) is crossed by almost every carrier; a region several diffusion lengths long loses nearly all of them to recombination.
+
 The hole current at the injection point comes from the slope of the profile there:
 
     J_p(0) = −qD_p dΔp/dx |₀ = qD_pΔp(0)/L_p
+
+Where:
+
+- J_p(0) = hole diffusion current density at the injection point (A/cm²)
+- q = electronic charge, 1.6×10⁻¹⁹ C
+- D_p = hole diffusion coefficient (cm²/s)
+- Δp(0) = excess hole concentration at the injection point (cm⁻³)
+- L_p = hole diffusion length (cm)
 
 This is exactly the formula that, applied at the edge of a junction, gives the Shockley diode equation (Week 10). The fourth case (straight-line profile in a short region) is what happens in a transistor's thin base (Week 13).
 
@@ -199,7 +353,11 @@ Recombination at a surface happens in an extremely thin layer, so it is counted 
 
     U_s = S × Δp(0)      [carriers per cm² per second]
 
-where Δp(0) is the excess minority concentration at the surface and **S is the surface recombination velocity** (cm/s).
+Where:
+
+- U_s = recombination rate per unit area of surface (cm⁻²s⁻¹)
+- S = **surface recombination velocity** (cm/s)
+- Δp(0) = excess minority (here hole) concentration at the surface (cm⁻³)
 
 > **In plain words.** Imagine the excess carriers near the surface rushing into it at speed S and vanishing. A surface with S = 100 cm/s swallows carriers as fast as if they flowed into a drain at 100 cm/s. A perfect surface has S = 0; a surface that destroys every carrier that reaches it has S → ∞.
 
@@ -207,9 +365,51 @@ For surface traps of density N_st (per cm²):
 
     S = σ_p v_th N_st
 
+Where:
+
+- S = surface recombination velocity (cm/s)
+- σ_p = capture cross-section of a surface trap for holes (cm²); typically about 10⁻¹⁵ cm²
+- v_th = thermal velocity of carriers, about 10⁷ cm/s at 300 K
+- N_st = density of surface traps (cm⁻²)
+
 It enters the diffusion equation as a **boundary condition**: the carriers arriving at the surface by diffusion must equal the carriers recombining there,
 
     D_p dΔp/dx |surface = S Δp(0)
+
+Where:
+
+- D_p dΔp/dx |surface = diffusion flow of holes towards the surface, per cm² per second (D_p in cm²/s, dΔp/dx in cm⁻⁴)
+- S Δp(0) = rate at which they recombine at the surface (cm⁻²s⁻¹)
+
+#### Example 9.3: surface recombination velocity from the trap density
+
+**Question.** A silicon surface has surface traps with a hole capture cross-section of 1×10⁻¹⁵ cm². Find the surface recombination velocity (a) for a well-oxidised surface with 1×10¹⁰ traps per cm², and (b) for a bare surface with 1×10¹³ traps per cm². For case (a), find the recombination rate per cm² if the excess hole concentration at the surface is 1×10¹³ cm⁻³.
+
+**Given:** σ_p = 1×10⁻¹⁵ cm², v_th = 1×10⁷ cm/s, N_st = 10¹⁰ cm⁻² (a) and 10¹³ cm⁻² (b), Δp(0) = 1×10¹³ cm⁻³.
+
+**Find:** S in each case; U_s for case (a).
+
+**Formula:**
+
+    S = σ_p v_th N_st,     U_s = S Δp(0)
+
+**Solution.**
+
+Step 1. Oxidised surface:
+
+    S = 1×10⁻¹⁵ × 1×10⁷ × 1×10¹⁰ = 100 cm/s
+
+Step 2. Bare surface:
+
+    S = 1×10⁻¹⁵ × 1×10⁷ × 1×10¹³ = 1×10⁵ cm/s
+
+Step 3. Recombination rate at the oxidised surface:
+
+    U_s = 100 × 1×10¹³ = 1×10¹⁵ cm⁻²s⁻¹
+
+**Answer:** **S = 100 cm/s for the oxidised surface and 1×10⁵ cm/s for the bare surface**; at the oxidised surface **U_s = 1×10¹⁵ carriers per cm² per second**.
+
+**What this means:** S is simply proportional to the number of surface traps, so cutting the trap density a thousandfold by growing a good oxide cuts the surface loss a thousandfold. These two values match the "thermally oxidised" and "bare" rows of the table below.
 
 | Surface | Typical S (cm/s) |
 |---|---|
@@ -222,31 +422,79 @@ It enters the diffusion equation as a **boundary condition**: the carriers arriv
 
 In a wafer of thickness W with both surfaces recombining, the measured (effective) lifetime combines bulk and surface losses:
 
-    1/τ_eff = 1/τ_bulk + 2S/W          (for small S)
+    1/τ_eff = 1/τ_bulk + 2S/W          (for small S: SW/2D ≪ 1)
 
-#### Example 9.2: how surfaces reduce the lifetime
+Where:
 
-**Question.** A silicon wafer 300 μm thick has a bulk lifetime of 100 μs. Both surfaces are oxidised, giving a surface recombination velocity of 100 cm/s. Calculate the effective lifetime. Repeat for unprotected surfaces with S = 10⁵ cm/s.
+- τ_eff = effective (measured) lifetime of the wafer (s)
+- τ_bulk = lifetime set by recombination in the bulk alone (s)
+- S = surface recombination velocity, the same on both faces (cm/s)
+- W = wafer thickness (cm)
 
-**Given:** τ_bulk = 100 μs = 1×10⁻⁴ s, W = 300 μm = 0.03 cm, S = 100 cm/s (then 10⁵ cm/s).
+The term 2S/W is 1/τ_surface: two surfaces, each removing carriers at speed S, shared over a thickness W.
+
+**The diffusion limit.** The simple formula assumes carriers reach the surfaces easily, so the excess is almost uniform through the wafer. That is true only while SW/2D ≪ 1 (D is the minority-carrier diffusion coefficient). If S is very large, the surfaces swallow carriers faster than diffusion can bring them, and the loss is limited by the time carriers take to diffuse to a surface. A good approximation covering both cases is:
+
+    τ_surface ≈ W/(2S) + W²/(π²D),     1/τ_eff = 1/τ_bulk + 1/τ_surface
+
+Where:
+
+- τ_surface = lifetime set by surface recombination alone (s)
+- W/(2S) = time for the surfaces to remove the carriers once they arrive (s)
+- W²/(π²D) = time for carriers to diffuse to the surfaces (s); it is the shortest τ_surface can ever be
+- D = minority-carrier diffusion coefficient (cm²/s)
+
+For small S the first term dominates and this reduces to 1/τ_surface = 2S/W.
+
+#### Example 9.4: how surfaces reduce the lifetime
+
+**Question.** An n-type silicon wafer 300 μm thick has a bulk lifetime of 100 μs and a hole diffusion coefficient of 12 cm²/s. Both surfaces are oxidised, giving a surface recombination velocity of 100 cm/s. Calculate the effective lifetime. Repeat for unprotected surfaces with S = 10⁵ cm/s.
+
+**Given:** τ_bulk = 100 μs = 1×10⁻⁴ s, W = 300 μm = 0.03 cm, D_p = 12 cm²/s, S = 100 cm/s (then 10⁵ cm/s).
 
 **Find:** τ_eff in each case.
 
+**Formula:**
+
+    1/τ_eff = 1/τ_bulk + 2S/W          (valid when SW/2D ≪ 1)
+
+    τ_surface ≈ W/(2S) + W²/(π²D),     1/τ_eff = 1/τ_bulk + 1/τ_surface          (any S)
+
 **Solution.**
 
-Use 1/τ_eff = 1/τ_bulk + 2S/W.
+Step 1. Oxidised surfaces. Check: SW/2D = 100 × 0.03/24 = 0.13, small, so the simple formula applies.
 
-    S = 100 cm/s:   2S/W = 2 × 100/0.03 = 6.7×10³ s⁻¹,   1/τ_bulk = 1×10⁴ s⁻¹
+    2S/W = 2 × 100/0.03 = 6.7×10³ s⁻¹,   1/τ_bulk = 1×10⁴ s⁻¹
 
-                    1/τ_eff = 1.67×10⁴ s⁻¹   ⇒   τ_eff = 60 μs
+    1/τ_eff = 1.67×10⁴ s⁻¹   ⇒   τ_eff = 60 μs
 
-    S = 10⁵ cm/s:   2S/W = 6.7×10⁶ s⁻¹ ≫ 1/τ_bulk   ⇒   τ_eff ≈ 1/6.7×10⁶ = 0.15 μs
+Step 2. Bare surfaces. Check: SW/2D = 10⁵ × 0.03/24 = 125, not small, so the simple formula would give a wrong answer (it predicts 0.15 μs). Use the full form:
 
-**Answer:** **τ_eff = 60 μs with oxidised surfaces, but only about 0.15 μs with bare surfaces**: an unprotected surface, not the bulk, then controls the lifetime.
+    W/(2S) = 0.03/(2 × 10⁵) = 1.5×10⁻⁷ s = 0.15 μs
 
-With an unprotected surface (S = 10⁵ cm/s), 2S/W = 6.7×10⁶ s⁻¹ and τ_eff falls to about **0.15 μs**: the surface, not the bulk, then controls everything.
+    W²/(π²D) = (0.03)²/(9.87 × 12) = 7.6×10⁻⁶ s = 7.6 μs
+
+    τ_surface ≈ 0.15 + 7.6 = 7.75 μs
+
+    1/τ_eff = 1/100 μs + 1/7.75 μs   ⇒   τ_eff ≈ 7.2 μs
+
+**Answer:** **τ_eff = 60 μs with oxidised surfaces, but only about 7.2 μs with bare surfaces.**
+
+**What this means:** with a good oxide the wafer keeps most of its bulk lifetime, but with bare surfaces the surfaces, not the bulk, control the lifetime. Once S is this large, making the surface even worse hardly matters: the loss is limited by how fast holes can diffuse 150 μm to the nearest surface.
 
 **Reducing surface recombination (passivation):** grow thermal SiO₂ and anneal in hydrogen to tie up dangling bonds; deposit silicon nitride or aluminium oxide; add a heavily doped surface layer that repels minority carriers (a "back-surface field" in solar cells); and keep surfaces clean and damage-free.
+
+### Bulk and surface recombination compared
+
+| | Bulk recombination | Surface recombination |
+|---|---|---|
+| Where it happens | Throughout the volume of the crystal | In a very thin layer at the surface |
+| Cause | Traps from impurities and crystal defects (SRH), plus band-to-band and Auger processes | Surface states, mainly dangling bonds, adsorbed impurities and oxide defects |
+| How it is counted | Rate per unit volume, Δp/τ_bulk (cm⁻³s⁻¹) | Rate per unit area, U_s = SΔp(0) (cm⁻²s⁻¹) |
+| Key parameter | Bulk lifetime τ_bulk (s) | Surface recombination velocity S (cm/s) |
+| Where it enters the equations | The −Δp/τ_p term of the diffusion equation | A boundary condition: D_p dΔp/dx = SΔp(0) at the surface |
+| Most important when | Thick devices, poor-quality or contaminated crystal | Thin wafers, small devices, light absorbed near the surface |
+| How it is reduced | Purer crystal, gettering of impurities, fewer defects | Passivation: thermal oxide with H₂ anneal, SiNₓ or Al₂O₃ films, back-surface field |
 
 ## Key points of Week 9
 
@@ -255,7 +503,7 @@ With an unprotected surface (S = 10⁵ cm/s), 2S/W = 6.7×10⁶ s⁻¹ and τ_ef
 - Standard solutions: decay in time e^{−t/τ}; steady light Δp = G_Lτ; long bar e^{−x/L}; short region a straight line.
 - Diffusion length L = √(Dτ): how far a minority carrier travels before recombining.
 - Surfaces have dangling bonds → surface states → fast recombination, measured by S (cm/s).
-- 1/τ_eff = 1/τ_bulk + 2S/W; passivation keeps S small.
+- 1/τ_eff = 1/τ_bulk + 2S/W for small S; for very large S the loss is limited by diffusion to the surfaces (τ_surface cannot fall below W²/π²D). Passivation keeps S small.
 
 ---
 
@@ -306,7 +554,7 @@ S enters the boundary condition for the diffusion equation: D_p dΔp/dx = SΔp a
 
 **How they affect lifetime:**
 
-1. **Additional recombination path.** Mid-gap surface states are efficient SRH centres. Carriers that diffuse to the surface recombine there quickly, so the measured (effective) lifetime is lower than the bulk lifetime: 1/τ_eff = 1/τ_bulk + 1/τ_surface, with 1/τ_surface ≈ 2S/W for a wafer of thickness W recombining at both surfaces. In thin wafers and small devices surface recombination can dominate: a 300 μm wafer with τ_bulk = 100 μs falls to τ_eff ≈ 60 μs at S = 100 cm/s and below 1 μs at S = 10⁵ cm/s.
+1. **Additional recombination path.** Mid-gap surface states are efficient SRH centres. Carriers that diffuse to the surface recombine there quickly, so the measured (effective) lifetime is lower than the bulk lifetime: 1/τ_eff = 1/τ_bulk + 1/τ_surface, with 1/τ_surface ≈ 2S/W for a wafer of thickness W recombining at both surfaces (valid while SW/2D ≪ 1; for very large S, τ_surface ≈ W/2S + W²/π²D, limited by diffusion to the surfaces). In thin wafers and small devices surface recombination can dominate: a 300 μm n-type wafer with τ_bulk = 100 μs falls to τ_eff ≈ 60 μs at S = 100 cm/s and to about 7 μs at S = 10⁵ cm/s (Example 9.4).
 2. **Carrier depletion near the surface.** The excess carrier density falls towards the surface, creating a gradient that pulls more carriers there, so even carriers generated deep in the material are lost.
 3. **Surface band bending.** Charge in surface states bends the bands, creating depletion or inversion layers. Under depletion, both electrons and holes are present in similar numbers near the surface, which maximises SRH recombination and generation.
 4. **Leakage and noise.** Surface generation adds to reverse leakage current of junctions where they meet the surface; trapping and detrapping produces 1/f noise; charged states cause threshold-voltage drift and instability in MOS devices.
@@ -333,6 +581,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
     L_n = √(D_nτ_n) = √(25 × 10⁻⁵) = 1.58×10⁻² cm = 158 μm
 
 **Answer:** **L_n ≈ 160 μm.**
+
+**What this means:** electrons in this p-type material survive long enough to cross a region about 0.16 mm thick, so a p-type layer a few micrometres thick loses almost none of them.
 
 #### Practice 9.2: injected profile and current
 
@@ -378,6 +628,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Answer:** **S ≤ 150 cm/s**, achievable with a good thermal oxide.
 
+**What this means:** for silicon (D ≈ 12–35 cm²/s), SW/2D = 150 × 0.02/(2D) is at most about 0.13, so the simple formula is valid here. Even a "good" surface takes away three quarters of the lifetime of a 200 μm wafer.
+
 #### Practice 9.5: surface recombination current
 
 **Question.** At a surface with S = 1000 cm/s the excess hole concentration is 1×10¹³ cm⁻³. Find the recombination rate per unit area and the equivalent current density lost to the surface.
@@ -409,7 +661,7 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 |---|---|---|---|---|
 | 1 | Derive the continuity equation for holes and electrons. | Write the continuity equation for holes. | ∂p/∂t = −(1/q)∂J_p/∂x + G_p − R_p. | Deriving the continuity equation |
 | 2 | Write and interpret the minority-carrier diffusion equation. | What does the term −Δp/τ_p represent? | Loss of excess holes by recombination. | The minority-carrier diffusion equation |
-| 3 | Solve the diffusion equation for the standard cases. | What is the steady-state profile for injection into a long bar? | Δp(x) = Δp(0)e^{−x/L_p}. | The four standard solutions |
-| 4 | Calculate diffusion lengths and explain their importance. | Find L_n for D_n = 30 cm²/s, τ_n = 10 μs. | L_n = √(30 × 10⁻⁵) = 1.7×10⁻² cm = 173 μm. | Diffusion length; Example 9.1 |
-| 5 | Explain surface states and surface recombination velocity. | What value of S corresponds to an Ohmic metal contact? | S → ∞ (Δp forced to zero). | Surfaces and surface states |
-| 6 | Calculate the effective lifetime of a wafer with recombining surfaces. | Write 1/τ_eff for a wafer of thickness W. | 1/τ_eff = 1/τ_bulk + 2S/W. | How surfaces shorten the lifetime; Example 9.2 |
+| 3 | Solve the diffusion equation for the standard cases. | What is the steady-state profile for injection into a long bar? | Δp(x) = Δp(0)e^{−x/L_p}. | The four standard solutions; Example 9.1 |
+| 4 | Calculate diffusion lengths and explain their importance. | Find L_n for D_n = 30 cm²/s, τ_n = 10 μs. | L_n = √(30 × 10⁻⁵) = 1.7×10⁻² cm = 173 μm. | Diffusion length; Example 9.2 |
+| 5 | Explain surface states and surface recombination velocity. | What value of S corresponds to an Ohmic metal contact? | S → ∞ (Δp forced to zero). | Surfaces and surface states; Example 9.3 |
+| 6 | Calculate the effective lifetime of a wafer with recombining surfaces. | Write 1/τ_eff for a wafer of thickness W (small S). | 1/τ_eff = 1/τ_bulk + 2S/W, valid while SW/2D ≪ 1. | How surfaces shorten the lifetime; Example 9.4 |
