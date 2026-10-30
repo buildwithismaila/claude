@@ -337,7 +337,7 @@ The authors declare no conflict of interest.
 
 ### Data availability
 
-All code used to generate the signals, extract the features and carry out the testing is provided, together with the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib. Repository: (to be inserted).
+All code used to generate the signals, extract the features and carry out the testing is available, together with the figures and result files, at https://drive.google.com/file/d/1AaD-IVGdtOotkEkZsKydU4-z5Bprq0B6/view. The archive includes the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib.
 
 ## References
 
