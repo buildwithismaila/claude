@@ -1,20 +1,24 @@
----
-title: "Classification of Power Quality Disturbances Using Wavelet Features and Machine Learning"
----
+\* Corresponding author: Ismaila Hassan
 
-# Classification of Power Quality Disturbances Using Wavelet Features and Machine Learning
+Copyright © 2026 Author(s) retain the copyright of this article. This article is published under the terms of the Creative Commons Attribution Liscense 4.0.
 
-**Ismaila Hassan^1^, Sani Abubakar^1^, Aliyu Muhammad Aliyu^1^, Mahmud Suleiman^1^, Ruby Chinyere Beremeh^1^**
+# Classification of power quality disturbances using wavelet features and machine learning
 
-^1^ Department of Electrical and Electronic Engineering, Nigerian Defence Academy, Kaduna, Nigeria
+Ismaila Hassan ^1,\ \*^, Sani Abubakar ^1^, Aliyu Muhammad Aliyu ^1^, Mahmud Suleiman ^1^ and Ruby Chinyere Beremeh ^1^
 
-**Corresponding author:** Ismaila Hassan, [institutional email]
+^1^ Department of Electrical Electronic Engineering, Nigerian Defence Academy, Kaduna, 800281, Nigeria.
+
+*Journal name, year, volume(issue), page range — to be inserted on acceptance*
+
+Publication history: Received on (date); revised on (date); accepted on (date)
+
+Article DOI: (to be inserted)
 
 ## Abstract
 
 Power quality disturbances such as voltage sags, swells, harmonics and transients affect the reliable operation of electrical equipment. Identifying them automatically from recorded waveforms is an important part of modern power quality monitoring. This study tested how well five machine learning classifiers can identify nine types of power quality disturbance, and how their performance changes when measurement noise is present. Nine disturbance classes were generated in Python using standard mathematical models, giving 1,800 signals. Each signal was then corrupted with noise at four levels, producing a dataset of 9,000 signals. Features were extracted using a five-level discrete wavelet transform with the db4 wavelet, giving 42 features per signal. Five classifiers were compared: a decision tree, k-nearest neighbours, a support vector machine, a random forest and a multilayer perceptron. The multilayer perceptron, random forest and support vector machine performed best, reaching about 93% accuracy on clean signals and about 86% at the highest noise level tested. Voltage sags and interruptions were the most frequently confused pair. Twenty of the 42 features were enough to maintain accuracy. The study also found that the common practice of fixing the signal amplitude at exactly 1.0 per unit makes the classification task easier than it should be, and that allowing the amplitude to vary gives a fairer comparison between feature types. All code and random seeds are provided so the results can be repeated.
 
-**Keywords:** power quality; wavelet transform; disturbance classification; machine learning; noise
+Keywords: POWER QUALITY; WAVELET TRANSFORM; DISTURBANCE CLASSIFICATION; MACHINE LEARNING; NOISE ROBUSTNESS
 
 ## 1. Introduction
 
@@ -321,6 +325,20 @@ The main findings are:
 
 The most useful extension of this work would be to test the method on real recorded disturbances, either from a public dataset or from laboratory measurements, and to report how much accuracy is lost in moving from generated to measured signals. The code is written so that a measured dataset can be used in place of the generated one without modification.
 
+## Compliance with ethical standards
+
+### Acknowledgment
+
+The authors thank the Department of Electrical Electronic Engineering, Nigerian Defence Academy, Kaduna, for supporting this work.
+
+### Disclosure of conflict of interest
+
+The authors declare no conflict of interest.
+
+### Data availability
+
+All code used to generate the signals, extract the features and carry out the testing is provided, together with the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib. Repository: (to be inserted).
+
 ## References
 
 *To be confirmed before submission. These sources were located by literature search but could not be opened on the machine used to prepare this draft. Details marked [confirm] came from indexes and citing papers rather than from the papers themselves.*
@@ -345,6 +363,3 @@ The most useful extension of this work would be to test the method on real recor
 
 Further sources are still needed for Section 2, particularly on the S-transform, the Hilbert-Huang transform, and classifier comparisons whose accuracies can be compared with those reported here.
 
-## Data availability
-
-All code used to generate the signals, extract the features and carry out the testing is provided, together with the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib. Repository: [to be inserted].
