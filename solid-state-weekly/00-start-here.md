@@ -53,6 +53,25 @@ The plan requires at least four practical or simulation experiments. Each one ha
 - **CAT 2** (Week 12): transport, junctions and interfaces (Weeks 7–12).
 - **Final examination:** the whole course. The 50-question PGD paper is the best guide to its style.
 
+## Units
+
+This course uses **SI units** throughout: lengths in metres (with μm and nm for small sizes), concentrations in m⁻³, mobility in m²/V·s, fields in V/m, current density in A/m², permittivity in F/m. Energies are in electron-volts (eV), which SI accepts for use alongside its units (1 eV = 1.6×10⁻¹⁹ J). Many textbooks, your lecturer's notes and some exam questions use centimetres instead; convert before you substitute:
+
+| Quantity | cm-based | SI | Multiply by |
+|---|---|---|---|
+| Concentration | cm⁻³ | m⁻³ | 10⁶ |
+| Length | cm | m | 10⁻² |
+| Area | cm² | m² | 10⁻⁴ |
+| Mobility, diffusion coefficient | cm²/V·s, cm²/s | m²/V·s, m²/s | 10⁻⁴ |
+| Velocity | cm/s | m/s | 10⁻² |
+| Field | V/cm | V/m | 10² |
+| Current density | A/cm² | A/m² | 10⁴ |
+| Permittivity, conductivity | F/cm, S/cm | F/m, S/m | 10² |
+| Resistivity | Ω·cm | Ω·m | 10⁻² |
+| Dose, surface density | cm⁻² | m⁻² | 10⁴ |
+
+For example, n_i(Si) = 1×10¹⁰ cm⁻³ = 1×10¹⁶ m⁻³, and 1350 cm²/V·s = 0.135 m²/V·s.
+
 ## How to study each week
 
 1. Read the week's **Symbols and abbreviations** table first. Every week has one near the top, listing every symbol, constant and abbreviation used on that page with its meaning and units, so you can start at any week. The **Glossary** page at the end lists all of them.
@@ -61,7 +80,7 @@ The plan requires at least four practical or simulation experiments. Each one ha
 4. For derivations, check you stated the assumptions; marks are given for them.
 5. Tick the week as read (the button at the bottom of each page) to track your progress.
 
-> Numbers to know without looking (E_g is the band-gap energy, n_i the intrinsic carrier concentration, kT/q the thermal voltage, q the electronic charge, μ_n the electron mobility): E_g = 1.12 eV (Si), 0.66 eV (Ge), 1.42 eV (GaAs); n_i(Si) ≈ 1×10¹⁰ cm⁻³; kT/q = 0.0259 V at 300 K; q = 1.6×10⁻¹⁹ C; Si lattice constant 5.43 Å; μ_n(Si) ≈ 1350 cm²/V·s.
+> Numbers to know without looking (E_g is the band-gap energy, n_i the intrinsic carrier concentration, kT/q the thermal voltage, q the electronic charge, μ_n the electron mobility): E_g = 1.12 eV (Si), 0.66 eV (Ge), 1.42 eV (GaAs); n_i(Si) ≈ 1×10¹⁶ m⁻³; kT/q = 0.0259 V at 300 K; q = 1.6×10⁻¹⁹ C; Si lattice constant 0.543 nm; μ_n(Si) ≈ 0.135 m²/V·s.
 
 ## Textbooks
 

@@ -139,7 +139,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | 1 | Semiconductor vs conductor and insulator | Conductivity between metal and insulator, controllable by doping, T, light. Metal: no gap, σ falls with T. Insulator: gap > 4 eV. Semiconductor: gap ≈ 1 eV, two carriers, σ rises with T. |
 | 2 | Elemental and compound semiconductors | Elemental: one element, Group IV, covalent, e.g. **Si, Ge**. Compound: two or more elements (III–V, II–VI), tunable and often direct gap, e.g. **GaAs, InP**. |
 | 3 | Why silicon | Abundant and cheap; excellent native SiO₂; 1.12 eV gap gives low leakage to 150 °C; large perfect crystals; strong, good thermal conductor; well-understood doping. |
-| 4 | Si, Ge and GaAs | Gaps 1.12 / 0.66 / 1.42 eV; indirect / indirect / direct; μ_n 1350 / 3900 / 8500. Si for ICs and power; Ge for IR and SiGe HBTs; GaAs for RF, LEDs, lasers. |
+| 4 | Si, Ge and GaAs | Gaps 1.12 / 0.66 / 1.42 eV; indirect / indirect / direct; μ_n 0.135 / 0.39 / 0.85 m²/V·s. Si for ICs and power; Ge for IR and SiGe HBTs; GaAs for RF, LEDs, lasers. |
 | 5 | Crystal lattice and structure | Lattice = periodic array of points; crystal = lattice + basis. Structure sets bands and gap, mobility, anisotropy, doping sites, epitaxy, cleavage and defects. |
 | 6 | Miller indices | Smallest integers proportional to reciprocals of intercepts. Steps: intercepts → reciprocals → clear fractions → (h k l). Infinite intercept → 0; negative → bar. |
 | 7 | Miller indices of intercepts 2a, 3b, 1c | 2, 3, 1 → 1/2, 1/3, 1 → × 6 → **(3 2 6)**. In a cubic crystal d = a/7. |
@@ -154,12 +154,12 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 | Q | Topic | Must-know answer |
 |---|---|---|
-| 14 | What doping is and why | Controlled addition of impurities (10¹⁴–10²⁰ cm⁻³). Needed because intrinsic σ is too low and T-sensitive; sets carrier type, makes junctions, sets V_bi, V_T, β, contacts. |
+| 14 | What doping is and why | Controlled addition of impurities (10²⁰–10²⁶ m⁻³). Needed because intrinsic σ is too low and T-sensitive; sets carrier type, makes junctions, sets V_bi, V_T, β, contacts. |
 | 15 | n-type and p-type | n-type: Group V donors, electrons majority, E_F near E_c, n ≈ N_D. p-type: Group III acceptors, holes majority, E_F near E_v, p ≈ N_A. |
 | 16 | Donors and acceptors | Donor: one extra valence electron, gives it to CB, becomes +, level near E_c (P, As, Sb). Acceptor: one fewer, takes an electron creating a hole, becomes −, level near E_v (B, Al, Ga, In). |
 | 17 | Mechanism of dopant diffusion | Thermally activated jumps down a gradient. Vacancy (substitutional, slow: B, P, As), interstitial (fast: Au, Cu, Fe), interstitialcy. D = D₀e^{−E_a/kT}. Predeposition + drive-in. |
 | 18 | Fick's first and second laws | First law F = −D∂C/∂x (flux ∝ gradient). Second law ∂C/∂t = D∂²C/∂x² (from continuity), gives the profile's time evolution. |
-| 19 | Constant-source diffusion profile | Constant source → C = 10²⁰ erfc(x/2√(Dt)) cm⁻³. Maximum (10²⁰) at the surface, falling monotonically with depth; penetrates as √t; dose Q = (2/√π)C_s√(Dt). |
+| 19 | Constant-source diffusion profile | Constant source → C = 10²⁶ erfc(x/2√(Dt)) m⁻³. Maximum (10²⁶) at the surface, falling monotonically with depth; penetrates as √t; dose Q = (2/√π)C_s√(Dt). |
 | 20 | Ion implantation and its advantages | Ionised, mass-selected dopant ions accelerated (keV–MeV) into the wafer; Gaussian profile at R_p; anneal. Advantages: precise dose, independent depth, low temperature, resist masks, shallow and buried profiles. |
 | 21 | Diffusion vs ion implantation | Diffusion: high T, surface-peaked erfc/Gaussian, coupled dose/depth, no damage, cheap batch. Implant: room T, peak at R_p, ±1 % dose, damage needs anneal, channelling, costly, standard for VLSI. |
 
@@ -174,12 +174,12 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | 26 | Direct and indirect band gaps | Direct: CB min and VB max at same k, photon only, efficient light (GaAs). Indirect: different k, phonon needed, poor emitter (Si, Ge). λ = 1.24/E_g μm. |
 | 27 | Intrinsic semiconductor; derive n_i | Pure, n = p = n_i. n = N_ce^{−(E_c−E_F)/kT}, p = N_ve^{−(E_F−E_v)/kT}; multiply: **n_i = √(N_cN_v) e^{−E_g/2kT}** ∝ T^{3/2}e^{−E_g/2kT}. |
 | 28 | Intrinsic and extrinsic concentrations | Intrinsic: thermal only, n = p = n_i, strongly T-dependent. Extrinsic: from dopants, n ≠ p, n ≈ N_D or p ≈ N_A, nearly T-independent. Linked by np = n_i². |
-| 29 | n and p when n = p = n_i | n = p and np = n_i² ⇒ **n = p = 1.0×10¹⁰ cm⁻³**. |
+| 29 | n and p when n = p = n_i | n = p and np = n_i² ⇒ **n = p = 1.0×10¹⁶ m⁻³** (1.0×10¹⁰ cm⁻³ = 1.0×10¹⁶ m⁻³). |
 | 30 | Fermi–Dirac function | f(E) = 1/(1 + e^{(E−E_F)/kT}): occupation probability of a state; ½ at E_F. Gives n and p, defines E_F, constant E_F in equilibrium sets junction physics. |
 | 31 | Fermi–Dirac at absolute zero | At 0 K f is a step: 1 below E_F, 0 above. VB full, CB empty, pure semiconductor is an insulator. |
 | 32 | Density of states | g(E) = states per unit energy per unit volume, g_c ∝ (m_n∗)^{3/2}√(E − E_c). n = ∫g f dE; gives N_c, N_v; zero in gap. |
 | 33 | Fermi level and doping | n-type: E_F rises toward E_c, E_F − E_i = kT ln(N_D/n_i). p-type: falls toward E_v. 60 mV per decade; degenerate at very high doping; returns to E_i at high T. |
-| 34 | Majority carriers for N_D = 5×10¹⁶ cm⁻³ | n ≈ N_D = **5×10¹⁶ cm⁻³**. (p = 2×10³ cm⁻³; E_F − E_i = 0.40 eV in Si.) |
+| 34 | Majority carriers for N_D = 5×10²² m⁻³ (5×10¹⁶ cm⁻³) | n ≈ N_D = **5×10²² m⁻³** (5×10¹⁶ cm⁻³ = 5×10²² m⁻³). (p = n_i²/N_D = 10³²/5×10²² = 2×10⁹ m⁻³; E_F − E_i = 0.40 eV in Si.) |
 
 ## Carrier transport and injection (Q35–Q46)
 
@@ -188,15 +188,15 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | 35 | Mobility and what affects it | μ = v_d/E = qτ/m∗. Depends on effective mass, temperature (lattice T^{−3/2}, impurity T^{3/2}), doping, field, defects, surfaces, orientation, strain. |
 | 36 | Scattering mechanisms | Lattice (acoustic, optical, polar phonons), ionised impurity, neutral impurity, carrier–carrier, defects, surface roughness, alloy, intervalley. Matthiessen 1/μ = Σ1/μ_i. |
 | 37 | Drift current density | v_dn = −μ_nE, v_dp = μ_pE; J = ρv: J_n = qnμ_nE, J_p = qpμ_pE; **J = q(nμ_n + pμ_p)E**, σ = q(nμ_n + pμ_p). |
-| 38 | Electron drift current density | J = qnμ_nE = 1.6×10⁻¹⁹ × 2×10¹⁶ × 1350 × 10 = **43.2 A/cm²**. |
+| 38 | Electron drift current density | Convert first: n = 2×10²² m⁻³, μ_n = 0.135 m²/V·s, E = 1000 V/m. J = qnμ_nE = 1.6×10⁻¹⁹ × 2×10²² × 0.135 × 1000 = **4.32×10⁵ A/m²** (= 43.2 A/cm²). |
 | 39 | Diffusion current and Fick's law | Current from carriers moving down a concentration gradient by random motion. Fick: F = −D dC/dx. J_n = qD_n dn/dx, J_p = −qD_p dp/dx. |
-| 40 | Einstein relation | **D/μ = kT/q** (0.0259 V). From zero equilibrium current in a non-uniform sample. Si: D_n = 35, D_p = 12.4 cm²/s. |
-| 41 | Velocity saturation and hot carriers | High field: optical-phonon emission caps v_d at v_sat ≈ 10⁷ cm/s. Hot carriers (T_e ≫ T): impact ionisation, avalanche, oxide injection and V_T drift, substrate current; LDD as cure. |
+| 40 | Einstein relation | **D/μ = kT/q** (0.0259 V). From zero equilibrium current in a non-uniform sample. Si: D_n = 3.5×10⁻³, D_p = 1.24×10⁻³ m²/s. |
+| 41 | Velocity saturation and hot carriers | High field: optical-phonon emission caps v_d at v_sat ≈ 10⁵ m/s. Hot carriers (T_e ≫ T): impact ionisation, avalanche, oxide injection and V_T drift, substrate current; LDD as cure. |
 | 42 | Generation and recombination | Generation creates e–h pairs (thermal, optical, impact); recombination annihilates them (radiative, SRH, Auger, surface). Equal in equilibrium; net U = Δp/τ. |
 | 43 | SRH recombination | Recombination via mid-gap trap: capture/emission of electrons and holes. U = (np − n_i²)/[τ_p(n + n₁) + τ_n(p + p₁)]; maximum for E_t ≈ E_i; τ = 1/σv_thN_t. |
 | 44 | Minority-carrier lifetime | Average time an excess minority carrier survives: Δp(t) = Δp(0)e^{−t/τ}. Sets L = √(Dτ), diode leakage, switching speed, BJT gain, solar-cell efficiency. |
 | 45 | Continuity equation | ∂p/∂t = −(1/q)∂J_p/∂x + G − R; minority form ∂Δp/∂t = D∂²Δp/∂x² − Δp/τ + G. Used for diodes (exponential profile), BJTs, lifetime and Haynes–Shockley, solar cells. |
-| 46 | Surface recombination velocity | S defined by U_s = SΔp_s (cm/s), S = σv_thN_st. Dangling-bond surface states act as SRH centres and shorten the lifetime: 1/τ_eff = 1/τ_b + 2S/W when SW/2D ≪ 1 (for very large S the loss is limited by diffusion to the surface). Passivate with SiO₂, SiNₓ, Al₂O₃. |
+| 46 | Surface recombination velocity | S defined by U_s = SΔp_s (m/s), S = σv_thN_st. Dangling-bond surface states act as SRH centres and shorten the lifetime: 1/τ_eff = 1/τ_b + 2S/W when SW/2D ≪ 1 (for very large S the loss is limited by diffusion to the surface). Passivate with SiO₂, SiNₓ, Al₂O₃. |
 
 ## Junctions, interfaces and characterisation (Q47–Q50)
 
@@ -209,7 +209,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 ## If you remember only ten things
 
-1. np = n_i², and n_i(Si) = 1×10¹⁰ cm⁻³ at 300 K.
+1. np = n_i², and n_i(Si) = 1×10¹⁶ m⁻³ (1×10¹⁰ cm⁻³) at 300 K.
 2. n ≈ N_D in n-type, p ≈ N_A in p-type (complete ionisation).
 3. n_i = √(N_cN_v) e^{−E_g/2kT}: a wider gap means far fewer carriers.
 4. f(E) = 1/(1 + e^{(E − E_F)/kT}); E_F moves 60 mV per decade of doping.

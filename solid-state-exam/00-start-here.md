@@ -43,28 +43,30 @@ Tick each page as done with the button at the bottom; your progress is remembere
 ## Exam technique that earns marks
 
 - **Define before you use.** Start long answers with one-line definitions of the key terms. Markers give marks for them, and it organises your answer.
-- **Every equation needs its symbols.** Write "where n = electron concentration (cm⁻³), …" under each equation. An equation with undefined symbols often scores half.
+- **Every equation needs its symbols.** Write "where n = electron concentration (m⁻³), …" under each equation. An equation with undefined symbols often scores half.
 - **Draw.** Band diagrams, profiles and I-V curves earn marks quickly. Label the axes, the levels (E_c, E_v, E_F) and the key quantities (qV_bi, W, Φ_B).
-- **Units, always.** Keep everything in centimetres (cm⁻³, cm²/V·s, V/cm, F/cm). The answer then comes out in A/cm², cm, V.
+- **Units, always: use SI.** Work in metres throughout (m⁻³, m²/V·s, V/m, F/m); the answer then comes out in A/m², m, V. Energies stay in eV. If a question gives data in centimetre units (as Q19, Q29, Q34 and Q38 do), convert them in your **Given** line first, e.g. 5×10¹⁶ cm⁻³ = 5×10²² m⁻³. The conversion table is on the Formula and constants sheet.
 - **Derivations: assumptions first.** List the assumptions, number the steps, put a box round the result. Even if you get stuck, the assumptions and the start earn marks.
 - **Comparisons: end with a table.** It is quick for the marker to check and shows you covered every heading.
 - **Say what the number means.** One sentence after a calculation ("the field is low enough for v = μE to hold") shows understanding.
 
 ## Numbers you must know (silicon at 300 K)
 
+This companion uses **SI units** throughout (metres, not centimetres); energies are in electron-volts.
+
 | Quantity | Value |
 |---|---|
 | Electronic charge q | 1.6×10⁻¹⁹ C |
 | Thermal voltage kT/q | 0.0259 V (kT = 0.0259 eV) |
 | Band gap E_g | 1.12 eV (Ge 0.66 eV, GaAs 1.42 eV) |
-| Intrinsic concentration n_i | 1×10¹⁰ cm⁻³ |
-| Effective densities of states N_c, N_v | 2.8×10¹⁹, 1.04×10¹⁹ cm⁻³ |
-| Mobilities μ_n, μ_p | 1350, 480 cm²/V·s |
-| Diffusion coefficients D_n, D_p | 35, 12.4 cm²/s |
-| Permittivity ε_s | 11.7ε₀ = 1.04×10⁻¹² F/cm |
+| Intrinsic concentration n_i | 1×10¹⁶ m⁻³ (= 1×10¹⁰ cm⁻³) |
+| Effective densities of states N_c, N_v | 2.8×10²⁵, 1.04×10²⁵ m⁻³ |
+| Mobilities μ_n, μ_p | 0.135, 0.048 m²/V·s |
+| Diffusion coefficients D_n, D_p | 3.5×10⁻³, 1.24×10⁻³ m²/s |
+| Permittivity ε_s | 11.7ε₀ = 1.04×10⁻¹⁰ F/m (ε₀ = 8.854×10⁻¹² F/m) |
 | Electron affinity χ | 4.05 eV |
-| Lattice constant a | 5.43 Å |
-| Saturation velocity v_sat | 1×10⁷ cm/s |
+| Lattice constant a | 0.543 nm |
+| Saturation velocity v_sat | 1×10⁵ m/s |
 
 The **Formula and constants sheet** page has the full list.
 
@@ -107,7 +109,7 @@ All 50 questions, what kind of answer each needs, and where to find it. "Full no
 | 31 | Fermi–Dirac at absolute zero | State, explain | Questions 22–34 | Week 5 |
 | 32 | Density of states | Define, explain | Questions 22–34 | Week 5 |
 | 33 | Fermi level and doping | Explain | Questions 22–34 | Week 5 |
-| 34 | Majority carriers for N_D = 5×10¹⁶ cm⁻³ | Calculation | Questions 22–34 | Weeks 4–5 |
+| 34 | Majority carriers for N_D = 5×10²² m⁻³ (5×10¹⁶ cm⁻³) | Calculation | Questions 22–34 | Weeks 4–5 |
 | 35 | Mobility and what affects it | Define, explain | Questions 35–46 | Week 7 |
 | 36 | Scattering mechanisms | Explain | Questions 35–46 | Week 7 |
 | 37 | Drift current density | Derive | Questions 35–46 | Week 7 |

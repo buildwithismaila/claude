@@ -630,11 +630,11 @@ p.p.append(f'<line x1="{p.X(lg(50)):.1f}" y1="{p.Y(2):.1f}" x2="{p.X(lg(50)):.1f
            f'style="stroke:{INK}" stroke-width="1" opacity=".55" marker-end="url(#ar)"/>')
 for T in (50, 100, 200, 300, 500):
     p.line(lg(T), 2, lg(T), 2.06, INK, 1, op=.6); p.text(lg(T), 2, str(T), dy=15, size=10, op=.8)
-for m, lab in ((2, "10²"), (3, "10³"), (4, "10⁴")):
+for m, lab in ((2, "10⁻²"), (3, "10⁻¹"), (4, "1")):   # axis in cm²/V·s decades, labelled in m²/V·s
     p.line(lg(50), m, lg(50) + 0.02, m, INK, 1, op=.6)
     p.text(lg(50), m, lab, anchor="end", dx=-5, dy=4, size=10, op=.8)
 p.raw_text(p.X(lg(600)) + 4, p.Y(2) + 4, "T (K)", anchor="start", size=11)
-p.raw_text(p.X(lg(50)) + 5, p.Y(4.3) + 2, "μ_n (cm²/V·s)", anchor="start", size=11)
+p.raw_text(p.X(lg(50)) + 5, p.Y(4.3) + 2, "μ_n (m²/V·s)", anchor="start", size=11)
 muL = lambda T: 1350*(T/300)**-1.5
 for muI300, col, lab in ((15000, SIG, "light doping"), (1500, SIG2, "heavy doping")):
     f = lambda T: 1/(1/muL(T) + 1/(muI300*(T/300)**1.5))
@@ -655,12 +655,12 @@ p.p.append(f'<line x1="{p.X(2):.1f}" y1="{p.Y(5):.1f}" x2="{p.X(6)-6:.1f}" y2="{
            f'style="stroke:{INK}" stroke-width="1" opacity=".55" marker-end="url(#ar)"/>')
 p.p.append(f'<line x1="{p.X(2):.1f}" y1="{p.Y(5):.1f}" x2="{p.X(2):.1f}" y2="{p.Y(7.5)+6:.1f}" '
            f'style="stroke:{INK}" stroke-width="1" opacity=".55" marker-end="url(#ar)"/>')
-for e, lab in ((2, "10²"), (3, "10³"), (4, "10⁴"), (5, "10⁵"), (6, "10⁶")):
+for e, lab in ((2, "10⁴"), (3, "10⁵"), (4, "10⁶"), (5, "10⁷"), (6, "10⁸")):   # computed in V/cm, labelled in V/m
     p.line(e, 5, e, 5.05, INK, 1, op=.6); p.text(e, 5, lab, dy=15, size=10, op=.8)
-for v, lab in ((5, "10⁵"), (6, "10⁶"), (7, "10⁷")):
+for v, lab in ((5, "10³"), (6, "10⁴"), (7, "10⁵")):   # computed in cm/s, labelled in m/s
     p.line(2, v, 2.04, v, INK, 1, op=.6); p.text(2, v, lab, anchor="end", dx=-5, dy=4, size=10, op=.8)
-p.raw_text(p.X(6) + 4, p.Y(5) + 4, "E (V/cm)", anchor="start", size=11)
-p.raw_text(p.X(2) + 5, p.Y(7.5) + 2, "v_d (cm/s)", anchor="start", size=11)
+p.raw_text(p.X(6) + 4, p.Y(5) + 4, "E (V/m)", anchor="start", size=11)
+p.raw_text(p.X(2) + 5, p.Y(7.5) + 2, "v_d (m/s)", anchor="start", size=11)
 Es = [10**(2 + 4*i/300) for i in range(301)]
 si_n = lambda E: 1350*E/(1 + (1350*E/1.07e7)**2)**0.5
 si_p = lambda E: 480*E/(1 + 480*E/8.4e6)
@@ -670,9 +670,9 @@ for f, col, lab, at, dy in ((gaas, SIG, "GaAs electrons", 3.85, -10), (si_n, INK
     p.curve([(lg(E), lg(f(E))) for E in Es], col, 2.1)
     p.text(at, lg(f(10**at)), lab, anchor="start", dx=4, dy=dy, size=10.5, color=col)
 p.line(2, 7, 6, 7, INK, 1, dash="2 3", op=.45)
-p.text(2.05, 7, "v_sat ≈ 10^{7} cm/s", anchor="start", dy=-5, size=10, op=.75)
+p.text(2.05, 7, "v_sat ≈ 10^{5} m/s", anchor="start", dy=-5, size=10, op=.75)
 write("velocity.svg", figure(540, 230, [p],
-      "Drift velocity against electric field on log axes: silicon electrons and holes saturate near ten to the seven centimetres per second, GaAs electrons peak and then fall"))
+      "Drift velocity against electric field on log axes: silicon electrons and holes saturate near ten to the five metres per second, GaAs electrons peak and then fall"))
 
 
 # =====================================================================
@@ -1259,6 +1259,6 @@ def ohmic_panel(x0, title, mode):
     s.text(xe + 3, ec(xe) + 4, "E_c", anchor="start", size=10)
     s.text(xe + 3, ec(xe) + 64, "E_v", anchor="start", size=10)
 ohmic_panel(10, "(a) low work function, Φ_m < Φ_s", "acc")
-ohmic_panel(330, "(b) heavy doping, N_D > 10¹⁹ cm⁻³", "tunnel")
+ohmic_panel(330, "(b) heavy doping, N_D > 10²⁵ m⁻³", "tunnel")
 write("ohmic-contacts.svg", figure(650, 215, [s],
       "Two ohmic contacts on n-type silicon: a low work-function metal makes the bands bend down into an accumulation layer with no barrier; heavy doping leaves a barrier only a few nanometres thick that electrons tunnel through"))

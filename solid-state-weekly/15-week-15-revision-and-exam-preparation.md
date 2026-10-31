@@ -185,7 +185,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Electron and hole.** The two kinds of mobile charge. A free electron (negative) moves in the conduction band; a hole (positive) is an empty electron place in the valence band that moves like a positive particle.
 
-**Intrinsic carrier concentration (n_i).** The electron (and equal hole) concentration in a pure, undoped semiconductor, created only by heat lifting electrons across the gap. For Si at 300 K, n_i = 1×10¹⁰ cm⁻³; it rises very steeply with temperature.
+**Intrinsic carrier concentration (n_i).** The electron (and equal hole) concentration in a pure, undoped semiconductor, created only by heat lifting electrons across the gap. For Si at 300 K, n_i = 1×10¹⁶ m⁻³; it rises very steeply with temperature.
 
 **Doping (donor, acceptor).** Adding a small, controlled amount of impurity atoms. Donors (concentration N_D, e.g. phosphorus) each give a free electron, making n-type material; acceptors (N_A, e.g. boron) each take an electron, leaving a hole, making p-type material.
 
@@ -201,8 +201,8 @@ Where:
 
 - E_F, E_i = Fermi level and intrinsic level (eV)
 - kT = thermal energy, 0.0259 eV at 300 K
-- N_D, N_A = donor and acceptor concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- N_D, N_A = donor and acceptor concentrations (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 **Miller indices (h k l).** Three whole numbers that name a plane in a crystal: take the plane's intercepts on the axes in units of the lattice constant, take reciprocals, and clear fractions.
 
@@ -212,7 +212,7 @@ Where:
 
 **Junction depth (x_j).** The depth at which the added dopant concentration equals the background doping of the wafer, so the material changes type.
 
-**Drift and mobility (μ).** Drift is the motion of carriers caused by an electric field. Mobility is the drift velocity per unit field, v_d = μE, in cm²/(V·s); for lightly doped Si μ_n = 1350 and μ_p = 480.
+**Drift and mobility (μ).** Drift is the motion of carriers caused by an electric field. Mobility is the drift velocity per unit field, v_d = μE, in m²/(V·s); for lightly doped Si μ_n = 0.135 and μ_p = 0.048.
 
 **Conductivity (σ) and resistivity (ρ).** How easily a material carries current, and its inverse.
 
@@ -220,10 +220,10 @@ Where:
 
 Where:
 
-- σ = conductivity (S/cm); ρ = resistivity (Ω·cm)
+- σ = conductivity (S/m); ρ = resistivity (Ω·m)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- n, p = electron and hole concentrations (cm⁻³)
-- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- n, p = electron and hole concentrations (m⁻³)
+- μ_n, μ_p = electron and hole mobilities (m²/V·s)
 
 **Diffusion current and the Einstein relation.** Diffusion current flows when carriers spread from where they are concentrated to where they are scarce, even with no field. The diffusion coefficient D and the mobility are linked by the Einstein relation D/μ = kT/q (0.0259 V at 300 K).
 
@@ -235,8 +235,8 @@ Where:
 
 Where:
 
-- L = diffusion length (cm)
-- D = minority-carrier diffusion coefficient (cm²/s)
+- L = diffusion length (m)
+- D = minority-carrier diffusion coefficient (m²/s)
 - τ = minority-carrier lifetime (s)
 
 **p-n junction and depletion region.** A p-n junction is the boundary between p-type and n-type regions of one crystal. Next to it is the depletion region (width W), a layer emptied of mobile carriers that contains only fixed ionised dopants and therefore a strong electric field.
@@ -249,8 +249,8 @@ Where:
 
 - V_bi = built-in potential (V)
 - kT/q = thermal voltage, 0.0259 V at 300 K
-- N_A, N_D = acceptor and donor concentrations on the two sides (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- N_A, N_D = acceptor and donor concentrations on the two sides (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 **Forward and reverse bias.** Forward bias (p side positive) lowers the junction barrier and lets a large current flow; reverse bias (p side negative) raises it, widens the depletion region and allows only a tiny current.
 
@@ -258,7 +258,7 @@ Where:
 
 **Schottky contact and barrier height (Φ_B).** A rectifying metal–semiconductor contact. Electrons crossing from the metal face a barrier of height Φ_B = Φ_m − χ, where Φ_m is the metal's work function and χ the semiconductor's electron affinity.
 
-**Ohmic contact.** A metal–semiconductor contact that passes current equally easily in both directions with a straight-line I-V graph, usually made by doping the semiconductor so heavily (≳ 10¹⁹ cm⁻³) that electrons tunnel through the barrier.
+**Ohmic contact.** A metal–semiconductor contact that passes current equally easily in both directions with a straight-line I-V graph, usually made by doping the semiconductor so heavily (≳ 10²⁵ m⁻³) that electrons tunnel through the barrier.
 
 **C-V profiling.** Measuring a reverse-biased junction's capacitance C against voltage V. A plot of 1/C² against V is a straight line whose slope gives the doping and whose voltage intercept gives V_bi.
 
@@ -275,8 +275,8 @@ Where:
 Where:
 
 - I_D(sat) = drain current in saturation (A)
-- μ_n = channel electron mobility (cm²/V·s)
-- C_ox = gate-oxide capacitance per unit area, ε_ox/t_ox (F/cm²)
+- μ_n = channel electron mobility (m²/V·s)
+- C_ox = gate-oxide capacitance per unit area, ε_ox/t_ox (F/m²)
 - W/L = channel width-to-length ratio
 - V_GS = gate-to-source voltage; V_T = threshold voltage (V)
 
@@ -309,8 +309,8 @@ The whole course tells one story: **how do we make, control and use the free cha
 | Planck constant | h | 6.626×10⁻³⁴ J·s |
 | Reduced Planck constant | ħ | 1.055×10⁻³⁴ J·s |
 | Free electron mass | m₀ | 9.109×10⁻³¹ kg |
-| Permittivity of free space | ε₀ | 8.854×10⁻¹⁴ F/cm |
-| Speed of light | c | 3×10¹⁰ cm/s |
+| Permittivity of free space | ε₀ | 8.854×10⁻¹² F/m |
+| Speed of light | c | 3×10⁸ m/s |
 | Electron-volt | 1 eV | 1.602×10⁻¹⁹ J |
 | Photon wavelength | λ | 1.24/E (μm, with E in eV) |
 
@@ -319,18 +319,18 @@ The whole course tells one story: **how do we make, control and use the free cha
 | | Si | Ge | GaAs |
 |---|---|---|---|
 | Crystal | Diamond | Diamond | Zinc blende |
-| Lattice constant a (Å) | 5.43 | 5.65 | 5.65 |
-| Atoms/cm³ | 5.0×10²² | 4.4×10²² | 4.4×10²² |
+| Lattice constant a (nm) | 0.543 | 0.565 | 0.565 |
+| Atoms/m³ | 5.0×10²⁸ | 4.4×10²⁸ | 4.4×10²⁸ |
 | E_g (eV) | 1.12 (indirect) | 0.66 (indirect) | 1.42 (direct) |
-| n_i (cm⁻³) | 1×10¹⁰ | 2.4×10¹³ | 2×10⁶ |
-| N_c (cm⁻³) | 2.8×10¹⁹ | 1.04×10¹⁹ | 4.7×10¹⁷ |
-| N_v (cm⁻³) | 1.04×10¹⁹ | 6.0×10¹⁸ | 7.0×10¹⁸ |
-| μ_n (cm²/V·s) | 1350 | 3900 | 8500 |
-| μ_p (cm²/V·s) | 480 | 1900 | 400 |
-| D_n, D_p (cm²/s) | 35, 12.4 | 101, 49 | 220, 10 |
+| n_i (m⁻³) | 1×10¹⁶ | 2.4×10¹⁹ | 2×10¹² |
+| N_c (m⁻³) | 2.8×10²⁵ | 1.04×10²⁵ | 4.7×10²³ |
+| N_v (m⁻³) | 1.04×10²⁵ | 6.0×10²⁴ | 7.0×10²⁴ |
+| μ_n (m²/V·s) | 0.135 | 0.39 | 0.85 |
+| μ_p (m²/V·s) | 0.048 | 0.19 | 0.04 |
+| D_n, D_p (m²/s) | 3.5×10⁻³, 1.24×10⁻³ | 1.01×10⁻², 4.9×10⁻³ | 2.2×10⁻², 1.0×10⁻³ |
 | ε_r | 11.7 | 16.0 | 12.9 |
 | χ (eV) | 4.05 | 4.0 | 4.07 |
-| v_sat (cm/s) | 1×10⁷ | 6×10⁶ | ≈ 1×10⁷ (peak 2×10⁷) |
+| v_sat (m/s) | 1×10⁵ | 6×10⁴ | ≈ 1×10⁵ (peak 2×10⁵) |
 | Melting point (°C) | 1414 | 937 | 1238 |
 
 ### Crystals and Miller indices
@@ -386,7 +386,7 @@ The whole course tells one story: **how do we make, control and use the free cha
     I = I_s(e^{qV/kT} − 1);   J_s = qn_i²(D_p/(L_pN_D) + D_n/(L_nN_A))
     C_j = ε_sA/W;   1/C² = 2(V_bi − V)/(qε_sNA²);   N = 2/(qε_sA²|d(1/C²)/dV|)
     Schottky: Φ_B = Φ_m − χ;   V_bi = Φ_m − Φ_s;   J_s = A∗∗T²e^{−qΦ_B/kT}
-    Ohmic (tunnelling): N_D ≳ 10¹⁹ cm⁻³
+    Ohmic (tunnelling): N_D ≳ 10²⁵ m⁻³
 
 ### Devices
 
@@ -402,7 +402,7 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 - Each decade of doping moves E_F by 60 mV; each 60 mV of forward bias raises diode current tenfold (300 K).
 - n_i(Si) roughly doubles every 8 °C.
-- Doping 10¹⁶ cm⁻³ in Si = 1 dopant per 5×10⁶ Si atoms; ρ ≈ 0.5 Ω·cm (n-type), 1.4 Ω·cm (p-type).
+- Doping 10²² m⁻³ in Si = 1 dopant per 5×10⁶ Si atoms; ρ ≈ 5×10⁻³ Ω·m (n-type), 1.4×10⁻² Ω·m (p-type).
 - Diffusion length in good Si: tens to hundreds of μm.
 
 ## 15.3 Problem-solving clinic
@@ -420,22 +420,22 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 | Trap | Fix |
 |---|---|
-| Mixing μm and cm | 1 μm = 10⁻⁴ cm. Convert depths and widths to cm before using cm²/s, cm⁻³ |
+| Mixing μm and m | 1 μm = 10⁻⁶ m. Convert depths and widths to metres before using m²/s, m⁻³ |
 | Mixing eV and J | kT = 0.02585 eV at 300 K; only convert to joules (× 1.6×10⁻¹⁹) when multiplying by something in SI |
 | Forgetting the factor ½ | I_D(sat) = **½**μC_ox(W/L)(V_GS − V_T)² |
 | Using the wrong form of diffusion length | Use the form the question gives: √(Dt), √(2Dt) or 2√(Dt) |
 | Natural log against log₁₀ | All the semiconductor formulas use ln. ln(10ⁿ) = 2.303n |
-| Dose units | Dose is per cm² (atoms/cm²); concentration is per cm³ |
+| Dose units | Dose is per m² (atoms/m²); concentration is per m³ |
 
 ### Sanity checks
 
 | Quantity | Typical size |
 |---|---|
-| Carrier concentrations | 10⁴ – 10²⁰ cm⁻³ |
-| n_i (Si, 300 K) | 10¹⁰ cm⁻³ |
+| Carrier concentrations | 10¹⁰ – 10²⁶ m⁻³ |
+| n_i (Si, 300 K) | 10¹⁶ m⁻³ |
 | E_F − E_i | 0.2 – 0.5 eV |
-| Diffusion coefficients (dopants in a furnace) | 10⁻¹⁵ – 10⁻¹² cm²/s |
-| Carrier diffusion coefficients | 1 – 100 cm²/s |
+| Diffusion coefficients (dopants in a furnace) | 10⁻¹⁹ – 10⁻¹⁶ m²/s |
+| Carrier diffusion coefficients | 10⁻⁴ – 10⁻² m²/s |
 | Built-in voltage | 0.5 – 1.0 V |
 | Depletion width | 0.01 – 10 μm |
 | BJT β | 20 – 500 |
@@ -457,9 +457,9 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 **What this means:** the zero index says the plane never meets the z-axis: it is parallel to it.
 
-### E2. Constant-source diffusion with C_s = 5×10¹⁹ cm⁻³, D = 2×10⁻¹³ cm²/s, t = 2 h. Find the concentration at 0.3 μm.
+### E2. Constant-source diffusion with C_s = 5×10²⁵ m⁻³, D = 2×10⁻¹⁷ m²/s, t = 2 h. Find the concentration at 0.3 μm.
 
-**Given:** C_s = 5×10¹⁹ cm⁻³, D = 2×10⁻¹³ cm²/s, t = 2 h = 7200 s, x = 0.3 μm = 3×10⁻⁵ cm.
+**Given:** C_s = 5×10²⁵ m⁻³, D = 2×10⁻¹⁷ m²/s, t = 2 h = 7200 s, x = 0.3 μm = 3×10⁻⁷ m.
 
 **Find:** C(x, t).
 
@@ -469,25 +469,25 @@ The whole course tells one story: **how do we make, control and use the free cha
 
 Where:
 
-- C(x, t) = dopant concentration at depth x after time t (cm⁻³)
-- C_s = surface concentration, held constant (cm⁻³)
-- D = dopant diffusion coefficient at the furnace temperature (cm²/s)
-- x = depth (cm); t = diffusion time (s)
+- C(x, t) = dopant concentration at depth x after time t (m⁻³)
+- C_s = surface concentration, held constant (m⁻³)
+- D = dopant diffusion coefficient at the furnace temperature (m²/s)
+- x = depth (m); t = diffusion time (s)
 
 **Solution.**
 
-    √(Dt) = √(2×10⁻¹³ × 7200) = √(1.44×10⁻⁹) = 3.79×10⁻⁵ cm
-    u = x/2√(Dt) = 3×10⁻⁵ / (2 × 3.79×10⁻⁵) = 0.395
+    √(Dt) = √(2×10⁻¹⁷ × 7200) = √(1.44×10⁻¹³) = 3.79×10⁻⁷ m
+    u = x/2√(Dt) = 3×10⁻⁷ / (2 × 3.79×10⁻⁷) = 0.395
     erfc(0.395) = 0.576
-    C = 5×10¹⁹ × 0.576 = 2.88×10¹⁹ cm⁻³
+    C = 5×10²⁵ × 0.576 = 2.88×10²⁵ m⁻³
 
-**Answer:** **C(0.3 μm) ≈ 2.9×10¹⁹ cm⁻³.**
+**Answer:** **C(0.3 μm) ≈ 2.9×10²⁵ m⁻³.**
 
-**What this means:** 0.3 μm is only about 0.4 of the characteristic diffusion length 2√(Dt) = 0.76 μm, so the concentration there is still more than half the surface value; the junction will lie much deeper.
+**What this means:** 0.3 μm is only about 0.4 of the characteristic diffusion length 2√(Dt) = 7.6×10⁻⁷ m (0.76 μm), so the concentration there is still more than half the surface value; the junction will lie much deeper.
 
-### E3. Silicon is doped with N_A = 2×10¹⁶ cm⁻³ at 300 K (n_i = 10¹⁰ cm⁻³). Find p, n and the Fermi level relative to E_i.
+### E3. Silicon is doped with N_A = 2×10²² m⁻³ at 300 K (n_i = 10¹⁶ m⁻³). Find p, n and the Fermi level relative to E_i.
 
-**Given:** N_A = 2×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+**Given:** N_A = 2×10²² m⁻³, n_i = 10¹⁶ m⁻³, kT = 0.02585 eV.
 
 **Find:** p, n and E_i − E_F.
 
@@ -497,23 +497,23 @@ Where:
 
 Where:
 
-- p, n = hole and electron concentrations (cm⁻³)
-- N_A = acceptor concentration (cm⁻³); n_i = intrinsic concentration (cm⁻³)
+- p, n = hole and electron concentrations (m⁻³)
+- N_A = acceptor concentration (m⁻³); n_i = intrinsic concentration (m⁻³)
 - E_i − E_F = distance of the Fermi level below the intrinsic level (eV); kT = thermal energy (eV)
 
 **Solution.**
 
-    p ≈ N_A = 2×10¹⁶ cm⁻³
-    n = n_i²/p = 10²⁰/(2×10¹⁶) = 5×10³ cm⁻³
+    p ≈ N_A = 2×10²² m⁻³
+    n = n_i²/p = 10³²/(2×10²²) = 5×10⁹ m⁻³
     E_i − E_F = kT ln(p/n_i) = 0.02585 ln(2×10⁶) = 0.02585 × 14.51 = 0.375 eV
 
-**Answer:** **p = 2×10¹⁶ cm⁻³, n = 5×10³ cm⁻³; E_F lies 0.375 eV below E_i.**
+**Answer:** **p = 2×10²² m⁻³, n = 5×10⁹ m⁻³; E_F lies 0.375 eV below E_i.**
 
 **What this means:** there are 4×10¹² holes for every electron, so the electrons are true minority carriers; E_F sits about two-thirds of the way from mid-gap down to E_v (which is 0.56 eV below E_i).
 
-### E4. Find the resistivity of n-type Si with N_D = 10¹⁵ cm⁻³ and μ_n = 1350 cm²/V·s.
+### E4. Find the resistivity of n-type Si with N_D = 10²¹ m⁻³ and μ_n = 0.135 m²/V·s.
 
-**Given:** n ≈ N_D = 10¹⁵ cm⁻³, μ_n = 1350 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+**Given:** n ≈ N_D = 10²¹ m⁻³, μ_n = 0.135 m²/V·s, q = 1.6×10⁻¹⁹ C.
 
 **Find:** ρ.
 
@@ -523,21 +523,21 @@ Where:
 
 Where:
 
-- σ = conductivity (S/cm); ρ = resistivity (Ω·cm)
-- q = electronic charge (C); n = electron concentration (cm⁻³); μ_n = electron mobility (cm²/V·s)
+- σ = conductivity (S/m); ρ = resistivity (Ω·m)
+- q = electronic charge (C); n = electron concentration (m⁻³); μ_n = electron mobility (m²/V·s)
 
 **Solution.**
 
-    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
-    ρ = 1/σ = 4.63 Ω·cm
+    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10²¹ × 0.135 = 21.6 S/m
+    ρ = 1/σ = 4.63×10⁻² Ω·m
 
-**Answer:** **ρ ≈ 4.6 Ω·cm.**
+**Answer:** **ρ ≈ 4.6×10⁻² Ω·m.**
 
-**What this means:** one donor per 5×10⁷ silicon atoms lowers the resistivity from about 3×10⁵ Ω·cm (pure Si) to under 5 Ω·cm, a factor of about 70 000.
+**What this means:** one donor per 5×10⁷ silicon atoms lowers the resistivity from about 3×10³ Ω·m (pure Si) to under 5×10⁻² Ω·m, a factor of about 70 000.
 
-### E5. Holes in n-Si have μ_p = 450 cm²/V·s and lifetime 5 μs. Find D_p and the diffusion length L_p.
+### E5. Holes in n-Si have μ_p = 0.045 m²/V·s and lifetime 5 μs. Find D_p and the diffusion length L_p.
 
-**Given:** μ_p = 450 cm²/V·s, τ_p = 5×10⁻⁶ s, kT/q = 0.02585 V.
+**Given:** μ_p = 0.045 m²/V·s, τ_p = 5×10⁻⁶ s, kT/q = 0.02585 V.
 
 **Find:** D_p and L_p.
 
@@ -547,22 +547,22 @@ Where:
 
 Where:
 
-- D_p = hole diffusion coefficient (cm²/s); μ_p = hole mobility (cm²/V·s)
+- D_p = hole diffusion coefficient (m²/s); μ_p = hole mobility (m²/V·s)
 - kT/q = thermal voltage (V)
-- L_p = hole diffusion length (cm); τ_p = hole lifetime (s)
+- L_p = hole diffusion length (m); τ_p = hole lifetime (s)
 
 **Solution.**
 
-    D_p = (kT/q)μ_p = 0.02585 × 450 = 11.6 cm²/s
-    L_p = √(D_pτ_p) = √(11.6 × 5×10⁻⁶) = 7.6×10⁻³ cm = 76 μm
+    D_p = (kT/q)μ_p = 0.02585 × 0.045 = 1.16×10⁻³ m²/s
+    L_p = √(D_pτ_p) = √(1.16×10⁻³ × 5×10⁻⁶) = 7.6×10⁻⁵ m = 76 μm
 
-**Answer:** **D_p = 11.6 cm²/s, L_p ≈ 76 μm.**
+**Answer:** **D_p = 1.16×10⁻³ m²/s, L_p ≈ 7.6×10⁻⁵ m (76 μm).**
 
 **What this means:** holes injected into this n-type silicon travel on average about 76 μm before recombining, far more than the width of a typical depletion region or transistor base.
 
-### E6. A Si p⁺n junction has N_A = 10¹⁷ cm⁻³ and N_D = 10¹⁵ cm⁻³. Find V_bi and the zero-bias depletion width.
+### E6. A Si p⁺n junction has N_A = 10²³ m⁻³ and N_D = 10²¹ m⁻³. Find V_bi and the zero-bias depletion width.
 
-**Given:** N_A = 10¹⁷ cm⁻³, N_D = 10¹⁵ cm⁻³, n_i = 10¹⁰ cm⁻³, kT/q = 0.02585 V, ε_s = 1.04×10⁻¹² F/cm.
+**Given:** N_A = 10²³ m⁻³, N_D = 10²¹ m⁻³, n_i = 10¹⁶ m⁻³, kT/q = 0.02585 V, ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** V_bi and W at V = 0.
 
@@ -573,18 +573,18 @@ Where:
 Where:
 
 - V_bi = built-in potential (V); kT/q = thermal voltage (V)
-- N_A, N_D = acceptor and donor concentrations (cm⁻³); n_i = intrinsic concentration (cm⁻³)
-- W = depletion width (cm); ε_s = permittivity of Si (F/cm); q = electronic charge (C)
+- N_A, N_D = acceptor and donor concentrations (m⁻³); n_i = intrinsic concentration (m⁻³)
+- W = depletion width (m); ε_s = permittivity of Si (F/m); q = electronic charge (C)
 
 **Solution.**
 
-    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.02585 ln(10³²/10²⁰) = 0.02585 × 27.63 = 0.714 V
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.02585 ln(10⁴⁴/10³²) = 0.02585 × 27.63 = 0.714 V
 
 One-sided junction, so the depletion region is almost all on the lightly doped n side:
 
-    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹² × 0.714 / (1.6×10⁻¹⁹ × 10¹⁵)) = 9.6×10⁻⁵ cm = 0.96 μm
+    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹⁰ × 0.714 / (1.6×10⁻¹⁹ × 10²¹)) = 9.6×10⁻⁷ m = 0.96 μm
 
-**Answer:** **V_bi = 0.714 V, W ≈ 0.96 μm.**
+**Answer:** **V_bi = 0.714 V, W ≈ 9.6×10⁻⁷ m (0.96 μm).**
 
 **What this means:** because the p side is 100 times more heavily doped, about 99 % of the 0.96 μm depletion region lies in the n side; the light side controls both the width and the capacitance.
 
@@ -693,11 +693,11 @@ Work through these without notes, then check against the week shown. Full worked
 4. Describe the conversion of MG-Si to EG-Si and the Czochralski method. (Week 2)
 5. Compare VPE, LPE and MBE. (Week 2)
 6. State Fick's first and second laws and the two diffusion profiles. (Week 3)
-7. Compare diffusion and ion implantation. Find the junction depth of an implant with N_p = 10¹⁸ cm⁻³, R_p = 0.2 μm, ΔR_p = 0.04 μm into N_B = 10¹⁶ cm⁻³. (Week 3; answer x_j = 0.2 + 0.04√(2 ln 100) = 0.321 μm)
+7. Compare diffusion and ion implantation. Find the junction depth of an implant with N_p = 10²⁴ m⁻³, R_p = 0.2 μm, ΔR_p = 0.04 μm into N_B = 10²² m⁻³. (Week 3; answer x_j = 0.2 + 0.04√(2 ln 100) = 0.321 μm)
 8. Explain the Kronig–Penney model and how it gives energy bands. (Week 4)
 9. Derive n_i = √(N_cN_v)e^{−E_g/2kT}. (Week 4)
 10. Write the Fermi–Dirac function and describe it at 0 K and 300 K. (Week 5)
-11. Find n, p and E_F for Si with N_D = 5×10¹⁵ cm⁻³. (Week 5; n = 5×10¹⁵, p = 2×10⁴ cm⁻³, E_F − E_i = 0.339 eV)
+11. Find n, p and E_F for Si with N_D = 5×10²¹ m⁻³. (Week 5; n = 5×10²¹, p = 2×10¹⁰ m⁻³, E_F − E_i = 0.339 eV)
 12. Derive the drift current density and the Einstein relation. (Week 7)
 13. Explain SRH recombination and define minority-carrier lifetime. (Week 8)
 14. Derive the minority-carrier continuity equation and solve it for steady injection into a long bar. (Week 9)
@@ -716,59 +716,59 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 15.1: one sample, every property
 
-**Question.** n-type silicon has N_D = 2×10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s, μ_p = 420 cm²/V·s and τ_p = 2 μs. At 300 K find (a) n and p, (b) E_F − E_i, (c) the conductivity, (d) D_p and (e) the hole diffusion length.
+**Question.** n-type silicon has N_D = 2×10²² m⁻³, μ_n = 0.12 m²/V·s, μ_p = 0.042 m²/V·s and τ_p = 2 μs. At 300 K find (a) n and p, (b) E_F − E_i, (c) the conductivity, (d) D_p and (e) the hole diffusion length.
 
-**Given:** N_D = 2×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, μ_n = 1200, μ_p = 420 cm²/V·s, τ_p = 2×10⁻⁶ s.
+**Given:** N_D = 2×10²² m⁻³, n_i = 10¹⁶ m⁻³, μ_n = 0.12, μ_p = 0.042 m²/V·s, τ_p = 2×10⁻⁶ s.
 
 **Find:** n, p, E_F − E_i, σ, D_p, L_p.
 
 **Solution.**
 
-    (a) n = 2×10¹⁶ cm⁻³,  p = 10²⁰/2×10¹⁶ = 5×10³ cm⁻³
+    (a) n = 2×10²² m⁻³,  p = 10³²/2×10²² = 5×10⁹ m⁻³
     (b) E_F − E_i = 0.0259 ln(2×10⁶) = 0.376 eV
-    (c) σ = qnμ_n = 1.6×10⁻¹⁹ × 2×10¹⁶ × 1200 = 3.84 S/cm
-    (d) D_p = 0.0259 × 420 = 10.9 cm²/s
-    (e) L_p = √(10.9 × 2×10⁻⁶) = 4.66×10⁻³ cm = 46.6 μm
+    (c) σ = qnμ_n = 1.6×10⁻¹⁹ × 2×10²² × 0.12 = 384 S/m
+    (d) D_p = 0.0259 × 0.042 = 1.09×10⁻³ m²/s
+    (e) L_p = √(1.09×10⁻³ × 2×10⁻⁶) = 4.66×10⁻⁵ m = 46.6 μm
 
-**Answer:** **n = 2×10¹⁶, p = 5×10³ cm⁻³; E_F = E_i + 0.376 eV; σ = 3.84 S/cm; D_p = 10.9 cm²/s; L_p = 47 μm.**
+**Answer:** **n = 2×10²², p = 5×10⁹ m⁻³; E_F = E_i + 0.376 eV; σ = 384 S/m; D_p = 1.09×10⁻³ m²/s; L_p = 4.7×10⁻⁵ m (47 μm).**
 
-**What this means:** one number, the doping, fixes almost everything: the electrons carry essentially all the current (the 5×10³ holes add nothing to σ), yet it is those few minority holes, with their 47 μm diffusion length, that will set the behaviour of any junction made on this sample.
+**What this means:** one number, the doping, fixes almost everything: the electrons carry essentially all the current (the 5×10⁹ m⁻³ holes add nothing to σ), yet it is those few minority holes, with their 47 μm diffusion length, that will set the behaviour of any junction made on this sample.
 
 #### Practice 15.2: a diode made from that sample
 
-**Question.** A p⁺n diode (N_A = 1×10¹⁹ cm⁻³, area 1×10⁻³ cm²) is made on the silicon of Practice 15.1. Find V_bi, the zero-bias depletion width, I_s and the current at 0.65 V.
+**Question.** A p⁺n diode (N_A = 1×10²⁵ m⁻³, area 1×10⁻⁷ m²) is made on the silicon of Practice 15.1. Find V_bi, the zero-bias depletion width, I_s and the current at 0.65 V.
 
-**Given:** N_A = 10¹⁹, N_D = 2×10¹⁶ cm⁻³, D_p = 10.9 cm²/s, L_p = 4.66×10⁻³ cm, A = 10⁻³ cm².
+**Given:** N_A = 10²⁵, N_D = 2×10²² m⁻³, D_p = 1.09×10⁻³ m²/s, L_p = 4.66×10⁻⁵ m, A = 10⁻⁷ m².
 
 **Find:** V_bi, W, I_s, I(0.65 V).
 
 **Solution.**
 
-    V_bi = 0.0259 ln(10¹⁹ × 2×10¹⁶/10²⁰) = 0.0259 ln(2×10¹⁵) = 0.913 V
-    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹² × 0.913/(1.6×10⁻¹⁹ × 2×10¹⁶)) = 2.44×10⁻⁵ cm = 0.24 μm
-    J_s ≈ qn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10²⁰ × 10.9/(4.66×10⁻³ × 2×10¹⁶) = 1.87×10⁻¹² A/cm²
-    I_s = 1.87×10⁻¹⁵ A
+    V_bi = 0.0259 ln(10²⁵ × 2×10²²/10³²) = 0.0259 ln(2×10¹⁵) = 0.913 V
+    W ≈ √(2ε_sV_bi/qN_D) = √(2 × 1.04×10⁻¹⁰ × 0.913/(1.6×10⁻¹⁹ × 2×10²²)) = 2.44×10⁻⁷ m = 0.24 μm
+    J_s ≈ qn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10³² × 1.09×10⁻³/(4.66×10⁻⁵ × 2×10²²) = 1.87×10⁻⁸ A/m²
+    I_s = J_sA = 1.87×10⁻⁸ × 10⁻⁷ = 1.87×10⁻¹⁵ A
     I(0.65 V) = 1.87×10⁻¹⁵ × e^{0.65/0.0259} = 1.87×10⁻¹⁵ × 7.9×10¹⁰ = 0.15 mA
 
-**Answer:** **V_bi = 0.91 V, W = 0.24 μm, I_s = 1.9×10⁻¹⁵ A, I(0.65 V) = 0.15 mA.**
+**Answer:** **V_bi = 0.91 V, W = 2.4×10⁻⁷ m (0.24 μm), I_s = 1.9×10⁻¹⁵ A, I(0.65 V) = 0.15 mA.**
 
 **What this means:** compared with E6, the 20 times heavier n-side doping makes the depletion region about four times narrower (0.24 μm against 0.96 μm). Its I_s is about ten times smaller than that of the diode in E7, which is why only 0.15 mA flows at 0.65 V instead of 1.7 mA.
 
 #### Practice 15.3: a complete MOSFET calculation
 
-**Question.** An nMOS has N_A = 1×10¹⁷ cm⁻³, t_ox = 5 nm, V_FB = −0.9 V, μ_n = 350 cm²/V·s and W/L = 20. Find V_T and the saturation current at V_GS = 1.2 V.
+**Question.** An nMOS has N_A = 1×10²³ m⁻³, t_ox = 5 nm, V_FB = −0.9 V, μ_n = 0.035 m²/V·s and W/L = 20. Find V_T and the saturation current at V_GS = 1.2 V.
 
-**Given:** N_A = 10¹⁷ cm⁻³, t_ox = 5×10⁻⁷ cm, V_FB = −0.9 V, μ_n = 350 cm²/V·s, W/L = 20.
+**Given:** N_A = 10²³ m⁻³, t_ox = 5×10⁻⁹ m, V_FB = −0.9 V, μ_n = 0.035 m²/V·s, W/L = 20.
 
 **Find:** V_T and I_D(sat).
 
 **Solution.**
 
-    C_ox = 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm²
+    C_ox = 3.45×10⁻¹¹/5×10⁻⁹ = 6.9×10⁻³ F/m²
     φ_F = 0.417 V,  2φ_F = 0.834 V
-    γ = √(2qε_siN_A)/C_ox = 1.824×10⁻⁷/6.9×10⁻⁷ = 0.264 V^{1/2},  γ√(2φ_F) = 0.241 V
+    γ = √(2qε_siN_A)/C_ox = 1.824×10⁻³/6.9×10⁻³ = 0.264 V^{1/2},  γ√(2φ_F) = 0.241 V
     V_T = −0.9 + 0.834 + 0.241 = 0.18 V
-    k = μ_nC_ox(W/L) = 350 × 6.9×10⁻⁷ × 20 = 4.83 mA/V²
+    k = μ_nC_ox(W/L) = 0.035 × 6.9×10⁻³ × 20 = 4.83×10⁻³ A/V² = 4.83 mA/V²
     I_D(sat) = ½ × 4.83 × (1.2 − 0.18)² = 2.5 mA
 
 **Answer:** **V_T ≈ 0.18 V, I_D(sat) ≈ 2.5 mA.**
@@ -792,5 +792,5 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Summarise the whole course and how its ideas connect. | Trace the chain from doping to the diode equation in one sentence. | Doping sets n and p; a p-n junction forms a barrier; forward bias injects minority carriers that diffuse and recombine, giving I = I_s(e^{qV/kT} − 1). | 15.1 |
 | 2 | Recall and apply the key formulas. | Write the mass-action law, the Einstein relation and the saturation MOSFET current. | np = n_i²; D/μ = kT/q; I_D = ½μC_ox(W/L)(V_GS − V_T)². | 15.2 |
 | 3 | Answer definitions, derivations and calculations in examination style. | What should a derivation answer begin with? | A list of the assumptions. | 15.3 |
-| 4 | Solve mixed past-question style problems. | Find V_bi for N_A = 10¹⁷ and N_D = 10¹⁵ cm⁻³ in Si. | 0.714 V. | 15.4, E6 |
+| 4 | Solve mixed past-question style problems. | Find V_bi for N_A = 10²³ and N_D = 10²¹ m⁻³ in Si. | 0.714 V. | 15.4, E6 |
 | 5 | Check readiness for the final examination. | Can you tick every line of the checklist in 15.5? | If not, revise the week named on that line. | 15.5–15.6 |

@@ -1,7 +1,7 @@
 # Formula and Constants Sheet
 <!-- group: Revision tools -->
 
-Every formula the 50 questions need, grouped by topic, with the question numbers that use it. Learn the boxed results of the derivations (Q27, Q37, Q48) by heart; the rest you should be able to rebuild from them. Every symbol is explained in the table that follows.
+Every formula the 50 questions need, grouped by topic, with the question numbers that use it. Learn the boxed results of the derivations (Q27, Q37, Q48) by heart; the rest you should be able to rebuild from them. Every symbol is explained in the table that follows. All values are in SI units; energies are in electron-volts (eV), which SI accepts for use alongside its units.
 
 ## Symbols and abbreviations used on this page
 
@@ -141,26 +141,29 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | Planck constant | h | 6.626×10⁻³⁴ J·s |
 | Reduced Planck constant | ħ = h/2π | 1.055×10⁻³⁴ J·s |
 | Free-electron mass | m₀ | 9.11×10⁻³¹ kg |
-| Permittivity of free space | ε₀ | 8.854×10⁻¹⁴ F/cm |
+| Permittivity of free space | ε₀ | 8.854×10⁻¹² F/m |
 | Electron-volt | 1 eV | 1.6×10⁻¹⁹ J |
-| Photon wavelength | λ | 1.24/E μm, with E in eV |
+| Photon wavelength | λ | 1.24/E μm (1.24×10⁻⁶/E m), with E in eV |
+| Speed of light | c | 3×10⁸ m/s |
 
 ## Material data at 300 K
 
 | | Si | Ge | GaAs |
 |---|---|---|---|
 | Crystal structure | Diamond | Diamond | Zinc blende |
-| Lattice constant a (Å) | 5.43 | 5.65 | 5.65 |
+| Lattice constant a (nm) | 0.543 | 0.565 | 0.565 |
 | Band gap E_g (eV) | 1.12, indirect | 0.66, indirect | 1.42, direct |
-| n_i (cm⁻³) | 1×10¹⁰ | 2.4×10¹³ | 2×10⁶ |
-| N_c (cm⁻³) | 2.8×10¹⁹ | 1.04×10¹⁹ | 4.7×10¹⁷ |
-| N_v (cm⁻³) | 1.04×10¹⁹ | 6.0×10¹⁸ | 7.0×10¹⁸ |
-| μ_n (cm²/V·s) | 1350 | 3900 | 8500 |
-| μ_p (cm²/V·s) | 480 | 1900 | 400 |
-| D_n, D_p (cm²/s) | 35, 12.4 | 101, 49 | 220, 10 |
+| n_i (m⁻³) | 1×10¹⁶ | 2.4×10¹⁹ | 2×10¹² |
+| N_c (m⁻³) | 2.8×10²⁵ | 1.04×10²⁵ | 4.7×10²³ |
+| N_v (m⁻³) | 1.04×10²⁵ | 6.0×10²⁴ | 7.0×10²⁴ |
+| μ_n (m²/V·s) | 0.135 | 0.39 | 0.85 |
+| μ_p (m²/V·s) | 0.048 | 0.19 | 0.04 |
+| D_n, D_p (m²/s) | 3.5×10⁻³, 1.24×10⁻³ | 1.01×10⁻², 4.9×10⁻³ | 2.2×10⁻², 1.0×10⁻³ |
 | Relative permittivity ε_r | 11.7 | 16.0 | 12.9 |
+| Permittivity ε_s = ε_rε₀ (F/m) | 1.04×10⁻¹⁰ | 1.42×10⁻¹⁰ | 1.14×10⁻¹⁰ |
+| Atom density (m⁻³) | 5.0×10²⁸ | 4.4×10²⁸ | 4.4×10²⁸ |
 | Electron affinity χ (eV) | 4.05 | 4.0 | 4.07 |
-| Saturation velocity v_sat (cm/s) | 1×10⁷ | 6×10⁶ | about 1×10⁷ |
+| Saturation velocity v_sat (m/s) | 1×10⁵ | 6×10⁴ | about 1×10⁵ |
 | Melting point (°C) | 1414 | 937 | 1238 |
 
 ## Crystals (Q5–Q8)
@@ -207,7 +210,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
     J = q(nμ_n + pμ_p)E;    σ = q(nμ_n + pμ_p);    ρ = 1/σ   (boxed result of Q37)   (Q37, Q38)
     J_n = qnμ_nE + qD_n dn/dx;    J_p = qpμ_pE − qD_p dp/dx                       (Q39)
     Einstein:  D/μ = kT/q                                                         (Q40)
-    High field: v_d → v_sat ≈ 1×10⁷ cm/s                                          (Q41)
+    High field: v_d → v_sat ≈ 1×10⁵ m/s                                           (Q41)
 
 ## Recombination and continuity (Q42–Q46)
 
@@ -225,7 +228,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
     Law of the junction:  p_n(x_n) = p_n0 e^{qV/kT}                                 (Q48)
     I = I_s ( e^{qV/kT} − 1 ),    J_s = qn_i²( D_p/(L_pN_D) + D_n/(L_nN_A) )   (boxed result of Q48)
     Schottky:  Φ_B = Φ_m − χ;   V_bi = Φ_m − Φ_s;   J_s = A∗∗T² e^{−qΦ_B/kT}         (Q49)
-    Ohmic by tunnelling:  N_D ≳ 10¹⁹ cm⁻³, so W = √(2ε_sV_bi/qN_D) is a few nm
+    Ohmic by tunnelling:  N_D ≳ 10²⁵ m⁻³, so W = √(2ε_sV_bi/qN_D) is a few nm
     I-V:  I = I_s ( e^{qV/ηkT} − 1 );   η = (q/kT) dV/d(ln I)                        (Q50)
     C-V:  C = ε_sA/W;   1/C² = 2(V_bi − V)/(qε_sNA²);   N = 2/(qε_sA² |slope|);   V_bi = V-axis intercept
 
@@ -233,5 +236,28 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 - Each decade of doping moves E_F by 2.3kT ≈ 60 mV; each 60 mV of forward bias multiplies a diode's current by 10 (300 K).
 - In silicon at room temperature, n_i roughly doubles for every 10 °C rise.
-- 10¹⁶ cm⁻³ of dopant is 1 atom in 5×10⁶ silicon atoms (Si has 5×10²² atoms/cm³), yet it raises the conductivity nearly a million times (from 3×10⁻⁶ to 2.2 S/cm, n-type).
+- 10²² m⁻³ of dopant is 1 atom in 5×10⁶ silicon atoms (Si has 5×10²⁸ atoms/m³), yet it raises the conductivity nearly a million times (from 2.9×10⁻⁴ to 216 S/m, n-type).
 - Diffusion distances go as √(Dt): four times the time gives twice the depth.
+
+## Converting from centimetre units
+
+Textbooks, your lecturer's notes and some exam questions use centimetres. Convert to SI before you substitute:
+
+| Quantity | cm-based unit | SI unit | Multiply by | Example |
+|---|---|---|---|---|
+| Length | cm | m | 10⁻² | 0.33 μm = 3.3×10⁻⁵ cm = 3.3×10⁻⁷ m |
+| Concentration | cm⁻³ | m⁻³ | 10⁶ | 1×10¹⁶ cm⁻³ = 1×10²² m⁻³ |
+| Dose, surface density | cm⁻² | m⁻² | 10⁴ | 1×10¹⁵ cm⁻² = 1×10¹⁹ m⁻² |
+| Area | cm² | m² | 10⁻⁴ | 1×10⁻³ cm² = 1×10⁻⁷ m² |
+| Mobility | cm²/V·s | m²/V·s | 10⁻⁴ | 1350 cm²/V·s = 0.135 m²/V·s |
+| Diffusion coefficient | cm²/s | m²/s | 10⁻⁴ | 35 cm²/s = 3.5×10⁻³ m²/s |
+| Velocity | cm/s | m/s | 10⁻² | 10⁷ cm/s = 10⁵ m/s |
+| Electric field | V/cm | V/m | 10² | 10 V/cm = 1000 V/m |
+| Current density | A/cm² | A/m² | 10⁴ | 43.2 A/cm² = 4.32×10⁵ A/m² |
+| Permittivity | F/cm | F/m | 10² | 1.04×10⁻¹² F/cm = 1.04×10⁻¹⁰ F/m |
+| Conductivity | S/cm | S/m | 10² | 2.16 S/cm = 216 S/m |
+| Resistivity | Ω·cm | Ω·m | 10⁻² | 1 Ω·cm = 0.01 Ω·m |
+| Capacitance per area | F/cm² | F/m² | 10⁴ | 3.45×10⁻⁷ F/cm² = 3.45×10⁻³ F/m² |
+| Lattice spacing | Å | nm | 10⁻¹ | 5.43 Å = 0.543 nm |
+
+A quick check: a concentration in m⁻³ is always a million times the number in cm⁻³ (n_i of silicon is 1×10¹⁰ cm⁻³ = 1×10¹⁶ m⁻³).
