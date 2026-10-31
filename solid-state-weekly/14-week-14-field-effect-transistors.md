@@ -107,8 +107,8 @@ Where:
 
 - φ_F = bulk Fermi potential (V)
 - kT/q = thermal voltage, 0.0259 V at 300 K
-- N_A = substrate acceptor concentration (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- N_A = substrate acceptor concentration (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
 **Surface potential (ψ_s).** The amount, in volts, by which the energy bands bend at the silicon surface compared with the bulk. The gate voltage controls it.
 
@@ -120,9 +120,9 @@ Where:
 
 Where:
 
-- C_ox = oxide capacitance per unit area (F/cm²)
-- ε_ox = permittivity of SiO₂, 3.45×10⁻¹³ F/cm
-- t_ox = oxide thickness (cm; 1 nm = 10⁻⁷ cm)
+- C_ox = oxide capacitance per unit area (F/m²)
+- ε_ox = permittivity of SiO₂, 3.45×10⁻¹¹ F/m
+- t_ox = oxide thickness (m; 1 nm = 10⁻⁹ m)
 
 *Why it matters:* a thinner oxide gives a larger C_ox, a lower threshold voltage and more drain current for the same gate voltage.
 
@@ -140,8 +140,8 @@ Where:
 
 - V_FB = flat-band voltage (V)
 - Φ_ms = work-function difference between gate and substrate (V)
-- Q_f = fixed positive charge in the oxide, per unit area (C/cm²)
-- C_ox = oxide capacitance per unit area (F/cm²)
+- Q_f = fixed positive charge in the oxide, per unit area (C/m²)
+- C_ox = oxide capacitance per unit area (F/m²)
 
 **Threshold voltage (V_T).** The gate-to-source voltage at which strong inversion starts, so that a conducting channel joins source and drain and the transistor begins to turn on.
 
@@ -181,11 +181,11 @@ A MOS capacitor can be viewed as a **parallel-plate capacitor**: one plate is th
 
 | Symbol | Meaning |
 |---|---|
-| C_ox | oxide capacitance per unit area (F/cm²) |
-| ε_ox | oxide permittivity, ε_ox = ε_r ε₀ with ε_r ≈ 3.9 for SiO₂: ε_ox = 3.45×10⁻¹³ F/cm |
-| t_ox | oxide thickness (cm; 1 nm = 10⁻⁷ cm) |
+| C_ox | oxide capacitance per unit area (F/m²) |
+| ε_ox | oxide permittivity, ε_ox = ε_r ε₀ with ε_r ≈ 3.9 for SiO₂: ε_ox = 3.45×10⁻¹¹ F/m |
+| t_ox | oxide thickness (m; 1 nm = 10⁻⁹ m) |
 
-A **thinner oxide** gives a larger capacitance per unit area, so the same gate voltage induces more charge: stronger electrostatic control of the channel. For t_ox = 10 nm = 10⁻⁶ cm, C_ox = 3.45×10⁻¹³/10⁻⁶ = 3.45×10⁻⁷ F/cm².
+A **thinner oxide** gives a larger capacitance per unit area, so the same gate voltage induces more charge: stronger electrostatic control of the channel. For t_ox = 10 nm = 10⁻⁸ m, C_ox = 3.45×10⁻¹¹/10⁻⁸ = 3.45×10⁻³ F/m².
 
 "**Ideal**" means: no charge trapped in the oxide, no trap states at the interface, no difference between the gate and semiconductor work functions, and an oxide that conducts no current at all.
 
@@ -197,10 +197,10 @@ Where:
 
 - φ_F = bulk Fermi potential (V)
 - kT/q = thermal voltage, 0.0259 V at 300 K
-- N_A = substrate acceptor concentration (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- N_A = substrate acceptor concentration (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
-For N_A = 10¹⁷ cm⁻³: φ_F = 0.0259 ln(10⁷) = 0.417 V.
+For N_A = 10²³ m⁻³: φ_F = 0.0259 ln(10⁷) = 0.417 V.
 
 ## 14.3 Accumulation
 
@@ -226,11 +226,11 @@ The depletion width grows with the band bending:
 
 Where:
 
-- W_d = depletion width below the oxide (cm)
-- ε_si = permittivity of silicon, 1.04×10⁻¹² F/cm
+- W_d = depletion width below the oxide (m)
+- ε_si = permittivity of silicon, 1.04×10⁻¹⁰ F/m
 - ψ_s = surface potential: the band bending at the surface (V)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- N_A = substrate acceptor concentration (cm⁻³)
+- N_A = substrate acceptor concentration (m⁻³)
 
 ## 14.5 Inversion
 
@@ -248,11 +248,11 @@ Once strong inversion is reached, the depletion width stops growing at its maxim
 
 Where:
 
-- W_dmax = maximum depletion width, reached at strong inversion (cm)
-- ε_si = permittivity of silicon, 1.04×10⁻¹² F/cm
+- W_dmax = maximum depletion width, reached at strong inversion (m)
+- ε_si = permittivity of silicon, 1.04×10⁻¹⁰ F/m
 - φ_F = bulk Fermi potential (V)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- N_A = substrate acceptor concentration (cm⁻³)
+- N_A = substrate acceptor concentration (m⁻³)
 
 and any further gate voltage simply adds electrons to the inversion layer. **This electron layer is the channel of the MOSFET.**
 
@@ -262,9 +262,9 @@ The exact sign conventions for φ_F and ψ_s differ between textbooks. The physi
 
 #### Example 14.1: oxide capacitance and maximum depletion width
 
-**Question.** A MOS capacitor has a 7 nm SiO₂ gate oxide on p-type silicon with N_A = 1×10¹⁶ cm⁻³. At 300 K find (a) the oxide capacitance per unit area, (b) the bulk Fermi potential, (c) the maximum depletion width at strong inversion and (d) the depletion charge per unit area then.
+**Question.** A MOS capacitor has a 7 nm SiO₂ gate oxide on p-type silicon with N_A = 1×10²² m⁻³. At 300 K find (a) the oxide capacitance per unit area, (b) the bulk Fermi potential, (c) the maximum depletion width at strong inversion and (d) the depletion charge per unit area then.
 
-**Given:** t_ox = 7 nm = 7×10⁻⁷ cm, N_A = 1×10¹⁶ cm⁻³, ε_ox = 3.45×10⁻¹³ F/cm, ε_si = 1.04×10⁻¹² F/cm, n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V, q = 1.6×10⁻¹⁹ C.
+**Given:** t_ox = 7 nm = 7×10⁻⁹ m, N_A = 1×10²² m⁻³, ε_ox = 3.45×10⁻¹¹ F/m, ε_si = 1.04×10⁻¹⁰ F/m, n_i = 10¹⁶ m⁻³, kT/q = 0.0259 V, q = 1.6×10⁻¹⁹ C.
 
 **Find:** C_ox, φ_F, W_dmax and Q_dmax.
 
@@ -276,21 +276,21 @@ The exact sign conventions for φ_F and ψ_s differ between textbooks. The physi
 
 Step 1. Oxide capacitance:
 
-    C_ox = 3.45×10⁻¹³ / 7×10⁻⁷ = 4.93×10⁻⁷ F/cm²
+    C_ox = 3.45×10⁻¹¹ / 7×10⁻⁹ = 4.93×10⁻³ F/m²
 
 Step 2. Bulk Fermi potential:
 
-    φ_F = 0.0259 ln(10¹⁶/10¹⁰) = 0.0259 × 13.82 = 0.358 V
+    φ_F = 0.0259 ln(10²²/10¹⁶) = 0.0259 × 13.82 = 0.358 V
 
 Step 3. Maximum depletion width:
 
-    W_dmax = √(4 × 1.04×10⁻¹² × 0.358 / (1.6×10⁻¹⁹ × 10¹⁶)) = 3.05×10⁻⁵ cm = 0.305 μm
+    W_dmax = √(4 × 1.04×10⁻¹⁰ × 0.358 / (1.6×10⁻¹⁹ × 10²²)) = 3.05×10⁻⁷ m = 0.305 μm
 
 Step 4. Depletion charge at strong inversion:
 
-    |Q_dmax| = 1.6×10⁻¹⁹ × 10¹⁶ × 3.05×10⁻⁵ = 4.88×10⁻⁸ C/cm²
+    |Q_dmax| = 1.6×10⁻¹⁹ × 10²² × 3.05×10⁻⁷ = 4.88×10⁻⁴ C/m²
 
-**Answer:** **C_ox = 4.93×10⁻⁷ F/cm², φ_F = 0.358 V, W_dmax = 0.305 μm, |Q_dmax| = 4.88×10⁻⁸ C/cm².**
+**Answer:** **C_ox = 4.93×10⁻³ F/m², φ_F = 0.358 V, W_dmax = 3.05×10⁻⁷ m (0.305 μm), |Q_dmax| = 4.88×10⁻⁴ C/m².**
 
 **What this means:** the depletion layer under the gate never grows beyond about 0.3 μm, roughly 40 times the oxide thickness. Holding up its charge needs only |Q_dmax|/C_ox ≈ 0.10 V across this thin oxide, so on a lightly doped substrate most of the threshold voltage goes into band bending (2φ_F = 0.72 V) rather than into the depletion charge.
 
@@ -319,7 +319,7 @@ The same two choices exist for p-channel devices, with every polarity reversed. 
 | Normal sign of V_DS | Positive | Positive | Negative | Negative |
 | Typical use | Digital logic (CMOS), switches, amplifiers | Constant-current sources, loads, some RF circuits | Partner of nMOS in CMOS logic | Rare; special analogue circuits |
 
-Because electrons have a higher mobility than holes (1350 against 480 cm²/V·s in bulk Si), an n-channel transistor carries about 2–3 times more current than a p-channel transistor of the same size. That is why the nMOS is the main device, and why pMOS transistors in CMOS logic are drawn wider.
+Because electrons have a higher mobility than holes (0.135 against 0.048 m²/V·s in bulk Si), an n-channel transistor carries about 2–3 times more current than a p-channel transistor of the same size. That is why the nMOS is the main device, and why pMOS transistors in CMOS logic are drawn wider.
 
 ## 14.7 Threshold voltage
 
@@ -341,9 +341,9 @@ with the **body-effect coefficient**
 | γ | body-effect coefficient (V^{1/2}) |
 | γ√(2φ_F) | the voltage dropped across the oxide to support the depletion charge, \|Q_dmax\|/C_ox (V) |
 | q | electronic charge, 1.6×10⁻¹⁹ C |
-| N_A | substrate acceptor concentration (cm⁻³) |
-| ε_si | silicon permittivity, 11.7ε₀ = 1.04×10⁻¹² F/cm |
-| C_ox | oxide capacitance per unit area, ε_ox/t_ox (F/cm²) |
+| N_A | substrate acceptor concentration (m⁻³) |
+| ε_si | silicon permittivity, 11.7ε₀ = 1.04×10⁻¹⁰ F/m |
+| C_ox | oxide capacitance per unit area, ε_ox/t_ox (F/m²) |
 
 **Reading the formula.** The gate voltage has three jobs: get to flat bands (V_FB), bend the bands by 2φ_F, and hold up the charge of the depletion region across the oxide. **Heavier substrate doping** raises both φ_F and the depletion charge, so V_T rises. A **thinner oxide** (larger C_ox) lowers V_T.
 
@@ -353,9 +353,9 @@ For simplified ideal MOSFET problems, the threshold voltage may simply be given.
 
 #### Example 14.2: calculating the threshold voltage
 
-**Question.** An n-channel MOSFET is built on p-type silicon with N_A = 1×10¹⁷ cm⁻³, a 10 nm SiO₂ gate oxide and an n⁺ polysilicon gate, for which V_FB = −0.98 V. There is no oxide charge. Calculate the threshold voltage at 300 K.
+**Question.** An n-channel MOSFET is built on p-type silicon with N_A = 1×10²³ m⁻³, a 10 nm SiO₂ gate oxide and an n⁺ polysilicon gate, for which V_FB = −0.98 V. There is no oxide charge. Calculate the threshold voltage at 300 K.
 
-**Given:** N_A = 1×10¹⁷ cm⁻³, t_ox = 10 nm = 1×10⁻⁶ cm, V_FB = −0.98 V, ε_ox = 3.45×10⁻¹³ F/cm, ε_si = 1.04×10⁻¹² F/cm, n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
+**Given:** N_A = 1×10²³ m⁻³, t_ox = 10 nm = 1×10⁻⁸ m, V_FB = −0.98 V, ε_ox = 3.45×10⁻¹¹ F/m, ε_si = 1.04×10⁻¹⁰ F/m, n_i = 10¹⁶ m⁻³, kT/q = 0.0259 V.
 
 **Find:** the threshold voltage V_T.
 
@@ -367,15 +367,15 @@ For simplified ideal MOSFET problems, the threshold voltage may simply be given.
 
 Step 1. Bulk Fermi potential:
 
-    φ_F = 0.0259 ln(10¹⁷/10¹⁰) = 0.417 V,   2φ_F = 0.834 V
+    φ_F = 0.0259 ln(10²³/10¹⁶) = 0.417 V,   2φ_F = 0.834 V
 
 Step 2. Oxide capacitance:
 
-    C_ox = 3.45×10⁻¹³ / 10⁻⁶ = 3.45×10⁻⁷ F/cm²
+    C_ox = 3.45×10⁻¹¹ / 10⁻⁸ = 3.45×10⁻³ F/m²
 
 Step 3. Body-effect coefficient:
 
-    γ = √(2 × 1.6×10⁻¹⁹ × 1.04×10⁻¹² × 10¹⁷) / 3.45×10⁻⁷ = 1.824×10⁻⁷ / 3.45×10⁻⁷ = 0.529 V^{1/2}
+    γ = √(2 × 1.6×10⁻¹⁹ × 1.04×10⁻¹⁰ × 10²³) / 3.45×10⁻³ = 1.824×10⁻³ / 3.45×10⁻³ = 0.529 V^{1/2}
 
     γ√(2φ_F) = 0.529 × √0.834 = 0.529 × 0.913 = 0.483 V
 
@@ -454,9 +454,9 @@ When V_GS > V_T and V_DS is smaller than V_GS − V_T, the channel exists all th
 | Symbol | Meaning |
 |---|---|
 | I_D | drain current (A) |
-| μ_n | electron mobility in the channel (cm²/V·s) |
-| C_ox | oxide capacitance per unit area (F/cm²) |
-| W, L | channel width and length (cm or μm; only their ratio W/L matters) |
+| μ_n | electron mobility in the channel (m²/V·s) |
+| C_ox | oxide capacitance per unit area (F/m²) |
+| W, L | channel width and length (m or μm; only their ratio W/L matters) |
 | V_GS, V_DS | gate-to-source and drain-to-source voltages (V) |
 | V_T | threshold voltage (V) |
 
@@ -481,8 +481,8 @@ the channel charge at the drain end falls to zero: this is the **onset of pinch-
 Where:
 
 - I_D = saturation drain current (A)
-- μ_n = electron mobility in the channel (cm²/V·s)
-- C_ox = oxide capacitance per unit area (F/cm²)
+- μ_n = electron mobility in the channel (m²/V·s)
+- C_ox = oxide capacitance per unit area (F/m²)
 - W/L = channel width-to-length ratio (dimensionless)
 - V_GS = gate-to-source voltage (V)
 - V_T = threshold voltage (V); V_GS − V_T is the overdrive voltage
@@ -512,9 +512,9 @@ Transconductance measures how strongly the drain current responds to a small cha
 
 #### Example 14.4: saturation current and transconductance from device data
 
-**Question.** An n-channel MOSFET has the threshold voltage of Example 14.2 (V_T = 0.34 V), the same 10 nm oxide, a channel mobility μ_n = 400 cm²/V·s and W/L = 10. It is biased at V_GS = 1.34 V and V_DS = 2 V. Find (a) the device parameter k, (b) the drain current and (c) the transconductance.
+**Question.** An n-channel MOSFET has the threshold voltage of Example 14.2 (V_T = 0.34 V), the same 10 nm oxide, a channel mobility μ_n = 0.04 m²/V·s and W/L = 10. It is biased at V_GS = 1.34 V and V_DS = 2 V. Find (a) the device parameter k, (b) the drain current and (c) the transconductance.
 
-**Given:** V_T = 0.34 V, C_ox = 3.45×10⁻⁷ F/cm², μ_n = 400 cm²/V·s, W/L = 10, V_GS = 1.34 V, V_DS = 2 V.
+**Given:** V_T = 0.34 V, C_ox = 3.45×10⁻³ F/m², μ_n = 0.04 m²/V·s, W/L = 10, V_GS = 1.34 V, V_DS = 2 V.
 
 **Find:** k, I_D and g_m.
 
@@ -526,7 +526,7 @@ Transconductance measures how strongly the drain current responds to a small cha
 
 Step 1. Device parameter:
 
-    k = 400 × 3.45×10⁻⁷ × 10 = 1.38×10⁻³ A/V² = 1.38 mA/V²
+    k = 0.04 × 3.45×10⁻³ × 10 = 1.38×10⁻³ A/V² = 1.38 mA/V²
 
 Step 2. Check the region. The overdrive is V_GS − V_T = 1.34 − 0.34 = 1.0 V, and V_DS = 2 V ≥ 1.0 V, so the transistor is in saturation.
 
@@ -540,7 +540,7 @@ Step 4. Transconductance:
 
 **Answer:** **k = 1.38 mA/V², I_D = 0.69 mA, g_m = 1.38 mS.**
 
-**What this means:** a gate change of 10 mV shifts the drain current by about 14 μA (1.38 mS × 10 mV). Note that the channel mobility (400) is much lower than bulk mobility (1350) because electrons in the channel scatter off the rough Si/SiO₂ interface; using the bulk value would overestimate the current more than threefold.
+**What this means:** a gate change of 10 mV shifts the drain current by about 14 μA (1.38 mS × 10 mV). Note that the channel mobility (0.04 m²/V·s) is much lower than bulk mobility (0.135 m²/V·s) because electrons in the channel scatter off the rough Si/SiO₂ interface; using the bulk value would overestimate the current more than threefold.
 
 ## 14.13 Worked example 1: determining the operating region
 
@@ -724,44 +724,44 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Question.** Find C_ox for a 3 nm SiO₂ gate oxide.
 
-**Given:** t_ox = 3×10⁻⁷ cm, ε_ox = 3.45×10⁻¹³ F/cm.
+**Given:** t_ox = 3×10⁻⁹ m, ε_ox = 3.45×10⁻¹¹ F/m.
 
 **Find:** C_ox.
 
 **Solution.**
 
-    C_ox = ε_ox/t_ox = 3.45×10⁻¹³ / 3×10⁻⁷ = 1.15×10⁻⁶ F/cm²
+    C_ox = ε_ox/t_ox = 3.45×10⁻¹¹ / 3×10⁻⁹ = 1.15×10⁻² F/m²
 
-**Answer:** **C_ox = 1.15 μF/cm².**
+**Answer:** **C_ox = 1.15×10⁻² F/m².**
 
 #### Practice 14.2: bulk potential and maximum depletion width
 
-**Question.** For p-type silicon with N_A = 5×10¹⁶ cm⁻³, find φ_F and the maximum depletion width at strong inversion.
+**Question.** For p-type silicon with N_A = 5×10²² m⁻³, find φ_F and the maximum depletion width at strong inversion.
 
-**Given:** N_A = 5×10¹⁶ cm⁻³, n_i = 10¹⁰ cm⁻³, ε_si = 1.04×10⁻¹² F/cm.
+**Given:** N_A = 5×10²² m⁻³, n_i = 10¹⁶ m⁻³, ε_si = 1.04×10⁻¹⁰ F/m.
 
 **Find:** φ_F and W_dmax.
 
 **Solution.**
 
     φ_F = 0.0259 ln(5×10⁶) = 0.400 V
-    W_dmax = √(4ε_siφ_F/qN_A) = √(4 × 1.04×10⁻¹² × 0.400 / (1.6×10⁻¹⁹ × 5×10¹⁶)) = 1.44×10⁻⁵ cm
+    W_dmax = √(4ε_siφ_F/qN_A) = √(4 × 1.04×10⁻¹⁰ × 0.400 / (1.6×10⁻¹⁹ × 5×10²²)) = 1.44×10⁻⁷ m
 
-**Answer:** **φ_F = 0.40 V, W_dmax = 0.144 μm.**
+**Answer:** **φ_F = 0.40 V, W_dmax = 1.44×10⁻⁷ m (0.144 μm).**
 
 #### Practice 14.3: threshold voltage of an ideal MOSFET
 
 **Question.** Using the substrate of Practice 14.2 with a 20 nm oxide and an ideal gate (V_FB = 0), find the threshold voltage.
 
-**Given:** φ_F = 0.400 V, W_dmax = 1.44×10⁻⁵ cm, t_ox = 2×10⁻⁶ cm.
+**Given:** φ_F = 0.400 V, W_dmax = 1.44×10⁻⁷ m, t_ox = 2×10⁻⁸ m, N_A = 5×10²² m⁻³.
 
 **Find:** V_T = V_FB + 2φ_F + qN_AW_dmax/C_ox.
 
 **Solution.**
 
-    C_ox = 3.45×10⁻¹³/2×10⁻⁶ = 1.725×10⁻⁷ F/cm²
-    qN_AW_dmax = 1.6×10⁻¹⁹ × 5×10¹⁶ × 1.44×10⁻⁵ = 1.15×10⁻⁷ C/cm²
-    V_T = 0 + 0.80 + 1.15×10⁻⁷/1.725×10⁻⁷ = 0.80 + 0.67 = 1.47 V
+    C_ox = 3.45×10⁻¹¹/2×10⁻⁸ = 1.725×10⁻³ F/m²
+    qN_AW_dmax = 1.6×10⁻¹⁹ × 5×10²² × 1.44×10⁻⁷ = 1.15×10⁻³ C/m²
+    V_T = 0 + 0.80 + 1.15×10⁻³/1.725×10⁻³ = 0.80 + 0.67 = 1.47 V
 
 **Answer:** **V_T ≈ 1.47 V.** A thinner oxide or a real n⁺ poly gate (negative V_FB) would lower it.
 
@@ -837,7 +837,7 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 
 | # | Objective | Check yourself | Answer | Where it is taught |
 |---|---|---|---|---|
-| 1 | Describe the structure of an ideal MOS capacitor and calculate C_ox. | Find C_ox for a 5 nm SiO₂ layer. | 3.45×10⁻¹³/5×10⁻⁷ = 6.9×10⁻⁷ F/cm². | 14.2; Example 14.1 |
+| 1 | Describe the structure of an ideal MOS capacitor and calculate C_ox. | Find C_ox for a 5 nm SiO₂ layer. | 3.45×10⁻¹¹/5×10⁻⁹ = 6.9×10⁻³ F/m². | 14.2; Example 14.1 |
 | 2 | Explain accumulation, depletion and inversion. | On p-type Si, what forms at the surface in inversion? | A layer of electrons (the surface becomes n-type). | 14.3–14.5 |
 | 3 | Explain how a MOS capacitor becomes a MOSFET, and enhancement versus depletion mode. | Does an enhancement-mode nMOS conduct at V_GS = 0? | No: a gate voltage above V_T is needed to create the channel. | 14.6 (table of the four MOSFET types) |
 | 4 | Define the threshold voltage and calculate it. | What three contributions make up V_T? | V_FB, the band bending 2φ_F, and the depletion-charge term γ√(2φ_F). | 14.7; Examples 14.2–14.3 |

@@ -5,7 +5,7 @@ Module 1, part 1: what a semiconductor is, the main materials, crystal structure
 
 ## Symbols and abbreviations used on this page
 
-Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+Every symbol, constant and abbreviation on this page is listed here, even if another page already defined it, so you can study this page on its own.
 
 **Constants and units**
 
@@ -17,8 +17,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -28,26 +27,26 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_v (E_V) | Energy of the top of the valence band | eV |
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
 | [u v w], ⟨u v w⟩ | A crystal direction; family of equivalent directions | integers |
-| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | nm |
 | k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
-| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
-| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | m⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | m⁻³ |
 | f (growth) | Fraction of the melt already solidified | 0 to 1 |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
 | α, β, γ (cell) | Angles between the edges of a unit cell | degrees; 90° for cubic |
 | v_pull | Pull rate of a Czochralski crystal | mm/min |
-| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | nm |
 
 **Abbreviations**
 
@@ -120,7 +119,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 **Key terms.**
 
-- **Conductivity (σ):** how easily a material carries electric current, in S/cm; its inverse is resistivity ρ = 1/σ in Ω·cm.
+- **Conductivity (σ):** how easily a material carries electric current, in S/m; its inverse is resistivity ρ = 1/σ in Ω·m.
 - **Energy band:** a wide range of closely spaced allowed electron energies formed when many atoms join into a solid.
 - **Valence band:** the highest band that is full at 0 K; it holds the electrons that form the bonds.
 - **Conduction band:** the band above the valence band; electrons in it are free to move and carry current.
@@ -131,7 +130,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 **Model answer.**
 
-**Definition.** A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator (resistivity roughly 10⁻³ to 10⁸ Ω·cm) and can be changed over many orders of magnitude by temperature, light, electric field and, above all, by doping. Examples: silicon (Si), germanium (Ge), gallium arsenide (GaAs).
+**Definition.** A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator (resistivity roughly 10⁻⁵ to 10⁶ Ω·m) and can be changed over many orders of magnitude by temperature, light, electric field and, above all, by doping. Examples: silicon (Si), germanium (Ge), gallium arsenide (GaAs).
 
 **How conductivity depends on carriers.** Current is carried by mobile charges, so
 
@@ -139,10 +138,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Where:
 
-- σ = conductivity (S/cm)
+- σ = conductivity (S/m)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- n, p = concentrations of free electrons and holes (cm⁻³)
-- μ_n, μ_p = electron and hole mobilities, i.e. drift speed per unit field (cm²/V·s)
+- n, p = concentrations of free electrons and holes (m⁻³)
+- μ_n, μ_p = electron and hole mobilities, i.e. drift speed per unit field (m²/V·s)
 
 The three classes differ mainly in **how many free carriers they have**, and that is decided by their energy-band structure.
 
@@ -150,22 +149,22 @@ The three classes differ mainly in **how many free carriers they have**, and tha
 
 Sketch in the exam: three band diagrams side by side, label "conduction band", "valence band", "E_g", and show a few electrons above a small gap for the semiconductor.
 
-**1. Conductor (metal).** The valence and conduction bands overlap, or the top band is only partly filled, so there is no gap. About 10²² free electrons per cm³ are always present. Conductivity is very high (σ ≈ 10⁵–10⁶ S/cm; copper ρ = 1.7×10⁻⁶ Ω·cm) and is hardly changed by impurities. When temperature rises the number of electrons stays the same but lattice vibrations scatter them more, so conductivity **falls** (positive temperature coefficient of resistance).
+**1. Conductor (metal).** The valence and conduction bands overlap, or the top band is only partly filled, so there is no gap. About 10²⁸ free electrons per m³ are always present. Conductivity is very high (σ ≈ 10⁷–10⁸ S/m; copper ρ = 1.7×10⁻⁸ Ω·m) and is hardly changed by impurities. When temperature rises the number of electrons stays the same but lattice vibrations scatter them more, so conductivity **falls** (positive temperature coefficient of resistance).
 
-**2. Insulator.** The valence band is full and the conduction band empty, separated by a wide gap (E_g > about 4 eV; SiO₂ ≈ 9 eV). Room-temperature thermal energy (kT ≈ 0.026 eV) is far too small to lift electrons across, so there are practically no free carriers. Resistivity is very high (10¹⁰–10¹⁸ Ω·cm) and changes little with temperature under normal conditions.
+**2. Insulator.** The valence band is full and the conduction band empty, separated by a wide gap (E_g > about 4 eV; SiO₂ ≈ 9 eV). Room-temperature thermal energy (kT ≈ 0.026 eV) is far too small to lift electrons across, so there are practically no free carriers. Resistivity is very high (10⁸–10¹⁶ Ω·m) and changes little with temperature under normal conditions.
 
-**3. Semiconductor.** The arrangement is the same as in an insulator (full valence band, empty conduction band at 0 K) but the gap is **small** (Si 1.12 eV, Ge 0.66 eV, GaAs 1.42 eV). At room temperature a small fraction of bonds is broken thermally: each freed electron enters the conduction band and leaves a hole in the valence band, so **both electrons and holes** conduct. Pure silicon has only n = p = n_i = 1×10¹⁰ cm⁻³ at 300 K, so its conductivity is low; but:
+**3. Semiconductor.** The arrangement is the same as in an insulator (full valence band, empty conduction band at 0 K) but the gap is **small** (Si 1.12 eV, Ge 0.66 eV, GaAs 1.42 eV). At room temperature a small fraction of bonds is broken thermally: each freed electron enters the conduction band and leaves a hole in the valence band, so **both electrons and holes** conduct. Pure silicon has only n = p = n_i = 1×10¹⁶ m⁻³ at 300 K, so its conductivity is low; but:
 
 - heating breaks more bonds (n_i rises roughly as e^{−E_g/2kT}), so conductivity **rises** with temperature (negative temperature coefficient of resistance);
-- doping with about one phosphorus atom per million Si atoms (5×10¹⁶ cm⁻³) raises the conductivity more than a million times.
+- doping with about one phosphorus atom per million Si atoms (5×10²² m⁻³) raises the conductivity more than a million times.
 
 **Comparison.**
 
 | Property | Conductor | Semiconductor | Insulator |
 |---|---|---|---|
 | Band gap | None (bands overlap) | Small, ≈ 0.5–3.5 eV | Large, > 4 eV |
-| Free carriers | ≈ 10²² cm⁻³, fixed | Few, controllable; electrons **and** holes | Practically none |
-| Resistivity (Ω·cm) | ≈ 10⁻⁶ | ≈ 10⁻³ to 10⁸ | 10¹⁰ to 10¹⁸ |
+| Free carriers | ≈ 10²⁸ m⁻³, fixed | Few, controllable; electrons **and** holes | Practically none |
+| Resistivity (Ω·m) | ≈ 10⁻⁸ | ≈ 10⁻⁵ to 10⁶ | 10⁸ to 10¹⁶ |
 | Effect of heating | σ falls | σ rises | Very small |
 | Effect of impurities | Small | Very large | Small |
 | Examples | Cu, Al, Ag | Si, Ge, GaAs | Glass, SiO₂, rubber |
@@ -177,7 +176,7 @@ Sketch in the exam: three band diagrams side by side, label "conduction band", "
 - ✓ definition: conductivity between conductor and insulator **and** controllable (doping, temperature, light)
 - ✓ at least two examples (Si, Ge, GaAs)
 - ✓ labelled band diagram for all three classes
-- ✓ conductor: overlapping bands, ≈ 10²² cm⁻³ electrons, σ falls with temperature
+- ✓ conductor: overlapping bands, ≈ 10²⁸ m⁻³ electrons, σ falls with temperature
 - ✓ insulator: wide gap (> 4 eV, e.g. SiO₂ 9 eV), no carriers
 - ✓ semiconductor: small gap (Si 1.12 eV), electron–hole pairs created thermally, σ rises with temperature
 - ✓ effect of doping on a semiconductor (orders of magnitude)
@@ -192,7 +191,7 @@ Sketch in the exam: three band diagrams side by side, label "conduction band", "
 
 **Remember it.** "No gap, small gap, big gap": metal, semiconductor, insulator, and only the small gap can be tuned.
 
-**Try a variant.** Explain why the resistance of a silicon sample falls when it is heated, while that of a copper wire rises. *Answer:* In copper the number of free electrons (≈ 10²² cm⁻³) is fixed; heating only increases lattice vibrations, which scatter the electrons and lower their mobility, so resistance rises. In silicon heating breaks covalent bonds, creating electron–hole pairs; n_i grows roughly as e^{−E_g/2kT}, so the number of carriers rises far faster than the mobility falls, and resistance drops.
+**Try a variant.** Explain why the resistance of a silicon sample falls when it is heated, while that of a copper wire rises. *Answer:* In copper the number of free electrons (≈ 10²⁸ m⁻³) is fixed; heating only increases lattice vibrations, which scatter the electrons and lower their mobility, so resistance rises. In silicon heating breaks covalent bonds, creating electron–hole pairs; n_i grows roughly as e^{−E_g/2kT}, so the number of carriers rises far faster than the mobility falls, and resistance drops.
 
 ---
 
@@ -228,7 +227,7 @@ Sketch in the exam: three band diagrams side by side, label "conduction band", "
 1. **Composition:** one element versus two or more elements in a fixed ratio.
 2. **Bonding:** purely covalent versus covalent with some ionic character.
 3. **Band gap:** fixed and indirect (Si, Ge) versus adjustable and often direct, so compounds can emit light.
-4. **Mobility:** compounds such as GaAs can have much higher electron mobility (≈ 8500 cm²/V·s against 1350 for Si), suiting very high frequencies.
+4. **Mobility:** compounds such as GaAs can have much higher electron mobility (≈ 0.85 m²/V·s against 0.135 for Si), suiting very high frequencies.
 5. **Processing:** elemental crystals are easier to grow and dope, cheaper and more mature; compounds need careful control of stoichiometry, are more brittle, costly, and sometimes toxic (arsenic).
 6. **Applications:** elemental for integrated circuits, power devices and solar cells; compound for LEDs, lasers, microwave/RF and high-power wide-gap devices.
 
@@ -280,10 +279,10 @@ Sketch in the exam: three band diagrams side by side, label "conduction band", "
 
 - **Native oxide:** an oxide that grows directly on the material by heating it in oxygen or steam; for silicon it is silicon dioxide (SiO₂).
 - **Band gap (E_g):** the energy needed to free an electron from a bond; 1.12 eV for Si at 300 K.
-- **Intrinsic carrier concentration (n_i):** the number of electrons (equal to holes) per cm³ created by heat in pure material; 1×10¹⁰ cm⁻³ for Si at 300 K.
+- **Intrinsic carrier concentration (n_i):** the number of electrons (equal to holes) per m³ created by heat in pure material; 1×10¹⁶ m⁻³ for Si at 300 K.
 - **Leakage current:** the small unwanted current through a reverse-biased junction, caused by thermally generated carriers.
 - **Czochralski (CZ) method:** growth of a large single crystal by slowly pulling a seed crystal from molten silicon.
-- **Interface trap density (D_it):** the number of unwanted electron states at the Si/SiO₂ boundary per cm² per eV.
+- **Interface trap density (D_it):** the number of unwanted electron states at the Si/SiO₂ boundary per m² per eV.
 - **Dopant:** an impurity added on purpose to control conductivity, e.g. boron (B) or phosphorus (P).
 
 **Model answer.**
@@ -294,13 +293,13 @@ Silicon is used for more than 90 % of all semiconductor devices because it combi
 
 **2. An excellent native oxide.** Heating silicon in oxygen grows SiO₂, which is:
 
-- an excellent insulator (E_g ≈ 9 eV, breakdown field ≈ 10 MV/cm);
+- an excellent insulator (E_g ≈ 9 eV, breakdown field ≈ 10⁹ V/m, i.e. 1 GV/m);
 - chemically stable and insoluble in water;
-- joined to silicon by a very clean interface (D_it ≈ 10¹⁰ cm⁻²eV⁻¹).
+- joined to silicon by a very clean interface (D_it ≈ 10¹⁴ m⁻²eV⁻¹).
 
 It is used as the MOSFET gate insulator, a mask against dopant diffusion, surface passivation, and isolation between devices. No other semiconductor has an oxide this good; this one property is why MOS technology and VLSI are built on silicon.
 
-**3. A well-suited band gap.** E_g = 1.12 eV is large enough to keep n_i small (1×10¹⁰ cm⁻³ at 300 K), so leakage is low and devices work up to about 150 °C (germanium, with 0.66 eV, fails above about 75 °C). It is also small enough that doped silicon conducts well.
+**3. A well-suited band gap.** E_g = 1.12 eV is large enough to keep n_i small (1×10¹⁶ m⁻³ at 300 K), so leakage is low and devices work up to about 150 °C (germanium, with 0.66 eV, fails above about 75 °C). It is also small enough that doped silicon conducts well.
 
 **4. Mature crystal growth.** Very large (300 mm diameter), highly pure (impurities below 1 part per billion) and nearly defect-free single crystals are grown routinely by the Czochralski method.
 
@@ -310,7 +309,7 @@ It is used as the MOSFET gate insulator, a mask against dopant diffusion, surfac
 
 **7. Elemental and non-toxic.** As a single element it has no stoichiometry to control and no toxic constituents (unlike the arsenic in GaAs), which simplifies processing.
 
-**Limitation.** Silicon has an **indirect** band gap, so it emits light very poorly, and its electron mobility (1350 cm²/V·s) is lower than that of GaAs (≈ 8500). LEDs, lasers and the highest-frequency circuits therefore use compound semiconductors instead.
+**Limitation.** Silicon has an **indirect** band gap, so it emits light very poorly, and its electron mobility (0.135 m²/V·s) is lower than that of GaAs (≈ 0.85). LEDs, lasers and the highest-frequency circuits therefore use compound semiconductors instead.
 
 **Marking checklist.** The points a marker looks for. Tick each one off in your own answer:
 
@@ -344,8 +343,8 @@ It is used as the MOSFET gate insulator, a mask against dopant diffusion, surfac
 
 - **Band gap (E_g):** the energy (eV) between the top of the valence band and the bottom of the conduction band.
 - **Direct / indirect band gap:** direct means an electron can recombine and emit a photon without changing momentum (efficient light emission); indirect needs a lattice vibration (phonon) as well (poor emission).
-- **Electron mobility (μ_n):** drift velocity per unit electric field, cm²/V·s; higher mobility means faster devices.
-- **Intrinsic carrier concentration (n_i):** thermally generated electrons per cm³ in pure material; smaller for wider gaps.
+- **Electron mobility (μ_n):** drift velocity per unit electric field, m²/V·s; higher mobility means faster devices.
+- **Intrinsic carrier concentration (n_i):** thermally generated electrons per m³ in pure material; smaller for wider gaps.
 - **Diamond cubic / zinc blende:** crystal structures in which every atom has four tetrahedral neighbours; in zinc blende the neighbours are of the other element.
 - **HEMT / MESFET:** high-speed field-effect transistors made in GaAs for microwave circuits.
 - **SiGe HBT:** a fast bipolar transistor with a silicon–germanium base.
@@ -358,11 +357,11 @@ It is used as the MOSFET gate insulator, a mask against dopant diffusion, surfac
 |---|---|---|---|
 | Type | Elemental (group IV) | Elemental (group IV) | Compound (III–V) |
 | Crystal structure | Diamond cubic | Diamond cubic | Zinc blende |
-| Lattice constant | 5.43 Å | 5.65 Å | 5.65 Å |
+| Lattice constant | 0.543 nm | 0.565 nm | 0.565 nm |
 | Bonding | Covalent | Covalent | Covalent, partly ionic |
 | Band gap | 1.12 eV | 0.66 eV | 1.42 eV |
 | Nature of gap | Indirect | Indirect | **Direct** |
-| Electron mobility (cm²/V·s) | 1350 | 3900 | 8500 |
+| Electron mobility (m²/V·s) | 0.135 | 0.39 | 0.85 |
 | Max. operating temperature | ≈ 150 °C | ≈ 75 °C | High (wide gap) |
 | Native oxide | Excellent (SiO₂) | Poor, water-soluble | None useful |
 | Light emission | Very poor | Very poor | Efficient |
@@ -423,10 +422,10 @@ Sketch in the exam: two small E–k curves, one with the band edges aligned (GaA
 - **Crystal lattice:** an infinite, periodic three-dimensional array of points in which every point has identical surroundings.
 - **Basis:** the atom or group of atoms attached to each lattice point; crystal = lattice + basis.
 - **Unit cell:** the smallest block which, repeated by translation in three directions, rebuilds the whole crystal.
-- **Lattice constant (a):** the edge length of a cubic unit cell; Si 5.43 Å (1 Å = 10⁻¹⁰ m).
+- **Lattice constant (a):** the edge length of a cubic unit cell; Si 0.543 nm (1 nm = 10⁻⁹ m).
 - **Single crystal:** a solid with the same lattice and orientation throughout; *polycrystalline* material is made of many small crystals (grains), *amorphous* has no long-range order.
 - **Diamond cubic structure:** two interpenetrating face-centred cubic (FCC) lattices offset by a quarter of the body diagonal; each atom has four tetrahedral neighbours (the structure of Si and Ge).
-- **Mobility (μ):** drift velocity per unit electric field (cm²/V·s); it falls when carriers are scattered.
+- **Mobility (μ):** drift velocity per unit electric field (m²/V·s); it falls when carriers are scattered.
 - **Epitaxy:** growth of a thin single-crystal layer that copies the crystal arrangement of the substrate.
 
 **Model answer.**
@@ -440,7 +439,7 @@ Where:
 - lattice = the geometric array of repeating points
 - basis = the group of atoms attached to every lattice point
 
-*Examples.* Silicon has an FCC lattice with a two-atom basis, giving the **diamond-cubic** structure: 8 atoms per cubic cell, each bonded covalently to 4 neighbours at 109.5°, a = 5.43 Å, atom density 8/a³ = 5.0×10²² cm⁻³. GaAs has the same arrangement, but the two basis atoms are Ga and As, giving the **zinc-blende** structure.
+*Examples.* Silicon has an FCC lattice with a two-atom basis, giving the **diamond-cubic** structure: 8 atoms per cubic cell, each bonded covalently to 4 neighbours at 109.5°, a = 0.543 nm, atom density 8/a³ = 5.0×10²⁸ m⁻³. GaAs has the same arrangement, but the two basis atoms are Ga and As, giving the **zinc-blende** structure.
 
 Sketch in the exam: a cube labelled with edge a, showing the corner and face-centre atoms (FCC), and note that the diamond structure adds four atoms inside the cube.
 
@@ -454,7 +453,7 @@ Sketch in the exam: a cube labelled with edge a, showing the corner and face-cen
 
 **4. Doping and diffusion.** A dopant becomes electrically active only when it occupies a substitutional lattice site. The open diamond structure (only 34 % of space filled by atoms) also allows atoms to diffuse through interstitial spaces.
 
-**5. Epitaxy and heterostructures.** A defect-free layer can be grown only on a substrate with the same structure and almost the same lattice constant (e.g. AlGaAs on GaAs, both ≈ 5.65 Å).
+**5. Epitaxy and heterostructures.** A defect-free layer can be grown only on a substrate with the same structure and almost the same lattice constant (e.g. AlGaAs on GaAs, both ≈ 0.565 nm).
 
 **6. Defects control lifetime and leakage.** Departures from the ideal structure (vacancies, dislocations, grain boundaries) introduce energy states in the gap that trap carriers and act as recombination centres, shortening carrier lifetime and increasing junction leakage.
 
@@ -467,7 +466,7 @@ Sketch in the exam: a cube labelled with edge a, showing the corner and face-cen
 - ✓ definition: periodic 3-D array of points, identical surroundings
 - ✓ unit cell and lattice constant mentioned
 - ✓ crystal = lattice + basis
-- ✓ example: Si diamond cubic (two FCC lattices, 4 neighbours, a = 5.43 Å) and/or GaAs zinc blende
+- ✓ example: Si diamond cubic (two FCC lattices, 4 neighbours, a = 0.543 nm) and/or GaAs zinc blende
 - ✓ periodic potential gives energy bands and the band gap
 - ✓ single crystal gives high mobility; defects and grain boundaries scatter carriers
 - ✓ anisotropy and wafer orientation ((100) for MOS)
@@ -482,7 +481,7 @@ Sketch in the exam: a cube labelled with edge a, showing the corner and face-cen
 
 **Remember it.** "Order makes bands, breaks in order make trouble."
 
-**Try a variant.** Calculate the number of atoms per cm³ in silicon, given that its diamond-cubic unit cell (a = 5.43 Å) contains 8 atoms. *Answer:* Atoms per cell = 8 corners × 1/8 + 6 faces × 1/2 + 4 inside = 8. Volume of cell = a³ = (5.43×10⁻⁸ cm)³ = 1.60×10⁻²² cm³. Atom density = 8 / 1.60×10⁻²² = **5.0×10²² atoms/cm³**.
+**Try a variant.** Calculate the number of atoms per m³ in silicon, given that its diamond-cubic unit cell (a = 0.543 nm) contains 8 atoms. *Answer:* Atoms per cell = 8 corners × 1/8 + 6 faces × 1/2 + 4 inside = 8. Volume of cell = a³ = (5.43×10⁻¹⁰ m)³ = 1.60×10⁻²⁸ m³. Atom density = 8 / 1.60×10⁻²⁸ = **5.0×10²⁸ atoms/m³**.
 
 ---
 
@@ -545,8 +544,8 @@ In a cubic crystal the direction [h k l] is perpendicular to the plane (h k l), 
 
 Where:
 
-- d_hkl = spacing between neighbouring (h k l) planes (Å)
-- a = lattice constant of the cubic cell (Å); Si 5.43 Å
+- d_hkl = spacing between neighbouring (h k l) planes (nm)
+- a = lattice constant of the cubic cell (nm); Si 0.543 nm
 - h, k, l = the Miller indices
 
 @fig figures/planes.svg | The (100), (110) and (111) planes of a cubic unit cell, the three planes most used in semiconductor work.
@@ -581,7 +580,7 @@ Sketch in the exam: a cube with x, y, z axes and the (100), (110) and (111) plan
 
 **Remember it.** "Intercept, invert, clear, reduce": flip the intercepts, clear the fractions, bracket the smallest whole numbers.
 
-**Try a variant.** Find the spacing of the (111) planes in silicon (a = 5.43 Å). *Answer:* d₁₁₁ = a/√(1² + 1² + 1²) = 5.43/√3 = **3.14 Å** (3.135 Å). For comparison d₁₀₀ = 5.43 Å.
+**Try a variant.** Find the spacing of the (111) planes in silicon (a = 0.543 nm). *Answer:* d₁₁₁ = a/√(1² + 1² + 1²) = 0.543/√3 = **0.314 nm** (0.3135 nm). For comparison d₁₀₀ = 0.543 nm.
 
 ---
 
@@ -769,7 +768,7 @@ Sketch in the exam: x, y, z axes with marks at 2a on x, 3b on y and 1c on z, joi
 
     SiO₂ + 2C → Si + 2CO
 
-The product is about 98 % pure; the main impurities are Fe, Al, Ca, C, B and P. Since silicon has 5×10²² atoms per cm³, 2 % impurity is of order 10²¹ impurity atoms per cm³, millions of times too many for devices.
+The product is about 98 % pure; the main impurities are Fe, Al, Ca, C, B and P. Since silicon has 5×10²⁸ atoms per m³, 2 % impurity is of order 10²⁷ impurity atoms per m³, millions of times too many for devices.
 
 **Stage 1: Hydrochlorination (making a liquid).** MG-Si is ground to a powder and reacted with dry hydrogen chloride gas at about 300 °C (usually in a fluidised bed with a catalyst):
 
@@ -789,7 +788,7 @@ Where (for all the reactions above):
 - HCl = hydrogen chloride; H₂ = hydrogen
 - SiHCl₃ = trichlorosilane
 
-Silicon deposits on the hot rods, which grow over many hours into thick bars of **electronic-grade polysilicon**, 9N to 11N pure (an impurity level of order 10¹³ cm⁻³ or less). The HCl and unreacted gases are collected and recycled.
+Silicon deposits on the hot rods, which grow over many hours into thick bars of **electronic-grade polysilicon**, 9N to 11N pure (an impurity level of order 10¹⁹ m⁻³ or less). The HCl and unreacted gases are collected and recycled.
 
 **Stage 4 (to make wafers): single-crystal growth.** EG-Si is pure but polycrystalline and undoped. It is broken into chunks, melted with the required dopant and grown into a single-crystal ingot by the Czochralski or float-zone method, then sliced and polished into wafers.
 
@@ -822,7 +821,7 @@ Silicon deposits on the hot rods, which grow over many hours into thick bars of 
 
 **Remember it.** "Furnace, Fizz, Fractionate, Freeze-out": arc furnace → HCl reaction → distillation → Siemens deposition.
 
-**Try a variant.** Why is fractional distillation of SiHCl₃ such an effective purification step, and how pure must EG-Si be compared with MG-Si? *Answer:* Each impurity (Fe, B, P, Al …) forms its own chloride with a boiling point different from that of SiHCl₃ (32 °C), so repeated boiling and condensing leaves those impurities behind. MG-Si contains about 2 % impurity (≈ 10²¹ cm⁻³ in 5×10²² Si atoms/cm³); EG-Si at 9N contains at most one impurity per 10⁹ atoms, 5×10²² × 10⁻⁹ = **5×10¹³ cm⁻³**, about **2×10⁷ times purer**.
+**Try a variant.** Why is fractional distillation of SiHCl₃ such an effective purification step, and how pure must EG-Si be compared with MG-Si? *Answer:* Each impurity (Fe, B, P, Al …) forms its own chloride with a boiling point different from that of SiHCl₃ (32 °C), so repeated boiling and condensing leaves those impurities behind. MG-Si contains about 2 % impurity (≈ 10²⁷ m⁻³ in 5×10²⁸ Si atoms/m³); EG-Si at 9N contains at most one impurity per 10⁹ atoms, 5×10²⁸ × 10⁻⁹ = **5×10¹⁹ m⁻³**, about **2×10⁷ times purer**.
 
 ---
 
@@ -891,7 +890,7 @@ Silicon deposits on the hot rods, which grow over many hours into thick bars of 
 
 **Remember it.** "Dip, Neck, Shoulder, Body, Tail": the crystal copies the seed it is pulled from.
 
-**Try a variant.** A 300 mm CZ ingot body 1.5 m long is pulled at 1.2 mm/min. How long does the body take to grow, and what is its mass (density of Si 2.33 g/cm³)? *Answer:* t = L/v = 150 cm ÷ 0.12 cm/min = 1250 min ≈ **20.8 h**. m = density × πr²L = 2.33 × π × 15² × 150 = 2.47×10⁵ g ≈ **247 kg**, so the crucible must be charged with well over 250 kg of silicon.
+**Try a variant.** A 300 mm CZ ingot body 1.5 m long is pulled at 1.2 mm/min. How long does the body take to grow, and what is its mass (density of Si 2330 kg/m³)? *Answer:* t = L/v = 1.5 m ÷ 1.2×10⁻³ m/min = 1250 min ≈ **20.8 h**. m = density × πr²L = 2330 × π × 0.15² × 1.5 = **247 kg**, so the crucible must be charged with well over 250 kg of silicon.
 
 ---
 
@@ -906,7 +905,7 @@ Silicon deposits on the hot rods, which grow over many hours into thick bars of 
 - **Czochralski (CZ) method:** growing a single crystal by slowly pulling a rotating seed from molten silicon held in a quartz crucible.
 - **Float-zone (FZ) method:** the crucible-free alternative, in which a molten zone is moved along a polysilicon rod.
 - **Segregation coefficient (k₀):** the ratio of dopant concentration in the freezing solid to that in the liquid, k₀ = C_s/C_l; for most dopants k₀ < 1 (B 0.8, P 0.35).
-- **Resistivity (ρ):** how strongly the material opposes current (Ω·cm); set mainly by the doping.
+- **Resistivity (ρ):** how strongly the material opposes current (Ω·m); set mainly by the doping.
 - **Intrinsic gettering:** trapping of metal impurities by oxygen precipitates deep in the wafer, away from the devices at the surface.
 - **Dislocation:** a line defect in the crystal that causes leakage.
 
@@ -923,16 +922,16 @@ Silicon deposits on the hot rods, which grow over many hours into thick bars of 
 
 **Limitations.**
 
-1. **Contamination from the crucible.** The hot quartz crucible slowly dissolves, adding oxygen (≈ 10¹⁸ cm⁻³), and graphite parts add carbon. Oxygen forms thermal donors and precipitates and limits the resistivity to about 100 Ω·cm or less, so CZ silicon is unsuitable for high-voltage power devices and detectors (FZ is used instead).
+1. **Contamination from the crucible.** The hot quartz crucible slowly dissolves, adding oxygen (≈ 10²⁴ m⁻³), and graphite parts add carbon. Oxygen forms thermal donors and precipitates and limits the resistivity to about 1 Ω·m or less, so CZ silicon is unsuitable for high-voltage power devices and detectors (FZ is used instead).
 2. **Non-uniform doping along the ingot (segregation).** Because k₀ < 1, the crystal rejects dopant into the melt, which becomes steadily richer. The doping therefore rises from the seed end to the tail end:
 
     C_s = k₀ C₀ (1 − f)^{k₀ − 1}
 
 Where:
 
-- C_s = dopant concentration in the crystal at the point being grown (cm⁻³)
+- C_s = dopant concentration in the crystal at the point being grown (m⁻³)
 - k₀ = segregation coefficient (dimensionless)
-- C₀ = dopant concentration in the starting melt (cm⁻³)
+- C₀ = dopant concentration in the starting melt (m⁻³)
 - f = fraction of the melt already frozen (0 at the seed end)
 
 So resistivity varies along the ingot; melt convection also causes radial variations (growth striations).
@@ -946,7 +945,7 @@ So resistivity varies along the ingot; melt convection also causes radial variat
 - ✓ dislocation-free single crystal with the seed's orientation
 - ✓ controlled doping / resistivity
 - ✓ high throughput, mature, low cost (or oxygen strengthening and gettering)
-- ✓ limitation: oxygen (≈ 10¹⁸ cm⁻³) and carbon contamination from crucible; limits resistivity
+- ✓ limitation: oxygen (≈ 10²⁴ m⁻³) and carbon contamination from crucible; limits resistivity
 - ✓ limitation: axial doping non-uniformity from segregation, k₀ < 1
 
 **Common mistakes.**
@@ -1031,7 +1030,7 @@ Where:
 
 **Remember it.** **V**apour **R**eacts, **L**iquid **P**recipitates, **M**olecular **B**eams **B**uild layer by layer.
 
-**Try a variant.** Why must MBE be carried out in ultra-high vacuum? *Answer:* Two reasons. (1) The atoms must reach the wafer as beams without colliding with gas molecules: the mean free path of a gas molecule is roughly λ ≈ 5×10⁻³/P cm (P in Torr), so at 10⁻¹⁰ Torr λ ≈ 5×10⁷ cm (about 500 km), far longer than the ≈ 20 cm cell-to-wafer distance. (2) At one atomic layer per second the surface is easily contaminated, so the background gas must be extremely low to keep the layer pure. UHV also allows electron-beam monitoring (RHEED) during growth.
+**Try a variant.** Why must MBE be carried out in ultra-high vacuum? *Answer:* Two reasons. (1) The atoms must reach the wafer as beams without colliding with gas molecules: the mean free path of a gas molecule is roughly λ ≈ 5×10⁻⁵/P m (P in Torr), so at 10⁻¹⁰ Torr λ ≈ 5×10⁵ m (about 500 km), far longer than the ≈ 0.2 m cell-to-wafer distance. (2) At one atomic layer per second the surface is easily contaminated, so the background gas must be extremely low to keep the layer pure. UHV also allows electron-beam monitoring (RHEED) during growth.
 
 ---
 
@@ -1115,4 +1114,4 @@ Where:
 
 **Remember it.** Hotter, faster, coarser → VPE; cooler, slower, finer → MBE; LPE sits in the middle on temperature but last on precision.
 
-**Try a variant.** A 10 nm GaAs quantum well is to be grown. Which method would you choose, and how long does the well take at 1 monolayer per second (monolayer thickness a/2, a = 5.653 Å)? *Answer:* **MBE**, because only it gives single-atomic-layer control and abrupt interfaces at this thickness. Monolayer = 5.653/2 = 2.83 Å = 0.283 nm, so 10 nm needs 10/0.283 ≈ 35 monolayers, taking **≈ 35 s** (the growth rate is 0.283 nm/s ≈ 1.0 μm/h). LPE (± 0.1 μm = 100 nm) could not even define the layer.
+**Try a variant.** A 10 nm GaAs quantum well is to be grown. Which method would you choose, and how long does the well take at 1 monolayer per second (monolayer thickness a/2, a = 0.5653 nm)? *Answer:* **MBE**, because only it gives single-atomic-layer control and abrupt interfaces at this thickness. Monolayer = 0.5653/2 = 0.283 nm, so 10 nm needs 10/0.283 ≈ 35 monolayers, taking **≈ 35 s** (the growth rate is 0.283 nm/s ≈ 1.0 μm/h). LPE (± 0.1 μm = 100 nm) could not even define the layer.

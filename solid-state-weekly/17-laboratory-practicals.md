@@ -145,7 +145,7 @@ Where:
 - ΔI_D = small change in drain current (A)
 - ΔV_GS = small change in gate-to-source voltage that causes it (V)
 
-**Channel (effective) mobility.** The mobility of electrons in the thin MOSFET channel, worked out from the measured g_m. It is well below the bulk mobility (1350 cm²/V·s in Si) because the electrons scatter off the Si/SiO₂ interface, and it falls further at high gate voltage (mobility degradation).
+**Channel (effective) mobility.** The mobility of electrons in the thin MOSFET channel, worked out from the measured g_m. It is well below the bulk mobility (0.135 m²/V·s in Si) because the electrons scatter off the Si/SiO₂ interface, and it falls further at high gate voltage (mobility degradation).
 
 ---
 
@@ -161,18 +161,18 @@ Where:
 
 Where:
 
-- n_i(T) = intrinsic carrier concentration at temperature T (cm⁻³)
-- N_c, N_v = effective densities of states in the conduction and valence bands, 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³ at 300 K
+- n_i(T) = intrinsic carrier concentration at temperature T (m⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands, 2.8×10²⁵ and 1.04×10²⁵ m⁻³ at 300 K
 - E_g(T) = band gap of Si at temperature T (eV); T = absolute temperature (K)
 - k = Boltzmann constant, 8.617×10⁻⁵ eV/K; kT = thermal energy (eV)
-- n = electron concentration (cm⁻³); N_D = donor concentration (cm⁻³)
+- n = electron concentration (m⁻³); N_D = donor concentration (m⁻³)
 - E_F − E_i = height of the Fermi level above the intrinsic level (eV)
 
 **Procedure.**
 
 1. Run the script below (Python 3 with NumPy and Matplotlib; the same steps work in MATLAB).
-2. Plot E_F − E_i against T from 200 K to 700 K for N_D = 10¹⁴, 10¹⁵, 10¹⁶ and 10¹⁷ cm⁻³.
-3. Plot E_F − E_i against N_D at 300 K from 10¹⁴ to 10¹⁸ cm⁻³ and measure the slope per decade.
+2. Plot E_F − E_i against T from 200 K to 700 K for N_D = 10²⁰, 10²¹, 10²² and 10²³ m⁻³.
+3. Plot E_F − E_i against N_D at 300 K from 10²⁰ to 10²⁴ m⁻³ and measure the slope per decade.
 4. For each doping, record the temperature at which n_i = N_D.
 
 ```
@@ -180,7 +180,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 k = 8.617e-5                       # Boltzmann constant, eV/K
-Nc300, Nv300 = 2.8e19, 1.04e19     # effective densities of states at 300 K, cm^-3
+Nc300, Nv300 = 2.8e25, 1.04e25     # effective densities of states at 300 K, m^-3
 
 def Eg(T):                         # silicon band gap, eV (Varshni)
     return 1.17 - 4.73e-4 * T**2 / (T + 636)
@@ -189,7 +189,7 @@ def ni(T):
     Nc = Nc300 * (T / 300)**1.5
     Nv = Nv300 * (T / 300)**1.5
     raw = np.sqrt(Nc * Nv) * np.exp(-Eg(T) / (2 * k * T))
-    return raw * 1e10 / ni_raw300  # scale so n_i(300 K) = 1e10 cm^-3
+    return raw * 1e16 / ni_raw300  # scale so n_i(300 K) = 1e16 m^-3
 
 ni_raw300 = np.sqrt(Nc300 * Nv300) * np.exp(-Eg(300) / (2 * k * 300))
 
@@ -198,32 +198,32 @@ def EF_minus_Ei(T, ND):
     return k * T * np.log(n / ni(T))
 
 T = np.linspace(200, 700, 501)
-for ND in (1e14, 1e15, 1e16, 1e17):
-    plt.plot(T, EF_minus_Ei(T, ND), label=f"N_D = {ND:.0e} cm^-3")
+for ND in (1e20, 1e21, 1e22, 1e23):
+    plt.plot(T, EF_minus_Ei(T, ND), label=f"N_D = {ND:.0e} m^-3")
     Tint = T[np.argmin(abs(ni(T) - ND))]
     print(f"N_D = {ND:.0e}: E_F - E_i at 300 K = {EF_minus_Ei(300, ND):.3f} eV, "
           f"n_i = N_D at about {Tint:.0f} K")
 plt.xlabel("T (K)"); plt.ylabel("E_F - E_i (eV)"); plt.legend(); plt.grid()
 plt.show()
 
-slope = (EF_minus_Ei(300, 1e17) - EF_minus_Ei(300, 1e16))
+slope = (EF_minus_Ei(300, 1e23) - EF_minus_Ei(300, 1e22))
 print(f"Shift per decade of doping at 300 K: {1000 * slope:.1f} mV")
 ```
 
 **Results** (output of the script):
 
-| N_D (cm⁻³) | E_F − E_i at 300 K (eV) | Temperature where n_i = N_D |
+| N_D (m⁻³) | E_F − E_i at 300 K (eV) | Temperature where n_i = N_D |
 |---|---|---|
-| 10¹⁴ | 0.238 | ≈ 470 K |
-| 10¹⁵ | 0.298 | ≈ 550 K |
-| 10¹⁶ | 0.357 | ≈ 650 K |
-| 10¹⁷ | 0.417 | above 700 K |
+| 10²⁰ | 0.238 | ≈ 470 K |
+| 10²¹ | 0.298 | ≈ 550 K |
+| 10²² | 0.357 | ≈ 650 K |
+| 10²³ | 0.417 | above 700 K |
 
 Shift per decade of doping at 300 K: 59.5 mV (= kT ln 10).
 
 @fig figures/fermi-vs-t.svg | Output of Practical 1: Fermi level against temperature for silicon. Each curve falls towards zero (mid-gap) once n_i approaches N_D.
 
-**Discussion points.** (1) Why does the curve flatten near zero at high T? (2) Why does heavier doping raise the maximum operating temperature? (3) What would change for germanium (E_g = 0.66 eV)? Germanium reaches n_i = 10¹⁵ cm⁻³ at only about 400 K, which is why Ge devices fail at modest temperatures.
+**Discussion points.** (1) Why does the curve flatten near zero at high T? (2) Why does heavier doping raise the maximum operating temperature? (3) What would change for germanium (E_g = 0.66 eV)? Germanium reaches n_i = 10²¹ m⁻³ at only about 400 K, which is why Ge devices fail at modest temperatures.
 
 ---
 
@@ -277,10 +277,10 @@ Shift per decade of doping at 300 K: 59.5 mV (= kT ln 10).
 Where:
 
 - C = depletion capacitance (F)
-- A = junction area (cm²)
+- A = junction area (m²)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
-- N = doping of the lightly doped side (cm⁻³)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m
+- N = doping of the lightly doped side (m⁻³)
 - V_bi = built-in potential (V); V = applied voltage, negative in reverse bias (V)
 
 The plot of 1/C² against V is a straight line: the slope gives N, the voltage intercept gives V_bi.
@@ -294,7 +294,7 @@ The plot of 1/C² against V is a straight line: the slope gives N, the voltage i
 3. Plot C against V and 1/C² against V. Fit a straight line to 1/C².
 4. Take the area A from the datasheet (or measure the contact diameter).
 
-**Example readings** (A = 1.0×10⁻³ cm², Si):
+**Example readings** (A = 1.0×10⁻⁷ m², Si):
 
 | V (V) | C (pF) | 1/C² (F⁻²) |
 |---|---|---|
@@ -308,9 +308,9 @@ The plot of 1/C² against V is a straight line: the slope gives N, the voltage i
 **Analysis.**
 
     Slope: (6.72×10²¹ − 7.2×10²⁰)/(−5 − 0) = −1.20×10²¹ F⁻²V⁻¹
-    N = 2/(qε_sA²|slope|) = 2/(1.602×10⁻¹⁹ × 1.036×10⁻¹² × 10⁻⁶ × 1.20×10²¹) = 1.0×10¹⁶ cm⁻³
+    N = 2/(qε_sA²|slope|) = 2/(1.602×10⁻¹⁹ × 1.036×10⁻¹⁰ × 10⁻¹⁴ × 1.20×10²¹) = 1.0×10²² m⁻³
     Intercept: 1/C² = 0 at V = 7.2×10²⁰/1.20×10²¹ = +0.60 V  ⇒  V_bi = 0.60 V
-    Depletion depth at −5 V: W = ε_sA/C = 1.036×10⁻¹⁵/12.2×10⁻¹² = 0.85 μm
+    Depletion depth at −5 V: W = ε_sA/C = 1.036×10⁻¹⁷/12.2×10⁻¹² = 8.5×10⁻⁷ m (0.85 μm)
 
 @fig figures/cv.svg | Mott–Schottky plot of the example readings. A straight line means uniform doping; curvature would reveal a doping profile N(W).
 
@@ -329,8 +329,8 @@ The plot of 1/C² against V is a straight line: the slope gives N, the voltage i
 Where:
 
 - I_D = drain current (A)
-- μ_n = channel electron mobility (cm²/V·s)
-- C_ox = gate-oxide capacitance per unit area (F/cm²)
+- μ_n = channel electron mobility (m²/V·s)
+- C_ox = gate-oxide capacitance per unit area (F/m²)
 - W/L = channel width-to-length ratio
 - V_GS, V_DS = gate–source and drain–source voltages (V); V_T = threshold voltage (V)
 
@@ -345,7 +345,7 @@ so I_D against V_GS is a straight line of slope g_m = μ_nC_ox(W/L)V_DS that mee
 3. **Output curves:** for V_GS = 1.0, 1.5, 2.0 V, sweep V_DS from 0 to 3 V; record I_D.
 4. Find V_T by linear extrapolation at the point of maximum slope; find μ_n from the slope.
 
-**Example readings** (linear region, V_DS = 0.1 V; device with C_ox = 3.45×10⁻⁷ F/cm², W/L = 10):
+**Example readings** (linear region, V_DS = 0.1 V; device with C_ox = 3.45×10⁻³ F/m², W/L = 10):
 
 | V_GS (V) | 0.5 | 1.0 | 1.5 | 2.0 | 2.5 |
 |---|---|---|---|---|---|
@@ -356,9 +356,9 @@ so I_D against V_GS is a straight line of slope g_m = μ_nC_ox(W/L)V_DS that mee
     g_m = ΔI_D/ΔV_GS = (291 − 84) μA / 1.5 V = 1.38×10⁻⁴ S
     Line through (1.0 V, 84 μA): I_D = 0 at V_GS = 1.0 − 84/138 = 0.39 V
     V_T = 0.39 − V_DS/2 = 0.39 − 0.05 = 0.34 V
-    μ_n = g_m L / (W C_ox V_DS) = 1.38×10⁻⁴ / (10 × 3.45×10⁻⁷ × 0.1) = 400 cm²/V·s
+    μ_n = g_m L / (W C_ox V_DS) = 1.38×10⁻⁴ / (10 × 3.45×10⁻³ × 0.1) = 0.040 m²/V·s
 
-The channel mobility (400) is about a third of bulk electron mobility in Si (1350) because of surface scattering at the Si/SiO₂ interface (Week 7). At high V_GS the measured slope falls further (mobility degradation by the vertical field), so the extraction uses the maximum-slope point.
+The channel mobility (0.040 m²/V·s) is about a third of bulk electron mobility in Si (0.135 m²/V·s) because of surface scattering at the Si/SiO₂ interface (Week 7). At high V_GS the measured slope falls further (mobility degradation by the vertical field), so the extraction uses the maximum-slope point.
 
 **Discussion.** Compare V_T from the linear and saturation methods. Why does mobility degrade at high gate voltage? How would a thicker oxide change V_T and g_m?
 

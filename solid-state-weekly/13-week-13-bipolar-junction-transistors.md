@@ -80,7 +80,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Every important word used this week is defined here, so you can read this week on its own.
 
-**Doping (N_E, N_B).** Adding a small, controlled amount of impurity atoms to a semiconductor. Donors give electrons and make it n-type; acceptors create holes and make it p-type. In a transistor, N_E and N_B are the doping concentrations of the emitter and the base (atoms per cm³).
+**Doping (N_E, N_B).** Adding a small, controlled amount of impurity atoms to a semiconductor. Donors give electrons and make it n-type; acceptors create holes and make it p-type. In a transistor, N_E and N_B are the doping concentrations of the emitter and the base (atoms per m³).
 
 **Majority and minority carriers.** The more numerous carrier in a region is the majority carrier (electrons in n-type, holes in p-type); the less numerous one is the minority carrier. Electrons injected into a p-type base are minority carriers there.
 
@@ -90,7 +90,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Forward and reverse bias.** A junction is forward biased when the p side is made positive with respect to the n side: the barrier is lowered and carriers are injected across it. It is reverse biased when the p side is made negative: the barrier rises, almost no current flows, and the field sweeps across any minority carriers that reach the depletion edge.
 
-**Diffusion.** The movement of carriers from where they are concentrated to where they are sparse, caused only by their random thermal motion. Its strength is measured by the diffusion coefficient D (cm²/s).
+**Diffusion.** The movement of carriers from where they are concentrated to where they are sparse, caused only by their random thermal motion. Its strength is measured by the diffusion coefficient D (m²/s).
 
 **Minority-carrier lifetime (τ_n, τ_p) and diffusion length (L_n, L_p).** The lifetime τ is the average time a minority carrier survives before it recombines with a majority carrier. The diffusion length is the average distance it diffuses in that time.
 
@@ -98,8 +98,8 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- L_n = electron diffusion length (cm)
-- D_n = electron diffusion coefficient (cm²/s)
+- L_n = electron diffusion length (m)
+- D_n = electron diffusion coefficient (m²/s)
 - τ_n = electron lifetime (s)
 
 **Bipolar junction transistor (BJT).** A three-terminal device made of three alternately doped regions, emitter (E), base (B) and collector (C), forming two back-to-back p-n junctions. It is called bipolar because both electrons and holes carry current. It is built as NPN or PNP.
@@ -181,7 +181,7 @@ For a **PNP** transistor the carrier polarities are reversed: holes are injected
 | Forward-active bias | V_BE ≈ +0.7 V (base above emitter); V_CB > 0 | V_EB ≈ +0.7 V (emitter above base); V_BC > 0 |
 | Conventional current | I_C and I_B flow in; I_E flows out of the emitter | I_E flows into the emitter; I_C and I_B flow out |
 | Emitter arrow in the symbol | Points out | Points in |
-| Speed and gain for the same size | Higher: electrons have the larger mobility and diffusion coefficient (D_n ≈ 35 against D_p ≈ 12.4 cm²/s in Si) | Lower |
+| Speed and gain for the same size | Higher: electrons have the larger mobility and diffusion coefficient (D_n ≈ 3.5×10⁻³ against D_p ≈ 1.24×10⁻³ m²/s in Si) | Lower |
 | Typical use | Most amplifiers and switches; integrated circuits | Complementary (push–pull) stages with NPN, high-side switches, current sources and mirrors from the positive supply |
 
 > **In plain words.** The emitter is a crowd pushing through a door (the forward-biased junction) into a narrow corridor (the base). At the other end of the corridor is a slide (the reverse-biased junction) that carries everyone who reaches it away. The corridor is so short that nearly everyone makes it. The base current is the small trickle of people who get lost in the corridor, plus a few who wander back the wrong way.
@@ -211,12 +211,12 @@ where q is the magnitude of the electronic charge and D_n the electron diffusion
 
 Where:
 
-- J_n = electron diffusion current density in the base (A/cm²)
+- J_n = electron diffusion current density in the base (A/m²)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- D_n = electron diffusion coefficient in the base (cm²/s)
-- n_B(0) = electron concentration at the emitter edge of the base, n_p0 e^{qV_BE/kT} (cm⁻³)
-- n_p0 = equilibrium electron concentration in the base, n_i²/N_B (cm⁻³)
-- W_B = neutral base width (cm)
+- D_n = electron diffusion coefficient in the base (m²/s)
+- n_B(0) = electron concentration at the emitter edge of the base, n_p0 e^{qV_BE/kT} (m⁻³)
+- n_p0 = equilibrium electron concentration in the base, n_i²/N_B (m⁻³)
+- W_B = neutral base width (m)
 
 This is the collector current density. It is controlled by V_BE through n_B(0) = n_p0 e^{qV_BE/kT}, and it is larger for a thinner base.
 
@@ -245,10 +245,10 @@ A well-designed transistor has γ very close to 1. The electrons injected into t
 
 Where:
 
-- N_E, N_B = emitter and base doping concentrations (cm⁻³)
-- W_E, W_B = neutral emitter and base widths (cm or μm; only their ratio matters)
-- D_E = diffusion coefficient of the minority carriers in the emitter (holes in an NPN) (cm²/s)
-- D_B = diffusion coefficient of the minority carriers in the base (electrons in an NPN) (cm²/s)
+- N_E, N_B = emitter and base doping concentrations (m⁻³)
+- W_E, W_B = neutral emitter and base widths (m or μm; only their ratio matters)
+- D_E = diffusion coefficient of the minority carriers in the emitter (holes in an NPN) (m²/s)
+- D_B = diffusion coefficient of the minority carriers in the base (electrons in an NPN) (m²/s)
 
 This form assumes both the emitter and the base are much thinner than their minority-carrier diffusion lengths. Making **N_E ≫ N_B** makes the fraction small and γ close to 1.
 
@@ -277,9 +277,9 @@ If recombination in the base is negligible, α_T approaches 1. If the base is th
 
 Where:
 
-- W_B = neutral base width (cm)
-- L_n = diffusion length of electrons in the base (cm)
-- D_n = electron diffusion coefficient in the base (cm²/s)
+- W_B = neutral base width (m)
+- L_n = diffusion length of electrons in the base (m)
+- D_n = electron diffusion coefficient in the base (m²/s)
 - τ_n = electron lifetime in the base (s)
 
 The transport factor depends on base width W_B, the minority-carrier diffusion coefficient D_n and the minority-carrier lifetime τ_n. **A thin base and a long lifetime give α_T close to one.** For example W_B = 1 μm and L_n = 20 μm give α_T = 1 − 1/800 = 0.99875.
@@ -369,9 +369,9 @@ Because α is close to 1, the denominator 1 − α is a small number, so **a sma
 
 #### Example 13.2: γ, α_T, α and β of a PNP transistor from its design
 
-**Question.** A silicon p⁺np transistor has emitter doping N_E = 5×10¹⁸ cm⁻³ and base doping N_B = 1×10¹⁷ cm⁻³. The neutral emitter is 0.5 μm wide and the neutral base 0.8 μm. The electron diffusion coefficient in the emitter is 5 cm²/s, the hole diffusion coefficient in the base is 8 cm²/s, and the hole lifetime in the base is 0.5 μs. Find γ, α_T, α and β, and say which factor limits the gain.
+**Question.** A silicon p⁺np transistor has emitter doping N_E = 5×10²⁴ m⁻³ and base doping N_B = 1×10²³ m⁻³. The neutral emitter is 0.5 μm wide and the neutral base 0.8 μm. The electron diffusion coefficient in the emitter is 5×10⁻⁴ m²/s, the hole diffusion coefficient in the base is 8×10⁻⁴ m²/s, and the hole lifetime in the base is 0.5 μs. Find γ, α_T, α and β, and say which factor limits the gain.
 
-**Given:** N_E = 5×10¹⁸ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 0.5 μm, W_B = 0.8 μm = 8×10⁻⁵ cm, D_E = 5 cm²/s (electrons in the emitter), D_B = 8 cm²/s (holes in the base), τ_p = 0.5×10⁻⁶ s.
+**Given:** N_E = 5×10²⁴ m⁻³, N_B = 10²³ m⁻³, W_E = 0.5 μm = 5×10⁻⁷ m, W_B = 0.8 μm = 8×10⁻⁷ m, D_E = 5×10⁻⁴ m²/s (electrons in the emitter), D_B = 8×10⁻⁴ m²/s (holes in the base), τ_p = 0.5×10⁻⁶ s.
 
 **Find:** γ, α_T, α, β.
 
@@ -385,13 +385,13 @@ Because α is close to 1, the denominator 1 − α is a small number, so **a sma
 
 Step 1. Emitter injection efficiency:
 
-    (D_E N_B W_B)/(D_B N_E W_E) = (5 × 10¹⁷ × 0.8)/(8 × 5×10¹⁸ × 0.5) = 4×10¹⁷/2×10¹⁹ = 0.020
+    (D_E N_B W_B)/(D_B N_E W_E) = (5×10⁻⁴ × 10²³ × 8×10⁻⁷)/(8×10⁻⁴ × 5×10²⁴ × 5×10⁻⁷) = 4×10¹³/2×10¹⁵ = 0.020
     γ = 1/1.020 = 0.9804
 
 Step 2. Diffusion length and base transport factor:
 
-    L_p = √(8 × 0.5×10⁻⁶) = 2.0×10⁻³ cm = 20 μm
-    α_T = 1 − (0.8)²/(2 × 20²) = 1 − 0.64/800 = 0.9992
+    L_p = √(8×10⁻⁴ × 0.5×10⁻⁶) = 2.0×10⁻⁵ m = 20 μm
+    α_T = 1 − (8×10⁻⁷)²/(2 × (2×10⁻⁵)²) = 1 − 6.4×10⁻¹³/8×10⁻¹⁰ = 1 − 8×10⁻⁴ = 0.9992
 
 Step 3. Current gains:
 
@@ -423,10 +423,10 @@ Where:
 - I_C = collector current (A)
 - I_S = saturation current of the transistor (A)
 - V_BE = base–emitter voltage (V); kT/q = 0.0259 V at 300 K
-- A = emitter (junction) area (cm²)
-- D_B = minority-carrier diffusion coefficient in the base (cm²/s)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si
-- N_B = base doping (cm⁻³); W_B = neutral base width (cm)
+- A = emitter (junction) area (m²)
+- D_B = minority-carrier diffusion coefficient in the base (m²/s)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si
+- N_B = base doping (m⁻³); W_B = neutral base width (m)
 
 Because I_C depends exponentially on V_BE, every increase of (kT/q) ln 10 ≈ 60 mV in V_BE multiplies I_C by 10.
 
@@ -528,9 +528,9 @@ Step 3. Voltage for a tenfold increase:
 
 ## Worked example 4: from device design to gain
 
-**Question.** An NPN silicon transistor has N_E = 10¹⁹ cm⁻³, N_B = 10¹⁷ cm⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in the emitter) = 2.5 cm²/s, D_B (electrons in the base) = 25 cm²/s, base lifetime τ_n = 1 μs and area 10⁻⁴ cm². Calculate the emitter injection efficiency γ, the base transport factor α_T, the current gains α and β, and the collector and base currents at V_BE = 0.65 V.
+**Question.** An NPN silicon transistor has N_E = 10²⁵ m⁻³, N_B = 10²³ m⁻³, W_E = 1 μm, W_B = 0.5 μm, D_E (holes in the emitter) = 2.5×10⁻⁴ m²/s, D_B (electrons in the base) = 2.5×10⁻³ m²/s, base lifetime τ_n = 1 μs and area 10⁻⁸ m². Calculate the emitter injection efficiency γ, the base transport factor α_T, the current gains α and β, and the collector and base currents at V_BE = 0.65 V.
 
-**Given:** the dopings, widths, diffusion coefficients and lifetime above; n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
+**Given:** the dopings, widths, diffusion coefficients and lifetime above (W_E = 1×10⁻⁶ m, W_B = 5×10⁻⁷ m); n_i = 10¹⁶ m⁻³, kT/q = 0.0259 V.
 
 **Find:** γ, α_T, α, β, I_C and I_B.
 
@@ -542,12 +542,12 @@ Step 3. Voltage for a tenfold increase:
 
 **Solution.**
 
-    γ = 1 / [1 + (2.5 × 10¹⁷ × 0.5)/(25 × 10¹⁹ × 1)] = 1/(1 + 5×10⁻⁴) = 0.99950
-    L_n = √(25 × 10⁻⁶) = 5×10⁻³ cm = 50 μm
-    α_T = 1 − 0.5²/(2 × 50²) = 1 − 5×10⁻⁵ = 0.99995
+    γ = 1 / [1 + (2.5×10⁻⁴ × 10²³ × 5×10⁻⁷)/(2.5×10⁻³ × 10²⁵ × 1×10⁻⁶)] = 1/(1 + 5×10⁻⁴) = 0.99950
+    L_n = √(2.5×10⁻³ × 10⁻⁶) = 5×10⁻⁵ m = 50 μm
+    α_T = 1 − (5×10⁻⁷)²/(2 × (5×10⁻⁵)²) = 1 − 5×10⁻⁵ = 0.99995
     α = γα_T = 0.99945,   β = 0.99945/0.00055 ≈ 1800
 
-    I_S = qAD_Bn_i²/(N_{B}W_B) = (1.6×10⁻¹⁹)(10⁻⁴)(25)(10²⁰)/(10¹⁷ × 5×10⁻⁵) = 8×10⁻¹⁵ A
+    I_S = qAD_Bn_i²/(N_{B}W_B) = (1.6×10⁻¹⁹)(10⁻⁸)(2.5×10⁻³)(10³²)/(10²³ × 5×10⁻⁷) = 8×10⁻¹⁵ A
     I_C = 8×10⁻¹⁵ × e^{0.65/0.0259} = 8×10⁻¹⁵ × 7.9×10¹⁰ = 0.63 mA,   I_B = I_C/β ≈ 0.35 μA
 
 **Answer:** **γ = 0.9995, α_T = 0.99995, α = 0.99945, β ≈ 1800; I_C ≈ 0.63 mA and I_B ≈ 0.35 μA at V_BE = 0.65 V.**
@@ -735,7 +735,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 13.2: from doping to gain
 
-**Question.** An NPN transistor has N_E = 5×10¹⁸ cm⁻³, N_B = 5×10¹⁶ cm⁻³, equal emitter and base widths, D_E = 3 cm²/s and D_B = 20 cm²/s. Its base transport factor is 0.995. Find γ, α and β.
+**Question.** An NPN transistor has N_E = 5×10²⁴ m⁻³, N_B = 5×10²² m⁻³, equal emitter and base widths, D_E = 3×10⁻⁴ m²/s and D_B = 2×10⁻³ m²/s. Its base transport factor is 0.995. Find γ, α and β.
 
 **Given:** N_E, N_B, D_E, D_B above, W_E = W_B, α_T = 0.995.
 
@@ -743,7 +743,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Solution.**
 
-    D_{E}N_{B}W_B/(D_{B}N_{E}W_E) = (3 × 5×10¹⁶)/(20 × 5×10¹⁸) = 1.5×10⁻³
+    D_{E}N_{B}W_B/(D_{B}N_{E}W_E) = (3×10⁻⁴ × 5×10²²)/(2×10⁻³ × 5×10²⁴) = 1.5×10⁻³
     γ = 1/(1 + 1.5×10⁻³) = 0.9985
     α = γα_T = 0.9985 × 0.995 = 0.9935
     β = α/(1 − α) = 0.9935/0.0065 = 153
@@ -801,15 +801,15 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 13.6: base transit time
 
-**Question.** An NPN transistor has a 0.2 μm base and D_n = 20 cm²/s. Find the base transit time and the upper limit it places on f_T.
+**Question.** An NPN transistor has a 0.2 μm base and D_n = 2×10⁻³ m²/s. Find the base transit time and the upper limit it places on f_T.
 
-**Given:** W_B = 2×10⁻⁵ cm, D_n = 20 cm²/s.
+**Given:** W_B = 2×10⁻⁷ m (0.2 μm), D_n = 2×10⁻³ m²/s.
 
 **Find:** τ_B and f_T.
 
 **Solution.**
 
-    τ_B = W_B²/(2D_n) = (2×10⁻⁵)²/40 = 1×10⁻¹¹ s
+    τ_B = W_B²/(2D_n) = (2×10⁻⁷)²/(4×10⁻³) = 1×10⁻¹¹ s
     f_T ≲ 1/(2πτ_B) = 1.6×10¹⁰ Hz
 
 **Answer:** **τ_B = 10 ps, f_T up to about 16 GHz.** Thin bases make fast transistors.

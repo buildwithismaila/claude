@@ -5,7 +5,7 @@ Module 4: the p-n junction and its diode equation, metal–semiconductor contact
 
 ## Symbols and abbreviations used on this page
 
-Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+Every symbol, constant and abbreviation on this page is listed here, even if another page already defined it, so you can study this page on its own.
 
 **Constants and units**
 
@@ -16,9 +16,9 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -29,49 +29,49 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | cm⁻³; p_n0 = n_i²/N_D |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | cm⁻³ |
-| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | m⁻³; p_n0 = n_i²/N_D |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | m⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | m⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
 | R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
-| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
-| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/m |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | m⁻³s⁻¹ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
 | V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
 | x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
-| E_max | Peak electric field, at the junction | V/cm |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| E_max | Peak electric field, at the junction | V/m |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
 | C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
 | Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
 | Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
 | χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
 | Φ_B | Schottky barrier height seen from the metal | eV (or V) |
-| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
-| ρ_c | Specific contact resistance | Ω·cm² |
+| A∗∗ | Effective Richardson constant | A/(m²·K²); n-Si ≈ 1.1×10⁶ |
+| ρ_c | Specific contact resistance | Ω·m² |
 | E_vac | Vacuum level: energy of an electron just free of the material | eV |
-| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
-| Δp_n, Δn_p | Excess minority carriers at the depletion edges (holes on n side, electrons on p side) | cm⁻³ |
-| R_c | Contact resistance | Ω (specific: Ω·cm²) |
+| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | m⁻³ |
+| Δp_n, Δn_p | Excess minority carriers at the depletion edges (holes on n side, electrons on p side) | m⁻³ |
+| R_c | Contact resistance | Ω (specific: Ω·m²) |
 | Φ_Bn, Φ_Bp | Schottky barrier height for electrons (n-type) and for holes (p-type) | eV |
-| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
-| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | m⁻³ |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | m⁻³ |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 
@@ -118,7 +118,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 - **Depletion region (space-charge region), width W:** the layer around the junction emptied of mobile carriers, containing only fixed ion charge.
 - **Fermi level (E_F):** the energy at which a state has a 50 % chance of being occupied; in equilibrium it is flat (the same) throughout a connected system.
 - **Built-in potential (V_bi):** the voltage across the depletion region in equilibrium; the barrier majority carriers must climb to cross the junction.
-- **Intrinsic carrier concentration (n_i):** carrier density of pure silicon, 1×10¹⁰ cm⁻³ at 300 K.
+- **Intrinsic carrier concentration (n_i):** carrier density of pure silicon, 1×10¹⁶ m⁻³ at 300 K.
 
 **Model answer.**
 
@@ -132,8 +132,8 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Where:
 
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
-- x_p, x_n = depth of the depletion region on the p side and on the n side (cm)
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
+- x_p, x_n = depth of the depletion region on the p side and on the n side (m)
 
 So the region extends further into the **more lightly doped** side.
 
@@ -152,8 +152,8 @@ Where:
 - V_bi = built-in potential (V)
 - q = electronic charge, 1.6×10⁻¹⁹ C
 - kT = thermal energy, 0.0259 eV at 300 K, so kT/q = 0.0259 V
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
 @fig figures/pn-junction.svg | Abrupt p-n junction in equilibrium: fixed negative and positive ion charge either side of the junction, the triangular field peaking at the junction, and bands bent by qV_bi under a flat Fermi level.
 
@@ -165,12 +165,12 @@ Sketch in the exam: three stacked graphs against x. (a) Charge density: a negati
 
 Where:
 
-- W = total depletion width (cm)
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
-- E_max = peak electric field, at the junction (V/cm)
+- W = total depletion width (m)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m
+- E_max = peak electric field, at the junction (V/m)
 - other symbols as above
 
-**Typical numbers (Si, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, 300 K):** V_bi = 0.0259 × ln(10¹³) = **0.775 V**; W = **0.33 μm** (0.30 μm on the n side, 0.03 μm on the p side); E_max ≈ **4.7×10⁴ V/cm**.
+**Typical numbers (Si, N_A = 10²³ m⁻³, N_D = 10²² m⁻³, 300 K):** V_bi = 0.0259 × ln(10²³ × 10²²/10³²) = 0.0259 × ln(10¹³) = **0.775 V**; W = √((2 × 1.04×10⁻¹⁰/1.6×10⁻¹⁹) × 0.775 × (10⁻²³ + 10⁻²²)) = **3.3×10⁻⁷ m (0.33 μm)** (3.0×10⁻⁷ m on the n side, 3.0×10⁻⁸ m on the p side); E_max = 1.6×10⁻¹⁹ × 10²² × 3.03×10⁻⁷/1.04×10⁻¹⁰ ≈ **4.7×10⁶ V/m**.
 
 **8. Remarks.** V_bi cannot be read with a voltmeter: contact potentials at the metal leads cancel it exactly, so it drives no external current. Applied bias changes the barrier to V_bi − V_a (V_a = applied voltage, positive for forward bias), which is the basis of rectification.
 
@@ -194,7 +194,7 @@ Where:
 
 **Remember it.** "Carriers leave, ions stay, the field says stop": diffusion uncovers ions, the ions' field stops further diffusion, and the voltage they leave behind is V_bi.
 
-**Try a variant.** Calculate V_bi and say on which side most of the depletion region lies for a silicon junction with N_A = 1×10¹⁸ cm⁻³ and N_D = 1×10¹⁵ cm⁻³ at 300 K. *Answer:* V_bi = 0.0259 × ln(10¹⁸ × 10¹⁵/10²⁰) = 0.0259 × ln(10¹³) = **0.775 V**; since x_n/x_p = N_A/N_D = 1000, **almost all of W lies in the lightly doped n side** (a one-sided p⁺n junction).
+**Try a variant.** Calculate V_bi and say on which side most of the depletion region lies for a silicon junction with N_A = 1×10²⁴ m⁻³ and N_D = 1×10²¹ m⁻³ at 300 K. *Answer:* V_bi = 0.0259 × ln(10²⁴ × 10²¹/10³²) = 0.0259 × ln(10¹³) = **0.775 V**; since x_n/x_p = N_A/N_D = 1000, **almost all of W lies in the lightly doped n side** (a one-sided p⁺n junction).
 
 ---
 
@@ -210,9 +210,9 @@ Where:
 - **Excess carrier density (Δp, Δn):** the amount by which a carrier density exceeds its equilibrium value.
 - **Low-level injection:** injected minority densities remain much smaller than the majority density.
 - **Lifetime (τ_p, τ_n):** average time an excess minority carrier survives before recombining (s).
-- **Diffusion coefficient (D_p, D_n):** how quickly carriers spread down a concentration gradient (cm²/s).
-- **Diffusion length (L_p, L_n):** average distance a minority carrier diffuses before recombining, L = √(Dτ) (cm).
-- **Saturation current (I_s, J_s):** the small reverse current of the diode, and the scale factor of the exponential (A, or A/cm² for J_s).
+- **Diffusion coefficient (D_p, D_n):** how quickly carriers spread down a concentration gradient (m²/s).
+- **Diffusion length (L_p, L_n):** average distance a minority carrier diffuses before recombining, L = √(Dτ) (m).
+- **Saturation current (I_s, J_s):** the small reverse current of the diode, and the scale factor of the exponential (A, or A/m² for J_s).
 - **Quasi-equilibrium:** carriers in the depletion region stay so close to equilibrium that Boltzmann statistics still link the densities on either side of it.
 
 **Model answer.**
@@ -236,8 +236,8 @@ In equilibrium the Boltzmann relation links the electron densities on the two si
 
 Where:
 
-- n_n0 = equilibrium electron (majority) density in the n region ≈ N_D (cm⁻³)
-- n_p0 = equilibrium electron (minority) density in the p region = n_i²/N_A (cm⁻³)
+- n_n0 = equilibrium electron (majority) density in the n region ≈ N_D (m⁻³)
+- n_p0 = equilibrium electron (minority) density in the p region = n_i²/N_A (m⁻³)
 - V_bi = built-in potential (V); kT/q = 0.0259 V at 300 K
 
 With bias V the barrier becomes V_bi − V. Under quasi-equilibrium the same relation holds at the depletion edges with the new barrier, and by low-level injection n_n(x_n) ≈ n_n0:
@@ -250,8 +250,8 @@ The same argument for holes gives p_n(x_n) = p_n0 e^{qV/kT}. The **excess** mino
 
 Where:
 
-- p_n0 = n_i²/N_D = equilibrium hole density in the n region (cm⁻³)
-- Δp_n(x_n), Δn_p(−x_p) = excess hole and electron densities at the n-side and p-side depletion edges (cm⁻³)
+- p_n0 = n_i²/N_D = equilibrium hole density in the n region (m⁻³)
+- Δp_n(x_n), Δn_p(−x_p) = excess hole and electron densities at the n-side and p-side depletion edges (m⁻³)
 - V = applied voltage (V)
 
 #### Step 2: minority-carrier diffusion equation in the neutral n region
@@ -262,8 +262,8 @@ The hole continuity equation is ∂p/∂t = −(1/q) dJ_p/dx − Δp/τ_p. In st
 
 Where:
 
-- D_p = hole diffusion coefficient (cm²/s); τ_p = hole lifetime (s); L_p = hole diffusion length (cm)
-- J_p = hole current density (A/cm²)
+- D_p = hole diffusion coefficient (m²/s); τ_p = hole lifetime (s); L_p = hole diffusion length (m)
+- J_p = hole current density (A/m²)
 
 The general solution is a sum of e^{−(x − x_n)/L_p} and e^{+(x − x_n)/L_p}. In a long region Δp_n must fall to zero far from the junction, so the growing term is dropped. Using Step 1 as the boundary value:
 
@@ -277,8 +277,8 @@ The general solution is a sum of e^{−(x − x_n)/L_p} and e^{+(x − x_n)/L_p}
 
 Where:
 
-- J_p(x_n) = hole diffusion current density at the n-side depletion edge (A/cm²), positive in the p → n direction
-- dΔp_n/dx = −Δp_n(x_n)/L_p = slope of the excess-hole profile at x_n (cm⁻⁴)
+- J_p(x_n) = hole diffusion current density at the n-side depletion edge (A/m²), positive in the p → n direction
+- dΔp_n/dx = −Δp_n(x_n)/L_p = slope of the excess-hole profile at x_n (m⁻⁴)
 
 #### Step 4: electron current at the p-side edge, x = −x_p
 
@@ -288,7 +288,7 @@ The identical argument in the p region gives Δn_p(x) = Δn_p(−x_p) e^{(x + x_
 
 Where:
 
-- D_n = electron diffusion coefficient (cm²/s); τ_n = electron lifetime (s); L_n = electron diffusion length (cm)
+- D_n = electron diffusion coefficient (m²/s); τ_n = electron lifetime (s); L_n = electron diffusion length (m)
 
 #### Step 5: add the two currents
 
@@ -298,8 +298,8 @@ The total current density J = J_n + J_p is the same at every x. By assumption 4,
 
 Where:
 
-- J = total current density (A/cm²), the same at every point of the diode
-- J_n(−x_p) = electron diffusion current density at the p-side depletion edge (A/cm²)
+- J = total current density (A/m²), the same at every point of the diode
+- J_n(−x_p) = electron diffusion current density at the p-side depletion edge (A/m²)
 
 #### Step 6: identify J_s
 
@@ -309,10 +309,10 @@ Substituting p_n0 = n_i²/N_D and n_p0 = n_i²/N_A, and multiplying by the area 
 
 Where:
 
-- J, I = diode current density (A/cm²) and current (A), positive in the forward direction
-- J_s, I_s = saturation current density (A/cm²) and saturation current (A), I_s = AJ_s
-- A = junction area (cm²); n_i = 1×10¹⁰ cm⁻³ for Si at 300 K
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
+- J, I = diode current density (A/m²) and current (A), positive in the forward direction
+- J_s, I_s = saturation current density (A/m²) and saturation current (A), I_s = AJ_s
+- A = junction area (m²); n_i = 1×10¹⁶ m⁻³ for Si at 300 K
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
 
 This is the **ideal Shockley diode equation**. Note that J_s ∝ n_i², and the term of the *lightly* doped side dominates.
 
@@ -335,16 +335,16 @@ Sketch in the exam: I against V; an exponential rising sharply near 0.6–0.7 V;
 
 #### Numerical check
 
-**Given:** Si, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, D_p = 12.4 cm²/s, D_n = 35 cm²/s, τ_p = τ_n = 1 μs, A = 10⁻⁴ cm², 300 K.
+**Given:** Si, N_A = 10²³ m⁻³, N_D = 10²² m⁻³, D_p = 1.24×10⁻³ m²/s, D_n = 3.5×10⁻³ m²/s, τ_p = τ_n = 1 μs, A = 10⁻⁸ m², 300 K.
 
-**Solution.** L_p = √(12.4 × 10⁻⁶) = 3.52×10⁻³ cm; L_n = √(35 × 10⁻⁶) = 5.92×10⁻³ cm.
+**Solution.** L_p = √(1.24×10⁻³ × 10⁻⁶) = 3.52×10⁻⁵ m; L_n = √(3.5×10⁻³ × 10⁻⁶) = 5.92×10⁻⁵ m.
 
-    J_s = 1.6×10⁻¹⁹ × 10²⁰ × ( 12.4/(3.52×10⁻³ × 10¹⁶) + 35/(5.92×10⁻³ × 10¹⁷) )
-        = 16 × (3.52×10⁻¹³ + 5.92×10⁻¹⁴) = 6.6×10⁻¹² A/cm²
+    J_s = 1.6×10⁻¹⁹ × 10³² × ( 1.24×10⁻³/(3.52×10⁻⁵ × 10²²) + 3.5×10⁻³/(5.92×10⁻⁵ × 10²³) )
+        = 1.6×10¹³ × (3.52×10⁻²¹ + 5.92×10⁻²²) = 6.6×10⁻⁸ A/m²
 
-**Answer:** **I_s = 6.6×10⁻¹⁶ A**; I(0.6 V) ≈ 6.6×10⁻¹⁶ × e^{23.17} ≈ **7.6 μA**; I(0.7 V) ≈ **0.36 mA**; I(−5 V) = **−6.6×10⁻¹⁶ A**.
+**Answer:** **I_s = AJ_s = 10⁻⁸ × 6.6×10⁻⁸ = 6.6×10⁻¹⁶ A**; I(0.6 V) ≈ 6.6×10⁻¹⁶ × e^{23.17} ≈ **7.6 μA**; I(0.7 V) ≈ **0.36 mA**; I(−5 V) = **−6.6×10⁻¹⁶ A**.
 
-**What this means:** 86 % of the current is holes injected into the lightly doped n side. At 0.6 V the injected hole density at x_n is 1.2×10¹⁴ cm⁻³, still ≪ N_D = 10¹⁶ cm⁻³, so low-level injection holds.
+**What this means:** 86 % of the current is holes injected into the lightly doped n side. At 0.6 V the injected hole density at x_n is 1.2×10²⁰ m⁻³, still ≪ N_D = 10²² m⁻³, so low-level injection holds.
 
 **Real diodes** depart from this: recombination in the depletion region (low forward bias), high-level injection and series resistance (high current), generation current and breakdown (reverse). These are lumped into I = I_s(e^{qV/ηkT} − 1), with ideality factor η between 1 and 2.
 
@@ -369,7 +369,7 @@ Sketch in the exam: I against V; an exponential rising sharply near 0.6–0.7 V;
 
 **Remember it.** "Inject, diffuse, add": the junction law injects, the diffusion equation spreads them over L, and the two slopes at the edges add up to I_s(e^{qV/kT} − 1).
 
-**Try a variant.** For a p⁺n silicon diode (N_D = 10¹⁶ cm⁻³ on the n side, D_p = 12.4 cm²/s, τ_p = 1 μs, A = 10⁻⁴ cm²), find I_s and the forward voltage for I = 1 mA. *Answer:* the electron term is negligible, so I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁴ × 10²⁰ × 12.4/(3.52×10⁻³ × 10¹⁶) = **5.6×10⁻¹⁶ A**; V = (kT/q) ln(I/I_s) = 0.0259 × ln(1.78×10¹²) = **0.73 V**.
+**Try a variant.** For a p⁺n silicon diode (N_D = 10²² m⁻³ on the n side, D_p = 1.24×10⁻³ m²/s, τ_p = 1 μs, A = 10⁻⁸ m²), find I_s and the forward voltage for I = 1 mA. *Answer:* the electron term is negligible, so I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁸ × 10³² × 1.24×10⁻³/(3.52×10⁻⁵ × 10²²) = **5.6×10⁻¹⁶ A**; V = (kT/q) ln(I/I_s) = 0.0259 × ln(1.78×10¹²) = **0.73 V**.
 
 ---
 
@@ -404,7 +404,7 @@ Where:
 
 - Φ_s = semiconductor work function (eV); χ = electron affinity, 4.05 eV (Si)
 - E_c − E_F = depth of the Fermi level below the conduction-band edge (eV)
-- kT = 0.0259 eV at 300 K; N_c = 2.8×10¹⁹ cm⁻³ (Si); N_D = donor concentration (cm⁻³)
+- kT = 0.0259 eV at 300 K; N_c = 2.8×10²⁵ m⁻³ (Si); N_D = donor concentration (m⁻³)
 
 @fig figures/ms-before.svg | Metal and n-type semiconductor before contact. With Φ_m > Φ_s the semiconductor's Fermi level lies higher by Φ_m − Φ_s, so electrons will flow into the metal on contact.
 
@@ -428,10 +428,10 @@ Whether E_F of the semiconductor lies above or below E_F of the metal decides wh
 Where:
 
 - Φ_m = metal work function (eV), e.g. Au 5.1 eV
-- W = depletion width (cm); ε_s = 1.04×10⁻¹² F/cm; q = 1.6×10⁻¹⁹ C
+- W = depletion width (m); ε_s = 1.04×10⁻¹⁰ F/m; q = 1.6×10⁻¹⁹ C
 - V = applied voltage (V), positive for forward bias (metal positive)
 
-**Example (Au on n-Si, N_D = 10¹⁶ cm⁻³):** E_c − E_F = 0.0259 ln(2800) = 0.21 eV, Φ_s = 4.26 eV, Φ_B = 5.1 − 4.05 = **1.05 eV**, V_bi = 5.1 − 4.26 = **0.84 V**, W = **0.33 μm**: far too thick to tunnel through. (Real interfaces are **Fermi-level pinned**, so Au on n-Si actually measures Φ_B ≈ 0.8 eV.)
+**Example (Au on n-Si, N_D = 10²² m⁻³):** E_c − E_F = 0.0259 ln(2.8×10²⁵/10²²) = 0.0259 ln(2800) = 0.21 eV, Φ_s = 4.26 eV, Φ_B = 5.1 − 4.05 = **1.05 eV**, V_bi = 5.1 − 4.26 = **0.84 V**, W = √(2 × 1.04×10⁻¹⁰ × 0.84/(1.6×10⁻¹⁹ × 10²²)) = **3.3×10⁻⁷ m (0.33 μm)**: far too thick to tunnel through. (Real interfaces are **Fermi-level pinned**, so Au on n-Si actually measures Φ_B ≈ 0.8 eV.)
 
 @fig figures/schottky.svg | Schottky contact at equilibrium: flat E_F, bands bent upward in the semiconductor, barrier qΦ_B seen from the metal and qV_bi seen from the semiconductor.
 
@@ -448,21 +448,21 @@ Current is by **thermionic emission** of majority carriers:
 
 Where:
 
-- J, J_s = current density and saturation current density (A/cm²)
-- A∗∗ = effective Richardson constant, about 110 A/cm²K² for n-Si
+- J, J_s = current density and saturation current density (A/m²)
+- A∗∗ = effective Richardson constant, about 1.1×10⁶ A/m²K² for n-Si
 - T = temperature (K); η = ideality factor (1.0–1.1 for a good Schottky diode)
 
-For Φ_B = 0.8 eV: J_s = 3.8×10⁻⁷ A/cm² and 1 A/cm² flows at only about **0.38 V**, against about 0.7 V for a Si p-n diode. No minority charge is stored, so it switches very fast.
+For Φ_B = 0.8 eV: J_s = 1.1×10⁶ × 300² × e^{−0.8/0.0259} = 3.8×10⁻³ A/m² and 10⁴ A/m² flows at only about 0.0259 × ln(10⁴/3.8×10⁻³) = **0.38 V**, against about 0.7 V for a Si p-n diode. No minority charge is stored, so it switches very fast.
 
 #### Ohmic contact: the two mechanisms
 
 **(a) Low-barrier metal, accumulation (Φ_m < Φ_s on n-type).** Before contact the metal's E_F is higher, so on contact electrons flow from the metal **into** the semiconductor. They pile up in an **accumulation layer**; the bands bend **downward** at the interface. There is no barrier to electrons in either direction, so current flows freely both ways. (For p-type the condition is reversed: Φ_m > Φ_s.) In practice Fermi-level pinning makes suitable metals rare on Si and GaAs.
 
-**(b) Heavy doping, tunnelling (the practical method).** The surface under the contact is doped n⁺ (above about 10¹⁹ cm⁻³). The barrier height is unchanged, but since W ∝ 1/√N_D the barrier becomes only a few nanometres thick, and electrons **tunnel** through it in both directions. Example: for a 0.60 V barrier, W = 279 nm at N_D = 10¹⁶ cm⁻³ (rectifying) but only **8.8 nm** at 10¹⁹ cm⁻³ (ohmic).
+**(b) Heavy doping, tunnelling (the practical method).** The surface under the contact is doped n⁺ (above about 10²⁵ m⁻³). The barrier height is unchanged, but since W ∝ 1/√N_D the barrier becomes only a few nanometres thick, and electrons **tunnel** through it in both directions. Example: for a 0.60 V barrier, W = 2.79×10⁻⁷ m (279 nm) at N_D = 10²² m⁻³ (rectifying) but only **8.8×10⁻⁹ m (8.8 nm)** at 10²⁵ m⁻³ (ohmic).
 
 @fig figures/ohmic-contacts.svg | The two routes to an ohmic contact on n-type silicon: (a) Φ_m < Φ_s, downward band bending into an accumulation layer with no barrier; (b) heavy doping, a barrier so thin that electrons tunnel through it.
 
-An ohmic contact is judged by its specific contact resistance ρ_c = R_cA (Ω·cm²; R_c = contact resistance in Ω, A = area in cm²); good contacts reach 10⁻⁶–10⁻⁸ Ω·cm². Silicides (TiSi₂, NiSi) on Si and alloyed Au–Ge–Ni on n-GaAs are standard.
+An ohmic contact is judged by its specific contact resistance ρ_c = R_cA (Ω·m²; R_c = contact resistance in Ω, A = area in m²); good contacts reach 10⁻¹⁰–10⁻¹² Ω·m². Silicides (TiSi₂, NiSi) on Si and alloyed Au–Ge–Ni on n-GaAs are standard.
 
 Sketch in the exam: for each case draw E_vac, metal E_F, and the semiconductor E_c, E_F, E_v; mark qΦ_m, qΦ_s, qχ before contact; after contact show the flat E_F, the upward bend with qΦ_B and qV_bi (Schottky), the downward bend (accumulation) and the thin barrier with a tunnelling arrow (heavy doping).
 
@@ -471,7 +471,7 @@ Sketch in the exam: for each case draw E_vac, metal E_F, and the semiconductor E
 | Feature | Schottky barrier diode | Ohmic contact |
 |---|---|---|
 | Work-function condition (n-type) | Φ_m > Φ_s | Φ_m < Φ_s, or any metal on n⁺ |
-| Doping under contact | Moderate (10¹⁵–10¹⁷ cm⁻³) | Heavy (> 10¹⁹ cm⁻³) |
+| Doping under contact | Moderate (10²¹–10²³ m⁻³) | Heavy (> 10²⁵ m⁻³) |
 | Band bending (n-type) | Upward: depletion layer | Downward (accumulation) or a very thin barrier |
 | Barrier to majority carriers | Yes: qΦ_B and qV_bi | None, or thin enough to tunnel through |
 | Transport | Thermionic emission over the barrier | Free flow, or tunnelling (field emission) |
@@ -501,7 +501,7 @@ Sketch in the exam: for each case draw E_vac, metal E_F, and the semiconductor E
 
 **Remember it.** "Schottky climbs over, ohmic walks through": over a fixed barrier by thermionic emission, or through a paper-thin one by tunnelling.
 
-**Try a variant.** Platinum (Φ_m = 5.65 eV) is deposited on p-type silicon with N_A = 1×10¹⁶ cm⁻³. Is the ideal contact rectifying or ohmic? *Answer:* E_F − E_v = 0.0259 ln(N_v/N_A) = 0.0259 ln(1040) = 0.18 eV, so Φ_s = χ + E_g − 0.18 = 4.05 + 1.12 − 0.18 = **4.99 eV**. Φ_m > Φ_s on **p-type**, so electrons leave the semiconductor, holes accumulate at the surface and the bands bend upward with no hole barrier: the contact is **ohmic** (by contrast Al, 4.28 eV, gives a hole barrier Φ_{Bp} = 1.12 − (4.28 − 4.05) = 0.89 eV, a Schottky contact).
+**Try a variant.** Platinum (Φ_m = 5.65 eV) is deposited on p-type silicon with N_A = 1×10²² m⁻³. Is the ideal contact rectifying or ohmic? *Answer:* E_F − E_v = 0.0259 ln(N_v/N_A) = 0.0259 ln(1.04×10²⁵/10²²) = 0.0259 ln(1040) = 0.18 eV, so Φ_s = χ + E_g − 0.18 = 4.05 + 1.12 − 0.18 = **4.99 eV**. Φ_m > Φ_s on **p-type**, so electrons leave the semiconductor, holes accumulate at the surface and the bands bend upward with no hole barrier: the contact is **ohmic** (by contrast Al, 4.28 eV, gives a hole barrier Φ_{Bp} = 1.12 − (4.28 − 4.05) = 0.89 eV, a Schottky contact).
 
 ---
 
@@ -542,7 +542,7 @@ A **semi-log plot** of ln I against V is a straight line:
 - slope = q/(ηkT) → **η = (q/kT)/slope**;
 - bending below the line at high current → **series resistance**, R_s = (extra voltage)/I;
 - reverse branch → **leakage** and **breakdown voltage**;
-- for a Schottky diode, **barrier height** Φ_B = (kT/q) ln(A∗∗AT²/I_s), with A = area (cm²), A∗∗ ≈ 110 A/cm²K² for n-Si, T in K;
+- for a Schottky diode, **barrier height** Φ_B = (kT/q) ln(A∗∗AT²/I_s), with A = area (m²), A∗∗ ≈ 1.1×10⁶ A/m²K² for n-Si, T in K;
 - a straight, symmetric line through the origin between two contacts confirms an **ohmic contact**.
 
 Transistors are characterised the same way (threshold voltage and mobility from MOSFET curves, current gain from BJT curves).
@@ -555,10 +555,10 @@ Transistors are characterised the same way (threshold voltage and mobility from 
 
 Where:
 
-- C = depletion capacitance (F); A = junction area (cm²)
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm; q = 1.6×10⁻¹⁹ C
-- W = depletion width (cm); V_bi = built-in potential (V)
-- V = applied voltage, negative for reverse bias (V); N = doping of the lightly doped side (cm⁻³)
+- C = depletion capacitance (F); A = junction area (m²)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m; q = 1.6×10⁻¹⁹ C
+- W = depletion width (m); V_bi = built-in potential (V)
+- V = applied voltage, negative for reverse bias (V); N = doping of the lightly doped side (m⁻³)
 
 As reverse bias grows, W widens and C falls.
 
@@ -582,7 +582,7 @@ So the procedure is:
 Where:
 
 - |slope| = magnitude of the slope of the 1/C² line (F⁻²V⁻¹)
-- N_c = conduction-band effective density of states, 2.8×10¹⁹ cm⁻³ (Si)
+- N_c = conduction-band effective density of states, 2.8×10²⁵ m⁻³ (Si)
 
 @fig figures/cv.svg | Mott–Schottky plot: 1/C² falls linearly towards the forward-bias side and meets the voltage axis at V_bi; the slope gives the doping.
 
@@ -590,7 +590,7 @@ Sketch in the exam: 1/C² on the vertical axis, V on the horizontal with reverse
 
 #### 4. Worked example: doping and V_bi from a 1/C² line
 
-**Given:** a Schottky diode on n-type Si, A = 1.0×10⁻³ cm², 300 K, with readings:
+**Given:** a Schottky diode on n-type Si, A = 1.0×10⁻⁷ m², 300 K, with readings:
 
 | V (V) | 0 | −1 | −2 | −3 | −4 | −5 |
 |---|---|---|---|---|---|---|
@@ -609,7 +609,7 @@ Step 1. The 1/C² values rise by about 1.2×10²¹ F⁻² per volt: the line is 
 
 Step 2. Doping:
 
-    N_D = 2 / (1.6×10⁻¹⁹ × 1.04×10⁻¹² × (10⁻³)² × 1.20×10²¹) = 2 / 2.0×10⁻¹⁶ = 1.0×10¹⁶ cm⁻³
+    N_D = 2 / (1.6×10⁻¹⁹ × 1.04×10⁻¹⁰ × (10⁻⁷)² × 1.20×10²¹) = 2 / 2.0×10⁻²² = 1.0×10²² m⁻³
 
 Step 3. Intercept: at V = 0, 1/C² = 7.2×10²⁰, and it falls by 1.20×10²¹ per volt of forward bias, so it reaches zero at
 
@@ -617,11 +617,11 @@ Step 3. Intercept: at V = 0, 1/C² = 7.2×10²⁰, and it falls by 1.20×10²¹ 
 
 Step 4. Depth probed at −5 V:
 
-    W = ε_sA/C = 1.04×10⁻¹² × 10⁻³ / 12.2×10⁻¹² = 8.5×10⁻⁵ cm = 0.85 μm
+    W = ε_sA/C = 1.04×10⁻¹⁰ × 10⁻⁷ / 12.2×10⁻¹² = 8.5×10⁻⁷ m = 0.85 μm
 
-Step 5. Barrier height: (kT/q) ln(N_c/N_D) = 0.0259 × ln(2800) = 0.21 V, so Φ_B = 0.60 + 0.21 = 0.81 eV.
+Step 5. Barrier height: (kT/q) ln(N_c/N_D) = 0.0259 × ln(2.8×10²⁵/10²²) = 0.0259 × ln(2800) = 0.21 V, so Φ_B = 0.60 + 0.21 = 0.81 eV.
 
-**Answer:** **N_D = 1.0×10¹⁶ cm⁻³, V_bi = 0.60 V**, W(−5 V) = 0.85 μm, Φ_B ≈ 0.81 eV.
+**Answer:** **N_D = 1.0×10²² m⁻³, V_bi = 0.60 V**, W(−5 V) = 8.5×10⁻⁷ m (0.85 μm), Φ_B ≈ 0.81 eV.
 
 **What this means:** the doping was measured electrically, without cutting or etching the wafer, and is uniform at least to 0.85 μm below the contact. A 0.81 eV barrier is typical of a good Schottky contact on n-Si.
 
@@ -648,16 +648,16 @@ Step 5. Barrier height: (kT/q) ln(N_c/N_D) = 0.0259 × ln(2800) = 0.21 V, so Φ_
 - ✓ derivation of 1/C² = 2(V_bi − V)/(qε_sNA²)
 - ✓ N = 2/(qε_sA²|slope|) and V_bi from the voltage intercept
 - ✓ profiling: local slope and W = ε_sA/C for non-uniform doping
-- ✓ worked numbers: N ≈ 1×10¹⁶ cm⁻³, V_bi = 0.60 V
+- ✓ worked numbers: N ≈ 1×10²² m⁻³, V_bi = 0.60 V
 - ✓ labelled Mott–Schottky sketch and at least two practical limitations
 
 **Common mistakes.**
 
 - Plotting C or 1/C against V: only 1/C² gives a straight line for uniform doping.
-- Leaving the area unsquared, or using it in m² with ε_s in F/cm: keep everything in cm, and remember A².
+- Leaving the area unsquared, or mixing units (area in mm² or μm² with ε_s in F/m): keep everything in SI (A in m², ε_s in F/m), and remember A².
 - Reading V_bi from the 1/C² axis instead of the voltage axis, or giving it a negative sign: the line crosses at a positive (forward) voltage.
 - Applying it to a symmetric p-n junction without saying so: then N is the combined N_{A}N_D/(N_A + N_D), not a single doping.
 
 **Remember it.** "Slope gives the dopants, intercept gives the barrier": 1/C² against V is a straight line whose steepness is 2/(qε_sNA²) and whose zero is V_bi.
 
-**Try a variant.** A one-sided Si junction of area 2×10⁻³ cm² gives a 1/C² plot with slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping of the lightly doped side. *Answer:* N = 2/(qε_sA²|slope|) = 2/(1.6×10⁻¹⁹ × 1.04×10⁻¹² × 4×10⁻⁶ × 4.0×10²⁰) = **7.5×10¹⁵ cm⁻³**. (Doubling the area quarters the slope for the same doping.)
+**Try a variant.** A one-sided Si junction of area 2×10⁻⁷ m² gives a 1/C² plot with slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping of the lightly doped side. *Answer:* N = 2/(qε_sA²|slope|) = 2/(1.6×10⁻¹⁹ × 1.04×10⁻¹⁰ × 4×10⁻¹⁴ × 4.0×10²⁰) = **7.5×10²¹ m⁻³**. (Doubling the area quarters the slope for the same doping.)
