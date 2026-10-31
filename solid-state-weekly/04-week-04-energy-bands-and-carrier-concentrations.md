@@ -134,9 +134,9 @@ Where:
 
 **Fermi level (E_F).** The energy at which an electron state has exactly a 50 % chance of being occupied. Its position in the gap tells you which carrier dominates: near E_c there are many electrons, near E_v many holes.
 
-**Intrinsic semiconductor and intrinsic carrier concentration (n_i).** A pure, undoped semiconductor, in which every free electron comes from a broken bond that also leaves a hole, so the electron and hole concentrations are equal. Their common value is n_i (cm⁻³), about 1×10¹⁰ cm⁻³ for Si at 300 K. Its Fermi level, the intrinsic level E_i, lies very close to the middle of the gap.
+**Intrinsic semiconductor and intrinsic carrier concentration (n_i).** A pure, undoped semiconductor, in which every free electron comes from a broken bond that also leaves a hole, so the electron and hole concentrations are equal. Their common value is n_i (m⁻³), about 1×10¹⁶ m⁻³ for Si at 300 K. Its Fermi level, the intrinsic level E_i, lies very close to the middle of the gap.
 
-**Dopant: donor and acceptor.** A **donor** is an impurity atom (e.g. phosphorus in Si) that gives a free electron to the conduction band; its concentration is N_D. An **acceptor** (e.g. boron in Si) takes an electron from the valence band and so creates a hole; its concentration is N_A. Both are in cm⁻³.
+**Dopant: donor and acceptor.** A **donor** is an impurity atom (e.g. phosphorus in Si) that gives a free electron to the conduction band; its concentration is N_D. An **acceptor** (e.g. boron in Si) takes an electron from the valence band and so creates a hole; its concentration is N_A. Both are in m⁻³.
 
 **Extrinsic semiconductor (n-type, p-type).** A doped semiconductor whose carrier concentrations are set mainly by its dopants rather than by n_i. **n-type** material has more electrons than holes; **p-type** has more holes than electrons.
 
@@ -148,9 +148,9 @@ Where:
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- p = hole concentration (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³); 1×10¹⁰ for Si at 300 K
+- n = electron concentration (m⁻³)
+- p = hole concentration (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³); 1×10¹⁶ for Si at 300 K
 
 *Why it matters:* it lets you find the minority-carrier concentration, which controls diode and transistor currents, from the doping alone.
 
@@ -233,7 +233,7 @@ Where:
 
 One isolated silicon atom has sharp energy levels (1s, 2s, 2p, 3s, 3p). Now bring two atoms close together. Their outer wave functions overlap, and each level **splits into two** slightly different levels. (Two identical pendulums joined by a spring do the same: instead of one frequency they now have two, swinging together and swinging opposite.)
 
-Bring **N atoms** together and each level splits into **N levels**. A crystal has about 5×10²² atoms per cm³, so each level splits into so many closely spaced levels that they form a practically continuous **band**. Between bands are ranges of energy where there are **no** levels at all: the **forbidden gaps**.
+Bring **N atoms** together and each level splits into **N levels**. A crystal has about 5×10²⁸ atoms per m³, so each level splits into so many closely spaced levels that they form a practically continuous **band**. Between bands are ranges of energy where there are **no** levels at all: the **forbidden gaps**.
 
 In silicon, the outer 3s and 3p levels (4 electrons per atom) mix and split into two bands:
 
@@ -252,7 +252,7 @@ Where:
 - ψ_k(x) = wave function of an electron with wave vector k (the Bloch wave)
 - u_k(x) = a function that repeats exactly from one atom to the next
 - e^{ikx} = a plane (travelling) wave with wave vector k (m⁻¹)
-- a = spacing of the atoms, the period of the crystal potential (m or Å)
+- a = spacing of the atoms, the period of the crystal potential (m or nm)
 
 A travelling wave (e^{ikx}) multiplied by a pattern that repeats from atom to atom (u_k). The important consequence: **an electron in a perfect crystal travels without being scattered by the atoms**. The atoms are not obstacles; they just shape the wave. Only imperfections (vibrations, impurities, defects) scatter electrons. This is why carriers in a crystal can move so freely (Week 7).
 
@@ -345,8 +345,8 @@ The band picture explains at once why materials conduct so differently. What mat
 |---|---|---|---|
 | Band picture | Highest band only partly full, or bands overlap: no gap | Full valence band, small gap, empty conduction band | Full valence band, wide gap, empty conduction band |
 | Band gap E_g | None | About 0.1–3 eV (Ge 0.66, Si 1.12, GaAs 1.42 eV) | Above about 4 eV (diamond 5.5, SiO₂ ≈ 9 eV) |
-| Free carriers at 300 K | About 10²² cm⁻³, fixed | n_i = 10⁶–10¹³ cm⁻³ when pure; set by doping when doped | Practically none |
-| Resistivity at 300 K | About 10⁻⁶ Ω·cm (Cu 1.7×10⁻⁶) | About 10⁻³ to 10⁶ Ω·cm (pure Si ≈ 3×10⁵) | Above about 10¹² Ω·cm (SiO₂ ≈ 10¹⁴–10¹⁶) |
+| Free carriers at 300 K | About 10²⁸ m⁻³, fixed | n_i = 10¹²–10¹⁹ m⁻³ when pure; set by doping when doped | Practically none |
+| Resistivity at 300 K | About 10⁻⁸ Ω·m (Cu 1.7×10⁻⁸) | About 10⁻⁵ to 10⁴ Ω·m (pure Si ≈ 3×10³) | Above about 10¹⁰ Ω·m (SiO₂ ≈ 10¹²–10¹⁴) |
 | Effect of heating | Resistance rises (more lattice vibration scatters the electrons) | Resistance falls steeply (more electrons cross the gap) | Stays extremely high |
 | Effect of doping | Little | Huge: conductivity can be set over many orders of magnitude | Little (cannot be usefully doped) |
 | Uses | Wires, contacts, interconnects | Diodes, transistors, ICs, LEDs, solar cells | Gate oxides, insulation between layers, capacitor dielectrics |
@@ -410,13 +410,13 @@ The number of electrons in the conduction band and holes in the valence band dep
 
 Where:
 
-- n, p = electron and hole concentrations (cm⁻³)
-- N_c, N_v = effective densities of states in the conduction and valence bands (cm⁻³)
+- n, p = electron and hole concentrations (m⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands (m⁻³)
 - E_c, E_v = conduction-band bottom and valence-band top (eV)
 - E_F = Fermi level (eV)
 - kT = thermal energy, 0.0259 eV at 300 K
 
-N_c and N_v are the **effective densities of states** (Si at 300 K: 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³). The closer E_F is to E_c, the more electrons; the closer to E_v, the more holes.
+N_c and N_v are the **effective densities of states** (Si at 300 K: 2.8×10²⁵ and 1.04×10²⁵ m⁻³). The closer E_F is to E_c, the more electrons; the closer to E_v, the more holes.
 
 ### Intrinsic semiconductor
 
@@ -430,14 +430,14 @@ With n = p = n_i:
 
 Where:
 
-- n_i = intrinsic carrier concentration (cm⁻³)
-- N_c, N_v = effective densities of states (cm⁻³); Si 2.8×10¹⁹ and 1.04×10¹⁹ at 300 K
+- n_i = intrinsic carrier concentration (m⁻³)
+- N_c, N_v = effective densities of states (m⁻³); Si 2.8×10²⁵ and 1.04×10²⁵ at 300 K
 - E_g = band gap (eV); 1.12 eV for Si
 - kT = thermal energy, 0.0259 eV at 300 K
 
-For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³. The Fermi level of an intrinsic semiconductor, E_i, is almost exactly at **mid-gap**.
+For Si at 300 K, n_i ≈ 1×10¹⁶ m⁻³. The Fermi level of an intrinsic semiconductor, E_i, is almost exactly at **mid-gap**.
 
-**What controls n_i:** the band gap (exponentially: wider gap, far fewer carriers) and temperature (exponentially: hotter, far more carriers). Ge (0.66 eV) has n_i = 2.4×10¹³; GaAs (1.42 eV) has only about 2×10⁶ cm⁻³.
+**What controls n_i:** the band gap (exponentially: wider gap, far fewer carriers) and temperature (exponentially: hotter, far more carriers). Ge (0.66 eV) has n_i = 2.4×10¹⁹; GaAs (1.42 eV) has only about 2×10¹² m⁻³.
 
 ### The mass-action law
 
@@ -447,8 +447,8 @@ Because E_F cancelled, the product is the same whether or not the material is do
 
 Where:
 
-- n, p = equilibrium electron and hole concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³); 1×10¹⁰ for Si at 300 K
+- n, p = equilibrium electron and hole concentrations (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³); 1×10¹⁶ for Si at 300 K
 
 ### Extrinsic (doped) semiconductor
 
@@ -462,17 +462,17 @@ With full ionisation and doping well above n_i:
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- N_D, N_A = donor and acceptor concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- n = electron concentration (m⁻³)
+- N_D, N_A = donor and acceptor concentrations (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 When N_A > N_D the material is p-type and the same formula is used for holes, with N_D and N_A swapped: p = (N_A − N_D)/2 + √( ((N_A − N_D)/2)² + n_i² ). In both cases the minority carrier then follows from np = n_i².
 
 #### Example 4.2: how doping shifts both carrier concentrations
 
-**Question.** Silicon at 300 K (n_i = 1×10¹⁰ cm⁻³) is doped with N_D = 1×10¹⁶ cm⁻³. Calculate n and p, and compare each with its intrinsic value.
+**Question.** Silicon at 300 K (n_i = 1×10¹⁶ m⁻³) is doped with N_D = 1×10²² m⁻³. Calculate n and p, and compare each with its intrinsic value.
 
-**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³.
+**Given:** N_D = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³.
 
 **Find:** n, p, and the factors n/n_i and n_i/p.
 
@@ -482,21 +482,21 @@ When N_A > N_D the material is p-type and the same formula is used for holes, wi
 
 **Solution.**
 
-    n ≈ N_D = 1×10¹⁶ cm⁻³
+    n ≈ N_D = 1×10²² m⁻³
 
-    p = n_i²/n = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+    p = n_i²/n = 10³²/10²² = 1×10¹⁰ m⁻³
 
-    n/n_i = 10¹⁶/10¹⁰ = 10⁶,   n_i/p = 10¹⁰/10⁴ = 10⁶
+    n/n_i = 10²²/10¹⁶ = 10⁶,   n_i/p = 10¹⁶/10¹⁰ = 10⁶
 
-**Answer:** **n = 10¹⁶ cm⁻³, p = 10⁴ cm⁻³.**
+**Answer:** **n = 10²² m⁻³, p = 10¹⁰ m⁻³.**
 
 **What this means:** doping with only about one phosphorus atom per five million silicon atoms raised the electrons a million times above n_i and lowered the holes by the same factor, so np = n_i² still holds. The electrons are now the majority carriers and the holes a tiny minority.
 
 #### Example 4.3: carrier concentrations in compensated silicon
 
-**Question.** A silicon wafer at 300 K contains N_A = 5×10¹⁶ cm⁻³ boron atoms and N_D = 2×10¹⁶ cm⁻³ phosphorus atoms. Find the majority and minority carrier concentrations and the resistivity (take μ_p = 480 cm²/V·s).
+**Question.** A silicon wafer at 300 K contains N_A = 5×10²² m⁻³ boron atoms and N_D = 2×10²² m⁻³ phosphorus atoms. Find the majority and minority carrier concentrations and the resistivity (take μ_p = 0.048 m²/V·s).
 
-**Given:** N_A = 5×10¹⁶ cm⁻³, N_D = 2×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, μ_p = 480 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+**Given:** N_A = 5×10²² m⁻³, N_D = 2×10²² m⁻³, n_i = 1×10¹⁶ m⁻³, μ_p = 0.048 m²/V·s, q = 1.6×10⁻¹⁹ C.
 
 **Find:** p, n and ρ.
 
@@ -508,29 +508,29 @@ When N_A > N_D the material is p-type and the same formula is used for holes, wi
 
 Step 1. N_A > N_D, so the material is p-type. The net doping is
 
-    N_A − N_D = 5×10¹⁶ − 2×10¹⁶ = 3×10¹⁶ cm⁻³
+    N_A − N_D = 5×10²² − 2×10²² = 3×10²² m⁻³
 
-Step 2. Because (N_A − N_D)/2 = 1.5×10¹⁶ is vastly larger than n_i = 10¹⁰, the square root is simply 1.5×10¹⁶, so
+Step 2. Because (N_A − N_D)/2 = 1.5×10²² is vastly larger than n_i = 10¹⁶, the square root is simply 1.5×10²², so
 
-    p = 1.5×10¹⁶ + 1.5×10¹⁶ = 3×10¹⁶ cm⁻³
+    p = 1.5×10²² + 1.5×10²² = 3×10²² m⁻³
 
 Step 3. Minority electrons:
 
-    n = n_i²/p = 10²⁰ / 3×10¹⁶ = 3.3×10³ cm⁻³
+    n = n_i²/p = 10³² / 3×10²² = 3.3×10⁹ m⁻³
 
 Step 4. Resistivity (the electrons are far too few to matter):
 
-    σ = q p μ_p = 1.6×10⁻¹⁹ × 3×10¹⁶ × 480 = 2.30 S/cm,   ρ = 1/σ = 0.43 Ω·cm
+    σ = q p μ_p = 1.6×10⁻¹⁹ × 3×10²² × 0.048 = 230 S/m,   ρ = 1/σ = 4.3×10⁻³ Ω·m
 
-**Answer:** **p = 3×10¹⁶ cm⁻³, n ≈ 3.3×10³ cm⁻³, ρ ≈ 0.43 Ω·cm.**
+**Answer:** **p = 3×10²² m⁻³, n ≈ 3.3×10⁹ m⁻³, ρ ≈ 4.3×10⁻³ Ω·m.**
 
-**What this means:** the 2×10¹⁶ donors cancel 2×10¹⁶ of the acceptors, so the wafer behaves exactly like p-type silicon doped with 3×10¹⁶ cm⁻³ boron. (In practice the extra ionised impurities scatter carriers and lower the mobility a little, so the real resistivity is slightly higher.)
+**What this means:** the 2×10²² m⁻³ donors cancel 2×10²² m⁻³ of the acceptors, so the wafer behaves exactly like p-type silicon doped with 3×10²² m⁻³ boron. (In practice the extra ionised impurities scatter carriers and lower the mobility a little, so the real resistivity is slightly higher.)
 
 #### Example 4.4: where is the Fermi level in doped silicon?
 
-**Question.** Silicon at 300 K is doped with N_D = 1×10¹⁶ cm⁻³ donors. Find how far the Fermi level lies below the conduction-band edge and how far it lies above the intrinsic level E_i.
+**Question.** Silicon at 300 K is doped with N_D = 1×10²² m⁻³ donors. Find how far the Fermi level lies below the conduction-band edge and how far it lies above the intrinsic level E_i.
 
-**Given:** N_D = 1×10¹⁶ cm⁻³ (so n ≈ 1×10¹⁶ cm⁻³), N_c = 2.8×10¹⁹ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.0259 eV.
+**Given:** N_D = 1×10²² m⁻³ (so n ≈ 1×10²² m⁻³), N_c = 2.8×10²⁵ m⁻³, n_i = 1×10¹⁶ m⁻³, kT = 0.0259 eV.
 
 **Find:** E_c − E_F and E_F − E_i.
 
@@ -540,8 +540,8 @@ Step 4. Resistivity (the electrons are far too few to matter):
 
 **Solution.**
 
-    E_c − E_F = 0.0259 × ln(2.8×10¹⁹ / 1×10¹⁶) = 0.0259 × ln(2800) = 0.0259 × 7.94 = 0.206 eV
-    E_F − E_i = 0.0259 × ln(1×10¹⁶ / 1×10¹⁰) = 0.0259 × ln(10⁶) = 0.0259 × 13.8 = 0.358 eV
+    E_c − E_F = 0.0259 × ln(2.8×10²⁵ / 1×10²²) = 0.0259 × ln(2800) = 0.0259 × 7.94 = 0.206 eV
+    E_F − E_i = 0.0259 × ln(1×10²² / 1×10¹⁶) = 0.0259 × ln(10⁶) = 0.0259 × 13.8 = 0.358 eV
 
 Check: 0.206 + 0.358 = 0.56 eV, which is half of the 1.12 eV gap, as it should be since E_i is close to mid-gap.
 
@@ -641,7 +641,7 @@ On the E–k diagram, look at where the **conduction-band minimum** and the **va
 | Transition across the gap | Vertical: an electron can drop and emit a photon directly, conserving momentum | Needs a change of momentum, which a photon cannot supply; a **phonon** must take part |
 | Process | Two-particle (electron + photon) | Three-particle (electron + photon + phonon), much less probable |
 | Radiative recombination | Fast, efficient; lifetime ≈ ns | Slow, inefficient; recombination is mostly non-radiative via traps; lifetime μs–ms |
-| Absorption near E_g | Sharp, strong (α ≈ 10⁴ cm⁻¹ just above E_g) | Weak, gradual; thicker material needed to absorb light |
+| Absorption near E_g | Sharp, strong (α ≈ 10⁶ m⁻¹ just above E_g) | Weak, gradual; thicker material needed to absorb light |
 | Examples | GaAs (1.42 eV), InP, GaN, InGaAs, CdTe | Si (1.12 eV), Ge (0.66 eV), GaP, AlAs, SiC |
 | Applications | LEDs, laser diodes, efficient thin-film solar cells, fast photodetectors | ICs, transistors, power devices, Si solar cells and photodiodes (absorb but do not emit well) |
 
@@ -689,7 +689,7 @@ Substituting N_c and N_v gives the explicit temperature dependence:
 
     E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c) = (E_c + E_v)/2 + (3kT/4) ln(m_p∗/m_n∗)
 
-**Numerical check for Si at 300 K:** √(2.8×10¹⁹ × 1.04×10¹⁹) = 1.71×10¹⁹; exp(−1.12/(2 × 0.0259)) = exp(−21.6) = 4.1×10⁻¹⁰; n_i ≈ 7×10⁹ cm⁻³, the same order as the accepted 1×10¹⁰ cm⁻³ (the difference comes from the exact values of E_g and the effective masses).
+**Numerical check for Si at 300 K:** √(2.8×10²⁵ × 1.04×10²⁵) = 1.71×10²⁵ m⁻³; exp(−1.12/(2 × 0.0259)) = exp(−21.6) = 4.1×10⁻¹⁰; n_i ≈ 7×10¹⁵ m⁻³, the same order as the accepted 1×10¹⁶ m⁻³ (the difference comes from the exact values of E_g and the effective masses).
 
 ### Q28. Explain the difference between intrinsic and extrinsic carrier concentrations.
 
@@ -699,17 +699,17 @@ Substituting N_c and N_v gives the explicit temperature dependence:
 | Source of carriers | Thermal breaking of covalent bonds only (band-to-band excitation) | Mainly ionised dopants (donors or acceptors), plus a small thermal contribution |
 | Electron vs hole | n = p = n_i | Unequal: n ≫ p (n-type) or p ≫ n (p-type); majority and minority carriers |
 | Formula | n_i = √(N_cN_v) exp(−E_g/2kT) | n ≈ N_D, p = n_i²/N_D (n-type); p ≈ N_A, n = n_i²/N_A (p-type) |
-| Typical value (Si, 300 K) | 1×10¹⁰ cm⁻³ | 10¹⁴–10²⁰ cm⁻³ majority |
+| Typical value (Si, 300 K) | 1×10¹⁶ m⁻³ | 10²⁰–10²⁶ m⁻³ majority |
 | Temperature dependence | Very strong, exponential | Nearly constant over the extrinsic range; becomes intrinsic at high T |
 | Controlled by | Material (E_g) and temperature | Doping level, chosen by the designer |
 | Fermi level | At E_i, near mid-gap | Shifted toward E_c (n-type) or E_v (p-type) |
-| Conductivity | Low (σ ≈ 3×10⁻⁶ S/cm for Si) | Much higher, set by doping |
+| Conductivity | Low (σ ≈ 3×10⁻⁴ S/m for Si) | Much higher, set by doping |
 
 The two are linked by the mass-action law **np = n_i²**: doping increases one carrier type and decreases the other so that their product equals the intrinsic value squared.
 
 ### Q29. Silicon has an intrinsic carrier concentration of approximately 1.0 × 10¹⁰ cm⁻³ at a specified temperature. If the electron and hole concentrations are equal, determine the electron and hole concentrations.
 
-**Given:** n_i = 1.0×10¹⁰ cm⁻³, n = p.
+**Given:** n_i = 1.0×10¹⁰ cm⁻³ = 1.0×10¹⁶ m⁻³, n = p.
 
 **Find:** n and p.
 
@@ -719,35 +719,35 @@ The two are linked by the mass-action law **np = n_i²**: doping increases one c
 
     n · p = n_i²   and   n = p   ⇒   n² = n_i²   ⇒   n = n_i
 
-Check: n·p = (1.0×10¹⁰)² = 1.0×10²⁰ cm⁻⁶ = n_i². ✓
+Check: n·p = (1.0×10¹⁶)² = 1.0×10³² m⁻⁶ = n_i². ✓
 
-**Answer:** **n = p = n_i = 1.0×10¹⁰ cm⁻³**
+**Answer:** **n = p = n_i = 1.0×10¹⁶ m⁻³**
 
-**What this means:** only about one silicon atom in 5×10¹² has given up an electron, so pure silicon is a very poor conductor. Using μ_n = 1350 and μ_p = 480 cm²/V·s, the intrinsic conductivity would be σ = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁰ × 1830 = 2.9×10⁻⁶ S/cm, i.e. ρ ≈ 3.4×10⁵ Ω·cm.
+**What this means:** only about one silicon atom in 5×10¹² has given up an electron, so pure silicon is a very poor conductor. Using μ_n = 0.135 and μ_p = 0.048 m²/V·s, the intrinsic conductivity would be σ = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁶ × 0.183 = 2.9×10⁻⁴ S/m, i.e. ρ ≈ 3.4×10³ Ω·m.
 
 ### Q34. An n-type semiconductor has a donor concentration of 5 × 10¹⁶ cm⁻³. Assuming complete ionization, determine the approximate majority-carrier concentration.
 
-**Given:** N_D = 5×10¹⁶ cm⁻³, complete ionisation; for the extra results, silicon at 300 K with n_i = 1×10¹⁰ cm⁻³.
+**Given:** N_D = 5×10¹⁶ cm⁻³ = 5×10²² m⁻³, complete ionisation; for the extra results, silicon at 300 K with n_i = 1×10¹⁶ m⁻³.
 
 **Find:** the majority-carrier concentration n₀ (and, as extras, p₀, E_F and σ).
 
 **Formula:** n₀ ≈ N_D (for N_D ≫ n_i); p₀ = n_i²/n₀; E_F − E_i = kT ln(n₀/n_i); σ ≈ qn₀μ_n.
 
-**Solution.** With complete ionisation and N_D ≫ n_i (5×10¹⁶ ≫ 10¹⁰), every donor contributes one electron:
+**Solution.** With complete ionisation and N_D ≫ n_i (5×10²² ≫ 10¹⁶), every donor contributes one electron:
 
-    n₀ ≈ N_D = 5 × 10¹⁶ cm⁻³
+    n₀ ≈ N_D = 5 × 10²² m⁻³
 
-**Answer:** **Majority-carrier (electron) concentration ≈ 5×10¹⁶ cm⁻³.**
+**Answer:** **Majority-carrier (electron) concentration ≈ 5×10²² m⁻³.**
 
-Additional results (assuming silicon at 300 K, n_i = 1×10¹⁰ cm⁻³):
+Additional results (assuming silicon at 300 K, n_i = 1×10¹⁶ m⁻³):
 
-    Minority holes:  p₀ = n_i²/n₀ = (10¹⁰)² / (5×10¹⁶) = 2×10³ cm⁻³
+    Minority holes:  p₀ = n_i²/n₀ = (10¹⁶)² / (5×10²²) = 2×10⁹ m⁻³
 
     Fermi level:  E_F − E_i = kT ln(n₀/n_i) = 0.0259 × ln(5×10⁶) = 0.0259 × 15.42 = 0.40 eV above E_i
 
-    Conductivity:  σ ≈ q n₀ μ_n = 1.6×10⁻¹⁹ × 5×10¹⁶ × 1350 ≈ 10.8 S/cm  (ρ ≈ 0.093 Ω·cm)
+    Conductivity:  σ ≈ q n₀ μ_n = 1.6×10⁻¹⁹ × 5×10²² × 0.135 ≈ 1080 S/m  (ρ ≈ 9.3×10⁻⁴ Ω·m)
 
-**What this means:** the thermal contribution n_i is negligible, which is why the majority-carrier density is simply the donor density, and the material conducts millions of times better than pure silicon. (Mobility falls at this doping to about 1000 cm²/V·s, so the real σ is nearer 8 S/cm.)
+**What this means:** the thermal contribution n_i is negligible, which is why the majority-carrier density is simply the donor density, and the material conducts millions of times better than pure silicon. (Mobility falls at this doping to about 0.1 m²/V·s, so the real σ is nearer 800 S/m.)
 
 ---
 
@@ -803,7 +803,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 4.4: intrinsic concentration of GaAs
 
-**Question.** For GaAs at 300 K, N_c = 4.7×10¹⁷ cm⁻³, N_v = 7.0×10¹⁸ cm⁻³ and E_g = 1.42 eV. Calculate n_i.
+**Question.** For GaAs at 300 K, N_c = 4.7×10²³ m⁻³, N_v = 7.0×10²⁴ m⁻³ and E_g = 1.42 eV. Calculate n_i.
 
 **Given:** N_c, N_v, E_g above; 2kT = 0.0518 eV.
 
@@ -811,11 +811,11 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Solution.**
 
-    √(N_cN_v) = √(4.7×10¹⁷ × 7.0×10¹⁸) = 1.81×10¹⁸ cm⁻³
+    √(N_cN_v) = √(4.7×10²³ × 7.0×10²⁴) = 1.81×10²⁴ m⁻³
     e^{−E_g/2kT} = e^{−1.42/0.0518} = e^{−27.4} = 1.25×10⁻¹²
-    n_i = 1.81×10¹⁸ × 1.25×10⁻¹² = 2.3×10⁶ cm⁻³
+    n_i = 1.81×10²⁴ × 1.25×10⁻¹² = 2.3×10¹² m⁻³
 
-**Answer:** **n_i ≈ 2×10⁶ cm⁻³**, about 4000 times smaller than in silicon, which is why GaAs can be made semi-insulating.
+**Answer:** **n_i ≈ 2×10¹² m⁻³**, about 4000 times smaller than in silicon, which is why GaAs can be made semi-insulating.
 
 #### Practice 4.5: how fast n_i rises with temperature
 
@@ -835,19 +835,19 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 4.6: compensated silicon
 
-**Question.** Silicon contains N_D = 1×10¹⁶ cm⁻³ and N_A = 4×10¹⁵ cm⁻³. Find n and p at 300 K (n_i = 1×10¹⁰ cm⁻³).
+**Question.** Silicon contains N_D = 1×10²² m⁻³ and N_A = 4×10²¹ m⁻³. Find n and p at 300 K (n_i = 1×10¹⁶ m⁻³).
 
-**Given:** N_D = 10¹⁶, N_A = 4×10¹⁵, n_i = 10¹⁰ cm⁻³.
+**Given:** N_D = 10²², N_A = 4×10²¹, n_i = 10¹⁶ m⁻³.
 
 **Find:** n and p.
 
 **Solution.**
 
-    N_D > N_A, so the material is n-type with net doping N_D − N_A = 6×10¹⁵ cm⁻³ ≫ n_i
-    n ≈ 6×10¹⁵ cm⁻³
-    p = n_i²/n = 10²⁰/6×10¹⁵ = 1.7×10⁴ cm⁻³
+    N_D > N_A, so the material is n-type with net doping N_D − N_A = 6×10²¹ m⁻³ ≫ n_i
+    n ≈ 6×10²¹ m⁻³
+    p = n_i²/n = 10³²/6×10²¹ = 1.7×10¹⁰ m⁻³
 
-**Answer:** **n = 6×10¹⁵ cm⁻³, p = 1.7×10⁴ cm⁻³.**
+**Answer:** **n = 6×10²¹ m⁻³, p = 1.7×10¹⁰ m⁻³.**
 
 #### Practice 4.7: why bands widen
 

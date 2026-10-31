@@ -90,7 +90,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Electron and hole.** An electron is a free negative charge carrier in the conduction band. A hole is an empty state left in the valence band when an electron leaves it; it moves like a positive charge carrier.
 
-**Intrinsic carrier concentration (n_i).** The density of electrons (equal to the density of holes) in a pure, undoped semiconductor, created by heat alone. For silicon at 300 K it is about 1×10¹⁰ cm⁻³; it rises very steeply with temperature.
+**Intrinsic carrier concentration (n_i).** The density of electrons (equal to the density of holes) in a pure, undoped semiconductor, created by heat alone. For silicon at 300 K it is about 1×10¹⁶ m⁻³; it rises very steeply with temperature.
 
 **Doping (N_D, N_A).** Adding small, controlled amounts of impurity atoms. Donors (density N_D) give electrons and make the material n-type; acceptors (density N_A) take electrons, create holes and make it p-type. Once they have given up or taken an electron, the donor and acceptor ions are charged and fixed in the crystal.
 
@@ -100,10 +100,10 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- p_n0 = equilibrium hole (minority) density on the n side (cm⁻³)
-- n_p0 = equilibrium electron (minority) density on the p side (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
-- N_D, N_A = donor and acceptor concentrations (cm⁻³)
+- p_n0 = equilibrium hole (minority) density on the n side (m⁻³)
+- n_p0 = equilibrium electron (minority) density on the p side (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
+- N_D, N_A = donor and acceptor concentrations (m⁻³)
 
 *Why it matters:* the diode current is carried by minority carriers, so it is set by these tiny densities.
 
@@ -125,8 +125,8 @@ Where:
 
 - V_bi = built-in potential (V)
 - kT/q = thermal voltage, 0.0259 V at 300 K
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
 **Depletion approximation.** The simplifying assumption that the depletion region contains no mobile carriers at all and has sharp edges, while the regions outside it are exactly neutral.
 
@@ -138,12 +138,12 @@ Where:
 
 Where:
 
-- p_n(x_n) = hole density at the n-side edge of the depletion region (cm⁻³)
-- p_n0 = equilibrium hole density on the n side (cm⁻³)
+- p_n(x_n) = hole density at the n-side edge of the depletion region (m⁻³)
+- p_n0 = equilibrium hole density on the n side (m⁻³)
 - V_a = applied voltage (V), positive for forward bias
 - kT/q = 0.0259 V at 300 K
 
-**Minority-carrier lifetime and diffusion length (τ, L).** The lifetime τ is the average time an injected minority carrier survives before it recombines; the diffusion length L = √(Dτ) is the average distance it diffuses in that time (D is the diffusion coefficient, cm²/s).
+**Minority-carrier lifetime and diffusion length (τ, L).** The lifetime τ is the average time an injected minority carrier survives before it recombines; the diffusion length L = √(Dτ) is the average distance it diffuses in that time (D is the diffusion coefficient, m²/s).
 
 **Saturation current (I_s).** The small, almost voltage-independent current that flows under reverse bias, carried by minority carriers that diffuse to the depletion region and are swept across. In small silicon diodes it is about 10⁻¹⁵–10⁻¹² A.
 
@@ -169,9 +169,9 @@ Where:
 Where:
 
 - C_j = junction (depletion) capacitance (F)
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
-- A = junction area (cm²)
-- W = depletion width (cm)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m
+- A = junction area (m²)
+- W = depletion width (m)
 
 ## The big picture
 
@@ -212,15 +212,15 @@ Where:
 
 - V_bi = built-in potential (V)
 - kT/q = thermal voltage, 0.0259 V at 300 K (kT = 0.0259 eV is the thermal energy)
-- N_A = acceptor concentration on the p side (cm⁻³)
-- N_D = donor concentration on the n side (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- N_A = acceptor concentration on the p side (m⁻³)
+- N_D = donor concentration on the n side (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
 #### Example 10.1: built-in potential
 
-**Question.** A silicon p-n junction has N_A = 1×10¹⁷ cm⁻³ on the p side and N_D = 1×10¹⁶ cm⁻³ on the n side. Calculate the built-in potential at 300 K.
+**Question.** A silicon p-n junction has N_A = 1×10²³ m⁻³ on the p side and N_D = 1×10²² m⁻³ on the n side. Calculate the built-in potential at 300 K.
 
-**Given:** N_A = 1×10¹⁷ cm⁻³, N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT/q = 0.0259 V.
+**Given:** N_A = 1×10²³ m⁻³, N_D = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³, kT/q = 0.0259 V.
 
 **Find:** V_bi.
 
@@ -230,7 +230,7 @@ Where:
 
 **Solution.**
 
-    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.0259 × ln(10¹⁷ × 10¹⁶ / 10²⁰)
+    V_bi = (kT/q) ln(N_{A}N_D/n_i²) = 0.0259 × ln(10²³ × 10²² / 10³²)
 
          = 0.0259 × ln(10¹³) = 0.0259 × 29.93 = 0.775 V
 
@@ -250,9 +250,9 @@ To calculate the width of the depletion region we make the **depletion approxima
 
 Where:
 
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
-- x_p = width of the depletion region on the p side (cm)
-- x_n = width of the depletion region on the n side (cm)
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
+- x_p = width of the depletion region on the p side (m)
+- x_n = width of the depletion region on the n side (m)
 
 So the depletion region extends **further into the more lightly doped side**. If N_A = 10 × N_D, then x_n = 10 × x_p.
 
@@ -264,12 +264,12 @@ with x_n = W N_A/(N_A + N_D) and x_p = W N_D/(N_A + N_D).
 
 Where:
 
-- W = total depletion width, x_n + x_p (cm)
-- ε_s = permittivity of silicon, 11.7 × 8.854×10⁻¹⁴ = 1.04×10⁻¹² F/cm
+- W = total depletion width, x_n + x_p (m)
+- ε_s = permittivity of silicon, 11.7 × 8.854×10⁻¹² = 1.04×10⁻¹⁰ F/m
 - q = electronic charge, 1.6×10⁻¹⁹ C
 - V_bi = built-in potential (V)
 - V_a = applied voltage (V), positive for forward bias, negative for reverse bias
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
 
 **Peak field** (at the junction):
 
@@ -277,7 +277,7 @@ Where:
 
 Where:
 
-- E_max = peak electric field, at the metallurgical junction (V/cm)
+- E_max = peak electric field, at the metallurgical junction (V/m)
 - q, N_A, N_D, x_n, x_p, ε_s, V_bi, V_a, W = as above
 
 The field is a triangle: zero at the edges of the depletion region, rising linearly to E_max at the junction. The area of that triangle, ½E_maxW, is the voltage across the region.
@@ -288,7 +288,7 @@ For a **one-sided p⁺n junction** (N_A ≫ N_D), almost all of W is on the n si
 
 **Question.** For the junction of Example 10.1 at zero bias, calculate the total depletion width, how much of it lies on each side, and the peak electric field.
 
-**Given:** V_bi = 0.775 V, N_A = 10¹⁷ cm⁻³, N_D = 10¹⁶ cm⁻³, ε_s = 1.04×10⁻¹² F/cm, q = 1.6×10⁻¹⁹ C, V_a = 0.
+**Given:** V_bi = 0.775 V, N_A = 10²³ m⁻³, N_D = 10²² m⁻³, ε_s = 1.04×10⁻¹⁰ F/m, q = 1.6×10⁻¹⁹ C, V_a = 0.
 
 **Find:** W, x_n, x_p and E_max.
 
@@ -302,19 +302,19 @@ Step 1. Total width:
 
     W = √( (2ε_s/q) V_bi (1/N_A + 1/N_D) )
 
-      = √( 2 × 1.04×10⁻¹² × 0.775 × (10⁻¹⁷ + 10⁻¹⁶) / 1.6×10⁻¹⁹ ) = √(1.10×10⁻⁹) = 3.32×10⁻⁵ cm
+      = √( 2 × 1.04×10⁻¹⁰ × 0.775 × (10⁻²³ + 10⁻²²) / 1.6×10⁻¹⁹ ) = √(1.11×10⁻¹³) = 3.33×10⁻⁷ m (0.333 μm)
 
 Step 2. Split, using x_n = W N_A/(N_A + N_D):
 
-    x_n = 0.332 × 10/11 = 0.30 μm,   x_p = 0.332 − 0.30 = 0.03 μm
+    x_n = 3.33×10⁻⁷ × 10/11 = 3.03×10⁻⁷ m (0.30 μm),   x_p = 3.33×10⁻⁷ − 3.03×10⁻⁷ = 3.0×10⁻⁸ m (0.03 μm)
 
 Step 3. Peak field at the junction:
 
-    E_max = qN_Dx_n/ε_s = 1.6×10⁻¹⁹ × 10¹⁶ × 3.0×10⁻⁵ / 1.04×10⁻¹² = 4.7×10⁴ V/cm
+    E_max = qN_Dx_n/ε_s = 1.6×10⁻¹⁹ × 10²² × 3.03×10⁻⁷ / 1.04×10⁻¹⁰ = 4.7×10⁶ V/m
 
-**Answer:** **W = 0.33 μm (0.30 μm on the n side, 0.03 μm on the p side), E_max = 4.7×10⁴ V/cm.**
+**Answer:** **W = 3.3×10⁻⁷ m = 0.33 μm (0.30 μm on the n side, 0.03 μm on the p side), E_max = 4.7×10⁶ V/m.**
 
-**What this means:** the region is only a third of a micrometre wide, and 90 % of it lies in the more lightly doped n side. Yet the field in it, 47 kV/cm (4.7 MV/m), is enormous by everyday standards; it is this strong field that sweeps any carrier arriving at the depletion region straight across.
+**What this means:** the region is only a third of a micrometre wide, and 90 % of it lies in the more lightly doped n side. Yet the field in it, 4.7 MV/m, is enormous by everyday standards; it is this strong field that sweeps any carrier arriving at the depletion region straight across.
 
 ## The junction under bias
 
@@ -328,9 +328,9 @@ Step 3. Peak field at the junction:
 
 Where:
 
-- p_n(x_n) = hole density at the n-side edge of the depletion region (cm⁻³)
-- n_p(−x_p) = electron density at the p-side edge of the depletion region (cm⁻³)
-- p_n0 = n_i²/N_D and n_p0 = n_i²/N_A = equilibrium minority concentrations (cm⁻³)
+- p_n(x_n) = hole density at the n-side edge of the depletion region (m⁻³)
+- n_p(−x_p) = electron density at the p-side edge of the depletion region (m⁻³)
+- p_n0 = n_i²/N_D and n_p0 = n_i²/N_A = equilibrium minority concentrations (m⁻³)
 - V_a = applied voltage (V), positive for forward bias
 - kT/q = thermal voltage, 0.0259 V at 300 K
 
@@ -338,7 +338,7 @@ Forward bias multiplies the minority densities by e^{qV_a/kT}; reverse bias make
 
 ### Forward and reverse bias compared
 
-The numbers in the depletion-width row are for the junction of Examples 10.1 and 10.2 (N_A = 10¹⁷, N_D = 10¹⁶ cm⁻³, V_bi = 0.775 V).
+The numbers in the depletion-width row are for the junction of Examples 10.1 and 10.2 (N_A = 10²³, N_D = 10²² m⁻³, V_bi = 0.775 V).
 
 | | Forward bias | Reverse bias |
 |---|---|---|
@@ -371,11 +371,11 @@ Where:
 - V = applied voltage (V), positive for forward bias
 - kT/q = thermal voltage, 0.0259 V at 300 K
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- A = junction area (cm²)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
-- D_p, D_n = diffusion coefficients of holes (in the n region) and electrons (in the p region) (cm²/s)
-- L_p, L_n = diffusion lengths of holes and electrons, √(D_pτ_p) and √(D_nτ_n) (cm)
-- N_D, N_A = donor and acceptor concentrations (cm⁻³)
+- A = junction area (m²)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
+- D_p, D_n = diffusion coefficients of holes (in the n region) and electrons (in the p region) (m²/s)
+- L_p, L_n = diffusion lengths of holes and electrons, √(D_pτ_p) and √(D_nτ_n) (m)
+- N_D, N_A = donor and acceptor concentrations (m⁻³)
 
 @fig figures/diode-iv.svg | The ideal diode characteristic. Forward current grows ten times for every 60 mV at 300 K; reverse current is a tiny −I_s.
 
@@ -387,9 +387,9 @@ Where:
 
 #### Example 10.3: saturation current and forward current of a diode
 
-**Question.** A silicon p⁺n diode has N_D = 1×10¹⁶ cm⁻³ on the n side, hole diffusion coefficient D_p = 10 cm²/s, hole lifetime τ_p = 1 μs and area 10⁻⁴ cm². Calculate the saturation current, and the forward current at 0.6 V and at 0.7 V (300 K).
+**Question.** A silicon p⁺n diode has N_D = 1×10²² m⁻³ on the n side, hole diffusion coefficient D_p = 1×10⁻³ m²/s, hole lifetime τ_p = 1 μs and area 10⁻⁸ m². Calculate the saturation current, and the forward current at 0.6 V and at 0.7 V (300 K).
 
-**Given:** N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 10⁻⁶ s, A = 10⁻⁴ cm², n_i = 10¹⁰ cm⁻³, kT/q = 0.0259 V.
+**Given:** N_D = 10²² m⁻³, D_p = 10⁻³ m²/s, τ_p = 10⁻⁶ s, A = 10⁻⁸ m², n_i = 10¹⁶ m⁻³, kT/q = 0.0259 V.
 
 **Find:** I_s, I(0.6 V), I(0.7 V).
 
@@ -399,11 +399,11 @@ Where:
 
 **Solution.**
 
-Step 1. Diffusion length: L_p = √(D_pτ_p) = √(10 × 10⁻⁶) = 3.16×10⁻³ cm
+Step 1. Diffusion length: L_p = √(D_pτ_p) = √(10⁻³ × 10⁻⁶) = 3.16×10⁻⁵ m (31.6 μm)
 
 Step 2. For a p⁺n diode only the hole term matters:
 
-    I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁴ × 10²⁰ × 10 / (3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹⁶ A
+    I_s ≈ qAn_i²D_p/(L_pN_D) = 1.6×10⁻¹⁹ × 10⁻⁸ × 10³² × 10⁻³ / (3.16×10⁻⁵ × 10²²) = 5.1×10⁻¹⁶ A
 
 Step 3. Forward current, I ≈ I_s e^{qV/kT}:
 
@@ -432,7 +432,7 @@ Between about 4 V and 6 V both mechanisms act together, and their opposite tempe
 | Doping | Lightly or moderately doped (at least one side) | Very heavily doped on both sides (p⁺n⁺) |
 | Depletion width | Wide; carriers need distance to gain energy | Very narrow (of order 10 nm) so tunnelling is possible |
 | Breakdown voltage | Above about 6 V (up to thousands of volts) | Below about 4 V |
-| Field needed | Of order 3×10⁵ V/cm in Si, reached over a wide region | About 10⁶ V/cm, reached across a very thin region |
+| Field needed | Of order 3×10⁷ V/m in Si, reached over a wide region | About 10⁸ V/m, reached across a very thin region |
 | Temperature coefficient of V_BR | Positive: V_BR rises with temperature (more phonon scattering, carriers lose energy) | Negative: V_BR falls with temperature (band gap shrinks, tunnelling easier) |
 | Onset | Sharp knee | Softer, more gradual knee |
 | Uses | High-voltage rectifiers, avalanche photodiodes, surge-protection diodes | Low-voltage reference and regulator ("Zener") diodes |
@@ -446,9 +446,9 @@ The depletion region is a layer of stored charge between two conducting regions,
 Where:
 
 - C_j = junction (depletion) capacitance (F)
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
-- A = junction area (cm²)
-- W = depletion width at the operating voltage (cm)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m
+- A = junction area (m²)
+- W = depletion width at the operating voltage (m)
 
 Since W grows with reverse bias, C_j **falls** as the reverse voltage increases. Diodes used deliberately as voltage-controlled capacitors (in radio tuning) are called **varactors**. Measuring C_j against voltage is also how doping is measured (C-V profiling, Week 12). Under forward bias the stored minority carriers add a larger **diffusion capacitance**.
 
@@ -486,7 +486,7 @@ Width of the depletion region:
 
     W = √( (2ε_s V_bi / q)(N_A + N_D)/(N_A N_D) )
 
-**Example (Si, N_A = 10¹⁷, N_D = 10¹⁶ cm⁻³):** V_bi = 0.0259 ln(10¹³) = **0.775 V**; W = **0.33 μm**, of which 0.30 μm is on the n side; E_max ≈ 4.7×10⁴ V/cm.
+**Example (Si, N_A = 10²³, N_D = 10²² m⁻³):** V_bi = 0.0259 ln(10¹³) = **0.775 V**; W = **3.3×10⁻⁷ m (0.33 μm)**, of which 0.30 μm is on the n side; E_max ≈ 4.7×10⁶ V/m.
 
 The built-in potential cannot drive current in an external circuit, because in equilibrium it is exactly balanced by the contact potentials at the metal–semiconductor contacts. Applied bias changes the barrier to V_bi − V_a, which is the basis of rectification.
 
@@ -551,7 +551,7 @@ or, for area A, **I = I_s [ exp(qV/kT) − 1 ]** with I_s = AJ_s. This is the id
 - For |V| ≫ kT/q: I ≈ −I_s, a small, voltage-independent **reverse saturation current** (Si, about 10⁻¹⁵–10⁻¹² A for small diodes) carried by minority carriers generated within a diffusion length of the junction.
 - In real diodes, generation in the depletion region adds a current ∝ W ∝ √|V|, and at large |V| avalanche or Zener breakdown occurs.
 
-**Numerical example.** A Si p⁺n diode with N_D = 10¹⁶ cm⁻³, D_p = 10 cm²/s, τ_p = 1 μs, area 10⁻⁴ cm²: L_p = √(10 × 10⁻⁶) = 3.16×10⁻³ cm; J_s ≈ qn_i²D_p/(L_pN_D) = (1.6×10⁻¹⁹)(10²⁰)(10)/(3.16×10⁻³ × 10¹⁶) = 5.1×10⁻¹² A/cm², so I_s = 5.1×10⁻¹⁶ A. At V = 0.6 V, I = I_s e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ ≈ 5.9 μA, and at 0.7 V it is about 280 μA.
+**Numerical example.** A Si p⁺n diode with N_D = 10²² m⁻³, D_p = 10⁻³ m²/s, τ_p = 1 μs, area 10⁻⁸ m²: L_p = √(10⁻³ × 10⁻⁶) = 3.16×10⁻⁵ m; J_s ≈ qn_i²D_p/(L_pN_D) = (1.6×10⁻¹⁹)(10³²)(10⁻³)/(3.16×10⁻⁵ × 10²²) = 5.1×10⁻⁸ A/m², so I_s = 5.1×10⁻¹⁶ A. At V = 0.6 V, I = I_s e^{0.6/0.0259} = 5.1×10⁻¹⁶ × 1.15×10¹⁰ ≈ 5.9 μA, and at 0.7 V it is about 280 μA.
 
 **Real diodes** deviate: recombination in the depletion region at low forward bias (I ∝ e^{qV/2kT}), high-level injection at high current, series resistance, and generation current and breakdown in reverse. These are summarised by I = I_s(e^{qV/ηkT} − 1), with ideality factor η between 1 and 2.
 
@@ -563,46 +563,46 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 10.1: built-in potential of a germanium junction
 
-**Question.** A germanium junction has N_A = N_D = 1×10¹⁶ cm⁻³. Find V_bi at 300 K (n_i = 2.4×10¹³ cm⁻³) and compare with silicon.
+**Question.** A germanium junction has N_A = N_D = 1×10²² m⁻³. Find V_bi at 300 K (n_i = 2.4×10¹⁹ m⁻³) and compare with silicon.
 
-**Given:** N_A = N_D = 10¹⁶ cm⁻³, n_i = 2.4×10¹³ cm⁻³, kT/q = 0.0259 V.
+**Given:** N_A = N_D = 10²² m⁻³, n_i = 2.4×10¹⁹ m⁻³, kT/q = 0.0259 V.
 
 **Find:** V_bi.
 
 **Solution.**
 
-    V_bi = 0.0259 ln(10³²/5.76×10²⁶) = 0.0259 ln(1.74×10⁵) = 0.0259 × 12.06 = 0.31 V
+    V_bi = 0.0259 ln(10⁴⁴/5.76×10³⁸) = 0.0259 ln(1.74×10⁵) = 0.0259 × 12.06 = 0.31 V
 
 **Answer:** **V_bi = 0.31 V**, against 0.72 V for silicon with the same doping: the smaller gap gives a smaller barrier.
 
 #### Practice 10.2: reverse-biased depletion width and field
 
-**Question.** A silicon p⁺n junction has N_D = 1×10¹⁵ cm⁻³ and V_bi = 0.7 V. Find the depletion width and peak field at a reverse bias of 5 V.
+**Question.** A silicon p⁺n junction has N_D = 1×10²¹ m⁻³ and V_bi = 0.7 V. Find the depletion width and peak field at a reverse bias of 5 V.
 
-**Given:** N_D = 10¹⁵ cm⁻³, V_bi − V = 0.7 + 5 = 5.7 V, ε_s = 1.04×10⁻¹² F/cm.
+**Given:** N_D = 10²¹ m⁻³, V_bi − V = 0.7 + 5 = 5.7 V, ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** W and E_max.
 
 **Solution.**
 
-    W = √(2ε_s(V_bi − V)/qN_D) = √(2 × 1.04×10⁻¹² × 5.7 / (1.6×10⁻¹⁹ × 10¹⁵)) = 2.72×10⁻⁴ cm
-    E_max = 2(V_bi − V)/W = 2 × 5.7/2.72×10⁻⁴ = 4.2×10⁴ V/cm
+    W = √(2ε_s(V_bi − V)/qN_D) = √(2 × 1.04×10⁻¹⁰ × 5.7 / (1.6×10⁻¹⁹ × 10²¹)) = 2.72×10⁻⁶ m
+    E_max = 2(V_bi − V)/W = 2 × 5.7/2.72×10⁻⁶ = 4.2×10⁶ V/m
 
-**Answer:** **W = 2.7 μm, E_max = 4.2×10⁴ V/cm.**
+**Answer:** **W = 2.7×10⁻⁶ m (2.7 μm), E_max = 4.2×10⁶ V/m.**
 
 **What this means:** light doping and reverse bias together make the depletion region several micrometres wide, which is why lightly doped junctions can withstand large reverse voltages before the field reaches the avalanche level.
 
 #### Practice 10.3: junction capacitance
 
-**Question.** Find the junction capacitance of the diode in Practice 10.2 if its area is 1×10⁻³ cm².
+**Question.** Find the junction capacitance of the diode in Practice 10.2 if its area is 1×10⁻⁷ m².
 
-**Given:** W = 2.72×10⁻⁴ cm, A = 10⁻³ cm², ε_s = 1.04×10⁻¹² F/cm.
+**Given:** W = 2.72×10⁻⁶ m, A = 10⁻⁷ m², ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** C_j.
 
 **Solution.**
 
-    C_j = ε_sA/W = 1.04×10⁻¹² × 10⁻³ / 2.72×10⁻⁴ = 3.8×10⁻¹² F
+    C_j = ε_sA/W = 1.04×10⁻¹⁰ × 10⁻⁷ / 2.72×10⁻⁶ = 3.8×10⁻¹² F
 
 **Answer:** **C_j = 3.8 pF.**
 
@@ -610,20 +610,20 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 10.4: saturation current with both sides
 
-**Question.** A silicon diode has N_A = 1×10¹⁷ cm⁻³, N_D = 1×10¹⁶ cm⁻³, D_n = 20 cm²/s, L_n = 20 μm, D_p = 10 cm²/s, L_p = 10 μm. Find J_s and the fraction carried by holes.
+**Question.** A silicon diode has N_A = 1×10²³ m⁻³, N_D = 1×10²² m⁻³, D_n = 2×10⁻³ m²/s, L_n = 20 μm, D_p = 1×10⁻³ m²/s, L_p = 10 μm. Find J_s and the fraction carried by holes.
 
-**Given:** the values above, n_i = 10¹⁰ cm⁻³.
+**Given:** the values above, with L_n = 2×10⁻⁵ m, L_p = 1×10⁻⁵ m, n_i = 10¹⁶ m⁻³.
 
 **Find:** J_s and the hole fraction.
 
 **Solution.**
 
-    D_p/(L_pN_D) = 10/(10⁻³ × 10¹⁶) = 1.0×10⁻¹²
-    D_n/(L_nN_A) = 20/(2×10⁻³ × 10¹⁷) = 1.0×10⁻¹³
-    J_s = qn_i²(1.0×10⁻¹² + 1.0×10⁻¹³) = 1.6×10⁻¹⁹ × 10²⁰ × 1.1×10⁻¹² = 1.76×10⁻¹¹ A/cm²
+    D_p/(L_pN_D) = 10⁻³/(10⁻⁵ × 10²²) = 1.0×10⁻²⁰
+    D_n/(L_nN_A) = 2×10⁻³/(2×10⁻⁵ × 10²³) = 1.0×10⁻²¹
+    J_s = qn_i²(1.0×10⁻²⁰ + 1.0×10⁻²¹) = 1.6×10⁻¹⁹ × 10³² × 1.1×10⁻²⁰ = 1.76×10⁻⁷ A/m²
     hole fraction = 1.0/1.1 = 91 %
 
-**Answer:** **J_s = 1.8×10⁻¹¹ A/cm², 91 % carried by holes injected into the lightly doped n side.**
+**Answer:** **J_s = 1.8×10⁻⁷ A/m², 91 % carried by holes injected into the lightly doped n side.**
 
 #### Practice 10.5: temperature and the saturation current
 
@@ -670,7 +670,7 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | # | Objective | Check yourself | Answer | Where it is taught |
 |---|---|---|---|---|
 | 1 | Explain the formation of the depletion region in a p-n junction. | Why is the depletion region empty of mobile carriers? | Carriers diffused across and recombined, leaving only fixed donor and acceptor ions. | Forming the junction |
-| 2 | Derive and calculate the built-in potential. | Find V_bi for N_A = N_D = 10¹⁶ cm⁻³ in Si. | 0.0259 ln(10¹²) = 0.716 V. | The built-in potential; Example 10.1 |
+| 2 | Derive and calculate the built-in potential. | Find V_bi for N_A = N_D = 10²² m⁻³ in Si. | 0.0259 ln(10¹²) = 0.716 V. | The built-in potential; Example 10.1 |
 | 3 | Calculate the depletion width and electric-field profile. | If N_A = 100 N_D, where does most of the depletion region lie? | On the n side (x_n = 100 x_p). | Depletion approximation; Example 10.2 |
 | 4 | Explain the junction under forward and reverse bias and the law of the junction. | By what factor does forward bias of 0.12 V multiply the injected minority carriers? | e^{0.12/0.0259} ≈ 100. | The junction under bias; Forward and reverse bias compared |
 | 5 | Derive and use the Shockley diode equation. | Write the ideal diode equation and its saturation current density. | I = I_s(e^{qV/kT} − 1); J_s = qn_i²(D_p/L_pN_D + D_n/L_nN_A). | Shockley equation; Example 10.3; Q48 |

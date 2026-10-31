@@ -115,7 +115,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Unit cell.** The smallest block of a crystal lattice that, repeated over and over in three directions, rebuilds the whole crystal. Silicon's unit cell is a cube containing 8 atoms (the diamond-cubic structure).
 
-**Lattice constant (a).** The edge length of the cubic unit cell, measured in ångströms (1 Å = 10⁻¹⁰ m). Si: 5.43 Å; Ge and GaAs: 5.65 Å.
+**Lattice constant (a).** The edge length of the cubic unit cell, measured in nanometres (1 nm = 10⁻⁹ m). Si: 0.543 nm; Ge and GaAs: 0.565 nm.
 
 *Why it matters:* a thin crystal layer can only be grown without defects on a substrate with almost the same lattice constant.
 
@@ -125,8 +125,8 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- d_hkl = spacing between neighbouring (h k l) planes in a cubic crystal (Å)
-- a = lattice constant (Å)
+- d_hkl = spacing between neighbouring (h k l) planes in a cubic crystal (nm)
+- a = lattice constant (nm)
 - h, k, l = Miller indices of the plane (integers)
 
 **Energy band.** When many atoms join to form a solid, each sharp atomic energy level spreads into a wide range of closely spaced allowed energies, called a band. The **valence band** holds the electrons that form the bonds; the **conduction band** above it holds electrons that are free to move and carry current.
@@ -147,15 +147,15 @@ Where:
 
 **Free electron and hole.** When a covalent bond breaks, the released electron can wander through the crystal (a free electron, in the conduction band), and the empty place it leaves in the bond (a hole, in the valence band) behaves as a mobile positive charge. Breaking one bond creates one **electron–hole pair**.
 
-**Intrinsic semiconductor.** A pure semiconductor with no impurities deliberately added, in which every free electron comes from a broken bond and so is matched by a hole. The number of each per cm³ is the **intrinsic carrier concentration, n_i**.
+**Intrinsic semiconductor.** A pure semiconductor with no impurities deliberately added, in which every free electron comes from a broken bond and so is matched by a hole. The number of each per m³ is the **intrinsic carrier concentration, n_i**.
 
     n = p = n_i
 
 Where:
 
-- n = free-electron concentration (cm⁻³)
-- p = hole concentration (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- n = free-electron concentration (m⁻³)
+- p = hole concentration (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 
 **Doping.** The deliberate addition of a small, controlled amount of an impurity element (the **dopant**) to a pure semiconductor, to set whether electrons or holes carry the current and to raise the conductivity.
 
@@ -167,8 +167,8 @@ Where:
 
 Where:
 
-- n, p = electron and hole concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- n, p = electron and hole concentrations (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 *Why it matters:* this one rule lets you find the minority-carrier concentration as soon as you know the doping, e.g. p = n_i²/N_D in n-type material.
 
@@ -180,9 +180,9 @@ Where:
 
 Where:
 
-- μ = mobility (cm²/V·s); Si: μ_n = 1350 for electrons, μ_p = 480 for holes
-- v_d = drift velocity of the carriers (cm/s)
-- E = applied electric field (V/cm)
+- μ = mobility (m²/V·s); Si: μ_n = 0.135 for electrons, μ_p = 0.048 for holes
+- v_d = drift velocity of the carriers (m/s)
+- E = applied electric field (V/m)
 
 **Conductivity (σ) and resistivity (ρ).** Conductivity measures how well a material carries current; resistivity is its inverse. In a semiconductor both electrons and holes contribute.
 
@@ -190,11 +190,11 @@ Where:
 
 Where:
 
-- σ = conductivity (S/cm)
-- ρ = resistivity (Ω·cm)
+- σ = conductivity (S/m)
+- ρ = resistivity (Ω·m)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- n, p = electron and hole concentrations (cm⁻³)
-- μ_n, μ_p = electron and hole mobilities (cm²/V·s)
+- n, p = electron and hole concentrations (m⁻³)
+- μ_n, μ_p = electron and hole mobilities (m²/V·s)
 
 *Why it matters:* doping raises n or p by many orders of magnitude, and σ rises in proportion; this is how the resistivity of every region of a device is set.
 
@@ -220,7 +220,7 @@ The most important semiconductor materials used in electronics are:
 
 A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator, and can be **significantly controlled** by temperature, impurities, light or applied electric fields. Examples: silicon (Si), germanium (Ge) and gallium arsenide (GaAs).
 
-Its conductivity is **not fixed**, and that is exactly what makes it useful for electronic devices. Pure silicon at room temperature conducts poorly. When a small, controlled quantity of an impurity such as phosphorus or boron is introduced, its conductivity rises dramatically: one phosphorus atom per million silicon atoms (5×10¹⁶ cm⁻³) raises the conductivity more than a million times. This process is called **doping**.
+Its conductivity is **not fixed**, and that is exactly what makes it useful for electronic devices. Pure silicon at room temperature conducts poorly. When a small, controlled quantity of an impurity such as phosphorus or boron is introduced, its conductivity rises dramatically: one phosphorus atom per million silicon atoms (5×10²² m⁻³) raises the conductivity more than a million times. This process is called **doping**.
 
 ## Classification of materials by electrical conductivity
 
@@ -228,14 +228,14 @@ Materials can broadly be classified into **conductors**, **semiconductors** and 
 
 **Conductors** have a large number of free electrons available for electrical conduction. Examples: copper, aluminium, silver, gold, iron. Copper is widely used in electrical wiring because of its high conductivity. Characteristics:
 
-- high electrical conductivity (σ ≈ 10⁵–10⁶ S/cm);
-- low electrical resistivity (Cu: 1.7×10⁻⁶ Ω·cm);
-- large number of free charge carriers (about 10²² cm⁻³);
+- high electrical conductivity (σ ≈ 10⁷–10⁸ S/m);
+- low electrical resistivity (Cu: 1.7×10⁻⁸ Ω·m);
+- large number of free charge carriers (about 10²⁸ m⁻³);
 - small, or effectively overlapping, energy gap.
 
 **Insulators** have very few free charge carriers under normal conditions. Examples: glass, rubber, plastic, ceramic, mica. They strongly resist the flow of electric current. Characteristics:
 
-- very high resistivity (10¹⁰–10¹⁸ Ω·cm);
+- very high resistivity (10⁸–10¹⁶ Ω·m);
 - very low conductivity;
 - large energy band gap (more than about 4 eV; SiO₂ ≈ 9 eV);
 - electrons strongly bound to their atoms.
@@ -310,9 +310,9 @@ An **intrinsic semiconductor** is a pure semiconductor without intentionally int
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- p = hole concentration (cm⁻³)
-- n_i = **intrinsic carrier concentration** (cm⁻³): Si about 1×10¹⁰ cm⁻³ at 300 K; Ge 2.4×10¹³ cm⁻³
+- n = electron concentration (m⁻³)
+- p = hole concentration (m⁻³)
+- n_i = **intrinsic carrier concentration** (m⁻³): Si about 1×10¹⁶ m⁻³ at 300 K; Ge 2.4×10¹⁹ m⁻³
 
 The number of electrons equals the number of holes. In thermal equilibrium the product is constant:
 
@@ -320,8 +320,8 @@ The number of electrons equals the number of holes. In thermal equilibrium the p
 
 Where:
 
-- n, p = electron and hole concentrations (cm⁻³), in pure or doped material
-- n_i = intrinsic carrier concentration of the material at that temperature (cm⁻³)
+- n, p = electron and hole concentrations (m⁻³), in pure or doped material
+- n_i = intrinsic carrier concentration of the material at that temperature (m⁻³)
 
 ## Extrinsic semiconductor
 
@@ -345,9 +345,9 @@ Produced by adding a **trivalent impurity** (three valence electrons): boron (B)
 
 #### Example 1.1: carriers in n-type silicon
 
-**Question.** Silicon at 300 K is doped with 10¹⁶ cm⁻³ phosphorus atoms. Taking n_i = 1×10¹⁰ cm⁻³ and assuming every donor is ionised, calculate the electron and hole concentrations and state which carrier is the majority.
+**Question.** Silicon at 300 K is doped with 10²² m⁻³ phosphorus atoms. Taking n_i = 1×10¹⁶ m⁻³ and assuming every donor is ionised, calculate the electron and hole concentrations and state which carrier is the majority.
 
-**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, T = 300 K, complete ionisation.
+**Given:** N_D = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³, T = 300 K, complete ionisation.
 
 **Find:** n, p, and the majority carrier.
 
@@ -360,13 +360,13 @@ Produced by adding a **trivalent impurity** (three valence electrons): boron (B)
 
 Step 1. Each phosphorus atom gives one free electron, and N_D ≫ n_i, so
 
-    n ≈ N_D = 1×10¹⁶ cm⁻³
+    n ≈ N_D = 1×10²² m⁻³
 
 Step 2. The mass-action law np = n_i² gives the holes:
 
-    p = n_i²/n = (1×10¹⁰)² / (1×10¹⁶) = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+    p = n_i²/n = (1×10¹⁶)² / (1×10²²) = 10³²/10²² = 1×10¹⁰ m⁻³
 
-**Answer:** **n = 1×10¹⁶ cm⁻³, p = 1×10⁴ cm⁻³.** Electrons are the majority carriers; they outnumber the holes by 10¹².
+**Answer:** **n = 1×10²² m⁻³, p = 1×10¹⁰ m⁻³.** Electrons are the majority carriers; they outnumber the holes by 10¹².
 
 **What this means:** adding only one phosphorus atom for every 5 million silicon atoms makes electrons a million times more plentiful than in pure silicon, while the holes fall a million times below n_i. Almost all the current in this material is carried by electrons.
 
@@ -412,7 +412,7 @@ Germanium was one of the earliest semiconductor materials, used extensively for 
 Gallium arsenide is a compound semiconductor of gallium and arsenic (Ga + As), abbreviated **GaAs**.
 
 - Band gap E_g ≈ 1.42 eV at room temperature (direct).
-- High electron mobility (about 8500 cm²/V·s, six times silicon), so it is particularly useful for high-frequency and optoelectronic applications.
+- High electron mobility (about 0.85 m²/V·s, six times silicon), so it is particularly useful for high-frequency and optoelectronic applications.
 - Applications: microwave circuits, satellite communication, radar, high-frequency amplifiers, LEDs, laser diodes, photodetectors, solar cells.
 
 ### Comparison of Si, Ge and GaAs
@@ -424,14 +424,14 @@ Gallium arsenide is a compound semiconductor of gallium and arsenic (Ga + As), a
 | Valence electrons | 4 | 4 | III–V compound (average 4) |
 | Band gap | ≈ 1.12 eV | ≈ 0.66 eV | ≈ 1.42 eV |
 | Crystal structure | Diamond cubic | Diamond cubic | Zinc blende |
-| Electron mobility | Moderate (1350) | High (3900) | Very high (8500) |
+| Electron mobility | Moderate (0.135) | High (0.39) | Very high (0.85) |
 | Thermal stability | Good | Lower | Good |
 | Cost | Relatively low | Higher | High |
 | IC manufacturing | Excellent | Limited | Specialised |
 | High-frequency use | Good | Good | Excellent |
 | Optical applications | Limited | Good (infrared) | Excellent |
 
-(Mobilities in cm²/V·s at 300 K, added for reference.)
+(Mobilities in m²/V·s at 300 K, added for reference.)
 
 ## Energy band concept
 
@@ -521,12 +521,12 @@ Counting atoms in a cubic cell: a corner atom is shared by 8 cells (counts 1/8),
 - The bonding is predominantly **covalent**.
 - This structure is responsible for many of silicon's useful semiconductor properties.
 
-For Si (a = 5.43 Å): nearest-neighbour distance = (√3/4)a = 2.35 Å; atom density = 8/a³ = 5.0×10²² atoms/cm³.
+For Si (a = 0.543 nm): nearest-neighbour distance = (√3/4)a = 0.235 nm; atom density = 8/a³ = 5.0×10²⁸ atoms/m³.
 
 ### Germanium crystal structure
 
 - Germanium also has the diamond-cubic structure; each Ge atom forms four covalent bonds with neighbouring Ge atoms.
-- Silicon and germanium therefore have similar bonding arrangements, but their atomic sizes (a = 5.65 Å for Ge) and electronic properties differ.
+- Silicon and germanium therefore have similar bonding arrangements, but their atomic sizes (a = 0.565 nm for Ge) and electronic properties differ.
 
 ### GaAs crystal structure
 
@@ -536,7 +536,7 @@ For Si (a = 5.43 Å): nearest-neighbour distance = (√3/4)a = 2.35 Å; atom den
 
 ### Lattice constant
 
-The **lattice constant** is a characteristic dimension of a crystal unit cell. For a cubic crystal it is written **a** and measured in metres, nanometres or angstroms (1 Å = 10⁻¹⁰ m = 0.1 nm). Si: 5.43 Å; Ge: 5.65 Å; GaAs: 5.65 Å.
+The **lattice constant** is a characteristic dimension of a crystal unit cell. For a cubic crystal it is written **a** and measured in metres or nanometres (1 nm = 10⁻⁹ m). Si: 0.543 nm; Ge: 0.565 nm; GaAs: 0.565 nm.
 
 The lattice constant determines: atomic spacing; crystal density; crystal matching between materials; epitaxial growth (a layer grows well only on a substrate with nearly the same a); and semiconductor heterostructures (e.g. AlGaAs on GaAs works because their lattice constants are almost identical).
 
@@ -621,15 +621,15 @@ They are important in wafer orientation, crystal growth, etching, diffraction an
 
 Where:
 
-- d_hkl = perpendicular distance between neighbouring (h k l) planes (Å)
-- a = lattice constant of the cubic cell (Å); Si 5.43
+- d_hkl = perpendicular distance between neighbouring (h k l) planes (nm)
+- a = lattice constant of the cubic cell (nm); Si 0.543
 - h, k, l = Miller indices of the planes (integers)
 
-For Si, d₁₁₁ = 5.43/√3 = 3.135 Å and d₁₀₀ = 5.43 Å. In cubic crystals the direction [h k l] is perpendicular to the plane (h k l).
+For Si, d₁₁₁ = 0.543/√3 = 0.3135 nm and d₁₀₀ = 0.543 nm. In cubic crystals the direction [h k l] is perpendicular to the plane (h k l).
 
 ## Why orientation matters in processing
 
-- **Surface atom density** differs by plane: in Si, (100) has 6.8×10¹⁴ atoms/cm², (111) has 7.8×10¹⁴ atoms/cm².
+- **Surface atom density** differs by plane: in Si, (100) has 6.8×10¹⁸ atoms/m², (111) has 7.8×10¹⁸ atoms/m².
 - **Oxidation rate:** (111) oxidises faster than (100).
 - **Interface traps:** (100) gives the lowest Si/SiO₂ interface-state density, so **MOS technology uses (100) wafers**.
 - **Anisotropic etching:** KOH etches (100) far faster than (111), giving V-grooves with 54.7° walls, used in MEMS.
@@ -688,7 +688,7 @@ These are the lecturer's own Week 1 revision questions (Lecture 2, pages 41–43
 
 ### R1. Define a semiconductor.
 
-A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator (ρ ≈ 10⁻³ to 10⁸ Ω·cm), and whose conductivity can be significantly controlled by temperature, light, electric and magnetic fields, and especially by adding small amounts of impurities (doping). Examples: Si, Ge, GaAs.
+A semiconductor is a material whose electrical conductivity lies between that of a conductor and an insulator (ρ ≈ 10⁻⁵ to 10⁶ Ω·m), and whose conductivity can be significantly controlled by temperature, light, electric and magnetic fields, and especially by adding small amounts of impurities (doping). Examples: Si, Ge, GaAs.
 
 ### R2. Distinguish between a conductor, semiconductor and insulator.
 
@@ -708,7 +708,7 @@ Each silicon atom has four valence electrons. In the crystal it shares one elect
 
 ### R6. Define intrinsic semiconductor.
 
-An intrinsic semiconductor is a pure semiconductor with no intentionally added impurities, in which carriers are produced only by thermal breaking of bonds. Electrons and holes are therefore equal in number: n = p = n_i (Si: n_i ≈ 1×10¹⁰ cm⁻³ at 300 K).
+An intrinsic semiconductor is a pure semiconductor with no intentionally added impurities, in which carriers are produced only by thermal breaking of bonds. Electrons and holes are therefore equal in number: n = p = n_i (Si: n_i ≈ 1×10¹⁶ m⁻³ at 300 K).
 
 ### R7. Define extrinsic semiconductor.
 
@@ -716,7 +716,7 @@ An extrinsic semiconductor is one whose electrical properties have been delibera
 
 ### R8. What is doping?
 
-Doping is the deliberate, controlled introduction of small amounts of specific impurity atoms (typically 10¹⁴–10²⁰ cm⁻³) into a pure semiconductor to increase its conductivity and set its carrier type. Pentavalent dopants (P, As, Sb) give n-type material; trivalent dopants (B, Al, Ga, In) give p-type. Methods are covered in Week 3 (diffusion and ion implantation).
+Doping is the deliberate, controlled introduction of small amounts of specific impurity atoms (typically 10²⁰–10²⁶ m⁻³) into a pure semiconductor to increase its conductivity and set its carrier type. Pentavalent dopants (P, As, Sb) give n-type material; trivalent dopants (B, Al, Ga, In) give p-type. Methods are covered in Week 3 (diffusion and ion implantation).
 
 ### R9. Differentiate between n-type and p-type semiconductors.
 
@@ -748,11 +748,11 @@ In a **direct** band-gap semiconductor (GaAs, GaN, InP) the conduction-band mini
 
 ### R14. State the crystal structure of silicon.
 
-Silicon has the **diamond-cubic** crystal structure: two interpenetrating face-centred cubic lattices displaced by one quarter of the body diagonal. Each atom has four nearest neighbours at the corners of a tetrahedron, bonded covalently. Lattice constant a = 5.43 Å, 8 atoms per unit cell, nearest-neighbour distance 2.35 Å.
+Silicon has the **diamond-cubic** crystal structure: two interpenetrating face-centred cubic lattices displaced by one quarter of the body diagonal. Each atom has four nearest neighbours at the corners of a tetrahedron, bonded covalently. Lattice constant a = 0.543 nm, 8 atoms per unit cell, nearest-neighbour distance 0.235 nm.
 
 ### R15. State the crystal structure of GaAs.
 
-GaAs has the **zinc-blende** crystal structure: two interpenetrating FCC sublattices, one of gallium atoms and one of arsenic atoms, displaced by a quarter of the body diagonal. Each Ga atom has four As nearest neighbours and each As has four Ga neighbours, tetrahedrally arranged. Lattice constant a = 5.65 Å. The bonding is covalent with partial ionic character.
+GaAs has the **zinc-blende** crystal structure: two interpenetrating FCC sublattices, one of gallium atoms and one of arsenic atoms, displaced by a quarter of the body diagonal. Each Ga atom has four As nearest neighbours and each As has four Ga neighbours, tetrahedrally arranged. Lattice constant a = 0.565 nm. The bonding is covalent with partial ionic character.
 
 ### R16. What are Miller indices?
 
@@ -773,7 +773,7 @@ Any three of: microwave and RF amplifiers (mobile phones, radar); satellite comm
 
 ### R19. Define carrier mobility.
 
-Carrier mobility μ is the average drift velocity acquired by a charge carrier per unit applied electric field: μ = v_d/E, in cm²/V·s. It measures how easily electrons or holes move through the crystal. In silicon μ_n ≈ 1350 and μ_p ≈ 480 cm²/V·s. (Full treatment in Week 7.)
+Carrier mobility μ is the average drift velocity acquired by a charge carrier per unit applied electric field: μ = v_d/E, in m²/V·s. It measures how easily electrons or holes move through the crystal. In silicon μ_n ≈ 0.135 and μ_p ≈ 0.048 m²/V·s. (Full treatment in Week 7.)
 
 ### R20. Explain why semiconductor conductivity increases with temperature.
 
@@ -783,7 +783,7 @@ Conductivity is σ = q(nμ_n + pμ_p). As temperature rises, more valence electr
 
 ### C1. An n-type semiconductor has an electron concentration of 5 × 10¹⁶ cm⁻³. If the electron mobility is 1200 cm²/V·s, calculate its conductivity, assuming hole conduction is negligible.
 
-**Given:** n = 5×10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s, q = 1.6×10⁻¹⁹ C, hole conduction negligible.
+**Given:** n = 5×10¹⁶ cm⁻³ = 5×10²² m⁻³, μ_n = 1200 cm²/V·s = 0.12 m²/V·s, q = 1.6×10⁻¹⁹ C, hole conduction negligible.
 
 **Find:** σ (and ρ).
 
@@ -793,17 +793,17 @@ Conductivity is σ = q(nμ_n + pμ_p). As temperature rises, more valence electr
 
 **Solution.** With hole conduction neglected, σ = q n μ_n:
 
-    σ = (1.6×10⁻¹⁹ C)(5×10¹⁶ cm⁻³)(1200 cm²/V·s)
-      = 1.6×10⁻¹⁹ × 6×10¹⁹
-      = 9.6 S/cm   (Ω⁻¹cm⁻¹)
+    σ = (1.6×10⁻¹⁹ C)(5×10²² m⁻³)(0.12 m²/V·s)
+      = 1.6×10⁻¹⁹ × 6×10²¹
+      = 960 S/m   (Ω⁻¹m⁻¹)
 
-**Answer:** **σ = 9.6 S/cm** (= 960 S/m), so the resistivity is ρ = 1/σ = **0.104 Ω·cm**. (With q = 1.602×10⁻¹⁹ C, σ = 9.61 S/cm.)
+**Answer:** **σ = 960 S/m**, so the resistivity is ρ = 1/σ = **1.04×10⁻³ Ω·m**. (With q = 1.602×10⁻¹⁹ C, σ = 961 S/m.)
 
-**What this means:** a 1 cm cube of this silicon would have a resistance of only about 0.1 Ω, over three million times less than pure silicon (σ_i ≈ 2.9×10⁻⁶ S/cm); the doping, not the silicon itself, decides how well it conducts.
+**What this means:** a 10 mm cube of this silicon would have a resistance of only about 0.1 Ω (R = ρ/L = 1.04×10⁻³/0.01), over three million times less than pure silicon (σ_i ≈ 2.9×10⁻⁴ S/m); the doping, not the silicon itself, decides how well it conducts.
 
 ### C2. A semiconductor has n = 2 × 10¹⁶ cm⁻³, p = 5 × 10¹⁵ cm⁻³, μ_n = 1300 cm²/V·s, μ_p = 450 cm²/V·s. Calculate its conductivity using σ = q(nμ_n + pμ_p).
 
-**Given:** n = 2×10¹⁶ cm⁻³, p = 5×10¹⁵ cm⁻³, μ_n = 1300 cm²/V·s, μ_p = 450 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+**Given:** n = 2×10¹⁶ cm⁻³ = 2×10²² m⁻³, p = 5×10¹⁵ cm⁻³ = 5×10²¹ m⁻³, μ_n = 1300 cm²/V·s = 0.13 m²/V·s, μ_p = 450 cm²/V·s = 0.045 m²/V·s, q = 1.6×10⁻¹⁹ C.
 
 **Find:** σ (and ρ).
 
@@ -813,21 +813,21 @@ Conductivity is σ = q(nμ_n + pμ_p). As temperature rises, more valence electr
 
 **Solution.**
 
-    nμ_n = 2×10¹⁶ × 1300 = 2.6×10¹⁹
-    pμ_p = 5×10¹⁵ × 450 = 2.25×10¹⁸
-    nμ_n + pμ_p = 2.825×10¹⁹   (cm·V·s)⁻¹
+    nμ_n = 2×10²² × 0.13 = 2.6×10²¹
+    pμ_p = 5×10²¹ × 0.045 = 2.25×10²⁰
+    nμ_n + pμ_p = 2.825×10²¹   (m·V·s)⁻¹
 
-    σ = 1.6×10⁻¹⁹ × 2.825×10¹⁹ = 4.52 S/cm
+    σ = 1.6×10⁻¹⁹ × 2.825×10²¹ = 452 S/m
 
-**Answer:** **σ ≈ 4.52 S/cm**, ρ = 1/σ ≈ **0.221 Ω·cm**. The electrons contribute 92 % of the conductivity (2.6 of 2.825), the holes 8 %.
+**Answer:** **σ ≈ 452 S/m**, ρ = 1/σ ≈ **2.21×10⁻³ Ω·m**. The electrons contribute 92 % of the conductivity (2.6 of 2.825), the holes 8 %.
 
-**What this means:** electrons dominate for two reasons: there are four times as many of them, and each moves almost three times as easily (1300 against 450). Neglecting the holes here would underestimate σ by only 8 %.
+**What this means:** electrons dominate for two reasons: there are four times as many of them, and each moves almost three times as easily (0.13 against 0.045 m²/V·s). Neglecting the holes here would underestimate σ by only 8 %.
 
 ### C3. Explain why GaAs is preferred to silicon for some high-frequency applications.
 
-1. **Higher electron mobility**: about 8500 cm²/V·s against 1350 for Si, because of its small electron effective mass (0.067m₀). Electrons cross a transistor faster, giving higher transconductance and cut-off frequency (f_T), and lower noise.
-2. **Higher peak electron velocity** (about 2×10⁷ cm/s against 1×10⁷ cm/s), so short transit times in small devices.
-3. **Semi-insulating substrates** (ρ ≈ 10⁸ Ω·cm) reduce parasitic capacitance and substrate losses, ideal for microwave integrated circuits (MMICs) with on-chip transmission lines.
+1. **Higher electron mobility**: about 0.85 m²/V·s against 0.135 for Si, because of its small electron effective mass (0.067m₀). Electrons cross a transistor faster, giving higher transconductance and cut-off frequency (f_T), and lower noise.
+2. **Higher peak electron velocity** (about 2×10⁵ m/s against 1×10⁵ m/s), so short transit times in small devices.
+3. **Semi-insulating substrates** (ρ ≈ 10⁶ Ω·m) reduce parasitic capacitance and substrate losses, ideal for microwave integrated circuits (MMICs) with on-chip transmission lines.
 4. It supports **heterostructure devices** (AlGaAs/GaAs HEMTs and HBTs) with very high mobility two-dimensional electron gases.
 5. **Larger band gap** (1.42 eV) gives better radiation hardness and higher-temperature operation than Si.
 
@@ -853,7 +853,7 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 
 **Answer:** **Miller indices (3 2 0).** The zero shows that the plane is parallel to the z-axis. For a cubic crystal, d₃₂₀ = a/√(9 + 4 + 0) = a/√13.
 
-**What this means:** the plane stands parallel to the z-axis, and in silicon (a = 5.43 Å) neighbouring (3 2 0) planes are only 5.43/√13 = 1.51 Å apart; higher-index planes are always more closely spaced.
+**What this means:** the plane stands parallel to the z-axis, and in silicon (a = 0.543 nm) neighbouring (3 2 0) planes are only 0.543/√13 = 0.151 nm apart; higher-index planes are always more closely spaced.
 
 ### C5. Explain the importance of semiconductor band gap in electronic and optoelectronic device design.
 
@@ -861,7 +861,7 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 
 1. **Intrinsic carrier concentration and leakage:** n_i ∝ e^{−E_g/2kT}. A wider gap gives far fewer thermally generated carriers, so lower reverse leakage and less noise (Si leaks less than Ge).
 2. **Maximum operating temperature:** a device stops working when n_i approaches the doping level. Ge fails at about 75 °C, Si at about 150–200 °C, and SiC and GaN (3.3–3.4 eV) work above 300 °C.
-3. **Breakdown field and power handling:** wider gap means a higher critical field (Si 0.3 MV/cm, GaN 3.3 MV/cm), so thinner, lower-resistance high-voltage devices.
+3. **Breakdown field and power handling:** wider gap means a higher critical field (Si 30 MV/m, GaN 330 MV/m), so thinner, lower-resistance high-voltage devices.
 4. **Turn-on voltage:** the diode forward voltage rises with E_g (Ge ≈ 0.3 V, Si ≈ 0.7 V, GaAs ≈ 1.1 V).
 
 **Optoelectronic devices.**
@@ -877,12 +877,12 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 
 ### Q1. Define a semiconductor and explain how its electrical conductivity differs from that of a conductor and an insulator.
 
-**Definition.** A semiconductor is a material whose conductivity lies between that of conductors and insulators (resistivity roughly 10⁻³ to 10⁸ Ω·cm) and can be controlled by temperature, light, electric field and, above all, by adding small amounts of impurity (doping). Examples: Si, Ge, GaAs.
+**Definition.** A semiconductor is a material whose conductivity lies between that of conductors and insulators (resistivity roughly 10⁻⁵ to 10⁶ Ω·m) and can be controlled by temperature, light, electric field and, above all, by adding small amounts of impurity (doping). Examples: Si, Ge, GaAs.
 
 **Difference, explained with energy bands.**
 
-1. **Conductor.** The valence and conduction bands overlap, or the highest band is only partly filled. There is no gap, so a huge number of free electrons (about 10²² cm⁻³) is always present. Conductivity is very high (σ ≈ 10⁶ S/cm) and almost independent of impurities. It **decreases** as temperature rises because lattice scattering increases.
-2. **Insulator.** The valence band is full and the conduction band is empty, separated by a wide gap (E_g > about 4 eV, e.g. SiO₂ ≈ 9 eV). Thermal energy at room temperature (kT ≈ 0.026 eV) cannot lift electrons across, so there are practically no carriers. Conductivity is extremely small (σ < 10⁻¹⁰ S/cm).
+1. **Conductor.** The valence and conduction bands overlap, or the highest band is only partly filled. There is no gap, so a huge number of free electrons (about 10²⁸ m⁻³) is always present. Conductivity is very high (σ ≈ 10⁸ S/m) and almost independent of impurities. It **decreases** as temperature rises because lattice scattering increases.
+2. **Insulator.** The valence band is full and the conduction band is empty, separated by a wide gap (E_g > about 4 eV, e.g. SiO₂ ≈ 9 eV). Thermal energy at room temperature (kT ≈ 0.026 eV) cannot lift electrons across, so there are practically no carriers. Conductivity is extremely small (σ < 10⁻⁸ S/m).
 3. **Semiconductor.** Same full/empty arrangement but a **small gap** (Si 1.12 eV). At room temperature a small fraction of electrons is thermally excited into the conduction band, leaving holes behind, so both electrons and holes conduct. Conductivity is moderate and **increases** with temperature (negative temperature coefficient of resistance), and can be raised by many orders of magnitude by doping.
 
 **Summary.** Conductors have no gap and fixed, abundant carriers; insulators have a wide gap and essentially no carriers; semiconductors have a small gap, two carrier types, and a carrier density that can be engineered.
@@ -903,7 +903,7 @@ Silicon is still preferred where cost, integration density and hole mobility mat
 ### Q3. Explain why silicon is widely used in semiconductor device fabrication.
 
 1. **Abundance and cost.** Si makes up about 28 % of the Earth's crust as SiO₂ (sand, quartz). Raw material is cheap and the refining industry is enormous.
-2. **Excellent native oxide.** Silicon oxidises to SiO₂, which is stable, insoluble in water, an excellent insulator (E_g ≈ 9 eV, breakdown ≈ 10 MV/cm) and forms a very clean interface with Si (interface trap density about 10¹⁰ cm⁻²eV⁻¹). SiO₂ is used as a diffusion mask, surface passivation, field isolation and the MOSFET gate dielectric. No other semiconductor has a comparable oxide.
+2. **Excellent native oxide.** Silicon oxidises to SiO₂, which is stable, insoluble in water, an excellent insulator (E_g ≈ 9 eV, breakdown ≈ 1000 MV/m) and forms a very clean interface with Si (interface trap density about 10¹⁴ m⁻²eV⁻¹). SiO₂ is used as a diffusion mask, surface passivation, field isolation and the MOSFET gate dielectric. No other semiconductor has a comparable oxide.
 3. **Suitable band gap.** At 1.12 eV it is large enough to give low intrinsic concentration and low leakage, so devices work up to about 150 °C (Ge fails above about 75 °C), yet small enough for good conduction when doped.
 4. **Mature crystal growth.** Very large (300 mm), nearly defect-free, highly pure single crystals are routinely grown by the Czochralski method.
 5. **Mechanical and thermal strength.** Si is hard, can be handled as thin wafers, and conducts heat well (about 3 times better than GaAs), which matters in power devices and dense ICs.
@@ -918,7 +918,7 @@ Use the comparison table of Si, Ge and GaAs above as the core of the answer, the
 
 - **Structure and bonding.** Si and Ge are elemental, diamond cubic, purely covalent. GaAs is a III–V compound, zinc blende, mainly covalent with partial ionic character (As is more electronegative than Ga).
 - **Band gap.** Ge (0.66 eV) < Si (1.12 eV) < GaAs (1.42 eV). The larger the gap, the lower n_i, the lower the leakage and the higher the maximum operating temperature. Si and Ge are **indirect**; GaAs is **direct**, so only GaAs emits light efficiently.
-- **Mobility.** GaAs electrons are fastest (8500), then Ge (3900), then Si (1350) cm²/V·s. Hence GaAs and Ge suit high-speed work, though GaAs hole mobility is poor.
+- **Mobility.** GaAs electrons are fastest (0.85), then Ge (0.39), then Si (0.135) m²/V·s. Hence GaAs and Ge suit high-speed work, though GaAs hole mobility is poor.
 - **Oxide.** Only Si has an excellent native oxide, which is why MOS technology and VLSI are silicon.
 - **Cost and processing.** Si cheapest and most mature; Ge more expensive; GaAs most expensive, brittle and toxic.
 
@@ -1005,7 +1005,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Question.** Explain why a germanium diode has a much larger reverse leakage current than a silicon diode of the same doping.
 
-**Answer.** Leakage is carried by minority carriers, whose concentration is n_i²/N. Germanium's band gap (0.66 eV) is much smaller than silicon's (1.12 eV), so far more bonds are broken thermally: n_i(Ge) ≈ 2.4×10¹³ cm⁻³ against 1×10¹⁰ cm⁻³ for Si. Since leakage ∝ n_i², the Ge diode has about (2.4×10³)² ≈ 6×10⁶ times more minority carriers and a correspondingly larger leakage current.
+**Answer.** Leakage is carried by minority carriers, whose concentration is n_i²/N. Germanium's band gap (0.66 eV) is much smaller than silicon's (1.12 eV), so far more bonds are broken thermally: n_i(Ge) ≈ 2.4×10¹⁹ m⁻³ against 1×10¹⁶ m⁻³ for Si. Since leakage ∝ n_i², the Ge diode has about (2.4×10³)² ≈ 6×10⁶ times more minority carriers and a correspondingly larger leakage current.
 
 #### Practice 1.2: Miller indices with a negative intercept
 
@@ -1024,67 +1024,67 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 1.3: interplanar spacing in germanium
 
-**Question.** Germanium has a lattice constant of 5.65 Å. Calculate the spacing of the (110) and (111) planes.
+**Question.** Germanium has a lattice constant of 0.565 nm. Calculate the spacing of the (110) and (111) planes.
 
-**Given:** a = 5.65 Å.
+**Given:** a = 0.565 nm.
 
 **Find:** d₁₁₀ and d₁₁₁.
 
 **Solution.**
 
-    d₁₁₀ = a/√(1 + 1 + 0) = 5.65/√2 = 3.995 Å
-    d₁₁₁ = a/√(1 + 1 + 1) = 5.65/√3 = 3.262 Å
+    d₁₁₀ = a/√(1 + 1 + 0) = 0.565/√2 = 0.3995 nm
+    d₁₁₁ = a/√(1 + 1 + 1) = 0.565/√3 = 0.3262 nm
 
-**Answer:** **d₁₁₀ = 4.00 Å, d₁₁₁ = 3.26 Å.**
+**Answer:** **d₁₁₀ = 0.400 nm, d₁₁₁ = 0.326 nm.**
 
-**What this means:** spacings of a few ångströms are comparable to X-ray wavelengths (Cu Kα ≈ 1.54 Å), which is why X-ray diffraction can measure them and so identify the crystal and its orientation.
+**What this means:** spacings of a few tenths of a nanometre are comparable to X-ray wavelengths (Cu Kα ≈ 0.154 nm), which is why X-ray diffraction can measure them and so identify the crystal and its orientation.
 
 #### Practice 1.4: atom density and mass density of silicon
 
-**Question.** Silicon has the diamond structure with a = 5.43 Å and atomic mass 28.085 g/mol. Calculate the number of atoms per cm³ and the density of silicon in g/cm³.
+**Question.** Silicon has the diamond structure with a = 0.543 nm and atomic mass 28.085 g/mol. Calculate the number of atoms per m³ and the density of silicon in kg/m³.
 
-**Given:** a = 5.43×10⁻⁸ cm, 8 atoms per unit cell, M = 28.085 g/mol, N_A(Avogadro) = 6.022×10²³ mol⁻¹.
+**Given:** a = 5.43×10⁻¹⁰ m, 8 atoms per unit cell, M = 28.085 g/mol = 0.028085 kg/mol, N_A(Avogadro) = 6.022×10²³ mol⁻¹.
 
-**Find:** atoms per cm³ and density ρ.
+**Find:** atoms per m³ and density ρ.
 
 **Solution.**
 
-    Cell volume a³ = (5.43×10⁻⁸)³ = 1.601×10⁻²² cm³
-    Atoms per cm³ = 8/a³ = 8/1.601×10⁻²² = 5.0×10²² cm⁻³
-    Mass of one cell = 8 × 28.085/6.022×10²³ = 3.731×10⁻²² g
-    ρ = 3.731×10⁻²² / 1.601×10⁻²² = 2.33 g/cm³
+    Cell volume a³ = (5.43×10⁻¹⁰)³ = 1.601×10⁻²⁸ m³
+    Atoms per m³ = 8/a³ = 8/1.601×10⁻²⁸ = 5.0×10²⁸ m⁻³
+    Mass of one cell = 8 × 0.028085/6.022×10²³ = 3.731×10⁻²⁵ kg
+    ρ = 3.731×10⁻²⁵ / 1.601×10⁻²⁸ = 2.33×10³ kg/m³
 
-**Answer:** **5.0×10²² atoms/cm³; ρ = 2.33 g/cm³.**
+**Answer:** **5.0×10²⁸ atoms/m³; ρ = 2330 kg/m³.**
 
 #### Practice 1.5: atom density of GaAs
 
-**Question.** GaAs has the zinc-blende structure with a = 5.65 Å. Each unit cell contains 4 Ga and 4 As atoms; the molar mass of GaAs is 144.64 g/mol. Find the total atom density and the density of GaAs.
+**Question.** GaAs has the zinc-blende structure with a = 0.565 nm. Each unit cell contains 4 Ga and 4 As atoms; the molar mass of GaAs is 144.64 g/mol. Find the total atom density and the density of GaAs.
 
-**Given:** a = 5.65×10⁻⁸ cm, 8 atoms (4 GaAs pairs) per cell, M = 144.64 g/mol.
+**Given:** a = 5.65×10⁻¹⁰ m, 8 atoms (4 GaAs pairs) per cell, M = 144.64 g/mol = 0.14464 kg/mol.
 
-**Find:** atoms per cm³ and ρ.
+**Find:** atoms per m³ and ρ.
 
 **Solution.**
 
-    a³ = (5.65×10⁻⁸)³ = 1.804×10⁻²² cm³
-    Atoms per cm³ = 8/a³ = 4.44×10²² cm⁻³
-    ρ = 4 × 144.64 / (6.022×10²³ × 1.804×10⁻²²) = 578.6/108.6 = 5.33 g/cm³
+    a³ = (5.65×10⁻¹⁰)³ = 1.804×10⁻²⁸ m³
+    Atoms per m³ = 8/a³ = 4.44×10²⁸ m⁻³
+    ρ = 4 × 0.14464 / (6.022×10²³ × 1.804×10⁻²⁸) = 0.5786/1.086×10⁻⁴ = 5.33×10³ kg/m³
 
-**Answer:** **4.44×10²² atoms/cm³ (half Ga, half As); ρ = 5.33 g/cm³.**
+**Answer:** **4.44×10²⁸ atoms/m³ (half Ga, half As); ρ = 5330 kg/m³.**
 
 #### Practice 1.6: the effect of doping on conductivity
 
-**Question.** Compare the conductivity of intrinsic silicon (n_i = 1×10¹⁰ cm⁻³) with that of silicon doped with 1×10¹⁵ cm⁻³ donors. Use μ_n = 1350 and μ_p = 480 cm²/V·s.
+**Question.** Compare the conductivity of intrinsic silicon (n_i = 1×10¹⁶ m⁻³) with that of silicon doped with 1×10²¹ m⁻³ donors. Use μ_n = 0.135 and μ_p = 0.048 m²/V·s.
 
-**Given:** n_i = 10¹⁰ cm⁻³, N_D = 10¹⁵ cm⁻³, μ_n = 1350, μ_p = 480 cm²/V·s.
+**Given:** n_i = 10¹⁶ m⁻³, N_D = 10²¹ m⁻³, μ_n = 0.135, μ_p = 0.048 m²/V·s.
 
 **Find:** σ_intrinsic, σ_doped and their ratio.
 
 **Solution.**
 
-    σ_i = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁰ × 1830 = 2.93×10⁻⁶ S/cm
-    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁵ × 1350 = 0.216 S/cm
-    ratio = 0.216/2.93×10⁻⁶ = 7.4×10⁴
+    σ_i = qn_i(μ_n + μ_p) = 1.6×10⁻¹⁹ × 10¹⁶ × 0.183 = 2.93×10⁻⁴ S/m
+    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10²¹ × 0.135 = 21.6 S/m
+    ratio = 21.6/2.93×10⁻⁴ = 7.4×10⁴
 
 **Answer:** **doping with only one atom in 5×10⁷ raises the conductivity about 74 000 times.**
 
@@ -1114,8 +1114,8 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Define a semiconductor and distinguish it from a conductor and an insulator. | Why does a semiconductor conduct better when it is heated, while a metal conducts worse? | Heat breaks bonds and creates many more electron–hole pairs (∝ e^{−E_g/2kT}); in a metal the carrier number is fixed and only scattering increases. | Classification of materials |
 | 2 | Describe the atomic structure of Si, Ge, Ga and As and identify their valence electrons. | How many valence electrons do Si, Ga and As have? | Si 4, Ga 3, As 5 (GaAs averages 4 per atom). | Atomic structure; valence electrons |
 | 3 | Explain covalent bonding in silicon and electron–hole pair generation. | What two carriers are created when a covalent bond in Si breaks, and what minimum energy is needed? | A free electron and a hole; at least E_g = 1.12 eV. | Covalent bonding; electron–hole pairs |
-| 4 | Distinguish intrinsic, n-type and p-type semiconductors, and donors from acceptors. | Si is doped with 10¹⁷ cm⁻³ boron. Is it n- or p-type, and what is the electron concentration (n_i = 10¹⁰ cm⁻³)? | p-type; n = n_i²/N_A = 10³ cm⁻³. | Intrinsic and extrinsic semiconductors |
-| 5 | Compare elemental and compound semiconductors, and Si, Ge and GaAs. | Give one reason GaAs is preferred to Si for high-frequency work and one reason Si is preferred for ICs. | GaAs: electron mobility ≈ 8500 vs 1350 cm²/V·s. Si: excellent native SiO₂ (also cheaper, larger wafers). | Elemental and compound; comparison table |
+| 4 | Distinguish intrinsic, n-type and p-type semiconductors, and donors from acceptors. | Si is doped with 10²³ m⁻³ boron. Is it n- or p-type, and what is the electron concentration (n_i = 10¹⁶ m⁻³)? | p-type; n = n_i²/N_A = 10⁹ m⁻³. | Intrinsic and extrinsic semiconductors |
+| 5 | Compare elemental and compound semiconductors, and Si, Ge and GaAs. | Give one reason GaAs is preferred to Si for high-frequency work and one reason Si is preferred for ICs. | GaAs: electron mobility ≈ 0.85 vs 0.135 m²/V·s. Si: excellent native SiO₂ (also cheaper, larger wafers). | Elemental and compound; comparison table |
 | 6 | Explain the energy-band picture, the band gap and direct versus indirect gaps. | Why is silicon not used for LEDs? | Its gap is indirect: a phonon is needed to conserve momentum, so radiative recombination is very inefficient. | Energy band concept; direct and indirect band gaps (comparison table) |
 | 7 | Describe crystal lattices, unit cells and the diamond and zinc-blende structures. | How many atoms are in the diamond-cubic unit cell, and how many nearest neighbours does each atom have? | 8 atoms per cell; 4 nearest neighbours. | Semiconductor crystal structure |
 | 8 | Determine Miller indices of planes and the spacing between planes. | Find the Miller indices of a plane with intercepts 3a, ∞, c. | Reciprocals 1/3, 0, 1 → × 3 → (1 0 3). | Miller indices; Examples 1.2–1.3; C4 and Q7 |

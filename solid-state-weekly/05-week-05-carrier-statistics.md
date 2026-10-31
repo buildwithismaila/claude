@@ -90,7 +90,7 @@ Where:
 
 **Hole.** An empty state in the valence band, left behind when an electron leaves a bond. It behaves like a positive charge carrier of charge +q that can move through the crystal.
 
-**Intrinsic semiconductor (n_i).** A pure semiconductor with no deliberate impurities. Its free electrons and holes come only from broken bonds, so they are equal in number; that common number per cm³ is the intrinsic carrier concentration n_i (1×10¹⁰ cm⁻³ for Si at 300 K).
+**Intrinsic semiconductor (n_i).** A pure semiconductor with no deliberate impurities. Its free electrons and holes come only from broken bonds, so they are equal in number; that common number per m³ is the intrinsic carrier concentration n_i (1×10¹⁶ m⁻³ for Si at 300 K).
 
 **Doping (donor, acceptor).** Adding a small, controlled amount of impurity atoms to a semiconductor. A donor (P, As, Sb in Si) gives up an extra electron to the conduction band; an acceptor (B, Al, Ga in Si) takes an electron from the valence band and so creates a hole. A dopant that has given up or taken its electron is said to be ionised.
 
@@ -117,9 +117,9 @@ Where:
 
 **Boltzmann (Maxwell–Boltzmann) approximation.** The simpler form f(E) ≈ e^{−(E − E_F)/kT}, accurate to about 5 % or better when the state is more than about 3kT above E_F.
 
-**Density of states (g(E)).** The number of allowed electron states per unit energy per unit volume at energy E, in states/(eV·cm³). It is zero inside the band gap and grows as the square root of the distance into each band.
+**Density of states (g(E)).** The number of allowed electron states per unit energy per unit volume at energy E, in states/(eV·m³). It is zero inside the band gap and grows as the square root of the distance into each band.
 
-**Effective density of states (N_c, N_v).** The number of states which, if all placed exactly at the band edge (E_c or E_v), would give the same carrier concentration as the real, spread-out band. For Si at 300 K, N_c = 2.8×10¹⁹ cm⁻³ and N_v = 1.04×10¹⁹ cm⁻³.
+**Effective density of states (N_c, N_v).** The number of states which, if all placed exactly at the band edge (E_c or E_v), would give the same carrier concentration as the real, spread-out band. For Si at 300 K, N_c = 2.8×10²⁵ m⁻³ and N_v = 1.04×10²⁵ m⁻³.
 
 **Intrinsic Fermi level (E_i).** The position of the Fermi level in an intrinsic semiconductor, where n = p. It lies very close to the middle of the band gap (13 meV below it in Si).
 
@@ -129,15 +129,15 @@ Where:
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- p = hole concentration (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³); 1×10¹⁰ cm⁻³ for Si at 300 K
+- n = electron concentration (m⁻³)
+- p = hole concentration (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³); 1×10¹⁶ m⁻³ for Si at 300 K
 
 *Why it matters:* it gives the minority-carrier concentration as soon as the majority concentration is known.
 
 **Charge neutrality and compensation.** Charge neutrality is the rule that a uniform piece of semiconductor has no net charge, so positive charges (holes, ionised donors) equal negative charges (electrons, ionised acceptors). Compensation is the partial cancelling of donors and acceptors when both are present; the material behaves as if doped with the difference, N_D − N_A or N_A − N_D.
 
-**Degenerate semiconductor.** A very heavily doped semiconductor (above about 10¹⁸–10¹⁹ cm⁻³ in Si) whose Fermi level is within about 3kT of a band edge, or inside a band. The Boltzmann approximation fails and full Fermi–Dirac statistics must be used. A semiconductor with E_F more than 3kT from both edges is non-degenerate.
+**Degenerate semiconductor.** A very heavily doped semiconductor (above about 10²⁴–10²⁵ m⁻³ in Si) whose Fermi level is within about 3kT of a band edge, or inside a band. The Boltzmann approximation fails and full Fermi–Dirac statistics must be used. A semiconductor with E_F more than 3kT from both edges is non-degenerate.
 
 ## The big picture
 
@@ -210,7 +210,7 @@ This is accurate to better than 5 %. For the 0.10 eV example: e^{−3.868} = 0.0
 
 ## 2. Density of states
 
-The **density of states** g(E) is the number of allowed electron states per unit energy, per unit volume, at energy E (units: states per eV per cm³).
+The **density of states** g(E) is the number of allowed electron states per unit energy, per unit volume, at energy E (units: states per eV per m³).
 
     Conduction band:  g_c(E) ∝ (m_n∗)^{3/2} √(E − E_c)     for E above E_c
     Valence band:     g_v(E) ∝ (m_p∗)^{3/2} √(E_v − E)     for E below E_v
@@ -218,7 +218,7 @@ The **density of states** g(E) is the number of allowed electron states per unit
 
 Where:
 
-- g_c(E), g_v(E) = density of states in the conduction and valence bands (states/(eV·cm³))
+- g_c(E), g_v(E) = density of states in the conduction and valence bands (states/(eV·m³))
 - m_n∗, m_p∗ = effective masses of electrons and holes (kg, or as a multiple of m₀)
 - E = energy of the state (eV)
 - E_c, E_v = conduction-band bottom and valence-band top (eV)
@@ -233,12 +233,12 @@ Adding up "states × probability" over the whole conduction band (with the Boltz
 
 Where:
 
-- N_c, N_v = effective densities of states in the conduction and valence bands (cm⁻³ once converted from m⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands (m⁻³ directly when SI values are used)
 - m_n∗, m_p∗ = density-of-states effective masses of electrons and holes (kg)
 - kT = thermal energy (J in this formula; 1.381×10⁻²³ J/K × T)
 - h = Planck constant, 6.626×10⁻³⁴ J·s
 
-For silicon at 300 K: **N_c = 2.8×10¹⁹ cm⁻³**, **N_v = 1.04×10¹⁹ cm⁻³**. Both grow with temperature as T^{3/2}.
+For silicon at 300 K: **N_c = 2.8×10²⁵ m⁻³**, **N_v = 1.04×10²⁵ m⁻³**. Both grow with temperature as T^{3/2}.
 
 ## 7. Electron concentration
 
@@ -256,10 +256,10 @@ or, measuring from the intrinsic level E_i,
 
 Where:
 
-- n = electron concentration in the conduction band (cm⁻³)
-- N_c = effective density of states in the conduction band, 2.8×10¹⁹ cm⁻³ for Si at 300 K
+- n = electron concentration in the conduction band (m⁻³)
+- N_c = effective density of states in the conduction band, 2.8×10²⁵ m⁻³ for Si at 300 K
 - E_c − E_F = distance from the Fermi level up to the conduction-band edge (eV)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 - E_F − E_i = height of the Fermi level above the intrinsic level (eV)
 - kT = thermal energy, 0.02585 eV at 300 K
 
@@ -281,11 +281,11 @@ and
 
 Where:
 
-- p = hole concentration in the valence band (cm⁻³)
-- N_v = effective density of states in the valence band, 1.04×10¹⁹ cm⁻³ for Si at 300 K
+- p = hole concentration in the valence band (m⁻³)
+- N_v = effective density of states in the valence band, 1.04×10²⁵ m⁻³ for Si at 300 K
 - E_F − E_v = height of the Fermi level above the valence-band edge (eV)
 - E_i − E_F = depth of the Fermi level below the intrinsic level (eV)
-- n_i = intrinsic carrier concentration (cm⁻³); kT = 0.02585 eV at 300 K
+- n_i = intrinsic carrier concentration (m⁻³); kT = 0.02585 eV at 300 K
 
 These four equations (two for n, two for p) are the fundamental equations of semiconductor carrier statistics.
 
@@ -311,18 +311,18 @@ Where:
 
 - E_c − E_F, E_F − E_v = distances from the Fermi level to the conduction- and valence-band edges (eV)
 - E_F − E_i, E_i − E_F = distance of the Fermi level above or below the intrinsic level (eV)
-- n, p = electron and hole concentrations (cm⁻³)
-- N_c, N_v = effective densities of states, 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³ for Si at 300 K
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K
+- n, p = electron and hole concentrations (m⁻³)
+- N_c, N_v = effective densities of states, 2.8×10²⁵ and 1.04×10²⁵ m⁻³ for Si at 300 K
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K
 - kT = thermal energy, 0.02585 eV at 300 K; ln = natural logarithm
 
 These equations let the Fermi level be calculated when the carrier concentration is known.
 
 #### Example 5.1: Fermi level from the electron concentration
 
-**Question.** An n-type silicon sample at 300 K has an electron concentration of 1×10¹⁶ cm⁻³. Taking N_c = 2.8×10¹⁹ cm⁻³ and kT = 0.02585 eV, find how far the Fermi level lies below the conduction-band edge.
+**Question.** An n-type silicon sample at 300 K has an electron concentration of 1×10²² m⁻³. Taking N_c = 2.8×10²⁵ m⁻³ and kT = 0.02585 eV, find how far the Fermi level lies below the conduction-band edge.
 
-**Given:** n = 1×10¹⁶ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, kT = 0.02585 eV.
+**Given:** n = 1×10²² m⁻³, N_c = 2.8×10²⁵ m⁻³, kT = 0.02585 eV.
 
 **Find:** E_c − E_F.
 
@@ -332,7 +332,7 @@ These equations let the Fermi level be calculated when the carrier concentration
 
 **Solution.**
 
-    N_c/n = 2.8×10¹⁹ / 1×10¹⁶ = 2800,   ln(2800) = 7.94
+    N_c/n = 2.8×10²⁵ / 1×10²² = 2800,   ln(2800) = 7.94
 
     E_c − E_F = 0.02585 × 7.94 = 0.205 eV
 
@@ -356,12 +356,12 @@ and since n = p = n_i,
 
 Where:
 
-- n_i = intrinsic carrier concentration (cm⁻³)
-- N_c, N_v = effective densities of states, 2.8×10¹⁹ and 1.04×10¹⁹ cm⁻³ for Si at 300 K
+- n_i = intrinsic carrier concentration (m⁻³)
+- N_c, N_v = effective densities of states, 2.8×10²⁵ and 1.04×10²⁵ m⁻³ for Si at 300 K
 - E_g = E_c − E_v = band-gap energy (eV); 1.12 eV for Si
 - kT = thermal energy, 0.0259 eV at 300 K
 
-This equation shows that the intrinsic carrier concentration depends strongly on temperature and on the band gap. For Si at 300 K, n_i ≈ 1×10¹⁰ cm⁻³ (many textbooks use 1.5×10¹⁰; the accurate modern value is 9.65×10⁹).
+This equation shows that the intrinsic carrier concentration depends strongly on temperature and on the band gap. For Si at 300 K, n_i ≈ 1×10¹⁶ m⁻³ (many textbooks use 1.5×10¹⁶; the accurate modern value is 9.65×10¹⁵).
 
 ## 11. Intrinsic Fermi level
 
@@ -377,7 +377,7 @@ Where:
 
 - E_i = intrinsic Fermi level (eV)
 - (E_c + E_v)/2 = mid-gap energy (eV)
-- N_c, N_v = effective densities of states in the conduction and valence bands (cm⁻³)
+- N_c, N_v = effective densities of states in the conduction and valence bands (m⁻³)
 - kT = thermal energy, 0.02585 eV at 300 K
 
 If N_c and N_v were equal, the logarithm would be zero, and then
@@ -394,9 +394,9 @@ For a semiconductor in thermal equilibrium:
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- p = hole concentration (cm⁻³)
-- n_i = intrinsic carrier concentration, 1×10¹⁰ cm⁻³ for Si at 300 K (so n_i² = 1×10²⁰ cm⁻⁶)
+- n = electron concentration (m⁻³)
+- p = hole concentration (m⁻³)
+- n_i = intrinsic carrier concentration, 1×10¹⁶ m⁻³ for Si at 300 K (so n_i² = 1×10³² m⁻⁶)
 
 This is the **mass action law**. It holds for intrinsic and doped (non-degenerate) material alike, because when we multiplied n by p above, E_F cancelled.
 
@@ -433,9 +433,9 @@ If acceptors are fully ionised, p ≈ N_A, so
 | Doping (Si, 300 K) | E_F − E_i | E_c − E_F |
 |---|---|---|
 | Intrinsic | 0 | 0.56 eV |
-| N_D = 10¹⁴ cm⁻³ | 0.238 eV | 0.324 eV |
-| N_D = 10¹⁶ cm⁻³ | 0.357 eV | 0.205 eV |
-| N_D = 10¹⁸ cm⁻³ | 0.476 eV | 0.086 eV |
+| N_D = 10²⁰ m⁻³ | 0.238 eV | 0.324 eV |
+| N_D = 10²² m⁻³ | 0.357 eV | 0.205 eV |
+| N_D = 10²⁴ m⁻³ | 0.476 eV | 0.086 eV |
 
 ## 14. Charge neutrality in a doped semiconductor
 
@@ -445,9 +445,9 @@ A piece of semiconductor is electrically neutral overall. The positive charges (
 
 Where:
 
-- p, n = hole and electron concentrations (cm⁻³)
-- N_D⁺ = concentration of ionised (positively charged) donors (cm⁻³)
-- N_A⁻ = concentration of ionised (negatively charged) acceptors (cm⁻³)
+- p, n = hole and electron concentrations (m⁻³)
+- N_D⁺ = concentration of ionised (positively charged) donors (m⁻³)
+- N_A⁻ = concentration of ionised (negatively charged) acceptors (m⁻³)
 
 If donors and acceptors are completely ionised (N_D⁺ = N_D, N_A⁻ = N_A):
 
@@ -459,9 +459,9 @@ This is the **charge-neutrality condition**. Combined with np = n_i² it gives n
 
 Where:
 
-- n = electron concentration (cm⁻³)
-- N_D, N_A = donor and acceptor concentrations, all assumed ionised (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- n = electron concentration (m⁻³)
+- N_D, N_A = donor and acceptor concentrations, all assumed ionised (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 (For p-type material, N_A > N_D, the same formula with n and p swapped and N_A − N_D in place of N_D − N_A gives p.)
 
@@ -495,7 +495,7 @@ and:
 | Carrier concentrations | n = p = n_i | n ≈ N_D, p = n_i²/N_D | p ≈ N_A, n = n_i²/N_A |
 | Majority / minority carrier | Neither (equal) | Electrons / holes | Holes / electrons |
 | Fermi level | E_F = E_i, near mid-gap | Above E_i: E_F − E_i = kT ln(N_D/n_i) | Below E_i: E_i − E_F = kT ln(N_A/n_i) |
-| Example (Si, 300 K) | n = p = 10¹⁰ cm⁻³ | N_D = 10¹⁶: p = 10⁴ cm⁻³, E_F = E_i + 0.357 eV | N_A = 10¹⁷: n = 10³ cm⁻³, E_F = E_i − 0.417 eV |
+| Example (Si, 300 K) | n = p = 10¹⁶ m⁻³ | N_D = 10²²: p = 10¹⁰ m⁻³, E_F = E_i + 0.357 eV | N_A = 10²³: n = 10⁹ m⁻³, E_F = E_i − 0.417 eV |
 
 ## 17. Fermi level as a function of temperature
 
@@ -517,9 +517,9 @@ The semiconductor behaves more and more like an intrinsic semiconductor, and E_F
 
 #### Example 5.2: Fermi level against temperature
 
-**Question.** Silicon is doped with N_D = 1×10¹⁵ cm⁻³. Using the intrinsic concentrations in the table (n_i = 1×10¹⁰ cm⁻³ at 300 K, rising with temperature), calculate the electron concentration and the position of the Fermi level relative to E_i at 300, 400, 500 and 600 K. At what temperature does the material become effectively intrinsic?
+**Question.** Silicon is doped with N_D = 1×10²¹ m⁻³. Using the intrinsic concentrations in the table (n_i = 1×10¹⁶ m⁻³ at 300 K, rising with temperature), calculate the electron concentration and the position of the Fermi level relative to E_i at 300, 400, 500 and 600 K. At what temperature does the material become effectively intrinsic?
 
-**Given:** N_D = 1×10¹⁵ cm⁻³, complete ionisation; n_i(T) from n_i ∝ T^{3/2}e^{−E_g(T)/2kT}, scaled to 1×10¹⁰ cm⁻³ at 300 K.
+**Given:** N_D = 1×10²¹ m⁻³, complete ionisation; n_i(T) from n_i ∝ T^{3/2}e^{−E_g(T)/2kT}, scaled to 1×10¹⁶ m⁻³ at 300 K.
 
 **Find:** n and E_F − E_i at each temperature.
 
@@ -529,26 +529,26 @@ The semiconductor behaves more and more like an intrinsic semiconductor, and E_F
 
 **Solution.** At each temperature work out kT = 8.617×10⁻⁵ × T, use the exact charge-neutrality result for n, then find E_F − E_i.
 
-| T (K) | kT (eV) | n_i (cm⁻³) | n (cm⁻³) | E_F − E_i = kT ln(n/n_i) (eV) |
+| T (K) | kT (eV) | n_i (m⁻³) | n (m⁻³) | E_F − E_i = kT ln(n/n_i) (eV) |
 |---|---|---|---|---|
-| 300 | 0.0259 | 1.0×10¹⁰ | 1.00×10¹⁵ | 0.0259 × ln(1.0×10⁵) = 0.298 |
-| 400 | 0.0345 | 5.3×10¹² | 1.00×10¹⁵ | 0.0345 × ln(189) = 0.181 |
-| 500 | 0.0431 | 2.6×10¹⁴ | 1.06×10¹⁵ | 0.0431 × ln(4.16) = 0.061 |
-| 600 | 0.0517 | 3.7×10¹⁵ | 4.18×10¹⁵ | 0.0517 × ln(1.15) = 0.007 |
+| 300 | 0.0259 | 1.0×10¹⁶ | 1.00×10²¹ | 0.0259 × ln(1.0×10⁵) = 0.298 |
+| 400 | 0.0345 | 5.3×10¹⁸ | 1.00×10²¹ | 0.0345 × ln(189) = 0.181 |
+| 500 | 0.0431 | 2.6×10²⁰ | 1.06×10²¹ | 0.0431 × ln(4.16) = 0.061 |
+| 600 | 0.0517 | 3.7×10²¹ | 4.18×10²¹ | 0.0517 × ln(1.15) = 0.007 |
 
 **Answer:** E_F − E_i falls from **0.298 eV at 300 K to 0.007 eV at 600 K**. n_i passes N_D at about **550 K**; above that the material is effectively intrinsic and the doping no longer controls it.
 
-**What this means:** up to about 400 K the electron concentration is fixed by the doping, which is what a device designer relies on. By 600 K thermally generated pairs outnumber the donor electrons more than three to one (p ≈ 3.2×10¹⁵ against N_D = 1×10¹⁵ cm⁻³), E_F has fallen back to E_i, and a device made from this silicon would no longer work as designed.
+**What this means:** up to about 400 K the electron concentration is fixed by the doping, which is what a device designer relies on. By 600 K thermally generated pairs outnumber the donor electrons more than three to one (p ≈ 3.2×10²¹ against N_D = 1×10²¹ m⁻³), E_F has fallen back to E_i, and a device made from this silicon would no longer work as designed.
 
-@fig figures/fermi-vs-t.svg | Fermi level relative to E_i against temperature for silicon at four donor concentrations (cm⁻³). Heavier doping keeps the Fermi level away from mid-gap up to a higher temperature.
+@fig figures/fermi-vs-t.svg | Fermi level relative to E_i against temperature for silicon at four donor concentrations, N_D = 10²⁰, 10²¹, 10²² and 10²³ m⁻³. Heavier doping keeps the Fermi level away from mid-gap up to a higher temperature.
 
 ## 18. Worked example: n-type silicon
 
 #### Example 5.3: majority and minority carriers
 
-**Question.** Silicon at 300 K is doped with N_D = 1×10¹⁶ cm⁻³. Assuming n_i = 1×10¹⁰ cm⁻³ and complete donor ionisation, calculate the electron and hole concentrations and identify the majority and minority carriers.
+**Question.** Silicon at 300 K is doped with N_D = 1×10²² m⁻³. Assuming n_i = 1×10¹⁶ m⁻³ and complete donor ionisation, calculate the electron and hole concentrations and identify the majority and minority carriers.
 
-**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, T = 300 K.
+**Given:** N_D = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³, T = 300 K.
 
 **Find:** n, p; majority and minority carriers.
 
@@ -558,15 +558,15 @@ The semiconductor behaves more and more like an intrinsic semiconductor, and E_F
 
 **Solution.**
 
-Step 1: electron concentration. Since N_D ≫ n_i (10¹⁶ ≫ 10¹⁰), every donor contributes one electron:
+Step 1: electron concentration. Since N_D ≫ n_i (10²² ≫ 10¹⁶), every donor contributes one electron:
 
-    n ≈ N_D = 1×10¹⁶ cm⁻³
+    n ≈ N_D = 1×10²² m⁻³
 
 Step 2: hole concentration, from the mass-action law:
 
-    p = n_i²/n = (1×10¹⁰)² / (1×10¹⁶) = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+    p = n_i²/n = (1×10¹⁶)² / (1×10²²) = 10³²/10²² = 1×10¹⁰ m⁻³
 
-**Answer:** **n = 1×10¹⁶ cm⁻³, p = 1×10⁴ cm⁻³.** Electrons are the majority carriers, holes the minority carriers. (With n_i = 1.5×10¹⁰ cm⁻³, p = 2.25×10⁴ cm⁻³; the method is identical.)
+**Answer:** **n = 1×10²² m⁻³, p = 1×10¹⁰ m⁻³.** Electrons are the majority carriers, holes the minority carriers. (With n_i = 1.5×10¹⁶ m⁻³, p = 2.25×10¹⁰ m⁻³; the method is identical.)
 
 **What this means:** raising the electrons a million times above n_i has pushed the holes a million times below it. There is only one hole for every 10¹² electrons, yet, as later weeks show, these few minority holes are what control current in a p-n junction.
 
@@ -574,9 +574,9 @@ Step 2: hole concentration, from the mass-action law:
 
 #### Example 5.4: Fermi level of n-type silicon
 
-**Question.** For the silicon of Example 5.3 (n = N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³) at 300 K, calculate the position of the Fermi level relative to the intrinsic level, and estimate how far it lies below the conduction band.
+**Question.** For the silicon of Example 5.3 (n = N_D = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³) at 300 K, calculate the position of the Fermi level relative to the intrinsic level, and estimate how far it lies below the conduction band.
 
-**Given:** n = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.02585 eV, E_g = 1.12 eV.
+**Given:** n = 1×10²² m⁻³, n_i = 1×10¹⁶ m⁻³, kT = 0.02585 eV, E_g = 1.12 eV.
 
 **Find:** E_F − E_i, and E_c − E_F.
 
@@ -586,7 +586,7 @@ Step 2: hole concentration, from the mass-action law:
 
 **Solution.**
 
-    E_F − E_i = kT ln(n/n_i) = 0.02585 × ln(10¹⁶/10¹⁰) = 0.02585 × ln(10⁶)
+    E_F − E_i = kT ln(n/n_i) = 0.02585 × ln(10²²/10¹⁶) = 0.02585 × ln(10⁶)
 
 Since ln(10⁶) = 6 × 2.303 = 13.82,
 
@@ -596,7 +596,7 @@ E_i is close to mid-gap, 0.56 eV below E_c, so
 
     E_c − E_F ≈ 0.56 − 0.357 = 0.20 eV
 
-**Answer:** **E_F = E_i + 0.357 eV**, about 0.20 eV below E_c: the Fermi level has moved up towards the conduction band. (With n_i = 1.5×10¹⁰ cm⁻³: E_F − E_i = 0.02585 ln(6.67×10⁵) = 0.347 eV.)
+**Answer:** **E_F = E_i + 0.357 eV**, about 0.20 eV below E_c: the Fermi level has moved up towards the conduction band. (With n_i = 1.5×10¹⁶ m⁻³: E_F − E_i = 0.02585 ln(6.67×10⁵) = 0.347 eV.)
 
 **What this means:** a millionfold increase in electrons moves the Fermi level only 0.357 eV, because the dependence is logarithmic. The answer agrees with Example 5.1 (0.205 eV), which found the same quantity directly from N_c.
 
@@ -604,9 +604,9 @@ E_i is close to mid-gap, 0.56 eV below E_c, so
 
 #### Example 5.5: carriers and Fermi level in p-type silicon
 
-**Question.** Silicon at 300 K is doped with N_A = 1×10¹⁷ cm⁻³ boron atoms. Taking n_i = 1×10¹⁰ cm⁻³, calculate the hole and electron concentrations and the position of the Fermi level.
+**Question.** Silicon at 300 K is doped with N_A = 1×10²³ m⁻³ boron atoms. Taking n_i = 1×10¹⁶ m⁻³, calculate the hole and electron concentrations and the position of the Fermi level.
 
-**Given:** N_A = 1×10¹⁷ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.02585 eV.
+**Given:** N_A = 1×10²³ m⁻³, n_i = 1×10¹⁶ m⁻³, kT = 0.02585 eV.
 
 **Find:** p, n and E_i − E_F.
 
@@ -616,13 +616,13 @@ E_i is close to mid-gap, 0.56 eV below E_c, so
 
 **Solution.**
 
-    p ≈ N_A = 1×10¹⁷ cm⁻³
-    n = n_i²/p = 10²⁰/10¹⁷ = 1×10³ cm⁻³
+    p ≈ N_A = 1×10²³ m⁻³
+    n = n_i²/p = 10³²/10²³ = 1×10⁹ m⁻³
     E_i − E_F = kT ln(p/n_i) = 0.02585 × ln(10⁷) = 0.02585 × 16.12 = 0.417 eV
 
-**Answer:** **p = 1×10¹⁷ cm⁻³, n = 1×10³ cm⁻³, E_F = E_i − 0.417 eV**: the Fermi level moves down towards the valence band, about 0.56 − 0.417 = 0.14 eV above E_v.
+**Answer:** **p = 1×10²³ m⁻³, n = 1×10⁹ m⁻³, E_F = E_i − 0.417 eV**: the Fermi level moves down towards the valence band, about 0.56 − 0.417 = 0.14 eV above E_v.
 
-**What this means:** the more exact value E_F − E_v = kT ln(N_v/N_A) = 0.02585 ln(104) = 0.120 eV is still about 4.6kT, more than 3kT, so even at this fairly heavy doping the silicon is still non-degenerate. Only about 1000 free electrons remain in each cm³, so electron current in this material is negligible unless electrons are injected from outside.
+**What this means:** the more exact value E_F − E_v = kT ln(N_v/N_A) = 0.02585 ln(104) = 0.120 eV is still about 4.6kT, more than 3kT, so even at this fairly heavy doping the silicon is still non-degenerate. Only about 10⁹ free electrons remain in each m³, so electron current in this material is negligible unless electrons are injected from outside.
 
 ## 21. Degenerate and non-degenerate semiconductors
 
@@ -632,7 +632,7 @@ The Maxwell–Boltzmann approximation is valid only when the Fermi level is far 
 
 In practice "≫" means more than about 3kT.
 
-In a **degenerate** semiconductor the doping is very high (in Si, above about 10¹⁸–10¹⁹ cm⁻³) and the Fermi level approaches, or even enters, the conduction or valence band. Then the full Fermi–Dirac statistics must be used, and the material behaves almost like a metal. Degenerate n⁺ and p⁺ layers are used for Ohmic contacts (Week 11) and tunnel diodes.
+In a **degenerate** semiconductor the doping is very high (in Si, above about 10²⁴–10²⁵ m⁻³) and the Fermi level approaches, or even enters, the conduction or valence band. Then the full Fermi–Dirac statistics must be used, and the material behaves almost like a metal. Degenerate n⁺ and p⁺ layers are used for Ohmic contacts (Week 11) and tunnel diodes.
 
 | Feature | Non-degenerate | Degenerate |
 |---|---|---|
@@ -641,7 +641,7 @@ In a **degenerate** semiconductor the doping is very high (in Si, above about 10
 | Fermi level | Inside the band gap, more than 3kT from the edges | Near or inside a band |
 | Carrier concentration | Simple exponential equations | More complex |
 
-**Check.** For Si with N_D = 10¹⁸ cm⁻³, E_c − E_F = 0.02585 ln(2.8×10¹⁹/10¹⁸) = 0.086 eV = 3.3kT, just non-degenerate. At 10¹⁹ cm⁻³, E_c − E_F = 0.027 eV ≈ 1kT: degenerate.
+**Check.** For Si with N_D = 10²⁴ m⁻³, E_c − E_F = 0.02585 ln(2.8×10²⁵/10²⁴) = 0.086 eV = 3.3kT, just non-degenerate. At 10²⁵ m⁻³, E_c − E_F = 0.027 eV ≈ 1kT: degenerate.
 
 ## 22. Relationship between carrier concentration and Fermi level
 
@@ -659,7 +659,7 @@ Recall n_i = √(N_cN_v) e^{−E_g/2kT}. Since N_c and N_v are each proportional
 
 Where:
 
-- n_i = intrinsic carrier concentration (cm⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 - T = absolute temperature (K)
 - E_g = band-gap energy (eV); it decreases slightly as T rises
 - kT = thermal energy (eV), with k = 8.617×10⁻⁵ eV/K
@@ -716,13 +716,13 @@ These are the lecturer's mid-module evaluation questions. The numerical values i
 
 **A4. What is the probability that a state at E = E_F is occupied?** Exactly **½ (50 %)**, because the exponent is zero: f = 1/(1 + e⁰) = 1/2. This is true at any temperature.
 
-**A5. Define density of states.** The density of states g(E) is the number of allowed electron energy states per unit energy per unit volume at energy E (states/eV·cm³). In a parabolic band, g_c(E) ∝ √(E − E_c) in the conduction band and g_v(E) ∝ √(E_v − E) in the valence band; it is zero in the band gap.
+**A5. Define density of states.** The density of states g(E) is the number of allowed electron energy states per unit energy per unit volume at energy E (states/eV·m³). In a parabolic band, g_c(E) ∝ √(E − E_c) in the conduction band and g_v(E) ∝ √(E_v − E) in the valence band; it is zero in the band gap.
 
-**A6. What is meant by effective density of states?** The effective density of states (N_c for the conduction band, N_v for the valence band) is the number of states that, if all placed at the band edge, would give the same carrier concentration as the real distributed band. It lets the carrier concentration be written simply as n = N_ce^{−(E_c − E_F)/kT}. For Si at 300 K, N_c = 2.8×10¹⁹ and N_v = 1.04×10¹⁹ cm⁻³.
+**A6. What is meant by effective density of states?** The effective density of states (N_c for the conduction band, N_v for the valence band) is the number of states that, if all placed at the band edge, would give the same carrier concentration as the real distributed band. It lets the carrier concentration be written simply as n = N_ce^{−(E_c − E_F)/kT}. For Si at 300 K, N_c = 2.8×10²⁵ and N_v = 1.04×10²⁵ m⁻³.
 
 **A7. Distinguish between intrinsic and extrinsic semiconductors.** An intrinsic semiconductor is pure: its carriers come only from thermal breaking of bonds, so n = p = n_i and E_F ≈ E_i (mid-gap). An extrinsic semiconductor is doped with donors or acceptors: one carrier type dominates (n ≈ N_D or p ≈ N_A), E_F moves towards E_c or E_v, and the carrier concentration is set by the doping rather than by temperature.
 
-**A8. Define majority and minority carriers.** Majority carriers are the more numerous carrier type in a doped semiconductor (electrons in n-type, holes in p-type). Minority carriers are the less numerous type (holes in n-type, electrons in p-type). In n-type Si with N_D = 10¹⁶ cm⁻³, there are 10¹⁶ majority electrons and only 10⁴ minority holes per cm³.
+**A8. Define majority and minority carriers.** Majority carriers are the more numerous carrier type in a doped semiconductor (electrons in n-type, holes in p-type). Minority carriers are the less numerous type (holes in n-type, electrons in p-type). In n-type Si with N_D = 10²² m⁻³, there are 10²² majority electrons and only 10¹⁰ minority holes per m³.
 
 **A9. State the mass action law.** In thermal equilibrium the product of the electron and hole concentrations is constant at a given temperature: np = n_i², regardless of doping (for a non-degenerate semiconductor).
 
@@ -750,7 +750,7 @@ These are the lecturer's mid-module evaluation questions. The numerical values i
 
 **B2. Silicon has N_D = 1×10¹⁶ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Assuming complete ionisation, find (a) n, (b) p, (c) the majority carrier.**
 
-**Given:** N_D = 1×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, complete ionisation.
+**Given:** N_D = 1×10¹⁶ cm⁻³ = 1×10²² m⁻³, n_i = 1×10¹⁰ cm⁻³ = 1×10¹⁶ m⁻³, complete ionisation.
 
 **Find:** n, p and the majority carrier.
 
@@ -760,16 +760,16 @@ These are the lecturer's mid-module evaluation questions. The numerical values i
 
 **Solution.**
 
-    (a) n ≈ N_D = 1×10¹⁶ cm⁻³
-    (b) p = n_i²/n = 10²⁰/10¹⁶ = 1×10⁴ cm⁻³
+    (a) n ≈ N_D = 1×10²² m⁻³
+    (b) p = n_i²/n = 10³²/10²² = 1×10¹⁰ m⁻³
 
-**Answer:** **(a) n = 1×10¹⁶ cm⁻³, (b) p = 1×10⁴ cm⁻³, (c) electrons are the majority carriers (n-type).**
+**Answer:** **(a) n = 1×10²² m⁻³, (b) p = 1×10¹⁰ m⁻³, (c) electrons are the majority carriers (n-type).**
 
 **What this means:** the donors have raised n a millionfold above n_i, and the mass action law has lowered p by the same factor.
 
 **B3. P-type silicon has N_A = 5×10¹⁶ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Find (a) p, (b) n, (c) the minority carrier.**
 
-**Given:** N_A = 5×10¹⁶ cm⁻³, n_i = 1×10¹⁰ cm⁻³, complete ionisation.
+**Given:** N_A = 5×10¹⁶ cm⁻³ = 5×10²² m⁻³, n_i = 1×10¹⁰ cm⁻³ = 1×10¹⁶ m⁻³, complete ionisation.
 
 **Find:** p, n and the minority carrier.
 
@@ -779,16 +779,16 @@ These are the lecturer's mid-module evaluation questions. The numerical values i
 
 **Solution.**
 
-    (a) p ≈ N_A = 5×10¹⁶ cm⁻³
-    (b) n = n_i²/p = 10²⁰/(5×10¹⁶) = 2×10³ cm⁻³
+    (a) p ≈ N_A = 5×10²² m⁻³
+    (b) n = n_i²/p = 10³²/(5×10²²) = 2×10⁹ m⁻³
 
-**Answer:** **(a) p = 5×10¹⁶ cm⁻³, (b) n = 2×10³ cm⁻³, (c) electrons are the minority carriers.**
+**Answer:** **(a) p = 5×10²² m⁻³, (b) n = 2×10⁹ m⁻³, (c) electrons are the minority carriers.**
 
-**What this means:** there are only 2000 free electrons in each cm³ against 5×10¹⁶ holes, so almost all the current in this material is carried by holes.
+**What this means:** there are only 2×10⁹ free electrons in each m³ against 5×10²² holes, so almost all the current in this material is carried by holes.
 
 **B4. At 300 K an n-type semiconductor has N_D = 1×10¹⁷ cm⁻³ and n_i = 1×10¹⁰ cm⁻³. Find the Fermi level relative to the intrinsic level.**
 
-**Given:** N_D = 1×10¹⁷ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.02585 eV.
+**Given:** N_D = 1×10¹⁷ cm⁻³ = 1×10²³ m⁻³, n_i = 1×10¹⁰ cm⁻³ = 1×10¹⁶ m⁻³, kT = 0.02585 eV.
 
 **Find:** E_F − E_i.
 
@@ -808,7 +808,7 @@ These are the lecturer's mid-module evaluation questions. The numerical values i
 
     n_i = √(N_cN_v) e^{−E_g/2kT},   with N_c, N_v ∝ T^{3/2}   ⇒   n_i ∝ T^{3/2} e^{−E_g/2kT}
 
-Two factors increase with T. The T^{3/2} factor grows slowly: more states become effectively available as the electrons' thermal energy spreads. The exponential grows very fast: E_g/2kT becomes smaller as T increases, so e^{−E_g/2kT} increases steeply. Physically, a higher temperature gives more electrons enough thermal energy to cross the band gap, breaking more covalent bonds and creating more electron–hole pairs. For Si, n_i is about 10¹⁰ cm⁻³ at 300 K, 5×10¹² at 400 K and 2.6×10¹⁴ at 500 K.
+Two factors increase with T. The T^{3/2} factor grows slowly: more states become effectively available as the electrons' thermal energy spreads. The exponential grows very fast: E_g/2kT becomes smaller as T increases, so e^{−E_g/2kT} increases steeply. Physically, a higher temperature gives more electrons enough thermal energy to cross the band gap, breaking more covalent bonds and creating more electron–hole pairs. For Si, n_i is about 10¹⁶ m⁻³ at 300 K, 5×10¹⁸ at 400 K and 2.6×10²⁰ at 500 K.
 
 ---
 
@@ -862,7 +862,7 @@ For a semiconductor this means the valence band is completely full and the condu
 
 ### Q32. Define the density of states in a semiconductor and explain its importance in determining carrier concentration.
 
-**Definition.** The density of states g(E) is the number of allowed electron energy states (including both spins) per unit energy interval per unit volume of the crystal, at energy E. Unit: cm⁻³eV⁻¹ (or m⁻³J⁻¹).
+**Definition.** The density of states g(E) is the number of allowed electron energy states (including both spins) per unit energy interval per unit volume of the crystal, at energy E. Unit: m⁻³eV⁻¹ (or m⁻³J⁻¹).
 
 For the conduction and valence bands (parabolic band approximation):
 
@@ -877,7 +877,7 @@ For the conduction and valence bands (parabolic band approximation):
 1. The carrier concentration is the product of **available states** and **probability of occupation**: n = ∫g_c(E)f(E)dE, p = ∫g_v(E)[1 − f(E)]dE. The Fermi function alone says nothing about how many electrons there are; g(E) supplies the number of places they can go.
 2. It produces the **effective densities of states** N_c and N_v, which appear in every carrier-concentration formula (n = N_c e^{−(E_c−E_F)/kT}).
 3. Because g(E) is zero in the gap, no carriers exist there even though f(E) is non-zero, which explains why the gap is "forbidden".
-4. It explains differences between materials. GaAs has a small m_n∗ (0.067m₀), so its N_c (4.7×10¹⁷ cm⁻³) is 60 times smaller than Si's; for the same doping its Fermi level sits much closer to E_c and it becomes degenerate at lower doping.
+4. It explains differences between materials. GaAs has a small m_n∗ (0.067m₀), so its N_c (4.7×10²³ m⁻³) is 60 times smaller than Si's; for the same doping its Fermi level sits much closer to E_c and it becomes degenerate at lower doping.
 5. It sets the T^{3/2} factor in N_c, N_v and n_i, and determines where the Fermi level lies relative to mid-gap (E_i shifts by (3/4)kT ln(m_p∗/m_n∗)).
 6. It also governs optical absorption and the density of electrons available for tunnelling and contact behaviour.
 
@@ -901,14 +901,14 @@ In an intrinsic semiconductor E_F = E_i, near mid-gap. Doping shifts it so that 
 4. **Temperature:** as T rises, n_i increases and E_F moves back toward E_i; at high enough T every semiconductor becomes intrinsic. At very low T (freeze-out) E_F rises above E_D in n-type material.
 5. In equilibrium the Fermi level must be the same everywhere; when n and p regions meet, bands bend to keep E_F flat.
 
-**Example (Si, 300 K, n_i = 10¹⁰ cm⁻³):**
+**Example (Si, 300 K, n_i = 10¹⁶ m⁻³):**
 
 | Doping | E_F position |
 |---|---|
 | Intrinsic | E_F = E_i |
-| N_D = 10¹⁵ cm⁻³ | E_F − E_i = 0.0259 ln(10⁵) = 0.298 eV |
-| N_D = 10¹⁷ cm⁻³ | E_F − E_i = 0.0259 ln(10⁷) = 0.417 eV |
-| N_A = 10¹⁶ cm⁻³ | E_i − E_F = 0.0259 ln(10⁶) = 0.358 eV |
+| N_D = 10²¹ m⁻³ | E_F − E_i = 0.0259 ln(10⁵) = 0.298 eV |
+| N_D = 10²³ m⁻³ | E_F − E_i = 0.0259 ln(10⁷) = 0.417 eV |
+| N_A = 10²² m⁻³ | E_i − E_F = 0.0259 ln(10⁶) = 0.358 eV |
 
 (See the Fermi-level figure above.)
 
@@ -938,70 +938,70 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Question.** In silicon at 300 K the Fermi level is 0.30 eV below the conduction band. Find the probability that a state at E_c is occupied, and the electron concentration.
 
-**Given:** E_c − E_F = 0.30 eV, kT = 0.0259 eV, N_c = 2.8×10¹⁹ cm⁻³.
+**Given:** E_c − E_F = 0.30 eV, kT = 0.0259 eV, N_c = 2.8×10²⁵ m⁻³.
 
 **Find:** f(E_c) and n.
 
 **Solution.**
 
     f(E_c) ≈ e^{−0.30/0.0259} = e^{−11.58} = 9.3×10⁻⁶
-    n = N_c e^{−(E_c − E_F)/kT} = 2.8×10¹⁹ × 9.3×10⁻⁶ = 2.6×10¹⁴ cm⁻³
+    n = N_c e^{−(E_c − E_F)/kT} = 2.8×10²⁵ × 9.3×10⁻⁶ = 2.6×10²⁰ m⁻³
 
-**Answer:** **f = 9.3×10⁻⁶, n = 2.6×10¹⁴ cm⁻³.**
+**Answer:** **f = 9.3×10⁻⁶, n = 2.6×10²⁰ m⁻³.**
 
-**What this means:** although each state at E_c has less than a one-in-100,000 chance of holding an electron, there are so many states (N_c) that the material still has about 2.6×10¹⁴ free electrons per cm³: a lightly doped n-type sample.
+**What this means:** although each state at E_c has less than a one-in-100,000 chance of holding an electron, there are so many states (N_c) that the material still has about 2.6×10²⁰ free electrons per m³: a lightly doped n-type sample.
 
 #### Practice 5.3: doping for a chosen Fermi level
 
 **Question.** What donor concentration places the Fermi level of silicon 0.20 eV above the intrinsic level at 300 K?
 
-**Given:** E_F − E_i = 0.20 eV, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+**Given:** E_F − E_i = 0.20 eV, n_i = 10¹⁶ m⁻³, kT = 0.02585 eV.
 
 **Find:** N_D.
 
 **Solution.**
 
-    N_D = n_i e^{(E_F − E_i)/kT} = 10¹⁰ × e^{0.20/0.02585} = 10¹⁰ × e^{7.74} = 2.3×10¹³ cm⁻³
+    N_D = n_i e^{(E_F − E_i)/kT} = 10¹⁶ × e^{0.20/0.02585} = 10¹⁶ × e^{7.74} = 2.3×10¹⁹ m⁻³
 
-**Answer:** **N_D ≈ 2.3×10¹³ cm⁻³**, a very light doping.
+**Answer:** **N_D ≈ 2.3×10¹⁹ m⁻³**, a very light doping.
 
 #### Practice 5.4: compensated p-type silicon
 
-**Question.** Silicon is doped with N_A = 3×10¹⁶ cm⁻³ and N_D = 1×10¹⁶ cm⁻³. Find p, n and the Fermi-level position at 300 K.
+**Question.** Silicon is doped with N_A = 3×10²² m⁻³ and N_D = 1×10²² m⁻³. Find p, n and the Fermi-level position at 300 K.
 
-**Given:** N_A = 3×10¹⁶, N_D = 10¹⁶, n_i = 10¹⁰ cm⁻³, kT = 0.02585 eV.
+**Given:** N_A = 3×10²², N_D = 10²², n_i = 10¹⁶ m⁻³, kT = 0.02585 eV.
 
 **Find:** p, n and E_i − E_F.
 
 **Solution.**
 
-    p ≈ N_A − N_D = 2×10¹⁶ cm⁻³
-    n = n_i²/p = 10²⁰/2×10¹⁶ = 5×10³ cm⁻³
+    p ≈ N_A − N_D = 2×10²² m⁻³
+    n = n_i²/p = 10³²/2×10²² = 5×10⁹ m⁻³
     E_i − E_F = kT ln(p/n_i) = 0.02585 × ln(2×10⁶) = 0.375 eV
 
-**Answer:** **p = 2×10¹⁶ cm⁻³, n = 5×10³ cm⁻³, E_F = E_i − 0.375 eV.**
+**Answer:** **p = 2×10²² m⁻³, n = 5×10⁹ m⁻³, E_F = E_i − 0.375 eV.**
 
 #### Practice 5.5: lightly doped germanium
 
-**Question.** Germanium (n_i = 2.4×10¹³ cm⁻³) is doped with N_D = 1×10¹⁴ cm⁻³. Find n and p using the full charge-neutrality equation.
+**Question.** Germanium (n_i = 2.4×10¹⁹ m⁻³) is doped with N_D = 1×10²⁰ m⁻³. Find n and p using the full charge-neutrality equation.
 
-**Given:** N_D = 10¹⁴ cm⁻³, N_A = 0, n_i = 2.4×10¹³ cm⁻³.
+**Given:** N_D = 10²⁰ m⁻³, N_A = 0, n_i = 2.4×10¹⁹ m⁻³.
 
 **Find:** n and p.
 
 **Solution.**
 
-    n = N_D/2 + √((N_D/2)² + n_i²) = 5×10¹³ + √(2.5×10²⁷ + 5.76×10²⁶)
-      = 5×10¹³ + 5.55×10¹³ = 1.05×10¹⁴ cm⁻³
-    p = n_i²/n = 5.76×10²⁶ / 1.05×10¹⁴ = 5.5×10¹² cm⁻³
+    n = N_D/2 + √((N_D/2)² + n_i²) = 5×10¹⁹ + √(2.5×10³⁹ + 5.76×10³⁸)
+      = 5×10¹⁹ + 5.55×10¹⁹ = 1.05×10²⁰ m⁻³
+    p = n_i²/n = 5.76×10³⁸ / 1.05×10²⁰ = 5.5×10¹⁸ m⁻³
 
-**Answer:** **n = 1.05×10¹⁴ cm⁻³, p = 5.5×10¹² cm⁻³.** Thermal generation adds 5 % to the electron count, so n ≈ N_D is only approximate here.
+**Answer:** **n = 1.05×10²⁰ m⁻³, p = 5.5×10¹⁸ m⁻³.** Thermal generation adds 5 % to the electron count, so n ≈ N_D is only approximate here.
 
 #### Practice 5.6: is it degenerate?
 
-**Question.** Silicon is doped with N_D = 5×10¹⁸ cm⁻³. Find E_c − E_F and decide whether the Boltzmann approximation is valid.
+**Question.** Silicon is doped with N_D = 5×10²⁴ m⁻³. Find E_c − E_F and decide whether the Boltzmann approximation is valid.
 
-**Given:** N_D = 5×10¹⁸ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, kT = 0.02585 eV.
+**Given:** N_D = 5×10²⁴ m⁻³, N_c = 2.8×10²⁵ m⁻³, kT = 0.02585 eV.
 
 **Find:** E_c − E_F in eV and in units of kT.
 
@@ -1015,7 +1015,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Question.** Show that the intrinsic level of silicon lies slightly below mid-gap, and by how much.
 
-**Given:** E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c), N_c = 2.8×10¹⁹, N_v = 1.04×10¹⁹ cm⁻³.
+**Given:** E_i = (E_c + E_v)/2 + (kT/2) ln(N_v/N_c), N_c = 2.8×10²⁵, N_v = 1.04×10²⁵ m⁻³.
 
 **Find:** E_i − mid-gap.
 
@@ -1036,8 +1036,8 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Define and use the Fermi–Dirac distribution function. | Find the probability that a state 0.2 eV above E_F is occupied at 300 K. | f = 1/(1 + e^{0.2/0.02585}) = 1/(1 + 2290) = 4.4×10⁻⁴. | Section 1 |
 | 2 | Explain the physical meaning of the Fermi level and the shape of f(E) at 0 K. | What is f(E) below and above E_F at 0 K? | 1 below E_F, 0 above: a sharp step. | Section 1 |
 | 3 | Explain the density of states and the effective density of states. | Why are there no carriers in the band gap even though f(E) is not zero there? | The density of states is zero in the gap: there are no states to occupy. | Section 2 |
-| 4 | Calculate electron and hole concentrations and apply the mass action law. | Si with N_A = 10¹⁵ cm⁻³: find p and n (n_i = 10¹⁰ cm⁻³). | p = 10¹⁵, n = 10⁵ cm⁻³. | Sections 7–8, 12, 15–16 (comparison table); Examples 5.3, 5.5 |
-| 5 | Determine the position of the Fermi level for given doping. | Find E_F − E_i for N_D = 10¹⁴ cm⁻³. | 0.02585 ln(10⁴) = 0.238 eV. | Sections 9, 13; Examples 5.1, 5.4 |
-| 6 | Apply the charge-neutrality condition, including compensated material. | Si has N_D = 5×10¹⁶ and N_A = 2×10¹⁶ cm⁻³. Find n. | n ≈ N_D − N_A = 3×10¹⁶ cm⁻³. | Section 14 |
+| 4 | Calculate electron and hole concentrations and apply the mass action law. | Si with N_A = 10²¹ m⁻³: find p and n (n_i = 10¹⁶ m⁻³). | p = 10²¹, n = 10¹¹ m⁻³. | Sections 7–8, 12, 15–16 (comparison table); Examples 5.3, 5.5 |
+| 5 | Determine the position of the Fermi level for given doping. | Find E_F − E_i for N_D = 10²⁰ m⁻³. | 0.02585 ln(10⁴) = 0.238 eV. | Sections 9, 13; Examples 5.1, 5.4 |
+| 6 | Apply the charge-neutrality condition, including compensated material. | Si has N_D = 5×10²² and N_A = 2×10²² m⁻³. Find n. | n ≈ N_D − N_A = 3×10²² m⁻³. | Section 14 |
 | 7 | Explain the effect of temperature on carrier concentration and the Fermi level. | Name the three temperature regions and what n equals in the middle one. | Freeze-out, extrinsic (n ≈ N_D), intrinsic. | Sections 17, 23; Example 5.2 |
 | 8 | Distinguish degenerate and non-degenerate semiconductors. | When must full Fermi–Dirac statistics be used instead of the Boltzmann approximation? | When E_F is within about 3kT of a band edge (very heavy doping). | Section 21 |

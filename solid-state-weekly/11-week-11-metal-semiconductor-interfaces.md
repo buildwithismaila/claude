@@ -85,7 +85,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Every important word used this week is defined here, so you can read this week on its own.
 
-**Metal.** A material with a very large number of free electrons (about 10²² cm⁻³), so it conducts electricity very easily. Its electron states are filled up to the Fermi level, and there are empty states immediately above it. Examples: aluminium, gold, platinum, titanium, tungsten.
+**Metal.** A material with a very large number of free electrons (about 10²⁸ m⁻³), so it conducts electricity very easily. Its electron states are filled up to the Fermi level, and there are empty states immediately above it. Examples: aluminium, gold, platinum, titanium, tungsten.
 
 **Semiconductor.** A material whose conductivity lies between a metal's and an insulator's, and can be controlled by doping, temperature, light and electric fields. Examples: silicon (Si), germanium (Ge), gallium arsenide (GaAs).
 
@@ -112,8 +112,8 @@ Where:
 Where:
 
 - kT = thermal energy, 0.0259 eV at 300 K (0.02585 eV is used in this week's calculations)
-- N_c = effective density of states in the conduction band, 2.8×10¹⁹ cm⁻³ for Si
-- N_D = donor concentration (cm⁻³)
+- N_c = effective density of states in the conduction band, 2.8×10²⁵ m⁻³ for Si
+- N_D = donor concentration (m⁻³)
 
 *Why it matters:* the Fermi level sets the semiconductor's work function, and lining up the two Fermi levels is what bends the bands at a contact.
 
@@ -164,7 +164,7 @@ Metal values (eV): Al 4.28, Ti 4.33, Cr 4.5, W 4.55, Au 5.1, Ni 5.15, Pt 5.65.
 
 **Fermi-level pinning.** At a real interface, defects and surface states hold ("pin") the Fermi level near a fixed energy, so the measured barrier height depends much less on the metal than the ideal rule predicts.
 
-**Specific contact resistance (ρ_c).** The resistance of a contact multiplied by its area, in Ω·cm². It lets contacts of different sizes be compared. Good ohmic contacts have ρ_c ≈ 10⁻⁶–10⁻⁸ Ω·cm².
+**Specific contact resistance (ρ_c).** The resistance of a contact multiplied by its area, in Ω·m². It lets contacts of different sizes be compared. Good ohmic contacts have ρ_c ≈ 10⁻¹⁰–10⁻¹² Ω·m².
 
 ## The big picture
 
@@ -194,9 +194,9 @@ Where:
 
 #### Example 11.1: work function of doped silicon
 
-**Question.** Calculate the work function of n-type silicon doped with N_D = 1×10¹⁶ cm⁻³ at 300 K. The electron affinity of Si is 4.05 eV.
+**Question.** Calculate the work function of n-type silicon doped with N_D = 1×10²² m⁻³ at 300 K. The electron affinity of Si is 4.05 eV.
 
-**Given:** χ = 4.05 eV, N_D = 1×10¹⁶ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, kT = 0.02585 eV.
+**Given:** χ = 4.05 eV, N_D = 1×10²² m⁻³, N_c = 2.8×10²⁵ m⁻³, kT = 0.02585 eV.
 
 **Find:** Φ_s.
 
@@ -206,7 +206,7 @@ Where:
 
 Step 1. Position of E_F below E_c:
 
-    E_c − E_F = 0.02585 × ln(2.8×10¹⁹ / 1×10¹⁶) = 0.02585 × 7.94 = 0.205 eV
+    E_c − E_F = 0.02585 × ln(2.8×10²⁵ / 1×10²²) = 0.02585 × 7.94 = 0.205 eV
 
 Step 2. Work function:
 
@@ -276,19 +276,19 @@ The depletion region under the metal is exactly like the n side of a very one-si
 
 Where:
 
-- W = depletion width (cm)
-- ε_s = permittivity of silicon, 11.7ε₀ = 1.04×10⁻¹² F/cm
+- W = depletion width (m)
+- ε_s = permittivity of silicon, 11.7ε₀ = 1.04×10⁻¹⁰ F/m
 - V_bi = built-in potential (V); V = applied voltage (positive for forward bias)
-- q = 1.6×10⁻¹⁹ C; N_D = donor concentration (cm⁻³)
-- E_max = peak electric field, at the interface (V/cm)
+- q = 1.6×10⁻¹⁹ C; N_D = donor concentration (m⁻³)
+- E_max = peak electric field, at the interface (V/m)
 
 Rearranged at zero bias, V_bi = qN_D W² / 2ε_s. Note that **W ∝ 1/√N_D**: more doping means a thinner depletion region. This is the key to ohmic contacts below.
 
 #### Example 11.3: depletion width under a gold contact
 
-**Question.** For the gold contact of Example 11.2 (V_bi = 0.84 V, N_D = 1×10¹⁶ cm⁻³), calculate the depletion width and the peak field at zero bias.
+**Question.** For the gold contact of Example 11.2 (V_bi = 0.84 V, N_D = 1×10²² m⁻³), calculate the depletion width and the peak field at zero bias.
 
-**Given:** V_bi = 0.84 V, V = 0, N_D = 1×10¹⁶ cm⁻³, ε_s = 1.04×10⁻¹² F/cm, q = 1.6×10⁻¹⁹ C.
+**Given:** V_bi = 0.84 V, V = 0, N_D = 1×10²² m⁻³, ε_s = 1.04×10⁻¹⁰ F/m, q = 1.6×10⁻¹⁹ C.
 
 **Find:** W and E_max.
 
@@ -296,11 +296,11 @@ Rearranged at zero bias, V_bi = qN_D W² / 2ε_s. Note that **W ∝ 1/√N_D**: 
 
 **Solution.**
 
-    W = √( 2 × 1.04×10⁻¹² × 0.84 / (1.6×10⁻¹⁹ × 10¹⁶) ) = √(1.09×10⁻⁹) = 3.3×10⁻⁵ cm = 0.33 μm
+    W = √( 2 × 1.04×10⁻¹⁰ × 0.84 / (1.6×10⁻¹⁹ × 10²²) ) = √(1.09×10⁻¹³) = 3.3×10⁻⁷ m = 0.33 μm
 
-    E_max = 1.6×10⁻¹⁹ × 10¹⁶ × 3.3×10⁻⁵ / 1.04×10⁻¹² = 5.1×10⁴ V/cm
+    E_max = 1.6×10⁻¹⁹ × 10²² × 3.3×10⁻⁷ / 1.04×10⁻¹⁰ = 5.1×10⁶ V/m
 
-**Answer:** **W = 0.33 μm, E_max = 5.1×10⁴ V/cm.**
+**Answer:** **W = 3.3×10⁻⁷ m (0.33 μm), E_max = 5.1×10⁶ V/m.**
 
 **What this means:** the barrier is about 0.33 μm thick, far too thick for electrons to tunnel through, so they must go over it by thermionic emission. The contact rectifies.
 
@@ -312,12 +312,12 @@ In a Schottky diode the current is carried by **majority carriers** (electrons i
 
 Where:
 
-- J = current density (A/cm²); I = J × A for a diode of area A
-- J_s = saturation current density (A/cm²)
+- J = current density (A/m²); I = J × A for a diode of area A
+- J_s = saturation current density (A/m²)
 - V = applied voltage, positive for forward bias (metal positive on n-type) (V)
 - η = ideality factor: 1 for the ideal model, 1.0–1.1 for good diodes
 - kT/q = thermal voltage, 0.0259 V at 300 K
-- A∗∗ = effective Richardson constant: about 110 A/cm²K² for n-Si, 8 for n-GaAs
+- A∗∗ = effective Richardson constant: about 1.1×10⁶ A/m²K² for n-Si, 8×10⁴ A/m²K² for n-GaAs
 - T = absolute temperature (K)
 - Φ_B = barrier height (eV in qΦ_B/kT with kT in eV)
 
@@ -325,11 +325,11 @@ The shape is the same as a p-n diode, but J_s is far larger, so the diode turns 
 
 #### Example 11.4: Schottky saturation current
 
-**Question.** A Schottky diode on n-type silicon has a barrier height of 0.8 eV. Taking A∗∗ = 110 A/cm²K², calculate the saturation current density at 300 K and the forward voltage needed for 1 A/cm².
+**Question.** A Schottky diode on n-type silicon has a barrier height of 0.8 eV. Taking A∗∗ = 1.1×10⁶ A/m²K², calculate the saturation current density at 300 K and the forward voltage needed for 1×10⁴ A/m².
 
-**Given:** Φ_B = 0.8 eV, A∗∗ = 110 A/cm²K², T = 300 K, kT = 0.0259 eV, J = 1 A/cm², η = 1.
+**Given:** Φ_B = 0.8 eV, A∗∗ = 1.1×10⁶ A/m²K², T = 300 K, kT = 0.0259 eV, J = 1×10⁴ A/m², η = 1.
 
-**Find:** J_s, and V at J = 1 A/cm².
+**Find:** J_s, and V at J = 1×10⁴ A/m².
 
 **Formula:** J_s = A∗∗T²e^{−qΦ_B/kT};  V = (kT/q) ln(J/J_s) (forward bias, J ≫ J_s).
 
@@ -337,13 +337,13 @@ The shape is the same as a p-n diode, but J_s is far larger, so the diode turns 
 
 Step 1. Saturation current density:
 
-    J_s = 110 × 300² × e^{−0.8/0.0259} = 9.9×10⁶ × 3.9×10⁻¹⁴ = 3.8×10⁻⁷ A/cm²
+    J_s = 1.1×10⁶ × 300² × e^{−0.8/0.0259} = 9.9×10¹⁰ × 3.9×10⁻¹⁴ = 3.8×10⁻³ A/m²
 
 Step 2. Forward voltage:
 
-    V = 0.0259 × ln(1/3.8×10⁻⁷) = 0.0259 × 14.8 = 0.38 V
+    V = 0.0259 × ln(1×10⁴/3.8×10⁻³) = 0.0259 × 14.8 = 0.38 V
 
-**Answer:** **J_s = 3.8×10⁻⁷ A/cm²; 1 A/cm² flows at about 0.38 V.**
+**Answer:** **J_s = 3.8×10⁻³ A/m²; 1×10⁴ A/m² flows at about 0.38 V.**
 
 **What this means:** a silicon p-n diode needs about 0.7 V for the same current, because its J_s is about 10⁵ times smaller. The Schottky diode wastes less power as heat when it conducts.
 
@@ -415,8 +415,8 @@ Where:
 
 - V = voltage across the contact (V); I = current through it (A)
 - R_c = contact resistance (Ω)
-- ρ_c = specific contact resistance (Ω·cm²)
-- A = contact area (cm²)
+- ρ_c = specific contact resistance (Ω·m²)
+- A = contact area (m²)
 
 An ohmic contact is **not necessarily a contact with no barrier**. It may have a barrier that is so low, or so thin, that it does not restrict the current. There are three ways to make one.
 
@@ -424,7 +424,7 @@ An ohmic contact is **not necessarily a contact with no barrier**. It may have a
 
 **1. Choose a low-barrier metal.** For n-type, use a metal with Φ_m < Φ_s (for p-type, Φ_m > Φ_s). Now electrons flow from the **metal into the semiconductor** on contact, piling up an **accumulation layer** instead of a depletion layer. The bands bend **downward**, and there is no barrier for electrons in either direction. In practice Fermi-level pinning makes suitable metals rare for Si and GaAs, so the second method is used.
 
-**2. Dope heavily so that electrons tunnel (the practical method).** Dope the semiconductor very heavily just under the contact (n⁺ or p⁺, above about 10¹⁹ cm⁻³). A barrier still exists, but because W ∝ 1/√N_D the depletion width shrinks to a few nanometres. A barrier that thin is no obstacle: electrons **tunnel** straight through it in both directions.
+**2. Dope heavily so that electrons tunnel (the practical method).** Dope the semiconductor very heavily just under the contact (n⁺ or p⁺, above about 10²⁵ m⁻³). A barrier still exists, but because W ∝ 1/√N_D the depletion width shrinks to a few nanometres. A barrier that thin is no obstacle: electrons **tunnel** straight through it in both directions.
 
 **3. Engineer the interface.** Clean the surface, then deposit and anneal (heat) the metal so that it reacts with the semiconductor and forms a stable compound with a low barrier: a **silicide** (TiSi₂, CoSi₂, NiSi) on silicon, or an alloyed Au–Ge–Ni contact on n-GaAs.
 
@@ -434,15 +434,15 @@ An ohmic contact is **not necessarily a contact with no barrier**. It may have a
 |---|---|---|
 | How the electron crosses | Over the top of the barrier | Through the barrier |
 | Needs | Enough thermal energy | A thin barrier (a few nm) |
-| Doping under the contact | Light to moderate (≤ 10¹⁷ cm⁻³) | Heavy (≥ 10¹⁹ cm⁻³) |
+| Doping under the contact | Light to moderate (≤ 10²³ m⁻³) | Heavy (≥ 10²⁵ m⁻³) |
 | Temperature dependence | Strong (∝ T²e^{−qΦ_B/kT}) | Weak |
 | Gives | Schottky (rectifying) contact | Ohmic contact |
 
 #### Example 11.6: why heavy doping makes a contact ohmic
 
-**Question.** The voltage across the depletion region under a contact on n-type silicon is 0.60 V. Calculate the depletion width for N_D = 1×10¹⁶ cm⁻³ and for N_D = 1×10¹⁹ cm⁻³, and say which contact will be ohmic.
+**Question.** The voltage across the depletion region under a contact on n-type silicon is 0.60 V. Calculate the depletion width for N_D = 1×10²² m⁻³ and for N_D = 1×10²⁵ m⁻³, and say which contact will be ohmic.
 
-**Given:** V_bi − V = 0.60 V, ε_s = 1.04×10⁻¹² F/cm, q = 1.6×10⁻¹⁹ C, N_D = 10¹⁶ and 10¹⁹ cm⁻³.
+**Given:** V_bi − V = 0.60 V, ε_s = 1.04×10⁻¹⁰ F/m, q = 1.6×10⁻¹⁹ C, N_D = 10²² and 10²⁵ m⁻³.
 
 **Find:** W for each doping.
 
@@ -452,13 +452,13 @@ An ohmic contact is **not necessarily a contact with no barrier**. It may have a
 
 Step 1. Light doping:
 
-    W = √( 2 × 1.04×10⁻¹² × 0.60 / (1.6×10⁻¹⁹ × 10¹⁶) ) = 2.79×10⁻⁵ cm = 279 nm
+    W = √( 2 × 1.04×10⁻¹⁰ × 0.60 / (1.6×10⁻¹⁹ × 10²²) ) = 2.79×10⁻⁷ m = 279 nm
 
 Step 2. Heavy doping: N_D is 1000 times larger, so W is √1000 = 31.6 times smaller:
 
     W = 279 nm / 31.6 = 8.8 nm
 
-**Answer:** **W = 279 nm at 10¹⁶ cm⁻³ and 8.8 nm at 10¹⁹ cm⁻³.**
+**Answer:** **W = 2.79×10⁻⁷ m (279 nm) at 10²² m⁻³ and 8.8×10⁻⁹ m (8.8 nm) at 10²⁵ m⁻³.**
 
 **What this means:** electrons cannot tunnel through 279 nm, so the lightly doped contact rectifies. A barrier under about 10 nm thick lets a large tunnelling current through, so the heavily doped contact behaves as ohmic, even though the barrier height has not changed.
 
@@ -506,7 +506,7 @@ Both are metal–semiconductor junctions. The difference is whether a significan
 
 **Schottky barrier diode (rectifying contact).**
 
-*Condition:* n-type semiconductor with Φ_m > Φ_s (or p-type with Φ_m < Φ_s), moderate doping (≤ 10¹⁷ cm⁻³).
+*Condition:* n-type semiconductor with Φ_m > Φ_s (or p-type with Φ_m < Φ_s), moderate doping (≤ 10²³ m⁻³).
 
 *Energy-band characteristics:*
 
@@ -521,19 +521,19 @@ Both are metal–semiconductor junctions. The difference is whether a significan
 
 **Ohmic contact.**
 
-*Condition:* either n-type with Φ_m < Φ_s (p-type with Φ_m > Φ_s), or, in practice, any metal on a **very heavily doped** (n⁺ or p⁺, > 10¹⁹ cm⁻³) surface layer.
+*Condition:* either n-type with Φ_m < Φ_s (p-type with Φ_m > Φ_s), or, in practice, any metal on a **very heavily doped** (n⁺ or p⁺, > 10²⁵ m⁻³) surface layer.
 
 *Energy-band characteristics:*
 
 1. **Low-barrier case:** electrons flow from the metal into the semiconductor on contact, forming an **accumulation layer**; the bands bend **downward**. There is no barrier for electrons in either direction.
 2. **Tunnelling case:** a barrier exists, but heavy doping makes the depletion region only a few nanometres thick (W ∝ 1/√N_D). Electrons **tunnel** through it freely in both directions (field emission).
 
-*I-V:* linear and symmetric, V = IR_c, with very low specific contact resistance (ρ_c ≈ 10⁻⁶–10⁻⁸ Ω·cm²).
+*I-V:* linear and symmetric, V = IR_c, with very low specific contact resistance (ρ_c ≈ 10⁻¹⁰–10⁻¹² Ω·m²).
 
 | Feature | Schottky barrier | Ohmic contact |
 |---|---|---|
 | Work-function condition (n-type) | Φ_m > Φ_s | Φ_m < Φ_s (or heavy doping) |
-| Semiconductor doping | Moderate (10¹⁵–10¹⁷ cm⁻³) | Heavy (> 10¹⁹ cm⁻³) |
+| Semiconductor doping | Moderate (10²¹–10²³ m⁻³) | Heavy (> 10²⁵ m⁻³) |
 | Band bending at interface (n-type) | Upward, depletion layer | Downward (accumulation) or very thin barrier |
 | Barrier to majority carriers | Yes, qΦ_B and qV_bi | None, or transparent to tunnelling |
 | Conduction mechanism | Thermionic emission | Free flow or field-emission tunnelling |
@@ -550,16 +550,16 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 11.1: tungsten on n-type silicon
 
-**Question.** Tungsten (Φ_m = 4.55 eV) is deposited on n-type silicon with N_D = 1×10¹⁵ cm⁻³ (χ = 4.05 eV). Using the ideal model, find Φ_B, Φ_s and V_bi.
+**Question.** Tungsten (Φ_m = 4.55 eV) is deposited on n-type silicon with N_D = 1×10²¹ m⁻³ (χ = 4.05 eV). Using the ideal model, find Φ_B, Φ_s and V_bi.
 
-**Given:** Φ_m = 4.55 eV, χ = 4.05 eV, N_D = 10¹⁵ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³.
+**Given:** Φ_m = 4.55 eV, χ = 4.05 eV, N_D = 10²¹ m⁻³, N_c = 2.8×10²⁵ m⁻³.
 
 **Find:** Φ_B, Φ_s, V_bi.
 
 **Solution.**
 
     Φ_B = Φ_m − χ = 4.55 − 4.05 = 0.50 eV
-    E_c − E_F = 0.02585 ln(2.8×10¹⁹/10¹⁵) = 0.265 eV
+    E_c − E_F = 0.02585 ln(2.8×10²⁵/10²¹) = 0.265 eV
     Φ_s = 4.05 + 0.265 = 4.315 eV
     V_bi = Φ_m − Φ_s = 4.55 − 4.315 = 0.235 V
 
@@ -567,7 +567,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 11.2: choosing a metal for an Ohmic contact
 
-**Question.** n-type silicon with N_D = 1×10¹⁶ cm⁻³ has Φ_s = 4.26 eV. Using the ideal theory, which of Al (4.28), Ti (4.33), Au (5.1) would give an Ohmic contact? What is done in practice?
+**Question.** n-type silicon with N_D = 1×10²² m⁻³ has Φ_s = 4.26 eV. Using the ideal theory, which of Al (4.28), Ti (4.33), Au (5.1) would give an Ohmic contact? What is done in practice?
 
 **Given:** Φ_s = 4.26 eV; an Ohmic contact on n-type needs Φ_m < Φ_s.
 
@@ -575,51 +575,51 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Solution.** All three have Φ_m > Φ_s (Al only just, by 0.02 eV), so none meets the ideal Ohmic condition; Au, with the largest Φ_m, would give the strongest barrier.
 
-**Answer:** **None, strictly.** In practice the silicon under the contact is doped n⁺ (above 10¹⁹ cm⁻³) so the barrier becomes thin enough to tunnel through, and Al or a silicide is used.
+**Answer:** **None, strictly.** In practice the silicon under the contact is doped n⁺ (above 10²⁵ m⁻³) so the barrier becomes thin enough to tunnel through, and Al or a silicide is used.
 
 #### Practice 11.3: Schottky forward voltage
 
-**Question.** A Schottky diode on n-Si has Φ_B = 0.65 eV. Find J_s at 300 K (A∗∗ = 110 A/cm²K²) and the forward voltage at 10 A/cm².
+**Question.** A Schottky diode on n-Si has Φ_B = 0.65 eV. Find J_s at 300 K (A∗∗ = 1.1×10⁶ A/m²K²) and the forward voltage at 1×10⁵ A/m².
 
-**Given:** Φ_B = 0.65 eV, A∗∗ = 110 A/cm²K², T = 300 K, J = 10 A/cm².
+**Given:** Φ_B = 0.65 eV, A∗∗ = 1.1×10⁶ A/m²K², T = 300 K, J = 1×10⁵ A/m².
 
 **Find:** J_s and V.
 
 **Solution.**
 
-    J_s = 110 × 300² × e^{−0.65/0.0259} = 9.9×10⁶ × 1.26×10⁻¹¹ = 1.25×10⁻⁴ A/cm²
-    V = 0.0259 ln(10/1.25×10⁻⁴) = 0.0259 × 11.29 = 0.29 V
+    J_s = 1.1×10⁶ × 300² × e^{−0.65/0.0259} = 9.9×10¹⁰ × 1.26×10⁻¹¹ = 1.25 A/m²
+    V = 0.0259 ln(1×10⁵/1.25) = 0.0259 × 11.29 = 0.29 V
 
-**Answer:** **J_s = 1.25×10⁻⁴ A/cm², V ≈ 0.29 V.**
+**Answer:** **J_s = 1.25 A/m², V ≈ 0.29 V.**
 
 #### Practice 11.4: why heavy doping gives tunnelling
 
-**Question.** Find the zero-bias depletion width under a contact with V_bi = 0.6 V for N_D = 1×10¹⁶ cm⁻³ and for N_D = 1×10²⁰ cm⁻³. Explain the result.
+**Question.** Find the zero-bias depletion width under a contact with V_bi = 0.6 V for N_D = 1×10²² m⁻³ and for N_D = 1×10²⁶ m⁻³. Explain the result.
 
-**Given:** V_bi = 0.6 V, ε_s = 1.04×10⁻¹² F/cm.
+**Given:** V_bi = 0.6 V, ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** W for each doping.
 
 **Solution.**
 
-    W(10¹⁶) = √(2 × 1.04×10⁻¹² × 0.6 / (1.6×10⁻¹⁹ × 10¹⁶)) = 2.8×10⁻⁵ cm = 0.28 μm
-    W(10²⁰) = W(10¹⁶)/√10⁴ = 2.8×10⁻⁷ cm = 2.8 nm
+    W(10²²) = √(2 × 1.04×10⁻¹⁰ × 0.6 / (1.6×10⁻¹⁹ × 10²²)) = 2.8×10⁻⁷ m = 0.28 μm
+    W(10²⁶) = W(10²²)/√10⁴ = 2.8×10⁻⁹ m = 2.8 nm
 
-**Answer:** **0.28 μm and 2.8 nm.** A 2.8 nm barrier is thin enough for electrons to tunnel through, so the heavily doped contact is Ohmic even though the barrier is still there.
+**Answer:** **2.8×10⁻⁷ m (0.28 μm) and 2.8×10⁻⁹ m (2.8 nm).** A 2.8 nm barrier is thin enough for electrons to tunnel through, so the heavily doped contact is Ohmic even though the barrier is still there.
 
 #### Practice 11.5: contact resistance of a small contact
 
-**Question.** A contact has specific contact resistance ρ_c = 1×10⁻⁶ Ω·cm² and measures 1 μm × 1 μm. Find its resistance.
+**Question.** A contact has specific contact resistance ρ_c = 1×10⁻¹⁰ Ω·m² and measures 1 μm × 1 μm. Find its resistance.
 
-**Given:** ρ_c = 10⁻⁶ Ω·cm², A = (10⁻⁴ cm)² = 10⁻⁸ cm².
+**Given:** ρ_c = 10⁻¹⁰ Ω·m², A = (10⁻⁶ m)² = 10⁻¹² m².
 
 **Find:** R_c.
 
 **Solution.**
 
-    R_c = ρ_c/A = 10⁻⁶/10⁻⁸ = 100 Ω
+    R_c = ρ_c/A = 10⁻¹⁰/10⁻¹² = 100 Ω
 
-**Answer:** **R_c = 100 Ω**, large for a small transistor, which is why modern processes need ρ_c near 10⁻⁸ Ω·cm².
+**Answer:** **R_c = 100 Ω**, large for a small transistor, which is why modern processes need ρ_c near 10⁻¹² Ω·m².
 
 #### Practice 11.6: an Ohmic contact by accumulation
 
