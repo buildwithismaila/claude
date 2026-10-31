@@ -28,7 +28,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -38,44 +38,44 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | m⁻³ |
 | m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
-| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
-| F | Particle flux in Fick's law | particles/(cm²·s) |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | m²/s |
+| F | Particle flux in Fick's law | particles/(m²·s) |
 | R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
-| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | cm²/(V·s) |
-| v_d | Drift velocity | cm/s |
-| v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
-| v_sat | Saturation velocity at high field | ≈ 10⁷ cm/s in Si |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/m |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | m²/(V·s) |
+| v_d | Drift velocity | m/s |
+| v_th | Thermal velocity of carriers | ≈ 10⁵ m/s at 300 K |
+| v_sat | Saturation velocity at high field | ≈ 10⁵ m/s in Si |
 | τ_m | Mean free time between collisions | s; about 0.1–1 ps |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
-| R_H, V_H, B | Hall coefficient, Hall voltage, magnetic flux density | cm³/C; V; T (Wb/m²) |
-| R | Recombination rate | cm⁻³s⁻¹ |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
+| R_H, V_H, B | Hall coefficient, Hall voltage, magnetic flux density | m³/C; V; T (Wb/m²) |
+| R | Recombination rate | m⁻³s⁻¹ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
-| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
-| F_n, F_p | Particle flux of electrons and holes (carriers crossing 1 cm² per second) | cm⁻²s⁻¹ |
+| A (area) | Device or contact area | m² |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/m; Ω·m |
+| F_n, F_p | Particle flux of electrons and holes (carriers crossing 1 m² per second) | m⁻²s⁻¹ |
 | B_z, I_x, V_H | Hall effect: magnetic field (z), current (x) and Hall voltage | T (tesla); A; V |
-| R_H | Hall coefficient, 1/qp (p-type) or −1/qn (n-type) | cm³/C |
-| v_dn, v_dp | Drift velocity of electrons and holes | cm/s |
-| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | cm²/(V·s); s; cm⁻³ |
-| J_drift, J_diff | Drift and diffusion parts of the current density | A/cm² |
-| B (recombination) | Radiative recombination coefficient, R = B np | cm³/s; GaAs ≈ 10⁻¹⁰, Si ≈ 10⁻¹⁴ |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| R_H | Hall coefficient, 1/qp (p-type) or −1/qn (n-type) | m³/C |
+| v_dn, v_dp | Drift velocity of electrons and holes | m/s |
+| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | m²/(V·s); s; m⁻³ |
+| J_drift, J_diff | Drift and diffusion parts of the current density | A/m² |
+| B (recombination) | Radiative recombination coefficient, R = B np | m³/s; GaAs ≈ 10⁻¹⁶, Si ≈ 10⁻²⁰ |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 

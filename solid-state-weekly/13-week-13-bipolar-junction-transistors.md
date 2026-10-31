@@ -26,37 +26,37 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | cm⁻³; p_n0 = n_i²/N_D |
-| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | m⁻³; p_n0 = n_i²/N_D |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | m⁻³ |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
-| A (area) | Device or contact area | cm² |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
+| A (area) | Device or contact area | m² |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | V_BE, V_CE, V_CB | Base–emitter, collector–emitter and collector–base voltages | V |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
 | γ (BJT) | Emitter injection efficiency | dimensionless, close to 1 |
 | α_T | Base transport factor | dimensionless, close to 1 |
-| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | m⁻³; μm; m²/s |
 | V_A | Early voltage | V |
 | r_o | Output resistance | Ω |
 | τ_B | Base transit time, W_B²/2D_n | s |
 | f_T | Transition (cut-off) frequency | Hz |
-| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
+| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | m⁻³ |
 | I_{E,n}, I_{E,p}, I_{C,n} | Electron and hole parts of the emitter and collector currents | A |
-| n_B(x) | Minority-electron density in the base of an NPN transistor | cm⁻³ |
+| n_B(x) | Minority-electron density in the base of an NPN transistor | m⁻³ |
 | V_EB, V_BC (V_CB) | Emitter–base and base–collector voltages | V |
 | ΔV, ΔV_BE | A small change in a voltage | V |
 | I_{C1}, I_{C2} | Collector currents at two operating points | A |

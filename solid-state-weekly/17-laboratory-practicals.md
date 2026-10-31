@@ -16,9 +16,9 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -27,25 +27,25 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
 | R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
 | V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
 | C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
 | Φ_B | Schottky barrier height seen from the metal | eV (or V) |
-| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
-| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| A∗∗ | Effective Richardson constant | A/(m²·K²); n-Si ≈ 1.1×10⁶ |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/m² |
 | V_T (V_th) | Threshold voltage of a MOSFET | V |
 | V_FB | Flat-band voltage | V |
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
@@ -54,7 +54,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | g_m | Transconductance, ∂I_D/∂V_GS | S (A/V) |
 | k (MOSFET) | Device parameter μ_nC_ox(W/L) | A/V² (mA/V²) |
 | ΔI_D, ΔV_GS | Small changes in drain current and gate voltage (their ratio is g_m) | A; V |
-| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | m⁻³ |
 | ΔV, ΔV_BE | A small change in a voltage | V |
 
 **Abbreviations**

@@ -30,7 +30,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -43,47 +43,47 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_D | Donor energy level, just below E_c | eV; E_c − E_D ≈ 0.045 eV for P in Si |
 | E_A | Acceptor energy level, just above E_v | eV; E_A − E_v ≈ 0.045 eV for B in Si |
 | E_a | Activation energy of dopant diffusion | eV; about 3–4 eV |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | cm⁻³ |
-| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
-| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
-| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | cm²/s |
-| J (Fick) | Dopant flux: atoms crossing 1 cm² per second | atoms/(cm²·s) |
-| F | Particle flux in Fick's law | particles/(cm²·s) |
-| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
-| Φ (dose) | Implanted dose (ions per cm²) | cm⁻² |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | m⁻³ |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | m⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | m²/s |
+| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | m²/s |
+| J (Fick) | Dopant flux: atoms crossing 1 m² per second | atoms/(m²·s) |
+| F | Particle flux in Fick's law | particles/(m²·s) |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/m² (C or C/m² for charge) |
+| Φ (dose) | Implanted dose (ions per m²) | m⁻² |
 | erfc | Complementary error function, erfc(u) = 1 − erf(u); read from a table | dimensionless |
 | x_j | Junction depth: where the dopant concentration equals the background | μm |
-| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | m⁻³ |
 | R_p | Projected range: average depth at which implanted ions stop | μm |
 | ΔR_p | Straggle: spread of the implanted ions' stopping depths | μm |
-| N_p | Peak concentration of an implanted profile | cm⁻³ |
-| S_n, S_e | Nuclear and electronic stopping power of an implanted ion | eV·cm² |
-| N_Si | Atom density of silicon | 5×10²² cm⁻³ |
+| N_p | Peak concentration of an implanted profile | m⁻³ |
+| S_n, S_e | Nuclear and electronic stopping power of an implanted ion | eV·m² |
+| N_Si | Atom density of silicon | 5×10²⁸ m⁻³ |
 | R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
 | x_mask | Thickness of an implant mask | μm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
-| R | Recombination rate | cm⁻³s⁻¹ |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
+| R | Recombination rate | m⁻³s⁻¹ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | N_total | Total number of dopant atoms in a region | atoms |
 | B_z, I_x, V_H | Hall effect: magnetic field (z), current (x) and Hall voltage | T (tesla); A; V |
-| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | m⁻³s⁻¹ |
 | Q_charge | Total charge delivered by the ion beam, I × t | C |
 | erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
-| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
-| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | m⁻³ |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | nm |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 
@@ -108,7 +108,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Every important word used this week is defined here, so you can read this week on its own.
 
-**Doping.** The deliberate addition of small, controlled amounts of chosen impurity atoms (called **dopants**) to a pure semiconductor in order to change how well it conducts and whether its current is carried mainly by electrons or by holes. Typical dopant levels in silicon are 10¹⁴ to 10²⁰ atoms per cm³.
+**Doping.** The deliberate addition of small, controlled amounts of chosen impurity atoms (called **dopants**) to a pure semiconductor in order to change how well it conducts and whether its current is carried mainly by electrons or by holes. Typical dopant levels in silicon are 10²⁰ to 10²⁶ atoms per m³.
 
 *Why it matters:* pure silicon conducts far too little to be useful; every diode, transistor and integrated circuit is built from doped regions.
 
@@ -122,7 +122,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Diffusion.** The net movement of atoms from where they are crowded (high concentration) to where they are sparse (low concentration), caused only by their random thermal jumping. In processing, dopants diffuse into a silicon wafer heated to about 900–1200 °C.
 
-**Concentration gradient (dC/dx).** How fast the dopant concentration changes with depth. A steep gradient means a large change over a short distance. It is measured in atoms/cm⁴ (atoms per cm³, per cm).
+**Concentration gradient (dC/dx).** How fast the dopant concentration changes with depth. A steep gradient means a large change over a short distance. It is measured in atoms/m⁴ (atoms per m³, per m).
 
 **Fick's first law.** The rule that the flow of diffusing atoms is proportional to the concentration gradient, and runs from high to low concentration.
 
@@ -130,10 +130,10 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- J = dopant flux: number of dopant atoms crossing 1 cm² each second (atoms/cm²·s)
-- D = diffusion coefficient (cm²/s), defined next
-- C = dopant concentration (atoms/cm³)
-- x = depth into the wafer (cm)
+- J = dopant flux: number of dopant atoms crossing 1 m² each second (atoms/m²·s)
+- D = diffusion coefficient (m²/s), defined next
+- C = dopant concentration (atoms/m³)
+- x = depth into the wafer (m)
 
 **Diffusion coefficient (D).** A number that says how easily a dopant moves through the crystal. It rises steeply with temperature because each atomic jump needs a certain minimum energy, the **activation energy** E_a.
 
@@ -141,21 +141,21 @@ Where:
 
 Where:
 
-- D = diffusion coefficient (cm²/s)
-- D₀ = diffusion constant for that dopant in silicon (cm²/s)
+- D = diffusion coefficient (m²/s)
+- D₀ = diffusion constant for that dopant in silicon (m²/s)
 - E_a = activation energy, about 3–4 eV for common dopants in silicon (eV)
 - k = Boltzmann constant, 8.617×10⁻⁵ eV/K
 - T = absolute temperature (K)
 
 *Why it matters:* a furnace only 100 °C hotter makes dopants diffuse about ten times faster, so temperature must be controlled tightly.
 
-**Dose (Q).** The total number of dopant atoms put into the wafer under each square centimetre of surface, in atoms/cm². It is the area under the concentration-against-depth curve.
+**Dose (Q).** The total number of dopant atoms put into the wafer under each square metre of surface, in atoms/m². It is the area under the concentration-against-depth curve.
 
 **Predeposition (constant-source diffusion).** A diffusion in which a dopant source is present at the surface the whole time, so the surface concentration C_s stays fixed while dopant creeps deeper. It gives a complementary-error-function (erfc) profile and is used as the first doping step.
 
 **Drive-in (limited-source diffusion).** A second heating with the source removed, so the fixed dose already in the wafer spreads deeper and the surface concentration falls. It gives a Gaussian (bell-curve) profile and is used to reach the wanted depth.
 
-**Background doping (N_B).** The doping the wafer already had before the new dopant was added, usually of the opposite type (cm⁻³).
+**Background doping (N_B).** The doping the wafer already had before the new dopant was added, usually of the opposite type (m⁻³).
 
 **Junction depth (x_j).** The depth below the surface at which the added dopant concentration has fallen to equal the background doping, so that a p-n junction forms there (μm).
 
@@ -178,8 +178,8 @@ Where:
 Where:
 
 - R_s = sheet resistance (Ω/□)
-- ρ = average resistivity of the layer (Ω·cm)
-- x_j = thickness of the layer, the junction depth (cm)
+- ρ = average resistivity of the layer (Ω·m)
+- x_j = thickness of the layer, the junction depth (m)
 
 ## The big picture
 
@@ -230,11 +230,11 @@ The basic process is:
 
 | Symbol | Meaning | Unit |
 |---|---|---|
-| J | **dopant flux**: number of dopant atoms crossing 1 cm² each second | atoms/cm²·s |
-| D | **diffusion coefficient**: how easily the dopant moves in silicon | cm²/s |
-| C | dopant concentration | atoms/cm³ |
-| x | distance into the semiconductor | cm |
-| dC/dx | the **concentration gradient**: how fast C changes with depth | atoms/cm⁴ |
+| J | **dopant flux**: number of dopant atoms crossing 1 m² each second | atoms/m²·s |
+| D | **diffusion coefficient**: how easily the dopant moves in silicon | m²/s |
+| C | dopant concentration | atoms/m³ |
+| x | distance into the semiconductor | m |
+| dC/dx | the **concentration gradient**: how fast C changes with depth | atoms/m⁴ |
 
 **Reading the equation.** The flow is proportional to how steeply the concentration changes. No gradient, no flow. The **minus sign** says the flow goes from high concentration towards low concentration: if C falls as x increases (dC/dx negative), J is positive, meaning atoms flow in the +x direction, deeper into the wafer.
 
@@ -246,8 +246,8 @@ The basic process is:
 
 | Symbol | Meaning |
 |---|---|
-| D | diffusion coefficient at temperature T (cm²/s) |
-| D₀ | diffusion constant (cm²/s), a property of the dopant–silicon pair |
+| D | diffusion coefficient at temperature T (m²/s) |
+| D₀ | diffusion constant (m²/s), a property of the dopant–silicon pair |
 | E_a | **activation energy** (eV): the energy barrier an atom must jump over to move one lattice site |
 | k | Boltzmann constant, 8.617×10⁻⁵ eV/K |
 | T | absolute temperature (K) |
@@ -262,9 +262,9 @@ The depth to which dopants spread grows with the **square root** of time:
 
 Where:
 
-- D = diffusion coefficient of the dopant at the furnace temperature (cm²/s)
+- D = diffusion coefficient of the dopant at the furnace temperature (m²/s)
 - t = diffusion time (s)
-- √(Dt) = characteristic diffusion length (cm; multiply by 10⁴ for μm)
+- √(Dt) = characteristic diffusion length (m; multiply by 10⁶ for μm)
 
 Your notes use the form **L = √(2Dt)**. Other books write 2√(Dt), which is what appears inside the erfc formula below. They are the same idea with a different constant in front. The key fact is that **depth ∝ √(Dt)**: diffusing four times as long only doubles the depth. In a calculation, use whichever form the question gives.
 
@@ -278,8 +278,8 @@ The surface of the semiconductor is kept at an approximately **constant dopant c
 
 | Symbol | Meaning |
 |---|---|
-| C(x, t) | dopant concentration at depth x after time t (atoms/cm³) |
-| C_s | surface concentration (atoms/cm³), fixed |
+| C(x, t) | dopant concentration at depth x after time t (atoms/m³) |
+| C_s | surface concentration (atoms/m³), fixed |
 | x | depth |
 | D | diffusion coefficient |
 | t | diffusion time |
@@ -298,9 +298,9 @@ The surface of the semiconductor is kept at an approximately **constant dopant c
 
 Where:
 
-- Q = dose: dopant atoms introduced per cm² of surface (atoms/cm²)
-- C_s = fixed surface concentration (atoms/cm³)
-- D = diffusion coefficient (cm²/s)
+- Q = dose: dopant atoms introduced per m² of surface (atoms/m²)
+- C_s = fixed surface concentration (atoms/m³)
+- D = diffusion coefficient (m²/s)
 - t = predeposition time (s)
 
 The dose grows as √t: the longer the source is left on, the more dopant enters, but ever more slowly.
@@ -323,11 +323,11 @@ After a dopant has been introduced into the surface, the wafer is heated **witho
 
 | Symbol | Meaning |
 |---|---|
-| C(x, t) | dopant concentration at depth x after drive-in time t (atoms/cm³) |
-| Q | total dopant dose per unit area (atoms/cm²), fixed |
-| D | diffusion coefficient at the drive-in temperature (cm²/s) |
+| C(x, t) | dopant concentration at depth x after drive-in time t (atoms/m³) |
+| Q | total dopant dose per unit area (atoms/m²), fixed |
+| D | diffusion coefficient at the drive-in temperature (m²/s) |
 | t | drive-in time (s) |
-| x | depth below the surface (cm) |
+| x | depth below the surface (m) |
 
 **Characteristics:**
 
@@ -342,9 +342,9 @@ The surface concentration is the value at x = 0, where e⁰ = 1:
 
 Where:
 
-- C(0, t) = surface concentration after drive-in time t (atoms/cm³)
-- Q = dose (atoms/cm²)
-- D = diffusion coefficient (cm²/s)
+- C(0, t) = surface concentration after drive-in time t (atoms/m³)
+- Q = dose (atoms/m²)
+- D = diffusion coefficient (m²/s)
 - t = drive-in time (s)
 
 @fig figures/diffusion.svg | Left: constant-source (erfc) profiles at three times; the surface value stays fixed while the profile deepens. Right: limited-source (Gaussian) profiles; the area under each curve (the dose) is the same, so the surface value falls as the profile spreads.
@@ -353,7 +353,7 @@ Where:
 
 ### Junction depth
 
-If the wafer was already doped with the opposite type, at background concentration N_B (for example n-type 10¹⁶ cm⁻³ and we diffuse boron in), a **p-n junction** forms at the depth x_j where the diffused concentration has fallen to equal the background:
+If the wafer was already doped with the opposite type, at background concentration N_B (for example n-type 10²² m⁻³ and we diffuse boron in), a **p-n junction** forms at the depth x_j where the diffused concentration has fallen to equal the background:
 
     C(x_j) = N_B
 
@@ -362,17 +362,17 @@ If the wafer was already doped with the opposite type, at background concentrati
 
 Where:
 
-- x_j = junction depth (cm; multiply by 10⁴ for μm)
-- D = diffusion coefficient (cm²/s); t = diffusion time (s)
-- N_B = background doping of the wafer (cm⁻³)
-- C_s = surface concentration (cm⁻³); for the Gaussian profile this is the surface value after drive-in, Q/√(πDt)
+- x_j = junction depth (m; multiply by 10⁶ for μm)
+- D = diffusion coefficient (m²/s); t = diffusion time (s)
+- N_B = background doping of the wafer (m⁻³)
+- C_s = surface concentration (m⁻³); for the Gaussian profile this is the surface value after drive-in, Q/√(πDt)
 - erfc⁻¹ = inverse complementary error function: the value u for which erfc(u) equals the number in brackets, read backwards from the erfc table
 
 #### Example 3.1: predeposition dose and junction depth
 
-**Question.** Boron is predeposited into n-type silicon with background doping N_B = 1×10¹⁶ cm⁻³. The surface concentration is held at C_s = 1×10²⁰ cm⁻³, D = 4×10⁻¹⁴ cm²/s and the time is 20 minutes. Find the dose introduced and the junction depth.
+**Question.** Boron is predeposited into n-type silicon with background doping N_B = 1×10²² m⁻³. The surface concentration is held at C_s = 1×10²⁶ m⁻³, D = 4×10⁻¹⁸ m²/s and the time is 20 minutes. Find the dose introduced and the junction depth.
 
-**Given:** C_s = 1×10²⁰ cm⁻³, N_B = 1×10¹⁶ cm⁻³, D = 4×10⁻¹⁴ cm²/s, t = 20 min = 1200 s.
+**Given:** C_s = 1×10²⁶ m⁻³, N_B = 1×10²² m⁻³, D = 4×10⁻¹⁸ m²/s, t = 20 min = 1200 s.
 
 **Find:** Q and x_j.
 
@@ -384,26 +384,26 @@ Where:
 
 Step 1. The diffusion length:
 
-    Dt = 4×10⁻¹⁴ × 1200 = 4.8×10⁻¹¹ cm²,   √(Dt) = 6.93×10⁻⁶ cm,   2√(Dt) = 1.386×10⁻⁵ cm
+    Dt = 4×10⁻¹⁸ × 1200 = 4.8×10⁻¹⁵ m²,   √(Dt) = 6.93×10⁻⁸ m,   2√(Dt) = 1.386×10⁻⁷ m
 
 Step 2. The dose:
 
-    √(Dt/π) = √(4.8×10⁻¹¹/3.142) = 3.91×10⁻⁶ cm
-    Q = 2 × 1×10²⁰ × 3.91×10⁻⁶ = 7.8×10¹⁴ atoms/cm²
+    √(Dt/π) = √(4.8×10⁻¹⁵/3.142) = 3.91×10⁻⁸ m
+    Q = 2 × 1×10²⁶ × 3.91×10⁻⁸ = 7.8×10¹⁸ atoms/m²
 
-Step 3. The junction is where erfc(u) = N_B/C_s = 10¹⁶/10²⁰ = 10⁻⁴. A fuller erfc table gives u = 2.75.
+Step 3. The junction is where erfc(u) = N_B/C_s = 10²²/10²⁶ = 10⁻⁴. A fuller erfc table gives u = 2.75.
 
-    x_j = 2.75 × 1.386×10⁻⁵ = 3.81×10⁻⁵ cm = 0.381 μm
+    x_j = 2.75 × 1.386×10⁻⁷ = 3.81×10⁻⁷ m = 0.381 μm
 
-**Answer:** **Q = 7.8×10¹⁴ atoms/cm², x_j = 0.38 μm.**
+**Answer:** **Q = 7.8×10¹⁸ atoms/m², x_j = 3.8×10⁻⁷ m (0.38 μm).**
 
 **What this means:** a 20-minute predeposition puts in a dose typical of a transistor base or a resistor, but only about 0.4 μm deep. To push the junction deeper without adding more dopant, the wafer is given a drive-in (Example 3.2).
 
 #### Example 3.2: junction depth after a Gaussian drive-in
 
-**Question.** The dose of Example 3.1 (Q = 7.8×10¹⁴ atoms/cm²) is driven in, with the boron source removed, at a higher temperature where D = 3×10⁻¹³ cm²/s, for 2 hours. The background is still N_B = 1×10¹⁶ cm⁻³. Find the new surface concentration and the junction depth.
+**Question.** The dose of Example 3.1 (Q = 7.8×10¹⁸ atoms/m²) is driven in, with the boron source removed, at a higher temperature where D = 3×10⁻¹⁷ m²/s, for 2 hours. The background is still N_B = 1×10²² m⁻³. Find the new surface concentration and the junction depth.
 
-**Given:** Q = 7.8×10¹⁴ cm⁻², D = 3×10⁻¹³ cm²/s, t = 2 h = 7200 s, N_B = 1×10¹⁶ cm⁻³.
+**Given:** Q = 7.8×10¹⁸ m⁻², D = 3×10⁻¹⁷ m²/s, t = 2 h = 7200 s, N_B = 1×10²² m⁻³.
 
 **Find:** C(0, t) and x_j.
 
@@ -415,22 +415,22 @@ Step 3. The junction is where erfc(u) = N_B/C_s = 10¹⁶/10²⁰ = 10⁻⁴. A 
 
 Step 1. The Dt product:
 
-    Dt = 3×10⁻¹³ × 7200 = 2.16×10⁻⁹ cm²
+    Dt = 3×10⁻¹⁷ × 7200 = 2.16×10⁻¹³ m²
 
 Step 2. The surface concentration:
 
-    √(πDt) = √(6.79×10⁻⁹) = 8.24×10⁻⁵ cm
-    C(0, t) = 7.8×10¹⁴ / 8.24×10⁻⁵ = 9.5×10¹⁸ cm⁻³
+    √(πDt) = √(6.79×10⁻¹³) = 8.24×10⁻⁷ m
+    C(0, t) = 7.8×10¹⁸ / 8.24×10⁻⁷ = 9.5×10²⁴ m⁻³
 
 Step 3. The junction depth:
 
-    2√(Dt) = 2 × 4.65×10⁻⁵ = 9.30×10⁻⁵ cm
+    2√(Dt) = 2 × 4.65×10⁻⁷ = 9.30×10⁻⁷ m
     ln(C(0, t)/N_B) = ln(947) = 6.85,   √6.85 = 2.62
-    x_j = 9.30×10⁻⁵ × 2.62 = 2.43×10⁻⁴ cm = 2.43 μm
+    x_j = 9.30×10⁻⁷ × 2.62 = 2.43×10⁻⁶ m = 2.43 μm
 
-**Answer:** **C(0) ≈ 9.5×10¹⁸ cm⁻³, x_j ≈ 2.4 μm.**
+**Answer:** **C(0) ≈ 9.5×10²⁴ m⁻³, x_j ≈ 2.4×10⁻⁶ m (2.4 μm).**
 
-**What this means:** the same atoms now occupy a layer about six times deeper, so the surface concentration has dropped about tenfold (from 10²⁰ to under 10¹⁹ cm⁻³). This is the two-step recipe: predeposition fixes how much dopant goes in, drive-in fixes how deep it goes.
+**What this means:** the same atoms now occupy a layer about six times deeper, so the surface concentration has dropped about tenfold (from 10²⁶ to under 10²⁵ m⁻³). This is the two-step recipe: predeposition fixes how much dopant goes in, drive-in fixes how deep it goes.
 
 ### Step-by-step diffusion process
 
@@ -473,39 +473,39 @@ Some dopants use both: they move through interstitial sites, or by interactions 
 
 ### Q1. Phosphorus is diffused into silicon with D = 2×10⁻¹³ cm²/s for t = 500 s. Find the approximate diffusion distance using L = √(2Dt).
 
-**Given:** D = 2×10⁻¹³ cm²/s, t = 500 s. **Find:** L = √(2Dt).
+**Given:** D = 2×10⁻¹³ cm²/s = 2×10⁻¹⁷ m²/s, t = 500 s. **Find:** L = √(2Dt).
 
 **Formula:** L = √(2Dt).
 
 **Solution.**
 
-    L = √(2 × 2×10⁻¹³ × 500) = √(2×10⁻¹⁰) = 1.414×10⁻⁵ cm
+    L = √(2 × 2×10⁻¹⁷ × 500) = √(2×10⁻¹⁴) = 1.414×10⁻⁷ m
 
-Convert to micrometres (1 cm = 10⁴ μm):
+Convert to micrometres (1 m = 10⁶ μm):
 
-    L = 1.414×10⁻⁵ × 10⁴ = 0.141 μm
+    L = 1.414×10⁻⁷ × 10⁶ = 0.141 μm
 
-**Answer:** **L ≈ 0.141 μm.**
+**Answer:** **L ≈ 1.41×10⁻⁷ m (0.141 μm).**
 
 **What this means:** dopants move only a fraction of a micrometre in about eight minutes, so diffusion depths are controlled on the scale of tenths of a micrometre by choosing the time and temperature.
 
 ### Q2. A dopant concentration gradient in silicon is 4×10¹⁸ cm⁻⁴ and D = 3×10⁻¹⁴ cm²/s. Find the diffusion flux using Fick's first law.
 
-**Given:** dC/dx = 4×10¹⁸ cm⁻⁴, D = 3×10⁻¹⁴ cm²/s. **Find:** the flux J = −D dC/dx.
+**Given:** dC/dx = 4×10¹⁸ cm⁻⁴ = 4×10²⁶ m⁻⁴, D = 3×10⁻¹⁴ cm²/s = 3×10⁻¹⁸ m²/s. **Find:** the flux J = −D dC/dx.
 
 **Formula:** Fick's first law, J = −D dC/dx.
 
 **Solution.**
 
-    J = −D dC/dx = −(3×10⁻¹⁴)(4×10¹⁸) = −1.2×10⁵ atoms/cm²·s
+    J = −D dC/dx = −(3×10⁻¹⁸)(4×10²⁶) = −1.2×10⁹ atoms/m²·s
 
-**Answer:** **|J| = 1.2×10⁵ atoms/cm²·s.** The minus sign means the dopant moves from the region of higher concentration towards lower concentration (against the direction in which C increases).
+**Answer:** **|J| = 1.2×10⁹ atoms/m²·s.** The minus sign means the dopant moves from the region of higher concentration towards lower concentration (against the direction in which C increases).
 
-**What this means:** about a hundred thousand atoms cross each cm² every second. That sounds a lot, but a typical dose is 10¹⁴–10¹⁵ atoms/cm², so at this rate building up a doped layer would take a very long time; real diffusions use far steeper gradients and hotter furnaces.
+**What this means:** about a billion atoms cross each m² every second. That sounds a lot, but a typical dose is 10¹⁸–10¹⁹ atoms/m², so at this rate building up a doped layer would take a very long time; real diffusions use far steeper gradients and hotter furnaces.
 
 ### Q4. Find D at T = 1273 K for a dopant with D₀ = 0.5 cm²/s and E_a = 3.5 eV.
 
-**Given:** D₀ = 0.5 cm²/s, E_a = 3.5 eV, T = 1273 K, k = 8.617×10⁻⁵ eV/K. **Find:** D = D₀e^{−E_a/kT}.
+**Given:** D₀ = 0.5 cm²/s = 5×10⁻⁵ m²/s, E_a = 3.5 eV, T = 1273 K, k = 8.617×10⁻⁵ eV/K. **Find:** D = D₀e^{−E_a/kT}.
 
 **Formula:** D = D₀ e^{−E_a/kT}.
 
@@ -513,41 +513,41 @@ Convert to micrometres (1 cm = 10⁴ μm):
 
     kT = 8.617×10⁻⁵ × 1273 = 0.1097 eV
     E_a/kT = 3.5/0.1097 = 31.90
-    D = 0.5 × e^{−31.90} = 0.5 × 1.39×10⁻¹⁴ = 6.9×10⁻¹⁵ cm²/s
+    D = 5×10⁻⁵ × e^{−31.90} = 5×10⁻⁵ × 1.39×10⁻¹⁴ = 6.9×10⁻¹⁹ m²/s
 
-**Answer:** **D ≈ 6.9×10⁻¹⁵ cm²/s.** Try T = 1373 K (100 °C hotter): kT = 0.1183 eV, E_a/kT = 29.58, D = 7.1×10⁻¹⁴ cm²/s, ten times larger.
+**Answer:** **D ≈ 6.9×10⁻¹⁹ m²/s.** Try T = 1373 K (100 °C hotter): kT = 0.1183 eV, E_a/kT = 29.58, D = 7.1×10⁻¹⁸ m²/s, ten times larger.
 
 **What this means:** a 100 °C change in furnace temperature changes the diffusion rate tenfold, so a small temperature error gives a large error in junction depth. Furnace temperatures are therefore held to within about ±1 °C.
 
 ### Q5. Constant-source diffusion: C_s = 1×10²⁰ cm⁻³, D = 1×10⁻¹³ cm²/s, t = 3600 s. Find C at x = 0.2 μm.
 
-**Given:** C_s = 1×10²⁰ cm⁻³, D = 1×10⁻¹³ cm²/s, t = 3600 s, x = 0.2 μm. **Find:** C(x, t) = C_s erfc(x/2√(Dt)).
+**Given:** C_s = 1×10²⁰ cm⁻³ = 1×10²⁶ m⁻³, D = 1×10⁻¹³ cm²/s = 1×10⁻¹⁷ m²/s, t = 3600 s, x = 0.2 μm = 2×10⁻⁷ m. **Find:** C(x, t) = C_s erfc(x/2√(Dt)).
 
 **Formula:** C(x, t) = C_s erfc( x / 2√(Dt) ).
 
 **Solution.**
 
-Step 1, convert the depth: x = 0.2 μm = 2×10⁻⁵ cm.
+Step 1, convert the depth: x = 0.2 μm = 2×10⁻⁷ m.
 
-Step 2, the diffusion length: √(Dt) = √(1×10⁻¹³ × 3600) = √(3.6×10⁻¹⁰) = 1.897×10⁻⁵ cm.
+Step 2, the diffusion length: √(Dt) = √(1×10⁻¹⁷ × 3600) = √(3.6×10⁻¹⁴) = 1.897×10⁻⁷ m.
 
 Step 3, the erfc argument:
 
-    u = x / 2√(Dt) = 2×10⁻⁵ / (2 × 1.897×10⁻⁵) = 0.527
+    u = x / 2√(Dt) = 2×10⁻⁷ / (2 × 1.897×10⁻⁷) = 0.527
 
 Step 4, from the table: erf(0.527) = 0.544, so erfc(0.527) = 1 − 0.544 = 0.456.
 
 Step 5:
 
-    C = C_s × erfc(u) = 1×10²⁰ × 0.456 = 4.56×10¹⁹ atoms/cm³
+    C = C_s × erfc(u) = 1×10²⁶ × 0.456 = 4.56×10²⁵ atoms/m³
 
-**Answer:** **C(0.2 μm) = 4.56×10¹⁹ cm⁻³**, a little under half the surface value.
+**Answer:** **C(0.2 μm) = 4.56×10²⁵ m⁻³**, a little under half the surface value.
 
 **What this means:** after one hour the boron-rich layer is still very shallow: only 0.2 μm down, the concentration has already halved, and it keeps falling ever faster with depth.
 
 ### Q6. Drive-in: dose Q = 2×10¹⁵ atoms/cm², D = 5×10⁻¹⁴ cm²/s, t = 1000 s. Find the concentration at x = 0.
 
-**Given:** Q = 2×10¹⁵ cm⁻², D = 5×10⁻¹⁴ cm²/s, t = 1000 s, x = 0. **Find:** C(0, t) = Q/√(πDt).
+**Given:** Q = 2×10¹⁵ cm⁻² = 2×10¹⁹ m⁻², D = 5×10⁻¹⁴ cm²/s = 5×10⁻¹⁸ m²/s, t = 1000 s, x = 0. **Find:** C(0, t) = Q/√(πDt).
 
 **Formula:** C(x, t) = ( Q/√(πDt) ) e^{−x²/4Dt}, which at x = 0 becomes C(0, t) = Q/√(πDt).
 
@@ -556,15 +556,15 @@ Step 5:
 At x = 0, e^{−0} = 1, so
 
     C(0, t) = Q / √(πDt)
-    Dt = 5×10⁻¹⁴ × 1000 = 5×10⁻¹¹ cm²
-    πDt = 1.571×10⁻¹⁰,   √(πDt) = 1.253×10⁻⁵ cm
-    C(0, t) = 2×10¹⁵ / 1.253×10⁻⁵ = 1.60×10²⁰ atoms/cm³
+    Dt = 5×10⁻¹⁸ × 1000 = 5×10⁻¹⁵ m²
+    πDt = 1.571×10⁻¹⁴ m²,   √(πDt) = 1.253×10⁻⁷ m
+    C(0, t) = 2×10¹⁹ / 1.253×10⁻⁷ = 1.60×10²⁶ atoms/m³
 
-**Answer:** **Surface concentration = 1.60×10²⁰ cm⁻³.**
+**Answer:** **Surface concentration = 1.60×10²⁶ m⁻³.**
 
 **What this means:** a short drive-in leaves the dose packed close to the surface, so the surface is still very heavily doped. Longer drive-in times would lower this value as √t grows.
 
-Why x = 0? x is the distance from the silicon surface: x = 0 is exactly at the surface; x = 0.1 μm is 0.1 μm below it; any x > 0 means below the surface. The question asks for the surface concentration, so we set x = 0 and the exponential becomes 1. (The dose is atoms per cm² because it is the total number of atoms under each square centimetre of surface.)
+Why x = 0? x is the distance from the silicon surface: x = 0 is exactly at the surface; x = 0.1 μm is 0.1 μm below it; any x > 0 means below the surface. The question asks for the surface concentration, so we set x = 0 and the exponential becomes 1. (The dose is atoms per m² because it is the total number of atoms under each square metre of surface.)
 
 ---
 
@@ -599,8 +599,8 @@ Basic flowchart:
 
 | Symbol | Meaning |
 |---|---|
-| C(x) | implanted dopant concentration at depth x (atoms/cm³) |
-| Q | implanted dose (ions/cm²) |
+| C(x) | implanted dopant concentration at depth x (atoms/m³) |
+| Q | implanted dose (ions/m²) |
 | R_p | **projected range**: the average depth at which ions stop |
 | ΔR_p | **straggle**: the spread of stopping depths about R_p (standard deviation) |
 | x | depth |
@@ -611,9 +611,9 @@ The peak is at x = R_p, below the surface, and its height is
 
 Where:
 
-- N_p = peak concentration, at depth x = R_p (atoms/cm³)
-- Q = implanted dose (ions/cm²)
-- ΔR_p = straggle (cm: convert from μm by multiplying by 10⁻⁴)
+- N_p = peak concentration, at depth x = R_p (atoms/m³)
+- Q = implanted dose (ions/m²)
+- ΔR_p = straggle (m: convert from μm by multiplying by 10⁻⁶)
 - √(2π) = 2.507, a number from the shape of the bell curve
 
 @fig figures/implant.svg | An implanted profile is a bell curve centred at R_p below the surface, with width set by ΔR_p. The junction forms where it falls to the background doping N_B.
@@ -622,7 +622,7 @@ Where:
 
 ### Implantation parameters
 
-- **Implantation dose** Q = number of implanted ions per unit area, usually expressed in **ions/cm²**.
+- **Implantation dose** Q = number of implanted ions per unit area, usually expressed in **ions/m²**.
 - **Implantation energy**, usually expressed in **keV or MeV**. A higher implant energy generally produces a **deeper** implant.
 
 The dose comes from the beam current I, the time t and the area A:
@@ -631,17 +631,17 @@ The dose comes from the beam current I, the time t and the area A:
 
 Where:
 
-- Q = dose (ions/cm²)
+- Q = dose (ions/m²)
 - I = ion beam current (A)
 - t = implant time (s)
 - q = charge on each ion, 1.6×10⁻¹⁹ C for a singly charged ion
-- A = implanted area (cm²)
+- A = implanted area (m²)
 
 #### Example 3.3: peak concentration and junction depth of a phosphorus implant
 
-**Question.** Phosphorus is implanted into p-type silicon (N_B = 1×10¹⁶ cm⁻³) with dose Q = 5×10¹³ cm⁻². At the chosen energy R_p = 0.12 μm and ΔR_p = 0.045 μm. Find the peak concentration, the surface concentration and the junction depth.
+**Question.** Phosphorus is implanted into p-type silicon (N_B = 1×10²² m⁻³) with dose Q = 5×10¹⁷ m⁻². At the chosen energy R_p = 0.12 μm and ΔR_p = 0.045 μm. Find the peak concentration, the surface concentration and the junction depth.
 
-**Given:** Q = 5×10¹³ cm⁻², R_p = 0.12 μm, ΔR_p = 0.045 μm = 4.5×10⁻⁶ cm, N_B = 1×10¹⁶ cm⁻³.
+**Given:** Q = 5×10¹⁷ m⁻², R_p = 0.12 μm, ΔR_p = 0.045 μm = 4.5×10⁻⁸ m, N_B = 1×10²² m⁻³.
 
 **Find:** N_p, C(0) and x_j.
 
@@ -656,13 +656,13 @@ Where:
 
 Step 1. Peak concentration:
 
-    √(2π) ΔR_p = 2.507 × 4.5×10⁻⁶ = 1.128×10⁻⁵ cm
-    N_p = 5×10¹³ / 1.128×10⁻⁵ = 4.43×10¹⁸ cm⁻³
+    √(2π) ΔR_p = 2.507 × 4.5×10⁻⁸ = 1.128×10⁻⁷ m
+    N_p = 5×10¹⁷ / 1.128×10⁻⁷ = 4.43×10²⁴ m⁻³
 
 Step 2. Surface concentration (x = 0):
 
     R_p/ΔR_p = 0.12/0.045 = 2.667,   (R_p/ΔR_p)²/2 = 3.556
-    C(0) = 4.43×10¹⁸ × e^{−3.556} = 4.43×10¹⁸ × 0.0286 = 1.27×10¹⁷ cm⁻³
+    C(0) = 4.43×10²⁴ × e^{−3.556} = 4.43×10²⁴ × 0.0286 = 1.27×10²³ m⁻³
 
 Step 3. Junction depth:
 
@@ -671,9 +671,9 @@ Step 3. Junction depth:
     deep side:    x_j = 0.12 + 0.157 = 0.277 μm
     shallow side: 0.12 − 0.157 < 0, so there is no junction above the peak
 
-**Answer:** **N_p = 4.4×10¹⁸ cm⁻³, C(0) = 1.3×10¹⁷ cm⁻³, x_j = 0.28 μm.**
+**Answer:** **N_p = 4.4×10²⁴ m⁻³, C(0) = 1.3×10²³ m⁻³, x_j = 2.8×10⁻⁷ m (0.28 μm).**
 
-**What this means:** because the surface concentration (1.3×10¹⁷ cm⁻³) is still above the background, the n-type layer runs all the way from the surface down to 0.28 μm, giving a single shallow junction. The whole layer is formed at room temperature, and only a short anneal is then needed.
+**What this means:** because the surface concentration (1.3×10²³ m⁻³) is still above the background, the n-type layer runs all the way from the surface down to 0.28 μm, giving a single shallow junction. The whole layer is formed at room temperature, and only a short anneal is then needed.
 
 ### How ion implantation works inside silicon
 
@@ -691,11 +691,11 @@ There are two major energy-loss mechanisms:
 
 Where:
 
-- S_n, S_e = nuclear and electronic stopping power (eV·cm²)
-- N_{Si} = atom density of silicon, 5×10²² cm⁻³
-- (dE/dx) = rate of change of the ion's energy with distance travelled, due to collisions with nuclei or with electrons (eV/cm); it is negative because the ion slows down, so the minus sign makes S positive
+- S_n, S_e = nuclear and electronic stopping power (eV·m²)
+- N_{Si} = atom density of silicon, 5×10²⁸ m⁻³
+- (dE/dx) = rate of change of the ion's energy with distance travelled, due to collisions with nuclei or with electrons (eV/m); it is negative because the ion slows down, so the minus sign makes S positive
 
-Here N_{Si} is the number of silicon atoms per cm³ (5×10²² cm⁻³) and dE/dx the energy lost per unit distance. Heavy ions (As) lose energy mainly to nuclei and stop shallow; light ions (B) lose it mainly to electrons and go deeper.
+Here N_{Si} is the number of silicon atoms per m³ (5×10²⁸ m⁻³) and dE/dx the energy lost per unit distance. Heavy ions (As) lose energy mainly to nuclei and stop shallow; light ions (B) lose it mainly to electrons and go deeper.
 
 ### Channelling
 
@@ -746,29 +746,29 @@ Suppose we want to convert part of a silicon wafer into an n-type region.
 
 ### P1. A silicon wafer is implanted with boron, Q = 1.0×10¹³ cm⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm. (a) Find the peak concentration N_p. (b) Find the boron concentration at the surface (x = 0).
 
-**Given:** Q = 1.0×10¹³ cm⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm. **Find:** (a) N_p; (b) N(0).
+**Given:** Q = 1.0×10¹³ cm⁻² = 1.0×10¹⁷ m⁻², R_p = 0.5 μm, ΔR_p = 0.05 μm = 5.0×10⁻⁸ m. **Find:** (a) N_p; (b) N(0).
 
 **Formula:** N_p = Q/(√(2π)ΔR_p) and N(x) = N_p exp[ −(x − R_p)²/(2ΔR_p²) ].
 
 **Solution.**
 
-(a) Convert ΔR_p = 0.05 μm = 5.0×10⁻⁶ cm.
+(a) Convert ΔR_p = 0.05 μm = 5.0×10⁻⁸ m.
 
-    N_p = Q / (√(2π) ΔR_p) = 1.0×10¹³ / (2.5066 × 5.0×10⁻⁶) = 1.0×10¹³ / 1.253×10⁻⁵
-        = 7.98×10¹⁷ cm⁻³
+    N_p = Q / (√(2π) ΔR_p) = 1.0×10¹⁷ / (2.5066 × 5.0×10⁻⁸) = 1.0×10¹⁷ / 1.253×10⁻⁷
+        = 7.98×10²³ m⁻³
 
 (b) At x = 0:
 
     N(0) = N_p exp( −R_p²/2ΔR_p² ),   R_p/ΔR_p = 0.5/0.05 = 10
-    N(0) = N_p exp(−10²/2) = N_p e^{−50} = 7.98×10¹⁷ × 1.93×10⁻²² = 1.54×10⁻⁴ cm⁻³
+    N(0) = N_p exp(−10²/2) = N_p e^{−50} = 7.98×10²³ × 1.93×10⁻²² = 1.54×10² m⁻³
 
-**Answer:** **(a) N_p = 7.98×10¹⁷ cm⁻³; (b) N(0) ≈ 1.5×10⁻⁴ cm⁻³**, effectively **zero boron at the surface**.
+**Answer:** **(a) N_p = 7.98×10²³ m⁻³; (b) N(0) ≈ 1.5×10² m⁻³**, effectively **zero boron at the surface**.
 
 **What this means:** the whole dose is buried in a layer around 0.5 μm deep, with undoped silicon above it. A buried profile like this is impossible with diffusion, which always peaks at the surface.
 
 ### P2. An n-type substrate with C_B = 1.0×10¹⁵ cm⁻³ is implanted with boron to form a p-type region. Peak N_p = 1.0×10¹⁷ cm⁻³ at R_p = 0.4 μm, ΔR_p = 0.05 μm. Find the junction depth x_j (where the boron concentration equals C_B).
 
-**Given:** C_B = 1.0×10¹⁵ cm⁻³, N_p = 1.0×10¹⁷ cm⁻³, R_p = 0.4 μm, ΔR_p = 0.05 μm. **Find:** x_j where N(x_j) = C_B.
+**Given:** C_B = 1.0×10¹⁵ cm⁻³ = 1.0×10²¹ m⁻³, N_p = 1.0×10¹⁷ cm⁻³ = 1.0×10²³ m⁻³, R_p = 0.4 μm, ΔR_p = 0.05 μm. **Find:** x_j where N(x_j) = C_B.
 
 **Formula:** N(x) = N_p exp[ −(x − R_p)²/(2ΔR_p²) ], with N(x_j) = C_B.
 
@@ -780,7 +780,7 @@ At the junction N(x_j) = C_B:
     ln(N_p/C_B) = (x_j − R_p)²/2ΔR_p²
     x_j = R_p + ΔR_p √( 2 ln(N_p/C_B) )
 
-Numbers: N_p/C_B = 10¹⁷/10¹⁵ = 100; ln(100) = 4.605; × 2 = 9.21; √9.21 = 3.035.
+Numbers: N_p/C_B = 10²³/10²¹ = 100; ln(100) = 4.605; × 2 = 9.21; √9.21 = 3.035.
 
     x_j = 0.4 μm + 0.05 μm × 3.035 = 0.4 + 0.152 = 0.552 μm
 
@@ -790,15 +790,15 @@ Numbers: N_p/C_B = 10¹⁷/10¹⁵ = 100; ln(100) = 4.605; × 2 = 9.21; √9.21 
 
 ### P3. A 300 mm diameter wafer needs a boron dose Q = 2.0×10¹⁴ ions/cm². (a) Find the total number of ions. (b) If the implanter uses singly charged ions (q = 1.6×10⁻¹⁹ C) and processes the wafer in 60 s, what beam current is needed?
 
-**Given:** diameter 300 mm, Q = 2.0×10¹⁴ cm⁻², q = 1.6×10⁻¹⁹ C, t = 60 s. **Find:** (a) total ions N; (b) beam current I.
+**Given:** diameter 300 mm, Q = 2.0×10¹⁴ cm⁻² = 2.0×10¹⁸ m⁻², q = 1.6×10⁻¹⁹ C, t = 60 s. **Find:** (a) total ions N; (b) beam current I.
 
 **Formula:** N_total = Q × A with A = πr², and I = Q_charge/t = N_total q/t (the same as Q = It/qA rearranged).
 
 **Solution.**
 
-(a) Radius r = 300/2 = 150 mm = 15 cm. Area A = πr² = 3.142 × 225 = 706.9 cm².
+(a) Radius r = 300/2 = 150 mm = 0.15 m. Area A = πr² = 3.142 × 0.0225 = 7.069×10⁻² m².
 
-    N_total = Q × A = 2.0×10¹⁴ × 706.9 = 1.414×10¹⁷ ions
+    N_total = Q × A = 2.0×10¹⁸ × 7.069×10⁻² = 1.414×10¹⁷ ions
 
 (b) Total charge delivered = N_total × q = 1.414×10¹⁷ × 1.6×10⁻¹⁹ = 0.0226 C.
 
@@ -854,8 +854,8 @@ A diffused layer is a thin conducting skin of thickness x_j. Its resistance is d
 Where:
 
 - R_s = sheet resistance (Ω/□)
-- ρ = average resistivity of the doped layer (Ω·cm)
-- x_j = thickness of the layer, taken as the junction depth (cm)
+- ρ = average resistivity of the doped layer (Ω·m)
+- x_j = thickness of the layer, taken as the junction depth (m)
 
 "Per square" means: any square piece of the layer, whatever its size, has resistance R_s between two opposite edges. (A bigger square is longer, which raises R, but also wider by the same factor, which lowers R; the two cancel.) So a resistor L long and W wide made from the layer has
 
@@ -864,7 +864,7 @@ Where:
 Where:
 
 - R = resistance of the resistor (Ω)
-- L = length of the resistor in the direction of current flow (μm or cm)
+- L = length of the resistor in the direction of current flow (μm or m)
 - W = width of the resistor (same unit as L, so L/W is a pure number: the number of squares)
 
 Measured with a four-point probe on a large thin sample:
@@ -881,7 +881,7 @@ Where:
 
 **Question.** A four-point probe on a boron-diffused wafer reads V = 2.0 mV when I = 1.0 mA is passed. The junction depth is 1.0 μm. Calculate the sheet resistance of the layer and its average resistivity.
 
-**Given:** V = 2.0 mV, I = 1.0 mA, x_j = 1.0 μm = 1.0×10⁻⁴ cm, R_s = 4.532 V/I.
+**Given:** V = 2.0 mV, I = 1.0 mA, x_j = 1.0 μm = 1.0×10⁻⁶ m, R_s = 4.532 V/I.
 
 **Find:** R_s and the average resistivity ρ.
 
@@ -897,11 +897,11 @@ Step 1. Sheet resistance:
 
 Step 2. Average resistivity, from R_s = ρ/x_j:
 
-    ρ = R_s × x_j = 9.06 × 1.0×10⁻⁴ = 9.1×10⁻⁴ Ω·cm
+    ρ = R_s × x_j = 9.06 × 1.0×10⁻⁶ = 9.1×10⁻⁶ Ω·m
 
-**Answer:** **R_s = 9.06 Ω/□, ρ ≈ 9×10⁻⁴ Ω·cm.**
+**Answer:** **R_s = 9.06 Ω/□, ρ ≈ 9×10⁻⁶ Ω·m.**
 
-**What this means:** a resistivity this low corresponds to an average boron concentration of a few times 10¹⁹ cm⁻³, a heavily doped p⁺ layer. A resistor 10 squares long made from it would have only about 91 Ω.
+**What this means:** a resistivity this low corresponds to an average boron concentration of a few times 10²⁵ m⁻³, a heavily doped p⁺ layer. A resistor 10 squares long made from it would have only about 91 Ω.
 
 ### Junction depth by groove and stain
 
@@ -934,11 +934,11 @@ Where:
 
 ### Q14. What is semiconductor doping? Explain why doping is necessary in semiconductor device fabrication.
 
-**Doping** is the intentional introduction of controlled, small quantities of specific impurity atoms into a pure (intrinsic) semiconductor to change its electrical properties. Group V donors (P, As, Sb) make silicon **n-type**; Group III acceptors (B, Al, Ga) make it **p-type**. Typical levels are 10¹⁴ to 10²⁰ cm⁻³.
+**Doping** is the intentional introduction of controlled, small quantities of specific impurity atoms into a pure (intrinsic) semiconductor to change its electrical properties. Group V donors (P, As, Sb) make silicon **n-type**; Group III acceptors (B, Al, Ga) make it **p-type**. Typical levels are 10²⁰ to 10²⁶ m⁻³.
 
 **Why it is necessary:**
 
-1. **Intrinsic conductivity is too low and uncontrolled.** Pure Si has only n_i ≈ 10¹⁰ cm⁻³ carriers, giving ρ = 1/(qn_i(μ_n + μ_p)) ≈ 3×10⁵ Ω·cm. Doping with 10¹⁶ cm⁻³ P raises n a million times, to ρ ≈ 0.5 Ω·cm.
+1. **Intrinsic conductivity is too low and uncontrolled.** Pure Si has only n_i ≈ 10¹⁶ m⁻³ carriers, giving ρ = 1/(qn_i(μ_n + μ_p)) ≈ 3×10³ Ω·m. Doping with 10²² m⁻³ P raises n a million times, to ρ ≈ 5×10⁻³ Ω·m.
 2. **It sets the carrier type.** Devices depend on regions where electrons or holes dominate. Without n- and p-type regions there can be no p-n junction, no diode, no BJT and no MOSFET.
 3. **Temperature stability.** In an extrinsic semiconductor the carrier density is fixed by N_D or N_A over a wide temperature range (the extrinsic region) instead of varying exponentially with T as n_i does.
 4. **Device design.** Doping profiles set the built-in potential, depletion width, breakdown voltage, threshold voltage of MOSFETs, current gain of BJTs, sheet resistance of resistors and the quality of Ohmic contacts (heavily doped n⁺, p⁺ regions).
@@ -983,7 +983,7 @@ Diffusion is the net movement of dopant atoms from a region of high concentratio
 
 **Atomic mechanisms:**
 
-1. **Vacancy (substitutional) diffusion.** Substitutional dopants (B, P, As, Sb) occupy lattice sites. A dopant can jump only when an adjacent lattice site is vacant. The rate depends on the vacancy concentration (which rises steeply with temperature) and the jump probability. High activation energy (≈ 3–4 eV), so D is small (10⁻¹⁵ to 10⁻¹² cm²/s).
+1. **Vacancy (substitutional) diffusion.** Substitutional dopants (B, P, As, Sb) occupy lattice sites. A dopant can jump only when an adjacent lattice site is vacant. The rate depends on the vacancy concentration (which rises steeply with temperature) and the jump probability. High activation energy (≈ 3–4 eV), so D is small (10⁻¹⁹ to 10⁻¹⁶ m²/s).
 2. **Interstitial diffusion.** Small atoms or those that do not bond into the lattice (Au, Cu, Fe, Na, Li, H) move between lattice sites through the open spaces of the diamond structure. Low activation energy (0.5–1.5 eV), so they diffuse many orders of magnitude faster. These are usually unwanted contaminants.
 3. **Interstitialcy (kick-out) and dissociative mechanisms.** A dopant is pushed off its site by a silicon self-interstitial, travels interstitially, then returns to a substitutional site. This explains enhanced diffusion of B and P during oxidation (oxidation-enhanced diffusion).
 
@@ -997,9 +997,9 @@ Diffusion is the net movement of dopant atoms from a region of high concentratio
 
     F = −D ∂C/∂x
 
-- F: number of atoms crossing unit area per unit time (cm⁻²s⁻¹).
-- C(x, t): impurity concentration (cm⁻³).
-- D: diffusion coefficient (cm²/s), D = D₀exp(−E_a/kT).
+- F: number of atoms crossing unit area per unit time (m⁻²s⁻¹).
+- C(x, t): impurity concentration (m⁻³).
+- D: diffusion coefficient (m²/s), D = D₀exp(−E_a/kT).
 - The minus sign: atoms move from high to low concentration. If there is no gradient, there is no net flux.
 
 It describes the flux at one instant but not how the profile changes.
@@ -1018,40 +1018,40 @@ This is the diffusion equation. It says the concentration rises where the profil
 
 A constant surface concentration is the **predeposition** (unlimited source) case. Solve Fick's second law with:
 
-- C(0, t) = C_s = 1×10²⁰ cm⁻³ (held fixed for all t)
+- C(0, t) = C_s = 1×10²⁰ cm⁻³ = 1×10²⁶ m⁻³ (held fixed for all t)
 - C(∞, t) = 0 (deep in the wafer)
 - C(x, 0) = 0 (no dopant at the start)
 
 The solution is the **complementary error function**:
 
-    C(x, t) = C_s erfc( x / 2√(Dt) ) = 1×10²⁰ · erfc( x / 2√(Dt) )   cm⁻³
+    C(x, t) = C_s erfc( x / 2√(Dt) ) = 1×10²⁶ · erfc( x / 2√(Dt) )   m⁻³
 
 **How it varies with depth:**
 
-1. At the surface (x = 0), erfc(0) = 1, so C = 1×10²⁰ cm⁻³, independent of time.
+1. At the surface (x = 0), erfc(0) = 1, so C = 1×10²⁶ m⁻³, independent of time.
 2. The concentration **decreases monotonically** with depth. Near the surface it falls almost linearly; deeper it falls faster than exponentially, because erfc(u) ≈ e^{−u²}/(u√π) for large u.
-3. The depth scale is the diffusion length 2√(Dt). At x = 2√(Dt), erfc(1) = 0.157, so C = 1.57×10¹⁹ cm⁻³. At x = 4√(Dt), erfc(2) = 4.7×10⁻³, so C = 4.7×10¹⁷ cm⁻³.
-4. As time increases, the profile penetrates deeper (as √t) while the surface stays at 10²⁰ cm⁻³, so the total dose grows: Q = (2/√π)C_s√(Dt).
+3. The depth scale is the diffusion length 2√(Dt). At x = 2√(Dt), erfc(1) = 0.157, so C = 1.57×10²⁵ m⁻³. At x = 4√(Dt), erfc(2) = 4.7×10⁻³, so C = 4.7×10²³ m⁻³.
+4. As time increases, the profile penetrates deeper (as √t) while the surface stays at 10²⁶ m⁻³, so the total dose grows: Q = (2/√π)C_s√(Dt).
 5. If the wafer has background doping N_B of the opposite type, a junction forms where C(x_j) = N_B.
 
-**Worked illustration** (assume boron into n-Si with N_B = 1×10¹⁶ cm⁻³, D = 1×10⁻¹³ cm²/s at about 1100 °C, t = 1 h = 3600 s):
+**Worked illustration** (assume boron into n-Si with N_B = 1×10²² m⁻³, D = 1×10⁻¹⁷ m²/s at about 1100 °C, t = 1 h = 3600 s):
 
-    √(Dt) = √(1×10⁻¹³ × 3600) = 1.90×10⁻⁵ cm = 0.190 μm
-    2√(Dt) = 0.379 μm
+    √(Dt) = √(1×10⁻¹⁷ × 3600) = 1.90×10⁻⁷ m = 0.190 μm
+    2√(Dt) = 3.79×10⁻⁷ m = 0.379 μm
 
-    Junction: erfc(u) = N_B/C_s = 10¹⁶/10²⁰ = 10⁻⁴  ⇒  u ≈ 2.75
+    Junction: erfc(u) = N_B/C_s = 10²²/10²⁶ = 10⁻⁴  ⇒  u ≈ 2.75
     x_j = 2.75 × 0.379 μm ≈ 1.04 μm
 
-    Dose: Q = (2/√π)(1×10²⁰)(1.90×10⁻⁵) = 2.14×10¹⁵ atoms/cm²
+    Dose: Q = (2/√π)(1×10²⁶)(1.90×10⁻⁷) = 2.14×10¹⁹ atoms/m²
 
-| Depth x (μm) | u = x/2√(Dt) | erfc(u) | C (cm⁻³) |
+| Depth x (μm) | u = x/2√(Dt) | erfc(u) | C (m⁻³) |
 |---|---|---|---|
-| 0 | 0 | 1 | 1.0×10²⁰ |
-| 0.19 | 0.5 | 0.480 | 4.8×10¹⁹ |
-| 0.38 | 1.0 | 0.157 | 1.6×10¹⁹ |
-| 0.57 | 1.5 | 0.034 | 3.4×10¹⁸ |
-| 0.76 | 2.0 | 4.7×10⁻³ | 4.7×10¹⁷ |
-| 1.04 | 2.75 | 1.0×10⁻⁴ | 1.0×10¹⁶ (junction) |
+| 0 | 0 | 1 | 1.0×10²⁶ |
+| 0.19 | 0.5 | 0.480 | 4.8×10²⁵ |
+| 0.38 | 1.0 | 0.157 | 1.6×10²⁵ |
+| 0.57 | 1.5 | 0.034 | 3.4×10²⁴ |
+| 0.76 | 2.0 | 4.7×10⁻³ | 4.7×10²³ |
+| 1.04 | 2.75 | 1.0×10⁻⁴ | 1.0×10²² (junction) |
 
 So the impurity concentration is highest at the surface and falls off as an erfc curve, reaching the background doping about 1 μm below the surface for these conditions.
 
@@ -1061,7 +1061,7 @@ So the impurity concentration is highest at the surface and falls off as an erfc
 
 **Advantages over thermal diffusion:**
 
-1. **Precise, reproducible dose control** (±1 % or better) over a very wide range, 10¹¹ to 10¹⁶ cm⁻², by measuring charge. Diffusion dose depends on solid solubility, time and temperature and is much less accurate.
+1. **Precise, reproducible dose control** (±1 % or better) over a very wide range, 10¹⁵ to 10²⁰ m⁻², by measuring charge. Diffusion dose depends on solid solubility, time and temperature and is much less accurate.
 2. **Independent control of depth and dose.** Depth is set by energy, dose by charge. In diffusion both depend on the same Dt product.
 3. **Low-temperature process.** Implantation is done near room temperature; only a short anneal is needed. Existing profiles are not disturbed and the thermal budget is small, which is vital for shallow junctions.
 4. **Wide choice of masks**, including photoresist, which diffusion cannot use.
@@ -1101,88 +1101,88 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 3.1: how far does boron move?
 
-**Question.** Boron diffuses in silicon with D = 1×10⁻¹⁴ cm²/s. Find the characteristic diffusion length √(Dt) after 2 hours, and the scale length 2√(Dt) used in the erfc profile.
+**Question.** Boron diffuses in silicon with D = 1×10⁻¹⁸ m²/s. Find the characteristic diffusion length √(Dt) after 2 hours, and the scale length 2√(Dt) used in the erfc profile.
 
-**Given:** D = 1×10⁻¹⁴ cm²/s, t = 2 h = 7200 s.
+**Given:** D = 1×10⁻¹⁸ m²/s, t = 2 h = 7200 s.
 
 **Find:** √(Dt) and 2√(Dt).
 
 **Solution.**
 
-    √(Dt) = √(1×10⁻¹⁴ × 7200) = √(7.2×10⁻¹¹) = 8.49×10⁻⁶ cm = 0.085 μm
-    2√(Dt) = 0.17 μm
+    √(Dt) = √(1×10⁻¹⁸ × 7200) = √(7.2×10⁻¹⁵) = 8.49×10⁻⁸ m = 0.085 μm
+    2√(Dt) = 1.70×10⁻⁷ m = 0.17 μm
 
-**Answer:** **√(Dt) = 0.085 μm, 2√(Dt) = 0.17 μm.**
+**Answer:** **√(Dt) = 8.5×10⁻⁸ m (0.085 μm), 2√(Dt) = 1.7×10⁻⁷ m (0.17 μm).**
 
 #### Practice 3.2: predeposition junction depth and dose
 
-**Question.** Boron is predeposited into n-type silicon (N_B = 1×10¹⁷ cm⁻³) from a constant source with C_s = 1×10²⁰ cm⁻³, D = 5×10⁻¹⁴ cm²/s, for 30 minutes. Find the junction depth and the dose introduced.
+**Question.** Boron is predeposited into n-type silicon (N_B = 1×10²³ m⁻³) from a constant source with C_s = 1×10²⁶ m⁻³, D = 5×10⁻¹⁸ m²/s, for 30 minutes. Find the junction depth and the dose introduced.
 
-**Given:** C_s = 10²⁰ cm⁻³, N_B = 10¹⁷ cm⁻³, D = 5×10⁻¹⁴ cm²/s, t = 1800 s.
+**Given:** C_s = 10²⁶ m⁻³, N_B = 10²³ m⁻³, D = 5×10⁻¹⁸ m²/s, t = 1800 s.
 
 **Find:** x_j and Q.
 
 **Solution.**
 
-    √(Dt) = √(5×10⁻¹⁴ × 1800) = 9.49×10⁻⁶ cm,   2√(Dt) = 1.90×10⁻⁵ cm
+    √(Dt) = √(5×10⁻¹⁸ × 1800) = 9.49×10⁻⁸ m,   2√(Dt) = 1.90×10⁻⁷ m
     erfc(u) = N_B/C_s = 10⁻³   ⇒   u = 2.33 (from erfc tables)
-    x_j = u × 2√(Dt) = 2.33 × 1.90×10⁻⁵ = 4.4×10⁻⁵ cm = 0.44 μm
-    Q = (2/√π) C_s √(Dt) = 1.128 × 10²⁰ × 9.49×10⁻⁶ = 1.07×10¹⁵ cm⁻²
+    x_j = u × 2√(Dt) = 2.33 × 1.90×10⁻⁷ = 4.4×10⁻⁷ m = 0.44 μm
+    Q = (2/√π) C_s √(Dt) = 1.128 × 10²⁶ × 9.49×10⁻⁸ = 1.07×10¹⁹ m⁻²
 
-**Answer:** **x_j = 0.44 μm, Q = 1.07×10¹⁵ cm⁻².**
+**Answer:** **x_j = 4.4×10⁻⁷ m (0.44 μm), Q = 1.07×10¹⁹ m⁻².**
 
 #### Practice 3.3: driving in the dose
 
-**Question.** The dose of Practice 3.2 is driven in, with no further source, at D = 1×10⁻¹³ cm²/s for 1 hour. Find the new surface concentration and junction depth (N_B = 1×10¹⁷ cm⁻³).
+**Question.** The dose of Practice 3.2 is driven in, with no further source, at D = 1×10⁻¹⁷ m²/s for 1 hour. Find the new surface concentration and junction depth (N_B = 1×10²³ m⁻³).
 
-**Given:** Q = 1.07×10¹⁵ cm⁻², D = 10⁻¹³ cm²/s, t = 3600 s, N_B = 10¹⁷ cm⁻³.
+**Given:** Q = 1.07×10¹⁹ m⁻², D = 10⁻¹⁷ m²/s, t = 3600 s, N_B = 10²³ m⁻³.
 
 **Find:** C(0) and x_j.
 
 **Solution.**
 
-    √(πDt) = √(π × 3.6×10⁻¹⁰) = 3.36×10⁻⁵ cm
-    C(0) = Q/√(πDt) = 1.07×10¹⁵ / 3.36×10⁻⁵ = 3.2×10¹⁹ cm⁻³
-    2√(Dt) = 2√(3.6×10⁻¹⁰) = 3.79×10⁻⁵ cm
-    x_j = 2√(Dt) √(ln(C(0)/N_B)) = 3.79×10⁻⁵ × √(ln 318) = 3.79×10⁻⁵ × 2.40 = 9.1×10⁻⁵ cm
+    √(πDt) = √(π × 3.6×10⁻¹⁴) = 3.36×10⁻⁷ m
+    C(0) = Q/√(πDt) = 1.07×10¹⁹ / 3.36×10⁻⁷ = 3.2×10²⁵ m⁻³
+    2√(Dt) = 2√(3.6×10⁻¹⁴) = 3.79×10⁻⁷ m
+    x_j = 2√(Dt) √(ln(C(0)/N_B)) = 3.79×10⁻⁷ × √(ln 318) = 3.79×10⁻⁷ × 2.40 = 9.1×10⁻⁷ m
 
-**Answer:** **C(0) = 3.2×10¹⁹ cm⁻³ (down from 10²⁰), x_j = 0.91 μm (up from 0.44 μm).** Drive-in trades surface concentration for depth.
+**Answer:** **C(0) = 3.2×10²⁵ m⁻³ (down from 10²⁶), x_j = 9.1×10⁻⁷ m = 0.91 μm (up from 0.44 μm).** Drive-in trades surface concentration for depth.
 
 #### Practice 3.4: dose from beam current
 
 **Question.** An implanter delivers a singly charged boron beam of 50 μA for 200 s, uniformly over a 150 mm wafer. What dose is implanted?
 
-**Given:** I = 50×10⁻⁶ A, t = 200 s, r = 7.5 cm, q = 1.6×10⁻¹⁹ C.
+**Given:** I = 50×10⁻⁶ A, t = 200 s, r = 0.075 m, q = 1.6×10⁻¹⁹ C.
 
-**Find:** Q (ions/cm²).
+**Find:** Q (ions/m²).
 
 **Solution.**
 
-    A = π × 7.5² = 176.7 cm²
-    Q = It/(qA) = (50×10⁻⁶ × 200)/(1.6×10⁻¹⁹ × 176.7) = 10⁻²/2.83×10⁻¹⁷ = 3.5×10¹⁴ cm⁻²
+    A = π × 0.075² = 1.767×10⁻² m²
+    Q = It/(qA) = (50×10⁻⁶ × 200)/(1.6×10⁻¹⁹ × 1.767×10⁻²) = 10⁻²/2.83×10⁻²¹ = 3.5×10¹⁸ m⁻²
 
-**Answer:** **Q = 3.5×10¹⁴ ions/cm².**
+**Answer:** **Q = 3.5×10¹⁸ ions/m².**
 
 #### Practice 3.5: shallow implanted junction
 
-**Question.** Arsenic is implanted into p-type silicon (N_B = 1×10¹⁶ cm⁻³) with Q = 5×10¹⁴ cm⁻², R_p = 0.10 μm and ΔR_p = 0.03 μm. Find the peak concentration and the depth of the junction below the peak.
+**Question.** Arsenic is implanted into p-type silicon (N_B = 1×10²² m⁻³) with Q = 5×10¹⁸ m⁻², R_p = 0.10 μm and ΔR_p = 0.03 μm. Find the peak concentration and the depth of the junction below the peak.
 
-**Given:** Q = 5×10¹⁴ cm⁻², R_p = 0.10 μm, ΔR_p = 0.03 μm = 3×10⁻⁶ cm, N_B = 10¹⁶ cm⁻³.
+**Given:** Q = 5×10¹⁸ m⁻², R_p = 0.10 μm, ΔR_p = 0.03 μm = 3×10⁻⁸ m, N_B = 10²² m⁻³.
 
 **Find:** N_p and x_j.
 
 **Solution.**
 
-    N_p = Q/(√(2π)ΔR_p) = 5×10¹⁴ / (2.507 × 3×10⁻⁶) = 6.6×10¹⁹ cm⁻³
+    N_p = Q/(√(2π)ΔR_p) = 5×10¹⁸ / (2.507 × 3×10⁻⁸) = 6.6×10²⁵ m⁻³
     x_j = R_p + ΔR_p √(2 ln(N_p/N_B)) = 0.10 + 0.03 × √(2 ln 6650) = 0.10 + 0.03 × 4.20 = 0.226 μm
 
-**Answer:** **N_p = 6.6×10¹⁹ cm⁻³, x_j = 0.23 μm.** (Here the surface concentration is high enough that the n⁺ region reaches the surface, so there is only the one junction.)
+**Answer:** **N_p = 6.6×10²⁵ m⁻³, x_j = 2.3×10⁻⁷ m (0.23 μm).** (Here the surface concentration is high enough that the n⁺ region reaches the surface, so there is only the one junction.)
 
 #### Practice 3.6: diffusion coefficient of phosphorus
 
-**Question.** For phosphorus in silicon D₀ = 3.85 cm²/s and E_a = 3.66 eV. Find D at 1100 °C.
+**Question.** For phosphorus in silicon D₀ = 3.85×10⁻⁴ m²/s and E_a = 3.66 eV. Find D at 1100 °C.
 
-**Given:** D₀ = 3.85 cm²/s, E_a = 3.66 eV, T = 1373 K, k = 8.617×10⁻⁵ eV/K.
+**Given:** D₀ = 3.85×10⁻⁴ m²/s, E_a = 3.66 eV, T = 1373 K, k = 8.617×10⁻⁵ eV/K.
 
 **Find:** D.
 
@@ -1190,9 +1190,9 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
     kT = 8.617×10⁻⁵ × 1373 = 0.1183 eV
     E_a/kT = 3.66/0.1183 = 30.93
-    D = 3.85 × e^{−30.93} = 3.85 × 3.7×10⁻¹⁴ = 1.4×10⁻¹³ cm²/s
+    D = 3.85×10⁻⁴ × e^{−30.93} = 3.85×10⁻⁴ × 3.7×10⁻¹⁴ = 1.4×10⁻¹⁷ m²/s
 
-**Answer:** **D ≈ 1.4×10⁻¹³ cm²/s.**
+**Answer:** **D ≈ 1.4×10⁻¹⁷ m²/s.**
 
 #### Practice 3.7: annealing and tilt
 
@@ -1209,10 +1209,10 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | # | Objective | Check yourself | Answer | Where it is taught |
 |---|---|---|---|---|
 | 1 | Explain why doping is needed and name the common dopants of silicon. | Which of P, B, As, Ga make silicon n-type? | P and As (Group V); B and Ga make it p-type. | The big picture |
-| 2 | Explain diffusion and state Fick's first law and the temperature dependence of D. | By roughly what factor does D change when the furnace is 100 °C hotter (E_a ≈ 3.5 eV, ~1000 °C)? | About tenfold (Q4: 6.9×10⁻¹⁵ → 7.1×10⁻¹⁴ cm²/s). | Part A; Q4 |
+| 2 | Explain diffusion and state Fick's first law and the temperature dependence of D. | By roughly what factor does D change when the furnace is 100 °C hotter (E_a ≈ 3.5 eV, ~1000 °C)? | About tenfold (Q4: 6.9×10⁻¹⁹ → 7.1×10⁻¹⁸ m²/s). | Part A; Q4 |
 | 3 | Distinguish constant-source (erfc) and limited-source (Gaussian) diffusion and calculate their profiles. | In which type of diffusion does the surface concentration fall with time? | Limited-source (drive-in): the fixed dose spreads deeper, so C(0) = Q/√(πDt) falls. | Two types of diffusion; Examples 3.1–3.2; Q5–Q6 |
 | 4 | Describe the step-by-step diffusion process and the atomic diffusion mechanisms. | Which mechanism, vacancy or interstitial, is faster, and which do B and P use? | Interstitial is faster; B and P move mainly by the vacancy mechanism. | Step-by-step process; atomic level |
 | 5 | Describe ion implantation, its equipment and the Gaussian implant profile. | What does the mass analyser do? | Bends the ion beam with a magnet so only ions of the chosen mass-to-charge ratio reach the wafer. | Part B |
-| 6 | Calculate implant peak concentration, junction depth, dose and beam current. | Q = 10¹⁴ cm⁻² with ΔR_p = 0.04 μm: find N_p. | N_p = Q/(√(2π)ΔR_p) = 10¹⁴/(2.507 × 4×10⁻⁶) = 1.0×10¹⁹ cm⁻³. | Example 3.3; implantation calculations P1–P4 |
+| 6 | Calculate implant peak concentration, junction depth, dose and beam current. | Q = 10¹⁸ m⁻² with ΔR_p = 0.04 μm: find N_p. | N_p = Q/(√(2π)ΔR_p) = 10¹⁸/(2.507 × 4×10⁻⁸) = 1.0×10²⁵ m⁻³. | Example 3.3; implantation calculations P1–P4 |
 | 7 | Compare diffusion with ion implantation, and explain channelling and annealing. | Why is the wafer tilted about 7° during implantation? | To stop ions travelling deep along open crystal channels (channelling). | Channelling; comparison table |
 | 8 | Describe how a doping profile is evaluated. | What does a four-point probe measure, and how is it calculated? | Sheet resistance, R_s = 4.532 V/I (Ω/□). | Part C; Example 3.4 |

@@ -26,11 +26,11 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
-| ε₀ | Permittivity of free space | 8.854×10⁻¹⁴ F/cm |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
-| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹³ F/cm |
+| ε₀ | Permittivity of free space | 8.854×10⁻¹² F/m |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
+| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹¹ F/m |
 | ε_r | Relative permittivity (dielectric constant) | Si 11.7, SiO₂ 3.9, GaAs 12.9 |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -39,28 +39,28 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_v (E_V) | Energy of the top of the valence band | eV |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
 | ψ | Wave function (\|ψ\|² is the probability density) | — |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
-| S | Surface recombination velocity | cm/s |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
-| A (area) | Device or contact area | cm² |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | m⁻³s⁻¹ |
+| S | Surface recombination velocity | m/s |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
+| A (area) | Device or contact area | m² |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
 | γ (BJT) | Emitter injection efficiency | dimensionless, close to 1 |
 | r_o | Output resistance | Ω |
-| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/m² |
 | t_ox | Gate-oxide thickness | nm |
 | φ_F, ψ_s (φ_s) | Bulk Fermi potential (kT/q)ln(N_A/n_i); surface potential (band bending) | V |
-| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/cm² |
+| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/m² |
 | V_T (V_th) | Threshold voltage of a MOSFET | V |
 | V_FB | Flat-band voltage | V |
-| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/cm² |
+| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/m² |
 | γ (MOSFET) | Body-effect coefficient √(2qε_siN_A)/C_ox | V^{1/2} |
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
 | I_D | Drain current | A (mA) |

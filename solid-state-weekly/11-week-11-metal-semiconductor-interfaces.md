@@ -28,10 +28,10 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
 | kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
-| ε₀ | Permittivity of free space | 8.854×10⁻¹⁴ F/cm |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| ε₀ | Permittivity of free space | 8.854×10⁻¹² F/m |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -41,29 +41,29 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_v (E_V) | Energy of the top of the valence band | eV |
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
-| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/m² (C or C/m² for charge) |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/m |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
 | V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
-| E_max | Peak electric field, at the junction | V/cm |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
+| E_max | Peak electric field, at the junction | V/m |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
 | Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
 | Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
 | χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
 | Φ_B | Schottky barrier height seen from the metal | eV (or V) |
-| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
-| ρ_c | Specific contact resistance | Ω·cm² |
+| A∗∗ | Effective Richardson constant | A/(m²·K²); n-Si ≈ 1.1×10⁶ |
+| ρ_c | Specific contact resistance | Ω·m² |
 | E_vac | Vacuum level: energy of an electron just free of the material | eV |
-| R_c | Contact resistance | Ω (specific: Ω·cm²) |
+| R_c | Contact resistance | Ω (specific: Ω·m²) |
 | Φ_Bn, Φ_Bp | Schottky barrier height for electrons (n-type) and for holes (p-type) | eV |
 
 **Abbreviations**

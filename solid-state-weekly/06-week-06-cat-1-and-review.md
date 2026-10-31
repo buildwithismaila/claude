@@ -28,8 +28,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | T | Absolute temperature | kelvin (K); room temperature = 300 K |
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -41,28 +40,28 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
 | P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
-| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
-| r_nn | Nearest-neighbour distance | Å; Si 2.35 |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | nm |
+| r_nn | Nearest-neighbour distance | nm; Si 0.235 |
 | f (growth) | Fraction of the melt already solidified | 0 to 1 |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
 | λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
-| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
-| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/m; Ω·m |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | nm |
 
 **Abbreviations**
 

@@ -33,8 +33,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -44,26 +43,27 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_v (E_V) | Energy of the top of the valence band | eV |
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
 | E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
 | ν, hν | Frequency of light, and photon energy | Hz; eV |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
 | [u v w], ⟨u v w⟩ | A crystal direction; family of equivalent directions | integers |
-| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| v_d | Drift velocity | cm/s |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | nm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| v_d | Drift velocity | m/s |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
+| R | Recombination rate | m⁻³s⁻¹ |
 | α, β, γ (cell) | Angles between the edges of a unit cell | degrees; 90° for cubic |
 | f_T | Transition (cut-off) frequency | Hz |
 | λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
-| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/m; Ω·m |
 
 **Abbreviations**
 

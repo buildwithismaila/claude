@@ -24,41 +24,41 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 |---|---|---|
 | q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
 | E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| N_D | Donor concentration | cm⁻³ |
-| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
-| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| N_D | Donor concentration | m⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | m⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | m²/s |
 | R_p | Projected range: average depth at which implanted ions stop | μm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
-| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
-| R | Recombination rate | cm⁻³s⁻¹ |
-| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| v_th | Thermal velocity of carriers | ≈ 10⁵ m/s at 300 K |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | m⁻³s⁻¹ |
+| R | Recombination rate | m⁻³s⁻¹ |
+| U | Net recombination rate, R − G | m⁻³s⁻¹ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | cm² |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
-| S | Surface recombination velocity | cm/s |
-| N_st | Density of surface traps | cm⁻² |
-| U_s | Recombination rate per unit area at a surface | cm⁻²s⁻¹ |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | m² |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
+| S | Surface recombination velocity | m/s |
+| N_st | Density of surface traps | m⁻² |
+| U_s | Recombination rate per unit area at a surface | m⁻²s⁻¹ |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
 | x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
-| A (area) | Device or contact area | cm² |
-| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
-| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | cm⁻³s⁻¹ |
-| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| A (area) | Device or contact area | m² |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | m⁻³; μm; m²/s |
+| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | m⁻³s⁻¹ |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | m⁻³s⁻¹ |
 | τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
-| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | m⁻²s⁻¹; m⁻³ |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 

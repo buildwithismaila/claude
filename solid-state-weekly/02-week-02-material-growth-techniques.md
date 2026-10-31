@@ -26,28 +26,27 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
 | k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
 | Symbol | Meaning | Units / typical value |
 |---|---|---|
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
-| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
-| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | m⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | m⁻³ |
 | f (growth) | Fraction of the melt already solidified | 0 to 1 |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| ρ | Resistivity, 1/σ | Ω·cm |
-| a_layer, a_sub | Lattice constants of the grown layer and of the substrate | Å |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| ρ | Resistivity, 1/σ | Ω·m |
+| a_layer, a_sub | Lattice constants of the grown layer and of the substrate | nm |
 | f_m | Lattice mismatch, (a_layer − a_sub)/a_sub | dimensionless, usually in % |
 | v_pull | Pull rate of a Czochralski crystal | mm/min |
-| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | nm |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 
@@ -90,7 +89,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Polycrystalline material (polysilicon).** A solid made of many small single-crystal grains pointing in different directions. The boundaries between grains scatter carriers and provide leakage paths, so polysilicon is used as a raw material (and for some thin films), not as the wafer.
 
-**Lattice constant (a).** The edge length of the cubic unit cell, the basic repeating block of the crystal, in ångströms (1 Å = 10⁻¹⁰ m). Si: 5.43 Å; Ge and GaAs: 5.65 Å (more precisely 5.658 and 5.653 Å).
+**Lattice constant (a).** The edge length of the cubic unit cell, the basic repeating block of the crystal, in nanometres (1 nm = 10⁻⁹ m). Si: 0.543 nm; Ge and GaAs: 0.565 nm (more precisely 0.5658 and 0.5653 nm).
 
 **Dislocation.** A line defect in a crystal, where a row of atoms is out of place. Dislocations carry leakage current and kill carriers, so device wafers must be dislocation-free.
 
@@ -102,10 +101,10 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- ρ = resistivity (Ω·cm)
+- ρ = resistivity (Ω·m)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- N_A, N_D = acceptor and donor concentrations (cm⁻³)
-- μ_p, μ_n = hole and electron mobilities (cm²/V·s); Si μ_p = 480, μ_n = 1350 when lightly doped
+- N_A, N_D = acceptor and donor concentrations (m⁻³)
+- μ_p, μ_n = hole and electron mobilities (m²/V·s); Si μ_p = 0.048, μ_n = 0.135 when lightly doped
 
 *Why it matters:* wafer buyers specify resistivity, so a change in doping along an ingot is a change in the product.
 
@@ -128,8 +127,8 @@ Where:
 Where:
 
 - k₀ = equilibrium segregation coefficient (dimensionless); B 0.8, P 0.35 in Si
-- C_s = dopant concentration in the solid at the freezing interface (cm⁻³)
-- C_l = dopant concentration in the liquid at the interface (cm⁻³)
+- C_s = dopant concentration in the solid at the freezing interface (m⁻³)
+- C_l = dopant concentration in the liquid at the interface (m⁻³)
 
 *Why it matters:* because k₀ < 1 for almost every dopant, the doping (and so the resistivity) changes from the seed end to the tail end of every CZ ingot.
 
@@ -144,8 +143,8 @@ Where:
 Where:
 
 - f_m = lattice mismatch (dimensionless, often quoted in %)
-- a_layer = lattice constant of the grown layer (Å)
-- a_sub = lattice constant of the substrate (Å)
+- a_layer = lattice constant of the grown layer (nm)
+- a_sub = lattice constant of the substrate (nm)
 
 *Why it matters:* only layers with a very small mismatch (well under 1 %) grow thick without misfit dislocations; this decides which materials can be stacked.
 
@@ -177,7 +176,7 @@ Quartzite, a fairly pure form of SiO₂ (sand, quartz), is mixed with carbon (co
 
     SiO₂ + 2C → Si + 2CO
 
-Molten silicon is drained from the furnace. This **MG-Si** is about 98 % pure. The 2 % of impurities (Fe, Al, Ca, C, B, P) is still about 10²¹ impurity atoms per cm³ (silicon has 5×10²² atoms/cm³), some ten million times more than electronic-grade silicon allows. MG-Si is good enough for making steel and aluminium alloys, but not chips.
+Molten silicon is drained from the furnace. This **MG-Si** is about 98 % pure. The 2 % of impurities (Fe, Al, Ca, C, B, P) is still about 10²⁷ impurity atoms per m³ (silicon has 5×10²⁸ atoms/m³), some ten million times more than electronic-grade silicon allows. MG-Si is good enough for making steel and aluminium alloys, but not chips.
 
 ### Step 2: turning silicon into a liquid that can be purified
 
@@ -244,8 +243,8 @@ When silicon freezes, impurity atoms "prefer" to stay in the liquid. The **segre
 Where:
 
 - k₀ = equilibrium segregation coefficient (dimensionless)
-- C_s = dopant concentration in the solid, where solid and liquid meet (cm⁻³)
-- C_l = dopant concentration in the liquid, where solid and liquid meet (cm⁻³)
+- C_s = dopant concentration in the solid, where solid and liquid meet (m⁻³)
+- C_l = dopant concentration in the liquid, where solid and liquid meet (m⁻³)
 
 For most dopants k₀ < 1: the crystal takes in less dopant than the melt contains.
 
@@ -259,18 +258,18 @@ For most dopants k₀ < 1: the crystal takes in less dopant than the melt contai
 
 Where:
 
-- C_s = dopant concentration in the crystal at the point being grown (cm⁻³)
+- C_s = dopant concentration in the crystal at the point being grown (m⁻³)
 - k₀ = segregation coefficient of the dopant (dimensionless)
-- C₀ = dopant concentration in the melt at the start of growth (cm⁻³)
+- C₀ = dopant concentration in the melt at the start of growth (m⁻³)
 - f = fraction of the original melt that has already solidified (0 at the seed end, approaching 1 at the tail)
 
 This is the *normal-freezing* (Scheil) equation; it assumes the melt is well stirred, so the dopant is evenly mixed through the liquid. At the seed end (f = 0) it gives C_s = k₀C₀.
 
 #### Example 2.1: dopant segregation in a CZ crystal
 
-**Question.** A boron-doped silicon crystal is to be grown by the Czochralski method with a boron concentration of 1×10¹⁶ cm⁻³ at the seed end. The segregation coefficient of boron in silicon is k₀ = 0.8. (a) What boron concentration must the melt contain at the start? (b) What is the boron concentration in the crystal when half of the melt has solidified?
+**Question.** A boron-doped silicon crystal is to be grown by the Czochralski method with a boron concentration of 1×10²² m⁻³ at the seed end. The segregation coefficient of boron in silicon is k₀ = 0.8. (a) What boron concentration must the melt contain at the start? (b) What is the boron concentration in the crystal when half of the melt has solidified?
 
-**Given:** C_s(start) = 1×10¹⁶ cm⁻³, k₀ = 0.8, f = 0.5 for part (b).
+**Given:** C_s(start) = 1×10²² m⁻³, k₀ = 0.8, f = 0.5 for part (b).
 
 **Find:** (a) C₀, the initial melt concentration; (b) C_s at f = 0.5.
 
@@ -282,13 +281,13 @@ This is the *normal-freezing* (Scheil) equation; it assumes the melt is well sti
 
 (a) At the start, C_s = k₀C₀, so
 
-    C₀ = C_s/k₀ = 1×10¹⁶ / 0.8 = 1.25×10¹⁶ cm⁻³
+    C₀ = C_s/k₀ = 1×10²² / 0.8 = 1.25×10²² m⁻³
 
 (b) Use C_s = k₀C₀(1 − f)^{k₀ − 1} with f = 0.5:
 
-    C_s = 0.8 × 1.25×10¹⁶ × (0.5)^{−0.2} = 1×10¹⁶ × 1.149 = 1.15×10¹⁶ cm⁻³
+    C_s = 0.8 × 1.25×10²² × (0.5)^{−0.2} = 1×10²² × 1.149 = 1.15×10²² m⁻³
 
-**Answer:** **(a) C₀ = 1.25×10¹⁶ cm⁻³; (b) C_s = 1.15×10¹⁶ cm⁻³**, about 15 % higher than at the seed end, because rejected boron builds up in the melt.
+**Answer:** **(a) C₀ = 1.25×10²² m⁻³; (b) C_s = 1.15×10²² m⁻³**, about 15 % higher than at the seed end, because rejected boron builds up in the melt.
 
 **What this means:** the melt must be made 25 % richer in boron than the crystal you want, and even halfway along the ingot the doping has already drifted up by 15 %, so wafers cut from the middle have about 13 % lower resistivity than those from the seed end. Boron (k₀ = 0.8, close to 1) is one of the gentlest cases.
 
@@ -296,9 +295,9 @@ The same effect also **purifies**: iron (k₀ ≈ 10⁻⁵) is almost entirely r
 
 #### Example 2.2: how much of the ingot meets a resistivity specification?
 
-**Question.** A p-type CZ silicon ingot is grown with N_A = 1×10¹⁵ cm⁻³ boron at the seed end. (a) What is the resistivity at the seed end (μ_p = 480 cm²/V·s)? (b) The customer accepts wafers whose doping is at most 50 % above the seed-end value. What fraction of the melt can be grown into acceptable crystal? (c) Repeat (b) for an n-type ingot doped with phosphorus.
+**Question.** A p-type CZ silicon ingot is grown with N_A = 1×10²¹ m⁻³ boron at the seed end. (a) What is the resistivity at the seed end (μ_p = 0.048 m²/V·s)? (b) The customer accepts wafers whose doping is at most 50 % above the seed-end value. What fraction of the melt can be grown into acceptable crystal? (c) Repeat (b) for an n-type ingot doped with phosphorus.
 
-**Given:** N_A(seed) = 1×10¹⁵ cm⁻³, μ_p = 480 cm²/V·s, q = 1.6×10⁻¹⁹ C, k₀(B) = 0.8, k₀(P) = 0.35, allowed ratio C_s/C_s(seed) = 1.5.
+**Given:** N_A(seed) = 1×10²¹ m⁻³, μ_p = 0.048 m²/V·s, q = 1.6×10⁻¹⁹ C, k₀(B) = 0.8, k₀(P) = 0.35, allowed ratio C_s/C_s(seed) = 1.5.
 
 **Find:** (a) ρ at the seed end; (b) and (c) the solidified fraction f at which the doping reaches 1.5 times the seed value.
 
@@ -311,29 +310,29 @@ The same effect also **purifies**: iron (k₀ ≈ 10⁻⁵) is almost entirely r
 
 (a) Seed-end resistivity:
 
-    ρ = 1 / (1.6×10⁻¹⁹ × 1×10¹⁵ × 480) = 1 / 0.0768 = 13.0 Ω·cm
+    ρ = 1 / (1.6×10⁻¹⁹ × 1×10²¹ × 0.048) = 1 / 7.68 = 0.130 Ω·m
 
 (b) Boron, k₀ − 1 = −0.2:
 
     1 − f = 1.5^{1/(−0.2)} = 1.5^{−5} = 0.132
     f = 0.868
 
-At that point the resistivity has fallen to 13.0/1.5 = 8.7 Ω·cm.
+At that point the resistivity has fallen to 0.130/1.5 = 0.087 Ω·m.
 
 (c) Phosphorus, k₀ − 1 = −0.65:
 
     1 − f = 1.5^{1/(−0.65)} = 1.5^{−1.54} = 0.536
     f = 0.464
 
-**Answer:** **(a) ρ = 13.0 Ω·cm; (b) about 87 % of the melt (boron); (c) only about 46 % of the melt (phosphorus)** grows into crystal within the specification.
+**Answer:** **(a) ρ = 0.130 Ω·m; (b) about 87 % of the melt (boron); (c) only about 46 % of the melt (phosphorus)** grows into crystal within the specification.
 
 **What this means:** the smaller k₀ is, the faster the doping climbs along the ingot. A boron-doped ingot is usable almost to the tail, but more than half of a phosphorus-doped one falls outside a ±50 % window, which is one reason n-type wafers with tight resistivity limits are more expensive (or are made by FZ or neutron transmutation doping instead).
 
 #### Example 2.3: growth time and mass of a CZ ingot
 
-**Question.** A 200 mm diameter CZ silicon ingot is pulled at 1 mm/min from a crucible charged with 100 kg of boron-doped silicon. The cylindrical body is 1.2 m long. Ignoring the neck, shoulder and tail: (a) how long does it take to grow the body; (b) what is the mass of the body (density of Si = 2.33 g/cm³); (c) what fraction of the melt has frozen at the end of the body, and how much higher is the boron concentration there than at the seed end (k₀ = 0.8)?
+**Question.** A 200 mm diameter CZ silicon ingot is pulled at 1 mm/min from a crucible charged with 100 kg of boron-doped silicon. The cylindrical body is 1.2 m long. Ignoring the neck, shoulder and tail: (a) how long does it take to grow the body; (b) what is the mass of the body (density of Si = 2330 kg/m³); (c) what fraction of the melt has frozen at the end of the body, and how much higher is the boron concentration there than at the seed end (k₀ = 0.8)?
 
-**Given:** diameter 20 cm (r = 10 cm), L = 120 cm, pull rate v_pull = 1 mm/min = 0.1 cm/min, charge 100 kg, density 2.33 g/cm³, k₀ = 0.8.
+**Given:** diameter 0.20 m (r = 0.10 m), L = 1.2 m, pull rate v_pull = 1 mm/min = 1×10⁻³ m/min, charge 100 kg, density 2330 kg/m³, k₀ = 0.8.
 
 **Find:** growth time t, body mass m, solidified fraction f and C_s(end)/C_s(seed).
 
@@ -346,18 +345,18 @@ At that point the resistivity has fallen to 13.0/1.5 = 8.7 Ω·cm.
 
 **Solution.**
 
-    (a) t = 120 cm / 0.1 cm per min = 1200 min = 20 h
-    (b) m = 2.33 × π × 10² × 120 = 8.78×10⁴ g = 87.8 kg
+    (a) t = 1.2 m / 1×10⁻³ m per min = 1200 min = 20 h
+    (b) m = 2330 × π × 0.10² × 1.2 = 87.8 kg
     (c) f = 87.8/100 = 0.878
         C_s(end)/C_s(seed) = (1 − 0.878)^{−0.2} = (0.122)^{−0.2} = 1.52
 
 **Answer:** **(a) 20 hours; (b) about 88 kg; (c) f ≈ 0.88, and the boron concentration at the end of the body is about 1.5 times (52 % higher than) the seed-end value.**
 
-**What this means:** one CZ run takes about a day of continuous, carefully controlled pulling, and nearly 90 % of the melt ends up in the crystal. Compared with Example 2.2, the last 1–2 cm of this body (grown between f = 0.868 and f = 0.878) would just exceed a 50 % doping limit, so that part would be cut off and recycled.
+**What this means:** one CZ run takes about a day of continuous, carefully controlled pulling, and nearly 90 % of the melt ends up in the crystal. Compared with Example 2.2, the last 10–20 mm of this body (grown between f = 0.868 and f = 0.878) would just exceed a 50 % doping limit, so that part would be cut off and recycled.
 
 ### Float-zone (FZ) growth, for comparison
 
-A polysilicon rod is held vertically and a narrow molten zone, heated by an RF coil, is moved slowly along it, starting from a seed. **No crucible** touches the molten silicon, so there is almost no oxygen or carbon contamination, and very pure, high-resistivity silicon (up to 10⁴ Ω·cm) can be made. FZ is used for power devices and radiation detectors, but wafers are smaller (≤ 200 mm) and more expensive.
+A polysilicon rod is held vertically and a narrow molten zone, heated by an RF coil, is moved slowly along it, starting from a seed. **No crucible** touches the molten silicon, so there is almost no oxygen or carbon contamination, and very pure, high-resistivity silicon (up to 10² Ω·m) can be made. FZ is used for power devices and radiation detectors, but wafers are smaller (≤ 200 mm) and more expensive.
 
 ### CZ versus FZ at a glance
 
@@ -365,9 +364,9 @@ A polysilicon rod is held vertically and a narrow molten zone, heated by an RF c
 |---|---|---|
 | Principle | Seed pulled from a melt held in a crucible | Narrow molten zone moved along a polysilicon rod; no crucible |
 | Crucible contact | Yes (quartz, SiO₂, in graphite) | None: the zone is held by surface tension |
-| Oxygen content | High, ≈ 10¹⁸ cm⁻³ (from the crucible) | Very low, < 10¹⁶ cm⁻³ |
+| Oxygen content | High, ≈ 10²⁴ m⁻³ (from the crucible) | Very low, < 10²² m⁻³ |
 | Carbon content | Higher (graphite parts) | Very low |
-| Maximum resistivity | ≈ 100 Ω·cm | Up to ≈ 10⁴ Ω·cm |
+| Maximum resistivity | ≈ 1 Ω·m | Up to ≈ 10² Ω·m |
 | Wafer diameter | Up to 300 mm (450 mm demonstrated) | Up to 200 mm |
 | Mechanical strength | Higher: oxygen pins dislocations, resists warping and slip | Lower: wafers warp more easily in hot processing |
 | Gettering | Intrinsic gettering by oxygen precipitates possible | Not possible (no oxygen) |
@@ -394,16 +393,16 @@ Why not just make everything in the bulk crystal? Because devices need **thin la
 Where:
 
 - f_m = lattice mismatch (dimensionless; usually quoted in %); positive when the layer's natural lattice is larger than the substrate's
-- a_layer = lattice constant of the material being grown (Å)
-- a_sub = lattice constant of the substrate (Å)
+- a_layer = lattice constant of the material being grown (nm)
+- a_sub = lattice constant of the substrate (nm)
 
 A thin layer with a small mismatch simply stretches or squeezes to fit the substrate (it is *strained*). Above a certain **critical thickness**, which falls rapidly as f_m grows, the strain is relieved by **misfit dislocations** at the interface, and these thread up through the layer and spoil devices. As a rule of thumb, mismatches of about 0.2 % or less allow layers micrometres thick with few defects, while several per cent allow only a few nanometres.
 
 #### Example 2.4: lattice mismatch of GaAs on silicon and on germanium
 
-**Question.** GaAs (a = 5.653 Å) is to be grown epitaxially. Calculate the lattice mismatch (a) on a silicon substrate (a = 5.431 Å) and (b) on a germanium substrate (a = 5.658 Å). Which substrate is suitable for a thick, defect-free GaAs layer, for example in a space solar cell?
+**Question.** GaAs (a = 0.5653 nm) is to be grown epitaxially. Calculate the lattice mismatch (a) on a silicon substrate (a = 0.5431 nm) and (b) on a germanium substrate (a = 0.5658 nm). Which substrate is suitable for a thick, defect-free GaAs layer, for example in a space solar cell?
 
-**Given:** a(GaAs) = 5.653 Å = a_layer; a_sub = 5.431 Å (Si) or 5.658 Å (Ge).
+**Given:** a(GaAs) = 0.5653 nm = a_layer; a_sub = 0.5431 nm (Si) or 0.5658 nm (Ge).
 
 **Find:** f_m for each substrate.
 
@@ -413,8 +412,8 @@ A thin layer with a small mismatch simply stretches or squeezes to fit the subst
 
 **Solution.**
 
-    (a) f_m = (5.653 − 5.431) / 5.431 = 0.222 / 5.431 = +0.0409 = +4.1 %
-    (b) f_m = (5.653 − 5.658) / 5.658 = −0.005 / 5.658 = −0.00088 = −0.09 %
+    (a) f_m = (0.5653 − 0.5431) / 0.5431 = 0.0222 / 0.5431 = +0.0409 = +4.1 %
+    (b) f_m = (0.5653 − 0.5658) / 0.5658 = −0.0005 / 0.5658 = −0.00088 = −0.09 %
 
 **Answer:** **(a) +4.1 % on Si; (b) −0.09 % on Ge.** Germanium is the suitable substrate.
 
@@ -532,7 +531,7 @@ The finished ingot is then characterised for orientation, resistivity and defect
 
 **Limitations:**
 
-1. **Contamination from the crucible**: the quartz crucible dissolves slowly, introducing oxygen (≈ 10¹⁸ cm⁻³) and the graphite parts introduce carbon. Oxygen forms thermal donors and precipitates, and limits the attainable resistivity (CZ cannot easily exceed about 100 Ω·cm), so FZ is preferred for high-power and detector devices.
+1. **Contamination from the crucible**: the quartz crucible dissolves slowly, introducing oxygen (≈ 10²⁴ m⁻³) and the graphite parts introduce carbon. Oxygen forms thermal donors and precipitates, and limits the attainable resistivity (CZ cannot easily exceed about 1 Ω·m), so FZ is preferred for high-power and detector devices.
 2. **Non-uniform axial doping** because of segregation (k₀ < 1): the dopant concentration rises from seed end to tail end, so resistivity varies along the ingot. Melt convection also causes radial non-uniformity and growth striations.
 
 (Also acceptable: the crucible is consumed in each run; high energy consumption; batch process.)
@@ -586,32 +585,32 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 2.2: phosphorus segregation along an ingot
 
-**Question.** An n-type CZ crystal must have 5×10¹⁵ cm⁻³ phosphorus at the seed end. The segregation coefficient of P in Si is 0.35. Find the starting melt concentration and the phosphorus concentration in the crystal when 80 % of the melt has solidified.
+**Question.** An n-type CZ crystal must have 5×10²¹ m⁻³ phosphorus at the seed end. The segregation coefficient of P in Si is 0.35. Find the starting melt concentration and the phosphorus concentration in the crystal when 80 % of the melt has solidified.
 
-**Given:** C_s(0) = 5×10¹⁵ cm⁻³, k₀ = 0.35, f = 0.8.
+**Given:** C_s(0) = 5×10²¹ m⁻³, k₀ = 0.35, f = 0.8.
 
 **Find:** C₀ and C_s at f = 0.8.
 
 **Solution.**
 
-    C₀ = C_s/k₀ = 5×10¹⁵/0.35 = 1.43×10¹⁶ cm⁻³
-    C_s = k₀C₀(1 − f)^{k₀ − 1} = 5×10¹⁵ × (0.2)^{−0.65} = 5×10¹⁵ × 2.85 = 1.42×10¹⁶ cm⁻³
+    C₀ = C_s/k₀ = 5×10²¹/0.35 = 1.43×10²² m⁻³
+    C_s = k₀C₀(1 − f)^{k₀ − 1} = 5×10²¹ × (0.2)^{−0.65} = 5×10²¹ × 2.85 = 1.42×10²² m⁻³
 
-**Answer:** **C₀ = 1.43×10¹⁶ cm⁻³; at f = 0.8, C_s = 1.42×10¹⁶ cm⁻³**, almost three times the seed-end value. This is why P-doped CZ ingots vary so much in resistivity along their length.
+**Answer:** **C₀ = 1.43×10²² m⁻³; at f = 0.8, C_s = 1.42×10²² m⁻³**, almost three times the seed-end value. This is why P-doped CZ ingots vary so much in resistivity along their length.
 
 #### Practice 2.3: how much silicon in an ingot?
 
-**Question.** A CZ ingot is 300 mm in diameter and 1.5 m long. Find its mass (density 2.33 g/cm³) and how many wafers it gives if each wafer is 775 μm thick and the saw removes another 200 μm per cut.
+**Question.** A CZ ingot is 300 mm in diameter and 1.5 m long. Find its mass (density 2330 kg/m³) and how many wafers it gives if each wafer is 775 μm thick and the saw removes another 200 μm per cut.
 
-**Given:** diameter 30 cm, length 150 cm, density 2.33 g/cm³, 775 + 200 = 975 μm per wafer.
+**Given:** diameter 0.30 m, length 1.5 m, density 2330 kg/m³, 775 + 200 = 975 μm = 9.75×10⁻⁴ m per wafer.
 
 **Find:** mass and number of wafers.
 
 **Solution.**
 
-    Volume = π r² L = π × 15² × 150 = 1.06×10⁵ cm³
-    Mass = 1.06×10⁵ × 2.33 = 2.47×10⁵ g = 247 kg
-    Wafers = 150 cm / 0.0975 cm = 1538
+    Volume = π r² L = π × 0.15² × 1.5 = 0.106 m³
+    Mass = 0.106 × 2330 = 247 kg
+    Wafers = 1.5 m / 9.75×10⁻⁴ m = 1538
 
 **Answer:** **about 247 kg and roughly 1500 wafers** (fewer after the shoulder and tail are cut off).
 
@@ -633,7 +632,7 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 2.5: lattice mismatch
 
-**Question.** Calculate the lattice mismatch for (a) Ge on Si (a = 5.65 and 5.43 Å) and (b) AlAs on GaAs (a = 5.661 and 5.653 Å). Which pair is suitable for defect-free heteroepitaxy?
+**Question.** Calculate the lattice mismatch for (a) Ge on Si (a = 0.565 and 0.543 nm) and (b) AlAs on GaAs (a = 0.5661 and 0.5653 nm). Which pair is suitable for defect-free heteroepitaxy?
 
 **Given:** lattice constants above. f_m = (a_layer − a_sub)/a_sub.
 
@@ -641,8 +640,8 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Solution.**
 
-    (a) f_m = (5.65 − 5.43)/5.43 = 0.041 = 4.1 %
-    (b) f_m = (5.661 − 5.653)/5.653 = 0.0014 = 0.14 %
+    (a) f_m = (0.565 − 0.543)/0.543 = 0.041 = 4.1 %
+    (b) f_m = (0.5661 − 0.5653)/0.5653 = 0.0014 = 0.14 %
 
 **Answer:** **4.1 % and 0.14 %.** AlAs/GaAs is almost perfectly matched and grows defect-free, which is why AlGaAs/GaAs heterostructures are so widely used. Ge on Si quickly forms misfit dislocations unless the layer is very thin or graded.
 
@@ -666,4 +665,4 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 4 | State the advantages and limitations of CZ growth and compare it with float-zone growth. | Why does FZ silicon reach higher resistivity than CZ silicon? | No crucible touches the melt, so there is almost no oxygen or carbon contamination. | Part B; Float-zone; CZ versus FZ table |
 | 5 | Use the segregation coefficient to predict doping along an ingot. | For phosphorus (k₀ = 0.35), is the tail end of a CZ ingot more or less heavily doped than the seed end? | More heavily doped: rejected phosphorus builds up in the melt. | Dopant segregation; Examples 2.1–2.3 |
 | 6 | Explain the principles of VPE, LPE and MBE and compare them. | Which epitaxy method gives single-atomic-layer thickness control, and why? | MBE: slow growth (≈ one monolayer per second) and shuttered atomic beams in ultra-high vacuum. | Part C; comparison table of VPE, LPE, MBE and MOCVD |
-| 7 | Calculate the lattice mismatch between an epitaxial layer and its substrate and judge whether the layer can grow defect-free. | Find the mismatch of GaAs (5.653 Å) on Ge (5.658 Å) and say whether a thick layer can be grown. | f_m = (5.653 − 5.658)/5.658 = −0.09 %; small enough for thick, nearly dislocation-free layers. | What epitaxy is; Example 2.4 |
+| 7 | Calculate the lattice mismatch between an epitaxial layer and its substrate and judge whether the layer can grow defect-free. | Find the mismatch of GaAs (0.5653 nm) on Ge (0.5658 nm) and say whether a thick layer can be grown. | f_m = (0.5653 − 0.5658)/0.5658 = −0.09 %; small enough for thick, nearly dislocation-free layers. | What epitaxy is; Example 2.4 |

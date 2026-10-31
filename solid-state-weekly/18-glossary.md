@@ -13,7 +13,7 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | **Annealing** | Heating a wafer after implantation to repair the crystal damage caused by the ions and to move dopant atoms onto proper lattice sites, where they become electrically active. | Week 3 |
 | **Arrhenius plot** | A graph of the logarithm of a temperature-dependent quantity against 1/T. A process with an energy barrier gives a straight line whose slope gives the barrier energy. | Week 12 |
 | **Atomic packing factor (APF)** | The fraction of the unit-cell volume filled by atoms, treated as hard spheres that touch their nearest neighbours. | Week 6 |
-| **Background doping (N_B)** | The doping the wafer already had before the new dopant was added, usually of the opposite type (cm⁻³). | Week 3 |
+| **Background doping (N_B)** | The doping the wafer already had before the new dopant was added, usually of the opposite type (m⁻³). | Week 3 |
 | **Band bending** | The upward or downward curving of E_c and E_v near the interface, caused by the voltage across the depletion (or accumulation) region. Upward bending in n-type = a barrier to electrons. | Week 11 |
 | **Band gap (E_g)** | The range of energies between the top of the valence band and the bottom of the conduction band in which no electron states exist. It is the minimum energy needed to free an electron from a bond. | Week 1, Week 4, Week 5, Week 6, Week 7, Week 8, Week 9, Week 10, Week 11 |
 | **Base transport factor (α_T)** | The fraction of the carriers injected into the base that cross it without recombining and reach the collector. | Week 13 |
@@ -27,26 +27,26 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | **C-V characterisation** | Measuring the small-signal capacitance of a reverse-biased junction, Schottky diode or MOS capacitor as the DC bias is stepped, to find the doping, its profile with depth and the built-in potential. | Week 12 |
 | **C-V profiling** | Measuring a reverse-biased junction's capacitance C against voltage V. A plot of 1/C² against V is a straight line whose slope gives the doping and whose voltage intercept gives V_bi. | Week 15 |
 | **C-V profiling and the Mott–Schottky plot** | C-V profiling is measuring a junction's capacitance against reverse bias to find its doping. A Mott–Schottky plot is the graph of 1/C² against V: its slope gives the doping N and its intercept gives V_bi. A straight line means uniform doping. | Laboratory |
-| **Channel (effective) mobility** | The mobility of electrons in the thin MOSFET channel, worked out from the measured g_m. It is well below the bulk mobility (1350 cm²/V·s in Si) because the electrons scatter off the Si/SiO₂ interface, and it falls further at high gate voltage (mobility degradation). | Laboratory |
+| **Channel (effective) mobility** | The mobility of electrons in the thin MOSFET channel, worked out from the measured g_m. It is well below the bulk mobility (0.135 m²/V·s in Si) because the electrons scatter off the Si/SiO₂ interface, and it falls further at high gate voltage (mobility degradation). | Laboratory |
 | **Channelling** | The unwanted travel of implanted ions far deeper than R_p along open "channels" between rows of atoms in the crystal. It is avoided by tilting the wafer about 7° or covering it with a thin non-crystalline layer. | Week 3 |
 | **Charge neutrality and compensation** | Charge neutrality is the rule that a uniform piece of semiconductor has no net charge, so positive charges (holes, ionised donors) equal negative charges (electrons, ionised acceptors). Compensation is the partial cancelling of donors and acceptors when both are present; the material behaves as if doped with the difference, N_D − N_A or N_A − N_D. | Week 5 |
 | **Chemical vapour deposition (CVD)** | Growing a solid film from gases that react or decompose on a hot surface, leaving the wanted atoms behind. The Siemens process and vapour-phase epitaxy are both CVD processes. | Week 2 |
 | **Common-base current gain (α)** | The ratio of collector current to emitter current, α = I_C/I_E. It is just below 1 (typically 0.98–0.999). | Week 13 |
 | **Common-emitter current gain (β, h_FE)** | The ratio of collector current to base current, β = I_C/I_B; typically 50–500. | Week 13 |
 | **Compensated semiconductor** | A semiconductor containing both donors and acceptors. They partly cancel, so the carriers are set by the difference N_D − N_A (or N_A − N_D), called the **net doping**. | Week 4 |
-| **Concentration gradient (dC/dx)** | How fast the dopant concentration changes with depth. A steep gradient means a large change over a short distance. It is measured in atoms/cm⁴ (atoms per cm³, per cm). | Week 3 |
+| **Concentration gradient (dC/dx)** | How fast the dopant concentration changes with depth. A steep gradient means a large change over a short distance. It is measured in atoms/m⁴ (atoms per m³, per m). | Week 3 |
 | **Conduction band** | The energy band just above the valence band, empty at 0 K. Electrons that reach it are free to move through the crystal and carry current. Its bottom edge is at energy E_c. | Week 4 |
 | **Conduction band edge (E_c) and valence band edge (E_v)** | E_c is the lowest energy a free electron can have in the semiconductor. E_v is the highest energy of the (almost full) valence band, where holes live. | Week 11 |
 | **Conductivity (σ) and resistivity (ρ)** | Conductivity measures how well a material carries current; resistivity is its inverse. In a semiconductor both electrons and holes contribute. | Week 1, Week 7, Week 15 |
 | **Continuity equation** | The book-keeping equation for carriers: in any small volume, the rate of change of the carrier density equals the net inflow carried by current, plus generation, minus recombination. | Week 9 |
 | **Covalent bond** | A bond in which two neighbouring atoms share a pair of valence electrons, one from each atom. In silicon each atom forms four covalent bonds with four neighbours, so every atom has a full outer shell of eight electrons. | Week 1 |
 | **Crystal lattice** | A regular, repeating three-dimensional arrangement of atoms. A *single crystal* has the same arrangement and orientation throughout the whole piece. | Week 1, Week 6 |
-| **Current density (J)** | The electric current flowing through each square centimetre of cross-section, in A/cm². The current is I = JA, where A is the cross-sectional area. | Week 7 |
+| **Current density (J)** | The electric current flowing through each square metre of cross-section, in A/m². The current is I = JA, where A is the cross-sectional area. | Week 7 |
 | **Czochralski (CZ) growth** | Making a large single crystal by dipping a small seed crystal into molten silicon in a quartz crucible and pulling it up slowly while rotating it. The melt freezes onto the seed and copies its crystal orientation. | Week 2 |
 | **Czochralski (CZ) growth and epitaxy** | CZ growth pulls a large single-crystal ingot of silicon slowly out of a melt using a seed crystal. Epitaxy grows a thin new crystalline layer on top of a crystal wafer, continuing its lattice (VPE from a gas, LPE from a liquid, MBE from molecular beams in vacuum). | Week 15 |
 | **Dash necking** | Pulling a thin neck (about 3 mm across) quickly at the start of CZ growth so that dislocations created by the thermal shock of dipping grow out of the sides, leaving the rest of the crystal dislocation-free. | Week 2 |
-| **Degenerate semiconductor** | A very heavily doped semiconductor (above about 10¹⁸–10¹⁹ cm⁻³ in Si) whose Fermi level is within about 3kT of a band edge, or inside a band. The Boltzmann approximation fails and full Fermi–Dirac statistics must be used. A semiconductor with E_F more than 3kT from both edges is non-degenerate. | Week 5 |
-| **Density of states (g(E))** | The number of allowed electron states per unit energy per unit volume at energy E, in states/(eV·cm³). It is zero inside the band gap and grows as the square root of the distance into each band. | Week 5 |
+| **Degenerate semiconductor** | A very heavily doped semiconductor (above about 10²⁴–10²⁵ m⁻³ in Si) whose Fermi level is within about 3kT of a band edge, or inside a band. The Boltzmann approximation fails and full Fermi–Dirac statistics must be used. A semiconductor with E_F more than 3kT from both edges is non-degenerate. | Week 5 |
+| **Density of states (g(E))** | The number of allowed electron states per unit energy per unit volume at energy E, in states/(eV·m³). It is zero inside the band gap and grows as the square root of the distance into each band. | Week 5 |
 | **Depletion (junction) capacitance (C, C_j)** | The capacitance of a reverse-biased junction, which behaves like a parallel-plate capacitor with the depletion region as the gap between the plates. It falls as the reverse bias widens the depletion region. | Week 12, Laboratory |
 | **Depletion approximation** | The simplifying assumption that the depletion region contains no mobile carriers at all and has sharp edges, while the regions outside it are exactly neutral. | Week 10 |
 | **Depletion region (W)** | The thin layer on both sides of the junction that has lost almost all its mobile carriers, leaving only the fixed charged donor and acceptor ions. It is also called the space-charge region and is typically 0.1–10 μm wide. | Week 10, Week 11, Week 12, Week 14 |
@@ -60,23 +60,23 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | **Donor** | A dopant atom with one more outer (valence) electron than the silicon atom it replaces, such as phosphorus, arsenic or antimony (Group V). The spare electron is easily set free to carry current, leaving behind a fixed positive ion. | Week 3 |
 | **Donor and acceptor** | A donor is a dopant atom with five valence electrons (P, As, Sb in Si) that gives one free electron to the crystal and becomes a fixed positive ion. An acceptor is a dopant with three valence electrons (B, Al, Ga, In in Si) that takes an electron from a neighbouring bond, creating a hole, and becomes a fixed negative ion. | Week 1 |
 | **Dopant diffusion and ion implantation** | The two ways of putting dopants into a wafer. In diffusion, dopant atoms spread in from the surface in a hot furnace, giving an erfc or Gaussian profile; in ion implantation, ions are fired into the wafer, giving a Gaussian profile centred at the projected range R_p. | Week 15 |
-| **Dopant: donor and acceptor** | A **donor** is an impurity atom (e.g. phosphorus in Si) that gives a free electron to the conduction band; its concentration is N_D. An **acceptor** (e.g. boron in Si) takes an electron from the valence band and so creates a hole; its concentration is N_A. Both are in cm⁻³. | Week 4 |
+| **Dopant: donor and acceptor** | A **donor** is an impurity atom (e.g. phosphorus in Si) that gives a free electron to the conduction band; its concentration is N_D. An **acceptor** (e.g. boron in Si) takes an electron from the valence band and so creates a hole; its concentration is N_A. Both are in m⁻³. | Week 4 |
 | **Doping** | The deliberate addition of a small, controlled amount of an impurity element (the **dopant**) to a pure semiconductor, to set whether electrons or holes carry the current and to raise the conductivity. | Week 1, Week 3, Week 5, Week 7, Week 8, Week 9, Week 10, Week 12, Week 13, Week 14, Week 15 |
 | **Doping and compensation** | Doping is adding a small, controlled amount of impurity: donors (e.g. P) give electrons and make the material n-type; acceptors (e.g. B) create holes and make it p-type. When both are present they partly cancel (compensation), and the material behaves as if doped with the difference, N_D − N_A or N_A − N_D. | Week 6 |
 | **Doping and dopant** | Doping is the deliberate addition of a small, controlled amount of an impurity element (the dopant) to set the conductivity type and resistivity. Boron gives p-type silicon (holes carry the current); phosphorus, arsenic and antimony give n-type silicon (electrons carry the current). | Week 2 |
 | **Doping profile (N(x))** | The way the doping concentration changes with depth x below the surface, for example after diffusion or ion implantation. | Week 12 |
 | **Doping; n-type and p-type** | Doping is adding a small, controlled amount of impurity atoms to a semiconductor. Donor atoms (e.g. phosphorus in Si, concentration N_D) give free electrons and make it **n-type**. Acceptor atoms (e.g. boron, concentration N_A) create holes and make it **p-type**. | Week 11 |
-| **Dose (Q)** | The total number of dopant atoms put into the wafer under each square centimetre of surface, in atoms/cm². It is the area under the concentration-against-depth curve. | Week 3 |
+| **Dose (Q)** | The total number of dopant atoms put into the wafer under each square metre of surface, in atoms/m². It is the area under the concentration-against-depth curve. | Week 3 |
 | **Drift and diffusion** | The two ways carriers move. Drift is motion pushed by an electric field; diffusion is the spreading of carriers from where there are many to where there are few, with no field needed. | Week 9, Week 10 |
 | **Drift and drift velocity (v_d)** | Drift is the movement of carriers caused by an electric field. The drift velocity v_d is the small, steady average velocity in the field direction that is added on top of the random thermal motion. | Week 7 |
-| **Drift and mobility (μ)** | Drift is the motion of carriers caused by an electric field. Mobility is the drift velocity per unit field, v_d = μE, in cm²/(V·s); for lightly doped Si μ_n = 1350 and μ_p = 480. | Week 15 |
-| **Drift velocity and saturation velocity (v_d, v_sat)** | The drift velocity is the average velocity carriers gain in an electric field; at low field it is v_d = μE, where μ is the mobility (cm²/V·s). At high field it stops rising and levels off at the saturation velocity v_sat, about 1×10⁷ cm/s in silicon. | Week 8 |
+| **Drift and mobility (μ)** | Drift is the motion of carriers caused by an electric field. Mobility is the drift velocity per unit field, v_d = μE, in m²/(V·s); for lightly doped Si μ_n = 0.135 and μ_p = 0.048. | Week 15 |
+| **Drift velocity and saturation velocity (v_d, v_sat)** | The drift velocity is the average velocity carriers gain in an electric field; at low field it is v_d = μE, where μ is the mobility (m²/V·s). At high field it stops rising and levels off at the saturation velocity v_sat, about 1×10⁵ m/s in silicon. | Week 8 |
 | **Drive-in (limited-source diffusion)** | A second heating with the source removed, so the fixed dose already in the wafer spreads deeper and the surface concentration falls. It gives a Gaussian (bell-curve) profile and is used to reach the wanted depth. | Week 3 |
 | **Early effect and Early voltage (V_A)** | In the active mode, raising V_CE widens the collector depletion region into the base and makes the neutral base thinner, so I_C rises slightly. Extended backwards, the sloping output curves meet the V_CE axis at −V_A, the Early voltage. | Week 13 |
-| **Effective density of states (N_c, N_v)** | The number of states which, if all placed exactly at the band edge (E_c or E_v), would give the same carrier concentration as the real, spread-out band. For Si at 300 K, N_c = 2.8×10¹⁹ cm⁻³ and N_v = 1.04×10¹⁹ cm⁻³. | Week 5 |
+| **Effective density of states (N_c, N_v)** | The number of states which, if all placed exactly at the band edge (E_c or E_v), would give the same carrier concentration as the real, spread-out band. For Si at 300 K, N_c = 2.8×10²⁵ m⁻³ and N_v = 1.04×10²⁵ m⁻³. | Week 5 |
 | **Effective lifetime (τ_eff)** | The lifetime actually measured in a sample, which includes losses both in the bulk and at the surfaces. It is always shorter than the bulk lifetime. | Week 9 |
 | **Effective mass (m∗)** | The mass an electron or hole appears to have when it is pushed by a force inside a crystal. It differs from the free-electron mass because the crystal's atoms also act on the carrier; a smaller m∗ means a lighter, faster carrier. | Week 4, Week 7 |
-| **Effective Richardson constant (A∗∗)** | The material constant in the thermionic-emission law that links a Schottky diode's saturation current density to its barrier height and temperature; about 110 A/(cm²·K²) for n-type Si. | Week 12 |
+| **Effective Richardson constant (A∗∗)** | The material constant in the thermionic-emission law that links a Schottky diode's saturation current density to its barrier height and temperature; about 1.1×10⁶ A/(m²·K²) for n-type Si. | Week 12 |
 | **Einstein relation** | The rule that the diffusion coefficient and the mobility of a carrier are always in the same ratio, fixed only by temperature, because both are limited by the same collisions. | Week 7 |
 | **Electron affinity (χ)** | The energy from the bottom of the conduction band up to the vacuum level. Unlike Φ_s, it does not change with doping, so it is a fixed property of the material: Si 4.05 eV, GaAs 4.07 eV, Ge 4.0 eV. | Week 11 |
 | **Electron and hole (carriers)** | A free electron is an electron in the conduction band; a hole is an empty place left in the valence band, which behaves like a positive charge +q that can move. Together they are called carriers because they carry the current. | Week 7, Week 8, Week 9, Week 10, Week 14, Week 15 |
@@ -104,39 +104,39 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | **Forward-active mode** | The normal amplifying condition: emitter–base junction forward biased, collector–base junction reverse biased. The collector current is then set by V_BE (or I_B) and hardly depends on the collector voltage. | Week 13 |
 | **Free electron and hole** | When a covalent bond breaks, the released electron can wander through the crystal (a free electron, in the conduction band), and the empty place it leaves in the bond (a hole, in the valence band) behaves as a mobile positive charge. Breaking one bond creates one **electron–hole pair**. | Week 1 |
 | **Gate-oxide capacitance (C_ox)** | The capacitance of the oxide layer per unit area: how much charge the gate induces in the silicon per volt. | Week 14 |
-| **Generation and recombination (G, R, U)** | Generation is the creation of an electron–hole pair; recombination is the loss of one, when a conduction-band electron falls back into a hole. G and R are rates in pairs per cm³ per second; U = R − G is the net recombination rate. | Week 8, Week 9 |
+| **Generation and recombination (G, R, U)** | Generation is the creation of an electron–hole pair; recombination is the loss of one, when a conduction-band electron falls back into a hole. G and R are rates in pairs per m³ per second; U = R − G is the net recombination rate. | Week 8, Week 9 |
 | **Hole** | An empty electron state (a missing electron) in the valence band. Neighbouring electrons can move into it, so the empty state moves around and behaves like a positively charged particle that carries current. | Week 4, Week 5, Week 6 |
 | **Hot carriers** | Carriers whose average energy, gained from a strong electric field, is far above the normal thermal energy of the crystal. Their energy is described by an electron temperature T_e much higher than the lattice temperature T. | Week 8 |
 | **I-V characterisation** | Measuring the current through a device as the applied voltage is stepped, and comparing the curve with theory to extract I_s, η, R_s, leakage, breakdown and, for a Schottky diode, Φ_B. | Week 12 |
 | **I-V characteristic** | A graph of a device's current against the voltage across it. A semi-log plot shows ln I (or log₁₀ I) against V, which turns an exponential law into a straight line. | Laboratory |
 | **Ideality factor (η)** | A number between 1 and 2 that says how closely a real diode follows the ideal diode equation. η = 1 means the current is pure diffusion (or, in a Schottky diode, pure thermionic emission); η near 2 means recombination in the depletion region dominates. | Week 12, Laboratory |
 | **Impact ionisation** | The process in which a hot carrier collides with the lattice hard enough to break a bond and create a new electron–hole pair. Repeated, it becomes an avalanche, which causes avalanche breakdown. | Week 8 |
-| **Intrinsic carrier concentration (n_i)** | The number of electrons (equal to the number of holes) per cm³ in pure, undoped material; about 1×10¹⁰ cm⁻³ in Si at 300 K. In thermal equilibrium (no light, no applied voltage, steady temperature) the electron and hole concentrations of any sample obey the mass-action law: | Week 8, Week 10, Week 15 |
+| **Intrinsic carrier concentration (n_i)** | The number of electrons (equal to the number of holes) per m³ in pure, undoped material; about 1×10¹⁶ m⁻³ in Si at 300 K. In thermal equilibrium (no light, no applied voltage, steady temperature) the electron and hole concentrations of any sample obey the mass-action law: | Week 8, Week 10, Week 15 |
 | **Intrinsic Fermi level (E_i)** | The position of the Fermi level in an intrinsic semiconductor, where n = p. It lies very close to the middle of the band gap (13 meV below it in Si). | Week 5 |
-| **Intrinsic semiconductor** | A pure semiconductor with no impurities deliberately added, in which every free electron comes from a broken bond and so is matched by a hole. The number of each per cm³ is the **intrinsic carrier concentration, n_i**. | Week 1, Week 5, Week 6 |
-| **Intrinsic semiconductor and intrinsic carrier concentration (n_i)** | A pure, undoped semiconductor, in which every free electron comes from a broken bond that also leaves a hole, so the electron and hole concentrations are equal. Their common value is n_i (cm⁻³), about 1×10¹⁰ cm⁻³ for Si at 300 K. Its Fermi level, the intrinsic level E_i, lies very close to the middle of the gap. | Week 4 |
+| **Intrinsic semiconductor** | A pure semiconductor with no impurities deliberately added, in which every free electron comes from a broken bond and so is matched by a hole. The number of each per m³ is the **intrinsic carrier concentration, n_i**. | Week 1, Week 5, Week 6 |
+| **Intrinsic semiconductor and intrinsic carrier concentration (n_i)** | A pure, undoped semiconductor, in which every free electron comes from a broken bond that also leaves a hole, so the electron and hole concentrations are equal. Their common value is n_i (m⁻³), about 1×10¹⁶ m⁻³ for Si at 300 K. Its Fermi level, the intrinsic level E_i, lies very close to the middle of the gap. | Week 4 |
 | **Intrinsic temperature** | The temperature at which the thermally generated carrier concentration n_i rises to equal the doping, so the material stops behaving as doped and E_F falls back to mid-gap. Above it a device no longer works properly. | Laboratory |
 | **Inversion and strong inversion** | Inversion is the state in which the gate has pulled so many minority electrons to the surface of p-type silicon that the surface behaves as n-type. Strong inversion is reached when the surface is as n-type as the bulk is p-type, which happens when ψ_s = 2φ_F. | Week 14 |
 | **Ion implantation** | A doping method in which dopant atoms are turned into ions, accelerated by a high voltage and fired into the wafer, where they stop at a depth set by their energy. The dose is counted exactly from the beam current. | Week 3 |
 | **Junction capacitance (C_j)** | The capacitance of the depletion region, which acts like a parallel-plate capacitor whose plate spacing W grows with reverse bias. | Week 10 |
 | **Junction depth (x_j)** | The depth below the surface at which the added dopant concentration has fallen to equal the background doping, so that a p-n junction forms there (μm). | Week 3, Week 15 |
-| **Lattice constant (a)** | The edge length of the cubic unit cell, measured in ångströms (1 Å = 10⁻¹⁰ m). Si: 5.43 Å; Ge and GaAs: 5.65 Å. | Week 1, Week 2, Week 6 |
+| **Lattice constant (a)** | The edge length of the cubic unit cell, measured in nanometres (1 nm = 10⁻⁹ m). Si: 0.543 nm; Ge and GaAs: 0.565 nm. | Week 1, Week 2, Week 6 |
 | **Lattice mismatch (f_m)** | The fractional difference between the lattice constants of a grown layer and its substrate. | Week 2 |
 | **LCR meter** | An instrument that measures inductance (L), capacitance (C) and resistance (R) by applying a small AC test signal (here 20–50 mV at 1 MHz), usually with an adjustable DC bias added. | Laboratory |
 | **Low-level injection** | The condition in which the excess carrier concentration is much smaller than the equilibrium majority concentration (Δp ≪ n₀ in n-type). The majority concentration is then almost unchanged. | Week 8, Week 9 |
 | **Majority and minority carriers** | The carrier type present in larger numbers is the **majority carrier** (electrons in n-type, holes in p-type); the other type is the **minority carrier**. | Week 4, Week 6, Week 7, Week 8, Week 9, Week 10, Week 11, Week 12, Week 13, Week 14, Week 15 |
 | **Mass action law** | In thermal equilibrium the product of the electron and hole concentrations is fixed at a given temperature, whatever the doping (for non-degenerate material). | Week 5, Week 6 |
 | **Mass-action law** | In thermal equilibrium the product of the electron and hole concentrations equals n_i², whatever the doping. Raising one carrier type therefore lowers the other. | Week 4, Week 15 |
-| **Metal** | A material with a very large number of free electrons (about 10²² cm⁻³), so it conducts electricity very easily. Its electron states are filled up to the Fermi level, and there are empty states immediately above it. Examples: aluminium, gold, platinum, titanium, tungsten. | Week 11 |
+| **Metal** | A material with a very large number of free electrons (about 10²⁸ m⁻³), so it conducts electricity very easily. Its electron states are filled up to the Fermi level, and there are empty states immediately above it. Examples: aluminium, gold, platinum, titanium, tungsten. | Week 11 |
 | **Metallurgical-grade silicon (MG-Si)** | Silicon about 98 % pure, made by reducing quartz with carbon in an arc furnace. Good enough for steel and aluminium alloys, far too impure for devices. | Week 2 |
 | **Metal–semiconductor contact (interface)** | The boundary formed where a metal touches a semiconductor. Every device has several, because every device must be wired to the circuit with metal. | Week 11 |
 | **Miller indices (h k l)** | Three whole numbers, found from the reciprocals of the points where a plane cuts the crystal axes, that name the orientation of a crystal plane. Wafers are described by them, e.g. (100) wafers for MOS chips. | Week 1, Week 6, Week 15 |
 | **Minority-carrier diffusion equation** | The continuity equation written for minority carriers in a region with almost no electric field (a quasi-neutral region), using diffusion for the current and Δp/τ for the recombination. | Week 9 |
 | **Minority-carrier injection (law of the junction)** | Under forward bias, majority carriers cross the lowered barrier and become minority carriers on the other side. The minority density at the edge of the depletion region rises exponentially with voltage. | Week 10 |
 | **Minority-carrier lifetime (τ)** | The average time an excess minority carrier survives before it recombines. After the source of excess carriers is removed, the excess falls to 1/e (37 %) of its starting value in one lifetime. | Week 8, Week 9 |
-| **Minority-carrier lifetime and diffusion length (τ, L)** | The lifetime τ is the average time an injected minority carrier survives before it recombines; the diffusion length L = √(Dτ) is the average distance it diffuses in that time (D is the diffusion coefficient, cm²/s). | Week 10, Week 13 |
+| **Minority-carrier lifetime and diffusion length (τ, L)** | The lifetime τ is the average time an injected minority carrier survives before it recombines; the diffusion length L = √(Dτ) is the average distance it diffuses in that time (D is the diffusion coefficient, m²/s). | Week 10, Week 13 |
 | **Mobility (μ)** | How easily a carrier moves through the crystal: the average drift velocity it gains per unit electric field. | Week 1, Week 7 |
-| **Mobility and conductivity (μ, σ)** | Mobility is the drift speed a carrier reaches per unit electric field, in cm²/(V·s). Conductivity measures how easily the material carries current; resistivity ρ = 1/σ is its inverse. | Week 6 |
+| **Mobility and conductivity (μ, σ)** | Mobility is the drift speed a carrier reaches per unit electric field, in m²/(V·s). Conductivity measures how easily the material carries current; resistivity ρ = 1/σ is its inverse. | Week 6 |
 | **MOS capacitor** | A metal (or polysilicon) plate on a thin oxide on a semiconductor: the gate structure of a MOSFET. Its C-V curve reveals the oxide thickness, the flat-band and threshold voltages and the quality of the oxide. | Week 12, Week 14 |
 | **MOS capacitor and inversion** | A MOS capacitor is a gate, a thin oxide and a semiconductor stacked together. On p-type silicon a negative gate gives accumulation (more holes at the surface), a small positive gate gives depletion, and a large positive gate gives inversion: the surface fills with electrons and becomes n-type. | Week 15 |
 | **MOSFET (source, drain, gate, channel)** | A metal–oxide–semiconductor field-effect transistor: a MOS capacitor with two heavily doped regions, the source and the drain, at either side of the gate. The inversion layer under the gate is the channel that carries current between them; the gate voltage controls it through an electric field, with no DC gate current. | Week 14 |
@@ -180,18 +180,18 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | **Shockley–Read–Hall (SRH) recombination** | Recombination through traps. The energy is released as lattice vibrations (heat). It is the main recombination mechanism in silicon. | Week 8 |
 | **Single crystal** | A solid in which the atoms are arranged in one regular, repeating pattern with the same orientation throughout the whole piece. Devices are built in single-crystal silicon because carriers move through it freely and leak little. | Week 2 |
 | **Source-measure unit (SMU) and parameter analyser** | An SMU is a precision instrument that applies a chosen voltage (or current) and measures the resulting current (or voltage) at the same time. A semiconductor parameter analyser contains several SMUs and sweeps them automatically to record device characteristics. | Laboratory |
-| **Specific contact resistance (ρ_c)** | The resistance of a contact multiplied by its area, in Ω·cm². It lets contacts of different sizes be compared. Good ohmic contacts have ρ_c ≈ 10⁻⁶–10⁻⁸ Ω·cm². | Week 11 |
+| **Specific contact resistance (ρ_c)** | The resistance of a contact multiplied by its area, in Ω·m². It lets contacts of different sizes be compared. Good ohmic contacts have ρ_c ≈ 10⁻¹⁰–10⁻¹² Ω·m². | Week 11 |
 | **Surface potential (ψ_s)** | The amount, in volts, by which the energy bands bend at the silicon surface compared with the bulk. The gate voltage controls it. | Week 14 |
-| **Surface recombination velocity (S)** | A measure, in cm/s, of how fast a surface destroys excess carriers: the recombination per unit area equals S times the excess density at the surface. | Week 9 |
+| **Surface recombination velocity (S)** | A measure, in m/s, of how fast a surface destroys excess carriers: the recombination per unit area equals S times the excess density at the surface. | Week 9 |
 | **Surface states (dangling bonds)** | Energy levels inside the band gap located at a surface, caused mainly by surface atoms whose bonds point out into nothing (dangling bonds). They act as traps. | Week 9 |
 | **Thermal equilibrium** | The steady condition of a material left alone at a fixed temperature, with no applied voltage, light or current. Carriers are still being created and lost, but at equal rates, so their numbers do not change. | Week 5 |
-| **Thermal velocity (v_th)** | The average speed of the random motion that carriers have because of heat, about 10⁷ cm/s in silicon at 300 K. Because the directions are random, it gives no current on its own. | Week 7 |
+| **Thermal velocity (v_th)** | The average speed of the random motion that carriers have because of heat, about 10⁵ m/s in silicon at 300 K. Because the directions are random, it gives no current on its own. | Week 7 |
 | **Thermal voltage (kT/q)** | The thermal energy kT expressed as a voltage: 0.0259 V (about 26 mV) at 300 K. It sets the voltage scale of almost every semiconductor equation. | Week 7 |
 | **Thermionic emission** | Current carried by carriers that have enough thermal energy to jump **over** a barrier. It is how current flows in a Schottky diode. | Week 11 |
 | **Threshold voltage (V_T)** | The gate-to-source voltage at which strong inversion starts, so that a conducting channel joins source and drain and the transistor begins to turn on. | Week 14, Week 15, Laboratory |
 | **Transconductance (g_m)** | The change in drain current per unit change in gate voltage, g_m = ∂I_D/∂V_GS, in siemens (A/V). It measures how good the transistor is as an amplifier. | Week 14, Laboratory |
 | **Transfer and output characteristics** | The transfer characteristic is I_D plotted against V_GS at fixed V_DS; the output characteristics are I_D against V_DS for several fixed values of V_GS. | Laboratory |
-| **Trap (recombination centre, N_t, E_t)** | A localised energy level E_t inside the band gap, created by a crystal defect or an impurity atom such as gold or iron. It can capture an electron and then a hole, helping them recombine in two small steps. N_t is the density of traps (cm⁻³). | Week 8, Week 9 |
+| **Trap (recombination centre, N_t, E_t)** | A localised energy level E_t inside the band gap, created by a crystal defect or an impurity atom such as gold or iron. It can capture an electron and then a hole, helping them recombine in two small steps. N_t is the density of traps (m⁻³). | Week 8, Week 9 |
 | **Tunnelling (field emission)** | A quantum effect: an electron passes **through** a barrier that is thin enough (a few nanometres) without having the energy to go over it. It is how most practical ohmic contacts work. | Week 11 |
 | **Turn-on voltage and reverse leakage current** | The turn-on voltage is the forward voltage at which a diode's current becomes noticeable (about 0.6 V for a Si p-n diode, 0.2–0.3 V for a Schottky diode). The reverse leakage current is the small current that flows under reverse bias. | Laboratory |
 | **Unit cell** | The smallest block of a crystal lattice that, repeated over and over in three directions, rebuilds the whole crystal. Silicon's unit cell is a cube containing 8 atoms (the diamond-cubic structure). | Week 1, Week 6 |
@@ -215,13 +215,13 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
-| ε₀ | Permittivity of free space | 8.854×10⁻¹⁴ F/cm |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
-| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹³ F/cm |
+| ε₀ | Permittivity of free space | 8.854×10⁻¹² F/m |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
+| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹¹ F/m |
 | ε_r | Relative permittivity (dielectric constant) | Si 11.7, SiO₂ 3.9, GaAs 12.9 |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm (not SI: this course uses nm) |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 ## Symbols
 
@@ -239,85 +239,85 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | E_a | Activation energy of dopant diffusion | eV; about 3–4 eV |
 | E_n | Allowed energy of level n of a particle in a box | J or eV |
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·cm³) |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| n₀, p₀ | Equilibrium electron and hole concentrations | cm⁻³ |
-| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | cm⁻³; p_n0 = n_i²/N_D |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | cm⁻³ |
-| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·m³) |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| n₀, p₀ | Equilibrium electron and hole concentrations | m⁻³ |
+| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | m⁻³; p_n0 = n_i²/N_D |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| N_D⁺, N_A⁻ | Concentrations of ionised donors and acceptors | m⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | m⁻³ |
 | m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
 | ψ | Wave function (\|ψ\|² is the probability density) | — |
 | V(x) | Potential energy in the Schrödinger equation | J or eV |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
 | P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
 | V₀ | Height of a potential barrier | J or eV |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
 | ν, hν | Frequency of light, and photon energy | Hz; eV |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
 | [u v w], ⟨u v w⟩ | A crystal direction; family of equivalent directions | integers |
-| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
-| r_nn | Nearest-neighbour distance | Å; Si 2.35 |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | nm |
+| r_nn | Nearest-neighbour distance | nm; Si 0.235 |
 | k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
-| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
-| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | m⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | m⁻³ |
 | f (growth) | Fraction of the melt already solidified | 0 to 1 |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
-| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
-| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | cm²/s |
-| J (Fick) | Dopant flux: atoms crossing 1 cm² per second | atoms/(cm²·s) |
-| F | Particle flux in Fick's law | particles/(cm²·s) |
-| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
-| Φ (dose) | Implanted dose (ions per cm²) | cm⁻² |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | m²/s |
+| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | m²/s |
+| J (Fick) | Dopant flux: atoms crossing 1 m² per second | atoms/(m²·s) |
+| F | Particle flux in Fick's law | particles/(m²·s) |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/m² (C or C/m² for charge) |
+| Φ (dose) | Implanted dose (ions per m²) | m⁻² |
 | erfc | Complementary error function, erfc(u) = 1 − erf(u); read from a table | dimensionless |
 | x_j | Junction depth: where the dopant concentration equals the background | μm |
-| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | m⁻³ |
 | R_p | Projected range: average depth at which implanted ions stop | μm |
 | ΔR_p | Straggle: spread of the implanted ions' stopping depths | μm |
-| N_p | Peak concentration of an implanted profile | cm⁻³ |
-| S_n, S_e | Nuclear and electronic stopping power of an implanted ion | eV·cm² |
-| N_Si | Atom density of silicon | 5×10²² cm⁻³ |
+| N_p | Peak concentration of an implanted profile | m⁻³ |
+| S_n, S_e | Nuclear and electronic stopping power of an implanted ion | eV·m² |
+| N_Si | Atom density of silicon | 5×10²⁸ m⁻³ |
 | R_s | Sheet resistance (or diode series resistance in Week 12) | Ω/□ (ohms per square); Ω |
 | x_mask | Thickness of an implant mask | μm |
-| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | cm²/(V·s) |
-| v_d | Drift velocity | cm/s |
-| v_th | Thermal velocity of carriers | ≈ 10⁷ cm/s at 300 K |
-| v_sat | Saturation velocity at high field | ≈ 10⁷ cm/s in Si |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/m |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | m²/(V·s) |
+| v_d | Drift velocity | m/s |
+| v_th | Thermal velocity of carriers | ≈ 10⁵ m/s at 300 K |
+| v_sat | Saturation velocity at high field | ≈ 10⁵ m/s in Si |
 | τ_m | Mean free time between collisions | s; about 0.1–1 ps |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
-| R_H, V_H, B | Hall coefficient, Hall voltage, magnetic flux density | cm³/C; V; T (Wb/m²) |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
+| R_H, V_H, B | Hall coefficient, Hall voltage, magnetic flux density | m³/C; V; T (Wb/m²) |
 | T_e | Electron temperature of hot carriers | K |
-| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
-| R | Recombination rate | cm⁻³s⁻¹ |
-| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | m⁻³s⁻¹ |
+| R | Recombination rate | m⁻³s⁻¹ |
+| U | Net recombination rate, R − G | m⁻³s⁻¹ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| N_t | Density of traps (recombination centres) | cm⁻³ |
-| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | cm² |
-| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | cm⁻³ |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
-| S | Surface recombination velocity | cm/s |
-| N_st | Density of surface traps | cm⁻² |
-| U_s | Recombination rate per unit area at a surface | cm⁻²s⁻¹ |
+| N_t | Density of traps (recombination centres) | m⁻³ |
+| σ_n, σ_p | Capture cross-section of a trap for electrons, holes | m² |
+| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | m⁻³ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
+| S | Surface recombination velocity | m/s |
+| N_st | Density of surface traps | m⁻² |
+| U_s | Recombination rate per unit area at a surface | m⁻²s⁻¹ |
 | V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
 | x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
-| E_max | Peak electric field, at the junction | V/cm |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| E_max | Peak electric field, at the junction | V/m |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
 | C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
 | V_BR | Breakdown voltage | V |
@@ -325,8 +325,8 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
 | χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
 | Φ_B | Schottky barrier height seen from the metal | eV (or V) |
-| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
-| ρ_c | Specific contact resistance | Ω·cm² |
+| A∗∗ | Effective Richardson constant | A/(m²·K²); n-Si ≈ 1.1×10⁶ |
+| ρ_c | Specific contact resistance | Ω·m² |
 | E_vac | Vacuum level: energy of an electron just free of the material | eV |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | V_BE, V_CE, V_CB | Base–emitter, collector–emitter and collector–base voltages | V |
@@ -335,18 +335,18 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
 | γ (BJT) | Emitter injection efficiency | dimensionless, close to 1 |
 | α_T | Base transport factor | dimensionless, close to 1 |
-| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | m⁻³; μm; m²/s |
 | V_A | Early voltage | V |
 | r_o | Output resistance | Ω |
 | τ_B | Base transit time, W_B²/2D_n | s |
 | f_T | Transition (cut-off) frequency | Hz |
-| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/m² |
 | t_ox | Gate-oxide thickness | nm |
 | φ_F, ψ_s (φ_s) | Bulk Fermi potential (kT/q)ln(N_A/n_i); surface potential (band bending) | V |
-| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/cm² |
+| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/m² |
 | V_T (V_th) | Threshold voltage of a MOSFET | V |
 | V_FB | Flat-band voltage | V |
-| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/cm² |
+| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/m² |
 | γ (MOSFET) | Body-effect coefficient √(2qε_siN_A)/C_ox | V^{1/2} |
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
 | I_D | Drain current | A (mA) |
@@ -355,49 +355,49 @@ Every key term, symbol, constant and abbreviation used anywhere in the course. E
 | k (MOSFET) | Device parameter μ_nC_ox(W/L) | A/V² (mA/V²) |
 | λ (MOSFET) | Channel-length modulation parameter | V⁻¹ |
 | λ_max | Longest wavelength a material absorbs, 1.24/E_g (μm, E_g in eV) | μm |
-| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/cm; Ω·cm |
-| a_layer, a_sub | Lattice constants of the grown layer and of the substrate | Å |
+| σ_i, ρ_i | Conductivity and resistivity of intrinsic (undoped) material; σ_doped after doping | S/m; Ω·m |
+| a_layer, a_sub | Lattice constants of the grown layer and of the substrate | nm |
 | N_total | Total number of dopant atoms in a region | atoms |
 | ψ_k(x), u_k(x) | Bloch wavefunction of an electron, and its part that repeats with the lattice | — |
-| F_n, F_p | Particle flux of electrons and holes (carriers crossing 1 cm² per second) | cm⁻²s⁻¹ |
+| F_n, F_p | Particle flux of electrons and holes (carriers crossing 1 m² per second) | m⁻²s⁻¹ |
 | B_z, I_x, V_H | Hall effect: magnetic field (z), current (x) and Hall voltage | T (tesla); A; V |
-| R_H | Hall coefficient, 1/qp (p-type) or −1/qn (n-type) | cm³/C |
-| v_dn, v_dp | Drift velocity of electrons and holes | cm/s |
-| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | cm²/(V·s); s; cm⁻³ |
-| J_drift, J_diff | Drift and diffusion parts of the current density | A/cm² |
-| E_sat | Field at which the drift velocity saturates, v_sat/μ | V/cm |
-| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | cm⁻³s⁻¹ |
-| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| R_H | Hall coefficient, 1/qp (p-type) or −1/qn (n-type) | m³/C |
+| v_dn, v_dp | Drift velocity of electrons and holes | m/s |
+| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | m²/(V·s); s; m⁻³ |
+| J_drift, J_diff | Drift and diffusion parts of the current density | A/m² |
+| E_sat | Field at which the drift velocity saturates, v_sat/μ | V/m |
+| G_th, R_th | Thermal generation and recombination rates (equal in equilibrium) | m⁻³s⁻¹ |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | m⁻³s⁻¹ |
 | f_t, e_n, e_p | Probability a trap is occupied by an electron; emission rates of electrons and holes from traps | dimensionless; s⁻¹ |
-| r_a, r_b, r_c, r_d | SRH rates: electron capture, electron emission, hole capture, hole emission | cm⁻³s⁻¹ |
+| r_a, r_b, r_c, r_d | SRH rates: electron capture, electron emission, hole capture, hole emission | m⁻³s⁻¹ |
 | τ_SRH, τ_radiative, τ_Auger | Lifetimes set by trap (SRH), radiative and Auger recombination | s |
 | τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
-| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
-| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
-| Δp_n, Δn_p | Excess minority carriers at the depletion edges (holes on n side, electrons on p side) | cm⁻³ |
-| R_c | Contact resistance | Ω (specific: Ω·cm²) |
+| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | m⁻²s⁻¹; m⁻³ |
+| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | m⁻³ |
+| Δp_n, Δn_p | Excess minority carriers at the depletion edges (holes on n side, electrons on p side) | m⁻³ |
+| R_c | Contact resistance | Ω (specific: Ω·m²) |
 | Φ_Bn, Φ_Bp | Schottky barrier height for electrons (n-type) and for holes (p-type) | eV |
 | V_junction | Part of the applied voltage that appears across the junction itself | V |
 | I_{E,n}, I_{E,p}, I_{C,n} | Electron and hole parts of the emitter and collector currents | A |
-| n_B(x) | Minority-electron density in the base of an NPN transistor | cm⁻³ |
-| I_gen, J_gen | Generation current (density) from carriers generated in the depletion region | A; A/cm² |
-| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
+| n_B(x) | Minority-electron density in the base of an NPN transistor | m⁻³ |
+| I_gen, J_gen | Generation current (density) from carriers generated in the depletion region | A; A/m² |
+| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | m⁻³ |
 | ΔI_D, ΔV_GS | Small changes in drain current and gate voltage (their ratio is g_m) | A; V |
 | Q_charge | Total charge delivered by the ion beam, I × t | C |
-| B (recombination) | Radiative recombination coefficient, R = B np | cm³/s; GaAs ≈ 10⁻¹⁰, Si ≈ 10⁻¹⁴ |
-| C_n, C_p (Auger) | Auger recombination coefficients | cm⁶/s; Si ≈ 10⁻³¹ |
+| B (recombination) | Radiative recombination coefficient, R = B np | m³/s; GaAs ≈ 10⁻¹⁶, Si ≈ 10⁻²⁰ |
+| C_n, C_p (Auger) | Auger recombination coefficients | m⁶/s; Si ≈ 10⁻⁴³ |
 | τ₀ (τ_g) | Effective generation lifetime in a depletion region | s |
 | f_m | Lattice mismatch, (a_layer − a_sub)/a_sub | dimensionless, usually in % |
 | v_pull | Pull rate of a Czochralski crystal | mm/min |
 | λ_c | Cut-off wavelength of a detector, 1.24/E_g (μm, E_g in eV) | μm |
 | c | Speed of light in vacuum | 3×10⁸ m/s |
 | erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
-| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | m⁻³ |
 | V_EB, V_BC (V_CB) | Emitter–base and base–collector voltages | V |
 | ΔV, ΔV_BE | A small change in a voltage | V |
 | I_{C1}, I_{C2} | Collector currents at two operating points | A |
-| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | Å |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| r (atom) | Atomic radius (hard-sphere model), half the nearest-neighbour distance | nm |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 | ΔV_T | Shift in threshold voltage (e.g. from body bias) | V |
 
 ## Abbreviations

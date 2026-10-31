@@ -31,8 +31,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -45,28 +44,28 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
 | E_n | Allowed energy of level n of a particle in a box | J or eV |
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·cm³) |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| n₀, p₀ | Equilibrium electron and hole concentrations | cm⁻³ |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
+| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·m³) |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| n₀, p₀ | Equilibrium electron and hole concentrations | m⁻³ |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
 | m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
 | ψ | Wave function (\|ψ\|² is the probability density) | — |
 | V(x) | Potential energy in the Schrödinger equation | J or eV |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
 | P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
 | V₀ | Height of a potential barrier | J or eV |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
 | ν, hν | Frequency of light, and photon energy | Hz; eV |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
 | V, V_a | Applied voltage (positive for forward bias) | V |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |

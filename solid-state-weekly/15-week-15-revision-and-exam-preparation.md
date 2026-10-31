@@ -28,13 +28,12 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | h | Planck constant | 6.626×10⁻³⁴ J·s |
 | ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
 | m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
-| ε₀ | Permittivity of free space | 8.854×10⁻¹⁴ F/cm |
-| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
-| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹³ F/cm |
+| ε₀ | Permittivity of free space | 8.854×10⁻¹² F/m |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹⁰ F/m |
+| ε_ox | Permittivity of SiO₂, 3.9ε₀ | 3.45×10⁻¹¹ F/m |
 | ε_r | Relative permittivity (dielectric constant) | Si 11.7, SiO₂ 3.9, GaAs 12.9 |
 | eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
-| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
-| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁶ m |
 
 **Symbols**
 
@@ -47,105 +46,105 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 | E_i | Intrinsic Fermi level, close to mid-gap | eV |
 | E_a | Activation energy of dopant diffusion | eV; about 3–4 eV |
 | f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
-| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·cm³) |
-| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
-| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
-| n | Electron concentration (free electrons per cm³) | cm⁻³ |
-| p | Hole concentration (holes per cm³) | cm⁻³ |
-| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
-| N_D | Donor concentration | cm⁻³ |
-| N_A | Acceptor concentration | cm⁻³ |
-| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·m³) |
+| N_c | Effective density of states in the conduction band | m⁻³; Si 2.8×10²⁵ at 300 K |
+| N_v | Effective density of states in the valence band | m⁻³; Si 1.04×10²⁵ at 300 K |
+| n | Electron concentration (free electrons per m³) | m⁻³ |
+| p | Hole concentration (holes per m³) | m⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | m⁻³; Si ≈ 1×10¹⁶ at 300 K |
+| N_D | Donor concentration | m⁻³ |
+| N_A | Acceptor concentration | m⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | m⁻³ |
 | m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
 | ψ | Wave function (\|ψ\|² is the probability density) | — |
-| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ |
 | α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
 | P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
 | λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
-| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| a | Lattice constant: edge length of the cubic unit cell | nm; Si 0.543, Ge and GaAs 0.565 |
 | (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
-| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
-| r_nn | Nearest-neighbour distance | Å; Si 2.35 |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | nm |
+| r_nn | Nearest-neighbour distance | nm; Si 0.235 |
 | k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
-| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
-| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
-| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
-| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
-| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | cm²/s |
-| F | Particle flux in Fick's law | particles/(cm²·s) |
-| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
-| Φ (dose) | Implanted dose (ions per cm²) | cm⁻² |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | m⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | m⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | m⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | m²/s |
+| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | m²/s |
+| F | Particle flux in Fick's law | particles/(m²·s) |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/m² (C or C/m² for charge) |
+| Φ (dose) | Implanted dose (ions per m²) | m⁻² |
 | erfc | Complementary error function, erfc(u) = 1 − erf(u); read from a table | dimensionless |
 | x_j | Junction depth: where the dopant concentration equals the background | μm |
-| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | m⁻³ |
 | R_p | Projected range: average depth at which implanted ions stop | μm |
 | ΔR_p | Straggle: spread of the implanted ions' stopping depths | μm |
-| N_p | Peak concentration of an implanted profile | cm⁻³ |
-| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
-| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
-| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | cm²/(V·s) |
-| v_d | Drift velocity | cm/s |
-| v_sat | Saturation velocity at high field | ≈ 10⁷ cm/s in Si |
+| N_p | Peak concentration of an implanted profile | m⁻³ |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/m |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | m²/(V·s); Si μ_n 0.135, μ_p 0.048 |
+| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | m²/(V·s) |
+| v_d | Drift velocity | m/s |
+| v_sat | Saturation velocity at high field | ≈ 10⁵ m/s in Si |
 | τ_m | Mean free time between collisions | s; about 0.1–1 ps |
-| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
-| ρ | Resistivity, 1/σ | Ω·cm |
-| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
-| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
-| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
-| R | Recombination rate | cm⁻³s⁻¹ |
-| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/m (siemens per metre) |
+| ρ | Resistivity, 1/σ | Ω·m |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/m² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | m²/s; Si 3.5×10⁻³ and 1.24×10⁻³ |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | m⁻³s⁻¹ |
+| R | Recombination rate | m⁻³s⁻¹ |
+| U | Net recombination rate, R − G | m⁻³s⁻¹ |
 | τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
-| N_t | Density of traps (recombination centres) | cm⁻³ |
-| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | cm⁻³ |
-| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
-| S | Surface recombination velocity | cm/s |
-| N_st | Density of surface traps | cm⁻² |
-| U_s | Recombination rate per unit area at a surface | cm⁻²s⁻¹ |
+| N_t | Density of traps (recombination centres) | m⁻³ |
+| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | m⁻³ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or m |
+| S | Surface recombination velocity | m/s |
+| N_st | Density of surface traps | m⁻² |
+| U_s | Recombination rate per unit area at a surface | m⁻²s⁻¹ |
 | V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
 | V, V_a | Applied voltage (positive for forward bias) | V |
-| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or m |
 | x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
-| E_max | Peak electric field, at the junction | V/cm |
-| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| E_max | Peak electric field, at the junction | V/m |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/m² |
 | I | Current | A |
-| A (area) | Device or contact area | cm² |
+| A (area) | Device or contact area | m² |
 | η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
 | C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
 | Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
 | Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
 | χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
 | Φ_B | Schottky barrier height seen from the metal | eV (or V) |
-| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
+| A∗∗ | Effective Richardson constant | A/(m²·K²); n-Si ≈ 1.1×10⁶ |
 | I_E, I_B, I_C | Emitter, base and collector currents | A (mA) |
 | V_BE, V_CE, V_CB | Base–emitter, collector–emitter and collector–base voltages | V |
 | α | Common-base current gain, I_C/I_E | dimensionless; 0.98–0.999 |
 | β | Common-emitter current gain, I_C/I_B (also h_FE) | dimensionless; 50–500 |
 | γ (BJT) | Emitter injection efficiency | dimensionless, close to 1 |
 | α_T | Base transport factor | dimensionless, close to 1 |
-| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | cm⁻³; μm; cm²/s |
+| N_E, W_E, D_E; N_B, W_B, D_B | Doping, width and minority diffusion coefficient of the emitter; of the base | m⁻³; μm; m²/s |
 | τ_B | Base transit time, W_B²/2D_n | s |
-| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/cm² |
+| C_ox | Gate-oxide capacitance per unit area, ε_ox/t_ox | F/m² |
 | t_ox | Gate-oxide thickness | nm |
 | φ_F, ψ_s (φ_s) | Bulk Fermi potential (kT/q)ln(N_A/n_i); surface potential (band bending) | V |
-| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/cm² |
+| W_d, W_dmax, Q_dmax | MOS depletion width, its maximum at inversion, and the depletion charge then | μm; C/m² |
 | V_T (V_th) | Threshold voltage of a MOSFET | V |
 | V_FB | Flat-band voltage | V |
-| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/cm² |
+| Φ_ms, Q_f | Gate–substrate work-function difference; fixed oxide charge | V; C/m² |
 | γ (MOSFET) | Body-effect coefficient √(2qε_siN_A)/C_ox | V^{1/2} |
 | V_GS, V_DS, V_SB, V_G | Gate–source, drain–source, source–body and gate voltages | V |
 | I_D | Drain current | A (mA) |
 | W/L | Channel width-to-length ratio | dimensionless |
 | g_m | Transconductance, ∂I_D/∂V_GS | S (A/V) |
 | k (MOSFET) | Device parameter μ_nC_ox(W/L) | A/V² (mA/V²) |
-| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | cm²/(V·s); s; cm⁻³ |
-| J_drift, J_diff | Drift and diffusion parts of the current density | A/cm² |
-| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | m²/(V·s); s; m⁻³ |
+| J_drift, J_diff | Drift and diffusion parts of the current density | A/m² |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | m⁻³s⁻¹ |
 | τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
-| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
-| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
+| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | m⁻²s⁻¹; m⁻³ |
+| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | m⁻³ |
 | erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
-| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
-| t | Time (or a thickness, where the text says so) | s (or cm) |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | m⁻³ |
+| t | Time (or a thickness, where the text says so) | s (or m) |
 
 **Abbreviations**
 
