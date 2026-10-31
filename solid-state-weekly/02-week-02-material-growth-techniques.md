@@ -177,7 +177,7 @@ Quartzite, a fairly pure form of SiO₂ (sand, quartz), is mixed with carbon (co
 
     SiO₂ + 2C → Si + 2CO
 
-Molten silicon is drained from the furnace. This **MG-Si** is about 98 % pure. The 2 % of impurities (Fe, Al, Ca, C, B, P) is still about 10²⁰ impurity atoms per cm³, a hundred million times too many for devices. MG-Si is good enough for making steel and aluminium alloys, but not chips.
+Molten silicon is drained from the furnace. This **MG-Si** is about 98 % pure. The 2 % of impurities (Fe, Al, Ca, C, B, P) is still about 10²¹ impurity atoms per cm³ (silicon has 5×10²² atoms/cm³), some ten million times more than electronic-grade silicon allows. MG-Si is good enough for making steel and aluminium alloys, but not chips.
 
 ### Step 2: turning silicon into a liquid that can be purified
 
@@ -554,7 +554,7 @@ Epitaxy is the growth of a thin single-crystal film on a single-crystal substrat
 | Source phase | Gas (chlorosilanes, silane, metal-organics) | Liquid solution (melt) | Atomic or molecular beams from solid sources |
 | Growth mechanism | Chemical reaction / decomposition at the hot surface | Precipitation from a supersaturated solution on cooling; near equilibrium | Physical deposition: adsorption and surface migration; far from equilibrium |
 | Environment | Atmospheric or reduced pressure, H₂ carrier | Inert or H₂, graphite boat | Ultra-high vacuum, 10⁻¹⁰–10⁻¹¹ Torr |
-| Typical temperature | High: Si 1000–1250 °C; MOCVD 600–750 °C | Intermediate: 700–900 °C (GaAs) | Low: 400–650 °C (GaAs ≈ 600 °C) |
+| Typical temperature | High: Si 1000–1250 °C; MOCVD 600–750 °C | Intermediate: 700–900 °C (GaAs) | Low: 500–650 °C (GaAs ≈ 600 °C) |
 | Growth rate | 0.1–5 μm/min | 0.1–1 μm/min | ≈ 1 μm/h (≈ 1 monolayer/s) |
 | Thickness precision | ≈ tens of nm; good uniformity | Poor, ≈ 0.1 μm; rough surface | Excellent, one atomic layer |
 | Interface abruptness | Moderate (autodoping, out-diffusion) | Poor (graded) | Atomically abrupt |

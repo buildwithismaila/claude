@@ -979,7 +979,7 @@ Use the comparison table of Si, Ge and GaAs above as the core of the answer, the
 
 Check: the integers 3, 2, 6 have no common factor, so no further reduction is possible. If the crystal is cubic with lattice constant a, the spacing of these planes is d₃₂₆ = a/√(9 + 4 + 36) = a/√49 = **a/7**.
 
-**What this means:** the plane cuts the z-axis closest to the origin, so z gets the largest index (6). In silicon these planes would be only 5.43/7 = 0.78 Å apart, far closer than the main (100) and (111) planes used for wafers.
+**What this means:** the plane cuts the z-axis closest to the origin, so z gets the largest index (6). For a simple cubic lattice the formula d = a/√(h² + k² + l²) gives a/7, far closer than the (100) and (111) planes used for wafers; such a high-index plane holds very few atoms.
 
 @fig figures/miller-326.svg | The (3 2 6) plane, cutting the axes at 2a, 3b and 1c.
 
