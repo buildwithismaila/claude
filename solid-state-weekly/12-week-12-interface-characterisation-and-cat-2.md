@@ -93,7 +93,7 @@ Every symbol, constant and abbreviation on this page is listed here, even if an 
 
 Every important word used this week is defined here, so you can read this week on its own.
 
-**Doping (N_D, N_A).** Adding a small, controlled amount of impurity atoms to a semiconductor to set its electrical properties. Donors (concentration N_D) give electrons and make the material n-type; acceptors (concentration N_A) take electrons, create holes and make it p-type. Doping is measured in atoms per cm³.
+**Doping (N_D, N_A).** Adding a small, controlled amount of impurity atoms to a semiconductor to set its electrical properties. Donors (concentration N_D) give electrons and make the material n-type; acceptors (concentration N_A) take electrons, create holes and make it p-type. Doping is measured in atoms per m³.
 
 **Majority and minority carriers.** In n-type material electrons are the more numerous (majority) carriers and holes the less numerous (minority) carriers; in p-type material it is the other way round.
 
@@ -129,7 +129,7 @@ Where:
 
 **Semi-log plot.** A graph of the natural logarithm of a quantity (here ln I) against a linear quantity (here V). An exponential law becomes a straight line on it, so slope and intercept can be read off.
 
-**Effective Richardson constant (A∗∗).** The material constant in the thermionic-emission law that links a Schottky diode's saturation current density to its barrier height and temperature; about 110 A/(cm²·K²) for n-type Si.
+**Effective Richardson constant (A∗∗).** The material constant in the thermionic-emission law that links a Schottky diode's saturation current density to its barrier height and temperature; about 1.1×10⁶ A/(m²·K²) for n-type Si.
 
 **Arrhenius plot.** A graph of the logarithm of a temperature-dependent quantity against 1/T. A process with an energy barrier gives a straight line whose slope gives the barrier energy.
 
@@ -243,10 +243,10 @@ In a Schottky diode the current is carried by electrons that have enough thermal
 
 Where:
 
-- J_s = saturation current density (A/cm²)
+- J_s = saturation current density (A/m²)
 - I_s = saturation current, from the intercept of the semi-log plot (A)
-- A = diode (contact) area (cm²)
-- A∗∗ = effective Richardson constant, 110 A/(cm²·K²) for n-Si
+- A = diode (contact) area (m²)
+- A∗∗ = effective Richardson constant, 1.1×10⁶ A/(m²·K²) for n-Si
 - T = absolute temperature (K)
 - Φ_B = Schottky barrier height (eV, or V when multiplied by q)
 - kT/q = thermal voltage, 0.0259 V at 300 K
@@ -259,9 +259,9 @@ Because Φ_B depends only on the logarithm of I_s, even a factor-of-two error in
 
 #### Example 12.2: barrier height from the saturation current
 
-**Question.** A Schottky diode on n-type silicon has an area of 2×10⁻⁴ cm². Its semi-log forward I-V plot is straight with η = 1.03, and extrapolates to I_s = 1.2×10⁻¹⁰ A at V = 0 (300 K). Find the saturation current density, the barrier height, and the forward voltage needed for 1 mA (take η ≈ 1 for this last part).
+**Question.** A Schottky diode on n-type silicon has an area of 2×10⁻⁸ m². Its semi-log forward I-V plot is straight with η = 1.03, and extrapolates to I_s = 1.2×10⁻¹⁰ A at V = 0 (300 K). Find the saturation current density, the barrier height, and the forward voltage needed for 1 mA (take η ≈ 1 for this last part).
 
-**Given:** A = 2×10⁻⁴ cm², I_s = 1.2×10⁻¹⁰ A, T = 300 K, A∗∗ = 110 A/(cm²·K²), kT/q = 0.0259 V.
+**Given:** A = 2×10⁻⁸ m², I_s = 1.2×10⁻¹⁰ A, T = 300 K, A∗∗ = 1.1×10⁶ A/(m²·K²), kT/q = 0.0259 V.
 
 **Find:** J_s, Φ_B and V at I = 1 mA.
 
@@ -273,17 +273,17 @@ Because Φ_B depends only on the logarithm of I_s, even a factor-of-two error in
 
 Step 1. Saturation current density:
 
-    J_s = 1.2×10⁻¹⁰ / 2×10⁻⁴ = 6.0×10⁻⁷ A/cm²
+    J_s = 1.2×10⁻¹⁰ / 2×10⁻⁸ = 6.0×10⁻³ A/m²
 
-Step 2. A∗∗T² = 110 × (300)² = 9.9×10⁶ A/cm², so
+Step 2. A∗∗T² = 1.1×10⁶ × (300)² = 9.9×10¹⁰ A/m², so
 
-    Φ_B = 0.0259 × ln( 9.9×10⁶ / 6.0×10⁻⁷ ) = 0.0259 × ln(1.65×10¹³) = 0.0259 × 30.43 = 0.79 eV
+    Φ_B = 0.0259 × ln( 9.9×10¹⁰ / 6.0×10⁻³ ) = 0.0259 × ln(1.65×10¹³) = 0.0259 × 30.43 = 0.79 eV
 
 Step 3. Forward voltage for 1 mA:
 
     V = 0.0259 × ln( 10⁻³/1.2×10⁻¹⁰ + 1 ) = 0.0259 × 15.94 = 0.41 V
 
-**Answer:** **J_s = 6.0×10⁻⁷ A/cm², Φ_B ≈ 0.79 eV, V ≈ 0.41 V at 1 mA.**
+**Answer:** **J_s = 6.0×10⁻³ A/m², Φ_B ≈ 0.79 eV, V ≈ 0.41 V at 1 mA.**
 
 **What this means:** an η so close to 1 shows that thermionic emission over the barrier is the main current mechanism, so the formula applies. A 0.79 eV barrier is typical of a good rectifying contact on n-Si, and the diode turns on at about 0.4 V, well below the 0.6–0.7 V of a silicon p-n diode.
 
@@ -302,9 +302,9 @@ A reverse-biased one-sided junction (p⁺n) or Schottky diode has a depletion re
 Where:
 
 - C = depletion (junction) capacitance (F)
-- ε_s = permittivity of silicon, 1.04×10⁻¹² F/cm
-- A = junction area (cm²)
-- W = depletion-region width (cm)
+- ε_s = permittivity of silicon, 1.04×10⁻¹⁰ F/m
+- A = junction area (m²)
+- W = depletion-region width (m)
 
 From Week 10, W = √(2ε_s(V_bi − V)/qN), where N is the doping on the lightly doped side. **As the reverse voltage increases, W gets bigger and C gets smaller.** Substituting:
 
@@ -313,7 +313,7 @@ From Week 10, W = √(2ε_s(V_bi − V)/qN), where N is the doping on the lightl
 Where:
 
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- N = doping on the lightly doped side (cm⁻³)
+- N = doping on the lightly doped side (m⁻³)
 - V_bi = built-in potential (V)
 - V = applied voltage, negative for reverse bias (V)
 - C, A, ε_s as above
@@ -328,8 +328,8 @@ Where:
 
 - 1/C² = inverse square of the measured capacitance (F⁻²)
 - V_bi = built-in potential (V); V = applied voltage (V)
-- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹² F/cm
-- N = doping on the lightly doped side (cm⁻³); A = area (cm²)
+- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹⁰ F/m
+- N = doping on the lightly doped side (m⁻³); A = area (m²)
 
 So if you plot **1/C² against V**, uniform doping gives a **straight line**:
 
@@ -342,9 +342,9 @@ Rearranging the slope for the doping:
 
 Where:
 
-- N = doping concentration on the lightly doped side (cm⁻³)
+- N = doping concentration on the lightly doped side (m⁻³)
 - |slope| = magnitude of the slope of the 1/C² against V line (F⁻²V⁻¹)
-- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹² F/cm; A = area (cm²)
+- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹⁰ F/m; A = area (m²)
 
 @fig figures/cv.svg | Mott–Schottky plot. For uniform doping the points fall on a straight line; the slope gives the doping and the voltage-axis intercept gives V_bi.
 
@@ -352,9 +352,9 @@ Where:
 
 #### Example 12.3: doping and built-in potential from a C-V plot
 
-**Question.** A silicon Schottky diode of area 1×10⁻³ cm² gives a straight 1/C² against V plot with slope −1.2×10²¹ F⁻²V⁻¹ that meets the voltage axis at +0.60 V. Find the doping concentration and the built-in potential. Also find the capacitance and depletion width at a reverse bias of 5 V.
+**Question.** A silicon Schottky diode of area 1×10⁻⁷ m² gives a straight 1/C² against V plot with slope −1.2×10²¹ F⁻²V⁻¹ that meets the voltage axis at +0.60 V. Find the doping concentration and the built-in potential. Also find the capacitance and depletion width at a reverse bias of 5 V.
 
-**Given:** A = 1×10⁻³ cm², slope = −1.2×10²¹ F⁻²V⁻¹, intercept 0.60 V, ε_s = 1.036×10⁻¹² F/cm, q = 1.602×10⁻¹⁹ C, V = −5 V.
+**Given:** A = 1×10⁻⁷ m², slope = −1.2×10²¹ F⁻²V⁻¹, intercept 0.60 V, ε_s = 1.036×10⁻¹⁰ F/m, q = 1.602×10⁻¹⁹ C, V = −5 V.
 
 **Find:** N_D, V_bi, and C and W at −5 V.
 
@@ -366,17 +366,17 @@ Where:
 
 Step 1. Doping from the slope:
 
-    N_D = 2/(qε_sA²|slope|) = 2 / (1.602×10⁻¹⁹ × 1.036×10⁻¹² × (10⁻³)² × 1.2×10²¹) = 2/1.99×10⁻¹⁶ = 1.0×10¹⁶ cm⁻³
+    N_D = 2/(qε_sA²|slope|) = 2 / (1.602×10⁻¹⁹ × 1.036×10⁻¹⁰ × (10⁻⁷)² × 1.2×10²¹) = 2/1.99×10⁻²² = 1.0×10²² m⁻³
 
 Step 2. Built-in potential from the intercept: V_bi = 0.60 V
 
 Step 3. At V = −5 V, V_bi − V = 5.6 V:
 
-    C = A√(qε_sN_D / 2(V_bi − V)) = 10⁻³ × √(1.66×10⁻¹⁵ / 11.2) = 1.22×10⁻¹¹ F
+    C = A√(qε_sN_D / 2(V_bi − V)) = 10⁻⁷ × √(1.66×10⁻⁷ / 11.2) = 1.22×10⁻¹¹ F
 
-    W = ε_sA/C = 1.036×10⁻¹⁵ / 1.22×10⁻¹¹ = 8.5×10⁻⁵ cm
+    W = ε_sA/C = 1.036×10⁻¹⁷ / 1.22×10⁻¹¹ = 8.5×10⁻⁷ m
 
-**Answer:** **N_D = 1.0×10¹⁶ cm⁻³, V_bi = 0.60 V; at −5 V, C = 12.2 pF and W = 0.85 μm.**
+**Answer:** **N_D = 1.0×10²² m⁻³, V_bi = 0.60 V; at −5 V, C = 12.2 pF and W = 8.5×10⁻⁷ m (0.85 μm).**
 
 **What this means:** the semiconductor is moderately doped n-type, about one dopant atom for every 5 million silicon atoms, found without cutting or etching the sample. At −5 V the depletion edge sits 0.85 μm below the contact, so this is the depth at which the doping is being sampled at that bias.
 
@@ -388,11 +388,11 @@ If the doping is **not** uniform, the 1/C² plot curves. The local slope at each
 
 Where:
 
-- N(W) = doping at the edge of the depletion region, at depth W (cm⁻³)
+- N(W) = doping at the edge of the depletion region, at depth W (m⁻³)
 - |d(1/C²)/dV| = magnitude of the local slope of the 1/C² curve at that bias (F⁻²V⁻¹)
-- W = depletion width, the depth being probed (cm)
+- W = depletion width, the depth being probed (m)
 - C = measured capacitance at that bias (F)
-- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹² F/cm; A = area (cm²)
+- q = 1.6×10⁻¹⁹ C; ε_s = 1.04×10⁻¹⁰ F/m; A = area (m²)
 
 Sweeping the bias moves W deeper and maps out the **doping profile** N(x). This only works for one-sided junctions (p⁺n, n⁺p) or Schottky diodes, where the depletion region is all on one side.
 
@@ -412,7 +412,7 @@ For a MOS capacitor (Week 14), the C-V curve shows accumulation (C = C_ox), depl
 ## Key points of Week 12
 
 - I-V: plot ln I against V. Intercept → I_s; slope → η = (q/kT)/slope; bending at high current → R_s; Arrhenius plot → Φ_B.
-- Schottky barrier height from one I-V curve: Φ_B = (kT/q) ln(A∗∗T²/J_s), with J_s = I_s/A and A∗∗ = 110 A/(cm²·K²) for n-Si.
+- Schottky barrier height from one I-V curve: Φ_B = (kT/q) ln(A∗∗T²/J_s), with J_s = I_s/A and A∗∗ = 1.1×10⁶ A/(m²·K²) for n-Si.
 - C-V: a reverse-biased junction is a capacitor C = ε_sA/W, with W growing with reverse bias.
 - Mott–Schottky: 1/C² = 2(V_bi − V)/(qε_sNA²). Slope → N = 2/(qε_sA²|slope|); intercept → V_bi.
 - Non-uniform doping: local slope gives N at depth W = ε_sA/C.
@@ -456,9 +456,9 @@ Rearranging:
 4. The **intercept** on the V axis gives the built-in potential V_bi (and from it the Schottky barrier height).
 5. **For non-uniform doping**, use the local slope: N(W) = 2/(qε_sA² d(1/C²)/dV) evaluated at each bias, and the depth W = ε_sA/C. This gives the doping profile N(x) as a function of depth.
 
-**Example.** A diode of area 10⁻³ cm² on Si (ε_s = 1.036×10⁻¹² F/cm) gives a 1/C² slope magnitude of 1.2×10²¹ F⁻²V⁻¹:
+**Example.** A diode of area 10⁻⁷ m² on Si (ε_s = 1.036×10⁻¹⁰ F/m) gives a 1/C² slope magnitude of 1.2×10²¹ F⁻²V⁻¹:
 
-    N = 2 / (1.602×10⁻¹⁹ × 1.036×10⁻¹² × 10⁻⁶ × 1.2×10²¹) = 1.0×10¹⁶ cm⁻³
+    N = 2 / (1.602×10⁻¹⁹ × 1.036×10⁻¹⁰ × 10⁻¹⁴ × 1.2×10²¹) = 1.0×10²² m⁻³
 
 **Advantages and limits.** C-V is non-destructive, fast and needs only a simple diode, but only measures the doping on the lightly doped side, only to depths reachable before breakdown, and with resolution limited by the Debye length. Accuracy requires a correct area, correction for stray capacitance and series resistance, and a frequency at which deep traps do not respond.
 
@@ -466,23 +466,23 @@ Rearranging:
 
 ## CAT 2 practice test (60 minutes)
 
-Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻¹⁹ C, kT/q = 0.0259 V, Si: n_i = 1×10¹⁰ cm⁻³, ε_s = 1.04×10⁻¹² F/cm.
+Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻¹⁹ C, kT/q = 0.0259 V, Si: n_i = 1×10¹⁶ m⁻³, ε_s = 1.04×10⁻¹⁰ F/m.
 
-1. An n-type Si bar (N_D = 10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s) is 1 cm long with 10⁻³ cm² cross-section. Find its resistance and the current at 5 V.
-2. Find the hole diffusion coefficient in Si if μ_p = 450 cm²/V·s, and the diffusion length if τ_p = 2 μs.
-3. Holes injected into n-Si fall from 10¹⁴ cm⁻³ at x = 0 with L_p = 30 μm. Find the hole diffusion current density at x = 0 (D_p = 11.6 cm²/s).
-4. A Si p⁺n junction has N_D = 5×10¹⁵ cm⁻³ and N_A = 10¹⁸ cm⁻³. Find V_bi, the depletion width at zero bias and at −10 V, and the peak field at −10 V.
-5. The diode of Q4 has area 10⁻³ cm² and I_s = 1×10⁻¹⁴ A. Find the current at 0.6 V and the voltage for 1 mA.
-6. A Schottky diode on n-Si has Φ_B = 0.7 eV. Find J_s at 300 K (A∗∗ = 110 A/cm²K²) and the forward voltage for J = 10 A/cm².
-7. A 1/C² plot for a one-sided junction of area 2×10⁻³ cm² has slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping.
+1. An n-type Si bar (N_D = 10²² m⁻³, μ_n = 0.12 m²/V·s) is 0.01 m long with 10⁻⁷ m² cross-section. Find its resistance and the current at 5 V.
+2. Find the hole diffusion coefficient in Si if μ_p = 0.045 m²/V·s, and the diffusion length if τ_p = 2 μs.
+3. Holes injected into n-Si fall from 10²⁰ m⁻³ at x = 0 with L_p = 30 μm. Find the hole diffusion current density at x = 0 (D_p = 1.16×10⁻³ m²/s).
+4. A Si p⁺n junction has N_D = 5×10²¹ m⁻³ and N_A = 10²⁴ m⁻³. Find V_bi, the depletion width at zero bias and at −10 V, and the peak field at −10 V.
+5. The diode of Q4 has area 10⁻⁷ m² and I_s = 1×10⁻¹⁴ A. Find the current at 0.6 V and the voltage for 1 mA.
+6. A Schottky diode on n-Si has Φ_B = 0.7 eV. Find J_s at 300 K (A∗∗ = 1.1×10⁶ A/m²K²) and the forward voltage for J = 1×10⁵ A/m².
+7. A 1/C² plot for a one-sided junction of area 2×10⁻⁷ m² has slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping.
 
 ## CAT 2 solutions
 
 ### 1. Resistance of a bar
 
-**Question.** An n-type Si bar (N_D = 10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s) is 1 cm long with 10⁻³ cm² cross-section. Find its resistance and the current at 5 V.
+**Question.** An n-type Si bar (N_D = 10²² m⁻³, μ_n = 0.12 m²/V·s) is 0.01 m long with 10⁻⁷ m² cross-section. Find its resistance and the current at 5 V.
 
-**Given:** N_D = 10¹⁶ cm⁻³, μ_n = 1200 cm²/V·s, L = 1 cm, A = 10⁻³ cm², V = 5 V.
+**Given:** N_D = 10²² m⁻³, μ_n = 0.12 m²/V·s, L = 0.01 m, A = 10⁻⁷ m², V = 5 V.
 
 **Find:** R and I.
 
@@ -492,19 +492,19 @@ Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻�
 
 **Solution.**
 
-    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10¹⁶ × 1200 = 1.92 S/cm,   ρ = 0.521 Ω·cm
-    R = ρL/A = 0.521 × 1 / 10⁻³ = 521 Ω
+    σ = qN_Dμ_n = 1.6×10⁻¹⁹ × 10²² × 0.12 = 192 S/m,   ρ = 5.21×10⁻³ Ω·m
+    R = ρL/A = 5.21×10⁻³ × 0.01 / 10⁻⁷ = 521 Ω
     I = V/R = 5/521 = 9.6 mA
 
 **Answer:** **R ≈ 521 Ω, I ≈ 9.6 mA.**
 
-**What this means:** with 10¹⁶ donors per cm³ the silicon conducts several hundred thousand times better than pure silicon, but a long thin bar is still a resistor of several hundred ohms; this is how diffused resistors in integrated circuits work.
+**What this means:** with 10²² donors per m³ the silicon conducts several hundred thousand times better than pure silicon, but a long thin bar is still a resistor of several hundred ohms; this is how diffused resistors in integrated circuits work.
 
 ### 2. Einstein relation and diffusion length
 
-**Question.** Find the hole diffusion coefficient in Si if μ_p = 450 cm²/V·s, and the diffusion length if τ_p = 2 μs.
+**Question.** Find the hole diffusion coefficient in Si if μ_p = 0.045 m²/V·s, and the diffusion length if τ_p = 2 μs.
 
-**Given:** μ_p = 450 cm²/V·s, τ_p = 2×10⁻⁶ s, kT/q = 0.0259 V.
+**Given:** μ_p = 0.045 m²/V·s, τ_p = 2×10⁻⁶ s, kT/q = 0.0259 V.
 
 **Find:** D_p and L_p.
 
@@ -514,18 +514,18 @@ Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻�
 
 **Solution.**
 
-    D_p = (kT/q)μ_p = 0.0259 × 450 = 11.7 cm²/s
-    L_p = √(D_pτ_p) = √(11.7 × 2×10⁻⁶) = 4.83×10⁻³ cm = 48 μm
+    D_p = (kT/q)μ_p = 0.0259 × 0.045 = 1.17×10⁻³ m²/s
+    L_p = √(D_pτ_p) = √(1.17×10⁻³ × 2×10⁻⁶) = 4.84×10⁻⁵ m = 48 μm
 
-**Answer:** **D_p ≈ 11.7 cm²/s, L_p ≈ 48 μm.**
+**Answer:** **D_p ≈ 1.17×10⁻³ m²/s, L_p ≈ 4.8×10⁻⁵ m (48 μm).**
 
 **What this means:** an injected hole typically wanders about 48 μm before it recombines, far more than the width of a transistor base, so almost all holes injected into a thin region survive to cross it.
 
 ### 3. Diffusion current at the injection point
 
-**Question.** Holes injected into n-Si fall from 10¹⁴ cm⁻³ at x = 0 with L_p = 30 μm. Find the hole diffusion current density at x = 0 (D_p = 11.6 cm²/s).
+**Question.** Holes injected into n-Si fall from 10²⁰ m⁻³ at x = 0 with L_p = 30 μm. Find the hole diffusion current density at x = 0 (D_p = 1.16×10⁻³ m²/s).
 
-**Given:** Δp(0) = 10¹⁴ cm⁻³, L_p = 30 μm = 3×10⁻³ cm, D_p = 11.6 cm²/s.
+**Given:** Δp(0) = 10²⁰ m⁻³, L_p = 30 μm = 3×10⁻⁵ m, D_p = 1.16×10⁻³ m²/s.
 
 **Find:** J_p at x = 0.
 
@@ -537,18 +537,18 @@ Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻�
 
 Δp(x) = Δp(0)e^{−x/L_p}, so dp/dx at x = 0 is −Δp(0)/L_p.
 
-    J_p = −qD_p dp/dx = qD_pΔp(0)/L_p = 1.6×10⁻¹⁹ × 11.6 × 10¹⁴ / 3×10⁻³
-        = 0.062 A/cm²
+    J_p = −qD_p dp/dx = qD_pΔp(0)/L_p = 1.6×10⁻¹⁹ × 1.16×10⁻³ × 10²⁰ / 3×10⁻⁵
+        = 619 A/m²
 
-**Answer:** **J_p ≈ 0.062 A/cm² (62 mA/cm²), flowing in the +x direction.**
+**Answer:** **J_p ≈ 6.2×10² A/m², flowing in the +x direction.**
 
 **What this means:** with no electric field at all, a concentration difference alone drives a sizeable current; the steeper the fall-off (the shorter L_p), the larger the current.
 
 ### 4. Junction parameters
 
-**Question.** A Si p⁺n junction has N_D = 5×10¹⁵ cm⁻³ and N_A = 10¹⁸ cm⁻³. Find V_bi, the depletion width at zero bias and at −10 V, and the peak field at −10 V.
+**Question.** A Si p⁺n junction has N_D = 5×10²¹ m⁻³ and N_A = 10²⁴ m⁻³. Find V_bi, the depletion width at zero bias and at −10 V, and the peak field at −10 V.
 
-**Given:** N_D = 5×10¹⁵ cm⁻³, N_A = 10¹⁸ cm⁻³, n_i = 10¹⁰ cm⁻³, ε_s = 1.04×10⁻¹² F/cm, kT/q = 0.0259 V.
+**Given:** N_D = 5×10²¹ m⁻³, N_A = 10²⁴ m⁻³, n_i = 10¹⁶ m⁻³, ε_s = 1.04×10⁻¹⁰ F/m, kT/q = 0.0259 V.
 
 **Find:** V_bi, W(0), W(−10 V), E_max(−10 V).
 
@@ -558,21 +558,21 @@ Covers Weeks 7–12. Practice questions, not the actual CAT. Use q = 1.6×10⁻�
 
 **Solution.**
 
-    V_bi = 0.0259 ln(10¹⁸ × 5×10¹⁵ / 10²⁰) = 0.0259 ln(5×10¹³) = 0.0259 × 31.54 = 0.817 V
+    V_bi = 0.0259 ln(10²⁴ × 5×10²¹ / 10³²) = 0.0259 ln(5×10¹³) = 0.0259 × 31.54 = 0.817 V
 
 One-sided (N_A ≫ N_D): W = √(2ε_s(V_bi − V)/qN_D).
 
-    V = 0:    W = √(2 × 1.04×10⁻¹² × 0.817 / (1.6×10⁻¹⁹ × 5×10¹⁵)) = √(2.12×10⁻⁹) = 4.6×10⁻⁵ cm = 0.46 μm
-    V = −10:  W = √(2 × 1.04×10⁻¹² × 10.817 / 8×10⁻⁴) = √(2.81×10⁻⁸) = 1.68×10⁻⁴ cm = 1.68 μm
-    E_max = 2(V_bi − V)/W = 2 × 10.817 / 1.68×10⁻⁴ = 1.29×10⁵ V/cm
+    V = 0:    W = √(2 × 1.04×10⁻¹⁰ × 0.817 / (1.6×10⁻¹⁹ × 5×10²¹)) = √(2.12×10⁻¹³) = 4.6×10⁻⁷ m = 0.46 μm
+    V = −10:  W = √(2 × 1.04×10⁻¹⁰ × 10.817 / 8×10²) = √(2.81×10⁻¹²) = 1.68×10⁻⁶ m = 1.68 μm
+    E_max = 2(V_bi − V)/W = 2 × 10.817 / 1.68×10⁻⁶ = 1.29×10⁷ V/m
 
-**Answer:** **V_bi = 0.817 V; W = 0.46 μm at 0 V and 1.68 μm at −10 V; E_max = 1.29×10⁵ V/cm.**
+**Answer:** **V_bi = 0.817 V; W = 4.6×10⁻⁷ m (0.46 μm) at 0 V and 1.68×10⁻⁶ m (1.68 μm) at −10 V; E_max = 1.29×10⁷ V/m.**
 
-**What this means:** the depletion region lies almost entirely in the lightly doped n side and grows as the square root of the voltage. The peak field is still below the roughly 3×10⁵ V/cm at which silicon breaks down, so the junction safely blocks 10 V.
+**What this means:** the depletion region lies almost entirely in the lightly doped n side and grows as the square root of the voltage. The peak field is still below the roughly 3×10⁷ V/m at which silicon breaks down, so the junction safely blocks 10 V.
 
 ### 5. Diode current
 
-**Question.** The diode of Q4 has area 10⁻³ cm² and I_s = 1×10⁻¹⁴ A. Find the current at 0.6 V and the voltage for 1 mA.
+**Question.** The diode of Q4 has area 10⁻⁷ m² and I_s = 1×10⁻¹⁴ A. Find the current at 0.6 V and the voltage for 1 mA.
 
 **Given:** I_s = 10⁻¹⁴ A, kT/q = 0.0259 V, ideal diode (η = 1).
 
@@ -593,9 +593,9 @@ One-sided (N_A ≫ N_D): W = √(2ε_s(V_bi − V)/qN_D).
 
 ### 6. Schottky diode
 
-**Question.** A Schottky diode on n-Si has Φ_B = 0.7 eV. Find J_s at 300 K (A∗∗ = 110 A/cm²K²) and the forward voltage for J = 10 A/cm².
+**Question.** A Schottky diode on n-Si has Φ_B = 0.7 eV. Find J_s at 300 K (A∗∗ = 1.1×10⁶ A/m²K²) and the forward voltage for J = 1×10⁵ A/m².
 
-**Given:** Φ_B = 0.7 eV, T = 300 K, A∗∗ = 110 A/(cm²·K²), J = 10 A/cm², kT/q = 0.0259 V.
+**Given:** Φ_B = 0.7 eV, T = 300 K, A∗∗ = 1.1×10⁶ A/(m²·K²), J = 1×10⁵ A/m², kT/q = 0.0259 V.
 
 **Find:** J_s and V.
 
@@ -605,18 +605,18 @@ One-sided (N_A ≫ N_D): W = √(2ε_s(V_bi − V)/qN_D).
 
 **Solution.**
 
-    J_s = A∗∗T²e^{−qΦ_B/kT} = 110 × 9×10⁴ × e^{−0.7/0.0259} = 9.9×10⁶ × 1.82×10⁻¹² = 1.8×10⁻⁵ A/cm²
-    V = 0.0259 ln(10/1.8×10⁻⁵) = 0.0259 × 13.23 = 0.343 V
+    J_s = A∗∗T²e^{−qΦ_B/kT} = 1.1×10⁶ × 9×10⁴ × e^{−0.7/0.0259} = 9.9×10¹⁰ × 1.82×10⁻¹² = 0.18 A/m²
+    V = 0.0259 ln(1×10⁵/0.18) = 0.0259 × 13.23 = 0.343 V
 
-**Answer:** **J_s ≈ 1.8×10⁻⁵ A/cm²; V ≈ 0.34 V for 10 A/cm².**
+**Answer:** **J_s ≈ 0.18 A/m²; V ≈ 0.34 V for 1×10⁵ A/m².**
 
 **What this means:** a p-n diode needs about 0.7 V for a similar current density, which is why Schottky diodes are used where a low forward drop matters.
 
 ### 7. Doping from C-V
 
-**Question.** A 1/C² plot for a one-sided junction of area 2×10⁻³ cm² has slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping.
+**Question.** A 1/C² plot for a one-sided junction of area 2×10⁻⁷ m² has slope magnitude 4.0×10²⁰ F⁻²V⁻¹. Find the doping.
 
-**Given:** A = 2×10⁻³ cm², |slope| = 4.0×10²⁰ F⁻²V⁻¹, q = 1.6×10⁻¹⁹ C, ε_s = 1.04×10⁻¹² F/cm.
+**Given:** A = 2×10⁻⁷ m², |slope| = 4.0×10²⁰ F⁻²V⁻¹, q = 1.6×10⁻¹⁹ C, ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** N.
 
@@ -626,10 +626,10 @@ One-sided (N_A ≫ N_D): W = √(2ε_s(V_bi − V)/qN_D).
 
 **Solution.**
 
-    N = 2/(qε_sA²|slope|) = 2 / (1.6×10⁻¹⁹ × 1.04×10⁻¹² × (2×10⁻³)² × 4.0×10²⁰)
-      = 2 / (2.66×10⁻¹⁶) = 7.5×10¹⁵ cm⁻³
+    N = 2/(qε_sA²|slope|) = 2 / (1.6×10⁻¹⁹ × 1.04×10⁻¹⁰ × (2×10⁻⁷)² × 4.0×10²⁰)
+      = 2 / (2.66×10⁻²²) = 7.5×10²¹ m⁻³
 
-**Answer:** **N ≈ 7.5×10¹⁵ cm⁻³** (the doping of the lightly doped side).
+**Answer:** **N ≈ 7.5×10²¹ m⁻³** (the doping of the lightly doped side).
 
 **What this means:** a shallower 1/C² line means heavier doping; because N depends on 1/A², a 10 % error in the measured area would give about a 20 % error in this doping.
 
@@ -670,15 +670,15 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 12.3: barrier height from the saturation current
 
-**Question.** A Schottky diode of area 1×10⁻⁴ cm² has I_s = 2×10⁻⁹ A at 300 K. Find the barrier height (A∗∗ = 110 A/cm²K²).
+**Question.** A Schottky diode of area 1×10⁻⁸ m² has I_s = 2×10⁻⁹ A at 300 K. Find the barrier height (A∗∗ = 1.1×10⁶ A/m²K²).
 
-**Given:** I_s = 2×10⁻⁹ A, A = 10⁻⁴ cm², A∗∗ = 110 A/cm²K², T = 300 K.
+**Given:** I_s = 2×10⁻⁹ A, A = 10⁻⁸ m², A∗∗ = 1.1×10⁶ A/m²K², T = 300 K.
 
 **Find:** Φ_B.
 
 **Solution.**
 
-    Φ_B = (kT/q) ln(A∗∗AT²/I_s) = 0.0259 × ln(110 × 10⁻⁴ × 9×10⁴ / 2×10⁻⁹)
+    Φ_B = (kT/q) ln(A∗∗AT²/I_s) = 0.0259 × ln(1.1×10⁶ × 10⁻⁸ × 9×10⁴ / 2×10⁻⁹)
         = 0.0259 × ln(4.95×10¹¹) = 0.0259 × 26.93 = 0.70 eV
 
 **Answer:** **Φ_B ≈ 0.70 eV.**
@@ -687,9 +687,9 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 #### Practice 12.4: doping from two C-V points
 
-**Question.** A one-sided silicon junction of area 1×10⁻³ cm² has C = 20 pF at −1 V and 12 pF at −4 V. Assuming uniform doping, find N and V_bi.
+**Question.** A one-sided silicon junction of area 1×10⁻⁷ m² has C = 20 pF at −1 V and 12 pF at −4 V. Assuming uniform doping, find N and V_bi.
 
-**Given:** C(−1 V) = 20 pF, C(−4 V) = 12 pF, A = 10⁻³ cm², ε_s = 1.04×10⁻¹² F/cm.
+**Given:** C(−1 V) = 20 pF, C(−4 V) = 12 pF, A = 10⁻⁷ m², ε_s = 1.04×10⁻¹⁰ F/m.
 
 **Find:** N and V_bi.
 
@@ -698,27 +698,27 @@ These extra questions practise this week's ideas. Work each one on paper before 
     1/C² at −1 V = 1/(20×10⁻¹²)² = 2.50×10²¹ F⁻²
     1/C² at −4 V = 1/(12×10⁻¹²)² = 6.94×10²¹ F⁻²
     |slope| = (6.94 − 2.50)×10²¹ / 3 = 1.48×10²¹ F⁻²V⁻¹
-    N = 2/(qε_sA²|slope|) = 2/(1.6×10⁻¹⁹ × 1.04×10⁻¹² × 10⁻⁶ × 1.48×10²¹) = 8.1×10¹⁵ cm⁻³
+    N = 2/(qε_sA²|slope|) = 2/(1.6×10⁻¹⁹ × 1.04×10⁻¹⁰ × 10⁻¹⁴ × 1.48×10²¹) = 8.1×10²¹ m⁻³
     1/C² = |slope|(V_bi − V):  2.50×10²¹ = 1.48×10²¹ (V_bi + 1)  ⇒  V_bi = 0.69 V
 
-**Answer:** **N = 8.1×10¹⁵ cm⁻³, V_bi = 0.69 V.**
+**Answer:** **N = 8.1×10²¹ m⁻³, V_bi = 0.69 V.**
 
 **What this means:** two capacitance readings are enough to estimate both the doping and the built-in potential, but only if the doping is uniform; a real profile needs many points so that the curvature of the 1/C² plot can be seen.
 
 #### Practice 12.5: oxide thickness from MOS C-V
 
-**Question.** A MOS capacitor of area 1×10⁻³ cm² shows a capacitance of 345 pF in accumulation. Find the oxide thickness.
+**Question.** A MOS capacitor of area 1×10⁻⁷ m² shows a capacitance of 345 pF in accumulation. Find the oxide thickness.
 
-**Given:** C = 345 pF, A = 10⁻³ cm², ε_ox = 3.45×10⁻¹³ F/cm.
+**Given:** C = 345 pF, A = 10⁻⁷ m², ε_ox = 3.45×10⁻¹¹ F/m.
 
 **Find:** t_ox.
 
 **Solution.**
 
-    C_ox = C/A = 345×10⁻¹² / 10⁻³ = 3.45×10⁻⁷ F/cm²
-    t_ox = ε_ox/C_ox = 3.45×10⁻¹³ / 3.45×10⁻⁷ = 1×10⁻⁶ cm
+    C_ox = C/A = 345×10⁻¹² / 10⁻⁷ = 3.45×10⁻³ F/m²
+    t_ox = ε_ox/C_ox = 3.45×10⁻¹¹ / 3.45×10⁻³ = 1×10⁻⁸ m
 
-**Answer:** **t_ox = 10 nm.**
+**Answer:** **t_ox = 1×10⁻⁸ m (10 nm).**
 
 #### Practice 12.6: why one-sided?
 
