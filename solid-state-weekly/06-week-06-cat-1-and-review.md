@@ -89,7 +89,7 @@ Every important word used this week is defined here, so you can read this week o
 
 **Unit cell.** The smallest block of the lattice that, repeated in all three directions, rebuilds the whole crystal. Atoms on its corners and faces are shared with neighbouring cells (a corner atom counts ⅛, a face atom ½).
 
-**Lattice constant (a).** The edge length of the cubic unit cell, measured in ångströms (Å). For Si a = 5.43 Å; for Ge and GaAs a = 5.65 Å.
+**Lattice constant (a).** The edge length of the cubic unit cell, usually quoted in nanometres (nm). For Si a = 0.543 nm; for Ge and GaAs a = 0.565 nm.
 
 **Diamond cubic structure.** The crystal structure of Si and Ge: a cubic cell holding 8 atoms, each bonded covalently to 4 nearest neighbours (coordination number 4) at distance r_nn = (√3/4)a. Zinc blende, the structure of GaAs, is the same arrangement with two kinds of atom alternating.
 
@@ -99,8 +99,8 @@ Every important word used this week is defined here, so you can read this week o
 
 Where:
 
-- d_hkl = spacing between neighbouring (h k l) planes (Å)
-- a = lattice constant (Å)
+- d_hkl = spacing between neighbouring (h k l) planes (m; usually quoted in nm)
+- a = lattice constant (m; usually quoted in nm)
 - h, k, l = Miller indices (integers)
 
 **Atomic packing factor (APF).** The fraction of the unit-cell volume filled by atoms, treated as hard spheres that touch their nearest neighbours.
@@ -109,8 +109,8 @@ Where:
 
 Where:
 
-- r = atomic radius, half the nearest-neighbour distance (Å)
-- a = lattice constant (Å)
+- r = atomic radius, half the nearest-neighbour distance (m; usually quoted in nm)
+- a = lattice constant (m; usually quoted in nm)
 
 **Valence band and conduction band (E_v, E_c).** The valence band is the highest range of electron energies that is normally full, holding the bonding electrons; its top edge is E_v. The conduction band is the next range above it, normally almost empty; its bottom edge is E_c. Electrons in the conduction band move freely and carry current.
 
@@ -144,7 +144,7 @@ Where:
 
 *Why it matters:* 1 − f(E) is the probability of a hole, and f combined with the number of states gives n and p.
 
-**Intrinsic semiconductor (n_i).** A pure semiconductor whose free electrons and holes come only from broken bonds, so n = p = n_i, the intrinsic carrier concentration (1×10¹⁰ cm⁻³ for Si and 2.4×10¹³ cm⁻³ for Ge at 300 K). Its Fermi level, the intrinsic level E_i, lies close to mid-gap.
+**Intrinsic semiconductor (n_i).** A pure semiconductor whose free electrons and holes come only from broken bonds, so n = p = n_i, the intrinsic carrier concentration (1×10¹⁶ m⁻³ for Si and 2.4×10¹⁹ m⁻³ for Ge at 300 K). Its Fermi level, the intrinsic level E_i, lies close to mid-gap.
 
 **Doping and compensation.** Doping is adding a small, controlled amount of impurity: donors (e.g. P) give electrons and make the material n-type; acceptors (e.g. B) create holes and make it p-type. When both are present they partly cancel (compensation), and the material behaves as if doped with the difference, N_D − N_A or N_A − N_D.
 
@@ -156,21 +156,21 @@ Where:
 
 Where:
 
-- n, p = electron and hole concentrations (cm⁻³)
-- n_i = intrinsic carrier concentration (cm⁻³)
+- n, p = electron and hole concentrations (m⁻³)
+- n_i = intrinsic carrier concentration (m⁻³)
 
 *Why it matters:* it gives the minority concentration as soon as the majority concentration is known.
 
-**Mobility and conductivity (μ, σ).** Mobility is the drift speed a carrier reaches per unit electric field, in cm²/(V·s). Conductivity measures how easily the material carries current; resistivity ρ = 1/σ is its inverse.
+**Mobility and conductivity (μ, σ).** Mobility is the drift speed a carrier reaches per unit electric field, in m²/(V·s). Conductivity measures how easily the material carries current; resistivity ρ = 1/σ is its inverse.
 
     σ = q (n μ_n + p μ_p)
 
 Where:
 
-- σ = conductivity (S/cm); ρ = 1/σ (Ω·cm)
+- σ = conductivity (S/m); ρ = 1/σ (Ω·m)
 - q = electronic charge, 1.6×10⁻¹⁹ C
-- n, p = electron and hole concentrations (cm⁻³)
-- μ_n, μ_p = electron and hole mobilities (cm²/(V·s)); Si 1350 and 480, Ge 3900 and 1900
+- n, p = electron and hole concentrations (m⁻³)
+- μ_n, μ_p = electron and hole mobilities (m²/(V·s)); Si 0.135 and 0.048, Ge 0.39 and 0.19
 
 ## Review: what you must be able to do
 
@@ -198,26 +198,26 @@ Where:
 
 ## Practice test (60 minutes)
 
-Use q = 1.6×10⁻¹⁹ C, kT = 0.0259 eV at 300 K, Si: n_i = 1×10¹⁰ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, μ_n = 1350, μ_p = 480 cm²/V·s; Ge: n_i = 2.4×10¹³ cm⁻³, μ_n = 3900, μ_p = 1900 cm²/V·s.
+Use q = 1.6×10⁻¹⁹ C, kT = 0.0259 eV at 300 K, Si: n_i = 1×10¹⁶ m⁻³, N_c = 2.8×10²⁵ m⁻³, μ_n = 0.135, μ_p = 0.048 m²/V·s; Ge: n_i = 2.4×10¹⁹ m⁻³, μ_n = 0.39, μ_p = 0.19 m²/V·s.
 
-1. Silicon has lattice constant 5.43 Å. Calculate (a) the number of atoms per cm³ and (b) the nearest-neighbour distance.
+1. Silicon has lattice constant 0.543 nm. Calculate (a) the number of atoms per m³ and (b) the nearest-neighbour distance.
 2. Find the Miller indices of planes with intercepts (a) 3a, 2b, c and (b) a, −b, ∞. For (a), find the interplanar spacing in Si.
 3. Show that the atomic packing factor of the diamond structure is 0.34.
 4. State three differences between direct and indirect band-gap semiconductors and give the emission wavelength of GaAs.
 5. Find the probability that a state (a) 0.1 eV above E_F and (b) kT above E_F is occupied at 300 K.
 6. At what temperature is there a 10⁻⁴ probability that a state 0.30 eV above E_F is occupied?
 7. In a Si sample at 300 K the Fermi level is 0.25 eV below E_c. Find n and p. Is it n- or p-type?
-8. Si is doped with N_A = 1×10¹⁶ cm⁻³ and N_D = 3×10¹⁵ cm⁻³. Find n, p and the Fermi level position at 300 K.
-9. Germanium is doped with N_D = 1×10¹⁵ cm⁻³. Find n and p at 300 K, without assuming n_i is negligible.
+8. Si is doped with N_A = 1×10²² m⁻³ and N_D = 3×10²¹ m⁻³. Find n, p and the Fermi level position at 300 K.
+9. Germanium is doped with N_D = 1×10²¹ m⁻³. Find n and p at 300 K, without assuming n_i is negligible.
 10. Calculate the conductivity and resistivity of intrinsic germanium at 300 K.
 
 ## Solutions
 
 ### 1. Atom density and nearest neighbours in Si
 
-**Question.** Silicon has lattice constant 5.43 Å. Calculate (a) the number of atoms per cm³ and (b) the nearest-neighbour distance.
+**Question.** Silicon has lattice constant 0.543 nm. Calculate (a) the number of atoms per m³ and (b) the nearest-neighbour distance.
 
-**Given:** a = 5.43 Å = 5.43×10⁻⁸ cm; diamond cubic structure, 8 atoms per unit cell.
+**Given:** a = 0.543 nm = 5.43×10⁻¹⁰ m; diamond cubic structure, 8 atoms per unit cell.
 
 **Find:** (a) atom density N, (b) nearest-neighbour distance r_nn.
 
@@ -229,19 +229,19 @@ Use q = 1.6×10⁻¹⁹ C, kT = 0.0259 eV at 300 K, Si: n_i = 1×10¹⁰ cm⁻³
 
 The diamond unit cell holds 8 atoms (8 corners × ⅛ + 6 faces × ½ + 4 inside).
 
-    (a) N = 8/a³ = 8/(5.43×10⁻⁸ cm)³ = 8/(1.601×10⁻²² cm³) = 5.0×10²² atoms/cm³
+    (a) N = 8/a³ = 8/(5.43×10⁻¹⁰ m)³ = 8/(1.601×10⁻²⁸ m³) = 5.0×10²⁸ atoms/m³
 
-    (b) r_nn = (√3/4)a = 0.433 × 5.43 Å = 2.35 Å
+    (b) r_nn = (√3/4)a = 0.433 × 5.43×10⁻¹⁰ m = 2.35×10⁻¹⁰ m (0.235 nm)
 
-**Answer:** **(a) N = 5.0×10²² atoms/cm³; (b) r_nn = 2.35 Å.**
+**Answer:** **(a) N = 5.0×10²⁸ atoms/m³; (b) r_nn = 2.35×10⁻¹⁰ m (0.235 nm).**
 
-**What this means:** a typical doping of 10¹⁶ cm⁻³ replaces only one silicon atom in every 5 million, yet it changes the conductivity enormously. The 2.35 Å spacing is the length of each covalent Si–Si bond.
+**What this means:** a typical doping of 10²² m⁻³ replaces only one silicon atom in every 5 million, yet it changes the conductivity enormously. The 0.235 nm spacing is the length of each covalent Si–Si bond.
 
 ### 2. Miller indices
 
 **Question.** Find the Miller indices of planes with intercepts (a) 3a, 2b, c and (b) a, −b, ∞. For (a), find the interplanar spacing in Si.
 
-**Given:** intercepts (a) 3, 2, 1 and (b) 1, −1, ∞ (in units of a); a = 5.43 Å.
+**Given:** intercepts (a) 3, 2, 1 and (b) 1, −1, ∞ (in units of a); a = 0.543 nm.
 
 **Find:** the Miller indices of each plane, and d for plane (a).
 
@@ -257,13 +257,13 @@ The diamond unit cell holds 8 atoms (8 corners × ⅛ + 6 faces × ½ + 4 inside
 | Reciprocals | 1/3 | 1/2 | 1 |
 | × 6 | 2 | 3 | 6 |
 
-(a) **(2 3 6)**. d₂₃₆ = 5.43/√(4 + 9 + 36) = 5.43/7 = **0.776 Å**.
+(a) **(2 3 6)**. d₂₃₆ = 0.543/√(4 + 9 + 36) = 0.543/7 = **0.0776 nm** (7.76×10⁻¹¹ m).
 
 (b) Intercepts 1, −1, ∞ → reciprocals 1, −1, 0 → **(1 1̄ 0)**, a plane parallel to z.
 
-**Answer:** **(a) (2 3 6), d₂₃₆ = 0.776 Å; (b) (1 1̄ 0).**
+**Answer:** **(a) (2 3 6), d₂₃₆ = 0.0776 nm (7.76×10⁻¹¹ m); (b) (1 1̄ 0).**
 
-**What this means:** high-index planes such as (2 3 6) lie very close together (less than 1 Å apart, about a third of the bond length) but each holds few atoms, whereas low-index planes such as (1 1̄ 0) are widely spaced (5.43/√2 = 3.84 Å) and densely packed with atoms.
+**What this means:** high-index planes such as (2 3 6) lie very close together (less than 0.1 nm apart, about a third of the bond length) but each holds few atoms, whereas low-index planes such as (1 1̄ 0) are widely spaced (0.543/√2 = 0.384 nm) and densely packed with atoms.
 
 ### 3. Packing factor of diamond
 
@@ -368,7 +368,7 @@ Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴
 
 **Question.** In a Si sample at 300 K the Fermi level is 0.25 eV below E_c. Find n and p. Is it n- or p-type?
 
-**Given:** E_c − E_F = 0.25 eV, N_c = 2.8×10¹⁹ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.0259 eV.
+**Given:** E_c − E_F = 0.25 eV, N_c = 2.8×10²⁵ m⁻³, n_i = 1×10¹⁶ m⁻³, kT = 0.0259 eV.
 
 **Find:** n, p and the type.
 
@@ -378,19 +378,19 @@ Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴
 
 **Solution.**
 
-    n = N_c e^{−(E_c−E_F)/kT} = 2.8×10¹⁹ × e^{−0.25/0.0259} = 2.8×10¹⁹ × e^{−9.65}
-      = 2.8×10¹⁹ × 6.4×10⁻⁵ = 1.8×10¹⁵ cm⁻³
-    p = n_i²/n = 10²⁰/1.8×10¹⁵ = 5.6×10⁴ cm⁻³
+    n = N_c e^{−(E_c−E_F)/kT} = 2.8×10²⁵ × e^{−0.25/0.0259} = 2.8×10²⁵ × e^{−9.65}
+      = 2.8×10²⁵ × 6.4×10⁻⁵ = 1.8×10²¹ m⁻³
+    p = n_i²/n = 10³²/1.8×10²¹ = 5.6×10¹⁰ m⁻³
 
-**Answer:** **n = 1.8×10¹⁵ cm⁻³, p = 5.6×10⁴ cm⁻³.** n ≫ p, so the sample is **n-type** (doped with about 1.8×10¹⁵ cm⁻³ donors).
+**Answer:** **n = 1.8×10²¹ m⁻³, p = 5.6×10¹⁰ m⁻³.** n ≫ p, so the sample is **n-type** (doped with about 1.8×10²¹ m⁻³ donors).
 
 **What this means:** the Fermi level sits about 0.31 eV above mid-gap, which corresponds to light n-type doping; the electrons outnumber the holes by about 3×10¹⁰ to one.
 
 ### 8. Compensated silicon
 
-**Question.** Si is doped with N_A = 1×10¹⁶ cm⁻³ and N_D = 3×10¹⁵ cm⁻³. Find n, p and the Fermi level position at 300 K.
+**Question.** Si is doped with N_A = 1×10²² m⁻³ and N_D = 3×10²¹ m⁻³. Find n, p and the Fermi level position at 300 K.
 
-**Given:** N_A = 1×10¹⁶ cm⁻³, N_D = 3×10¹⁵ cm⁻³, n_i = 1×10¹⁰ cm⁻³, kT = 0.0259 eV.
+**Given:** N_A = 1×10²² m⁻³, N_D = 3×10²¹ m⁻³, n_i = 1×10¹⁶ m⁻³, kT = 0.0259 eV.
 
 **Find:** n, p and E_i − E_F.
 
@@ -400,21 +400,21 @@ Since f is small, use the Boltzmann form: f ≈ e^{−(E − E_F)/kT} = 10⁻⁴
 
 **Solution.**
 
-N_A > N_D, so the material is p-type with net doping N_A − N_D = 7×10¹⁵ cm⁻³ ≫ n_i.
+N_A > N_D, so the material is p-type with net doping N_A − N_D = 7×10²¹ m⁻³ ≫ n_i.
 
-    p ≈ 7×10¹⁵ cm⁻³
-    n = n_i²/p = 10²⁰/7×10¹⁵ = 1.4×10⁴ cm⁻³
+    p ≈ 7×10²¹ m⁻³
+    n = n_i²/p = 10³²/7×10²¹ = 1.4×10¹⁰ m⁻³
     E_i − E_F = kT ln(p/n_i) = 0.0259 × ln(7×10⁵) = 0.0259 × 13.46 = 0.349 eV
 
-**Answer:** **p = 7×10¹⁵ cm⁻³, n = 1.4×10⁴ cm⁻³; the Fermi level is 0.349 eV below E_i.**
+**Answer:** **p = 7×10²¹ m⁻³, n = 1.4×10¹⁰ m⁻³; the Fermi level is 0.349 eV below E_i.**
 
-**What this means:** the donors cancel 30 % of the acceptors, so the sample behaves as p-type silicon with 7×10¹⁵ cm⁻³ acceptors. Both dopants still scatter carriers, however, so the mobility is that for 1.3×10¹⁶ cm⁻³ total impurities.
+**What this means:** the donors cancel 30 % of the acceptors, so the sample behaves as p-type silicon with 7×10²¹ m⁻³ acceptors. Both dopants still scatter carriers, however, so the mobility is that for 1.3×10²² m⁻³ total impurities.
 
 ### 9. Lightly doped germanium
 
-**Question.** Germanium is doped with N_D = 1×10¹⁵ cm⁻³. Find n and p at 300 K, without assuming n_i is negligible.
+**Question.** Germanium is doped with N_D = 1×10²¹ m⁻³. Find n and p at 300 K, without assuming n_i is negligible.
 
-**Given:** N_D = 1×10¹⁵ cm⁻³, N_A = 0, n_i(Ge) = 2.4×10¹³ cm⁻³.
+**Given:** N_D = 1×10²¹ m⁻³, N_A = 0, n_i(Ge) = 2.4×10¹⁹ m⁻³.
 
 **Find:** n and p.
 
@@ -424,21 +424,21 @@ N_A > N_D, so the material is p-type with net doping N_A − N_D = 7×10¹⁵ cm
 
 **Solution.**
 
-n_i = 2.4×10¹³ is not negligible compared with N_D = 10¹⁵, so use the exact neutrality solution:
+n_i = 2.4×10¹⁹ m⁻³ is not negligible compared with N_D = 10²¹ m⁻³, so use the exact neutrality solution:
 
-    n = N_D/2 + √((N_D/2)² + n_i²) = 5×10¹⁴ + √(2.5×10²⁹ + 5.76×10²⁶)
-      = 5×10¹⁴ + 5.006×10¹⁴ = 1.0006×10¹⁵ cm⁻³
-    p = n_i²/n = 5.76×10²⁶/1.0006×10¹⁵ = 5.76×10¹¹ cm⁻³
+    n = N_D/2 + √((N_D/2)² + n_i²) = 5×10²⁰ + √(2.5×10⁴¹ + 5.76×10³⁸)
+      = 5×10²⁰ + 5.006×10²⁰ = 1.0006×10²¹ m⁻³
+    p = n_i²/n = 5.76×10³⁸/1.0006×10²¹ = 5.76×10¹⁷ m⁻³
 
-**Answer:** **n = 1.0006×10¹⁵ cm⁻³ ≈ N_D, p = 5.76×10¹¹ cm⁻³.**
+**Answer:** **n = 1.0006×10²¹ m⁻³ ≈ N_D, p = 5.76×10¹⁷ m⁻³.**
 
-**What this means:** n is still essentially N_D, but the minority concentration (5.8×10¹¹ cm⁻³) is about 6×10⁶ times larger than in silicon with the same doping (10⁵ cm⁻³): this is why Ge diodes leak so much.
+**What this means:** n is still essentially N_D, but the minority concentration (5.8×10¹⁷ m⁻³) is about 6×10⁶ times larger than in silicon with the same doping (10¹¹ m⁻³): this is why Ge diodes leak so much.
 
 ### 10. Intrinsic germanium
 
 **Question.** Calculate the conductivity and resistivity of intrinsic germanium at 300 K.
 
-**Given:** n = p = n_i = 2.4×10¹³ cm⁻³, μ_n = 3900, μ_p = 1900 cm²/V·s, q = 1.6×10⁻¹⁹ C.
+**Given:** n = p = n_i = 2.4×10¹⁹ m⁻³, μ_n = 0.39, μ_p = 0.19 m²/V·s, q = 1.6×10⁻¹⁹ C.
 
 **Find:** σ_i and ρ_i.
 
@@ -448,13 +448,13 @@ n_i = 2.4×10¹³ is not negligible compared with N_D = 10¹⁵, so use the exac
 
 **Solution.**
 
-    σ_i = q n_i (μ_n + μ_p) = 1.6×10⁻¹⁹ × 2.4×10¹³ × (3900 + 1900)
-        = 1.6×10⁻¹⁹ × 1.392×10¹⁷ = 0.0223 S/cm
-    ρ_i = 1/σ_i = 44.9 Ω·cm
+    σ_i = q n_i (μ_n + μ_p) = 1.6×10⁻¹⁹ × 2.4×10¹⁹ × (0.39 + 0.19)
+        = 1.6×10⁻¹⁹ × 1.392×10¹⁹ = 2.23 S/m
+    ρ_i = 1/σ_i = 0.449 Ω·m
 
-**Answer:** **σ_i = 0.0223 S/cm, ρ_i = 44.9 Ω·cm.**
+**Answer:** **σ_i = 2.23 S/m, ρ_i = 0.449 Ω·m.**
 
-**What this means:** for comparison, intrinsic Si is about 3×10⁵ Ω·cm, nearly 10⁴ times higher, because its band gap is larger (1.12 eV against 0.66 eV) and so far fewer carriers are thermally freed.
+**What this means:** for comparison, intrinsic Si is about 3×10³ Ω·m, nearly 10⁴ times higher, because its band gap is larger (1.12 eV against 0.66 eV) and so far fewer carriers are thermally freed.
 
 ---
 
@@ -492,15 +492,15 @@ These extra questions practise this week's ideas. Work each one on paper before 
 
 **Question.** In p-type silicon at 300 K the Fermi level is 0.10 eV above the valence band. Find the hole concentration.
 
-**Given:** E_F − E_v = 0.10 eV, N_v = 1.04×10¹⁹ cm⁻³, kT = 0.0259 eV.
+**Given:** E_F − E_v = 0.10 eV, N_v = 1.04×10²⁵ m⁻³, kT = 0.0259 eV.
 
 **Find:** p.
 
 **Solution.**
 
-    p = N_v e^{−(E_F − E_v)/kT} = 1.04×10¹⁹ × e^{−3.86} = 1.04×10¹⁹ × 0.0211 = 2.2×10¹⁷ cm⁻³
+    p = N_v e^{−(E_F − E_v)/kT} = 1.04×10²⁵ × e^{−3.86} = 1.04×10²⁵ × 0.0211 = 2.2×10²³ m⁻³
 
-**Answer:** **p = 2.2×10¹⁷ cm⁻³.**
+**Answer:** **p = 2.2×10²³ m⁻³.**
 
 #### Practice 6.4: probability of a hole
 
@@ -533,4 +533,4 @@ Use this table to confirm you have met this week's objectives. Cover the Answer 
 | 1 | Revise crystal structures, Miller indices and bonding (Week 1). | Find the Miller indices for intercepts 2a, 2b, 4c. | 1/2, 1/2, 1/4 → × 4 → (2 2 1). | Review; practice Q1–Q3 |
 | 2 | Revise energy bands and direct/indirect gaps (Week 4). | State one property that distinguishes a direct-gap semiconductor. | Efficient light emission (also: CB minimum and VB maximum at the same k). | Practice Q4 |
 | 3 | Calculate occupation probabilities with the Fermi–Dirac function (Week 5). | What is f at E = E_F + kT? | 1/(1 + e) = 0.269. | Practice Q5–Q6 |
-| 4 | Calculate n, p and E_F for doped and compensated silicon and germanium (Weeks 4–5). | Si with E_F 0.25 eV below E_c: n-type or p-type? | n-type (n = 1.8×10¹⁵ cm⁻³). | Practice Q7–Q10 |
+| 4 | Calculate n, p and E_F for doped and compensated silicon and germanium (Weeks 4–5). | Si with E_F 0.25 eV below E_c: n-type or p-type? | n-type (n = 1.8×10²¹ m⁻³). | Practice Q7–Q10 |

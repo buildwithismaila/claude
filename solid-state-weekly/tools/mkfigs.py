@@ -1006,10 +1006,10 @@ for ND, col, dash in ((1e14, SIG2, "5 3"), (1e15, INK, None), (1e16, SIG, None),
     p.curve(pts, col, 2, dash=dash)
     i_lab = {1e14: 56, 1e15: 92, 1e16: 128, 1e17: 160}[ND]
     Tl, El = pts[i_lab]
-    p.text(Tl, El, f"N_D = 10^{{{int(round(math.log10(ND)))}}}", anchor="start", dx=3,
+    p.text(Tl, El, f"N_D = 10^{{{int(round(math.log10(ND))) + 6}}} m^{{−3}}", anchor="start", dx=3,
            dy=(14 if ND == 1e14 else -7), size=10, color=col)
 write("fermi-vs-t.svg", figure(560, 225, [p],
-      "Fermi level above the intrinsic level against temperature for silicon doped with ten to the 14, 15, 16 and 17 donors per cubic centimetre; each falls towards zero at high temperature"))
+      "Fermi level above the intrinsic level against temperature for silicon doped with ten to the 20, 21, 22 and 23 donors per cubic metre; each falls towards zero at high temperature"))
 
 # --- Week 11: Schottky contact under bias -------------------------------
 s = Sketch()
