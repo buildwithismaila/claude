@@ -3,6 +3,133 @@
 
 Every formula the 50 questions need, grouped by topic, with the question numbers that use it. Learn the boxed results of the derivations (Q27, Q37, Q48) by heart; the rest you should be able to rebuild from them. Every symbol is explained in the table that follows.
 
+## Symbols and abbreviations used on this page
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
+| h | Planck constant | 6.626×10⁻³⁴ J·s |
+| ħ | Reduced Planck constant, h/2π | 1.055×10⁻³⁴ J·s |
+| m₀ | Free-electron mass | 9.11×10⁻³¹ kg |
+| ε₀ | Permittivity of free space | 8.854×10⁻¹⁴ F/cm |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| ε_r | Relative permittivity (dielectric constant) | Si 11.7, SiO₂ 3.9, GaAs 12.9 |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_c (E_C) | Energy of the bottom of the conduction band | eV |
+| E_v (E_V) | Energy of the top of the valence band | eV |
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| E_a | Activation energy of dopant diffusion | eV; about 3–4 eV |
+| f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
+| g(E), g_c, g_v | Density of states: allowed states per unit energy per unit volume | states/(eV·cm³) |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| p_n0, n_p0 | Equilibrium minority concentrations: holes on the n side, electrons on the p side | cm⁻³; p_n0 = n_i²/N_D |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| Δn, Δp | Excess electron and hole concentrations above equilibrium | cm⁻³ |
+| m∗, m_n∗, m_p∗ | Effective mass of electrons or holes | kg, or as a multiple of m₀ |
+| ψ | Wave function (\|ψ\|² is the probability density) | — |
+| V(x) | Potential energy in the Schrödinger equation | J or eV |
+| k (wave vector) | Wave vector, 2π/λ; measures the electron's momentum, p = ħk | m⁻¹ or cm⁻¹ |
+| α (Kronig–Penney) | √(2mE)/ħ, set by the electron energy | m⁻¹ |
+| P (Kronig–Penney) | Barrier strength mV₀ba/ħ² | dimensionless |
+| λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
+| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| (h k l), {h k l} | Miller indices of a plane; family of equivalent planes | integers |
+| d_hkl | Spacing between neighbouring (h k l) planes, a/√(h² + k² + l²) | Å |
+| k₀ | Segregation coefficient, C_s/C_l at the freezing interface | dimensionless; B 0.8, P 0.35 |
+| C_s | Surface concentration of a diffusion (or solid concentration when freezing) | cm⁻³ |
+| C_l, C₀ | Concentration in the melt (liquid); C₀ at the start | cm⁻³ |
+| C(x, t) | Dopant concentration at depth x and time t | cm⁻³ |
+| D | Diffusion coefficient (dopants in a furnace, or carriers) | cm²/s |
+| D₀ | Diffusion constant in D = D₀e^{−E_a/kT} | cm²/s |
+| F | Particle flux in Fick's law | particles/(cm²·s) |
+| Q | Dose: dopant atoms per unit area (in Weeks 13–14, Q also means charge) | atoms/cm² (C or C/cm² for charge) |
+| Φ (dose) | Implanted dose (ions per cm²) | cm⁻² |
+| erfc | Complementary error function, erfc(u) = 1 − erf(u); read from a table | dimensionless |
+| x_j | Junction depth: where the dopant concentration equals the background | μm |
+| N_B (C_B) | Background doping of the wafer (in Week 13, N_B is the base doping) | cm⁻³ |
+| R_p | Projected range: average depth at which implanted ions stop | μm |
+| ΔR_p | Straggle: spread of the implanted ions' stopping depths | μm |
+| E (field) | Electric field (on band diagrams, E is energy instead) | V/cm |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| μ_L, μ_I | Mobility limited by lattice scattering, by ionised-impurity scattering | cm²/(V·s) |
+| v_d | Drift velocity | cm/s |
+| v_sat | Saturation velocity at high field | ≈ 10⁷ cm/s in Si |
+| τ_m | Mean free time between collisions | s; about 0.1–1 ps |
+| σ | Conductivity, q(nμ_n + pμ_p) (in Week 8, σ is also a capture cross-section) | S/cm (siemens per cm) |
+| ρ | Resistivity, 1/σ | Ω·cm |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| G, G_L | Generation rate of electron–hole pairs (G_L: by light) | cm⁻³s⁻¹ |
+| R | Recombination rate | cm⁻³s⁻¹ |
+| U | Net recombination rate, R − G | cm⁻³s⁻¹ |
+| τ, τ_n, τ_p | Minority-carrier lifetime (τ_eff: effective, including surfaces) | s; Si 1 ns – 1 ms |
+| N_t | Density of traps (recombination centres) | cm⁻³ |
+| n₁, p₁ | SRH parameters n_ie^{(E_t − E_i)/kT} and n_ie^{(E_i − E_t)/kT} | cm⁻³ |
+| L, L_n, L_p | Diffusion length √(Dτ): distance a minority carrier travels before recombining | μm or cm |
+| S | Surface recombination velocity | cm/s |
+| N_st | Density of surface traps | cm⁻² |
+| U_s | Recombination rate per unit area at a surface | cm⁻²s⁻¹ |
+| V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| x_n, x_p | Parts of the depletion region on the n side and on the p side | μm |
+| E_max | Peak electric field, at the junction | V/cm |
+| I_s, J_s (I_S) | Saturation current (density) of a diode or transistor | A; A/cm² |
+| I | Current | A |
+| η | Ideality factor of a diode, 1 (ideal) to 2 | dimensionless |
+| C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
+| Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
+| Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
+| χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
+| Φ_B | Schottky barrier height seen from the metal | eV (or V) |
+| A∗∗ | Effective Richardson constant | A/(cm²·K²); n-Si ≈ 110 |
+| μ_i, τ_i (μ_L, μ_I, N_I) | Mobility and scattering time for one scattering mechanism (L: lattice, I: ionised impurity); N_I = ionised-impurity density | cm²/(V·s); s; cm⁻³ |
+| G_n, G_p, R_n, R_p | Generation and recombination rates of electrons and holes | cm⁻³s⁻¹ |
+| τ_b (τ_bulk), τ_surface | Lifetime from bulk recombination only; from surface recombination only | s |
+| U_s, p_s, Δp_s | Surface recombination rate; hole density and excess at the surface | cm⁻²s⁻¹; cm⁻³ |
+| n_n0, p_p0, p_n0, n_p0 | Equilibrium densities: majority (n_n0, p_p0) and minority (p_n0 holes on n side, n_p0 electrons on p side) | cm⁻³ |
+| p_n, n_p | Minority-carrier density: holes on the n side, electrons on the p side | cm⁻³ |
+| erfc(u), erfc⁻¹ | Complementary error function, 1 − erf(u), and its inverse (read from a table) | dimensionless |
+| N(x), N(W) | Doping concentration at depth x (or at the depletion edge W), from C-V profiling | cm⁻³ |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| SiO₂ | Silicon dioxide (silica), the oxide insulator |
+| MG-Si | Metallurgical-grade silicon (≈ 98 % pure) |
+| EG-Si | Electronic-grade silicon (99.9999999 % or better) |
+| CZ | Czochralski crystal growth |
+| CVD | Chemical vapour deposition |
+| VPE | Vapour-phase epitaxy |
+| SRH | Shockley–Read–Hall (trap-assisted) recombination |
+| I-V | Current–voltage (measurement or characteristic) |
+| C-V | Capacitance–voltage (measurement or characteristic) |
+
+
 ## Physical constants
 
 | Quantity | Symbol | Value |

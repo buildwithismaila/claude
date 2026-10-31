@@ -3,6 +3,65 @@
 
 Three full practice papers built from the 50 questions. Each question combines two or three of the 50, the way exam questions often do, and some parts change the numbers so you cannot simply recall an answer. The layout (eight questions, answer any five, 3 hours) is a practice format only: follow the instructions printed on your real paper.
 
+## Symbols and abbreviations used on this page
+
+Every symbol, constant and abbreviation on this page is listed here, even if an earlier week already defined it, so you can study this page on its own.
+
+**Constants and units**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| q | Magnitude of the electronic charge | 1.6×10⁻¹⁹ C |
+| k | Boltzmann constant | 8.617×10⁻⁵ eV/K = 1.381×10⁻²³ J/K |
+| kT | Thermal energy | 0.0259 eV (often 0.02585 eV) at 300 K |
+| kT/q | Thermal voltage | 0.0259 V (about 26 mV) at 300 K |
+| ε_s (ε_si) | Permittivity of silicon, 11.7ε₀ | 1.04×10⁻¹² F/cm |
+| eV | Electron-volt, a unit of energy | 1 eV = 1.6×10⁻¹⁹ J |
+| Å | Ångström, a unit of length | 1 Å = 10⁻¹⁰ m = 0.1 nm |
+| μm | Micrometre (micron) | 1 μm = 10⁻⁴ cm = 10⁻⁶ m |
+
+**Symbols**
+
+| Symbol | Meaning | Units / typical value |
+|---|---|---|
+| E_g | Band-gap energy, E_c − E_v | eV; Si 1.12, Ge 0.66, GaAs 1.42 at 300 K |
+| E_F | Fermi level: the energy at which a state has a 50 % chance of being occupied | eV |
+| E_i | Intrinsic Fermi level, close to mid-gap | eV |
+| f(E) | Fermi–Dirac function: probability that a state at energy E is occupied | dimensionless, 0 to 1 |
+| N_c | Effective density of states in the conduction band | cm⁻³; Si 2.8×10¹⁹ at 300 K |
+| N_v | Effective density of states in the valence band | cm⁻³; Si 1.04×10¹⁹ at 300 K |
+| n | Electron concentration (free electrons per cm³) | cm⁻³ |
+| p | Hole concentration (holes per cm³) | cm⁻³ |
+| n_i | Intrinsic carrier concentration (n = p = n_i in pure material) | cm⁻³; Si ≈ 1×10¹⁰ at 300 K |
+| N_D | Donor concentration | cm⁻³ |
+| N_A | Acceptor concentration | cm⁻³ |
+| λ | Wavelength | μm or nm; λ(μm) = 1.24/E(eV) |
+| a | Lattice constant: edge length of the cubic unit cell | Å; Si 5.43, Ge and GaAs 5.65 |
+| μ, μ_n, μ_p | Mobility: drift velocity per unit field (electrons, holes) | cm²/(V·s); Si μ_n 1350, μ_p 480 |
+| J, J_n, J_p | Current density (total, electrons, holes) | A/cm² |
+| D_n, D_p | Diffusion coefficients of electrons and holes | cm²/s; Si 35 and 12.4 |
+| S | Surface recombination velocity | cm/s |
+| V_bi | Built-in potential of a junction or Schottky contact | V; typically 0.5–1 V |
+| W | Depletion-region width (in Week 13 W_B, W_E are base and emitter widths; in Week 14 W is channel width) | μm or cm |
+| C, C_j | Capacitance (junction or depletion capacitance) | F (pF = 10⁻¹² F) |
+| Φ_m | Work function of a metal | eV; Al 4.28, Au 5.1 |
+| Φ_s | Work function of a semiconductor, χ + (E_c − E_F) | eV |
+| χ | Electron affinity: energy from E_c up to the vacuum level | eV; Si 4.05 |
+| Φ_B | Schottky barrier height seen from the metal | eV (or V) |
+
+**Abbreviations**
+
+| Abbreviation | Meaning |
+|---|---|
+| Si | Silicon |
+| Ge | Germanium |
+| GaAs | Gallium arsenide |
+| VPE | Vapour-phase epitaxy |
+| LPE | Liquid-phase epitaxy |
+| MBE | Molecular-beam epitaxy |
+| n⁺ | Very heavily doped n-type (similarly p⁺) |
+
+
 **How to use them.** Sit each paper in one go, timed, with only a calculator and the constants below. Then mark yourself: the marking guide after each paper says which model answers to use, and gives the answers to the new numerical parts.
 
 **Constants (supplied in each paper):** q = 1.6×10⁻¹⁹ C; kT/q = 0.0259 V at 300 K; for Si: n_i = 1×10¹⁰ cm⁻³, N_c = 2.8×10¹⁹ cm⁻³, N_v = 1.04×10¹⁹ cm⁻³, E_g = 1.12 eV, χ = 4.05 eV, ε_s = 1.04×10⁻¹² F/cm, μ_n = 1350 cm²/V·s, μ_p = 480 cm²/V·s, lattice constant 5.43 Å.
