@@ -29,7 +29,7 @@ A practical Schottky diode contains both: a rectifying contact on top and an ohm
 
 # 2. Key terms and definitions
 
-**Metal.** A material with a very large density of free electrons (about $10^{28}\ \mathrm{m^{-3}}$), so it conducts very well. Its electron states are filled up to the Fermi level, with empty states immediately above. Examples: aluminium, gold, platinum, titanium, tungsten.
+**Metal.** A material with a very large density of free electrons ($10^{28}$–$10^{29}\ \mathrm{m^{-3}}$; copper has $8.5\times10^{28}\ \mathrm{m^{-3}}$), so it conducts very well. Its electron states are filled up to the Fermi level, with empty states immediately above. Examples: aluminium, gold, platinum, titanium, tungsten.
 
 **Semiconductor.** A material whose conductivity lies between that of a metal and an insulator and can be controlled by doping, temperature, light and electric field. Examples: silicon (Si), germanium (Ge), gallium arsenide (GaAs).
 
@@ -156,7 +156,7 @@ For the gold contact of Example 2 below ($\mathcal{E}_{\max} = 5.1\times10^{6}\ 
 
 # 5. Energy band diagrams under applied bias
 
-When a voltage is applied, the two sides are no longer in equilibrium, so there is no single flat Fermi level: the semiconductor's Fermi level moves by $qV$ relative to the metal's. **The key rule: the barrier seen from the metal, $q\Phi_{Bn}$, stays fixed; the applied voltage appears across the depletion region and changes only the barrier seen from the semiconductor** (Figure 7).
+The applied voltage is defined as $V = V_m - V_s$, the potential of the metal terminal minus that of the semiconductor terminal: **forward bias** means $V > 0$ (metal positive, for n-type) and **reverse bias** means $V < 0$, written $V = -V_R$. When a voltage is applied, the two sides are no longer in equilibrium, so there is no single flat Fermi level: the semiconductor's Fermi level moves by $qV$ relative to the metal's. **The key rule: the barrier seen from the metal, $q\Phi_{Bn}$, stays fixed; the applied voltage appears across the depletion region and changes only the barrier seen from the semiconductor** (Figure 7).
 
 ![Figure 7. The Schottky contact at equilibrium, under forward bias and under reverse bias. The barrier from the metal, $q\Phi_{Bn}$, does not change. Forward bias lowers the semiconductor-side barrier to $q(V_{bi} - V)$ and narrows W; reverse bias raises it to $q(V_{bi} + V_R)$ and widens $W$.](figures/bias.png){width=100%}
 
@@ -169,7 +169,7 @@ When a voltage is applied, the two sides are no longer in equilibrium, so there 
 | Electrons metal → semiconductor | small, over $q\Phi_{Bn}$ | unchanged | unchanged: this is the saturation current |
 | Net current | zero | large, rises exponentially | small, about $-I_s$ |
 
-At large reverse voltage the field becomes strong enough for **breakdown**. Schottky diodes break down at lower voltages than comparable p–n diodes.
+In the ideal model the reverse current approaches $-I_s$ once the reverse voltage is a few times $kT/q$ (about 0.1 V). At large reverse voltage the field becomes strong enough for **breakdown**. Schottky diodes break down at lower voltages than comparable p–n diodes.
 
 # 6. Current transport: thermionic emission
 
@@ -240,6 +240,8 @@ the barrier becomes only a few nanometres thick. Electrons then **tunnel** strai
 
 # 8. Schottky contact versus ohmic contact
 
+**Why both contacts are needed.** A practical device usually contains both. A Schottky diode has its rectifying contact on one side and an ohmic contact on the other (Figure 1): the Schottky contact gives the rectification, while the ohmic contact lets the current enter or leave without an extra barrier or voltage drop. In a solar cell every contact must be ohmic; an accidental rectifying contact adds resistance, lowers the fill factor and reduces the output power.
+
 | Feature | Schottky contact | Ohmic contact |
 |---|---|---|
 | Electrical behaviour | rectifying | non-rectifying |
@@ -292,7 +294,23 @@ $$\mathcal{E}_{\max} = \frac{(1.6\times10^{-19})(1\times10^{22})(3.3\times10^{-7
 
 **Answer:** $\Phi_{Bn} = 1.05\ \mathrm{eV}$, $V_{bi} = 0.84\ \mathrm{V}$, $W = 3.3\times10^{-7}\ \mathrm{m}$ (0.33 μm), $\mathcal{E}_{\max} = 5.1\times10^{6}\ \mathrm{V\,m^{-1}}$. **What this means:** the barrier is 0.33 μm thick, far too thick to tunnel through, so the contact rectifies. In practice Fermi-level pinning gives a measured $\Phi_{Bn} \approx 0.80\ \mathrm{eV}$ for gold on n-Si.
 
-## Example 3: barrier height from the work function
+## Example 3: the depletion width under bias
+
+**Question.** For the gold contact of Example 2, find the depletion width at a forward bias of 0.30 V and at a reverse bias of 5 V.
+
+**Given:** $V_{bi} = 0.84\ \mathrm{V}$, $N_D = 1\times10^{22}\ \mathrm{m^{-3}}$, $\varepsilon_s = 1.04\times10^{-10}\ \mathrm{F\,m^{-1}}$; $V = +0.30\ \mathrm{V}$ and $V = -5\ \mathrm{V}$. **Find:** $W$ in each case.
+
+**Formula:** $W = \sqrt{2\varepsilon_s(V_{bi} - V)/qN_D}$.
+
+**Solution.**
+
+$$W_{\mathrm{fwd}} = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.84 - 0.30)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 2.65\times10^{-7}\ \mathrm{m}$$
+
+$$W_{\mathrm{rev}} = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.84 + 5)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 8.71\times10^{-7}\ \mathrm{m}$$
+
+**Answer:** $W = 0.265\ \mu\mathrm{m}$ at 0.30 V forward and $0.871\ \mu\mathrm{m}$ at 5 V reverse (against $0.330\ \mu\mathrm{m}$ at zero bias). **What this means:** forward bias narrows the depletion region and lowers the semiconductor-side barrier; reverse bias widens it, $\sqrt{5.84/0.84} = 2.6$ times here, which also lowers the junction capacitance.
+
+## Example 4: barrier height from the work function
 
 **Question.** A metal with $\Phi_m = 4.70\ \mathrm{eV}$ contacts n-type silicon. Find the ideal barrier height.
 
@@ -300,7 +318,23 @@ $$\mathcal{E}_{\max} = \frac{(1.6\times10^{-19})(1\times10^{22})(3.3\times10^{-7
 
 **Answer:** $\Phi_{Bn} = 0.65\ \mathrm{eV}$. **What this means:** an electron in the metal needs at least 0.65 eV, about 25 times $kT$, to enter the semiconductor; only a tiny fraction have it, which is why the reverse current is small.
 
-## Example 4: forward current of a Schottky diode
+## Example 5: saturation current and turn-on voltage
+
+**Question.** A Schottky diode on n-type silicon has a measured barrier height of 0.80 eV. Find the saturation current density at 300 K, and the forward voltage needed for $J = 1\times10^{4}\ \mathrm{A\,m^{-2}}$ (1 A per square centimetre).
+
+**Given:** $\Phi_{Bn} = 0.80\ \mathrm{V}$, $A^{**} = 1.1\times10^{6}\ \mathrm{A\,m^{-2}\,K^{-2}}$, $T = 300\ \mathrm{K}$, $kT/q = 0.0259\ \mathrm{V}$, $\eta = 1$. **Find:** $J_s$ and $V$.
+
+**Formulas:** $J_s = A^{**}T^{2}\exp\left(-q\Phi_{Bn}/kT\right)$; for $J \gg J_s$, $V = (kT/q)\ln\left(J/J_s\right)$.
+
+**Solution.**
+
+$$J_s = (1.1\times10^{6})(300)^{2}\exp\left(-\frac{0.80}{0.0259}\right) = (9.9\times10^{10})(3.85\times10^{-14}) = 3.8\times10^{-3}\ \mathrm{A\,m^{-2}}$$
+
+$$V = (0.0259)\ln\left(\frac{1\times10^{4}}{3.8\times10^{-3}}\right) = (0.0259)(14.8) = 0.38\ \mathrm{V}$$
+
+**Answer:** $J_s = 3.8\times10^{-3}\ \mathrm{A\,m^{-2}}$; the diode carries $1\times10^{4}\ \mathrm{A\,m^{-2}}$ at about 0.38 V. **What this means:** a silicon p–n diode needs about 0.7 V for the same current density, because its saturation current density is many orders of magnitude smaller. This is why Schottky diodes are used as low-loss rectifiers.
+
+## Example 6: forward current of a Schottky diode
 
 **Question.** An ideal Schottky diode ($\eta = 1$) has a saturation current of 2 μA. Find the current at a forward voltage of 0.20 V at 300 K.
 
@@ -314,7 +348,7 @@ $$I = (2\times10^{-6})\left[\exp\left(\frac{0.20}{0.02585}\right) - 1\right] = (
 
 **Answer:** $I = 4.58\ \mathrm{mA}$. **What this means:** only 0.2 V raises the current more than two-thousand-fold above $I_s$; every further 0.1 V multiplies it by $\exp(0.1/0.02585) \approx 48$.
 
-## Example 5: why heavy doping gives an ohmic contact
+## Example 7: why heavy doping gives an ohmic contact
 
 **Question.** The voltage across the depletion region under a contact on n-Si is 0.60 V. Find $W$ for $N_D = 1\times10^{22}$ and $1\times10^{25}\ \mathrm{m^{-3}}$.
 
@@ -328,7 +362,7 @@ $$W = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.60)}{(1.6\times10^{-19})\,(1\times
 
 **Answer:** 279 nm at $10^{22}\ \mathrm{m^{-3}}$ and 8.8 nm at $10^{25}\ \mathrm{m^{-3}}$ (a thousand times the doping, $\sqrt{1000} = 31.6$ times thinner). **What this means:** electrons cannot tunnel through 279 nm, so the lightly doped contact rectifies; a barrier under about 10 nm thick passes a large tunnelling current, so the heavily doped contact is ohmic, even though the barrier height is unchanged.
 
-## Example 6: a contact on p-type silicon
+## Example 8: a contact on p-type silicon
 
 **Question.** Aluminium ($\Phi_m = 4.28\ \mathrm{eV}$) is deposited on p-type silicon. Find the ideal barrier height for holes.
 

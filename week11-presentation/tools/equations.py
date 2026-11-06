@@ -57,6 +57,11 @@ EQ = {
     "flat":          r"$E_{F,m} = E_{F,s} = E_F$",
     "bias-fwd":      r"$q\left(V_{bi} - V\right)$",
     "bias-rev":      r"$q\left(V_{bi} + V_R\right)$",
+    "ex-Wf":     r"$W_{\mathrm{fwd}} = \sqrt{\dfrac{2\,(1.04\times10^{-10})\,(0.84 - 0.30)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 2.65\times10^{-7}\ \mathrm{m}$",
+    "ex-Wr":     r"$W_{\mathrm{rev}} = \sqrt{\dfrac{2\,(1.04\times10^{-10})\,(0.84 + 5)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 8.71\times10^{-7}\ \mathrm{m}$",
+    "ex-Js":     r"$J_s = (1.1\times10^{6})(300)^{2}\exp\!\left(-\dfrac{0.80}{0.0259}\right) = 3.8\times10^{-3}\ \mathrm{A\,m^{-2}}$",
+    "ex-V":      r"$V = (0.0259)\ln\!\left(\dfrac{1\times10^{4}}{3.8\times10^{-3}}\right) = (0.0259)(14.8) = 0.38\ \mathrm{V}$",
+    "V-Js":      r"$V = \dfrac{kT}{q}\,\ln\!\left(\dfrac{J}{J_s}\right)$",
     "Astar":         r"$A^{*\!*}$",
     "W-sum":         r"$W(10^{22}\ \mathrm{m^{-3}}) = 279\ \mathrm{nm}\qquad W(10^{25}\ \mathrm{m^{-3}}) = 8.8\ \mathrm{nm}$",
 }

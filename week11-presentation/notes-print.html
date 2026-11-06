@@ -95,8 +95,10 @@ oxide ring insulates the edges of the metal.</figcaption>
 </figure>
 <h1 id="key-terms-and-definitions">2. Key terms and definitions</h1>
 <p><strong>Metal.</strong> A material with a very large density of free
-electrons (about
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>28</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{28}\ \mathrm{m^{-3}}</annotation></semantics></math>),
+electrons
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>28</mn></msup><annotation encoding="application/x-tex">10^{28}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>29</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{29}\ \mathrm{m^{-3}}</annotation></semantics></math>;
+copper has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8.5</mn><mo>×</mo><msup><mn>10</mn><mn>28</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">8.5\times10^{28}\ \mathrm{m^{-3}}</annotation></semantics></math>),
 so it conducts very well. Its electron states are filled up to the Fermi
 level, with empty states immediately above. Examples: aluminium, gold,
 platinum, titanium, tungsten.</p>
@@ -465,9 +467,18 @@ small, but it grows with reverse bias and is one reason the reverse
 current of a Schottky diode does not fully saturate.</p>
 <h1 id="energy-band-diagrams-under-applied-bias">5. Energy band diagrams
 under applied bias</h1>
-<p>When a voltage is applied, the two sides are no longer in
-equilibrium, so there is no single flat Fermi level: the semiconductor’s
-Fermi level moves by
+<p>The applied voltage is defined as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><msub><mi>V</mi><mi>m</mi></msub><mo>−</mo><msub><mi>V</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">V = V_m - V_s</annotation></semantics></math>,
+the potential of the metal terminal minus that of the semiconductor
+terminal: <strong>forward bias</strong> means
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">V &gt; 0</annotation></semantics></math>
+(metal positive, for n-type) and <strong>reverse bias</strong> means
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">V &lt; 0</annotation></semantics></math>,
+written
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo>−</mo><msub><mi>V</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">V = -V_R</annotation></semantics></math>.
+When a voltage is applied, the two sides are no longer in equilibrium,
+so there is no single flat Fermi level: the semiconductor’s Fermi level
+moves by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">qV</annotation></semantics></math>
 relative to the metal’s. <strong>The key rule: the barrier seen from the
 metal,
@@ -560,9 +571,13 @@ larger</td>
 </tr>
 </tbody>
 </table>
-<p>At large reverse voltage the field becomes strong enough for
-<strong>breakdown</strong>. Schottky diodes break down at lower voltages
-than comparable p–n diodes.</p>
+<p>In the ideal model the reverse current approaches
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><msub><mi>I</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">-I_s</annotation></semantics></math>
+once the reverse voltage is a few times
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mi>/</mi><mi>q</mi></mrow><annotation encoding="application/x-tex">kT/q</annotation></semantics></math>
+(about 0.1 V). At large reverse voltage the field becomes strong enough
+for <strong>breakdown</strong>. Schottky diodes break down at lower
+voltages than comparable p–n diodes.</p>
 <h1 id="current-transport-thermionic-emission">6. Current transport:
 thermionic emission</h1>
 <p>In a Schottky diode the current is carried by <strong>majority
@@ -813,6 +828,14 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\rho_c</annotation></semantics></math>.</p>
 <h1 id="schottky-contact-versus-ohmic-contact">8. Schottky contact
 versus ohmic contact</h1>
+<p><strong>Why both contacts are needed.</strong> A practical device
+usually contains both. A Schottky diode has its rectifying contact on
+one side and an ohmic contact on the other (Figure 1): the Schottky
+contact gives the rectification, while the ohmic contact lets the
+current enter or leave without an extra barrier or voltage drop. In a
+solar cell every contact must be ohmic; an accidental rectifying contact
+adds resistance, lowers the fill factor and reduces the output
+power.</p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -961,7 +984,38 @@ thick to tunnel through, so the contact rectifies. In practice
 Fermi-level pinning gives a measured
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>≈</mo><mn>0.80</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} \approx 0.80\ \mathrm{eV}</annotation></semantics></math>
 for gold on n-Si.</p>
-<h2 id="example-3-barrier-height-from-the-work-function">Example 3:
+<h2 id="example-3-the-depletion-width-under-bias">Example 3: the
+depletion width under bias</h2>
+<p><strong>Question.</strong> For the gold contact of Example 2, find
+the depletion width at a forward bias of 0.30 V and at a reverse bias of
+5 V.</p>
+<p><strong>Given:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mn>0.84</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V_{bi} = 0.84\ \mathrm{V}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D = 1\times10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>s</mi></msub><mo>=</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">F</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\varepsilon_s = 1.04\times10^{-10}\ \mathrm{F\,m^{-1}}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo>+</mo><mn>0.30</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V = +0.30\ \mathrm{V}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo>−</mo><mn>5</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V = -5\ \mathrm{V}</annotation></semantics></math>.
+<strong>Find:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+in each case.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">W = \sqrt{2\varepsilon_s(V_{bi} - V)/qN_D}</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">w</mi><mi mathvariant="normal">d</mi></mrow></msub><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.84</mn><mo>−</mo><mn>0.30</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></msqrt><mo>=</mo><mn>2.65</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W_{\mathrm{fwd}} = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.84 - 0.30)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 2.65\times10^{-7}\ \mathrm{m}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>W</mi><mrow><mi mathvariant="normal">r</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">v</mi></mrow></msub><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.84</mn><mo>+</mo><mn>5</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></msqrt><mo>=</mo><mn>8.71</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W_{\mathrm{rev}} = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.84 + 5)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 8.71\times10^{-7}\ \mathrm{m}</annotation></semantics></math></p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>0.265</mn><mspace width="0.222em"></mspace><mi>μ</mi><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W = 0.265\ \mu\mathrm{m}</annotation></semantics></math>
+at 0.30 V forward and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.871</mn><mspace width="0.222em"></mspace><mi>μ</mi><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">0.871\ \mu\mathrm{m}</annotation></semantics></math>
+at 5 V reverse (against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.330</mn><mspace width="0.222em"></mspace><mi>μ</mi><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">0.330\ \mu\mathrm{m}</annotation></semantics></math>
+at zero bias). <strong>What this means:</strong> forward bias narrows
+the depletion region and lowers the semiconductor-side barrier; reverse
+bias widens it,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mn>5.84</mn><mi>/</mi><mn>0.84</mn></mrow></msqrt><mo>=</mo><mn>2.6</mn></mrow><annotation encoding="application/x-tex">\sqrt{5.84/0.84} = 2.6</annotation></semantics></math>
+times here, which also lowers the junction capacitance.</p>
+<h2 id="example-4-barrier-height-from-the-work-function">Example 4:
 barrier height from the work function</h2>
 <p><strong>Question.</strong> A metal with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>4.70</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 4.70\ \mathrm{eV}</annotation></semantics></math>
@@ -977,7 +1031,40 @@ least 0.65 eV, about 25 times
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">kT</annotation></semantics></math>,
 to enter the semiconductor; only a tiny fraction have it, which is why
 the reverse current is small.</p>
-<h2 id="example-4-forward-current-of-a-schottky-diode">Example 4:
+<h2 id="example-5-saturation-current-and-turn-on-voltage">Example 5:
+saturation current and turn-on voltage</h2>
+<p><strong>Question.</strong> A Schottky diode on n-type silicon has a
+measured barrier height of 0.80 eV. Find the saturation current density
+at 300 K, and the forward voltage needed for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">J = 1\times10^{4}\ \mathrm{A\,m^{-2}}</annotation></semantics></math>
+(1 A per square centimetre).</p>
+<p><strong>Given:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>0.80</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 0.80\ \mathrm{V}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><mo>=</mo><mn>1.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">K</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">A^{**} = 1.1\times10^{6}\ \mathrm{A\,m^{-2}\,K^{-2}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mn>300</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">K</mi></mrow><annotation encoding="application/x-tex">T = 300\ \mathrm{K}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mi>/</mi><mi>q</mi><mo>=</mo><mn>0.0259</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">kT/q = 0.0259\ \mathrm{V}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\eta = 1</annotation></semantics></math>.
+<strong>Find:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>J</mi><mi>s</mi></msub><annotation encoding="application/x-tex">J_s</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>.</p>
+<p><strong>Formulas:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mi>s</mi></msub><mo>=</mo><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><msup><mi>T</mi><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mi>/</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">J_s = A^{**}T^{2}\exp\left(-q\Phi_{Bn}/kT\right)</annotation></semantics></math>;
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>≫</mo><msub><mi>J</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">J \gg J_s</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mi>T</mi><mi>/</mi><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>J</mi><mi>/</mi><msub><mi>J</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">V = (kT/q)\ln\left(J/J_s\right)</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mi>s</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>300</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mfrac><mn>0.80</mn><mn>0.0259</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>9.9</mn><mo>×</mo><msup><mn>10</mn><mn>10</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>3.85</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>14</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3.8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">J_s = (1.1\times10^{6})(300)^{2}\exp\left(-\frac{0.80}{0.0259}\right) = (9.9\times10^{10})(3.85\times10^{-14}) = 3.8\times10^{-3}\ \mathrm{A\,m^{-2}}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.0259</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><mrow><mn>3.8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.0259</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>14.8</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.38</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V = (0.0259)\ln\left(\frac{1\times10^{4}}{3.8\times10^{-3}}\right) = (0.0259)(14.8) = 0.38\ \mathrm{V}</annotation></semantics></math></p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mi>s</mi></msub><mo>=</mo><mn>3.8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">J_s = 3.8\times10^{-3}\ \mathrm{A\,m^{-2}}</annotation></semantics></math>;
+the diode carries
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>4</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">1\times10^{4}\ \mathrm{A\,m^{-2}}</annotation></semantics></math>
+at about 0.38 V. <strong>What this means:</strong> a silicon p–n diode
+needs about 0.7 V for the same current density, because its saturation
+current density is many orders of magnitude smaller. This is why
+Schottky diodes are used as low-loss rectifiers.</p>
+<h2 id="example-6-forward-current-of-a-schottky-diode">Example 6:
 forward current of a Schottky diode</h2>
 <p><strong>Question.</strong> An ideal Schottky diode
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\eta = 1</annotation></semantics></math>)
@@ -1003,7 +1090,7 @@ than two-thousand-fold above
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>s</mi></msub><annotation encoding="application/x-tex">I_s</annotation></semantics></math>;
 every further 0.1 V multiplies it by
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.1</mn><mi>/</mi><mn>0.02585</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>≈</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">\exp(0.1/0.02585) \approx 48</annotation></semantics></math>.</p>
-<h2 id="example-5-why-heavy-doping-gives-an-ohmic-contact">Example 5:
+<h2 id="example-7-why-heavy-doping-gives-an-ohmic-contact">Example 7:
 why heavy doping gives an ohmic contact</h2>
 <p><strong>Question.</strong> The voltage across the depletion region
 under a contact on n-Si is 0.60 V. Find
@@ -1028,7 +1115,7 @@ tunnel through 279 nm, so the lightly doped contact rectifies; a barrier
 under about 10 nm thick passes a large tunnelling current, so the
 heavily doped contact is ohmic, even though the barrier height is
 unchanged.</p>
-<h2 id="example-6-a-contact-on-p-type-silicon">Example 6: a contact on
+<h2 id="example-8-a-contact-on-p-type-silicon">Example 8: a contact on
 p-type silicon</h2>
 <p><strong>Question.</strong> Aluminium
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>4.28</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 4.28\ \mathrm{eV}</annotation></semantics></math>)

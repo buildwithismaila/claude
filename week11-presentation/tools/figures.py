@@ -195,7 +195,7 @@ def bias():
     fig, axs = plt.subplots(1, 3, figsize=(13.5, 4.6))
     titles = ["Equilibrium,  $V=0$", "Forward bias,  $V>0$", "Reverse bias,  $V=-V_R$"]
     shifts = [0, 45, -45]                      # semiconductor E_F moves by qV
-    for ax, title, sh in zip(axs, titles, shifts):
+    def draw(ax, title, sh):
         ax.set_xlim(0, 450); ax.set_ylim(0, 420); ax.axis("off")
         xm0, xi, xe = 10, 140, 440
         yFm, Vbi0, gap = 190, 75, 125
@@ -232,8 +232,16 @@ def bias():
         ax.text(225, 405, title, ha="center", fontsize=20.2)
         flow = {0: "net current\nzero", 45: "many electrons\ncross: large\ncurrent",
                 -45: "flow blocked:\nsmall current\n$I\\approx -I_s$"}[sh]
+    for ax, title, sh in zip(axs, titles, shifts):
+        draw(ax, title, sh)
     fig.subplots_adjust(wspace=0.05, left=0.01, right=0.99, top=0.98, bottom=0.02)
     save(fig, "bias")
+    # the same three panels as separate images, for a step-by-step slide
+    for name, title, sh in zip(("bias-eq", "bias-fwd", "bias-rev"), titles, shifts):
+        f1, a1 = plt.subplots(figsize=(4.5, 4.6))
+        draw(a1, title, sh)
+        f1.subplots_adjust(left=0.01, right=0.99, top=0.98, bottom=0.02)
+        save(f1, name)
 
 
 # ---------------------------------------------------------------------------
