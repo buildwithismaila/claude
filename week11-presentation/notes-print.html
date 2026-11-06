@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Metal–Semiconductor Interfaces</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="tools/print.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Metal–Semiconductor Interfaces</h1>
+<p class="subtitle">ELE 717 Solid State Electronics · Week 11 · Group
+presentation notes</p>
+</header>
+<p><strong>Subtopics:</strong> (1) Schottky barrier diode physics versus
+ohmic contact mechanisms; (2) energy band diagrams under equilibrium and
+applied bias.</p>
+<p><strong>Learning objectives.</strong> After this topic you should be
+able to:</p>
+<ol type="1">
+<li>Define work function, electron affinity and Fermi level, and relate
+them for a doped semiconductor.</li>
+<li>Draw the energy band diagram of a metal and an n-type semiconductor
+before and after contact.</li>
+<li>Explain how a Schottky barrier forms, and calculate the barrier
+height, built-in potential and depletion width.</li>
+<li>Draw and explain the band diagrams under forward and reverse bias,
+and use the thermionic-emission equation.</li>
+<li>Explain the three ways of making an ohmic contact, and why heavy
+doping works.</li>
+<li>Compare Schottky and ohmic contacts, and answer examination question
+49.</li>
+</ol>
+<p><strong>Units.</strong> All quantities are in SI units. Energies are
+quoted in electron-volts (eV), which SI accepts for use alongside its
+units
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow><mo>=</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">J</mi></mrow><annotation encoding="application/x-tex">1\ \mathrm{eV} = 1.6\times10^{-19}\ \mathrm{J}</annotation></semantics></math>).
+A work function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+is a potential in volts;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>Φ</mi></mrow><annotation encoding="application/x-tex">q\Phi</annotation></semantics></math>
+is the corresponding energy, and its value in eV equals the value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>
+in volts.</p>
+<h1 id="introduction">1. Introduction</h1>
+<p>Every semiconductor device has to be connected to the outside world
+with metal. Where a metal touches a semiconductor, a
+<strong>metal–semiconductor interface</strong> (or
+<strong>contact</strong>) is formed. When the two materials touch,
+electrons move from one to the other until a single Fermi level runs
+through both. This charge transfer can leave an energy barrier at the
+interface, and that barrier decides how current flows. There are two
+kinds of contact:</p>
+<ul>
+<li>A <strong>Schottky contact</strong> has a barrier to majority
+carriers, so it is <strong>rectifying</strong>: current flows easily in
+one direction (forward bias) and very little in the other (reverse
+bias). A diode made this way is a <strong>Schottky barrier diode
+(SBD)</strong>. The rectifying metal–semiconductor contact was explained
+by Walter Schottky and Nevill Mott in 1938–39.</li>
+<li>An <strong>ohmic contact</strong> has no barrier that limits the
+current, so it conducts equally in both directions with a linear
+current–voltage (I–V) graph. Every transistor terminal, solar-cell
+finger and integrated-circuit connection needs one.</li>
+</ul>
+<p>A practical Schottky diode contains both: a rectifying contact on top
+and an ohmic contact underneath (Figure 1).</p>
+<figure>
+<img src="figures/device.png" style="width:78.0%"
+alt="Figure 1. A Schottky barrier diode in cross-section. The metal anode on a lightly doped n-type epitaxial layer forms the rectifying Schottky contact, with a depletion region beneath it. The heavily doped n^{+} substrate and the metal underneath form the ohmic cathode contact. The oxide ring insulates the edges of the metal." />
+<figcaption aria-hidden="true">Figure 1. A Schottky barrier diode in
+cross-section. The metal anode on a lightly doped n-type epitaxial layer
+forms the rectifying Schottky contact, with a depletion region beneath
+it. The heavily doped
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mo>+</mo></msup><annotation encoding="application/x-tex">n^{+}</annotation></semantics></math>
+substrate and the metal underneath form the ohmic cathode contact. The
+oxide ring insulates the edges of the metal.</figcaption>
+</figure>
+<h1 id="key-terms-and-definitions">2. Key terms and definitions</h1>
+<p><strong>Metal.</strong> A material with a very large density of free
+electrons (about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>28</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{28}\ \mathrm{m^{-3}}</annotation></semantics></math>),
+so it conducts very well. Its electron states are filled up to the Fermi
+level, with empty states immediately above. Examples: aluminium, gold,
+platinum, titanium, tungsten.</p>
+<p><strong>Semiconductor.</strong> A material whose conductivity lies
+between that of a metal and an insulator and can be controlled by
+doping, temperature, light and electric field. Examples: silicon (Si),
+germanium (Ge), gallium arsenide (GaAs).</p>
+<p><strong>Doping; n-type and p-type.</strong> Adding a small,
+controlled amount of impurity. Donor atoms (concentration
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>D</mi></msub><annotation encoding="application/x-tex">N_D</annotation></semantics></math>,
+e.g. phosphorus in Si) give free electrons and make the material
+<strong>n-type</strong>; acceptor atoms (concentration
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>A</mi></msub><annotation encoding="application/x-tex">N_A</annotation></semantics></math>,
+e.g. boron) create holes and make it <strong>p-type</strong>. The
+carrier in the majority (electrons in n-type, holes in p-type) is the
+<strong>majority carrier</strong>.</p>
+<p><strong>Band edges and band gap.</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>c</mi></msub><annotation encoding="application/x-tex">E_c</annotation></semantics></math>
+is the bottom of the conduction band (the lowest energy of a free
+electron);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>v</mi></msub><annotation encoding="application/x-tex">E_v</annotation></semantics></math>
+is the top of the valence band. No electron states exist between them.
+The band gap is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>g</mi></msub><mo>=</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">E_g = E_c - E_v</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>g</mi></msub><annotation encoding="application/x-tex">E_g</annotation></semantics></math>
+is the band-gap energy (1.12 eV for Si at 300 K),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>c</mi></msub><annotation encoding="application/x-tex">E_c</annotation></semantics></math>
+the conduction-band edge and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>v</mi></msub><annotation encoding="application/x-tex">E_v</annotation></semantics></math>
+the valence-band edge.</p>
+<p><strong>Fermi level
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math>).</strong>
+The energy at which a state has a 50 % probability of being occupied by
+an electron. In n-type material it lies close to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>c</mi></msub><annotation encoding="application/x-tex">E_c</annotation></semantics></math>,
+in p-type close to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>v</mi></msub><annotation encoding="application/x-tex">E_v</annotation></semantics></math>.
+<strong>At thermal equilibrium the Fermi level is flat: it has the same
+value everywhere in materials that are in contact.</strong> For n-type
+silicon,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo>=</mo><mi>k</mi><mi>T</mi><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><msub><mi>N</mi><mi>c</mi></msub><msub><mi>N</mi><mi>D</mi></msub></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E_c - E_F = kT\ln\left(\frac{N_c}{N_D}\right)</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mo>=</mo><mn>0.0259</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">kT = 0.0259\ \mathrm{eV}</annotation></semantics></math>
+at 300 K,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><mn>2.8</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_c = 2.8\times10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>
+is the effective density of states in the conduction band of Si, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>D</mi></msub><annotation encoding="application/x-tex">N_D</annotation></semantics></math>
+is the donor concentration in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup><annotation encoding="application/x-tex">\mathrm{m^{-3}}</annotation></semantics></math>.</p>
+<p><strong>Vacuum level
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">c</mi></mrow></msub><annotation encoding="application/x-tex">E_{\mathrm{vac}}</annotation></semantics></math>).</strong>
+The energy of an electron at rest just outside the material. It is the
+common reference from which the other energies below are measured.</p>
+<p><strong>Work function
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Φ</mi><annotation encoding="application/x-tex">\Phi</annotation></semantics></math>).</strong>
+The minimum energy needed to take an electron from the Fermi level to
+the vacuum level:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><msub><mi>E</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">c</mi></mrow></msub><mo>−</mo><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>m</mi></mrow></msub><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><msub><mi>E</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">c</mi></mrow></msub><mo>−</mo><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_m = E_{\mathrm{vac}} - E_{F,m}, \qquad q\Phi_s = E_{\mathrm{vac}} - E_{F,s}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>m</mi></msub><annotation encoding="application/x-tex">\Phi_m</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>s</mi></msub><annotation encoding="application/x-tex">\Phi_s</annotation></semantics></math>
+are the work functions of the metal and of the semiconductor,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>m</mi></mrow></msub><annotation encoding="application/x-tex">E_{F,m}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>s</mi></mrow></msub><annotation encoding="application/x-tex">E_{F,s}</annotation></semantics></math>
+their Fermi levels, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">C</mi></mrow><annotation encoding="application/x-tex">q = 1.6\times10^{-19}\ \mathrm{C}</annotation></semantics></math>
+the electronic charge. A metal with a large work function holds its
+electrons tightly.</p>
+<p><strong>Electron affinity
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math>).</strong>
+The energy from the bottom of the conduction band to the vacuum
+level:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>χ</mi><mo>=</mo><msub><mi>E</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">c</mi></mrow></msub><mo>−</mo><msub><mi>E</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">q\chi = E_{\mathrm{vac}} - E_c</annotation></semantics></math></p>
+<p>Unlike
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>s</mi></msub><annotation encoding="application/x-tex">\Phi_s</annotation></semantics></math>,
+the electron affinity does not depend on doping; it is a fixed property
+of the material (Si 4.05 eV, GaAs 4.07 eV, Ge 4.0 eV). The two are
+related by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mi>q</mi><mi>χ</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_s = q\chi + \left(E_c - E_F\right)</annotation></semantics></math></p>
+<p>so the semiconductor work function <strong>does</strong> change with
+doping, because doping moves
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math>.</p>
+<figure>
+<img src="figures/levels.png" style="width:62.0%"
+alt="Figure 2. Energy levels of an isolated n-type semiconductor. The conduction band starts at E_c and is mostly empty; the valence band below E_v is almost full. The electron affinity q\chi is measured from E_c to the vacuum level, the work function q\Phi_s from E_F." />
+<figcaption aria-hidden="true">Figure 2. Energy levels of an isolated
+n-type semiconductor. The conduction band starts at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>c</mi></msub><annotation encoding="application/x-tex">E_c</annotation></semantics></math>
+and is mostly empty; the valence band below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>v</mi></msub><annotation encoding="application/x-tex">E_v</annotation></semantics></math>
+is almost full. The electron affinity
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>χ</mi></mrow><annotation encoding="application/x-tex">q\chi</annotation></semantics></math>
+is measured from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>c</mi></msub><annotation encoding="application/x-tex">E_c</annotation></semantics></math>
+to the vacuum level, the work function
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">q\Phi_s</annotation></semantics></math>
+from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math>.</figcaption>
+</figure>
+<p><strong>Table 1. Work functions of common contact metals and electron
+affinities of semiconductors.</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Metal</th>
+<th>Al</th>
+<th>Ti</th>
+<th>Cr</th>
+<th>W</th>
+<th>Au</th>
+<th>Ni</th>
+<th>Pt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>m</mi></msub><annotation encoding="application/x-tex">\Phi_m</annotation></semantics></math>
+(eV)</td>
+<td>4.28</td>
+<td>4.33</td>
+<td>4.5</td>
+<td>4.55</td>
+<td>5.10</td>
+<td>5.15</td>
+<td>5.65</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Semiconductor</th>
+<th>Si</th>
+<th>Ge</th>
+<th>GaAs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math>
+(eV)</td>
+<td>4.05</td>
+<td>4.0</td>
+<td>4.07</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>g</mi></msub><annotation encoding="application/x-tex">E_g</annotation></semantics></math>
+(eV)</td>
+<td>1.12</td>
+<td>0.66</td>
+<td>1.42</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Depletion region.</strong> A layer next to the interface
+emptied of free carriers, leaving only the fixed, charged dopant ions
+(positive donor ions in n-type). <strong>Accumulation layer:</strong>
+the opposite, a thin layer with extra majority carriers.</p>
+<p><strong>Built-in potential
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><annotation encoding="application/x-tex">V_{bi}</annotation></semantics></math>).</strong>
+The voltage across the depletion region at equilibrium.</p>
+<p><strong>Thermionic emission.</strong> Carriers crossing
+<strong>over</strong> a barrier using their thermal energy.
+<strong>Tunnelling (field emission):</strong> carriers passing
+<strong>through</strong> a barrier thin enough (a few nanometres), a
+quantum-mechanical effect.</p>
+<h1 id="energy-band-diagram-before-contact">3. Energy band diagram
+before contact</h1>
+<p>Before the materials touch, each has its own Fermi level. Lining them
+up against the common vacuum level (Figure 3) shows which way electrons
+will move on contact. For a metal on <strong>n-type</strong> silicon
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>,
+the semiconductor’s Fermi level lies higher than the metal’s by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(\Phi_m - \Phi_s)</annotation></semantics></math>.
+Electrons always move from the higher Fermi level to the lower one, so
+on contact they will flow <strong>from the semiconductor into the
+metal</strong>.</p>
+<figure>
+<img src="figures/before-contact.png" style="width:88.0%"
+alt="Figure 3. A metal and an n-type semiconductor before contact, measured from the common vacuum level. With \Phi_m &gt; \Phi_s, the semiconductor’s Fermi level lies higher by q(\Phi_m - \Phi_s)." />
+<figcaption aria-hidden="true">Figure 3. A metal and an n-type
+semiconductor before contact, measured from the common vacuum level.
+With
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>,
+the semiconductor’s Fermi level lies higher by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(\Phi_m - \Phi_s)</annotation></semantics></math>.</figcaption>
+</figure>
+<p><strong>Which contact forms depends on the two work functions (ideal
+case):</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Semiconductor</th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math></th>
+<th><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>n-type</td>
+<td>Schottky (rectifying): depletion, bands bend up</td>
+<td>Ohmic: accumulation, bands bend down</td>
+</tr>
+<tr class="even">
+<td>p-type</td>
+<td>Ohmic: hole accumulation</td>
+<td>Schottky (rectifying): bands bend down, barrier to holes</td>
+</tr>
+</tbody>
+</table>
+<h1 id="how-a-schottky-barrier-forms">4. How a Schottky barrier
+forms</h1>
+<p>Consider an ideal metal on n-type silicon with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>,
+and no interface states (the <strong>Schottky–Mott</strong> model). When
+contact is made:</p>
+<ol type="1">
+<li><strong>Electrons flow from the semiconductor into the
+metal</strong>, because the semiconductor’s Fermi level is higher.</li>
+<li><strong>Positive donor ions are left behind.</strong> Near the
+interface the semiconductor loses its free electrons, uncovering the
+fixed ionised donors
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msubsup><mi>N</mi><mi>D</mi><mo>+</mo></msubsup><annotation encoding="application/x-tex">N_D^+</annotation></semantics></math>.</li>
+<li><strong>A depletion region of width
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+forms</strong>, holding positive charge; an equal negative charge sits
+as a thin sheet of extra electrons on the metal surface.</li>
+<li><strong>An electric field appears</strong> between the positive ions
+and the negative sheet, pointing from the semiconductor towards the
+metal.</li>
+<li><strong>The bands bend upward</strong> towards the interface,
+because the field raises the electron energy near the metal.</li>
+<li><strong>The flow stops when the Fermi levels line up.</strong> At
+equilibrium there is a single, flat Fermi level:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>m</mi></mrow></msub><mo>=</mo><msub><mi>E</mi><mrow><mi>F</mi><mo>,</mo><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">E_{F,m} = E_{F,s}</annotation></semantics></math>.
+Electrons still cross in both directions, but the two flows are equal,
+so the net current is zero.</li>
+</ol>
+<figure>
+<img src="figures/equilibrium.png" style="width:88.0%"
+alt="Figure 4. A Schottky contact at equilibrium. The Fermi level is flat; the semiconductor bands bend upward over the depletion width W. An electron in the metal faces the barrier q\Phi_{Bn}; an electron in the semiconductor faces the smaller built-in barrier qV_{bi}. Ionised donors fill the depletion region and a sheet of electrons sits on the metal surface." />
+<figcaption aria-hidden="true">Figure 4. A Schottky contact at
+equilibrium. The Fermi level is flat; the semiconductor bands bend
+upward over the depletion width
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>.
+An electron in the metal faces the barrier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>;
+an electron in the semiconductor faces the smaller built-in barrier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">qV_{bi}</annotation></semantics></math>.
+Ionised donors fill the depletion region and a sheet of electrons sits
+on the metal surface.</figcaption>
+</figure>
+<h2 id="barrier-height-and-built-in-potential">4.1 Barrier height and
+built-in potential</h2>
+<p>There are now two barriers, depending on which side the electron
+starts from (Figure 4).</p>
+<p><strong>Barrier height (seen from the metal).</strong> Because the
+vacuum level is continuous at the interface, the conduction-band edge at
+the interface sits at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>χ</mi></mrow><annotation encoding="application/x-tex">q\chi</annotation></semantics></math>
+below the vacuum level, while the metal Fermi level sits at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">q\Phi_m</annotation></semantics></math>
+below it:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q\left(\Phi_m - \chi\right)</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\Phi_{Bn}</annotation></semantics></math>
+is the Schottky barrier height for electrons (n-type),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>m</mi></msub><annotation encoding="application/x-tex">\Phi_m</annotation></semantics></math>
+the metal work function and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math>
+the electron affinity. This is the <strong>Schottky–Mott rule</strong>.
+The barrier height is set by the interface and <strong>does not change
+with applied bias</strong>.</p>
+<p><strong>Built-in potential (seen from the semiconductor).</strong>
+The total band bending equals the original difference in Fermi
+levels:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">qV_{bi} = q\left(\Phi_m - \Phi_s\right) = q\Phi_{Bn} - \left(E_c - E_F\right)</annotation></semantics></math></p>
+<p><strong>p-type semiconductor.</strong> A rectifying contact needs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>,
+and the barrier is for holes:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub><mo>=</mo><msub><mi>E</mi><mi>g</mi></msub><mo>−</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bp} = E_g - q\left(\Phi_m - \chi\right)</annotation></semantics></math></p>
+<p>so that, for the same metal,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>+</mo><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub><mo>=</mo><msub><mi>E</mi><mi>g</mi></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} + q\Phi_{Bp} = E_g</annotation></semantics></math>.</p>
+<h2 id="the-depletion-region">4.2 The depletion region</h2>
+<p>With the depletion approximation (no free carriers inside
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>&lt;</mo><mi>x</mi><mo>&lt;</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">0 &lt; x &lt; W</annotation></semantics></math>,
+uniform doping), the charge density is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow><annotation encoding="application/x-tex">\rho = qN_D</annotation></semantics></math>
+in the depletion region. Integrating Poisson’s equation once gives a
+field that is largest at the interface and falls linearly to zero at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">x = W</annotation></semantics></math>;
+integrating again gives the parabolic band bending (Figure 5). The
+results are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac></msqrt><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>ℰ</mi><mo>max</mo></msub><mo>=</mo><mfrac><mrow><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub><mi>W</mi></mrow><msub><mi>ε</mi><mi>s</mi></msub></mfrac></mrow><annotation encoding="application/x-tex">W = \sqrt{\frac{2\varepsilon_s\left(V_{bi} - V\right)}{qN_D}}, \qquad \mathcal{E}_{\max} = \frac{qN_D W}{\varepsilon_s}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+is the depletion width (m),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>s</mi></msub><mo>=</mo><mn>11.7</mn><msub><mi>ε</mi><mn>0</mn></msub><mo>=</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">F</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\varepsilon_s = 11.7\varepsilon_0 = 1.04\times10^{-10}\ \mathrm{F\,m^{-1}}</annotation></semantics></math>
+the permittivity of silicon,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+the applied voltage (positive for forward bias),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>D</mi></msub><annotation encoding="application/x-tex">N_D</annotation></semantics></math>
+the donor concentration
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup><annotation encoding="application/x-tex">\mathrm{m^{-3}}</annotation></semantics></math>)
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℰ</mi><mo>max</mo></msub><annotation encoding="application/x-tex">\mathcal{E}_{\max}</annotation></semantics></math>
+the peak electric field at the interface
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">V</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{V\,m^{-1}}</annotation></semantics></math>).
+The depletion region acts like a parallel-plate capacitor of capacitance
+per unit area
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><msub><mi>ε</mi><mi>s</mi></msub><mi>/</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">C = \varepsilon_s/W</annotation></semantics></math>,
+which is the basis of C–V measurement (Week 12).</p>
+<p>Two consequences matter later:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>∝</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">W \propto (V_{bi} - V)^{1/2}</annotation></semantics></math>,
+so reverse bias widens the region; and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>∝</mo><mn>1</mn><mi>/</mi><msqrt><msub><mi>N</mi><mi>D</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">W \propto 1/\sqrt{N_D}</annotation></semantics></math>,
+so heavy doping makes it very thin.</p>
+<figure>
+<img src="figures/depletion.png" style="width:70.0%"
+alt="Figure 5. The depletion region of a Schottky contact: charge density (positive donors, with the balancing electron sheet in the metal), electric field (largest at the interface) and conduction-band edge (bent up by qV_{bi})." />
+<figcaption aria-hidden="true">Figure 5. The depletion region of a
+Schottky contact: charge density (positive donors, with the balancing
+electron sheet in the metal), electric field (largest at the interface)
+and conduction-band edge (bent up by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">qV_{bi}</annotation></semantics></math>).</figcaption>
+</figure>
+<h2
+id="real-interfaces-fermi-level-pinning-and-image-force-lowering">4.3
+Real interfaces: Fermi-level pinning and image-force lowering</h2>
+<p><strong>Fermi-level pinning.</strong> Measured barrier heights depend
+much less on the metal than the Schottky–Mott rule predicts (Figure 6).
+The reason is <strong>interface states</strong>: dangling bonds and
+defects at the surface create electron states in the band gap. They
+hold, or “pin”, the Fermi level near a fixed energy at the surface,
+whatever metal is used. On n-Si most barriers lie between 0.5 and 0.9
+eV; on n-GaAs almost every metal gives about 0.8 eV. <strong>In
+calculations, use a measured barrier height when one is
+given.</strong></p>
+<figure>
+<img src="figures/pinning.png" style="width:70.0%"
+alt="Figure 6. Ideal (\Phi_m - \chi) and typical measured barrier heights for metals on n-type silicon. The measured values vary much less than the ideal ones: the Fermi level is pinned by interface states. Measured values are typical literature values (Sze and Ng)." />
+<figcaption aria-hidden="true">Figure 6. Ideal
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi></mrow><annotation encoding="application/x-tex">\Phi_m - \chi</annotation></semantics></math>)
+and typical measured barrier heights for metals on n-type silicon. The
+measured values vary much less than the ideal ones: the Fermi level is
+pinned by interface states. Measured values are typical literature
+values (Sze and Ng).</figcaption>
+</figure>
+<p><strong>Image-force lowering.</strong> An electron near the metal is
+attracted by the positive “image” charge it induces in the metal. This
+rounds off the top of the barrier and lowers it slightly by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>Φ</mi><mo>=</mo><msqrt><mfrac><mrow><mi>q</mi><mspace width="0.167em"></mspace><msub><mi>ℰ</mi><mo>max</mo></msub></mrow><mrow><mn>4</mn><mi>π</mi><msub><mi>ε</mi><mi>s</mi></msub></mrow></mfrac></msqrt></mrow><annotation encoding="application/x-tex">\Delta\Phi = \sqrt{\frac{q\,\mathcal{E}_{\max}}{4\pi\varepsilon_s}}</annotation></semantics></math></p>
+<p>For the gold contact of Example 2 below
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℰ</mi><mo>max</mo></msub><mo>=</mo><mn>5.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">V</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\mathcal{E}_{\max} = 5.1\times10^{6}\ \mathrm{V\,m^{-1}}</annotation></semantics></math>),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>Φ</mi><mo>≈</mo><mn>0.025</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">\Delta\Phi \approx 0.025\ \mathrm{V}</annotation></semantics></math>:
+small, but it grows with reverse bias and is one reason the reverse
+current of a Schottky diode does not fully saturate.</p>
+<h1 id="energy-band-diagrams-under-applied-bias">5. Energy band diagrams
+under applied bias</h1>
+<p>When a voltage is applied, the two sides are no longer in
+equilibrium, so there is no single flat Fermi level: the semiconductor’s
+Fermi level moves by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">qV</annotation></semantics></math>
+relative to the metal’s. <strong>The key rule: the barrier seen from the
+metal,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>,
+stays fixed; the applied voltage appears across the depletion region and
+changes only the barrier seen from the semiconductor</strong> (Figure
+7).</p>
+<figure>
+<img src="figures/bias.png" style="width:100.0%"
+alt="Figure 7. The Schottky contact at equilibrium, under forward bias and under reverse bias. The barrier from the metal, q\Phi_{Bn}, does not change. Forward bias lowers the semiconductor-side barrier to q(V_{bi} - V) and narrows W; reverse bias raises it to q(V_{bi} + V_R) and widens W." />
+<figcaption aria-hidden="true">Figure 7. The Schottky contact at
+equilibrium, under forward bias and under reverse bias. The barrier from
+the metal,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>,
+does not change. Forward bias lowers the semiconductor-side barrier to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} - V)</annotation></semantics></math>
+and narrows W; reverse bias raises it to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} + V_R)</annotation></semantics></math>
+and widens
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>.</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Equilibrium,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">V = 0</annotation></semantics></math></th>
+<th>Forward bias,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">V &gt; 0</annotation></semantics></math>
+(metal positive)</th>
+<th>Reverse bias,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mo>−</mo><msub><mi>V</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">V = -V_R</annotation></semantics></math>
+(metal negative)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fermi levels</td>
+<td>one flat
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math></td>
+<td>semiconductor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math>
+raised by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">qV</annotation></semantics></math></td>
+<td>semiconductor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>F</mi></msub><annotation encoding="application/x-tex">E_F</annotation></semantics></math>
+lowered by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">qV_R</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>Band bending</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">qV_{bi}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} - V)</annotation></semantics></math>,
+smaller</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} + V_R)</annotation></semantics></math>,
+larger</td>
+</tr>
+<tr class="odd">
+<td>Depletion width</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>W</mi><mn>0</mn></msub><annotation encoding="application/x-tex">W_0</annotation></semantics></math></td>
+<td>narrower</td>
+<td>wider</td>
+</tr>
+<tr class="even">
+<td>Electrons semiconductor → metal</td>
+<td>balance the reverse flow</td>
+<td>increase by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mi>V</mi><mi>/</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\exp(qV/kT)</annotation></semantics></math></td>
+<td>almost stopped</td>
+</tr>
+<tr class="odd">
+<td>Electrons metal → semiconductor</td>
+<td>small, over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math></td>
+<td>unchanged</td>
+<td>unchanged: this is the saturation current</td>
+</tr>
+<tr class="even">
+<td>Net current</td>
+<td>zero</td>
+<td>large, rises exponentially</td>
+<td>small, about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><msub><mi>I</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">-I_s</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>
+<p>At large reverse voltage the field becomes strong enough for
+<strong>breakdown</strong>. Schottky diodes break down at lower voltages
+than comparable p–n diodes.</p>
+<h1 id="current-transport-thermionic-emission">6. Current transport:
+thermionic emission</h1>
+<p>In a Schottky diode the current is carried by <strong>majority
+carriers</strong> (electrons in n-type) crossing <strong>over</strong>
+the barrier. Only electrons with enough thermal energy get over, so the
+current depends exponentially on the barrier height and on
+temperature:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msub><mi>J</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>q</mi><mi>V</mi></mrow><mrow><mi>η</mi><mi>k</mi><mi>T</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>J</mi><mi>s</mi></msub><mo>=</mo><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><mspace width="0.167em"></mspace><msup><mi>T</mi><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mfrac><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><mrow><mi>k</mi><mi>T</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">J = J_s\left[\exp\left(\frac{qV}{\eta kT}\right) - 1\right], \qquad J_s = A^{**}\,T^{2}\exp\left(-\frac{q\Phi_{Bn}}{kT}\right)</annotation></semantics></math></p>
+<p>where</p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>
+is the current density
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{A\,m^{-2}}</annotation></semantics></math>);
+the current is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mi>J</mi><mi>A</mi></mrow><annotation encoding="application/x-tex">I = JA</annotation></semantics></math>
+for a contact of area
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msub><mi>I</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mi>V</mi><mi>/</mi><mi>η</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">I = I_s\left[\exp\left(qV/\eta kT\right) - 1\right]</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>s</mi></msub><mo>=</mo><msub><mi>J</mi><mi>s</mi></msub><mi>A</mi></mrow><annotation encoding="application/x-tex">I_s = J_sA</annotation></semantics></math>;</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>J</mi><mi>s</mi></msub><annotation encoding="application/x-tex">J_s</annotation></semantics></math>
+is the saturation current density
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{A\,m^{-2}}</annotation></semantics></math>);</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+is the applied voltage, positive for forward bias (V);</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math>
+is the ideality factor: 1 for ideal thermionic emission, 1.0–1.1 for a
+good diode (some books write it as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>);</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>1.381</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>23</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">J</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">K</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">k = 1.381\times10^{-23}\ \mathrm{J\,K^{-1}}</annotation></semantics></math>
+is the Boltzmann constant
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mi>/</mi><mi>q</mi><mo>=</mo><mn>0.0259</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">kT/q = 0.0259\ \mathrm{V}</annotation></semantics></math>
+at 300 K) and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+the absolute temperature (K);</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><annotation encoding="application/x-tex">A^{**}</annotation></semantics></math>
+is the effective Richardson constant, about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">K</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">1.1\times10^{6}\ \mathrm{A\,m^{-2}\,K^{-2}}</annotation></semantics></math>
+for n-type Si.</li>
+</ul>
+<p>The I–V curve has the same shape as a p–n diode’s, but
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>J</mi><mi>s</mi></msub><annotation encoding="application/x-tex">J_s</annotation></semantics></math>
+is typically
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>3</mn></msup><annotation encoding="application/x-tex">10^{3}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>8</mn></msup><annotation encoding="application/x-tex">10^{8}</annotation></semantics></math>
+times larger, so the Schottky diode turns on at a lower voltage (about
+0.2–0.4 V on Si, against 0.6–0.7 V) and has a larger reverse leakage
+current (Figure 8). Other transport routes add to thermionic emission in
+real diodes: tunnelling through the top of the barrier at heavy doping
+(thermionic-field emission), recombination in the depletion region, and
+the voltage drop across the series resistance.</p>
+<figure>
+<img src="figures/iv.png" style="width:68.0%"
+alt="Figure 8. Current–voltage curves of a Schottky diode, a silicon p–n diode and an ohmic contact. The Schottky diode turns on at a lower voltage but leaks more in reverse (reverse currents exaggerated for visibility)." />
+<figcaption aria-hidden="true">Figure 8. Current–voltage curves of a
+Schottky diode, a silicon p–n diode and an ohmic contact. The Schottky
+diode turns on at a lower voltage but leaks more in reverse (reverse
+currents exaggerated for visibility).</figcaption>
+</figure>
+<h2 id="schottky-diode-versus-pn-diode">6.1 Schottky diode versus p–n
+diode</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Schottky diode</th>
+<th>p–n junction diode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Current carried by</td>
+<td>majority carriers only</td>
+<td>minority carriers injected and diffusing</td>
+</tr>
+<tr class="even">
+<td>Transport mechanism</td>
+<td>thermionic emission over the barrier</td>
+<td>diffusion</td>
+</tr>
+<tr class="odd">
+<td>Stored minority charge</td>
+<td>practically none</td>
+<td>yes,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo>≈</mo><mi>I</mi><mi>τ</mi></mrow><annotation encoding="application/x-tex">Q \approx I\tau</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>Switching speed</td>
+<td>very fast, no reverse-recovery delay</td>
+<td>slower (recovery time about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math>)</td>
+</tr>
+<tr class="odd">
+<td>Turn-on voltage (Si)</td>
+<td>0.2–0.4 V</td>
+<td>0.6–0.7 V</td>
+</tr>
+<tr class="even">
+<td>Reverse leakage</td>
+<td>higher</td>
+<td>lower</td>
+</tr>
+<tr class="odd">
+<td>Breakdown voltage</td>
+<td>lower</td>
+<td>higher</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Applications of Schottky contacts:</strong> fast, low-loss
+rectifiers in switching power supplies; RF and microwave detectors and
+mixers; clamping diodes that stop transistors saturating (Schottky TTL);
+gates of MESFETs and HEMTs; photodetectors and some solar-cell
+structures.</p>
+<h1 id="ohmic-contacts">7. Ohmic contacts</h1>
+<p>An <strong>ohmic contact</strong> lets current flow equally easily in
+both directions, with a linear I–V characteristic and a resistance
+negligible compared with the device:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>I</mi><msub><mi>R</mi><mi>c</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>R</mi><mi>c</mi></msub><mo>=</mo><mfrac><msub><mi>ρ</mi><mi>c</mi></msub><mi>A</mi></mfrac></mrow><annotation encoding="application/x-tex">V = IR_c, \qquad R_c = \frac{\rho_c}{A}</annotation></semantics></math></p>
+<p>where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>V</mi><annotation encoding="application/x-tex">V</annotation></semantics></math>
+is the voltage across the contact (V),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>
+the current (A),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>R</mi><mi>c</mi></msub><annotation encoding="application/x-tex">R_c</annotation></semantics></math>
+the contact resistance (Ω),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+the contact area
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup><annotation encoding="application/x-tex">\mathrm{m^2}</annotation></semantics></math>),
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\rho_c</annotation></semantics></math>
+the <strong>specific contact resistance</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup></mrow><annotation encoding="application/x-tex">\Omega\,\mathrm{m^2}</annotation></semantics></math>),
+which allows contacts of different sizes to be compared. Good contacts
+reach
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>c</mi></msub><mo>≈</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\rho_c \approx 10^{-10}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mrow><mo>−</mo><mn>12</mn></mrow></msup><mspace width="0.222em"></mspace><mi>Ω</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup></mrow><annotation encoding="application/x-tex">10^{-12}\ \Omega\,\mathrm{m^2}</annotation></semantics></math>.</p>
+<p><strong>An ohmic contact is not necessarily a contact with no
+barrier.</strong> It may have a barrier that is so low, or so thin, that
+it does not restrict the current. There are three ways to make one
+(Figure 9).</p>
+<p><strong>Method 1: a low work-function metal (accumulation).</strong>
+For n-type, choose
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>
+(for p-type,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>).
+On contact, electrons flow from the metal <strong>into</strong> the
+semiconductor and pile up in an accumulation layer; the bands bend
+<strong>downward</strong> and there is no barrier to electrons in either
+direction. In practice, Fermi-level pinning makes suitable metals rare
+for Si and GaAs, so this method alone is unreliable.</p>
+<p><strong>Method 2: heavy doping, so that electrons tunnel (the
+practical method).</strong> Dope the semiconductor very heavily just
+under the contact
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mo>+</mo></msup><annotation encoding="application/x-tex">n^{+}</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>p</mi><mo>+</mo></msup><annotation encoding="application/x-tex">p^{+}</annotation></semantics></math>,
+above about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>).
+The barrier height does not change, but since</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>∝</mo><mfrac><mn>1</mn><msqrt><msub><mi>N</mi><mi>D</mi></msub></msqrt></mfrac></mrow><annotation encoding="application/x-tex">W \propto \frac{1}{\sqrt{N_D}}</annotation></semantics></math></p>
+<p>the barrier becomes only a few nanometres thick. Electrons then
+<strong>tunnel</strong> straight through it in both directions (field
+emission). The specific contact resistance falls steeply, roughly
+exponentially, as the doping rises.</p>
+<p><strong>Method 3: contact engineering.</strong> Clean the surface
+(remove the native oxide), deposit the metal and anneal it so that it
+reacts with the semiconductor to form a stable compound with a low
+barrier: a <strong>silicide</strong>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">S</mi><msub><mi mathvariant="normal">i</mi><mn mathvariant="normal">2</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{TiSi_2}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">S</mi><msub><mi mathvariant="normal">i</mi><mn mathvariant="normal">2</mn></msub></mrow><annotation encoding="application/x-tex">\mathrm{CoSi_2}</annotation></semantics></math>,
+NiSi) on silicon, or an alloyed Au–Ge–Ni contact on n-GaAs. This is
+combined with Method 2 in practice.</p>
+<figure>
+<img src="figures/ohmic.png" style="width:100.0%"
+alt="Figure 9. (a) A lightly doped contact has a thick barrier that electrons can only cross by thermionic emission: rectifying. (b) A heavily doped n^{+} contact has a barrier so thin that electrons tunnel through it: ohmic. (c) A low work-function metal (\Phi_m &lt; \Phi_s) gives downward bending and an accumulation layer with no barrier: ohmic." />
+<figcaption aria-hidden="true">Figure 9. (a) A lightly doped contact has
+a thick barrier that electrons can only cross by thermionic emission:
+rectifying. (b) A heavily doped
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mo>+</mo></msup><annotation encoding="application/x-tex">n^{+}</annotation></semantics></math>
+contact has a barrier so thin that electrons tunnel through it: ohmic.
+(c) A low work-function metal
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>)
+gives downward bending and an accumulation layer with no barrier:
+ohmic.</figcaption>
+</figure>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Thermionic emission</th>
+<th>Tunnelling (field emission)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How the electron crosses</td>
+<td>over the top of the barrier</td>
+<td>through the barrier</td>
+</tr>
+<tr class="even">
+<td>Needs</td>
+<td>enough thermal energy</td>
+<td>a thin barrier (a few nm)</td>
+</tr>
+<tr class="odd">
+<td>Doping under the contact</td>
+<td>light to moderate
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><msup><mn>10</mn><mn>23</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\le 10^{23}\ \mathrm{m^{-3}}</annotation></semantics></math>)</td>
+<td>heavy
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≥</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\ge 10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>)</td>
+</tr>
+<tr class="even">
+<td>Temperature dependence</td>
+<td>strong,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>∝</mo><msup><mi>T</mi><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mi>/</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\propto T^{2}\exp\left(-q\Phi_{Bn}/kT\right)</annotation></semantics></math></td>
+<td>weak</td>
+</tr>
+<tr class="odd">
+<td>Gives</td>
+<td>Schottky (rectifying) contact</td>
+<td>ohmic contact</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Applications of ohmic contacts:</strong> source, drain and
+gate connections of MOSFETs; emitter, base and collector contacts of
+BJTs; front and back contacts of solar cells (a poor contact adds series
+resistance and lowers the fill factor and output power); contacts to
+LEDs and lasers; every connection in an integrated circuit and every
+test structure.</p>
+<p><strong>Stability of contacts.</strong> Contacts must survive hot
+processing and years of use. Problems include aluminium “spiking” into
+shallow junctions (prevented with 1 % Si in the Al or a TiN barrier),
+electromigration of the metal at high current density, and reactions or
+native oxide at the interface that change
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\Phi_{Bn}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ρ</mi><mi>c</mi></msub><annotation encoding="application/x-tex">\rho_c</annotation></semantics></math>.</p>
+<h1 id="schottky-contact-versus-ohmic-contact">8. Schottky contact
+versus ohmic contact</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Schottky contact</th>
+<th>Ohmic contact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Electrical behaviour</td>
+<td>rectifying</td>
+<td>non-rectifying</td>
+</tr>
+<tr class="even">
+<td>I–V curve</td>
+<td>exponential, asymmetric</td>
+<td>straight line through the origin</td>
+</tr>
+<tr class="odd">
+<td>Work-function condition (n-type)</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>,
+or any metal on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mo>+</mo></msup><annotation encoding="application/x-tex">n^{+}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td>Doping under the contact</td>
+<td>moderate
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>21</mn></msup><annotation encoding="application/x-tex">10^{21}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>23</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{23}\ \mathrm{m^{-3}}</annotation></semantics></math>)</td>
+<td>heavy
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>&gt;</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">&gt; 10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>)</td>
+</tr>
+<tr class="odd">
+<td>Band bending (n-type)</td>
+<td>upward: depletion layer</td>
+<td>downward (accumulation) or a very thin barrier</td>
+</tr>
+<tr class="even">
+<td>Barrier to majority carriers</td>
+<td>yes:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">qV_{bi}</annotation></semantics></math></td>
+<td>none, or thin enough to tunnel through</td>
+</tr>
+<tr class="odd">
+<td>Transport</td>
+<td>thermionic emission</td>
+<td>free flow or tunnelling</td>
+</tr>
+<tr class="even">
+<td>Resistance</td>
+<td>depends on bias and polarity</td>
+<td>small and constant</td>
+</tr>
+<tr class="odd">
+<td>Advantages</td>
+<td>fast switching; low forward voltage</td>
+<td>low resistance; efficient current collection</td>
+</tr>
+<tr class="even">
+<td>Limitations</td>
+<td>higher leakage; lower breakdown voltage</td>
+<td>needs heavy doping and careful processing</td>
+</tr>
+<tr class="odd">
+<td>Used for</td>
+<td>rectifiers, detectors, clamps, MESFET gates</td>
+<td>connecting every device to the circuit</td>
+</tr>
+</tbody>
+</table>
+<h1 id="worked-examples">9. Worked examples</h1>
+<p>All examples are for silicon at 300 K:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi><mo>=</mo><mn>4.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\chi = 4.05\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>g</mi></msub><mo>=</mo><mn>1.12</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">E_g = 1.12\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mo>=</mo><mn>0.02585</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">kT = 0.02585\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><mn>2.8</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_c = 2.8\times10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mi>s</mi></msub><mo>=</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">F</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\varepsilon_s = 1.04\times10^{-10}\ \mathrm{F\,m^{-1}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">C</mi></mrow><annotation encoding="application/x-tex">q = 1.6\times10^{-19}\ \mathrm{C}</annotation></semantics></math>.</p>
+<h2 id="example-1-work-function-of-doped-silicon">Example 1: work
+function of doped silicon</h2>
+<p><strong>Question.</strong> Find the work function of n-type silicon
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D = 1\times10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>.</p>
+<p><strong>Given:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D = 1\times10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>c</mi></msub><mo>=</mo><mn>2.8</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_c = 2.8\times10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi><mo>=</mo><mn>4.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\chi = 4.05\ \mathrm{eV}</annotation></semantics></math>.
+<strong>Find:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mi>s</mi></msub><annotation encoding="application/x-tex">\Phi_s</annotation></semantics></math>.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo>=</mo><mi>k</mi><mi>T</mi><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>N</mi><mi>c</mi></msub><mi>/</mi><msub><mi>N</mi><mi>D</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">E_c - E_F = kT\ln\left(N_c/N_D\right)</annotation></semantics></math>,
+then
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mi>q</mi><mi>χ</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_s = q\chi + \left(E_c - E_F\right)</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.02585</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>ln</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mn>2.8</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup></mrow><mrow><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.02585</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>7.94</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.205</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">E_c - E_F = (0.02585)\ln\left(\frac{2.8\times10^{25}}{1\times10^{22}}\right) = (0.02585)(7.94) = 0.205\ \mathrm{eV}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mn>4.05</mn><mo>+</mo><mn>0.205</mn><mo>=</mo><mn>4.26</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_s = 4.05 + 0.205 = 4.26\ \mathrm{eV}</annotation></semantics></math></p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mn>4.26</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_s = 4.26\ \mathrm{eV}</annotation></semantics></math>.
+<strong>What this means:</strong> any metal with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><mn>4.26</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m &gt; 4.26\ \mathrm{eV}</annotation></semantics></math>
+(gold, nickel, platinum) tends to form a Schottky barrier on this
+silicon.</p>
+<h2 id="example-2-an-ideal-gold-contact">Example 2: an ideal gold
+contact</h2>
+<p><strong>Question.</strong> Gold
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>5.10</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 5.10\ \mathrm{eV}</annotation></semantics></math>)
+is deposited on the silicon of Example 1. Using the Schottky–Mott model,
+find the barrier height, built-in potential, depletion width and peak
+field at zero bias.</p>
+<p><strong>Given:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>5.10</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 5.10\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi><mo>=</mo><mn>4.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\chi = 4.05\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mn>4.26</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_s = 4.26\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D = 1\times10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">V = 0</annotation></semantics></math>.
+<strong>Find:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\Phi_{Bn}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><annotation encoding="application/x-tex">V_{bi}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℰ</mi><mo>max</mo></msub><annotation encoding="application/x-tex">\mathcal{E}_{\max}</annotation></semantics></math>.</p>
+<p><strong>Formulas:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q(\Phi_m - \chi)</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">qV_{bi} = q(\Phi_m - \Phi_s)</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mi>/</mi><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">W = \sqrt{2\varepsilon_s V_{bi}/qN_D}</annotation></semantics></math>;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℰ</mi><mo>max</mo></msub><mo>=</mo><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub><mi>W</mi><mi>/</mi><msub><mi>ε</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal{E}_{\max} = qN_DW/\varepsilon_s</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>5.10</mn><mo>−</mo><mn>4.05</mn><mo>=</mo><mn>1.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mn>5.10</mn><mo>−</mo><mn>4.26</mn><mo>=</mo><mn>0.84</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 5.10 - 4.05 = 1.05\ \mathrm{eV}, \qquad V_{bi} = 5.10 - 4.26 = 0.84\ \mathrm{V}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.84</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></msqrt><mo>=</mo><mn>3.3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.84)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 3.3\times10^{-7}\ \mathrm{m}</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℰ</mi><mo>max</mo></msub><mo>=</mo><mfrac><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>3.3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup></mrow></mfrac><mo>=</mo><mn>5.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">V</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\mathcal{E}_{\max} = \frac{(1.6\times10^{-19})(1\times10^{22})(3.3\times10^{-7})}{1.04\times10^{-10}} = 5.1\times10^{6}\ \mathrm{V\,m^{-1}}</annotation></semantics></math></p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>1.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 1.05\ \mathrm{eV}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mn>0.84</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V_{bi} = 0.84\ \mathrm{V}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>3.3</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W = 3.3\times10^{-7}\ \mathrm{m}</annotation></semantics></math>
+(0.33 μm),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℰ</mi><mo>max</mo></msub><mo>=</mo><mn>5.1</mn><mo>×</mo><msup><mn>10</mn><mn>6</mn></msup><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">V</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow></mrow><annotation encoding="application/x-tex">\mathcal{E}_{\max} = 5.1\times10^{6}\ \mathrm{V\,m^{-1}}</annotation></semantics></math>.
+<strong>What this means:</strong> the barrier is 0.33 μm thick, far too
+thick to tunnel through, so the contact rectifies. In practice
+Fermi-level pinning gives a measured
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>≈</mo><mn>0.80</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} \approx 0.80\ \mathrm{eV}</annotation></semantics></math>
+for gold on n-Si.</p>
+<h2 id="example-3-barrier-height-from-the-work-function">Example 3:
+barrier height from the work function</h2>
+<p><strong>Question.</strong> A metal with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>4.70</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 4.70\ \mathrm{eV}</annotation></semantics></math>
+contacts n-type silicon. Find the ideal barrier height.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q(\Phi_m - \chi)</annotation></semantics></math>.
+<strong>Solution:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>4.70</mn><mo>−</mo><mn>4.05</mn><mo>=</mo><mn>0.65</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 4.70 - 4.05 = 0.65\ \mathrm{eV}</annotation></semantics></math>.</p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>0.65</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 0.65\ \mathrm{eV}</annotation></semantics></math>.
+<strong>What this means:</strong> an electron in the metal needs at
+least 0.65 eV, about 25 times
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi></mrow><annotation encoding="application/x-tex">kT</annotation></semantics></math>,
+to enter the semiconductor; only a tiny fraction have it, which is why
+the reverse current is small.</p>
+<h2 id="example-4-forward-current-of-a-schottky-diode">Example 4:
+forward current of a Schottky diode</h2>
+<p><strong>Question.</strong> An ideal Schottky diode
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>η</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\eta = 1</annotation></semantics></math>)
+has a saturation current of 2 μA. Find the current at a forward voltage
+of 0.20 V at 300 K.</p>
+<p><strong>Given:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mi>s</mi></msub><mo>=</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">A</mi></mrow><annotation encoding="application/x-tex">I_s = 2\times10^{-6}\ \mathrm{A}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mn>0.20</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V = 0.20\ \mathrm{V}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>T</mi><mi>/</mi><mi>q</mi><mo>=</mo><mn>0.02585</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">kT/q = 0.02585\ \mathrm{V}</annotation></semantics></math>.
+<strong>Find:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><msub><mi>I</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mi>V</mi><mi>/</mi><mi>η</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">I = I_s\left[\exp\left(qV/\eta kT\right) - 1\right]</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong> The exponent is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>V</mi><mi>/</mi><mi>k</mi><mi>T</mi><mo>=</mo><mn>0.20</mn><mi>/</mi><mn>0.02585</mn><mo>=</mo><mn>7.737</mn></mrow><annotation encoding="application/x-tex">qV/kT = 0.20/0.02585 = 7.737</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>7.737</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>2291</mn></mrow><annotation encoding="application/x-tex">\exp(7.737) = 2291</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mn>0.20</mn><mn>0.02585</mn></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>2290</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>4.58</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>3</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">A</mi></mrow><annotation encoding="application/x-tex">I = (2\times10^{-6})\left[\exp\left(\frac{0.20}{0.02585}\right) - 1\right] = (2\times10^{-6})(2290) = 4.58\times10^{-3}\ \mathrm{A}</annotation></semantics></math></p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>=</mo><mn>4.58</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">A</mi></mrow></mrow><annotation encoding="application/x-tex">I = 4.58\ \mathrm{mA}</annotation></semantics></math>.
+<strong>What this means:</strong> only 0.2 V raises the current more
+than two-thousand-fold above
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mi>s</mi></msub><annotation encoding="application/x-tex">I_s</annotation></semantics></math>;
+every further 0.1 V multiplies it by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.1</mn><mi>/</mi><mn>0.02585</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>≈</mo><mn>48</mn></mrow><annotation encoding="application/x-tex">\exp(0.1/0.02585) \approx 48</annotation></semantics></math>.</p>
+<h2 id="example-5-why-heavy-doping-gives-an-ohmic-contact">Example 5:
+why heavy doping gives an ohmic contact</h2>
+<p><strong>Question.</strong> The voltage across the depletion region
+under a contact on n-Si is 0.60 V. Find
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup></mrow><annotation encoding="application/x-tex">N_D = 1\times10^{22}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1\times10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">W = \sqrt{2\varepsilon_s(V_{bi} - V)/qN_D}</annotation></semantics></math>.</p>
+<p><strong>Solution.</strong></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.60</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>22</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></msqrt><mo>=</mo><mn>2.79</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>7</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>279</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">n</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">W = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.60)}{(1.6\times10^{-19})\,(1\times10^{22})}} = 2.79\times10^{-7}\ \mathrm{m}\ \ (279\ \mathrm{nm})</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.04</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>0.60</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mspace width="0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>×</mo><msup><mn>10</mn><mn>25</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></msqrt><mo>=</mo><mn>8.8</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>9</mn></mrow></msup><mspace width="0.222em"></mspace><mi mathvariant="normal">m</mi><mspace width="0.222em"></mspace><mspace width="0.222em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><mn>8.8</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">n</mi><mi mathvariant="normal">m</mi></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">W = \sqrt{\frac{2\,(1.04\times10^{-10})\,(0.60)}{(1.6\times10^{-19})\,(1\times10^{25})}} = 8.8\times10^{-9}\ \mathrm{m}\ \ (8.8\ \mathrm{nm})</annotation></semantics></math></p>
+<p><strong>Answer:</strong> 279 nm at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>
+and 8.8 nm at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>
+(a thousand times the doping,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mn>1000</mn></msqrt><mo>=</mo><mn>31.6</mn></mrow><annotation encoding="application/x-tex">\sqrt{1000} = 31.6</annotation></semantics></math>
+times thinner). <strong>What this means:</strong> electrons cannot
+tunnel through 279 nm, so the lightly doped contact rectifies; a barrier
+under about 10 nm thick passes a large tunnelling current, so the
+heavily doped contact is ohmic, even though the barrier height is
+unchanged.</p>
+<h2 id="example-6-a-contact-on-p-type-silicon">Example 6: a contact on
+p-type silicon</h2>
+<p><strong>Question.</strong> Aluminium
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>=</mo><mn>4.28</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_m = 4.28\ \mathrm{eV}</annotation></semantics></math>)
+is deposited on p-type silicon. Find the ideal barrier height for
+holes.</p>
+<p><strong>Formula:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub><mo>=</mo><msub><mi>E</mi><mi>g</mi></msub><mo>−</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bp} = E_g - q(\Phi_m - \chi)</annotation></semantics></math>.
+<strong>Solution:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub><mo>=</mo><mn>1.12</mn><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>4.28</mn><mo>−</mo><mn>4.05</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0.89</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bp} = 1.12 - (4.28 - 4.05) = 0.89\ \mathrm{eV}</annotation></semantics></math>.</p>
+<p><strong>Answer:</strong>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub><mo>=</mo><mn>0.89</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bp} = 0.89\ \mathrm{eV}</annotation></semantics></math>:
+Al on p-Si is ideally a Schottky contact, while Al on n-Si
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>0.23</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 0.23\ \mathrm{eV}</annotation></semantics></math>,
+ideally) would be nearly ohmic. <strong>What this means:</strong> the
+same metal can be rectifying on one type of silicon and ohmic on the
+other.</p>
+<h1 id="examination-question-solved">10. Examination question
+solved</h1>
+<p><strong>Question 49.</strong> <em>Differentiate between a Schottky
+barrier diode and an ohmic contact. Explain their energy-band
+characteristics.</em></p>
+<p><strong>What the examiner wants:</strong> the definition of each;
+band diagrams before contact, at equilibrium and under bias for the
+Schottky diode; the barrier formulas; the two practical ways of making
+an ohmic contact; the I–V behaviour; and a comparison table.</p>
+<p><strong>Model answer.</strong></p>
+<p>Both are metal–semiconductor contacts. A <strong>Schottky barrier
+diode</strong> is a contact with a significant barrier to majority
+carriers, so it <strong>rectifies</strong>. An <strong>ohmic
+contact</strong> has no barrier that limits the current, so it conducts
+equally in both directions with a linear I–V characteristic,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>=</mo><mi>I</mi><msub><mi>R</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">V = IR_c</annotation></semantics></math>.
+Both are explained with band diagrams using one rule: at equilibrium the
+Fermi level is flat. The cases below are for a metal on n-type
+silicon.</p>
+<p><em>(a) Before contact.</em> Energies are measured from the common
+vacuum level. The semiconductor work function depends on doping,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mi>q</mi><mi>χ</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_s = q\chi + (E_c - E_F)</annotation></semantics></math>.
+If
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>,
+the semiconductor’s Fermi level is higher, and electrons will flow into
+the metal on contact (Figure 3).</p>
+<p><em>(b) Schottky barrier
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>,
+moderate doping).</em> On contact, electrons flow from the semiconductor
+into the metal, leaving ionised donors behind. A depletion region of
+width
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+forms, the field bends the bands <strong>upward</strong> towards the
+interface, and the flow stops when the Fermi levels align (Figure 4).
+Two barriers result:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>W</mi><mo>=</mo><msqrt><mfrac><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></mfrac></msqrt></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q\left(\Phi_m - \chi\right), \qquad qV_{bi} = q\left(\Phi_m - \Phi_s\right), \qquad W = \sqrt{\frac{2\varepsilon_s\left(V_{bi} - V\right)}{qN_D}}</annotation></semantics></math></p>
+<p>Under <strong>forward bias</strong> (metal positive) the
+semiconductor Fermi level rises by
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">qV</annotation></semantics></math>,
+the band bending falls to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} - V)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+narrows, and electrons flow over the barrier into the metal: the current
+rises exponentially. Under <strong>reverse bias</strong> the bending
+rises to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} + V_R)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+widens, and only the small flow over the fixed barrier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>
+remains: the saturation current (Figure 7). Current is by thermionic
+emission of majority carriers:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><mspace width="0.167em"></mspace><msup><mi>T</mi><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mfrac><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><mrow><mi>k</mi><mi>T</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mfrac><mrow><mi>q</mi><mi>V</mi></mrow><mrow><mi>η</mi><mi>k</mi><mi>T</mi></mrow></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">J = A^{**}\,T^{2}\exp\left(-\frac{q\Phi_{Bn}}{kT}\right)\left[\exp\left(\frac{qV}{\eta kT}\right) - 1\right]</annotation></semantics></math></p>
+<p>There is no stored minority charge, so the diode switches very fast
+and turns on at a low voltage (0.2–0.4 V on Si), but it leaks more in
+reverse than a p–n diode. For gold on n-Si with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>=</mo><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D = 10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mn>1.05</mn><mspace width="0.222em"></mspace><mrow><mi mathvariant="normal">e</mi><mi mathvariant="normal">V</mi></mrow></mrow><annotation encoding="application/x-tex">\Phi_{Bn} = 1.05\ \mathrm{eV}</annotation></semantics></math>
+ideally (about 0.8 eV measured, because of Fermi-level pinning),
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mn>0.84</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">V</mi></mrow><annotation encoding="application/x-tex">V_{bi} = 0.84\ \mathrm{V}</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><mn>0.33</mn><mspace width="0.222em"></mspace><mi>μ</mi><mi mathvariant="normal">m</mi></mrow><annotation encoding="application/x-tex">W = 0.33\ \mu\mathrm{m}</annotation></semantics></math>.</p>
+<p><em>(c) Ohmic contact.</em> There are two band-diagram routes (Figure
+9):</p>
+<ul>
+<li><strong>Accumulation
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>
+on n-type).</strong> Electrons flow from the metal into the
+semiconductor and accumulate at the surface; the bands bend
+<strong>downward</strong>, and there is no barrier to electrons in
+either direction.</li>
+<li><strong>Heavy doping
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>&gt;</mo><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">N_D &gt; 10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>,
+the practical method).</strong> The barrier height is unchanged, but
+since
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>∝</mo><mn>1</mn><mi>/</mi><msqrt><msub><mi>N</mi><mi>D</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">W \propto 1/\sqrt{N_D}</annotation></semantics></math>
+the barrier becomes only a few nanometres thick (8.8 nm at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>25</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{25}\ \mathrm{m^{-3}}</annotation></semantics></math>
+for 0.6 V, against 279 nm at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mn>22</mn></msup><mspace width="0.222em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">10^{22}\ \mathrm{m^{-3}}</annotation></semantics></math>),
+and electrons <strong>tunnel</strong> through it in both
+directions.</li>
+</ul>
+<p>A good ohmic contact has a specific contact resistance
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>c</mi></msub><mo>≈</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>10</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\rho_c \approx 10^{-10}</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mrow><mo>−</mo><mn>12</mn></mrow></msup><mspace width="0.222em"></mspace><mi>Ω</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup></mrow><annotation encoding="application/x-tex">10^{-12}\ \Omega\,\mathrm{m^2}</annotation></semantics></math>;
+silicides on heavily doped silicon are standard.</p>
+<p><em>(d) Comparison.</em> The table in Section 8 summarises the
+differences: a Schottky contact has upward band bending, a fixed barrier
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>,
+thermionic emission and a rectifying exponential I–V curve; an ohmic
+contact has downward bending or a tunnel-thin barrier, free flow or
+tunnelling, and a linear, symmetric I–V curve.</p>
+<p><strong>Marking checklist:</strong> definitions of each;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mi>q</mi><mi>χ</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_s = q\chi + (E_c - E_F)</annotation></semantics></math>
+and the work-function condition; the formation steps (electron flow,
+depletion, upward bending, Fermi levels align);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q(\Phi_m - \chi)</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">qV_{bi} = q(\Phi_m - \Phi_s)</annotation></semantics></math>;
+band diagrams before contact, at equilibrium, forward and reverse bias
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>
+fixed; the thermionic-emission equation; the two ohmic routes
+(accumulation; heavy doping and tunnelling); a comparison table.</p>
+<p><strong>Common mistakes:</strong> saying an ohmic contact “has no
+barrier” (the practical
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>n</mi><mo>+</mo></msup><annotation encoding="application/x-tex">n^{+}</annotation></semantics></math>
+contact has one, just a very thin one); drawing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\Phi_{Bn}</annotation></semantics></math>
+changing with bias (only the semiconductor-side barrier changes);
+reversing the conditions for p-type; confusing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><annotation encoding="application/x-tex">\Phi_{Bn}</annotation></semantics></math>
+(from the metal Fermi level) with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><annotation encoding="application/x-tex">V_{bi}</annotation></semantics></math>
+(from the semiconductor conduction band); writing the band gap as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>v</mi></msub><mo>−</mo><msub><mi>E</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">E_v - E_c</annotation></semantics></math>
+(it is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">E_c - E_v</annotation></semantics></math>).</p>
+<h1 id="summary">11. Summary</h1>
+<ul>
+<li>At equilibrium the Fermi level is flat; electrons flow from the
+higher Fermi level to the lower one when two materials touch.</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>s</mi></msub><mo>=</mo><mi>q</mi><mi>χ</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>F</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_s = q\chi + (E_c - E_F)</annotation></semantics></math>.
+A metal on n-type with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&gt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &gt; \Phi_s</annotation></semantics></math>
+forms a Schottky barrier;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>&lt;</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m &lt; \Phi_s</annotation></semantics></math>,
+or heavy doping, gives an ohmic contact.</li>
+<li>Schottky barrier: depletion region, upward band bending,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><mi>χ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q\Phi_{Bn} = q(\Phi_m - \chi)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>=</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>Φ</mi><mi>m</mi></msub><mo>−</mo><msub><mi>Φ</mi><mi>s</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">qV_{bi} = q(\Phi_m - \Phi_s)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>=</mo><msqrt><mrow><mn>2</mn><msub><mi>ε</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mi>q</mi><msub><mi>N</mi><mi>D</mi></msub></mrow></msqrt></mrow><annotation encoding="application/x-tex">W = \sqrt{2\varepsilon_s(V_{bi} - V)/qN_D}</annotation></semantics></math>.
+In real contacts the barrier is set largely by Fermi-level pinning.</li>
+<li>Under bias
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub></mrow><annotation encoding="application/x-tex">q\Phi_{Bn}</annotation></semantics></math>
+stays fixed; only the semiconductor-side barrier changes, to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>−</mo><mi>V</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} - V)</annotation></semantics></math>
+or
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><mo>+</mo><msub><mi>V</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">q(V_{bi} + V_R)</annotation></semantics></math>.</li>
+<li>Current is thermionic emission of majority carriers:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><msup><mi>T</mi><mn>2</mn></msup><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>−</mo><mi>q</mi><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mi>/</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mo>exp</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mi>V</mi><mi>/</mi><mi>η</mi><mi>k</mi><mi>T</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">J = A^{**}T^{2}\exp(-q\Phi_{Bn}/kT)\left[\exp(qV/\eta kT) - 1\right]</annotation></semantics></math>.
+Schottky diodes are fast, turn on at a low voltage and leak more than
+p–n diodes.</li>
+<li>Ohmic contacts: accumulation (low barrier), tunnelling through a
+thin barrier made by heavy doping
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi><mo>∝</mo><mn>1</mn><mi>/</mi><msqrt><msub><mi>N</mi><mi>D</mi></msub></msqrt></mrow><annotation encoding="application/x-tex">W \propto 1/\sqrt{N_D}</annotation></semantics></math>),
+and silicide contact engineering. An ohmic contact may still have a
+barrier; what matters is that it does not limit the current.</li>
+</ul>
+<h1 id="symbols-used">Symbols used</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+<th>SI unit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math></td>
+<td>electronic charge,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.6</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>19</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.6\times10^{-19}</annotation></semantics></math></td>
+<td>C</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>k</mi><annotation encoding="application/x-tex">k</annotation></semantics></math></td>
+<td>Boltzmann constant,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.381</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>23</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1.381\times10^{-23}</annotation></semantics></math></td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">J</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">K</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{J\,K^{-1}}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math></td>
+<td>absolute temperature</td>
+<td>K</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">c</mi></mrow></msub><mo>,</mo><msub><mi>E</mi><mi>c</mi></msub><mo>,</mo><msub><mi>E</mi><mi>v</mi></msub><mo>,</mo><msub><mi>E</mi><mi>F</mi></msub></mrow><annotation encoding="application/x-tex">E_{\mathrm{vac}}, E_c, E_v, E_F</annotation></semantics></math></td>
+<td>vacuum level, conduction-band edge, valence-band edge, Fermi
+level</td>
+<td>eV (J)</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>E</mi><mi>g</mi></msub><annotation encoding="application/x-tex">E_g</annotation></semantics></math></td>
+<td>band gap,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>E</mi><mi>c</mi></msub><mo>−</mo><msub><mi>E</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">E_c - E_v</annotation></semantics></math></td>
+<td>eV</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mi>m</mi></msub><mo>,</mo><msub><mi>Φ</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\Phi_m, \Phi_s</annotation></semantics></math></td>
+<td>work function of the metal, of the semiconductor</td>
+<td>V
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>Φ</mi></mrow><annotation encoding="application/x-tex">q\Phi</annotation></semantics></math>
+in eV)</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>χ</mi><annotation encoding="application/x-tex">\chi</annotation></semantics></math></td>
+<td>electron affinity</td>
+<td>V
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>χ</mi></mrow><annotation encoding="application/x-tex">q\chi</annotation></semantics></math>
+in eV)</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Φ</mi><mrow><mi>B</mi><mi>n</mi></mrow></msub><mo>,</mo><msub><mi>Φ</mi><mrow><mi>B</mi><mi>p</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\Phi_{Bn}, \Phi_{Bp}</annotation></semantics></math></td>
+<td>Schottky barrier height for electrons, for holes</td>
+<td>V
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><msub><mi>Φ</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">q\Phi_B</annotation></semantics></math>
+in eV)</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>V</mi><mrow><mi>b</mi><mi>i</mi></mrow></msub><annotation encoding="application/x-tex">V_{bi}</annotation></semantics></math></td>
+<td>built-in potential</td>
+<td>V</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi><mo>,</mo><msub><mi>V</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">V, V_R</annotation></semantics></math></td>
+<td>applied voltage (positive forward); reverse voltage</td>
+<td>V</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>N</mi><mi>D</mi></msub><mo>,</mo><msub><mi>N</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">N_D, N_A</annotation></semantics></math></td>
+<td>donor, acceptor concentration</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup><annotation encoding="application/x-tex">\mathrm{m^{-3}}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>N</mi><mi>c</mi></msub><annotation encoding="application/x-tex">N_c</annotation></semantics></math></td>
+<td>effective density of states in the conduction band</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup><annotation encoding="application/x-tex">\mathrm{m^{-3}}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math></td>
+<td>depletion width</td>
+<td>m</td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ε</mi><mn>0</mn></msub><mo>,</mo><msub><mi>ε</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">\varepsilon_0, \varepsilon_s</annotation></semantics></math></td>
+<td>permittivity of free space
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>8.854</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>12</mn></mrow></msup></mrow><annotation encoding="application/x-tex">8.854\times10^{-12}</annotation></semantics></math>),
+of the semiconductor</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">F</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{F\,m^{-1}}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ℰ</mi><mo>,</mo><msub><mi>ℰ</mi><mo>max</mo></msub></mrow><annotation encoding="application/x-tex">\mathcal{E}, \mathcal{E}_{\max}</annotation></semantics></math></td>
+<td>electric field, its peak value</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">V</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{V\,m^{-1}}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math></td>
+<td>charge density</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">C</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">3</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{C\,m^{-3}}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>,</mo><msub><mi>J</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">J, J_s</annotation></semantics></math></td>
+<td>current density, saturation current density</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{A\,m^{-2}}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>,</mo><msub><mi>I</mi><mi>s</mi></msub></mrow><annotation encoding="application/x-tex">I, I_s</annotation></semantics></math></td>
+<td>current, saturation current</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>A</mi><mrow><mo>*</mo><mo>*</mo></mrow></msup><annotation encoding="application/x-tex">A^{**}</annotation></semantics></math></td>
+<td>effective Richardson constant</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">A</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">K</mi><mrow><mo mathvariant="normal">−</mo><mn mathvariant="normal">2</mn></mrow></msup></mrow><annotation encoding="application/x-tex">\mathrm{A\,m^{-2}\,K^{-2}}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>η</mi><annotation encoding="application/x-tex">\eta</annotation></semantics></math></td>
+<td>ideality factor</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math></td>
+<td>contact area</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup><annotation encoding="application/x-tex">\mathrm{m^2}</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>c</mi></msub><mo>,</mo><msub><mi>ρ</mi><mi>c</mi></msub></mrow><annotation encoding="application/x-tex">R_c, \rho_c</annotation></semantics></math></td>
+<td>contact resistance; specific contact resistance</td>
+<td>Ω;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ω</mi><mspace width="0.167em"></mspace><msup><mi mathvariant="normal">m</mi><mn mathvariant="normal">2</mn></msup></mrow><annotation encoding="application/x-tex">\Omega\,\mathrm{m^2}</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Δ</mi><mi>Φ</mi></mrow><annotation encoding="application/x-tex">\Delta\Phi</annotation></semantics></math></td>
+<td>image-force barrier lowering</td>
+<td>V</td>
+</tr>
+</tbody>
+</table>
+<h1 id="references">References</h1>
+<ol type="1">
+<li>S. M. Sze and K. K. Ng, <em>Physics of Semiconductor Devices</em>,
+3rd edition, Wiley, 2007, chapter 3.</li>
+<li>B. G. Streetman and S. K. Banerjee, <em>Solid State Electronic
+Devices</em>, 7th edition, Pearson, 2015, section 5.7.</li>
+<li>D. A. Neamen, <em>Semiconductor Physics and Devices: Basic
+Principles</em>, 4th edition, McGraw-Hill, 2012, chapter 9.</li>
+<li>E. H. Rhoderick and R. H. Williams, <em>Metal–Semiconductor
+Contacts</em>, 2nd edition, Oxford University Press, 1988.</li>
+</ol>
+</body>
+</html>

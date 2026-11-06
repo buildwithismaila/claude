@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Formation of a Schottky barrier</title>
+<style>
+  @font-face { font-family: "STIX"; src: url(STIXGeneral.ttf); }
+  @font-face { font-family: "STIX"; font-style: italic; src: url(STIXGeneralItalic.ttf); }
+  html, body { margin: 0; background: #FBFBF8; }
+  svg { display: block; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: auto; }
+  .cap { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .m { font-family: STIX, "Times New Roman", serif; }
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+// Energies are in pixels, measured upwards; Y() turns them into SVG coordinates.
+const INK = "#14213D", SOFT = "#5A6975", COP = "#B4622F", TEAL = "#1C6E7E",
+      METAL = "#F1E2D6", BAND = "#C9DCE2", BG = "#FBFBF8";
+const Y = e => 760 - e;
+const EVAC = 560, EFM = 170, CHI = 250, ECF = 30, EG = 150;   // metal phi_m = 390, semiconductor phi_s = 280
+const D = (EVAC - EFM) - (CHI + ECF);                           // q(phi_m - phi_s) = 110: becomes qV_bi
+const XI = 560, W0 = 300, XEND = 1460, LOOP = 20;
+
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = u => { u = clamp(u); return u * u * (3 - 2 * u); };
+const seg = (t, a, b) => ease((t - a) / (b - a));
+
+// A label with italic variables and subscripts: parts = [[text, "i"|"r"|"sub"|"subr"], ...]
+function lab(x, y, parts, o = {}) {
+  const size = o.size || 34, col = o.color || INK, anchor = o.anchor || "start", op = o.op ?? 1;
+  let s = `<text class="m" x="${x}" y="${y}" font-size="${size}" fill="${col}" text-anchor="${anchor}" opacity="${op}">`;
+  let low = false;
+  for (const [txt, k] of parts) {
+    const sub = k === "sub" || k === "subr";
+    const dy = sub && !low ? size * 0.28 : (!sub && low ? -size * 0.28 : 0);
+    low = sub;
+    s += `<tspan dy="${dy}" font-size="${sub ? size * 0.68 : size}" font-style="${k === "i" || k === "sub" ? "italic" : "normal"}">${txt}</tspan>`;
+  }
+  return s + "</text>";
+}
+const line = (x1, y1, x2, y2, c = INK, w = 3, dash = "", op = 1) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} opacity="${op}"/>`;
+function arrow(x, e1, e2, c, op = 1, both = false) {          // vertical energy arrow from e1 to e2
+  const y1 = Y(e1), y2 = Y(e2), d = y2 > y1 ? 1 : -1;
+  const head = (yy, dd) => `<path d="M${x - 9},${yy - 16 * dd} L${x},${yy} L${x + 9},${yy - 16 * dd} Z" fill="${c}"/>`;
+  return `<g opacity="${op}">${line(x, y1, x, y2 - 14 * d, c, 3)}${head(y2, d)}${both ? head(y1, -d) : ""}</g>`;
+}
+const poly = (pts, c, w = 4, dash = "", op = 1) =>
+  `<polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} stroke-linejoin="round" opacity="${op}"/>`;
+const cap = (x, y, s, size, col, w = 400, op = 1, anchor = "start") =>
+  `<text class="cap" x="${x}" y="${y}" font-size="${size}" font-weight="${w}" fill="${col}" text-anchor="${anchor}" opacity="${op}">${s}</text>`;
+
+const STEPS = [
+  ["1  Before contact", "Each material has its own Fermi level. With Φm > Φs, the semiconductor’s electrons sit higher."],
+  ["2  The materials touch", "The semiconductor is brought into contact with the metal."],
+  ["3  Electrons flow into the metal", "They leave positive donor ions behind: a depletion region and an electric field form."],
+  ["4  Equilibrium: one flat Fermi level", "The bands bend up. Electrons now face a barrier qΦBn from the metal and qVbi from the semiconductor."],
+];
+
+// Electrons near the interface that will cross, with their departure times.
+const MOVERS = [...Array(7)].map((_, i) => ({ x: XI + 66 + i * 34, t0: 5.4 + i * 0.55 }));
+const BULK = [...Array(9)].map((_, i) => XI + W0 + 30 + i * 55);
+
+function render(t) {
+  t = ((t % LOOP) + LOOP) % LOOP;
+  const shift = (1 - seg(t, 3.0, 5.0)) * 340;          // semiconductor slides in
+  const s = seg(t, 5.2, 10.2);                         // charge transfer progress
+  const fin = seg(t, 10.4, 11.4);                      // equilibrium labels
+  const pre = 1 - seg(t, 2.6, 3.4);                    // before-contact labels
+  const fadeAll = 1 - seg(t, 19.2, 19.9);
+  const step = t < 3 ? 0 : t < 5.2 ? 1 : t < 10.4 ? 2 : 3;
+  const W = W0 * Math.sqrt(Math.max(s, 1e-4));
+  const x0 = XI + shift, xe = Math.min(XEND + shift, 1440);   // semiconductor extent, clipped to the frame
+  const ec = x => 200 + D * (1 - s) + (x - x0 < W ? D * s * Math.pow(1 - (x - x0) / W, 2) : 0);
+  const efs = EFM + D * (1 - s);
+
+  let g = `<rect width="1600" height="900" fill="${BG}"/>`;
+  // caption
+  g += cap(80, 92, STEPS[step][0], 46, INK, 600);
+  g += cap(80, 146, STEPS[step][1].replace("Φm", "Φ<tspan font-size='70%' dy='8'>m</tspan><tspan dy='-8'> </tspan>").replace("Φs", "Φ<tspan font-size='70%' dy='8'>s</tspan><tspan dy='-8'></tspan>").replace("qΦBn", "qΦ<tspan font-size='70%' dy='8'>Bn</tspan><tspan dy='-8'> </tspan>").replace("qVbi", "qV<tspan font-size='70%' dy='8'>bi</tspan><tspan dy='-8'> </tspan>"), 30, SOFT);
+  for (let i = 0; i < 4; i++)
+    g += `<circle cx="${1380 + i * 44}" cy="80" r="11" fill="${i <= step ? COP : "#D9E1E6"}"/>`;
+
+  // metal block and its Fermi level
+  g += `<rect x="90" y="${Y(EFM)}" width="${XI - 90}" height="${Y(0) - Y(EFM) + 40}" fill="${METAL}"/>`;
+  g += line(90, Y(EFM), XI, Y(EFM), COP, 4, "14 8");
+  g += cap(325, Y(-25), "metal", 34, INK, 600, 1, "middle");
+  g += lab(80, Y(EFM) + 10, [["E", "i"], ["F,m", "subr"]], { color: COP, anchor: "end", size: 34, op: pre });
+  // vacuum level (metal side)
+  g += line(90, Y(EVAC), XI, Y(EVAC), INK, 2, "10 8");
+
+  // semiconductor bands
+  const xs = []; for (let x = x0; x <= xe; x += 6) xs.push(x);
+  const cb = xs.map(x => [x, Y(ec(x))]), vb = xs.map(x => [x, Y(ec(x) - EG)]);
+  g += `<path d="M${vb.map(p => p.join(",")).join(" L")} L${xe},${Y(-10)} L${x0},${Y(-10)} Z" fill="${BAND}"/>`;
+  g += poly(cb, INK, 4) + poly(vb, INK, 4);
+  g += poly(xs.map(x => [x, Y(ec(x) + CHI)]), INK, 2, "10 8");
+  g += line(x0, Y(efs), xe, Y(efs), COP, 4, "14 8");
+  g += cap((x0 + xe) / 2 + 60, Y(-25), "n-type semiconductor", 34, INK, 600, 1, "middle");
+  g += lab(xe + 14, Y(ec(xe)) - 4, [["E", "i"], ["c", "sub"]], { size: 34 });
+  g += lab(xe + 14, Y(ec(xe) - EG) + 10, [["E", "i"], ["v", "sub"]], { size: 34 });
+  g += lab(xe + 14, Y(efs) + 32, [["E", "i"], ["F", "sub"]], { size: 34, color: COP });
+  g += lab(xe + 14, Y(ec(xe) + CHI) + 10, [["E", "i"], ["vac", "subr"]], { size: 34 });
+  // interface
+  if (shift < 1) g += line(XI, Y(-10), XI, Y(EVAC + 40), INK, 3);
+  else g += line(x0, Y(-10), x0, Y(EVAC + 40), INK, 2, "", 0.4);
+
+  // before-contact energy arrows
+  if (pre > 0) {
+    g += arrow(200, EVAC, EFM, TEAL, pre);
+    g += lab(214, Y((EVAC + EFM) / 2), [["q", "i"], ["Φ", "r"], ["m", "sub"]], { color: TEAL, op: pre });
+    g += arrow(x0 + 80, EVAC, 200 + D, INK, pre);
+    g += lab(x0 + 66, Y(EVAC - 110), [["qχ", "i"]], { anchor: "end", op: pre });
+    g += arrow(x0 + 230, EVAC, efs, TEAL, pre);
+    g += lab(x0 + 244, Y(EVAC - 160), [["q", "i"], ["Φ", "r"], ["s", "sub"]], { color: TEAL, op: pre });
+    g += line(XI, Y(EFM), 760, Y(EFM), COP, 1.5, "4 6", pre);
+    g += line(760, Y(efs), x0, Y(efs), COP, 1.5, "4 6", pre);
+    g += arrow(760, efs, EFM, COP, pre);
+    g += lab(776, Y((efs + EFM) / 2) + 12, [["q", "i"], ["(Φ", "r"], ["m", "sub"], [" − Φ", "r"], ["s", "sub"], [")", "r"]], { color: COP, size: 32, op: pre });
+  }
+
+  // electrons: bulk ones stay, interface ones cross into the metal
+  for (const x of BULK) if (x + shift < xe - 10) g += `<circle cx="${x + shift}" cy="${Y(ec(x + shift)) - 14}" r="9" fill="${INK}"/>`;
+  let crossed = 0;
+  for (const m of MOVERS) {
+    const u = clamp((t - m.t0) / 0.9);
+    const xs0 = m.x + shift;
+    if (u <= 0) { g += `<circle cx="${xs0}" cy="${Y(ec(xs0)) - 14}" r="9" fill="${INK}"/>`; continue; }
+    // the donor ion it leaves behind
+    g += `<g opacity="${clamp(u * 2)}"><circle cx="${xs0}" cy="${Y(ec(xs0) - 75)}" r="13" fill="none" stroke="${TEAL}" stroke-width="3"/>` +
+         line(xs0 - 7, Y(ec(xs0) - 75), xs0 + 7, Y(ec(xs0) - 75), TEAL, 3) + line(xs0, Y(ec(xs0) - 75) - 7, xs0, Y(ec(xs0) - 75) + 7, TEAL, 3) + `</g>`;
+    if (u < 1) {
+      const xa = xs0 + (XI - 16 - xs0) * u, ya = Y(ec(xs0)) - 14 + (Y(EFM) + 26 + crossed * 0 - (Y(ec(xs0)) - 14)) * u - Math.sin(Math.PI * u) * 50;
+      g += `<circle cx="${xa}" cy="${ya}" r="9" fill="${INK}"/>`;
+    } else crossed++;
+  }
+  // negative sheet at the metal surface
+  for (let i = 0; i < crossed; i++) {
+    const yy = Y(EFM) + 30 + i * 30;
+    g += line(XI - 24, yy, XI - 8, yy, COP, 4);
+  }
+
+  // equilibrium annotations
+  if (fin > 0) {
+    g += arrow(XI + 34, EFM, ec(XI + 1), TEAL, fin);
+    g += lab(XI - 14, Y(EFM + 85), [["q", "i"], ["Φ", "r"], ["Bn", "sub"]], { color: TEAL, size: 38, op: fin, anchor: "end" });
+    const xa = XI + W0 + 120;
+    g += line(XI + 60, Y(ec(XI + 1)), xa + 20, Y(ec(XI + 1)), SOFT, 1.5, "4 6", fin);
+    g += arrow(xa, 200, ec(XI + 1), COP, fin);
+    g += lab(xa + 16, Y(255), [["qV", "i"], ["bi", "sub"]], { color: COP, size: 38, op: fin });
+    g += `<g opacity="${fin}">` + line(XI, Y(-60), XI + W0, Y(-60), INK, 2) +
+         `<path d="M${XI + 14},${Y(-60) - 8} L${XI},${Y(-60)} L${XI + 14},${Y(-60) + 8}Z M${XI + W0 - 14},${Y(-60) - 8} L${XI + W0},${Y(-60)} L${XI + W0 - 14},${Y(-60) + 8}Z" fill="${INK}"/>` +
+         line(XI + W0, Y(-60), XI + W0, Y(260), SOFT, 1.5, "4 6") + `</g>`;
+    g += lab(XI + W0 / 2, Y(-100), [["W", "i"]], { anchor: "middle", op: fin });
+    g += cap(XI + 270, Y(385) + 10, "electric field", 28, TEAL, 400, fin);
+    g += cap(XI + W0 + 20, Y(125), "⊕ ionised donors (fixed)", 28, TEAL, 400, fin);
+    g += cap(XI - 34, Y(EFM) + 60, "electron", 26, COP, 400, fin, "end") + cap(XI - 34, Y(EFM) + 92, "sheet", 26, COP, 400, fin, "end");
+    // field arrow, pointing from the positive ions towards the metal
+    g += `<g opacity="${fin}">` + line(XI + 250, Y(385), XI + 40, Y(385), TEAL, 3) +
+         `<path d="M${XI + 56},${Y(385) - 10} L${XI + 36},${Y(385)} L${XI + 56},${Y(385) + 10}Z" fill="${TEAL}"/></g>`;
+    g += `<text class="m" x="${XI + 150}" y="${Y(385) - 14}" font-size="34" font-style="italic" fill="${TEAL}" text-anchor="middle" opacity="${fin}">ℰ</text>`;
+  }
+  document.getElementById("s").innerHTML = `<g opacity="${fadeAll}">${g}</g>`;
+}
+window.render = render;
+if (!location.hash.includes("still")) {
+  const t0 = performance.now();
+  const tick = now => { render((now - t0) / 1000); requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+} else render(16);
+</script>
+</body>
+</html>
