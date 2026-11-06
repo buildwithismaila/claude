@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Formation of an ohmic contact</title>
+<style>
+  @font-face { font-family: "STIX"; src: url(STIXGeneral.ttf); }
+  @font-face { font-family: "STIX"; font-style: italic; src: url(STIXGeneralItalic.ttf); }
+  html, body { margin: 0; background: #FBFBF8; }
+  svg { display: block; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: auto; }
+  .cap { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .m { font-family: STIX, "Times New Roman", serif; }
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+// Two scenes. Scene A (0–11 s): a low work-function metal on n-type silicon forms an
+// accumulation layer and no barrier. Scene B (11–23 s): a thick barrier blocks electrons;
+// heavy doping thins it until electrons tunnel through both ways.
+const INK = "#14213D", SOFT = "#5A6975", COP = "#B4622F", TEAL = "#1C6E7E",
+      METAL = "#F1E2D6", BAND = "#C9DCE2", BG = "#FBFBF8";
+const Y = e => 760 - e;
+const XI = 560, XEND = 1440, LOOP = 23;
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = u => { u = clamp(u); return u * u * (3 - 2 * u); };
+const seg = (t, a, b) => ease((t - a) / (b - a));
+
+function lab(x, y, parts, o = {}) {
+  const size = o.size || 34, col = o.color || INK, anchor = o.anchor || "start", op = o.op ?? 1;
+  let s = `<text class="m" x="${x}" y="${y}" font-size="${size}" fill="${col}" text-anchor="${anchor}" opacity="${op}">`;
+  let low = false;
+  for (const [txt, k] of parts) {
+    const sub = k === "sub" || k === "subr";
+    const dy = sub && !low ? size * 0.28 : (!sub && low ? -size * 0.28 : 0);
+    low = sub;
+    s += `<tspan dy="${dy}" font-size="${sub ? size * 0.68 : size}" font-style="${k === "i" || k === "sub" ? "italic" : "normal"}">${txt}</tspan>`;
+  }
+  return s + "</text>";
+}
+const line = (x1, y1, x2, y2, c = INK, w = 3, dash = "", op = 1) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} opacity="${op}"/>`;
+function arrowV(x, e1, e2, c, op = 1) {
+  const y1 = Y(e1), y2 = Y(e2), d = y2 > y1 ? 1 : -1;
+  return `<g opacity="${op}">${line(x, y1, x, y2 - 14 * d, c, 3)}<path d="M${x - 9},${y2 - 16 * d} L${x},${y2} L${x + 9},${y2 - 16 * d} Z" fill="${c}"/></g>`;
+}
+function arrowH(x1, x2, y, c, op = 1, both = false) {
+  const d = x2 > x1 ? 1 : -1;
+  const head = (xx, dd) => `<path d="M${xx - 16 * dd},${y - 9} L${xx},${y} L${xx - 16 * dd},${y + 9} Z" fill="${c}"/>`;
+  return `<g opacity="${op}">${line(x1 + (both ? 14 * d : 0), y, x2 - 14 * d, y, c, 3)}${head(x2, d)}${both ? head(x1, -d) : ""}</g>`;
+}
+const poly = (pts, c, w = 4, dash = "", op = 1) =>
+  `<polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} stroke-linejoin="round" opacity="${op}"/>`;
+const cap = (x, y, s, size, col, w = 400, op = 1, anchor = "start") =>
+  `<text class="cap" x="${x}" y="${y}" font-size="${size}" font-weight="${w}" fill="${col}" text-anchor="${anchor}" opacity="${op}">${s}</text>`;
+const dot = (x, y, op = 1) => `<circle cx="${x}" cy="${y}" r="9" fill="${INK}" opacity="${op}"/>`;
+const sub = s => `<tspan font-size='70%' dy='8'>${s}</tspan><tspan dy='-8'>​</tspan>`;
+
+const STEPS = [
+  ["A1  Before contact: metal work function smaller", `Here Φ${sub("m")} &lt; Φ${sub("s")}: the metal’s Fermi level is higher, so electrons will flow into the semiconductor.`],
+  ["A2  Electrons pile up: an accumulation layer", "The bands bend down at the interface. There is no barrier, so electrons move freely both ways."],
+  ["B1  Lightly doped: a thick barrier", "Electrons in the semiconductor cannot pass through a barrier this thick: they bounce back."],
+  ["B2  Heavy doping makes the barrier thin", `W ∝ 1/√N${sub("D")}: raising the doping from 10²² to 10²⁵ m⁻³ thins it from 279 nm to 8.8 nm.`],
+  ["B3  Electrons tunnel through both ways: ohmic", "The barrier is still there, but it is too thin to stop the current."],
+];
+
+function header(step) {
+  let g = cap(80, 92, STEPS[step][0], 44, INK, 600);
+  g += cap(80, 146, STEPS[step][1], 29, SOFT);
+  for (let i = 0; i < 5; i++) g += `<circle cx="${1330 + i * 44}" cy="80" r="11" fill="${i <= step ? (i < 2 ? COP : TEAL) : "#D9E1E6"}"/>`;
+  return g;
+}
+
+// ---------------------------------------------------------------- scene A: accumulation
+function sceneA(t) {
+  const EVAC = 520, EFM = 260, CHI = 250, EG = 150;
+  const EC0 = EVAC - CHI;               // 270: flat-band E_c before contact
+  const D = 60;                          // q(phi_s - phi_m): semiconductor bulk rises by this
+  const shift = (1 - seg(t, 3.0, 5.0)) * 340;
+  const s = seg(t, 5.2, 9.0);
+  const pre = 1 - seg(t, 2.6, 3.4);
+  const step = t < 5.2 ? 0 : 1;
+  const L = 120;                          // accumulation layer is thin
+  const x0 = XI + shift, xe = Math.min(XEND + shift, 1440);
+  const ec = x => EC0 + D * s * (1 - Math.exp(-(x - x0) / L)) + (shift > 0 ? 0 : 0);
+  const efs = (EC0 - 70) + D * s;         // semiconductor Fermi level rises to the metal's
+
+  let g = header(step);
+  g += `<rect x="90" y="${Y(EFM)}" width="${XI - 90}" height="${Y(0) - Y(EFM) + 40}" fill="${METAL}"/>`;
+  g += line(90, Y(EFM), XI, Y(EFM), COP, 4, "14 8");
+  g += line(90, Y(EVAC), XI, Y(EVAC), INK, 2, "10 8");
+  g += cap(325, Y(-25), "metal (low work function)", 32, INK, 600, 1, "middle");
+  const xs = []; for (let x = x0; x <= xe; x += 6) xs.push(x);
+  const cb = xs.map(x => [x, Y(ec(x))]), vb = xs.map(x => [x, Y(ec(x) - EG)]);
+  g += `<path d="M${vb.map(p => p.join(",")).join(" L")} L${xe},${Y(-10)} L${x0},${Y(-10)} Z" fill="${BAND}"/>`;
+  g += poly(cb, INK, 4) + poly(vb, INK, 4);
+  g += poly(xs.map(x => [x, Y(ec(x) + CHI)]), INK, 2, "10 8");
+  g += line(x0, Y(efs), xe, Y(efs), COP, 4, "14 8");
+  g += cap((x0 + xe) / 2 + 60, Y(-25), "n-type semiconductor", 32, INK, 600, 1, "middle");
+  g += lab(xe + 14, Y(ec(xe)) - 4, [["E", "i"], ["c", "sub"]]);
+  g += lab(xe + 14, Y(efs) + 32, [["E", "i"], ["F", "sub"]], { color: COP });
+  g += lab(xe + 14, Y(ec(xe) - EG) + 10, [["E", "i"], ["v", "sub"]]);
+  g += lab(xe + 14, Y(ec(xe) + CHI) + 10, [["E", "i"], ["vac", "subr"]]);
+  g += line(x0, Y(-10), x0, Y(EVAC + 40), INK, shift < 1 ? 3 : 2, "", shift < 1 ? 1 : 0.4);
+  if (pre > 0) {
+    g += arrowV(200, EVAC, EFM, TEAL, pre);
+    g += lab(214, Y(EVAC - 120), [["q", "i"], ["Φ", "r"], ["m", "sub"]], { color: TEAL, op: pre });
+    g += arrowV(x0 + 230, EVAC, efs, TEAL, pre);
+    g += lab(x0 + 244, Y(EVAC - 160), [["q", "i"], ["Φ", "r"], ["s", "sub"]], { color: TEAL, op: pre });
+    g += line(XI, Y(EFM), 760, Y(EFM), COP, 1.5, "4 6", pre);
+    g += line(760, Y(efs), x0, Y(efs), COP, 1.5, "4 6", pre);
+    g += arrowV(760, EFM, efs, COP, pre);
+    g += lab(776, Y((efs + EFM) / 2) + 12, [["q", "i"], ["(Φ", "r"], ["s", "sub"], [" − Φ", "r"], ["m", "sub"], [")", "r"]], { color: COP, size: 32, op: pre });
+  }
+  // electrons in the metal flow across and pile up at the interface
+  const N = 7;
+  for (let i = 0; i < N; i++) {
+    const t0 = 5.4 + i * 0.45, u = clamp((t - t0) / 0.9);
+    const xm = XI - 40 - i * 34, ym = Y(EFM) + 22;
+    const xa = XI + 14 + (i % 4) * 22, ya = Y(ec(XI + 14 + (i % 4) * 22)) - 14 - Math.floor(i / 4) * 22;
+    if (shift > 0 || u <= 0) { if (shift < 1) g += dot(xm, ym); continue; }
+    g += dot(xm + (xa - xm) * u, ym + (ya - ym) * u - Math.sin(Math.PI * u) * 40);
+  }
+  for (let i = 0; i < 9; i++) { const x = XI + 220 + i * 55 + shift; if (x < xe - 10) g += dot(x, Y(ec(x)) - 14); }
+  // free flow both ways
+  const fin = seg(t, 9.2, 9.8);
+  if (fin > 0) {
+    const y = Y(ec(XI + 300)) - 60;
+    g += arrowH(XI - 300, XI + 400, y, TEAL, fin, true);
+    g += cap(XI + 50, y - 22, "no barrier: free flow both ways", 30, TEAL, 600, fin, "middle");
+    const p = ((t - 9.2) * 0.9) % 1;
+    g += dot(XI - 260 + 640 * p, y + 24, fin) + dot(XI + 380 - 640 * p, y + 24, fin);
+    g += cap(XI + 60, Y(ec(XI + 30) - 75), "accumulation layer", 28, TEAL, 400, fin);
+  }
+  return g;
+}
+
+// ---------------------------------------------------------------- scene B: tunnelling
+function sceneB(t) {
+  const EF = 230, ECB = 262, PEAK = 360, EG = 150;
+  const thin = seg(t - 11, 2.4, 5.0);                 // barrier thinning
+  const W = 300 - 270 * thin;                          // px: 279 nm -> 8.8 nm (not to scale)
+  const step = t - 11 < 2.4 ? 2 : t - 11 < 5.2 ? 3 : 4;
+  const xe = 1440;
+  const ec = x => ECB + (x - XI < W ? (PEAK - ECB) * Math.pow(1 - (x - XI) / W, 2) : 0);
+  let g = header(step);
+  g += `<rect x="90" y="${Y(EF)}" width="${XI - 90}" height="${Y(0) - Y(EF) + 40}" fill="${METAL}"/>`;
+  g += cap(325, Y(-25), "metal", 32, INK, 600, 1, "middle");
+  const xs = [XI]; for (let x = XI + 1; x <= xe; x += 3) xs.push(x);
+  const cb = xs.map(x => [x, Y(ec(x))]), vb = xs.map(x => [x, Y(ec(x) - EG)]);
+  g += `<path d="M${vb.map(p => p.join(",")).join(" L")} L${xe},${Y(-10)} L${XI},${Y(-10)} Z" fill="${BAND}"/>`;
+  g += poly(cb, INK, 4) + poly(vb, INK, 4);
+  g += line(90, Y(EF), xe, Y(EF), COP, 4, "14 8");
+  g += line(XI, Y(-10), XI, Y(PEAK + 120), INK, 3);
+  g += lab(xe + 14, Y(ECB) - 4, [["E", "i"], ["c", "sub"]]);
+  g += lab(xe + 14, Y(EF) + 32, [["E", "i"], ["F", "sub"]], { color: COP });
+  g += lab(xe + 14, Y(ECB - EG) + 10, [["E", "i"], ["v", "sub"]]);
+  const lbl = thin < 0.5 ? "n-type semiconductor (lightly doped)" : "n⁺ semiconductor (heavily doped)";
+  g += cap(1000, Y(-25), lbl, 32, INK, 600, 1, "middle");
+  // barrier height stays the same
+  g += arrowV(XI + 10, EF, PEAK - 4, TEAL);
+  g += lab(XI - 14, Y(PEAK + 20), [["q", "i"], ["Φ", "r"], ["Bn", "sub"]], { color: TEAL, anchor: "end" });
+  g += cap(XI - 14, Y(PEAK - 18), "unchanged", 26, TEAL, 400, 1, "end");
+  // width bracket
+  g += line(XI, Y(-60), XI + W, Y(-60), INK, 2);
+  g += lab(XI + W + 12, Y(-60) + 10, [["W", "i"]]);
+  g += cap(XI + W + 50, Y(-60) + 10, thin < 0.5 ? "≈ 279 nm" : (thin < 0.99 ? "shrinking…" : "≈ 8.8 nm"), 28, INK, 400);
+  // electrons
+  const tb = t - 11;
+  if (tb < 2.4) {                                       // bounce off the thick barrier
+    const p = (tb % 1.2) / 1.2, xr = XI + W + 20;
+    const x = p < 0.5 ? 1300 - (1300 - xr) * (p / 0.5) : xr + (1300 - xr) * ((p - 0.5) / 0.5);
+    g += dot(x, Y(EF) - 2);
+    g += cap(xr + 40, Y(EF) - 34, "reflected", 26, COP, 400, Math.sin(Math.PI * p));
+  } else if (tb >= 5.2) {                              // tunnel both ways
+    const p = ((tb - 5.2) * 0.7) % 1;
+    g += dot(1300 - 1100 * p, Y(EF) - 2) + dot(200 + 1100 * ((p + 0.5) % 1), Y(EF) + 22);
+    g += arrowH(XI - 260, XI + 300, Y(EF) - 15, TEAL, seg(tb, 5.2, 5.8), true);
+    g += cap(XI + 330, Y(EF) + 62, "tunnelling both ways", 30, TEAL, 600, seg(tb, 5.2, 5.8), "start");
+  }
+  return g;
+}
+
+function render(t) {
+  t = ((t % LOOP) + LOOP) % LOOP;
+  const fade = t < 11 ? (1 - seg(t, 10.5, 11)) : (seg(t, 11, 11.4) * (1 - seg(t, 22.4, 23)));
+  const g = `<rect width="1600" height="900" fill="${BG}"/>` + `<g opacity="${fade}">${t < 11 ? sceneA(t) : sceneB(t)}</g>`;
+  document.getElementById("s").innerHTML = g;
+}
+window.render = render;
+if (!location.hash.includes("still")) {
+  const t0 = performance.now();
+  const tick = now => { render((now - t0) / 1000); requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+} else render(9.9);
+</script>
+</body>
+</html>
