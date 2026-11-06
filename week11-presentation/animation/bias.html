@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Schottky diode under forward and reverse bias</title>
+<style>
+  @font-face { font-family: "STIX"; src: url(STIXGeneral.ttf); }
+  @font-face { font-family: "STIX"; font-style: italic; src: url(STIXGeneralItalic.ttf); }
+  html, body { margin: 0; background: #FBFBF8; }
+  svg { display: block; width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; margin: auto; }
+  .cap { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+  .m { font-family: STIX, "Times New Roman", serif; }
+</style>
+</head>
+<body>
+<svg id="s" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg"></svg>
+<script>
+// A metal on n-type silicon cycling through equilibrium, forward bias and reverse bias.
+// Energies in px, measured upwards. The metal Fermi level is the fixed reference.
+const INK = "#14213D", SOFT = "#5A6975", COP = "#B4622F", TEAL = "#1C6E7E",
+      METAL = "#F1E2D6", BAND = "#C9DCE2", BG = "#FBFBF8", GREEN = "#2F7D4F";
+const Y = e => 700 - e;
+const XI = 520, XE = 1180, W0 = 230, EG = 150;
+const EFM = 170, ECI = 310;            // metal Fermi level; conduction-band edge at the interface (fixed: q·phi_Bn)
+const VF = 60, VR = -80, LOOP = 24;    // forward and reverse shifts of the semiconductor Fermi level (px)
+const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
+const ease = u => { u = clamp(u); return u * u * (3 - 2 * u); };
+const seg = (t, a, b) => ease((t - a) / (b - a));
+
+function lab(x, y, parts, o = {}) {
+  const size = o.size || 34, col = o.color || INK, anchor = o.anchor || "start", op = o.op ?? 1;
+  let s = `<text class="m" x="${x}" y="${y}" font-size="${size}" fill="${col}" text-anchor="${anchor}" opacity="${op}">`;
+  let low = false;
+  for (const [txt, k] of parts) {
+    const sub = k === "sub" || k === "subr";
+    const dy = sub && !low ? size * 0.28 : (!sub && low ? -size * 0.28 : 0);
+    low = sub;
+    s += `<tspan dy="${dy}" font-size="${sub ? size * 0.68 : size}" font-style="${k === "i" || k === "sub" ? "italic" : "normal"}">${txt}</tspan>`;
+  }
+  return s + "</text>";
+}
+const line = (x1, y1, x2, y2, c = INK, w = 3, dash = "", op = 1) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} opacity="${op}"/>`;
+function arrowV(x, e1, e2, c, op = 1, both = false) {
+  const y1 = Y(e1), y2 = Y(e2), d = y2 > y1 ? 1 : -1;
+  const head = (yy, dd) => `<path d="M${x - 9},${yy - 16 * dd} L${x},${yy} L${x + 9},${yy - 16 * dd} Z" fill="${c}"/>`;
+  return `<g opacity="${op}">${line(x, y1 + (both ? 14 * d : 0), x, y2 - 14 * d, c, 3)}${head(y2, d)}${both ? head(y1, -d) : ""}</g>`;
+}
+const poly = (pts, c, w = 4, dash = "", op = 1) =>
+  `<polyline points="${pts.map(p => p.join(",")).join(" ")}" fill="none" stroke="${c}" stroke-width="${w}" ${dash ? `stroke-dasharray="${dash}"` : ""} stroke-linejoin="round" opacity="${op}"/>`;
+const cap = (x, y, s, size, col, w = 400, op = 1, anchor = "start") =>
+  `<text class="cap" x="${x}" y="${y}" font-size="${size}" font-weight="${w}" fill="${col}" text-anchor="${anchor}" opacity="${op}">${s}</text>`;
+const dot = (x, y, op = 1, c = INK) => `<circle cx="${x}" cy="${y}" r="9" fill="${c}" opacity="${op}"/>`;
+const sub = s => `<tspan font-size='70%' dy='8'>${s}</tspan><tspan dy='-8'>​</tspan>`;
+
+// V(t): the shift of the semiconductor Fermi level, in px (+ forward, − reverse)
+function V(t) {
+  return VF * (seg(t, 3, 5) - seg(t, 11, 12.5)) + VR * (seg(t, 13.5, 15.5) - seg(t, 21.5, 23));
+}
+const state = t => (t >= 5 && t < 11) ? "fwd" : (t >= 15.5 && t < 21.5) ? "rev" : (t < 3 || (t >= 12.5 && t < 13.5) || t >= 23) ? "eq" : "move";
+
+const CAPS = {
+  eq:  ["Equilibrium:  V = 0", `One flat Fermi level. Equal numbers of electrons cross each way, so the net current is zero.`],
+  fwd: ["Forward bias:  metal positive", `The semiconductor side rises by qV: its barrier falls to q(V${sub("bi")} − V) and W narrows. Electrons pour over into the metal.`],
+  rev: ["Reverse bias:  metal negative", `The semiconductor side falls: its barrier rises to q(V${sub("bi")} + V${sub("R")}) and W widens. Only a trickle crosses from the metal.`],
+};
+
+function render(t) {
+  t = ((t % LOOP) + LOOP) % LOOP;
+  const v = V(t);
+  const efs = EFM + v;                 // semiconductor Fermi level
+  const ecb = efs + 30;                // bulk conduction-band edge
+  const bend = ECI - ecb;              // band bending q(V_bi − V)
+  const W = W0 * Math.sqrt(bend / (ECI - (EFM + 30)));
+  const ec = x => x - XI < W ? ecb + bend * Math.pow(1 - (x - XI) / W, 2) : ecb;
+  const st = state(t);
+  const key = st === "move" ? (v > 5 ? "fwd" : v < -5 ? "rev" : "eq") : st;
+
+  let g = `<rect width="1600" height="900" fill="${BG}"/>`;
+  g += cap(70, 82, CAPS[key][0], 44, INK, 600);
+  g += cap(70, 134, CAPS[key][1], 27, SOFT);
+  // polarity badge
+  const pol = v > 5 ? ["metal +", COP] : v < -5 ? ["metal −", TEAL] : ["no voltage", SOFT];
+  g += `<rect x="90" y="176" width="200" height="48" rx="24" fill="none" stroke="${pol[1]}" stroke-width="2"/>`;
+  g += cap(190, 209, pol[0], 26, pol[1], 600, 1, "middle");
+
+  // metal
+  g += `<rect x="70" y="${Y(EFM)}" width="${XI - 70}" height="${Y(-120) - Y(EFM)}" fill="${METAL}"/>`;
+  g += line(70, Y(EFM), XI, Y(EFM), COP, 4, "14 8");
+  g += lab(62, Y(EFM) + 10, [["E", "i"], ["F,m", "subr"]], { color: COP, anchor: "end", size: 30 });
+  g += cap(295, 860, "metal", 32, INK, 600, 1, "middle");
+  // semiconductor bands
+  const xs = []; for (let x = XI; x <= XE; x += 5) xs.push(x);
+  const cb = xs.map(x => [x, Y(ec(x))]), vb = xs.map(x => [x, Y(ec(x) - EG)]);
+  g += `<path d="M${vb.map(p => p.join(",")).join(" L")} L${XE},${Y(-125)} L${XI},${Y(-125)} Z" fill="${BAND}"/>`;
+  g += poly(cb, INK, 4) + poly(vb, INK, 4);
+  g += line(XI, Y(efs), XE, Y(efs), COP, 4, "14 8");
+  g += line(XI, 230, XI, Y(-125), INK, 3);
+  g += lab(XE + 12, Y(ecb) - 4, [["E", "i"], ["c", "sub"]], { size: 30 });
+  g += lab(XE + 12, Y(efs) + 28, [["E", "i"], ["F,s", "subr"]], { size: 30, color: COP });
+  g += lab(XE + 12, Y(ecb - EG) + 10, [["E", "i"], ["v", "sub"]], { size: 30 });
+  g += cap(850, 860, "n-type semiconductor", 32, INK, 600, 1, "middle");
+  // the fixed barrier from the metal
+  g += arrowV(XI + 18, EFM, ECI, TEAL);
+  g += lab(XI - 12, Y(ECI) + 6, [["q", "i"], ["Φ", "r"], ["Bn", "sub"]], { color: TEAL, anchor: "end", size: 32 });
+  g += cap(XI - 12, Y(ECI) + 36, "fixed", 24, TEAL, 400, 1, "end");
+  // band bending (semiconductor-side barrier)
+  const xa = Math.min(XI + W + 70, XE - 80);
+  g += line(XI + 40, Y(ECI), xa + 20, Y(ECI), SOFT, 1.5, "4 6");
+  g += arrowV(xa, ecb, ECI, COP);
+  const bl = key === "fwd" ? [["q(V", "i"], ["bi", "sub"], [" − V)", "i"]] : key === "rev" ? [["q(V", "i"], ["bi", "sub"], [" + V", "i"], ["R", "sub"], [")", "i"]] : [["qV", "i"], ["bi", "sub"]];
+  g += lab(xa + 14, Y(ECI) - 14, bl, { color: COP, size: 32 });
+  // shift of the Fermi level
+  if (Math.abs(v) > 6) {
+    g += line(XI, Y(EFM), XE + 150, Y(EFM), COP, 1.5, "3 6", 0.7);
+    g += line(XE, Y(efs), XE + 150, Y(efs), COP, 1.5, "3 6", 0.7);
+    g += arrowV(XE + 130, EFM, efs, INK, 1, true);
+    g += lab(XE + 146, Y((EFM + efs) / 2) + 10, [["q|V|", "i"]], { size: 30 });
+  }
+  // depletion width
+  g += line(XI, Y(-90), XI + W, Y(-90), INK, 2);
+  g += `<path d="M${XI + 14},${Y(-90) - 8} L${XI},${Y(-90)} L${XI + 14},${Y(-90) + 8}Z M${XI + W - 14},${Y(-90) - 8} L${XI + W},${Y(-90)} L${XI + W - 14},${Y(-90) + 8}Z" fill="${INK}"/>`;
+  g += lab(XI + W + 12, Y(-90) + 10, [["W", "i"]], { size: 30 });
+
+  // electrons
+  const semiPath = u => {                      // semiconductor -> metal, riding over the barrier
+    const x = 1150 - (1150 - (XI - 150)) * u;
+    if (x >= XI) return [x, Y(ec(x)) - 14];
+    const f = (XI - x) / 150; return [x, (Y(ECI) - 14) * (1 - f) + (Y(EFM) + 24) * f];
+  };
+  const metalPath = u => {                     // metal -> semiconductor, climbing the fixed barrier
+    const x = (XI - 150) + (1150 - (XI - 150)) * u;
+    if (x >= XI) return [x, Y(ec(x)) - 14];
+    const f = (XI - x) / 150; return [x, (Y(ECI) - 14) * (1 - f) + (Y(EFM) + 24) * f];
+  };
+  for (let x = XI + W + 40; x < 1130; x += 52) g += dot(x, Y(ec(x)) - 14, 0.9);
+  const flow = (path, start, end, period, travel, col = INK) => {
+    let s = "";
+    for (let t0 = start; t0 < end; t0 += period) {
+      const u = (t - t0) / travel;
+      if (u > 0 && u < 1) { const [x, y] = path(u); s += dot(x, y, 1, col); }
+    }
+    return s;
+  };
+  // equilibrium: a balanced exchange
+  for (const [a, b] of [[0, 3], [12.5, 13.5], [23, 24]]) {
+    g += flow(semiPath, a - 0.2, b, 1.6, 2.2) + flow(metalPath, a + 0.6, b, 1.6, 2.2);
+  }
+  // forward: a flood of electrons into the metal
+  g += flow(semiPath, 5.0, 10.6, 0.22, 1.6);
+  g += flow(metalPath, 5.4, 10.6, 1.6, 2.2);
+  // reverse: semiconductor electrons bounce off; a trickle from the metal
+  if (t >= 15.5 && t < 21.5) {
+    const turn = XI + W * (1 - Math.sqrt(Math.min(1, 50 / bend)));
+    for (let k = 0; k < 3; k++) {
+      const p = ((t - 15.5) / 1.8 + k / 3) % 1;
+      const x = p < 0.5 ? 1150 - (1150 - turn) * (p / 0.5) : turn + (1150 - turn) * ((p - 0.5) / 0.5);
+      g += dot(x, Y(ec(x)) - 14);
+      if (Math.abs(p - 0.5) < 0.08) g += cap(turn + 16, Y(ec(turn)) - 36, "blocked", 24, COP, 600);
+    }
+    g += flow(metalPath, 15.8, 21.2, 2.4, 2.4);
+  }
+
+  // inset I–V curve with the operating point
+  const ix = 1240, iy = 210, iw = 300, ih = 190;
+  g += `<rect x="${ix - 20}" y="${iy - 30}" width="${iw + 40}" height="${ih + 70}" rx="12" fill="#FFFFFF" stroke="#D9E1E6"/>`;
+  g += line(ix, iy + ih - 30, ix + iw, iy + ih - 30, INK, 1.5) + line(ix + iw * 0.55, iy, ix + iw * 0.55, iy + ih, INK, 1.5);
+  const VX = vv => ix + iw * 0.55 + vv * iw * 0.45 / 0.35;        // volts -> px
+  const IY = ii => iy + ih - 30 - ii * (ih - 40);                   // current fraction -> px
+  const curve = []; for (let vv = -0.6; vv <= 0.35; vv += 0.01) { const ii = Math.min(1.05, 1e-4 * (Math.exp(vv / 0.0259) - 1)); curve.push([Math.max(ix, VX(vv)), IY(Math.max(ii, -0.06))]); }
+  g += poly(curve, COP, 3);
+  const volts = v >= 0 ? 0.3 * v / VF : -0.6 * v / VR;
+  const vp = Math.max(ix + 6, VX(volts)), ip = IY(Math.max(-0.06, Math.min(1.05, 1e-4 * (Math.exp(volts / 0.0259) - 1))));
+  g += `<circle cx="${vp}" cy="${ip}" r="10" fill="${TEAL}"/>`;
+  g += lab(ix + iw + 4, iy + ih - 22, [["V", "i"]], { size: 26 });
+  g += lab(ix + iw * 0.55 + 8, iy + 4, [["I", "i"]], { size: 26 });
+  const reading = key === "fwd" ? "large current" : key === "rev" ? `tiny current, I ≈ −I${sub("s")}` : "no net current";
+  g += cap(ix + iw / 2, iy + ih + 28, reading, 26, INK, 600, 1, "middle");
+
+  g += cap(70, 890, "", 1, BG);
+  document.getElementById("s").innerHTML = g;
+}
+window.render = render;
+if (!location.hash.includes("still")) {
+  const t0 = performance.now();
+  const tick = now => { render((now - t0) / 1000); requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+} else render(8);
+</script>
+</body>
+</html>
