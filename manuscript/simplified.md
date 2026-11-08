@@ -50,7 +50,7 @@ The **short-time Fourier transform** solves part of this by analysing the signal
 
 The **discrete wavelet transform** [3], [5] uses short basis functions at high frequency and longer ones at low frequency. Fast events are located accurately in time, while the fundamental and low harmonics are resolved in frequency. The DWT is also fast enough to run on embedded hardware, which is why it is the most common choice in this field.
 
-The **S-transform** and the **Hilbert-Huang transform** have also been applied to this problem and are reported to tolerate noise better in some studies, at higher computational cost [3]. They were not tested here.
+The **S-transform** has also been applied to this problem, with probabilistic neural network and convolutional neural network classifiers [11], [12]. The **Hilbert-Huang transform**, which decomposes a signal into intrinsic mode functions before taking instantaneous amplitude and frequency, has been used in the same way [13], [14]. Both are reported to tolerate noise better than the DWT in some studies, at higher computational cost [3], [14]. Neither was tested here. They were not tested here.
 
 ### 2.2 Classifiers
 
@@ -290,7 +290,7 @@ Two practical points follow. Accuracy measured on a dataset with fixed amplitude
 
 ## 5. Discussion
 
-The accuracies obtained here, around 93% on clean signals and 86% at 20 dB, are lower than the figures of 98% and above that are often reported for this problem [3], [4], [5]. Three features of the method explain this.
+The accuracies obtained here, around 93% on clean signals and 86% at 20 dB, are lower than the figures of 98% and above that are often reported for this problem [3], [4], [5], [15]. Three features of the method explain this.
 
 The folds were formed from the original waveforms rather than from the noisy copies, which avoids testing a classifier on signals it has already seen. Section 4.2 shows that this alone accounts for 5 to 7 percentage points. The starting phase of every signal was randomised, removing a clue that would otherwise be available. And nine classes were used, including one combination class and the sag and interruption pair, which cannot be separated reliably because they differ only by a threshold.
 
@@ -308,7 +308,7 @@ The figures reported here should therefore be read as results obtained under a d
 
 **Amplitude variation is a correction, not a model of reality.** The uniform ranges used in Section 4.6 are a way of testing the effect of the fixed-amplitude assumption, not a claim about how supply voltage is actually distributed. The main results in Sections 4.1 to 4.5 keep the fixed amplitude so that they remain comparable with other published work, which means they carry the effect described in Section 4.6.
 
-**No comparison with other transforms.** The S-transform and Hilbert-Huang transform were not tested.
+**No comparison with other transforms.** The S-transform [11], [12] and Hilbert-Huang transform [13], [14] were not tested, so the comparison here is between classifiers on one feature representation, not between feature representations.
 
 ## 7. Conclusion
 
@@ -363,5 +363,13 @@ All code used to generate the signals, extract the features and carry out the te
 
 [10] I. Hassan, S. Abubakar, A. M. Aliyu, M. Suleiman and R. C. Beremeh, "Code, figures and result files for: Classification of power quality disturbances using wavelet features and machine learning," 2026. [Online]. Available: https://drive.google.com/file/d/1AaD-IVGdtOotkEkZsKydU4-z5Bprq0B6/view
 
-Further sources are still needed for Section 2, particularly on the S-transform, the Hilbert-Huang transform, and classifier comparisons whose accuracies can be compared with those reported here.
+[11] N. Huang, D. Xu, X. Liu and L. Lin, "Power quality disturbances classification based on S-transform and probabilistic neural network," *Neurocomputing*, vol. 98, pp. 12–23, 2012. *[confirm — author initials]*
+
+[12] J. Li, H. Liu, D. Wang and T. Bi, "Classification of power quality disturbance based on S-transform and convolution neural network," *Frontiers in Energy Research*, vol. 9, art. 708131, 2021, doi: 10.3389/fenrg.2021.708131. *[confirm]*
+
+[13] Shukla, Mishra and Singh, "Empirical-mode decomposition with Hilbert transform for power-quality assessment," *IEEE Transactions on Power Delivery*, 2009. *[confirm — this appeared only in the reference lists of other papers, not as a direct result; verify it exists and obtain volume, issue and pages before citing]*
+
+[14] "Detection and classification of multi-complex power quality events in a smart grid using Hilbert–Huang transform and support vector machine," *Electrical Engineering*, 2020, doi: 10.1007/s00202-020-00987-8. *[confirm — authors, volume, pages. This paper reportedly compares HHT against the S-transform and wavelet methods under several noise conditions, which makes it the closest published comparison to the present study]*
+
+[15] "Power quality disturbance detection and classification using a dual-stage discrete wavelet transform and extreme learning machine framework," *Frontiers in Energy Research*, 2024, doi: 10.3389/fenrg.2024.1435704. *[confirm — authors, exact title, volume]*
 
