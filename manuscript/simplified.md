@@ -36,7 +36,7 @@ This study had three aims:
 2. To find out which disturbance types become difficult to tell apart when noise is present.
 3. To find the smallest number of features that still gives good accuracy, since fewer features means less computation in a practical device.
 
-All signals were generated in Python, and all code and random seeds are provided so that the results can be repeated exactly.
+All signals were generated in Python, and all code and random seeds are provided so that the results can be repeated exactly [10].
 
 The rest of the paper is organised as follows. Section 2 reviews related work. Section 3 describes the test signals, the feature extraction and the classification method. Section 4 presents the results. Section 5 discusses the findings, Section 6 states the limitations and Section 7 concludes.
 
@@ -62,7 +62,7 @@ This study does not propose a new transform or a new classifier. It compares est
 
 ### 3.1 Test signals
 
-Nine classes of single-phase voltage waveform were generated in Python. The fundamental frequency was 50 Hz, the sampling frequency 3.2 kHz (64 samples per cycle), and each signal was 10 cycles long, giving 640 samples over 200 ms. The nominal amplitude was 1.0 per unit.
+Nine classes of single-phase voltage waveform were generated in Python [10]. The fundamental frequency was 50 Hz, the sampling frequency 3.2 kHz (64 samples per cycle), and each signal was 10 cycles long, giving 640 samples over 200 ms. The nominal amplitude was 1.0 per unit.
 
 Table 1. The nine disturbance classes and the parameters varied in each.
 
@@ -337,7 +337,7 @@ The authors declare no conflict of interest.
 
 ### Data availability
 
-All code used to generate the signals, extract the features and carry out the testing is available, together with the figures and result files, at https://drive.google.com/file/d/1AaD-IVGdtOotkEkZsKydU4-z5Bprq0B6/view. The archive includes the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib.
+All code used to generate the signals, extract the features and carry out the testing is available, together with the figures and result files, in the archive cited as [10]: https://drive.google.com/file/d/1AaD-IVGdtOotkEkZsKydU4-z5Bprq0B6/view. The archive includes the random seed (20251021) that reproduces every figure reported here. The software requires only Python, NumPy, PyWavelets, scikit-learn, SciPy and Matplotlib.
 
 ## References
 
@@ -360,6 +360,8 @@ All code used to generate the signals, extract the features and carry out the te
 [8] F. Pedregosa et al., "Scikit-learn: Machine learning in Python," *Journal of Machine Learning Research*, vol. 12, pp. 2825–2830, 2011.
 
 [9] G. R. Lee, R. Gommers, F. Waselewski, K. Wohlfahrt and A. O'Leary, "PyWavelets: A Python package for wavelet analysis," *Journal of Open Source Software*, vol. 4, no. 36, art. 1237, 2019. *[confirm]*
+
+[10] I. Hassan, S. Abubakar, A. M. Aliyu, M. Suleiman and R. C. Beremeh, "Code, figures and result files for: Classification of power quality disturbances using wavelet features and machine learning," 2026. [Online]. Available: https://drive.google.com/file/d/1AaD-IVGdtOotkEkZsKydU4-z5Bprq0B6/view
 
 Further sources are still needed for Section 2, particularly on the S-transform, the Hilbert-Huang transform, and classifier comparisons whose accuracies can be compared with those reported here.
 
