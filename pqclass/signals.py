@@ -3,16 +3,28 @@
 Nine disturbance classes spanning the IEEE 1159 categories observable in a
 10-cycle single-phase voltage record, plus one combination class.
 
-IMPORTANT -- PARAMETER PROVENANCE
----------------------------------
-The parametric forms and parameter ranges in CLASS_SPECS below follow the
-conventional synthetic PQ signal models used widely in the classification
-literature. They are NOT taken from a verified citation in this file.
+PARAMETER PROVENANCE
+--------------------
+The parametric forms follow Hafiz and Shahnaz, "A machine learning based
+classification approach for power quality disturbances exploiting higher
+order statistics in the EMD domain", arXiv:1904.02836 (2019), Table I,
+checked against that paper on 2026-11-08. Four deliberate departures from
+it are documented in the manuscript and repeated here:
 
-Before the paper is submitted, every equation and every range here must be
-checked line by line against the specific published source cited as [2] in
-the manuscript, and against IEEE 1159 itself for the class definitions.
-Where the cited source differs, the source wins and this file changes.
+  * swell magnitude is capped at 0.8; the source allows up to 0.9.
+  * oscillatory transient magnitude is capped at 0.8; the source allows 0.9.
+  * a 7th harmonic is included and harmonic amplitudes are rescaled so that
+    total signal power is exactly 1 p.u. The source does neither. The
+    rescaling is one cause of the RMS fingerprint the amplitude study
+    reports -- see generate_base() and amplitude_study.py.
+  * the notch model here is multiplicative with two notches per cycle; the
+    source uses an additive sign-based model with one per cycle and depth
+    0.1-0.4. This model is the authors' own, not taken from the source.
+
+Sampling here is 3.2 kHz against the source's 2 kHz.
+
+The class definitions were checked against IEEE Std 1159-2019, which is the
+current edition (a revision project P1159 exists but is unpublished).
 
 Signals are per-unit voltage, nominal amplitude 1.0.
 """

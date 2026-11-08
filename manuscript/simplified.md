@@ -78,7 +78,14 @@ Table 1. The nine disturbance classes and the parameters varied in each.
 | C8 | Notch | depth 0.4–1.0 p.u., width 2–5 samples |
 | C9 | Sag with harmonics | both of the above |
 
-The standard mathematical models for these classes were used [2]. For each signal, the disturbance size, its start time, its duration and the starting phase of the fundamental were all chosen at random from uniform distributions. Varying the starting phase is important: if every signal starts at the same phase, the classifier can use that alignment as a clue, which would give a falsely high accuracy.
+The mathematical models for these classes follow the standard parametric forms given by Hafiz and Shahnaz [2]. The implementation departs from that source in four respects, stated here so that the generator and the cited models can be compared directly:
+
+- the upper bound on sag-with-harmonics depth and on swell magnitude is 0.8 here, against 0.9 in [2];
+- the upper bound on oscillatory transient magnitude is 0.8 here, against 0.9 in [2];
+- a 7th harmonic is included in the harmonic classes, which [2] does not have, and the harmonic amplitudes are rescaled so that total signal power is exactly 1 p.u., which [2] does not do. Section 4.6 shows that this rescaling is one of the two causes of the RMS fingerprint described there;
+- the notch model is multiplicative and places two notches per cycle, whereas [2] uses an additive model with one notch per cycle and a shallower depth range. This is the largest of the four differences, and the notch model should be regarded as the present authors' own rather than as taken from [2].
+
+The sampling frequency used here, 3.2 kHz, is also higher than the 2 kHz of [2]. For each signal, the disturbance size, its start time, its duration and the starting phase of the fundamental were all chosen at random from uniform distributions. Varying the starting phase is important: if every signal starts at the same phase, the classifier can use that alignment as a clue, which would give a falsely high accuracy.
 
 200 signals were generated for each class, giving 1,800 signals in total. All nine classes were plotted and checked visually before use, as shown in Figure 1.
 
@@ -343,9 +350,9 @@ All code used to generate the signals, extract the features and carry out the te
 
 *To be confirmed before submission. These sources were located by literature search but could not be opened on the machine used to prepare this draft. Details marked [confirm] came from indexes and citing papers rather than from the papers themselves.*
 
-[1] *IEEE Recommended Practice for Monitoring Electric Power Quality*, IEEE Std 1159-2019, Institute of Electrical and Electronics Engineers, 2019.
+[1] *IEEE Recommended Practice for Monitoring Electric Power Quality*, IEEE Std 1159-2019, IEEE, 2019.
 
-[2] *[To select — the source of the signal models used in Section 3.1.]*
+[2] F. Hafiz and C. Shahnaz, "A machine learning based classification approach for power quality disturbances exploiting higher order statistics in the EMD domain," arXiv:1904.02836, 2019, doi: 10.48550/arXiv.1904.02836.
 
 [3] Mishra, "Power quality disturbance detection and classification using signal processing and soft computing techniques: A comprehensive review," *International Transactions on Electrical Energy Systems*, 2019, doi: 10.1002/2050-7038.12008. *[confirm]*
 
@@ -355,7 +362,7 @@ All code used to generate the signals, extract the features and carry out the te
 
 [6] S. Kapoor and A. Narayanan, "Leakage and the reproducibility crisis in machine-learning-based science," *Patterns*, vol. 4, no. 9, art. 100804, 2023.
 
-[7] C. R. Harris et al., "Array programming with NumPy," *Nature*, vol. 585, pp. 357–362, 2020.
+[7] C. R. Harris, K. J. Millman, S. J. van der Walt *et al.*, "Array programming with NumPy," *Nature*, vol. 585, pp. 357–362, 2020, doi: 10.1038/s41586-020-2649-2.
 
 [8] F. Pedregosa et al., "Scikit-learn: Machine learning in Python," *Journal of Machine Learning Research*, vol. 12, pp. 2825–2830, 2011.
 
@@ -365,11 +372,11 @@ All code used to generate the signals, extract the features and carry out the te
 
 [11] N. Huang, D. Xu, X. Liu and L. Lin, "Power quality disturbances classification based on S-transform and probabilistic neural network," *Neurocomputing*, vol. 98, pp. 12–23, 2012. *[confirm — author initials]*
 
-[12] J. Li, H. Liu, D. Wang and T. Bi, "Classification of power quality disturbance based on S-transform and convolution neural network," *Frontiers in Energy Research*, vol. 9, art. 708131, 2021, doi: 10.3389/fenrg.2021.708131. *[confirm]*
+[12] J. Li, H. Liu, D. Wang and T. Bi, "Classification of Power Quality Disturbance Based on S-Transform and Convolution Neural Network," *Frontiers in Energy Research*, vol. 9, art. 708131, 2021, doi: 10.3389/fenrg.2021.708131.
 
-[13] Shukla, Mishra and Singh, "Empirical-mode decomposition with Hilbert transform for power-quality assessment," *IEEE Transactions on Power Delivery*, 2009. *[confirm — this appeared only in the reference lists of other papers, not as a direct result; verify it exists and obtain volume, issue and pages before citing]*
+[13] S. Shukla, S. Mishra and B. Singh, "Empirical-mode decomposition with Hilbert transform for power-quality assessment," *IEEE Transactions on Power Delivery*, vol. 24, no. 4, pp. 2159–2165, Oct. 2009. *[confirm on IEEE Xplore — fields established from two bibliographies of one paper, not from the publisher record]*
 
 [14] "Detection and classification of multi-complex power quality events in a smart grid using Hilbert–Huang transform and support vector machine," *Electrical Engineering*, 2020, doi: 10.1007/s00202-020-00987-8. *[confirm — authors, volume, pages. This paper reportedly compares HHT against the S-transform and wavelet methods under several noise conditions, which makes it the closest published comparison to the present study]*
 
-[15] "Power quality disturbance detection and classification using a dual-stage discrete wavelet transform and extreme learning machine framework," *Frontiers in Energy Research*, 2024, doi: 10.3389/fenrg.2024.1435704. *[confirm — authors, exact title, volume]*
+[15] R. J. J. Molu, W. F. Mbasso, K. T. Saatong, S. R. Dzonde Naoussi, M. Alruwaili, A. Elrashidi and W. Nureldeen, "Enhancing power quality monitoring with discrete wavelet transform and extreme learning machine: a dual-stage pattern recognition approach," *Frontiers in Energy Research*, vol. 12, art. 1435704, 2024, doi: 10.3389/fenrg.2024.1435704.
 
