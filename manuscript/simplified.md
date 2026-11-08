@@ -22,13 +22,13 @@ Keywords: POWER QUALITY; WAVELET TRANSFORM; DISTURBANCE CLASSIFICATION; MACHINE 
 
 ## 1. Introduction
 
-Power quality disturbances are short departures of the supply voltage from its normal shape. Common types include voltage sags, swells, interruptions, harmonic distortion, flicker, transients and notches. They shorten equipment life, cause protection to trip when it should not, and interfere with the power electronic converters used in drives, inverters and renewable energy systems.
+Power quality disturbances are short departures of the supply voltage from its normal shape. Common types include voltage sags, swells, interruptions, harmonic distortion, flicker, transients and notches, as categorised in IEEE 1159 [1]. They shorten equipment life, cause protection to trip when it should not, and interfere with the power electronic converters used in drives, inverters and renewable energy systems.
 
 Modern power quality monitors record large amounts of waveform data. Checking these recordings by hand is slow and impractical, so automatic classification is needed. The usual approach has two stages. First, a mathematical transform is applied to the recorded waveform to produce a set of numbers, called features, that describe its shape. Second, a machine learning classifier uses those features to decide which type of disturbance occurred.
 
-The discrete wavelet transform (DWT) is widely used for the first stage because it describes a signal at several frequency scales at once. This suits power quality work, where a fast transient and a slow voltage sag must both be detected in the same recording.
+The discrete wavelet transform (DWT) is widely used for the first stage because it describes a signal at several frequency scales at once [3], [5]. This suits power quality work, where a fast transient and a slow voltage sag must both be detected in the same recording.
 
-Most published studies report accuracy on clean or nearly clean signals. Real measurements always contain some noise, from instrument transformers, from the analogue input circuits of the monitor, and from the electrical environment of the substation. Noise affects the high frequency parts of the wavelet decomposition most, and those are the parts that carry information about fast disturbances. It is therefore useful to know how much accuracy is lost as noise increases.
+Most published studies report accuracy on clean or nearly clean signals [3]. Real measurements always contain some noise, from instrument transformers, from the analogue input circuits of the monitor, and from the electrical environment of the substation. Noise affects the high frequency parts of the wavelet decomposition most, and those are the parts that carry information about fast disturbances. It is therefore useful to know how much accuracy is lost as noise increases.
 
 This study had three aims:
 
@@ -48,13 +48,13 @@ The **fast Fourier transform** gives the frequency content of a signal and is su
 
 The **short-time Fourier transform** solves part of this by analysing the signal in short windows. However, the window length must be chosen in advance, and one length cannot suit both fast transients and low-order harmonics.
 
-The **discrete wavelet transform** uses short basis functions at high frequency and longer ones at low frequency. Fast events are located accurately in time, while the fundamental and low harmonics are resolved in frequency. The DWT is also fast enough to run on embedded hardware, which is why it is the most common choice in this field.
+The **discrete wavelet transform** [3], [5] uses short basis functions at high frequency and longer ones at low frequency. Fast events are located accurately in time, while the fundamental and low harmonics are resolved in frequency. The DWT is also fast enough to run on embedded hardware, which is why it is the most common choice in this field.
 
-The **S-transform** and the **Hilbert-Huang transform** have also been applied to this problem and are reported to tolerate noise better in some studies, at higher computational cost. They were not tested here.
+The **S-transform** and the **Hilbert-Huang transform** have also been applied to this problem and are reported to tolerate noise better in some studies, at higher computational cost [3]. They were not tested here.
 
 ### 2.2 Classifiers
 
-Decision trees are easy to interpret but usually give lower accuracy on this problem. Support vector machines, random forests and k-nearest neighbours are the most commonly reported methods, with support vector machines often performing best on wavelet features. Neural network methods, including deep networks applied directly to the waveform, avoid the need to design features by hand but require much more training data.
+Decision trees are easy to interpret but usually give lower accuracy on this problem. Support vector machines, random forests and k-nearest neighbours are the most commonly reported methods, with support vector machines often performing best on wavelet features [3], [5]. Neural network methods, including deep networks applied directly to the waveform, avoid the need to design features by hand but require much more training data [4].
 
 This study does not propose a new transform or a new classifier. It compares established methods under controlled noise conditions and reports what was measured.
 
@@ -62,7 +62,7 @@ This study does not propose a new transform or a new classifier. It compares est
 
 ### 3.1 Test signals
 
-Nine classes of single-phase voltage waveform were generated in Python [10]. The fundamental frequency was 50 Hz, the sampling frequency 3.2 kHz (64 samples per cycle), and each signal was 10 cycles long, giving 640 samples over 200 ms. The nominal amplitude was 1.0 per unit.
+Nine classes of single-phase voltage waveform, following the disturbance categories of IEEE 1159 [1], were generated in Python [10] using NumPy [7]. The fundamental frequency was 50 Hz, the sampling frequency 3.2 kHz (64 samples per cycle), and each signal was 10 cycles long, giving 640 samples over 200 ms. The nominal amplitude was 1.0 per unit.
 
 Table 1. The nine disturbance classes and the parameters varied in each.
 
@@ -78,7 +78,7 @@ Table 1. The nine disturbance classes and the parameters varied in each.
 | C8 | Notch | depth 0.4–1.0 p.u., width 2–5 samples |
 | C9 | Sag with harmonics | both of the above |
 
-The standard mathematical models for these classes were used. For each signal, the disturbance size, its start time, its duration and the starting phase of the fundamental were all chosen at random from uniform distributions. Varying the starting phase is important: if every signal starts at the same phase, the classifier can use that alignment as a clue, which would give a falsely high accuracy.
+The standard mathematical models for these classes were used [2]. For each signal, the disturbance size, its start time, its duration and the starting phase of the fundamental were all chosen at random from uniform distributions. Varying the starting phase is important: if every signal starts at the same phase, the classifier can use that alignment as a clue, which would give a falsely high accuracy.
 
 200 signals were generated for each class, giving 1,800 signals in total. All nine classes were plotted and checked visually before use, as shown in Figure 1.
 
@@ -92,7 +92,7 @@ The 20 dB level is deliberately severe. It is worse than a well-installed monito
 
 ### 3.3 Feature extraction
 
-Each signal was decomposed using a five-level discrete wavelet transform with the db4 wavelet. This gives six frequency bands: five detail bands D1 to D5 and one approximation band A5.
+Each signal was decomposed using a five-level discrete wavelet transform with the db4 wavelet, computed with the PyWavelets library [9]. This gives six frequency bands: five detail bands D1 to D5 and one approximation band A5.
 
 Table 2. Frequency bands at a 3.2 kHz sampling rate, and what each mainly contains.
 
@@ -105,15 +105,15 @@ Table 2. Frequency bands at a 3.2 kHz sampling rate, and what each mainly contai
 | D5 | 50–100 Hz | fundamental region |
 | A5 | 0–50 Hz | envelope: sag, swell, interruption, flicker |
 
-Seven statistical quantities were calculated from the wavelet coefficients of each band: energy, Shannon entropy, standard deviation, mean absolute value, peak magnitude, kurtosis and skewness. This gives 6 × 7 = 42 features per signal. Band energies were divided by the total signal energy so that the classifier responds to how energy is spread across the bands rather than to the overall size of the signal.
+Seven statistical quantities were calculated from the wavelet coefficients of each band: energy, Shannon entropy, standard deviation, mean absolute value, peak magnitude, kurtosis and skewness. This set follows common practice in wavelet-based power quality work [3], [5]. This gives 6 × 7 = 42 features per signal. Band energies were divided by the total signal energy so that the classifier responds to how energy is spread across the bands rather than to the overall size of the signal.
 
 For comparison, three simple time-domain features were also calculated: the RMS value, the crest factor and the total harmonic distortion.
 
 ### 3.4 Classification and testing
 
-Five classifiers were compared: a decision tree, k-nearest neighbours, a support vector machine with an RBF kernel, a random forest of 300 trees, and a multilayer perceptron with one hidden layer of 100 neurons. The decision tree was included as a simple reference.
+Five classifiers were compared, all implemented with scikit-learn [8]: a decision tree, k-nearest neighbours, a support vector machine with an RBF kernel, a random forest of 300 trees, and a multilayer perceptron with one hidden layer of 100 neurons. The decision tree was included as a simple reference.
 
-Five-fold cross-validation was used. One point needs care here. Each original waveform appears five times in the dataset, once clean and four times with different noise added. These five copies are nearly identical. If the 9,000 signals were split at random, copies of the same waveform would end up in both the training set and the test set, and the classifier would be tested partly on signals it had already seen. The accuracy would then look better than it really is.
+Five-fold cross-validation was used. One point needs care here. Each original waveform appears five times in the dataset, once clean and four times with different noise added. These five copies are nearly identical. If the 9,000 signals were split at random, copies of the same waveform would end up in both the training set and the test set, and the classifier would be tested partly on signals it had already seen. The accuracy would then look better than it really is. This form of data leakage is a recognised cause of overstated results in machine learning studies [6].
 
 To avoid this, the folds were formed from the 1,800 original waveforms rather than the 9,000 signals, so that all five noisy copies of a waveform always stayed together in the same fold. The effect of this choice is measured in Section 4.2.
 
@@ -290,7 +290,7 @@ Two practical points follow. Accuracy measured on a dataset with fixed amplitude
 
 ## 5. Discussion
 
-The accuracies obtained here, around 93% on clean signals and 86% at 20 dB, are lower than the figures of 98% and above that are often reported for this problem. Three features of the method explain this.
+The accuracies obtained here, around 93% on clean signals and 86% at 20 dB, are lower than the figures of 98% and above that are often reported for this problem [3], [4], [5]. Three features of the method explain this.
 
 The folds were formed from the original waveforms rather than from the noisy copies, which avoids testing a classifier on signals it has already seen. Section 4.2 shows that this alone accounts for 5 to 7 percentage points. The starting phase of every signal was randomised, removing a clue that would otherwise be available. And nine classes were used, including one combination class and the sag and interruption pair, which cannot be separated reliably because they differ only by a threshold.
 
